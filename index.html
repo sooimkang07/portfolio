@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sooim Kang | Product Designer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link">About</a>
+      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <div class="page-offset">
+    <main>
+
+      <section class="hero wrap">
+        <div class="hero__grid">
+          <h1 class="hero__title anim-1">Hi there, I'm Sooim Kang.</h1>
+          <p class="hero__sub anim-2">
+            A <span class="hero__role">PRODUCT DESIGNER</span> translating human stories
+            into scalable systems by bridging behavioral insight, strategic thinking,
+            and creative innovation
+          </p>
+        </div>
+      </section>
+
+      <section class="projects wrap" aria-label="Work">
+
+        <article class="project-card" data-href="instagram-lists.html">
+          <a href="instagram-lists.html" class="project-card__thumb" aria-label="Instagram Lists">
+            <div class="project-card__img project-card__img--instagram"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">Instagram Lists</h2>
+              <p class="project-card__tag">2025 · Add a Feature</p>
+            </div>
+            <p class="project-card__desc">A feature-layer redesign that introduces intentional content grouping to improve visibility, organization, and meaningful sharing within the feed ecosystem</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-href="smart-bundles.html">
+          <a href="smart-bundles.html" class="project-card__thumb" aria-label="Smart Bundles">
+            <div class="project-card__img project-card__img--amazon"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">Smart Bundles</h2>
+              <p class="project-card__tag">2026 · Design Challenge</p>
+            </div>
+            <p class="project-card__desc">A systemic redesign of the digital grocery cart that embeds adaptive portioning and behavioral defaults to reduce household food waste at scale</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-href="acuity.html">
+          <a href="acuity.html" class="project-card__thumb" aria-label="Acuity">
+            <div class="project-card__img project-card__img--acuity"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">Acuity</h2>
+              <p class="project-card__tag">2026 · Hackathon</p>
+            </div>
+            <p class="project-card__desc">A proactive health intelligence ecosystem that detects physiological risk early and converts subtle baseline shifts into tiered, actionable intervention</p>
+          </div>
+        </article>
+
+        <article class="project-card project-card--wip" data-href="figbuild.html">
+          <a href="figbuild.html" class="project-card__thumb" aria-label="FigBuild TBD">
+            <div class="project-card__img project-card__img--checker"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">FigBuild TBD</h2>
+              <p class="project-card__tag">2026 · FigBuild</p>
+            </div>
+            <p class="project-card__desc project-card__desc--wip">WIP</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-href="neuk.html">
+          <a href="neuk.html" class="project-card__thumb" aria-label="neuk">
+            <div class="project-card__img project-card__img--neuk"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">neuk</h2>
+              <p class="project-card__tag">2026 · Product Design</p>
+            </div>
+            <p class="project-card__desc">A spatial and digital infrastructure platform that operationalizes shared media rituals through bookable viewing environments and integrated social planning tools</p>
+          </div>
+        </article>
+
+        <article class="project-card project-card--wip" data-href="capstone.html">
+          <a href="capstone.html" class="project-card__thumb" aria-label="Capstone TBD">
+            <div class="project-card__img project-card__img--checker"></div>
+          </a>
+          <div class="project-card__meta">
+            <div class="project-card__info">
+              <h2 class="project-card__name">Capstone TBD</h2>
+              <p class="project-card__tag">2026 · Product Design</p>
+            </div>
+            <p class="project-card__desc project-card__desc--wip">WIP</p>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
+      <p class="footer__time" id="local-time"></p>
+      <nav class="footer__links" aria-label="Social links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Email</a>
+        <a href="#" class="footer__link">GitHub</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

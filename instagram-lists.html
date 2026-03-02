@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Lists · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link">About</a>
+      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <div class="page-offset">
+    <main class="wrap">
+
+      <a href="index.html" class="case__back">Back</a>
+
+      <!-- Hero -->
+      <div class="case__hero anim-1">
+        <p class="case__label">Instagram · 2025 · Add a Feature</p>
+        <h1 class="case__title">Curating your feed, your way</h1>
+        <div class="case__meta">
+          <div class="case__meta-item">
+            <span class="case__meta-label">Role</span>
+            <span class="case__meta-val">Product Designer</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Timeline</span>
+            <span class="case__meta-val">3 weeks · Spring 2025</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Team</span>
+            <span class="case__meta-val">Solo</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Skills</span>
+            <span class="case__meta-val">Product Design<br>User Research<br>Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout: TOC + body -->
+      <div class="case__layout anim-2">
+
+        <!-- Sidebar TOC (desktop only) -->
+        <nav class="case__toc" aria-label="Sections">
+          <ul class="case__toc-list">
+            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
+            <li><a href="#problem"    class="case__toc-link">Problem</a></li>
+            <li><a href="#research"   class="case__toc-link">Research</a></li>
+            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
+            <li><a href="#decisions"  class="case__toc-link">Design Decisions</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
+          </ul>
+        </nav>
+
+        <!-- Body -->
+        <div class="case__body">
+
+          <section id="overview">
+            <p class="case__section-label">Overview</p>
+            <h2 class="case__h2">What if Instagram let you organize who sees what—and who you see?</h2>
+            <p class="case__p">Instagram has nearly 2 billion daily active users but its feed remains a single undifferentiated stream. Friends, acquaintances, brands, and creators all compete for the same attention with no way to group or prioritize them. This project proposes Instagram Lists: a feature that lets users create named lists of accounts, then filter their feed by list—bringing intentionality back to social media.</p>
+            <div class="case__img">
+              <div class="case__img-inner case__img-inner--tall">
+                <span class="case__img-label">Overview — Feature Concept</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="problem">
+            <p class="case__section-label">Problem</p>
+            <h2 class="case__h2">The feed is noisy and passive by design.</h2>
+            <p class="case__p">Current Instagram architecture optimizes for engagement over intentionality. Users can't distinguish between close friends and casual follows in their main feed. The Close Friends feature only works for Stories, not posts. There's no way to batch-view content from a specific group of people.</p>
+            <div class="case__cards">
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 1</span>
+                <p class="case__card-text">Scrolling endlessly to find posts from people you actually care about</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 2</span>
+                <p class="case__card-text">No organizational layer between "following" and "close friends"</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 3</span>
+                <p class="case__card-text">Sharing to a specific sub-group requires a second account or DMs</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="research">
+            <p class="case__section-label">Research</p>
+            <h2 class="case__h2">Learning from users and competitive patterns</h2>
+            <p class="case__p">I interviewed 8 Instagram users aged 18–32 to understand how they currently manage their feed and sharing habits. I also audited comparable features across Twitter/X Lists, Facebook Friend Lists, and BeReal's dual-camera system.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Research synthesis — affinity map</span>
+              </div>
+            </div>
+            <h3 class="case__h3">Key Insight 1: Mental models already exist</h3>
+            <p class="case__p">Every user I spoke with described maintaining informal mental categories for who they follow—"work contacts," "close friends," "artists I like"—but had no way to make those categories real inside the app.</p>
+            <h3 class="case__h3">Key Insight 2: Selective sharing is table stakes</h3>
+            <p class="case__p">Six of eight users had created alternate "spam" accounts purely for selective sharing. This is a significant workaround that Instagram Lists could eliminate.</p>
+          </section>
+
+          <section id="solution">
+            <p class="case__section-label">Solution</p>
+            <h2 class="case__h2">Instagram Lists: intentional curation, native to the feed</h2>
+            <p class="case__p">Lists are named collections of accounts that work in two directions: <strong>viewing</strong> (filter your feed to only show a list) and <strong>sharing</strong> (post content visible only to a list). Lists live in the top navigation bar, alongside Following and Favorites.</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+          </section>
+
+          <section id="flows">
+            <p class="case__section-label">Core Flows</p>
+            <h2 class="case__h2">Three primary user journeys</h2>
+
+            <h3 class="case__h3">Creating a list</h3>
+            <p class="case__p">From your Following list or a profile page, users can add accounts to a new or existing list. Lists are private by default.</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+
+            <h3 class="case__h3">Filtering the feed</h3>
+            <p class="case__p">A horizontal scroll of list pills at the top of the feed lets users switch contexts instantly—similar to how Twitter Lists work but more visually integrated.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Feed filter UI — list pills</span>
+              </div>
+            </div>
+
+            <h3 class="case__h3">Sharing to a list</h3>
+            <p class="case__p">In the audience selector on post creation, "Lists" appears alongside Public, Friends, and Close Friends—giving users granular control over reach.</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+          </section>
+
+          <section id="decisions">
+            <p class="case__section-label">Design Decisions</p>
+            <h2 class="case__h2">Key choices and the reasoning behind them</h2>
+
+            <h3 class="case__h3">Lists as a filter, not a separate tab</h3>
+            <p class="case__p">Early explorations put Lists in their own tab. Testing revealed users didn't want to leave the main feed context. Keeping lists as an in-feed filter felt native and less disruptive.</p>
+
+            <h3 class="case__h3">Two-way utility from day one</h3>
+            <p class="case__p">Viewing-only lists would have limited value. Making lists work for both consuming and sharing content means users have a reason to invest in building them out.</p>
+
+            <div class="case__img">
+              <div class="case__img-inner case__img-inner--short">
+                <span class="case__img-label">Design decision — filter vs. tab exploration</span>
+              </div>
+            </div>
+          </section>
+
+          <hr class="case__divider" />
+
+          <section id="reflection" class="case__reflection">
+            <p class="case__section-label">Reflection</p>
+            <h2 class="case__h2">What I learned</h2>
+            <h3 class="case__h3">Features need two-way value to stick.</h3>
+            <p class="case__p">A feature that only benefits the viewer (filtering) or only the sharer (audience control) would be half as compelling. The magic of Lists is that both directions reinforce each other.</p>
+            <h3 class="case__h3">Familiarity lowers the adoption barrier.</h3>
+            <p class="case__p">Borrowing visual language from Close Friends and Favorites meant users intuitively understood Lists without a tutorial—meeting them where their mental models already lived.</p>
+          </section>
+
+        </div><!-- /.case__body -->
+      </div><!-- /.case__layout -->
+
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
+      <p class="footer__time" id="local-time"></p>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Email</a>
+        <a href="#" class="footer__link">GitHub</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

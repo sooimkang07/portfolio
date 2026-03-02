@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acuity · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link">About</a>
+      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <div class="page-offset">
+    <main class="wrap">
+
+      <a href="index.html" class="case__back">Back</a>
+
+      <div class="case__hero anim-1">
+        <p class="case__label">Acuity · 2026 · Hackathon</p>
+        <h1 class="case__title">Catching health risks before they become emergencies</h1>
+        <div class="case__meta">
+          <div class="case__meta-item">
+            <span class="case__meta-label">Role</span>
+            <span class="case__meta-val">Product Designer</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Timeline</span>
+            <span class="case__meta-val">48 hours · 2026</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Team</span>
+            <span class="case__meta-val">4 people</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Skills</span>
+            <span class="case__meta-val">Product Design<br>Health UX<br>Rapid Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case__layout anim-2">
+
+        <nav class="case__toc" aria-label="Sections">
+          <ul class="case__toc-list">
+            <li><a href="#overview"    class="case__toc-link">Overview</a></li>
+            <li><a href="#problem"     class="case__toc-link">Problem</a></li>
+            <li><a href="#solution"    class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"       class="case__toc-link">Core Flows</a></li>
+            <li><a href="#hardware"    class="case__toc-link">Hardware</a></li>
+            <li><a href="#reflection"  class="case__toc-link">Reflection</a></li>
+          </ul>
+        </nav>
+
+        <div class="case__body">
+
+          <section id="overview">
+            <p class="case__section-label">Overview</p>
+            <h2 class="case__h2">A proactive health intelligence ecosystem built in 48 hours</h2>
+            <p class="case__p">Most wearable health devices are reactive—they alert you after something goes wrong. Acuity is a smart ring ecosystem designed to detect subtle physiological baseline shifts before they escalate, translating raw biometric data into tiered, actionable interventions. Built at a hackathon in 48 hours with a team of four.</p>
+            <div class="case__img">
+              <div class="case__img-inner case__img-inner--tall">
+                <span class="case__img-label">Acuity ring — hardware + app overview</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="problem">
+            <p class="case__section-label">Problem</p>
+            <h2 class="case__h2">Wearables show you data. They don't tell you what to do with it.</h2>
+            <p class="case__p">Existing rings and smartwatches surface heart rate, HRV, sleep scores. But translating a "Readiness: 62" into a meaningful action requires expertise most users don't have. Acuity bridges that gap by converting biometric drift into human-readable, tiered interventions—from subtle lifestyle nudges to urgent prompts to seek care.</p>
+            <div class="case__cards">
+              <div class="case__card">
+                <span class="case__card-label">Gap 1</span>
+                <p class="case__card-text">Data is presented without personal baseline context, making it hard to know what's "normal" for you</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Gap 2</span>
+                <p class="case__card-text">No tiered response system—every alert feels equally urgent (or is ignored)</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Gap 3</span>
+                <p class="case__card-text">Reactive alerts come too late in the physiological timeline to prevent escalation</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="solution">
+            <p class="case__section-label">Solution</p>
+            <h2 class="case__h2">Acuity: four sensor modalities, one intelligence layer</h2>
+            <p class="case__p">The Acuity ring monitors HRV, skin temperature, blood oxygen, and sleep stage. An on-device ML model establishes a personalized 30-day baseline, then surfaces deviations as tiered interventions: Level 1 (habit nudge), Level 2 (schedule rest), Level 3 (consult a professional).</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+          </section>
+
+          <section id="flows">
+            <p class="case__section-label">Core Flows</p>
+            <h2 class="case__h2">How Acuity guides users through a health event</h2>
+
+            <h3 class="case__h3">Daily briefing</h3>
+            <p class="case__p">Every morning, Acuity surfaces a three-metric summary—how your night compared to your baseline, with a single recommended action for the day.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Daily briefing screen</span>
+              </div>
+            </div>
+
+            <h3 class="case__h3">Tiered alert flow</h3>
+            <p class="case__p">When a metric drifts outside the user's personal threshold, Acuity triggers a tiered alert. Level 1 is a quiet in-app card; Level 3 is a persistent notification with a direct link to telehealth booking.</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+
+            <h3 class="case__h3">Trend visualization</h3>
+            <p class="case__p">A 30-day trend view shows how each metric has moved relative to baseline—helping users connect lifestyle choices to physiological patterns over time.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Trend view — 30-day baseline comparison</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="hardware">
+            <p class="case__section-label">Hardware Constraints</p>
+            <h2 class="case__h2">Designing for a device that never leaves your hand</h2>
+            <p class="case__p">Smart rings have significant constraints: minimal screen real estate for haptic feedback, battery life under 7 days at full sensor polling, and the social context of wearing it in every setting. We designed Acuity's app to carry the full cognitive load so the ring itself only needed to do two things: sense and vibrate.</p>
+            <div class="case__img">
+              <div class="case__img-inner case__img-inner--short">
+                <span class="case__img-label">Hardware constraint mapping</span>
+              </div>
+            </div>
+          </section>
+
+          <hr class="case__divider" />
+
+          <section id="reflection" class="case__reflection">
+            <p class="case__section-label">Reflection</p>
+            <h2 class="case__h2">What I learned</h2>
+            <h3 class="case__h3">Health UX requires deep trust calibration.</h3>
+            <p class="case__p">Every design decision—how we labeled alert levels, how we worded recommendations—had to be carefully tuned to avoid either creating anxiety or encouraging users to ignore signals that mattered.</p>
+            <h3 class="case__h3">Speed of iteration is a design skill.</h3>
+            <p class="case__p">Forty-eight hours forces brutal prioritization. We shipped three flows instead of twelve, but made those three flows airtight. The constraint improved the product.</p>
+          </section>
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
+      <p class="footer__time" id="local-time"></p>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Email</a>
+        <a href="#" class="footer__link">GitHub</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

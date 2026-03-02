@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FigBuild TBD · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wip-hero {
+      min-block-size: 60dvb;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-block: var(--sp-2xl);
+    }
+    .wip-tag {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-block-end: var(--sp-md);
+    }
+    .wip-title {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-block-end: var(--sp-md);
+    }
+    .wip-body {
+      font-size: var(--fs-base);
+      color: var(--clr-muted);
+      max-inline-size: 44ch;
+      line-height: 1.75;
+    }
+    .wip-checker {
+      inline-size: 100%;
+      border-radius: var(--r-md);
+      padding-block-end: 55%;
+      position: relative;
+      margin-block: var(--sp-xl);
+      background-color: var(--ck-a);
+      background-image:
+        linear-gradient(45deg, var(--ck-b) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--ck-b) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--ck-b) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--ck-b) 75%);
+      background-size: var(--ck-sz) var(--ck-sz);
+      background-position: 0 0, 0 calc(var(--ck-sz)/2), calc(var(--ck-sz)/2) calc(var(--ck-sz)/-2), calc(var(--ck-sz)/-2) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link">About</a>
+      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <div class="page-offset">
+    <main class="wrap">
+      <a href="index.html" class="case__back">Back</a>
+      <div class="wip-hero anim-1">
+        <p class="wip-tag">FigBuild · 2026 · WIP</p>
+        <h1 class="wip-title">FigBuild TBD</h1>
+        <p class="wip-body">This project is currently in progress. Check back soon — the case study is on its way.</p>
+      </div>
+      <div class="wip-checker anim-2"></div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
+      <p class="footer__time" id="local-time"></p>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Email</a>
+        <a href="#" class="footer__link">GitHub</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

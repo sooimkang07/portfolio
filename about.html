@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link nav__link--active">About</a>
+      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <div class="page-offset">
+    <main class="wrap">
+
+      <div class="about__hero anim-1">
+        <h1 class="about__title">Hi, I'm Sooim.</h1>
+        <p class="about__p" style="max-inline-size: 52ch; color: var(--clr-muted);">
+          Product designer translating human stories into scalable systems — by bridging behavioral insight, strategic thinking, and creative innovation.
+        </p>
+      </div>
+
+      <div class="about__body">
+
+        <!-- Two-column: photo + bio -->
+        <div class="about__two-col anim-2">
+          <div class="about__photo">
+            <div class="about__photo-inner"></div>
+          </div>
+          <div>
+            <p class="about__section-label">About me</p>
+            <p class="about__p">I'm a product designer with a passion for the space where human behavior meets digital systems. My work sits at the intersection of research, strategy, and craft — I care deeply about why people do what they do, and I design systems that meet them there.</p>
+            <p class="about__p">I'm drawn to problems that are deceptively simple on the surface but reveal rich complexity on closer inspection. The kind where the "obvious" solution turns out to be the wrong one, and where the right one requires you to understand something true about people.</p>
+            <p class="about__p">Outside of design, I think a lot about food culture, language, and how physical spaces shape social behavior. Those interests end up in my work more often than you'd expect.</p>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="anim-3">
+          <p class="about__section-label">Experience</p>
+          <ul class="about__exp-list">
+            <li class="about__exp-item">
+              <span class="about__exp-org">Freelance</span>
+              <span class="about__exp-role">Product Designer</span>
+              <span class="about__exp-year">2025–Present</span>
+            </li>
+            <li class="about__exp-item">
+              <span class="about__exp-org">neuk</span>
+              <span class="about__exp-role">Lead Product Designer</span>
+              <span class="about__exp-year">2026</span>
+            </li>
+            <li class="about__exp-item">
+              <span class="about__exp-org">Hackathon Circuit</span>
+              <span class="about__exp-role">Designer · Acuity, FigBuild</span>
+              <span class="about__exp-year">2026</span>
+            </li>
+            <li class="about__exp-item">
+              <span class="about__exp-org">University</span>
+              <span class="about__exp-role">B.Des in Interaction Design</span>
+              <span class="about__exp-year">2022–2026</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <p class="about__section-label">Skills &amp; Tools</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: var(--sp-md);">
+            <div>
+              <p style="font-size: var(--fs-sm); font-weight: var(--fw-semi); margin-block-end: var(--sp-xs);">Design</p>
+              <p class="about__p" style="font-size: var(--fs-sm);">Product Strategy · User Research · Information Architecture · Interaction Design · Visual Design · Prototyping</p>
+            </div>
+            <div>
+              <p style="font-size: var(--fs-sm); font-weight: var(--fw-semi); margin-block-end: var(--sp-xs);">Tools</p>
+              <p class="about__p" style="font-size: var(--fs-sm);">Figma · FigJam · Framer · Principle · Maze · Notion · HTML/CSS</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
+      <p class="footer__time" id="local-time"></p>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Email</a>
+        <a href="#" class="footer__link">GitHub</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
