@@ -5,52 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FigBuild TBD · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .wip-hero {
-      min-block-size: 60dvb;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding-block: var(--sp-2xl);
-    }
-    .wip-tag {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--clr-accent);
-      margin-block-end: var(--sp-md);
-    }
-    .wip-title {
-      font-size: var(--fs-xl);
-      font-weight: var(--fw-bold);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-block-end: var(--sp-md);
-    }
-    .wip-body {
-      font-size: var(--fs-base);
-      color: var(--clr-muted);
-      max-inline-size: 44ch;
-      line-height: 1.75;
-    }
-    .wip-checker {
-      inline-size: 100%;
-      border-radius: var(--r-md);
-      padding-block-end: 55%;
-      position: relative;
-      margin-block: var(--sp-xl);
-      background-color: var(--ck-a);
-      background-image:
-        linear-gradient(45deg, var(--ck-b) 25%, transparent 25%),
-        linear-gradient(-45deg, var(--ck-b) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, var(--ck-b) 75%),
-        linear-gradient(-45deg, transparent 75%, var(--ck-b) 75%);
-      background-size: var(--ck-sz) var(--ck-sz);
-      background-position: 0 0, 0 calc(var(--ck-sz)/2), calc(var(--ck-sz)/2) calc(var(--ck-sz)/-2), calc(var(--ck-sz)/-2) 0;
-    }
-  </style>
 </head>
 <body>
 
@@ -66,14 +20,132 @@
   </header>
 
   <div class="page-offset">
-    <main class="wrap">
+    <main class="case-wrap">
+
       <a href="index.html" class="case__back">Back</a>
-      <div class="wip-hero anim-1">
-        <p class="wip-tag">FigBuild · 2026 · WIP</p>
-        <h1 class="wip-title">FigBuild TBD</h1>
-        <p class="wip-body">This project is currently in progress. Check back soon — the case study is on its way.</p>
+
+      <div class="case__hero anim-1">
+        <p class="case__label">FigBuild · 2026 · FigBuild</p>
+        <h1 class="case__title">Designing for builders inside Figma</h1>
+        <div class="case__meta">
+          <div class="case__meta-item">
+            <span class="case__meta-label">Role</span>
+            <span class="case__meta-val">Product Designer</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Timeline</span>
+            <span class="case__meta-val">Ongoing · 2026</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Team</span>
+            <span class="case__meta-val">Solo</span>
+          </div>
+          <div class="case__meta-item">
+            <span class="case__meta-label">Skills</span>
+            <span class="case__meta-val">Product Design<br>Design Tooling<br>Prototyping</span>
+          </div>
+        </div>
       </div>
-      <div class="wip-checker anim-2"></div>
+
+      <div class="case__layout anim-2">
+
+        <nav class="case__toc" aria-label="Sections">
+          <ul class="case__toc-list">
+            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
+            <li><a href="#problem"    class="case__toc-link">Problem</a></li>
+            <li><a href="#research"   class="case__toc-link">Research</a></li>
+            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
+          </ul>
+        </nav>
+
+        <div class="case__body">
+
+          <section id="overview">
+            <p class="case__section-label">Overview</p>
+            <h2 class="case__h2">This case study is in progress.</h2>
+            <p class="case__p">FigBuild is a design-to-build tooling project exploring how Figma's plugin ecosystem can better serve developers who are actively constructing design systems. The full case study is being documented as the project develops — check back soon.</p>
+            <div class="case__img">
+              <div class="case__img-inner case__img-inner--tall" style="background: linear-gradient(135deg, #e8e4ff 0%, #c8c0f0 100%);">
+                <span class="case__img-label">FigBuild — coming soon</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="problem">
+            <p class="case__section-label">Problem</p>
+            <h2 class="case__h2">Figma is built for designers. Builders are an afterthought.</h2>
+            <p class="case__p">When developers and designers collaborate in Figma, the handoff process creates friction that is well-documented but poorly solved. FigBuild asks: what if the tool met builders where they already are — inside Figma itself — rather than routing them through a separate inspection layer?</p>
+            <div class="case__cards">
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 1</span>
+                <p class="case__card-text">Dev Mode surfaced properties without meaningful context — tokens, component hierarchy, and intent were all invisible</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 2</span>
+                <p class="case__card-text">No way to annotate "build decisions" — constraints, edge cases, responsive rules — directly on the design file</p>
+              </div>
+              <div class="case__card">
+                <span class="case__card-label">Pain Point 3</span>
+                <p class="case__card-text">Component variants required verbal explanation outside the tool; the spec was always one step behind the design</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="research">
+            <p class="case__section-label">Research</p>
+            <h2 class="case__h2">Understanding the handoff breakdown</h2>
+            <p class="case__p">Early research involved shadowing three engineering teams as they received and implemented design files. The most consistent finding: engineers spent 30–40% of implementation time on clarification — either asking the designer or reverse-engineering intent from incomplete specs.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Research synthesis — handoff friction map</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="solution">
+            <p class="case__section-label">Solution</p>
+            <h2 class="case__h2">A build-intent layer, native to the Figma canvas</h2>
+            <p class="case__p">FigBuild is a Figma plugin that lets designers attach structured build notes directly to frames, components, and variants. Notes are categorized — layout rules, token references, interaction specs, edge cases — and surfaced contextually when an engineer enters Dev Mode on that frame.</p>
+            <div class="case__video">
+              <div class="case__video-inner"></div>
+            </div>
+          </section>
+
+          <section id="flows">
+            <p class="case__section-label">Core Flows</p>
+            <h2 class="case__h2">Two primary user journeys</h2>
+
+            <h3 class="case__h3">Designer: annotating build intent</h3>
+            <p class="case__p">Select any frame or component, open FigBuild, and attach a structured note. Categories keep annotations consistent across team members and easy to filter.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Designer flow — annotation panel</span>
+              </div>
+            </div>
+
+            <h3 class="case__h3">Engineer: reading build context</h3>
+            <p class="case__p">In Dev Mode, a FigBuild sidebar panel shows all annotations attached to the selected frame, grouped by category with inline token references that copy to clipboard on click.</p>
+            <div class="case__img">
+              <div class="case__img-inner">
+                <span class="case__img-label">Engineer flow — Dev Mode panel</span>
+              </div>
+            </div>
+          </section>
+
+          <hr class="case__divider" />
+
+          <section id="reflection" class="case__reflection">
+            <p class="case__section-label">Reflection</p>
+            <h2 class="case__h2">In progress</h2>
+            <p class="case__p">This project is actively being developed and tested with design teams. Reflection and outcomes will be documented once a full validation cycle is complete.</p>
+            <p class="case__p">The core hypothesis: the best handoff tool is one that makes the designer's thinking legible without requiring them to leave their existing workflow. Testing will validate whether that holds.</p>
+          </section>
+
+        </div>
+      </div>
+
     </main>
 
     <footer class="footer">
