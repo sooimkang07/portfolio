@@ -6,7 +6,7 @@
   <title>Smart Bundles · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page--project">
 
   <header class="nav">
     <a href="index.html" class="nav__logo">Sooim Kang</a>
@@ -19,12 +19,32 @@
     </nav>
   </header>
 
-  <div class="page-offset">
     <main class="case-wrap">
 
-      <a href="index.html" class="case__back">Back</a>
+      <a href="index.html" class="case__back--mobile">Back</a>
 
-      <div class="case__hero anim-1">
+            <!-- Content grid: TOC + Body -->
+      <div class="case__content-grid">
+
+        <!-- Sidebar TOC (desktop only, >770px) -->
+        <nav class="case__toc" aria-label="Sections">
+          <a href="index.html" class="case__back">Back</a>
+          <div class="case__toc-inner"><ul class="case__toc-list">
+            <li><a href="#overview"    class="case__toc-link">Overview</a></li>
+            <li><a href="#problem"     class="case__toc-link">Problem</a></li>
+            <li><a href="#opportunity" class="case__toc-link">Opportunity</a></li>
+            <li><a href="#solution"    class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"       class="case__toc-link">Core Flows</a></li>
+            <li><a href="#decisions"   class="case__toc-link">Design Decisions</a></li>
+            <li><a href="#reflection"  class="case__toc-link">Reflection</a></li>
+          </ul></div>
+        </nav>
+
+        <!-- Body: hero is first section, then content -->
+        <div class="case__body">
+
+          <!-- Hero -->
+          <header class="case__hero anim-1">
         <p class="case__label">Amazon · 2026 · Design Challenge</p>
         <h1 class="case__title">Reducing food waste through smarter defaults</h1>
         <div class="case__meta">
@@ -45,23 +65,18 @@
             <span class="case__meta-val">Product Design<br>Behavioral Design<br>Systems Thinking</span>
           </div>
         </div>
-      </div>
+        <div class="case__cta">
+          <a href="#overview" class="case__btn case__btn--primary">See full case study</a>
+          <a href="#" class="case__btn case__btn--secondary">Explore prototype ↗</a>
+        </div>
+      
+            <!-- Hero image -->
+            <figure class="case__hero-img" aria-label="Project hero image">
+              Hero Image
+            </figure>
+          </header><!-- /.case__hero -->
 
-      <div class="case__layout anim-2">
 
-        <nav class="case__toc" aria-label="Sections">
-          <ul class="case__toc-list">
-            <li><a href="#overview"    class="case__toc-link">Overview</a></li>
-            <li><a href="#problem"     class="case__toc-link">Problem</a></li>
-            <li><a href="#opportunity" class="case__toc-link">Opportunity</a></li>
-            <li><a href="#solution"    class="case__toc-link">Solution</a></li>
-            <li><a href="#flows"       class="case__toc-link">Core Flows</a></li>
-            <li><a href="#decisions"   class="case__toc-link">Design Decisions</a></li>
-            <li><a href="#reflection"  class="case__toc-link">Reflection</a></li>
-          </ul>
-        </nav>
-
-        <div class="case__body">
 
           <section id="overview">
             <p class="case__section-label">Overview</p>
@@ -180,7 +195,6 @@
         <a href="#" class="footer__link">GitHub</a>
       </nav>
     </footer>
-  </div>
 
   <script src="script.js"></script>
 </body>

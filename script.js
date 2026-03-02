@@ -1,6 +1,5 @@
 /* ============================================================
    SOOIM KANG — Global script.js
-   Shared across all pages
    ============================================================ */
 (function () {
   'use strict';
@@ -70,18 +69,33 @@
     });
   });
 
-  /* ── Case study TOC active state ─────────────────────────── */
+  /* ── Case study TOC active state (scroll-spy) ────────────── */
   const tocLinks = document.querySelectorAll('.case__toc-link');
   if (tocLinks.length) {
-    const sections = [...tocLinks].map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
-    const io2 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        tocLinks.forEach(l => l.classList.remove('is-active'));
-        const link = document.querySelector(`.case__toc-link[href="#${entry.target.id}"]`);
-        if (link) link.classList.add('is-active');
+    const sections = [...tocLinks]
+      .map(l => document.querySelector(l.getAttribute('href')))
+      .filter(Boolean);
+
+    function setActive(id) {
+      tocLinks.forEach(l => {
+        l.classList.toggle('is-active', l.getAttribute('href') === '#' + id);
       });
-    }, { rootMargin: '-20% 0px -70% 0px' });
+    }
+
+    // Set first section active on load
+    if (sections.length) setActive(sections[0].id);
+
+    const io2 = new IntersectionObserver(entries => {
+      // Find the topmost intersecting section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) setActive(visible[0].target.id);
+    }, {
+      rootMargin: '-10% 0px -60% 0px',
+      threshold: 0
+    });
+
     sections.forEach(s => io2.observe(s));
   }
 
