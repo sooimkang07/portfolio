@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capstone TBD · Sooim Kang</title>
+  <title>Capstone · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="page--project">
@@ -19,151 +19,176 @@
     </nav>
   </header>
 
-    <main class="case-wrap">
+  <main class="case-wrap">
 
-      <a href="index.html" class="case__back--mobile">Back</a>
+    <a href="index.html" class="case__back--mobile">Back</a>
 
-            <!-- Content grid: TOC + Body -->
-      <div class="case__content-grid">
 
-        <!-- Sidebar TOC (desktop only, >770px) -->
-        <nav class="case__toc" aria-label="Sections">
-          <a href="index.html" class="case__back">Back</a>
-          <div class="case__toc-inner"><ul class="case__toc-list">
-            <li><a href="#overview"    class="case__toc-link">Overview</a></li>
-            <li><a href="#problem"     class="case__toc-link">Problem</a></li>
-            <li><a href="#research"    class="case__toc-link">Research</a></li>
-            <li><a href="#direction"   class="case__toc-link">Direction</a></li>
-            <li><a href="#process"     class="case__toc-link">Process</a></li>
-            <li><a href="#reflection"  class="case__toc-link">Reflection</a></li>
-          </ul></div>
-        </nav>
+    <!-- Mobile TOC bar: sticky below nav, hidden on desktop -->
+    <nav class="case__toc-bar" aria-label="Page sections">
+      <a href="#overview" class="case__toc-bar-link">Overview</a>
+      <a href="#problem" class="case__toc-bar-link">Problem</a>
+      <a href="#research" class="case__toc-bar-link">Research</a>
+      <a href="#direction" class="case__toc-bar-link">Direction</a>
+      <a href="#process" class="case__toc-bar-link">Process</a>
+      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
+    </nav>
+    <div class="case__content-grid">
 
-        <!-- Body: hero is first section, then content -->
-        <div class="case__body">
-
-          <!-- Hero -->
-          <header class="case__hero anim-1">
-        <p class="case__label">Capstone · 2026 · Product Design</p>
-        <h1 class="case__title">A senior capstone in progress</h1>
-        <div class="case__meta">
-          <div class="case__meta-item">
-            <span class="case__meta-label">Role</span>
-            <span class="case__meta-val">Lead Designer</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Timeline</span>
-            <span class="case__meta-val">Jan – May 2026</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Team</span>
-            <span class="case__meta-val">4 students</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Skills</span>
-            <span class="case__meta-val">Product Design<br>User Research<br>Design Strategy</span>
-          </div>
+      <nav class="case__toc" aria-label="Sections">
+        <a href="index.html" class="case__back">Back</a>
+        <div class="case__toc-inner">
+          <ul class="case__toc-list">
+            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
+            <li><a href="#problem"    class="case__toc-link">Problem</a></li>
+            <li><a href="#research"   class="case__toc-link">Research</a></li>
+            <li><a href="#direction"  class="case__toc-link">Direction</a></li>
+            <li><a href="#process"    class="case__toc-link">Process</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
+          </ul>
         </div>
-        <div class="case__cta">
-          <a href="#overview" class="case__btn case__btn--primary">See full case study</a>
-          <a href="#" class="case__btn case__btn--secondary">Explore prototype ↗</a>
-        </div>
-      
-            <!-- Hero image -->
-            <figure class="case__hero-img" aria-label="Project hero image">
-              Hero Image
-            </figure>
-          </header><!-- /.case__hero -->
-
-
-
-          <section id="overview">
-            <p class="case__section-label">Overview</p>
-            <h2 class="case__h2">This case study is in progress.</h2>
-            <p class="case__p">My senior capstone is a year-long product design project in collaboration with a community partner. The full documentation — research, process, outcomes — will be published here upon completion in May 2026. What follows is an early snapshot of the problem space and design direction.</p>
-            <div class="case__img">
-              <div class="case__img-inner case__img-inner--tall" style="background: linear-gradient(135deg, #ffecd8 0%, #f5c8a8 100%);">
-                <span class="case__img-label">Capstone — coming May 2026</span>
-              </div>
-            </div>
-          </section>
-
-          <section id="problem">
-            <p class="case__section-label">Problem</p>
-            <h2 class="case__h2">The problem space: civic information access</h2>
-            <p class="case__p">Local government information is fragmented across dozens of websites, PDFs, and phone trees — making it nearly impossible for residents, especially non-English speakers and elderly populations, to find what they need when they need it. Our capstone team is partnering with a city agency to understand and redesign the resident information experience from the ground up.</p>
-            <div class="case__cards">
-              <div class="case__card">
-                <span class="case__card-label">Who's affected</span>
-                <p class="case__card-text">Residents navigating permits, benefits, services, and community programs — especially those with lower digital literacy</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">The core friction</span>
-                <p class="case__card-text">Information exists but is buried, inconsistently formatted, and never organized around resident mental models</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">The opportunity</span>
-                <p class="case__card-text">A resident-facing interface that surfaces the right information at the right moment, in plain language, across devices</p>
-              </div>
-            </div>
-          </section>
-
-          <section id="research">
-            <p class="case__section-label">Research</p>
-            <h2 class="case__h2">Understanding how residents actually find information</h2>
-            <p class="case__p">We conducted 14 contextual interviews with residents across three city neighborhoods, focusing on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
-            <div class="case__img">
-              <div class="case__img-inner">
-                <span class="case__img-label">Research — interview synthesis map</span>
-              </div>
-            </div>
-            <h3 class="case__h3">Key finding: residents trust people over pages</h3>
-            <p class="case__p">Across every interview, residents described going to a neighbor, a community organizer, or a family member before ever attempting to find information on a city website. The informal network was faster and more reliable than the official one. This shaped our entire design direction.</p>
-          </section>
-
-          <section id="direction">
-            <p class="case__section-label">Direction</p>
-            <h2 class="case__h2">Designing for trust before usability</h2>
-            <p class="case__p">Our hypothesis: no amount of information architecture will solve the problem if residents don't trust the source. The design challenge became how to build a digital interface that earns trust the way community members do — through plain language, visible accountability, and proactive communication.</p>
-            <div class="case__img">
-              <div class="case__img-inner case__img-inner--short">
-                <span class="case__img-label">Design principles — trust framework</span>
-              </div>
-            </div>
-          </section>
-
-          <section id="process">
-            <p class="case__section-label">Process</p>
-            <h2 class="case__h2">Where we are now</h2>
-            <p class="case__p">We've completed research synthesis and have landed on three potential design directions. We're currently in a structured concept development phase, running low-fi tests with community members biweekly. Final designs and outcomes will be published here in May 2026.</p>
-            <div class="case__video">
-              <div class="case__video-inner"></div>
-            </div>
-          </section>
-
-          <hr class="case__divider" />
-
-          <section id="reflection" class="case__reflection">
-            <p class="case__section-label">Reflection</p>
-            <h2 class="case__h2">In progress</h2>
-            <p class="case__p">This project has already surfaced something I didn't expect: the hardest design problems aren't technical — they're relational. Designing for a community partner means navigating institutional constraints, political sensitivities, and the gap between what stakeholders say they want and what residents actually need.</p>
-            <p class="case__p">Full reflection coming May 2026, once we've shipped and measured impact.</p>
-          </section>
-
-        </div>
-      </div>
-
-    </main>
-
-    <footer class="footer">
-      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
-      <p class="footer__time" id="local-time"></p>
-      <nav class="footer__links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Email</a>
-        <a href="#" class="footer__link">GitHub</a>
       </nav>
-    </footer>
+
+      <div class="case__body">
+
+        <header class="case__hero anim-1">
+          <p class="case__label">Capstone · 2026 · Product Design</p>
+          <h1 class="case__title">Redesigning civic information as a decision-support system</h1>
+          <div class="case__meta">
+            <div class="case__meta-item">
+              <span class="case__meta-label">Role</span>
+              <span class="case__meta-val">Lead Designer</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Timeline</span>
+              <span class="case__meta-val">Jan – May 2026</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Team</span>
+              <span class="case__meta-val">4 students</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Skills</span>
+              <span class="case__meta-val">Product Design<br>User Research<br>Systems Framing<br>Design Strategy</span>
+            </div>
+          </div>
+          <div class="case__cta">
+            <a href="#overview" class="case__btn case__btn--primary">See full case study</a>
+            <a href="#" class="case__btn case__btn--secondary">Explore prototype ↗</a>
+          </div>
+          <figure class="case__hero-img" aria-label="Project hero image" style="background: linear-gradient(135deg, #ffecd8 0%, #f5c8a8 100%);">Hero Image — Capstone</figure>
+        </header>
+
+        <section id="overview">
+          <p class="case__section-label">Overview</p>
+          <h2 class="case__h2">This case study is in progress.</h2>
+          <p class="case__p">My senior capstone is a year-long product design project in partnership with a city agency. The full documentation — research, system model, design outcomes — will be published here upon completion in May 2026. Below is an early snapshot of the problem framing, research direction, and design principles that are guiding the work.</p>
+
+          <div class="case__system-glance">
+            <p class="case__system-glance-title">System at a glance</p>
+            <div class="case__system-row">
+              <span class="case__system-key">Inputs</span>
+              <span class="case__system-val">Resident intent (permits, benefits, services, programs), literacy level, language, device type</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Intelligence</span>
+              <span class="case__system-val">Information architecture organized around resident mental models — not agency org charts — with plain language and proactive status communication</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Outputs</span>
+              <span class="case__system-val">The right information, at the right moment, in plain language — surfaced before residents need to ask</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Feedback loop</span>
+              <span class="case__system-val">Search queries, task abandonment, and community navigator flags surface gaps in the information system for continuous improvement</span>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--tall" style="background: linear-gradient(135deg, #ffecd8 0%, #f5c8a8 100%);">
+              <span class="case__img-label">Capstone — coming May 2026</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="problem">
+          <p class="case__section-label">Problem</p>
+          <h2 class="case__h2">Civic information is organized for agencies, not for residents.</h2>
+          <p class="case__p">Local government information is fragmented across dozens of websites, PDFs, and phone trees — organized by department structure, not by resident need. A person trying to navigate a permit, a benefit, or a community program has to understand how the city is organized before they can find what they're looking for. For residents with lower digital literacy, non-English speakers, or elderly populations, the system is effectively inaccessible — not by design, but by default.</p>
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">Who's affected</span>
+              <p class="case__card-text">Residents navigating permits, benefits, services, and programs — with higher impact on those with lower digital literacy, non-English speakers, and elderly populations</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">The structural problem</span>
+              <p class="case__card-text">Information is organized around agency structure, not resident mental models — creating a translation burden that falls entirely on the resident</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">The design opportunity</span>
+              <p class="case__card-text">A resident-facing system organized around "what do I need to do?" rather than "which department owns this?" — with proactive status communication baked in</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="research">
+          <p class="case__section-label">Research</p>
+          <h2 class="case__h2">Residents trust people over pages. That's not a workaround — that's a signal.</h2>
+          <p class="case__p">We conducted 14 contextual interviews with residents across three city neighborhoods, focused on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
+          <div class="case__img">
+            <div class="case__img-inner">
+              <span class="case__img-label">Research — interview synthesis map</span>
+            </div>
+          </div>
+          <h3 class="case__h3">Key insight: the informal network is the real infrastructure</h3>
+          <p class="case__p">Every interview participant described going to a neighbor, a community organizer, or a family member before attempting a city website. The informal network was faster, more reliable, and in plain language. This wasn't a failure of digital literacy — it was a rational response to a system that consistently failed them. Our design direction had to earn trust the way community members do.</p>
+          <h3 class="case__h3">Key insight: the problem is architecture, not content</h3>
+          <p class="case__p">The information residents need exists. It's just buried, inconsistently formatted, and organized for administrators, not people. The design challenge isn't creating new content — it's restructuring how existing information is surfaced, and to whom, and when.</p>
+        </section>
+
+        <section id="direction">
+          <p class="case__section-label">Direction</p>
+          <h2 class="case__h2">Design for trust before usability.</h2>
+          <p class="case__p">Our working hypothesis: no amount of IA improvement will solve the problem if residents don't trust the source. The challenge isn't making the website "easier to use" — it's making it legible, accountable, and proactive in the way community members are. Plain language, visible accountability, and anticipatory communication are the design primitives. Usability follows from trust, not the other way around.</p>
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">Design principles — trust framework</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="process">
+          <p class="case__section-label">Process</p>
+          <h2 class="case__h2">Where we are now.</h2>
+          <p class="case__p">We've completed research synthesis and defined three design directions, currently in low-fi testing with community members biweekly. We're also navigating the realities of institutional partnership: stakeholder constraints, political sensitivities, and the gap between what agency representatives say they want and what residents actually need. That gap is its own design problem.</p>
+          <div class="case__video">
+            <div class="case__video-inner"></div>
+          </div>
+        </section>
+
+        <hr class="case__divider" />
+
+        <section id="reflection" class="case__reflection">
+          <p class="case__section-label">Reflection</p>
+          <h2 class="case__h2">In progress.</h2>
+          <p class="case__p">The most unexpected learning so far: the hardest design problems in civic technology aren't technical — they're relational and political. Designing for a community partner requires holding the user's needs alongside institutional constraints that are real and sometimes immovable. That navigation is as much a design skill as wireframing.</p>
+          <p class="case__p">Full reflection and outcomes coming May 2026, once we've shipped and measured impact with the community partner.</p>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with care by Sooim</p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links">
+      <a href="#" class="footer__link">LinkedIn</a>
+      <a href="#" class="footer__link">Email</a>
+      <a href="#" class="footer__link">GitHub</a>
+    </nav>
+  </footer>
 
   <script src="script.js"></script>
 </body>

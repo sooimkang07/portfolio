@@ -19,182 +19,529 @@
     </nav>
   </header>
 
-    <main class="case-wrap">
+  <main class="case-wrap">
 
-      <a href="index.html" class="case__back--mobile">Back</a>
+    <a href="index.html" class="case__back--mobile">Back</a>
 
-            <!-- Content grid: TOC + Body -->
-      <div class="case__content-grid">
+    <!-- Mobile TOC bar: sticky below nav, hidden on desktop -->
+    <nav class="case__toc-bar" aria-label="Page sections">
+      <a href="#overview" class="case__toc-bar-link">Overview</a>
+      <a href="#solution" class="case__toc-bar-link">Solution</a>
+      <a href="#flows" class="case__toc-bar-link">Core Flows</a>
+      <a href="#research" class="case__toc-bar-link">Research</a>
+      <a href="#system" class="case__toc-bar-link">System</a>
+      <a href="#decisions" class="case__toc-bar-link">Decisions</a>
+      <a href="#impact" class="case__toc-bar-link">Impact</a>
+      <a href="#next" class="case__toc-bar-link">Next</a>
+    </nav>
 
-        <!-- Sidebar TOC (desktop only, >770px) -->
-        <nav class="case__toc" aria-label="Sections">
-          <a href="index.html" class="case__back">Back</a>
-          <div class="case__toc-inner"><ul class="case__toc-list">
-            <li><a href="#overview"    class="case__toc-link">Overview</a></li>
-            <li><a href="#problem"     class="case__toc-link">Problem</a></li>
-            <li><a href="#opportunity" class="case__toc-link">Opportunity</a></li>
-            <li><a href="#solution"    class="case__toc-link">Solution</a></li>
-            <li><a href="#flows"       class="case__toc-link">Core Flows</a></li>
-            <li><a href="#decisions"   class="case__toc-link">Design Decisions</a></li>
-            <li><a href="#reflection"  class="case__toc-link">Reflection</a></li>
-          </ul></div>
-        </nav>
+    <div class="case__content-grid">
 
-        <!-- Body: hero is first section, then content -->
-        <div class="case__body">
-
-          <!-- Hero -->
-          <header class="case__hero anim-1">
-        <p class="case__label">Amazon · 2026 · Design Challenge</p>
-        <h1 class="case__title">Reducing food waste through smarter defaults</h1>
-        <div class="case__meta">
-          <div class="case__meta-item">
-            <span class="case__meta-label">Role</span>
-            <span class="case__meta-val">Product Designer</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Timeline</span>
-            <span class="case__meta-val">2 weeks · 2026</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Team</span>
-            <span class="case__meta-val">Solo</span>
-          </div>
-          <div class="case__meta-item">
-            <span class="case__meta-label">Skills</span>
-            <span class="case__meta-val">Product Design<br>Behavioral Design<br>Systems Thinking</span>
-          </div>
+      <nav class="case__toc" aria-label="Sections">
+        <a href="index.html" class="case__back">Back</a>
+        <div class="case__toc-inner">
+          <ul class="case__toc-list">
+            <li><a href="#overview"  class="case__toc-link">Overview</a></li>
+            <li><a href="#solution"  class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"     class="case__toc-link">Core Flows</a></li>
+            <li><a href="#research"  class="case__toc-link">Research</a></li>
+            <li><a href="#system"    class="case__toc-link">System Logic</a></li>
+            <li><a href="#decisions" class="case__toc-link">Design Decisions</a></li>
+            <li><a href="#impact"    class="case__toc-link">Impact</a></li>
+            <li><a href="#next"      class="case__toc-link">Next Steps</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
+          </ul>
         </div>
-        <div class="case__cta">
-          <a href="#overview" class="case__btn case__btn--primary">See full case study</a>
-          <a href="#" class="case__btn case__btn--secondary">Explore prototype ↗</a>
-        </div>
-      
-            <!-- Hero image -->
-            <figure class="case__hero-img" aria-label="Project hero image">
-              Hero Image
-            </figure>
-          </header><!-- /.case__hero -->
-
-
-
-          <section id="overview">
-            <p class="case__section-label">Overview</p>
-            <h2 class="case__h2">One-third of all food purchased online is never eaten.</h2>
-            <p class="case__p">Amazon Fresh and Whole Foods Market process millions of grocery orders weekly. Yet the digital cart experience hasn't been redesigned to account for one of the biggest behavioral challenges in food retail: over-purchasing. Smart Bundles reimagines the cart as an active participant in reducing waste—not just a passive holding area for items before checkout.</p>
-            <div class="case__img">
-              <div class="case__img-inner case__img-inner--tall">
-                <span class="case__img-label">Smart Bundles — overview</span>
-              </div>
-            </div>
-          </section>
-
-          <section id="problem">
-            <p class="case__section-label">Problem</p>
-            <h2 class="case__h2">The cart is passive. Waste is active.</h2>
-            <p class="case__p">Current grocery cart UX is optimized for order completion, not order quality. Quantity defaults are set for the average household, not the individual. There's no signal about portion alignment, freshness windows, or ingredient overlap. The result: well-intentioned shoppers routinely over-buy perishables.</p>
-            <div class="case__cards">
-              <div class="case__card">
-                <span class="case__card-label">Behavioral Gap</span>
-                <p class="case__card-text">Default quantities don't account for household size or consumption patterns</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">System Gap</span>
-                <p class="case__card-text">No cross-item intelligence—buying spinach twice without flagging overlap</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">Trust Gap</span>
-                <p class="case__card-text">No visibility into freshness windows at point-of-decision</p>
-              </div>
-            </div>
-          </section>
-
-          <section id="opportunity">
-            <p class="case__section-label">Opportunity</p>
-            <h2 class="case__h2">Adaptive portioning as Amazon's new differentiator.</h2>
-            <p class="case__p">Amazon has unparalleled purchase history data. Smart Bundles uses that data to suggest right-sized quantities, flag redundant purchases, and surface recipes that use ingredients already in the cart—turning the cart from a transaction screen into a planning partner.</p>
-            <div class="case__img">
-              <div class="case__img-inner">
-                <span class="case__img-label">Opportunity framing — systems map</span>
-              </div>
-            </div>
-          </section>
-
-          <section id="solution">
-            <p class="case__section-label">Solution</p>
-            <h2 class="case__h2">Smart Bundles: three behavioral interventions baked into the cart</h2>
-            <div class="case__cards">
-              <div class="case__card">
-                <span class="case__card-label">1. Adaptive Portions</span>
-                <p class="case__card-text">AI-suggested quantities based on your household size and purchase history, with a simple explanation of why.</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">2. Bundle Suggestions</span>
-                <p class="case__card-text">Surface recipe pairings that use perishables already in your cart—encouraging complete-use purchases.</p>
-              </div>
-              <div class="case__card">
-                <span class="case__card-label">3. Freshness Flags</span>
-                <p class="case__card-text">Inline shelf-life indicators on perishables, with a gentle nudge if your cart exceeds your estimated consumption window.</p>
-              </div>
-            </div>
-            <div class="case__video">
-              <div class="case__video-inner"></div>
-            </div>
-          </section>
-
-          <section id="flows">
-            <p class="case__section-label">Core Flows</p>
-            <h2 class="case__h2">How Smart Bundles works in practice</h2>
-            <h3 class="case__h3">Portion suggestion in the cart</h3>
-            <p class="case__p">When a perishable is added, an inline card surfaces a portion suggestion with a brief rationale. The user can accept, adjust, or dismiss—no friction for users who know what they want.</p>
-            <div class="case__img">
-              <div class="case__img-inner">
-                <span class="case__img-label">Cart — portion suggestion card</span>
-              </div>
-            </div>
-            <h3 class="case__h3">Bundle recipe surface</h3>
-            <p class="case__p">At the bottom of the cart, a carousel shows two or three recipes that use ingredients already present—with one-tap addition of any missing items at the suggested quantity.</p>
-            <div class="case__video">
-              <div class="case__video-inner"></div>
-            </div>
-          </section>
-
-          <section id="decisions">
-            <p class="case__section-label">Design Decisions</p>
-            <h2 class="case__h2">Defaults over friction</h2>
-            <p class="case__p">The most important design principle here was never to interrupt the checkout flow. Every Smart Bundles intervention is dismissible in one tap. The goal is to make the sustainable choice the default, not the forced choice.</p>
-            <div class="case__img">
-              <div class="case__img-inner case__img-inner--short">
-                <span class="case__img-label">Friction audit — intervention mapping</span>
-              </div>
-            </div>
-          </section>
-
-          <hr class="case__divider" />
-
-          <section id="reflection" class="case__reflection">
-            <p class="case__section-label">Reflection</p>
-            <h2 class="case__h2">What I learned</h2>
-            <h3 class="case__h3">Behavioral design needs data infrastructure.</h3>
-            <p class="case__p">Smart Bundles only works if Amazon already knows your household patterns. Designing for a data-rich context required thinking about how to earn—and maintain—that trust through transparency.</p>
-            <h3 class="case__h3">Systemic problems need systemic solutions.</h3>
-            <p class="case__p">Solving food waste through one-off UI nudges wouldn't move the needle. The power of Smart Bundles is that all three interventions reinforce each other, creating a compounding effect on shopping behavior over time.</p>
-          </section>
-
-        </div>
-      </div>
-
-    </main>
-
-    <footer class="footer">
-      <p class="footer__copy">© 2026 · Built with care by Sooim :)</p>
-      <p class="footer__time" id="local-time"></p>
-      <nav class="footer__links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Email</a>
-        <a href="#" class="footer__link">GitHub</a>
       </nav>
-    </footer>
+
+      <div class="case__body">
+
+        <header class="case__hero anim-1">
+          <p class="case__label">Amazon Fresh · 2026 · Climate Impact Design Challenge</p>
+          <h1 class="case__title">Smart Bundles: a predictive cart system that reduces household food waste by default</h1>
+
+          <div class="case__meta">
+            <div class="case__meta-item">
+              <span class="case__meta-label">Role</span>
+              <span class="case__meta-val">Product Designer (Solo)</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Timeline</span>
+              <span class="case__meta-val">10 hours</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Focus</span>
+              <span class="case__meta-val">AI-driven decision support · Behavioral systems · Climate-positive defaults</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__meta-label">Outcome</span>
+              <span class="case__meta-val">High-fidelity prototype across 3 touchpoints</span>
+            </div>
+          </div>
+
+          <div class="case__cta">
+            <a href="#overview" class="case__btn case__btn--primary">Explore Prototype</a>
+            <a href="https://www.figma.com/make/VXi9HDgs9lWoEHtH2ZlSkJ/High-Fidelity-Prototype-for-Bundling?t=u0s05DmxlGUmJjIY-1" class="case__btn case__btn--secondary" target="_blank" rel="noopener">See deck</a>
+          </div>
+
+          <figure class="case__hero-img" aria-label="Project hero image">
+            Hero visual placeholder
+            <!-- Replace with: a clean, premium hero mockup showing Amazon Fresh cart UI with a Smart Bundles card overlay.
+                 Best option: a wide 16:9 composition that combines:
+                 (1) iPhone cart screen mockup (from your prototype)
+                 (2) subtle ingredient/recipe imagery blurred in the background
+                 (3) a small callout label: “AI-calibrated portions · bundle loops · feedback learning”. -->
+          </figure>
+        </header>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="overview">
+          <p class="case__section-label">Overview</p>
+          <h2 class="case__h2">The cart is optimized for checkout velocity — not decision quality.</h2>
+          <p class="case__p">Household food waste is a systems problem hiding inside everyday shopping defaults. Digital grocery makes it easy to over-buy perishables, duplicate ingredients, and lose track of what will actually get used. Smart Bundles reframes Amazon Fresh as a <strong>decision-support system</strong>: using behavioral signals to right-size quantities, group items into complete-use bundles, and learn from lightweight feedback after delivery.</p>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">Design challenge</span>
+              <p class="case__card-text">Design a climate-positive upgrade inside an existing digital ecosystem — without changing how people shop or cook.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Constraint</span>
+              <p class="case__card-text">10-hour sprint → prototype only what matters at system scale: the closed loop (suggest → purchase → learn).</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">System bet</span>
+              <p class="case__card-text">Reduce waste by shifting defaults (quantities + grouping) at the point of decision — the cart — instead of relying on user willpower later.</p>
+            </div>
+          </div>
+
+          <div class="case__system-glance">
+            <p class="case__system-glance-title">System at a glance</p>
+            <div class="case__system-row">
+              <span class="case__system-key">Inputs</span>
+              <span class="case__system-val">Cart contents, purchase history, household size, consumption rhythm, perishability windows, ingredient overlap</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Intelligence</span>
+              <span class="case__system-val">Predicts over-purchase risk + proposes right-sized quantities and bundle groupings that close ingredient loops</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Outputs</span>
+              <span class="case__system-val">Bundle cards, quantity guidance, waste-avoidance estimates, post-delivery feedback prompts</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Feedback loop</span>
+              <span class="case__system-val">Feedback updates future bundle sizing — improving accuracy without extra effort</span>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner">
+              <span class="case__img-label">PLACEHOLDER DIAGRAM — Closed-loop ecosystem map</span>
+              <!-- Replace with: a clean, minimalist system diagram based on deck page 17.
+                   Layout recommendation (Google-caliber):
+                   - Horizontal loop with 6 nodes: Discover → Select → Cart → Checkout → Delivery → Consume → (Learn)
+                   - Under each node: 1 line “system intervention” + 1 line “data captured”.
+                   - Highlight the learning feedback arrow as the system differentiator. -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="solution">
+          <p class="case__section-label">Solution</p>
+          <h2 class="case__h2">Portion-controlled bundling that stays visible through checkout — and gets smarter after delivery.</h2>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">1 · Right-sized quantities</span>
+              <p class="case__card-text">Suggests smaller portions when historical consumption indicates over-buy risk — with a one-line rationale and easy editing.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">2 · Bundle grouping</span>
+              <p class="case__card-text">Groups complementary items into complete-use sets (e.g., weeknight chicken + veg + grain), reducing orphan ingredients.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">3 · Lightweight learning</span>
+              <p class="case__card-text">After delivery, a quick optional prompt captures what was “too much” or “too little,” improving future recommendations.</p>
+            </div>
+          </div>
+
+          <div class="case__video">
+            <div class="case__video-inner"></div>
+            <!-- Replace with: a stitched 35–60s product teaser video.
+                 Recommended structure:
+                 - 5s title card (Smart Bundles)
+                 - 10s Touchpoint 1 (Discover bundles + quantity guidance)
+                 - 12s Touchpoint 2 (Cart + checkout keeps bundles grouped)
+                 - 10s Touchpoint 3 (Post-delivery feedback → learning)
+                 - 5s end card (Waste avoided + learning loop)
+                 Use your three provided recordings (smartBundles1/2/3) as the core footage. -->
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER VISUAL — “Bundle card anatomy”</span>
+              <!-- Replace with: a single annotated UI card showing:
+                   - Bundle title
+                   - 1-line “Optimized for X meals / household size”
+                   - Waste-avoidance estimate
+                   - Edit quantities / Remove actions
+                   - Small “Why?” info affordance that reveals rationale. -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="flows">
+          <p class="case__section-label">Core Flows</p>
+          <h2 class="case__h2">Three touchpoints that prove the system.</h2>
+          <p class="case__p">Instead of designing a full end-to-end grocery experience in 10 hours, I prioritized the three places where the system must be “felt” by users: <strong>discoverability</strong> (make guidance visible by default), <strong>checkout continuity</strong> (keep bundles intact), and <strong>learning</strong> (improve without effort).</p>
+
+          <!-- Flow 01 -->
+          <div class="flow__grid" id="tp1">
+              <figure class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="smartBundles1.mp4" controls playsinline muted></video>
+                  </div>
+                </div>
+                <figcaption class="case__p" style="margin-block-start: var(--sp-sm);">Touchpoint 1 — Home / Bundles / Product pages (Discovery)</figcaption>
+              </figure>
+
+              <div class="flow__copy">
+                <h3 class="case__h3">Touchpoint 1: Make quantity guidance visible by default</h3>
+                <p class="case__p">Smart Bundles surfaces pre-portioned bundles and right-sized quantities before the cart. This is where the system earns trust: by making the sustainable choice feel like the obvious choice.</p>
+                <ul class="flow__bullets">
+                  <li><strong>Default-first:</strong> bundles appear as a primary shopping mode, not a buried “sustainability” feature.</li>
+                  <li><strong>Explainability:</strong> each bundle communicates how it matches typical cooking patterns (meals / servings) — not just price.</li>
+                  <li><strong>Flexible control:</strong> users can edit any item quantity; the system adapts, it doesn’t enforce.</li>
+                </ul>
+                <div class="case__img">
+                  <div class="case__img-inner case__img-inner--short">
+                    <span class="case__img-label">PLACEHOLDER — Screenshot strip of TP1 key screens</span>
+                    <!-- Replace with: 3–5 stills exported from the recording (smartBundles1):
+                         1) Bundle discovery module on home
+                         2) Bundle detail view
+                         3) Product page with quantity guidance
+                         4) “Estimated waste avoided” microcopy moment
+                         Keep as a horizontal strip or 2x2 grid. -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Flow 02 -->
+          <div class="flow__grid" id="tp2">
+              <figure class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="smartBundles2.mp4" controls playsinline muted></video>
+                  </div>
+                </div>
+                <figcaption class="case__p" style="margin-block-start: var(--sp-sm);">Touchpoint 2 — Cart / Checkout / Confirmation (Continuity)</figcaption>
+              </figure>
+
+              <div class="flow__copy">
+                <h3 class="case__h3">Touchpoint 2: Keep bundles grouped through checkout</h3>
+                <p class="case__p">The cart is where waste-risk decisions happen — duplicate perishables, oversized proteins, or missing ingredients that create partial-use leftovers. Smart Bundles keeps grouped items intact and makes edits frictionless.</p>
+                <ul class="flow__bullets">
+                  <li><strong>Bundle integrity:</strong> items stay grouped as a unit so users understand the “complete-use” logic.</li>
+                  <li><strong>One-tap edits:</strong> adjust quantities without breaking the bundle structure.</li>
+                  <li><strong>Outcome visibility:</strong> shows a lightweight “waste avoided” estimate to reinforce behavior without guilt.</li>
+                </ul>
+                <div class="case__img">
+                  <div class="case__img-inner case__img-inner--short">
+                    <span class="case__img-label">PLACEHOLDER — Checkout friction audit</span>
+                    <!-- Replace with: a simple diagram mapping where interventions appear vs. where they do NOT.
+                         Goal: prove you designed for conversion constraints.
+                         Show a line: Add → Cart → Checkout → Pay
+                         Mark interventions only in Cart (non-blocking), never at Pay. -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Flow 03 -->
+          <div class="flow__grid" id="tp3">
+              <figure class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="smartBundles3.mp4" controls playsinline muted></video>
+                  </div>
+                </div>
+                <figcaption class="case__p" style="margin-block-start: var(--sp-sm);">Touchpoint 3 — Post-delivery feedback (Learning loop)</figcaption>
+              </figure>
+
+              <div class="flow__copy">
+                <h3 class="case__h3">Touchpoint 3: Learn without asking for effort</h3>
+                <p class="case__p">Most waste happens after delivery — outside the system. Smart Bundles closes the loop with an optional, low-friction prompt that directly improves future portion sizing.</p>
+                <ul class="flow__bullets">
+                  <li><strong>Optional by design:</strong> no nagging; feedback is a single-tap interaction.</li>
+                  <li><strong>Trust reinforcement:</strong> shows exactly what changed (“We’ll suggest slightly smaller portions next time”).</li>
+                  <li><strong>Behavioral realism:</strong> reduces waste without requiring strict meal planning.</li>
+                </ul>
+                <div class="case__img">
+                  <div class="case__img-inner case__img-inner--short">
+                    <span class="case__img-label">PLACEHOLDER — Learning UI microcopy samples</span>
+                    <!-- Replace with: a small set of microcopy callouts (3–5) extracted from TP3:
+                         - “Too much / Too little” options
+                         - “Here’s what changed” explanation
+                         - “Dismiss” / “Not now” language
+                         Style as a clean typographic callout grid (fits your blueprint aesthetic). -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="research">
+          <p class="case__section-label">Research</p>
+          <h2 class="case__h2">Waste is behavioral — and concentrated.</h2>
+          <p class="case__p">I anchored the concept in a simple insight: broad awareness campaigns don’t move the needle if the system’s defaults keep producing over-purchase. Research indicated that food waste is not evenly distributed — the highest-waste segment drives disproportionate waste, especially from high-impact items like proteins.</p>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">Climate impact</span>
+              <p class="case__card-text">Food loss and waste account for ~8–10% of annual global greenhouse gas emissions.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Household scale</span>
+              <p class="case__card-text">30–40% of the U.S. food supply is wasted — with households as the largest contributor.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Economic impact</span>
+              <p class="case__card-text">U.S. households waste ~$1,300+ per year in uneaten food.</p>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner">
+              <span class="case__img-label">PLACEHOLDER — Research slide collage</span>
+              <!-- Replace with: a curated collage of 3 deck visuals (keep it clean):
+                   1) The 3-stat climate/waste graphic (deck page 3)
+                   2) Segment distribution chart (deck page 4)
+                   3) “Where waste accumulates today” journey (deck page 6)
+                   Present as a tidy 3-up grid with short captions under each. -->
+            </div>
+          </div>
+
+          <h3 class="case__h3">Why Amazon Fresh</h3>
+          <p class="case__p">Amazon Fresh is uniquely positioned to make this work because it combines purchase history, behavioral signals, and fulfillment infrastructure at scale — and already has public climate commitments that make household waste reduction a direct lever.</p>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER — “Why Amazon Fresh” rationale card</span>
+              <!-- Replace with: a clean one-page visual (from deck page 5) showing:
+                   - Aligned user segment
+                   - System scale (delivery footprint)
+                   - Climate commitments
+                   Format: 3-column fact card with icons + citations in small text. -->
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER — Competitive analysis (rigid vs flexible)</span>
+              <!-- Replace with: the 2x2 from deck page 9.
+                   Rebuild it in your own visual system (don’t just paste):
+                   - X axis: Flexibility
+                   - Y axis: Waste risk
+                   - Plot: meal kits, grocery delivery, Smart Bundles as the “opportunity space”. -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="system">
+          <p class="case__section-label">System Logic</p>
+          <h2 class="case__h2">Designing the intelligence layer — not just the UI.</h2>
+          <p class="case__p">A Google-level product concept needs a coherent system model: what signals are used, where decisions happen, and how the system gets better over time. Smart Bundles is intentionally structured as a closed loop that turns a one-time cart suggestion into compounding accuracy across orders.</p>
+
+          <div class="case__img">
+            <div class="case__img-inner">
+              <span class="case__img-label">PLACEHOLDER DIAGRAM — Input → Model → Output</span>
+              <!-- Replace with: a simplified architecture diagram:
+                   Inputs:
+                   - Cart items
+                   - Purchase history
+                   - Household size
+                   - Ingredient graph / recipe ontology
+                   - Perishability windows
+                   Model:
+                   - Consumption rhythm estimator
+                   - Over-purchase risk classifier
+                   - Bundle generator (optimization)
+                   Outputs:
+                   - Right-sized quantities
+                   - Bundle groupings
+                   - Waste avoided estimate
+                   Feedback:
+                   - Post-delivery “too much/too little” updates personalization
+                   Keep it readable, minimal, and credible. -->
+            </div>
+          </div>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">Key system constraint</span>
+              <p class="case__card-text">Interventions must be <strong>non-blocking</strong>. The model advises, but the user remains in control — critical for trust and conversion.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Cold start strategy</span>
+              <p class="case__card-text">For new users, start with lightweight defaults (household size + common recipes) and progressively personalize as history accumulates.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Failure modes</span>
+              <p class="case__card-text">Design for being wrong: provide rationale, easy edits, and a fast “dismiss” so incorrect suggestions don’t create friction or resentment.</p>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER — Trust model / explainability pattern</span>
+              <!-- Replace with: a UI pattern sheet showing the “Why this?” affordance in 3 contexts:
+                   - Bundle suggestion
+                   - Quantity adjustment
+                   - Learning update
+                   For each: include 1 sentence rationale + “Edit / Dismiss”. -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="decisions">
+          <p class="case__section-label">Design Decisions</p>
+          <h2 class="case__h2">Decision-centered design: what I chose, and what I intentionally did not build.</h2>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">Decision 1</span>
+              <p class="case__card-text"><strong>Target defaults, not education.</strong> Most solutions tell users to “waste less.” Smart Bundles changes what enters the home by default — where leverage is higher.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Decision 2</span>
+              <p class="case__card-text"><strong>Bundle grouping over meal kits.</strong> Meal kits reduce choice but are operationally rigid. Bundles preserve flexibility while offering system-level guidance.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Decision 3</span>
+              <p class="case__card-text"><strong>Learning loop as the differentiator.</strong> The product is not the first recommendation — it’s accuracy improving across orders with near-zero user effort.</p>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER — Tradeoff table</span>
+              <!-- Replace with: a crisp tradeoff table (3 columns):
+                   Option | Upside | Why I didn’t choose it
+                   Include: meal kits, discounts near expiration, carbon labels, educational tips.
+                   This signals product judgment under time pressure. -->
+            </div>
+
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="impact">
+          <p class="case__section-label">Impact</p>
+          <h2 class="case__h2">A climate-positive feature that also strengthens the business.</h2>
+          <p class="case__p">Smart Bundles creates a rare alignment: reducing waste can also improve Amazon Fresh’s unit economics and retention. Bundling increases units per basket while lowering refund/complaint drivers tied to spoilage and overbuy regret.</p>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">User impact</span>
+              <p class="case__card-text">Less spoilage, fewer “why did I buy this?” moments, and a cart experience that feels like planning support — not just checkout.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">System impact</span>
+              <p class="case__card-text">A closed-loop product that learns, improving portion accuracy across orders and reducing household-level over-purchase.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">Business impact</span>
+              <p class="case__card-text">Higher average order value via bundles, improved retention through “helpful defaults,” and stronger climate story aligned with Amazon’s net-zero commitments.</p>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner">
+              <span class="case__img-label">PLACEHOLDER — Metrics model</span>
+              <!-- Replace with: a simple KPI map (Google-style):
+                   North Star: Estimated waste avoided per active household
+                   Inputs: adoption rate, edit/dismiss rate, reorder rate, spoilage proxy
+                   Business: units per basket, retention, refunds/returns for perishables
+                   Climate: CO2e avoided estimate (optional)
+                   Keep numbers as placeholders unless you have validated data. -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ───────────────────────────────────────────────────── -->
+        <section id="next">
+          <p class="case__section-label">Next Steps</p>
+          <h2 class="case__h2">What I’d validate with time and resources.</h2>
+
+          <div class="case__cards">
+            <div class="case__card">
+              <span class="case__card-label">1 · Validate reduction</span>
+              <p class="case__card-text">Run an A/B test measuring spoilage proxies (returns, reorder gaps) and “portion satisfaction” from post-delivery feedback.</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">2 · Inventory-aware bundling</span>
+              <p class="case__card-text">Connect bundle generation to near-expiration inventory to reduce upstream waste (warehouse + last-mile).</p>
+            </div>
+            <div class="case__card">
+              <span class="case__card-label">3 · Household onboarding</span>
+              <p class="case__card-text">Design the trust and consent model: what data is used, how personalization works, and graceful opt-out controls.</p>
+            </div>
+          </div>
+
+          <div class="case__img">
+            <div class="case__img-inner case__img-inner--short">
+              <span class="case__img-label">PLACEHOLDER — Experiment roadmap</span>
+              <!-- Replace with: a 3-phase roadmap (Now / Next / Later):
+                   Now: MVP 3 touchpoints + measurement
+                   Next: inventory sync + recipe ontology
+                   Later: carbon-aware substitutions + household goal setting
+                   Keep it tight and credible. -->
+            </div>
+          </div>
+        </section>
+
+
+        <hr class="case__divider" />
+
+        <section id="reflection" class="case__reflection">
+          <p class="case__section-label">Reflection</p>
+          <h2 class="case__h2">What this sprint sharpened.</h2>
+          <h3 class="case__h3">Time pressure forced system-first prioritization.</h3>
+          <p class="case__p">With only 10 hours, I treated the prototype as proof of a product thesis, not a UI gallery. I focused on the minimum set of touchpoints needed to demonstrate a closed-loop system: discover → commit → learn.</p>
+          <h3 class="case__h3">AI-native products require a trust model.</h3>
+          <p class="case__p">Recommendation systems fail when users feel controlled or judged. The design pattern I’d push further is explainability: light rationale, easy edits, and fast dismissals so the system earns trust over time.</p>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with care by Sooim</p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links">
+      <a href="#" class="footer__link">LinkedIn</a>
+      <a href="#" class="footer__link">Email</a>
+      <a href="#" class="footer__link">GitHub</a>
+    </nav>
+  </footer>
 
   <script src="script.js"></script>
 </body>

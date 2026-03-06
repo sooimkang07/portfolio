@@ -70,23 +70,38 @@
   });
 
   /* ── Case study TOC active state (scroll-spy) ────────────── */
-  const tocLinks = document.querySelectorAll('.case__toc-link');
-  if (tocLinks.length) {
-    const sections = [...tocLinks]
+  /* Covers both the desktop sidebar (.case__toc-link) and the   */
+  /* mobile horizontal bar (.case__toc-bar-link).                */
+  const tocLinks    = document.querySelectorAll('.case__toc-link');
+  const barLinks    = document.querySelectorAll('.case__toc-bar-link');
+  const allTocLinks = document.querySelectorAll('.case__toc-link, .case__toc-bar-link');
+
+  if (allTocLinks.length) {
+    /* Dedupe sections — sidebar and bar point to the same hrefs */
+    const seen = new Set();
+    const sections = [...allTocLinks]
       .map(l => document.querySelector(l.getAttribute('href')))
-      .filter(Boolean);
+      .filter(el => {
+        if (!el || seen.has(el.id)) return false;
+        seen.add(el.id);
+        return true;
+      });
 
     function setActive(id) {
-      tocLinks.forEach(l => {
+      allTocLinks.forEach(l => {
         l.classList.toggle('is-active', l.getAttribute('href') === '#' + id);
       });
+
+      /* Scroll the active bar item into view horizontally */
+      const activeBar = document.querySelector(`.case__toc-bar-link[href="#${id}"]`);
+      if (activeBar) {
+        activeBar.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
     }
 
-    // Set first section active on load
     if (sections.length) setActive(sections[0].id);
 
     const io2 = new IntersectionObserver(entries => {
-      // Find the topmost intersecting section
       const visible = entries
         .filter(e => e.isIntersecting)
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);

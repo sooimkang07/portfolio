@@ -1,6 +1,7 @@
 /* ============================================================
    SOOIM KANG — Global CSS
    Instrument Sans · #D97757 · Mobile-first
+   Nested/hierarchical architecture · 16:9 covers · TOC dividers
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
@@ -40,8 +41,8 @@
   --nav-h:    3.25rem;
   --gutter:   clamp(1rem, 2.5vw, 2rem);
   --gap:      clamp(0.75rem, 1.5vw, 1.25rem);
-  --case-max: 50rem;
-  --toc-w:    10rem;
+  --toc-col:  18.75rem;   /* sidebar column width (gutter + list + gap to body) */
+  --case-max: 56rem;   /* body max-width cap so text doesn't run too wide */
   --r-sm:     0.25rem;
   --r-md:     0.5rem;
 
@@ -75,11 +76,14 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 
 /* ── PAGE SHELL ─────────────────────────────────────────────── */
 .page-offset { padding-block-start: var(--nav-h); }
-.page--project .page-offset { padding-block-start: 0; }
+.page-offset > main { padding-block-end: var(--sp-2xl); }
+/* Project pages: nav stays sticky so TOC's top: var(--nav-h) works correctly */
 .wrap { padding-inline: var(--gutter); }
 .case-wrap { inline-size: 100%; }
 
-/* ── NAV ────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   NAV
+   ══════════════════════════════════════════════════════════════ */
 .nav {
   position: sticky;
   inset-block-start: 0;
@@ -93,7 +97,6 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
   background: var(--clr-bg);
   border-block-end: 1px solid var(--clr-border);
 }
-.page--project .nav { position: relative; inset-block-start: auto; }
 
 .nav__logo {
   font-size: var(--fs-xs);
@@ -103,7 +106,6 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
   color: var(--clr-accent);
 }
 
-/* Desktop nav links — hidden by default, shown at >= 770px */
 .nav__links { display: none; align-items: center; gap: var(--sp-lg); }
 
 .nav__link {
@@ -135,7 +137,6 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .nav__burger[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
 .nav__burger[aria-expanded="true"] span:last-child  { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile nav drawer */
 .nav__links.is-open {
   display: flex;
   flex-direction: column;
@@ -153,38 +154,45 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 }
 .nav__links.is-open .nav__link { font-size: var(--fs-base); }
 
-/* ── PROJECT GRID (index) — hero row is first two cells ──────── */
-/*
-  Single unified grid. On mobile: 1 col, hero title/sub stack naturally.
-  At >= 640px: 2 cols — hero title in col 1, sub in col 2 (same row as title),
-  then project cards flow after.
-*/
-.projects {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-2xl) var(--gap);
-  padding-block-start: clamp(5rem, 12vw, 9rem);
+/* ══════════════════════════════════════════════════════════════
+   HOME — HERO + PROJECT GRID
+   Shared shell keeps hero and grid in identical column rhythm
+   ══════════════════════════════════════════════════════════════ */
+.home-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xl);
+  padding-block-start: clamp(4rem, 10vw, 7rem);
   padding-block-end: var(--sp-2xl);
+  padding-inline: var(--gutter);
 }
 
-/* Hero cells sit in the grid flow before the project cards */
+/* Hero block */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
 .hero__title {
   font-size: var(--fs-hero);
   font-weight: var(--fw-bold);
   line-height: 1.04;
   letter-spacing: -0.03em;
-  /* bottom spacing before first card row */
-  padding-block-end: var(--sp-xl);
 }
 .hero__sub {
   font-size: var(--fs-md);
   color: var(--clr-muted);
-  max-inline-size: 36ch;
+  max-inline-size: 40ch;
   line-height: 1.7;
-  /* bottom spacing before first card row */
-  padding-block-end: var(--sp-xl);
 }
 .hero__role { color: var(--clr-accent); font-weight: var(--fw-semi); }
+
+/* Project grid */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-2xl) var(--gap);
+}
 
 /* ── PROJECT CARD ────────────────────────────────────────────── */
 .project-card {
@@ -198,13 +206,14 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 }
 .project-card.is-visible { opacity: 1; transform: none; }
 
+/* Thumb: 16:9 enforced via aspect-ratio */
 .project-card__thumb {
   display: block;
   position: relative;
   overflow: hidden;
   border-radius: var(--r-sm);
   inline-size: 100%;
-  padding-block-end: 60%;
+  aspect-ratio: 16 / 9;
   font-size: 0;
   line-height: 0;
 }
@@ -228,7 +237,7 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .project-card__thumb:hover .project-card__img,
 .project-card__thumb:hover .project-card__media { transform: scale(1.03); }
 
-/* CSS fill variants */
+/* Card fill variants */
 .project-card__img--instagram {
   background: linear-gradient(150deg, #ff2170 0%, #ff5826 50%, #ffca28 100%);
 }
@@ -248,7 +257,7 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 }
 .project-card__img--neuk { background: #192132; }
 .project-card__img--neuk::after {
-  content: 'neulZ';
+  content: 'neuk';
   position: absolute;
   inset: 0;
   display: flex;
@@ -299,13 +308,11 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .footer__link  { font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: 0.08em; color: var(--clr-muted); text-transform: uppercase; transition: color var(--t-fast) var(--ease); }
 .footer__link:hover { color: var(--clr-accent); }
 
-.page-offset > main { padding-block-end: var(--sp-2xl); }
-
 /* ══════════════════════════════════════════════════════════════
    CASE STUDY PAGES
    ══════════════════════════════════════════════════════════════ */
 
-/* case__back now lives inside .case__toc above the TOC list */
+/* Back links */
 .case__back {
   display: inline-flex;
   align-items: center;
@@ -321,7 +328,6 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .case__back:hover { color: var(--clr-accent); }
 .case__back::before { content: '←'; margin-inline-end: 0.3em; }
 
-/* Mobile-only back link shown above content grid (TOC is hidden on mobile) */
 .case__back--mobile {
   display: inline-flex;
   align-items: center;
@@ -338,44 +344,95 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .case__back--mobile:hover { color: var(--clr-accent); }
 .case__back--mobile::before { content: '←'; margin-inline-end: 0.3em; }
 
-/* Mobile: single col with gutter. Desktop (>= 770px): flex row. */
+/* Mobile: single column, normal block flow.
+   No padding here — .case__body handles its own gutter on mobile. */
 .case__content-grid {
-  display: flex;
-  flex-direction: column;
-  padding-inline: var(--gutter);
+  display: block;
   padding-block-end: var(--sp-2xl);
 }
 
-/* TOC: hidden on mobile (back link inside it is also hidden) */
+/* ── MOBILE TOC BAR ─────────────────────────────────────────── */
+/*
+  Visible only on mobile (<770px). Horizontally scrollable strip
+  that sits sticky beneath the nav. Intentionally matches the
+  sidebar's visual language exactly: same font, same spacing,
+  same uppercase tracking, same muted/accent colour states.
+  Items are separated by a single 1px vertical rule — no pills,
+  no borders, no background shapes of any kind.
+*/
+.case__toc-bar {
+  display: flex;               /* shown on mobile */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: sticky;
+  top: var(--nav-h);           /* sticks flush below the nav */
+  z-index: 90;
+  background: var(--clr-bg);
+  border-block-end: 1px solid var(--clr-border);
+}
+.case__toc-bar::-webkit-scrollbar { display: none; }
+
+.case__toc-bar-link {
+  flex-shrink: 0;
+  display: block;
+  padding-block: var(--sp-sm);
+  padding-inline: var(--sp-md);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.06em;        /* identical to .case__toc-link */
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--clr-muted-lt);    /* same default as sidebar links */
+  transition: color var(--t-fast) var(--ease);
+  border-inline-end: 1px solid var(--clr-border); /* the divider */
+}
+.case__toc-bar-link:last-child { border-inline-end: none; }
+.case__toc-bar-link:hover,
+.case__toc-bar-link.is-active  { color: var(--clr-accent); }
+
+/* TOC sidebar — hidden on mobile, shown on desktop */
 .case__toc { display: none; }
 
-.case__toc-list { display: flex; flex-direction: column; gap: var(--sp-sm); }
+/* TOC list: divider line between each item */
+.case__toc-list { display: flex; flex-direction: column; }
+.case__toc-list li { border-block-end: 1px solid var(--clr-border); }
+.case__toc-list li:first-child { border-block-start: 1px solid var(--clr-border); }
+
 .case__toc-link {
+  display: block;
+  padding-block: var(--sp-sm);
+  padding-inline-end: var(--sp-xs);
   font-size: var(--fs-xs);
   font-weight: var(--fw-semi);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--clr-muted-lt);
   transition: color var(--t-fast) var(--ease);
-  line-height: 1.45;
-  white-space: nowrap;
+  line-height: 1.5;
+  white-space: normal;   /* allow wrapping inside the column */
+  word-break: break-word;
 }
 .case__toc-link:hover,
 .case__toc-link.is-active { color: var(--clr-accent); }
 
-/* case__body: hero + all sections stacked */
+/* Body — mobile: full width with gutter padding */
 .case__body {
   display: flex;
   flex-direction: column;
   gap: var(--sp-2xl);
+  padding-inline: var(--gutter);
 }
 
+/* Hero */
 .case__hero {
   padding-block-start: var(--sp-lg);
-    padding-block-end: var(--sp-xl);
+  padding-block-end: var(--sp-xl);
   border-block-end: 1px solid var(--clr-border);
 }
 
+/* Hero cover: 16:9 */
 .case__hero-img {
   inline-size: 100%;
   border-radius: var(--r-md);
@@ -400,6 +457,7 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .case__meta-label { font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-accent); }
 .case__meta-val   { font-size: var(--fs-sm); color: var(--clr-text); line-height: 1.5; }
 
+/* CTA */
 .case__cta { display: flex; flex-wrap: wrap; gap: var(--sp-sm); margin-block-start: var(--sp-lg); }
 .case__btn {
   display: inline-flex;
@@ -419,22 +477,62 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .case__btn--secondary { background: transparent; color: var(--clr-muted); border: 1px solid var(--clr-border); }
 .case__btn--secondary:hover { color: var(--clr-text); border-color: var(--clr-muted); }
 
+/* Section typography */
 .case__section-label { font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: 0.12em; text-transform: uppercase; color: var(--clr-accent); margin-block-end: var(--sp-sm); }
 .case__h2 { font-size: var(--fs-lg); font-weight: var(--fw-bold); line-height: 1.2; letter-spacing: -0.015em; margin-block-end: var(--sp-md); }
 .case__h3 { font-size: var(--fs-md); font-weight: var(--fw-semi); line-height: 1.3; margin-block-end: var(--sp-xs); }
 .case__p  { font-size: var(--fs-base); color: var(--clr-muted); line-height: 1.8; max-inline-size: 60ch; margin-block-end: var(--sp-md); }
 .case__p:last-child { margin-block-end: 0; }
 
+/* System-at-a-glance block — appears near top of Overview */
+.case__system-glance {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-inline-start: 3px solid var(--clr-accent);
+  border-radius: var(--r-md);
+  padding: var(--sp-md) var(--sp-lg);
+  margin-block: var(--sp-lg);
+}
+.case__system-glance-title {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-block-end: var(--sp-sm);
+}
+.case__system-row {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.2rem var(--sp-md);
+  align-items: start;
+  padding-block: 0.4rem;
+  border-block-end: 1px solid var(--clr-border);
+}
+.case__system-row:last-child { border-block-end: none; }
+.case__system-key {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  padding-block-start: 0.15rem;
+}
+.case__system-val { font-size: var(--fs-sm); color: var(--clr-text); line-height: 1.6; }
+
+/* Images — all enforced 16:9 via padding trick */
 .case__img { display: block; inline-size: 100%; border-radius: var(--r-md); overflow: hidden; margin-block: var(--sp-lg); }
 .case__img-inner { padding-block-end: 56.25%; position: relative; background: linear-gradient(135deg, #e4e2de, #d0ceca); }
 .case__img-inner--tall  { padding-block-end: 75%; }
 .case__img-inner--short { padding-block-end: 42%; }
 .case__img-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: var(--fs-sm); font-weight: var(--fw-semi); letter-spacing: 0.05em; color: var(--clr-muted); text-transform: uppercase; }
 
+/* Video */
 .case__video { display: block; inline-size: 100%; border-radius: var(--r-md); overflow: hidden; margin-block: var(--sp-lg); background: #1a1a1a; }
 .case__video-inner { padding-block-end: 56.25%; position: relative; }
 .case__video-inner::after { content: '▶'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: rgba(255,255,255,0.28); }
 
+/* Cards */
 .case__cards { display: grid; grid-template-columns: 1fr; gap: var(--sp-md); margin-block: var(--sp-lg); }
 .case__card  { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-md); padding: var(--sp-md); display: flex; flex-direction: column; gap: var(--sp-xs); }
 .case__card-label { font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-accent); }
@@ -443,8 +541,9 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .case__divider    { border: none; border-block-start: 1px solid var(--clr-border); margin-block: var(--sp-xl); }
 .case__reflection { background: var(--clr-surface); border-radius: var(--r-md); padding: var(--sp-lg); border: 1px solid var(--clr-border); }
 
-/* ── ABOUT ──────────────────────────────────────────────────── */
-/* About pages use .wrap for inline padding like index */
+/* ══════════════════════════════════════════════════════════════
+   ABOUT
+   ══════════════════════════════════════════════════════════════ */
 .about__hero  { padding-block: var(--sp-2xl) var(--sp-xl); border-block-end: 1px solid var(--clr-border); margin-block-end: var(--sp-xl); }
 .about__title { font-size: var(--fs-xl); font-weight: var(--fw-bold); line-height: 1.1; letter-spacing: -0.025em; margin-block-end: var(--sp-lg); }
 .about__body  { display: flex; flex-direction: column; gap: var(--sp-2xl); }
@@ -462,68 +561,55 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
 .about__exp-role { font-size: var(--fs-sm); color: var(--clr-muted); grid-column: 1; }
 .about__exp-year { font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: 0.05em; text-transform: uppercase; color: var(--clr-muted); text-align: end; grid-column: 2; grid-row: 1 / 3; align-self: start; }
 
-/* Photo grid section (bottom of about) */
 .about__photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: var(--sp-sm);
   margin-block-start: var(--sp-lg);
 }
-.about__photo-item {
-  border-radius: var(--r-md);
-  overflow: hidden;
-  position: relative;
-}
-.about__photo-item-inner {
-  position: relative;
-  padding-block-end: 100%;
-}
-.about__photo-item-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: linear-gradient(135deg, #e4e2de, #d0ceca);
-}
-.about__photo-item-placeholder {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #e4e2de, #d0ceca);
-}
-/* Taller item */
+.about__photo-item { border-radius: var(--r-md); overflow: hidden; position: relative; }
+.about__photo-item-inner { position: relative; padding-block-end: 100%; }
+.about__photo-item-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: linear-gradient(135deg, #e4e2de, #d0ceca); }
+.about__photo-item-placeholder { position: absolute; inset: 0; background: linear-gradient(135deg, #e4e2de, #d0ceca); }
 .about__photo-item--tall .about__photo-item-inner { padding-block-end: 140%; }
-/* Wide item spanning 2 cols */
 .about__photo-item--wide { grid-column: span 2; }
 .about__photo-item--wide .about__photo-item-inner { padding-block-end: 50%; }
 
-/* ── EXPLORATIONS ────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   EXPLORATIONS
+   ══════════════════════════════════════════════════════════════ */
 .expl__hero  { padding-block: var(--sp-xl) var(--sp-lg); border-block-end: 1px solid var(--clr-border); margin-block-end: var(--sp-xl); }
 .expl__title { font-size: var(--fs-xl); font-weight: var(--fw-bold); letter-spacing: -0.02em; line-height: 1.1; margin-block-end: var(--sp-sm); }
 .expl__sub   { font-size: var(--fs-sm); color: var(--clr-muted); max-inline-size: 46ch; line-height: 1.65; }
-.expl-card__thumb { padding-block-end: 72%; }
-.expl-card__img--01 { background: linear-gradient(135deg, #f5c6b0, #d97757); }
-.expl-card__img--02 { background: linear-gradient(135deg, #b0c4f5, #5a6fdf); }
-.expl-card__img--03 { background: linear-gradient(135deg, #b8f5c6, #3faf6d); }
-.expl-card__img--04 { background: linear-gradient(135deg, #f5edb0, #c4a020); }
-.expl-card__img--05 { background: linear-gradient(135deg, #e8d0f5, #9a5fdf); }
-.expl-card__img--06 { background: linear-gradient(135deg, #d0e8f5, #3a8fc4); }
+
+/* Explorations card thumbs — 16:9 */
+.expl-card__thumb { aspect-ratio: 16 / 9; padding-block-end: unset; }
+
+.expl-card__img--01 { background: linear-gradient(135deg, #f5c6b0, #d97757); position: absolute; inset: 0; }
+.expl-card__img--02 { background: linear-gradient(135deg, #b0c4f5, #5a6fdf); position: absolute; inset: 0; }
+.expl-card__img--03 { background: linear-gradient(135deg, #b8f5c6, #3faf6d); position: absolute; inset: 0; }
+.expl-card__img--04 { background: linear-gradient(135deg, #f5edb0, #c4a020); position: absolute; inset: 0; }
+.expl-card__img--05 { background: linear-gradient(135deg, #e8d0f5, #9a5fdf); position: absolute; inset: 0; }
+.expl-card__img--06 { background: linear-gradient(135deg, #d0e8f5, #3a8fc4); position: absolute; inset: 0; }
 
 /* ══════════════════════════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════════════════════════ */
 
 @media (width >= 640px) {
-  /* 2-col grid: hero title col 1, sub col 2; cards flow after */
-  .projects  { grid-template-columns: repeat(2, 1fr); }
-  /* hero title and sub each occupy one column in the first row */
-  .hero__title { padding-block-end: var(--sp-xl); align-self: end; }
-  .hero__sub   { padding-block-end: var(--sp-xl); align-self: end; }
+  /* Hero: 2-col */
+  .hero { grid-template-columns: repeat(2, 1fr); }
+  .hero__title { align-self: end; }
+  .hero__sub   { align-self: end; }
+
+  /* Projects: 2-col */
+  .projects { grid-template-columns: repeat(2, 1fr); }
+
   .case__cards { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
 }
 
 @media (width >= 770px) {
-  /* Show desktop nav, hide burger */
+  /* Desktop nav */
   .nav__links {
     display: flex;
     position: static;
@@ -544,45 +630,359 @@ button { cursor: pointer; border: 0; background: none; font: inherit; }
   }
   .nav__burger { display: none; }
 
-  /* Hide mobile back link, show back link inside TOC */
+  /* Hide mobile-only elements on desktop */
   .case__back--mobile { display: none; }
+  .case__toc-bar      { display: none; }
 
   /*
-    Case study layout (desktop): 2-col grid
-    - Left: sticky TOC
-    - Right: body constrained to --case-max and visually centered
-    This keeps the nav on the left and prevents overlap at all sizes.
+    Case study: 2-column grid — sidebar left, body right.
+    [--toc-col fixed] [body: fills remaining space, capped at --case-max]
+
+    The layout is LEFT-ANCHORED (not page-centered). The sidebar sits at
+    the page left, body starts immediately after it and grows right.
+    Any remaining space beyond the body's max-width is simply empty on the right.
+    This matches the reference site behavior exactly.
+
+    The overall grid is padded from the page edges via padding-inline on the wrapper,
+    but the grid itself is not centered — it just fills from left to right.
   */
   .case__content-grid {
     display: grid;
-    grid-template-columns: calc(var(--gutter) + var(--toc-w)) minmax(0, 1fr);
+    grid-template-columns: var(--toc-col) minmax(0, var(--case-max));
+    grid-template-areas: "toc body";
     align-items: start;
-    /* Extra breathing room between TOC + body to match reference spacing */
-    column-gap: calc(var(--sp-2xl) + var(--sp-md));
     padding-inline: 0;
+    padding-block-end: var(--sp-2xl);
   }
 
+  /*
+    Sidebar: fixed-width left column.
+    position: sticky + align-self: start is the core mechanic —
+    the sidebar only occupies content height so sticky has
+    a real anchor to work against as the tall body column scrolls.
+    Internal padding creates the visual gutter and gap to body.
+  */
   .case__toc {
+    grid-area: toc;
     display: flex;
     flex-direction: column;
-    inline-size: calc(var(--gutter) + var(--toc-w));
-    padding-inline-start: var(--gutter);
-    padding-inline-end: var(--sp-md);
-    padding-block-start: var(--sp-lg);
+    padding-inline-start: var(--gutter);  /* left page gutter */
+    padding-inline-end: var(--sp-xl);     /* gap between list and body */
+    padding-block-start: var(--sp-xl);
     position: sticky;
-    top: var(--sp-lg);
+    top: var(--nav-h);
     align-self: start;
-    max-block-size: calc(100vh - var(--sp-lg) * 2);
+    max-block-size: calc(100vh - var(--nav-h) - var(--sp-lg));
     overflow-y: auto;
   }
 
+  /*
+    Body: right column, fills remaining space up to --case-max.
+    Reset the mobile gutter padding — the grid column handles left separation.
+    Right padding keeps text from hitting the viewport edge on narrow desktops.
+  */
   .case__body {
-    inline-size: min(100%, var(--case-max));
-    justify-self: center;
-    margin-inline: auto;
-    padding-inline: 0;
+    grid-area: body;
+    width: 100%;
+    min-width: 0;
+    padding-inline-start: 0;
+    padding-inline-end: var(--gutter);
+  }
+
+  /* Hero top aligns with TOC list top */
+  .case__hero {
+    padding-block-start: var(--sp-xl);
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   CASE STUDY COMPONENT ADDITIONS
+   Shared by Acuity and Smart Bundles.
+   All colours use design tokens — no raw rgba() dark-mode values.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── TOC inner wrapper (no visual effect needed — just flow) ── */
+.case__toc-inner { display: flex; flex-direction: column; }
+
+/* ── Callout block ──────────────────────────────────────────── */
+/*
+  Base: left-border highlight box.
+  Modifiers override border colour and tint background.
+*/
+.case__callout {
+  border: 1px solid var(--clr-border);
+  border-inline-start: 3px solid var(--clr-accent);
+  border-radius: var(--r-md);
+  background: var(--clr-surface);
+  padding: var(--sp-md) var(--sp-lg);
+  margin-block: var(--sp-lg);
+}
+.case__callout-label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-block-end: var(--sp-xs);
+}
+.case__callout-text {
+  font-size: var(--fs-sm);
+  color: var(--clr-muted);
+  line-height: 1.75;
+}
+/* --signal: accent tint (used for "what I'm optimising for") */
+.case__callout--signal {
+  border-inline-start-color: var(--clr-accent);
+  background: color-mix(in srgb, var(--clr-accent) 6%, var(--clr-surface));
+}
+/* --decision: same accent (replaces broken #6f7dff / rgba ghost) */
+.case__callout--decision {
+  border-inline-start-color: var(--clr-accent);
+  background: color-mix(in srgb, var(--clr-accent) 5%, var(--clr-surface));
+}
+/* --system: neutral text-colour border, very light surface tint */
+.case__callout--system {
+  border-inline-start-color: var(--clr-text);
+  background: color-mix(in srgb, var(--clr-text) 3%, var(--clr-surface));
+}
+
+/* ── Inline emphasis span ───────────────────────────────────── */
+.case__em {
+  font-weight: var(--fw-semi);
+  color: var(--clr-accent);
+}
+
+/* ── Figure caption ─────────────────────────────────────────── */
+.case__figcap {
+  font-size: var(--fs-xs);
+  color: var(--clr-muted-lt);
+  line-height: 1.6;
+  margin-block-start: var(--sp-xs);
+  font-style: italic;
+}
+
+/* ── 2-col split (equal columns, wraps on mobile) ───────────── */
+.case__split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-lg);
+  margin-block: var(--sp-lg);
+}
+@media (width >= 640px) {
+  .case__split { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Decision block ─────────────────────────────────────────── */
+.case__decision {
+  border-block-start: 1px solid var(--clr-border);
+  padding-block: var(--sp-xl);
+}
+.case__decision:last-of-type {
+  border-block-end: 1px solid var(--clr-border);
+}
+.case__decision-head {
+  margin-block-end: var(--sp-md);
+}
+.case__decision-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+/* Mini 2-col evidence/consequence grid inside a decision */
+.case__decision-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-md);
+}
+@media (width >= 640px) {
+  .case__decision-grid { grid-template-columns: 1fr 1fr; }
+}
+.case__mini {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-md);
+}
+.case__mini-label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-block-end: var(--sp-xs);
+}
+.case__mini-text {
+  font-size: var(--fs-sm);
+  color: var(--clr-muted);
+  line-height: 1.65;
+}
+
+/* ── Bulleted list inside case body ─────────────────────────── */
+.case__list {
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: var(--clr-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin-block: var(--sp-sm);
+}
+
+/* ── Appendix accordion ─────────────────────────────────────── */
+.case__appendix { display: flex; flex-direction: column; gap: var(--sp-sm); margin-block: var(--sp-lg); }
+.case__details {
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  background: var(--clr-surface);
+  overflow: hidden;
+}
+.case__summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--sp-sm) var(--sp-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  color: var(--clr-text);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  transition: color var(--t-fast) var(--ease);
+}
+.case__summary:hover { color: var(--clr-accent); }
+.case__summary::-webkit-details-marker { display: none; }
+.case__summary::after { content: "+"; margin-inline-start: auto; color: var(--clr-muted-lt); }
+.case__details[open] .case__summary::after { content: "–"; }
+.case__details-body { padding: 0 var(--sp-md) var(--sp-md); border-block-start: 1px solid var(--clr-border); }
+
+/* ── Code block (appendix) ──────────────────────────────────── */
+.case__code {
+  margin-block: var(--sp-sm);
+  border-radius: var(--r-md);
+  background: #1e1e1e;           /* dark surface for code only */
+  border: 1px solid var(--clr-border);
+  overflow: auto;
+}
+.case__code pre { padding: var(--sp-sm) var(--sp-md); font-size: 0.82rem; line-height: 1.55; }
+.case__code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #d4d4d4;
+}
+
+/* ── Impact grid ────────────────────────────────────────────── */
+.case__impact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  margin-block: var(--sp-lg);
+}
+.impact {
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-md);
+  background: var(--clr-surface);
+}
+.impact__title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semi);
+  margin-block-end: var(--sp-xs);
+  color: var(--clr-text);
+}
+.impact__list {
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--clr-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+/* ── Flow layout ────────────────────────────────────────────── */
+/*
+  Acuity:        .flow > .flow__media + .flow__copy   (direct children)
+  Smart Bundles: .flow__grid > figure.flow__media + div.flow__copy  (no .flow wrapper)
+
+  .flow        — Acuity only: block spacer between flow rows, becomes 2-col at desktop
+  .flow__grid  — Smart Bundles only: the 2-col layout grid, never nested inside .flow
+  Both share .flow__media, .flow__copy, .flow__phone/.flow__device
+*/
+.case__flows { margin-block: var(--sp-lg); }
+
+/* Acuity: .flow is both spacer and (on desktop) the layout grid */
+.flow {
+  display: block;
+  margin-block: var(--sp-xl);
+}
+
+/* Smart Bundles: .flow__grid is the layout container — always direct in .case__body */
+.flow__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-lg);
+  align-items: start;
+  margin-block: var(--sp-xl);
+}
+.flow__grid > * { min-width: 0; }
+
+/* Shared: left column */
+.flow__media { display: flex; flex-direction: column; gap: var(--sp-xs); }
+.flow__phone,
+.flow__device {
+  inline-size: min(22rem, 100%);
+  aspect-ratio: 9 / 19;
+  border-radius: 1.5rem;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface);
+  position: relative;
+  overflow: hidden;
+}
+.flow__device-screen { position: absolute; inset: 0; }
+.flow__video { inline-size: 100%; block-size: 100%; object-fit: cover; display: block; }
+
+/* Shared: right column */
+.flow__copy  { min-width: 0; }
+.flow__title { font-size: var(--fs-md); font-weight: var(--fw-semi); color: var(--clr-text); margin-block-end: 0.35rem; }
+.flow__text  { font-size: var(--fs-sm); color: var(--clr-muted); line-height: 1.65; }
+.flow__bullets {
+  margin: var(--sp-sm) 0 0;
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--clr-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+.case__video-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+@media (width >= 770px) {
+  .case__impact-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Acuity: .flow becomes the 2-col grid (.flow__media + .flow__copy are direct children) */
+  .flow {
+    display: grid;
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    gap: var(--sp-xl);
+    align-items: center;
+  }
+
+  /* Smart Bundles: .flow__grid becomes 2-col (no .flow parent to conflict with) */
+  .flow__grid {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    gap: var(--sp-xl);
+    align-items: center;
+  }
+
+  .flow__copy { padding-inline-start: var(--sp-md); }
+}
+
+
 
 /* ── ANIMATIONS ─────────────────────────────────────────────── */
 @keyframes fadeUp {
