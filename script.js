@@ -37,7 +37,34 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   }
 
-  /* ── Scroll-reveal cards ─────────────────────────────────── */
+  /* ── Hide nav on scroll down, reveal on scroll up ───────── */
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+          // Always show nav when near the top
+          if (currentY < 60) {
+            nav.classList.remove('is-hidden');
+          } else if (currentY > lastY) {
+            // Scrolling down — hide
+            nav.classList.add('is-hidden');
+          } else {
+            // Scrolling up — show
+            nav.classList.remove('is-hidden');
+          }
+          lastY = currentY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
   const cards = document.querySelectorAll('.project-card');
   if (cards.length) {
     if ('IntersectionObserver' in window) {
@@ -113,5 +140,139 @@
 
     sections.forEach(s => io2.observe(s));
   }
+
+  /* ── Flow video: autoplay on viewport entry + custom controls ── */
+  document.querySelectorAll('.flow__device').forEach(device => {
+    const video    = device.querySelector('.flow__video');
+    const pauseBtn = device.querySelector('.flow__btn--pause');
+    const replayBtn = device.querySelector('.flow__btn--replay');
+    if (!video) return;
+
+    /* Play when ≥40% of the device is visible; pause when it leaves */
+    const ioVid = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+          if (pauseBtn) pauseBtn.classList.add('is-playing');
+        } else {
+          video.pause();
+          if (pauseBtn) pauseBtn.classList.remove('is-playing');
+        }
+      });
+    }, { threshold: 0.4 });
+    ioVid.observe(device);
+
+    /* Pause / play toggle */
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          pauseBtn.classList.add('is-playing');
+        } else {
+          video.pause();
+          pauseBtn.classList.remove('is-playing');
+        }
+      });
+    }
+
+    /* Replay from start */
+    if (replayBtn) {
+      replayBtn.addEventListener('click', () => {
+        video.currentTime = 0;
+        video.play();
+        if (pauseBtn) pauseBtn.classList.add('is-playing');
+      });
+    }
+
+    /* Volume button + slider */
+    const volBtn    = device.querySelector('.flow__btn--volume');
+    const volSlider = device.querySelector('.flow__volume-slider');
+    if (volBtn && volSlider) {
+      /* Range is 0→1 left-to-right, but rotated -90deg so:
+         visually "up" = right = high value. No inversion needed. */
+      volSlider.addEventListener('input', () => {
+        const val = parseFloat(volSlider.value);
+        video.volume = val;
+        video.muted  = val === 0;
+        volBtn.classList.toggle('is-muted', video.muted);
+      });
+      /* Click button → toggle mute, sync slider */
+      volBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        volBtn.classList.toggle('is-muted', video.muted);
+        if (!video.muted && video.volume === 0) video.volume = 1;
+        volSlider.value = video.muted ? 0 : video.volume;
+      });
+    }
+
+    /* When video ends naturally, flip button back to play */
+    video.addEventListener('ended', () => {
+      if (pauseBtn) pauseBtn.classList.remove('is-playing');
+    });
+  });
+
+  /* ── Image zoom: magnify button + lightbox ───────────────── */
+  (function () {
+    /* Build the shared modal once */
+    const modal = document.createElement('div');
+    modal.className = 'zoom-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Image viewer');
+    modal.innerHTML = `
+      <div class="zoom-modal__inner">
+        <img class="zoom-modal__img" src="" alt="" />
+        <button class="zoom-modal__close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const modalImg   = modal.querySelector('.zoom-modal__img');
+    const closeBtn   = modal.querySelector('.zoom-modal__close');
+
+    function openModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || '';
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* Magnify SVG */
+    const zoomSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>`;
+
+    /* Wrap every img.case__frame in .img-zoom-wrap and inject button */
+    document.querySelectorAll('img.case__frame').forEach(img => {
+      /* Skip if already wrapped */
+      if (img.parentElement.classList.contains('img-zoom-wrap')) return;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'img-zoom-wrap';
+
+      /* Carry over the figure's border/outline via the wrap inheriting display */
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+
+      const btn = document.createElement('button');
+      btn.className = 'img-zoom-btn';
+      btn.setAttribute('aria-label', 'View full size');
+      btn.innerHTML = zoomSVG;
+      wrap.appendChild(btn);
+
+      btn.addEventListener('click', () => openModal(img.src, img.alt));
+    });
+  })();
 
 })();

@@ -1,152 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sooim Kang | Systems Designer</title>
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sooim Kang | Systems Designer</title>
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="nav">
-    <a href="index.html" class="nav__logo">Sooim Kang</a>
-    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-    <nav class="nav__links" id="nav-menu">
-      <a href="index.html"        class="nav__link nav__link--active">Work</a>
-      <a href="explorations.html" class="nav__link">Explorations</a>
-      <a href="about.html"        class="nav__link">About</a>
-      <a href="resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
+	<header class="nav">
+		<a href="index.html" class="nav__logo">Sooim Kang</a>
+		<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+			<span></span><span></span>
+		</button>
+		<nav class="nav__links" id="nav-menu">
+			<a href="index.html"        class="nav__link nav__link--active">Work</a>
+			<a href="explorations.html" class="nav__link">Explorations</a>
+			<a href="about.html"        class="nav__link">About</a>
+			<a href="Sooim-Kang-Resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+		</nav>
+	</header>
 
-  <div class="page-offset">
-    <main>
+	<div class="page-offset">
+		<main>
 
-      <div class="home-shell">
+			<div class="home-shell">
 
-        <!-- Hero — aligned to same grid rhythm as project cards -->
-        <div class="hero anim-1">
-          <h1 class="hero__title">Hi, there! I'm Sooim Kang.</h1>
-          <p class="hero__sub anim-2">
-            <span class="hero__role">Systems designer</span> — framing problems,
-            defining constraints, and directing AI-native product ecosystems
-            from signal to decision.
-          </p>
-        </div>
+				<div class="hero anim-1">
+					<h1 class="hero__title">Hi, there!<br>I'm Sooim Kang.</h1>
+					<p class="hero__sub anim-2">
+						<span class="hero__role">Systems designer</span> — framing problems,
+						defining constraints, and directing AI-native product ecosystems
+						from signal to decision.
+					</p>
+				</div>
 
-        <!-- Project grid -->
-        <section class="projects" aria-label="Work">
+				<section class="projects" aria-label="Work">
 
+					<article class="project-card" data-href="instagram-lists.html">
+						<a href="instagram-lists.html" class="project-card__thumb" aria-label="Instagram Lists">
+							<video
+								class="project-card__media"
+								src="covers/instagram-cover-video.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Restructuring the Feed Around Relationship Contexts</h2>
+							</div>
+							<p class="project-card__tag">2025 · Instagram</p>
+						</div>
+					</article>
 
-            <!-- Acuity -->
-          <article class="project-card" data-href="acuity.html">
-            <a href="acuity.html" class="project-card__thumb" aria-label="Acuity">
-              <video
-                class="project-card__media"
-                src="covers/acuity.mp4"
-                autoplay loop muted playsinline preload="auto"
-              ></video>
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">Acuity</h2>
-                <p class="project-card__tag">2026 · Hackathon</p>
-              </div>
-                <p class="project-card__desc">A predictive health intelligence system that converts subtle physiological baseline shifts into tiered, signal-to-action interventions.</p>            </div>
-          </article>
+					<article class="project-card" data-href="smart-bundles.html">
+						<a href="smart-bundles.html" class="project-card__thumb" aria-label="Smart Bundles">
+							<video
+								class="project-card__media"
+								src="covers/smart-bundles-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>						
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Shifting Grocery Systems from Purchase to Consumption</h2>
+							</div>
+							<p class="project-card__tag">2026 · Amazon Fresh</p>
+						</div>
+					</article>
 
-          <!-- Instagram Lists -->
-          <article class="project-card" data-href="instagram-lists.html">
-            <a href="instagram-lists.html" class="project-card__thumb" aria-label="Instagram Lists">
-              <video
-                class="project-card__media"
-                src="covers/instagramLists.mp4"
-                autoplay loop muted playsinline preload="auto"
-              ></video>
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">Instagram Lists</h2>
-                <p class="project-card__tag">2025 · Add a Feature</p>
-              </div>
-              <p class="project-card__desc">A content-exposure architecture that returns user agency over algorithmic feeds through intentional grouping and selective reach.</p>
-            </div>
-          </article>
+					<article class="project-card" data-href="acuity.html">
+						<a href="acuity.html" class="project-card__thumb" aria-label="Acuity">
+							<video
+								class="project-card__media"
+								src="covers/acuity.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Translating Biometric Uncertainty into Actionable Care</h2>
+							</div>
+							<p class="project-card__tag">2026 · Acuity</p>
+						</div>
+					</article>
 
-          <!-- Smart Bundles -->
-          <article class="project-card" data-href="smart-bundles.html">
-            <a href="smart-bundles.html" class="project-card__thumb" aria-label="Smart Bundles">
-              <img class="project-card__media" src="covers/smartBundles.png" alt="Smart Bundles project cover" />
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">Smart Bundles</h2>
-                <p class="project-card__tag">2026 · Design Challenge</p>
-              </div>
-              <p class="project-card__desc">A predictive retail decision system that embeds adaptive behavioral defaults into the grocery cart to reduce household food waste at scale.</p>
-            </div>
-          </article>
+					<article class="project-card" data-href="forage.html">
+						<a href="forage.html" class="project-card__thumb" aria-label="Forage">
+							<img class="project-card__media" src="covers/forage.png" alt="Forage project cover" loading="lazy" />
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Turning real-world inspiration into reusable design systems</h2>
+							</div>
+							<p class="project-card__tag">2026 · Forage</p>
+						</div>
+					</article>
 
-          <!-- neuk -->
-          <article class="project-card" data-href="neuk.html">
-            <a href="neuk.html" class="project-card__thumb" aria-label="neuk">
-              <img class="project-card__media" src="covers/neuk.png" alt="neuk project cover" />
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">neuk</h2>
-                <p class="project-card__tag">2026 · Product Design</p>
-              </div>
-              <p class="project-card__desc">A synchronous digital-presence infrastructure that operationalizes shared media rituals through bookable environments and integrated social planning.</p>
-            </div>
-          </article>
+					<article class="project-card" data-href="neuk.html">
+						<a href="neuk.html" class="project-card__thumb" aria-label="neuk">
+							<img class="project-card__media" src="covers/neuk.png" alt="neuk project cover" />
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Designing Social Infrastructure Around Streaming</h2>
+							</div>
+							<p class="project-card__tag">2026 · neuk</p>
+						</div>
+					</article>
 
-          <!-- FigBuild — WIP -->
-          <article class="project-card" data-href="figbuild.html">
-            <a href="figbuild.html" class="project-card__thumb" aria-label="FigBuild TBD">
-              <div class="project-card__img project-card__img--checker"></div>
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">FigBuild</h2>
-                <p class="project-card__tag">2026 · FigBuild</p>
-              </div>
-              <p class="project-card__desc project-card__desc--wip">WIP — design-to-build intent layer inside Figma</p>
-            </div>
-          </article>
+					<article class="project-card" data-href="capstone.html">
+						<a href="capstone.html" class="project-card__thumb" aria-label="Capstone TBD">
+							<div class="project-card__img project-card__img--checker"></div>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Capstone</h2>
+							</div>
+							<p class="project-card__tag">2026 · HBD Cards</p>
+						</div>
+					</article>
 
-          <!-- Capstone — WIP -->
-          <article class="project-card" data-href="capstone.html">
-            <a href="capstone.html" class="project-card__thumb" aria-label="Capstone TBD">
-              <div class="project-card__img project-card__img--checker"></div>
-            </a>
-            <div class="project-card__meta">
-              <div class="project-card__info">
-                <h2 class="project-card__name">Capstone</h2>
-                <p class="project-card__tag">2026 · Product Design</p>
-              </div>
-              <p class="project-card__desc project-card__desc--wip">WIP — civic information access, in progress</p>
-            </div>
-          </article>
+				</section>
+			</div>
 
-        </section>
-      </div><!-- /.home-shell -->
+		</main>
 
-    </main>
+		<footer class="footer">
+			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
+			<p class="footer__time" id="local-time"></p>
+			<nav class="footer__links" aria-label="Social links">
+				<a href="#" class="footer__link">LinkedIn</a>
+				<a href="#" class="footer__link">Email</a>
+				<a href="#" class="footer__link">GitHub</a>
+			</nav>
+		</footer>
+	</div>
 
-    <footer class="footer">
-      <p class="footer__copy">© 2026 · Built with care by Sooim</p>
-      <p class="footer__time" id="local-time"></p>
-      <nav class="footer__links" aria-label="Social links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Email</a>
-        <a href="#" class="footer__link">GitHub</a>
-      </nav>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
