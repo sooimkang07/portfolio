@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forage · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
 </head>
 <body class="page--project">
 
@@ -25,10 +26,10 @@
 
     <nav class="case__toc-bar" aria-label="Page sections">
       <a href="#overview" class="case__toc-bar-link">Overview</a>
+      <a href="#flows" class="case__toc-bar-link">Core Flows</a>
       <a href="#problem" class="case__toc-bar-link">Problem</a>
       <a href="#system" class="case__toc-bar-link">System</a>
       <a href="#decisions" class="case__toc-bar-link">Decisions</a>
-      <a href="#flows" class="case__toc-bar-link">Core Flows</a>
       <a href="#impact" class="case__toc-bar-link">Impact</a>
       <a href="#reflection" class="case__toc-bar-link">Reflection</a>
     </nav>
@@ -40,10 +41,10 @@
         <div class="case__toc-inner">
           <ul class="case__toc-list">
             <li><a href="#overview" class="case__toc-link">Overview</a></li>
+            <li><a href="#flows" class="case__toc-link">Core Flows</a></li>
             <li><a href="#problem" class="case__toc-link">Problem</a></li>
             <li><a href="#system" class="case__toc-link">System</a></li>
             <li><a href="#decisions" class="case__toc-link">Product Decisions</a></li>
-            <li><a href="#flows" class="case__toc-link">Core Flows</a></li>
             <li><a href="#impact" class="case__toc-link">Impact</a></li>
             <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
           </ul>
@@ -109,37 +110,123 @@
 
         </section>
 
-        <section id="problem">
-          <p class="case__section-label">Problem</p>
-          <h2 class="case__h2">The actual problem is not “designers need inspiration.” It is that inspiration is high-signal but low-retention.</h2>
-          <p class="case__p">
+        <section id=”flows”>
+          <p class=”case__section-label”>Core Flows</p>
+          <h2 class=”case__h2”>The strongest story is not capture alone. It is capture → interpretation → retrieval → reuse.</h2>
+
+          <div class=”flow__grid”>
+            <figure class=”flow__media”>
+              <div class=”case__img”>
+                <div class=”case__img-inner” style=”background: linear-gradient(135deg, #ece7e0 0%, #d4c6b8 100%);”>
+                  <span class=”case__img-label”>Use one of the ring mockup slides or 3D renders here</span>
+                </div>
+              </div>
+              <figcaption class=”case__figcap”>Best asset here: the cleanest 3D ring render with no busy background.</figcaption>
+            </figure>
+            <div class=”flow__copy”>
+              <h3 class=”flow__title”>1. Capture in context</h3>
+              <p class=”flow__text”>The user notices a design-relevant moment in the real world and saves it with a minimal ring interaction. The value proposition is speed and low disruption.</p>
+              <ul class=”flow__bullets”>
+                <li>Supports spontaneous capture outside a desk-based workflow.</li>
+                <li>Makes the product feel ambient rather than app-dependent.</li>
+                <li>Positions the device as input hardware for a larger system.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=”flow__grid”>
+            <figure class=”flow__media”>
+              <div class=”case__img”>
+                <div class=”case__img-inner” style=”background: linear-gradient(135deg, #ede9e3 0%, #c8bcaf 100%);”>
+                  <span class=”case__img-label”>Use the slide or UI showing asset-type processing and categorization</span>
+                </div>
+              </div>
+              <figcaption class=”case__figcap”>Show the translation step clearly. Reviewers need to see how raw input becomes a design object.</figcaption>
+            </figure>
+            <div class=”flow__copy”>
+              <h3 class=”flow__title”>2. AI translates the moment into a usable design object</h3>
+              <p class=”flow__text”>The system classifies the capture and generates metadata or extracted output depending on the asset type. This is where Forage becomes more than a storage product.</p>
+              <ul class=”flow__bullets”>
+                <li>Image captures become categorized references.</li>
+                <li>Color captures become reusable palettes.</li>
+                <li>Typography captures are grouped by type characteristics.</li>
+                <li>Motion captures become animation references instead of generic video clips.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=”flow__grid”>
+            <figure class=”flow__media”>
+              <div class=”case__img”>
+                <div class=”case__img-inner” style=”background: linear-gradient(135deg, #ece8e2 0%, #c9bfb4 100%);”>
+                  <span class=”case__img-label”>Use the main web app browse page from the live site</span>
+                </div>
+              </div>
+              <figcaption class=”case__figcap”>This is likely your second most important visual after the system diagram.</figcaption>
+            </figure>
+            <div class=”flow__copy”>
+              <h3 class=”flow__title”>3. Browse and retrieve</h3>
+              <p class=”flow__text”>The web app functions like a personal inspiration channel. Users can scan by recency, filter by file type, and inspect captures in more detail.</p>
+              <ul class=”flow__bullets”>
+                <li>Transforms scattered captures into a structured design library.</li>
+                <li>Makes retrieval a first-class product behavior.</li>
+                <li>Creates room for AI-generated clustering over time.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=”flow__grid”>
+            <figure class=”flow__media”>
+              <div class=”case__img”>
+                <div class=”case__img-inner” style=”background: linear-gradient(135deg, #efe9e1 0%, #d0c2b4 100%);”>
+                  <span class=”case__img-label”>Create one new visual showing a captured asset reused in an actual design workflow</span>
+                </div>
+              </div>
+              <figcaption class=”case__figcap”>This is the one new visual I would add. It turns the product from “interesting” into “strategically complete.”</figcaption>
+            </figure>
+            <div class=”flow__copy”>
+              <h3 class=”flow__title”>4. Reuse inside creative work</h3>
+              <p class=”flow__text”>This final step is currently under-explained in most speculative design portfolios. Show a brand board, motion frame, or interface concept that directly references a captured asset from Forage.</p>
+              <ul class=”flow__bullets”>
+                <li>Proves the product creates downstream value.</li>
+                <li>Shows that retrieval quality matters because reuse exists.</li>
+                <li>Strengthens the end-to-end workflow story for product reviewers.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id=”problem”>
+          <p class=”case__section-label”>Problem</p>
+          <h2 class=”case__h2”>The actual problem is not “designers need inspiration.” It is that inspiration is high-signal but low-retention.</h2>
+          <p class=”case__p”>
             Designers already collect references. The breakdown happens earlier and later in the workflow: the best inputs appear in motion, in public space, in passing typography, in lighting, in materials, in moments that are hard to pause and manually process. And once captured, those fragments are usually stored as generic photos or notes with weak retrieval later.
           </p>
-          <p class="case__p">
-            Forage addresses a more specific failure mode: <span class="case__em">the gap between noticing and reuse</span>. That is a more defensible product opportunity than “an app for inspiration.”
+          <p class=”case__p”>
+            Forage addresses a more specific failure mode: <span class=”case__em”>the gap between noticing and reuse</span>. That is a more defensible product opportunity than “an app for inspiration.”
           </p>
 
-                    <h3 class="case__h3">Where current tools break</h3>
-          <p class="case__p">Capture is too manual for fleeting moments.</p>
-          <p class="case__p">Stored inputs are often raw files, not design-ready assets.</p>
-          <p class="case__p">Retrieval is weak because libraries are organized by file, not intent.</p>
-          <p class="case__p">The designer must do the translation work later from memory.</p>
-          <h3 class="case__h3">Why this matters strategically</h3>
-          <p class="case__p">The product sits at the top of the creative workflow, where ideas first enter the system.</p>
-          <p class="case__p">It creates repeat engagement through capture, curation, and later reuse.</p>
-          <p class="case__p">It has extensibility into personal knowledge management, moodboarding, and design tooling.</p>
+                    <h3 class=”case__h3”>Where current tools break</h3>
+          <p class=”case__p”>Capture is too manual for fleeting moments.</p>
+          <p class=”case__p”>Stored inputs are often raw files, not design-ready assets.</p>
+          <p class=”case__p”>Retrieval is weak because libraries are organized by file, not intent.</p>
+          <p class=”case__p”>The designer must do the translation work later from memory.</p>
+          <h3 class=”case__h3”>Why this matters strategically</h3>
+          <p class=”case__p”>The product sits at the top of the creative workflow, where ideas first enter the system.</p>
+          <p class=”case__p”>It creates repeat engagement through capture, curation, and later reuse.</p>
+          <p class=”case__p”>It has extensibility into personal knowledge management, moodboarding, and design tooling.</p>
 
-          <figure class="case__figure">
-            <div class="case__img">
-              <div class="case__img-inner case__img-inner--short" style="background: linear-gradient(135deg, #ebe7e0 0%, #c9beb2 100%);">
-                <span class="case__img-label">Problem framing visual — use the slide that contrasts fleeting real-world inspiration with fragmented current tools</span>
+          <figure class=”case__figure”>
+            <div class=”case__img”>
+              <div class=”case__img-inner case__img-inner--short” style=”background: linear-gradient(135deg, #ebe7e0 0%, #c9beb2 100%);”>
+                <span class=”case__img-label”>Problem framing visual — use the slide that contrasts fleeting real-world inspiration with fragmented current tools</span>
               </div>
             </div>
-            <figcaption class="case__figcap">If that slide does not yet exist, make one. A simple left/right contrast will do more for product clarity than another mockup.</figcaption>
+            <figcaption class=”case__figcap”>If that slide does not yet exist, make one. A simple left/right contrast will do more for product clarity than another mockup.</figcaption>
           </figure>
         </section>
 
-        <section id="system">
+        <section id=”system”>
           <p class="case__section-label">System</p>
           <h2 class="case__h2">Forage works because it is a pipeline, not a feature.</h2>
 
@@ -200,93 +287,7 @@
 
         </section>
 
-        <section id="flows">
-          <p class="case__section-label">Core Flows</p>
-          <h2 class="case__h2">The strongest story is not capture alone. It is capture → interpretation → retrieval → reuse.</h2>
-
-          <div class="flow__grid">
-            <figure class="flow__media">
-              <div class="case__img">
-                <div class="case__img-inner" style="background: linear-gradient(135deg, #ece7e0 0%, #d4c6b8 100%);">
-                  <span class="case__img-label">Use one of the ring mockup slides or 3D renders here</span>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Best asset here: the cleanest 3D ring render with no busy background.</figcaption>
-            </figure>
-            <div class="flow__copy">
-              <h3 class="flow__title">1. Capture in context</h3>
-              <p class="flow__text">The user notices a design-relevant moment in the real world and saves it with a minimal ring interaction. The value proposition is speed and low disruption.</p>
-              <ul class="flow__bullets">
-                <li>Supports spontaneous capture outside a desk-based workflow.</li>
-                <li>Makes the product feel ambient rather than app-dependent.</li>
-                <li>Positions the device as input hardware for a larger system.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flow__grid">
-            <figure class="flow__media">
-              <div class="case__img">
-                <div class="case__img-inner" style="background: linear-gradient(135deg, #ede9e3 0%, #c8bcaf 100%);">
-                  <span class="case__img-label">Use the slide or UI showing asset-type processing and categorization</span>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Show the translation step clearly. Reviewers need to see how raw input becomes a design object.</figcaption>
-            </figure>
-            <div class="flow__copy">
-              <h3 class="flow__title">2. AI translates the moment into a usable design object</h3>
-              <p class="flow__text">The system classifies the capture and generates metadata or extracted output depending on the asset type. This is where Forage becomes more than a storage product.</p>
-              <ul class="flow__bullets">
-                <li>Image captures become categorized references.</li>
-                <li>Color captures become reusable palettes.</li>
-                <li>Typography captures are grouped by type characteristics.</li>
-                <li>Motion captures become animation references instead of generic video clips.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flow__grid">
-            <figure class="flow__media">
-              <div class="case__img">
-                <div class="case__img-inner" style="background: linear-gradient(135deg, #ece8e2 0%, #c9bfb4 100%);">
-                  <span class="case__img-label">Use the main web app browse page from the live site</span>
-                </div>
-              </div>
-              <figcaption class="case__figcap">This is likely your second most important visual after the system diagram.</figcaption>
-            </figure>
-            <div class="flow__copy">
-              <h3 class="flow__title">3. Browse and retrieve</h3>
-              <p class="flow__text">The web app functions like a personal inspiration channel. Users can scan by recency, filter by file type, and inspect captures in more detail.</p>
-              <ul class="flow__bullets">
-                <li>Transforms scattered captures into a structured design library.</li>
-                <li>Makes retrieval a first-class product behavior.</li>
-                <li>Creates room for AI-generated clustering over time.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flow__grid">
-            <figure class="flow__media">
-              <div class="case__img">
-                <div class="case__img-inner" style="background: linear-gradient(135deg, #efe9e1 0%, #d0c2b4 100%);">
-                  <span class="case__img-label">Create one new visual showing a captured asset reused in an actual design workflow</span>
-                </div>
-              </div>
-              <figcaption class="case__figcap">This is the one new visual I would add. It turns the product from “interesting” into “strategically complete.”</figcaption>
-            </figure>
-            <div class="flow__copy">
-              <h3 class="flow__title">4. Reuse inside creative work</h3>
-              <p class="flow__text">This final step is currently under-explained in most speculative design portfolios. Show a brand board, motion frame, or interface concept that directly references a captured asset from Forage.</p>
-              <ul class="flow__bullets">
-                <li>Proves the product creates downstream value.</li>
-                <li>Shows that retrieval quality matters because reuse exists.</li>
-                <li>Strengthens the end-to-end workflow story for product reviewers.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="impact">
+        <section id=”impact”>
           <p class="case__section-label">Impact</p>
           <h2 class="case__h2">How to talk about outcomes when there are no shipped metrics yet</h2>
           <p class="case__p">

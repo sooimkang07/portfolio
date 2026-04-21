@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explorations · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
   <style>
     /* ── iframe cover ────────────────────────────────────────────
        Iframe is rendered at full 1920×1080px desktop width, then
@@ -51,13 +52,12 @@
     </nav>
   </header>
 
-  <div class="page-offset">
-    <main>
+  <main>
 
       <!-- HERO -->
       <section class="expl__hero anim-1">
-        <h1 class="expl__title">I lose sleep to side quests, design sprints, &amp; fun experiments.</h1>
-        <p class="expl__sub">Visual systems, interaction patterns, and the aesthetics of information — at the edge of my practice.</p>
+        <h1 class="expl__title">Side quests, design sprints, <br>&amp; things I had to try</h1>
+        <p class="expl__sub">Experiments in interaction, AI-native workflows, and systems thinking built to learn fast and test new directions</p>
       </section>
 
       <!-- MASONRY GRID -->
@@ -68,8 +68,10 @@
           <div class="expl-card__media expl-card__media--01">
             <video src="explorations-assets/build-a-bubu-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
           </div>
-          <p class="expl-card__title">Build-a-Bubu</p>
-          <p class="expl-card__tag">2026 · Vibe Coding</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Build-a-Bubu</p>
+            <p class="expl-card__tag">2026 · Vibe Coding</p>
+          </div>
         </a>
 
         <!-- col 1 row 2 · AMA — iframe -->
@@ -84,8 +86,10 @@
               aria-hidden="true"
             ></iframe>
           </div>
-          <p class="expl-card__title">AMA Website</p>
-          <p class="expl-card__tag">2025 · Web Design</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">AMA Website</p>
+            <p class="expl-card__tag">2025 · Web Design</p>
+          </div>
         </a>
 
         <!-- col 2 row 3 · ACR -->
@@ -93,8 +97,10 @@
           <div class="expl-card__media expl-card__media--05">
             <img src="explorations-assets/acr-cover.jpg" alt="Area Council Recruitment" />
           </div>
-          <p class="expl-card__title">Area Council Recruitment Campaign</p>
-          <p class="expl-card__tag">2021 · Campaign Brand Design</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Area Council Recruitment Campaign</p>
+            <p class="expl-card__tag">2021 · Campaign Brand Design</p>
+          </div>
         </a>
 
           <!-- col 2 row 1 · Nothing Good Happens After Midnight — iframe -->
@@ -109,8 +115,10 @@
               aria-hidden="true"
             ></iframe>
           </div>
-          <p class="expl-card__title">Nothing Good Happens After Midnight</p>
-          <p class="expl-card__tag">2026 · Hand-coded Site</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Nothing Good Happens After Midnight</p>
+            <p class="expl-card__tag">2026 · Hand-coded Site</p>
+          </div>
         </a>
 
         <!-- col 2 row 2 · Windows of Style — looping video -->
@@ -118,8 +126,10 @@
           <div class="expl-card__media expl-card__media--04">
             <video src="explorations-assets/windows-of-style-cover.mov" autoplay loop muted playsinline preload="auto"></video>
           </div>
-          <p class="expl-card__title">Windows of Style</p>
-          <p class="expl-card__tag">2025 · Hand-coded Site</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Windows of Style</p>
+            <p class="expl-card__tag">2025 · Hand-coded Site</p>
+          </div>
         </a>
 
         <!-- col 1 row 3 · Smart Dillo — image -->
@@ -127,8 +137,10 @@
           <div class="expl-card__media expl-card__media--05">
             <img src="explorations-assets/smart-dillo-cover.jpg" alt="Smart Dillo" />
           </div>
-          <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
-          <p class="expl-card__tag">2022 · Campaign Brand Design</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
+            <p class="expl-card__tag">2022 · Campaign Brand Design</p>
+          </div>
         </a>
 
         <!-- col 3 row 1-2 · What's a phone — looping video -->
@@ -136,24 +148,25 @@
           <div class="expl-card__media expl-card__media--02">
             <video src="explorations-assets/what-is-a-phone-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
           </div>
-          <p class="expl-card__title">What's a phone?</p>
-          <p class="expl-card__tag">2026 · Experimental Film</p>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">What's a phone?</p>
+            <p class="expl-card__tag">2026 · Experimental Film</p>
+          </div>
         </a>
 
       </div>
 
-    </main>
+  </main>
 
-    <footer class="footer">
-      <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
-      <p class="footer__time" id="local-time"></p>
-      <nav class="footer__links" aria-label="Social links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Email</a>
-        <a href="#" class="footer__link">GitHub</a>
-      </nav>
-    </footer>
-  </div>
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links" aria-label="Social links">
+      <a href="#" class="footer__link">LinkedIn</a>
+      <a href="#" class="footer__link">Email</a>
+      <a href="#" class="footer__link">GitHub</a>
+    </nav>
+  </footer>
 
   <script src="script.js"></script>
   <script>

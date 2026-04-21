@@ -5,350 +5,558 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>neuk · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* Tighter spacing between flow blocks */
+    #flows .case__flow-block + .case__flow-block { margin-block-start: var(--sp-xl); }
+
+    /* Enlarged flow grid — video first, wider column */
+    .flow__grid--full { grid-template-columns: 1fr !important; gap: var(--sp-lg) !important; }
+    .flow__grid--full .flow__copy { padding-inline-start: 0 !important; }
+    @media (width >= 770px) {
+      .flow__grid--full {
+        grid-template-columns: minmax(0, 28rem) minmax(0, 1fr) !important;
+        gap: var(--sp-md) !important;
+        align-items: end !important;
+      }
+      .flow__grid--full .flow__copy { padding-inline-start: var(--sp-md) !important; }
+    }
+
+    /* Flows 3 & 4: full-width side-by-side media, copy below */
+    #flow3 .flow__grid,
+    #flow4 .flow__grid {
+      grid-template-columns: 1fr !important;
+    }
+    @media (width >= 640px) {
+      #flow3 .flow__media,
+      #flow4 .flow__media {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--sp-sm);
+      }
+      #flow3 .flow__media > *,
+      #flow4 .flow__media > * {
+        flex: 1 1 0;
+        min-inline-size: 0;
+      }
+    }
+  </style>
 </head>
 <body class="page--project">
 
-<header class="nav">
-  <a href="index.html" class="nav__logo">Sooim Kang</a>
-  <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
-  <nav class="nav__links" id="nav-menu">
-    <a href="index.html" class="nav__link nav__link--active">Work</a>
-    <a href="explorations.html" class="nav__link">Explorations</a>
-    <a href="about.html" class="nav__link">About</a>
-    <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
-  </nav>
-</header>
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="index.html"        class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html"        class="nav__link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
 
-<main class="case-wrap">
+  <main class="case-wrap">
 
-<a href="index.html" class="case__back--mobile">Back</a>
+    <a href="index.html" class="case__back--mobile">Back</a>
 
-<nav class="case__toc-bar" aria-label="Page sections">
-  <a href="#overview" class="case__toc-bar-link">Overview</a>
-  <a href="#why-now" class="case__toc-bar-link">Why now</a>
-  <a href="#system" class="case__toc-bar-link">System</a>
-  <a href="#decisions" class="case__toc-bar-link">Decisions</a>
-  <a href="#flows" class="case__toc-bar-link">Flows</a>
-  <a href="#impact" class="case__toc-bar-link">Impact</a>
-</nav>
+    <!-- ── MOBILE TOC BAR ────────────────────────────────────── -->
+    <nav class="case__toc-bar" aria-label="Page sections">
+      <a href="#overview"   class="case__toc-bar-link">Overview</a>
+      <a href="#solution"   class="case__toc-bar-link">Solution</a>
+      <a href="#flows"      class="case__toc-bar-link">Core Flows</a>
+      <a href="#system"     class="case__toc-bar-link">System</a>
+      <a href="#research"   class="case__toc-bar-link">Research</a>
+      <a href="#decisions"  class="case__toc-bar-link">Decisions</a>
+      <a href="#impact"     class="case__toc-bar-link">Impact</a>
+      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
+    </nav>
 
-<div class="case__content-grid">
+    <div class="case__content-grid">
 
-<nav class="case__toc">
-  <a href="index.html" class="case__back">Back</a>
-  <div class="case__toc-inner">
-    <ul class="case__toc-list">
-      <li><a href="#overview" class="case__toc-link">Overview</a></li>
-      <li><a href="#why-now" class="case__toc-link">Why now</a></li>
-      <li><a href="#system" class="case__toc-link">System</a></li>
-      <li><a href="#decisions" class="case__toc-link">Decisions</a></li>
-      <li><a href="#flows" class="case__toc-link">Flows</a></li>
-      <li><a href="#impact" class="case__toc-link">Impact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="case__body">
-
-<header class="case__hero" id="overview">
-  <p class="case__label">neuk · 2026 · Product Design</p>
-  <h1 class="case__title">Infrastructure for shared media rituals</h1>
-
-   <figure class="case__hero-img">
-    Replace with: pod room hero image (use one of the cinematic pod room shots from Neuk Assets, preferably the wide room image with screen + seating).
-  </figure>
-
-  <div class="case__meta">
-    <div class="case__meta-item">
-      <span class="case__meta-label">Role</span>
-      <span class="case__meta-val">Lead Product Designer</span>
-    </div>
-    <div class="case__meta-item">
-      <span class="case__meta-label">Timeline</span>
-      <span class="case__meta-val">6 weeks</span>
-    </div>
-    <div class="case__meta-item">
-      <span class="case__meta-label">Scope</span>
-      <span class="case__meta-val">Product strategy · Service design · End-to-end mobile experience</span>
-    </div>
-    <div class="case__meta-item">
-      <span class="case__meta-label">Outcome</span>
-      <span class="case__meta-val">Defined a new category of bookable viewing environments connecting venue discovery, booking, room access, and in-session control.</span>
-    </div>
-  </div>
-
-            <h3 class="case__h3">At a glance</h3>
-          <h3 class="case__h3">Problem</h3>
-          <p class="case__p">Watching together is socially valuable, but the coordination overhead of finding a place, aligning schedules, and hosting often outweighs the experience itself.</p>
-          <h3 class="case__h3">Insight</h3>
-          <p class="case__p">This is not primarily a content problem. It is a coordination and environment problem.</p>
-          <h3 class="case__h3">Product</h3>
-          <p class="case__p">A platform for booking private watch rooms that integrates venue discovery, scheduling, QR-based room access, remote control, and in-session ordering.</p>
-          <h3 class="case__h3">Primary signal</h3>
-          <p class="case__p">Ability to define product direction across physical service infrastructure and digital product surfaces, not just execute UI.</p>
-  <p class="case__figcap">Hero visual: use the pod room environment image, not UI. The story starts with the physical experience Neuk makes possible.</p>
-</header>
-
-<section>
-  <p class="case__section-label">Product Overview</p>
-  <h2 class="case__h2">neuk turns fragmented social planning into a bookable system.</h2>
-
-  <p class="case__p">
-    Streaming made content abundant but made shared viewing harder. Friends still want to gather for weekly episode drops, sports games, premieres, and themed watch nights, but current options break down in predictable ways: homes are cramped, theaters are inflexible, and bars optimize for noise and alcohol rather than intentional viewing.
-  </p>
-
-  <p class="case__p">
-    neuk reframes shared viewing as a systems problem. Instead of asking users to manually coordinate a social event across group chats, calendars, streaming platforms, and physical venues, the product packages those dependencies into a single workflow.
-  </p>
-
-            <h3 class="case__h3">Core framing shift</h3>
-          <p class="case__p">The highest-value design move in this project was redefining the problem from “book a room” to “reduce the coordination cost of gathering.”</p>
-
-  
-</section>
-
-<section id="why-now">
-  <p class="case__section-label">Why this problem exists</p>
-  <h2 class="case__h2">Three structural forces are breaking shared media rituals.</h2>
-
-            <h3 class="case__h3">Streaming fragmentation</h3>
-          <p class="case__p">Content is distributed across multiple services, so deciding what to watch now requires cross-platform coordination before the event even begins.</p>
-          <h3 class="case__h3">Urban living constraints</h3>
-          <p class="case__p">In dense cities, most apartments cannot comfortably host the kind of group viewing experiences people actually want.</p>
-          <h3 class="case__h3">Social friction</h3>
-          <p class="case__p">Group chats are a poor operating system for planning. Scheduling, splitting costs, invites, and logistics create enough friction to kill the plan.</p>
-
-  <figure class="case__img">
-    <div class="case__img-inner case__img-inner--short">
-      <div class="case__img-label">Replace with: “Learnings” / “Opportunities” synthesis boards from competitive analysis assets</div>
-    </div>
-  </figure>
-  <p class="case__figcap">Use your “Learnings” and “Opportunities” synthesis boards here. They prove the problem is broader than a UI gap and grounded in a service opportunity.</p>
-</section>
-
-<section id="system">
-  <p class="case__section-label">System definition</p>
-  <h2 class="case__h2">The product is a coordination layer connecting users, venues, and in-room infrastructure.</h2>
-
-  <p class="case__p">
-    Neuk is not just a booking app. It is a service system with three interdependent layers:
-  </p>
-
-            <h3 class="case__h3">User layer</h3>
-          <p class="case__p">Discovery, scheduling, booking, invites, ticketing, and account history.</p>
-
-          <h3 class="case__h3">Venue layer</h3>
-          <p class="case__p">Physical pods with room attributes, availability, seating types, AV capabilities, and operating constraints.</p>
-
-          <h3 class="case__h3">Session layer</h3>
-          <p class="case__p">QR-based check-in, room access, in-session remote controls, food ordering, reminders, and reset logic after the visit.</p>
-
-  
-
-  <figure class="case__img">
-    <div class="case__img-inner">
-      <div class="case__img-label">Replace with: System Map asset</div>
-    </div>
-  </figure>
-  <p class="case__figcap">Primary system visual: use the full System Map asset. This is the most important diagram in the case study because it signals systems thinking immediately.</p>
-
-  <figure class="case__img">
-    <div class="case__img-inner">
-      <div class="case__img-label">Replace with: Service Blueprint asset</div>
-    </div>
-  </figure>
-  <p class="case__figcap">Secondary system visual: use the Service Blueprint directly after the system map to show customer journey, frontstage touchpoints, backstage operations, and support processes.</p>
-</section>
-
-<section id="decisions">
-  <p class="case__section-label">Product decisions</p>
-  <h2 class="case__h2">I prioritized product direction decisions that made the concept operational, not just appealing.</h2>
-
-            <h3 class="case__h3">Decision 1 — Design for physical gathering, not remote viewing</h3>
-          <p class="case__p">A weaker version of this concept could have become another remote watch-party tool. Research showed the real unmet need was not access to content, but access to the right environment for sharing it together.</p>
-          <p class="case__p">Users consistently described homes as too small, theaters as too inflexible, and bars as too public or distracting.</p>
-          <p class="case__p">The MVP had to center around bookable private viewing environments, not merely scheduling software.</p>
-          <h3 class="case__h3">Evidence</h3>
-          <h3 class="case__h3">Product implication</h3>
-
-            <h3 class="case__h3">Decision 2 — Build a coordination workflow, not a single booking screen</h3>
-          <p class="case__p">The hard part of the experience happens before playback starts: agreeing on where to go, when to go, and who is actually coming. I structured Neuk around the full path from discovery to confirmed group plan.</p>
-          <p class="case__p">Your interviews and affinity maps showed repeated pain points around coordination, scheduling, and splitting costs.</p>
-          <p class="case__p">Discovery, booking, QR ticketing, room access, and post-session management had to be one connected system.</p>
-          <h3 class="case__h3">Evidence</h3>
-          <h3 class="case__h3">Product implication</h3>
-
-            <h3 class="case__h3">Decision 3 — Treat the phone as the room interface</h3>
-          <p class="case__p">Instead of making the app stop at booking, I extended it into the session itself. QR-based pairing turns the user’s phone into the operating layer for the room: entry, control, and ordering.</p>
-          <p class="case__p">The PRD and blueprint both required room access, session controls, reminders, and operational resets after the event.</p>
-          <p class="case__p">The remote is not an extra feature. It is the bridge between digital booking and physical service delivery.</p>
-          <h3 class="case__h3">Evidence</h3>
-          <h3 class="case__h3">Product implication</h3>
-
-  <figure class="case__img">
-    <div class="case__img-inner case__img-inner--short">
-      <div class="case__img-label">Replace with: competitive analysis comfort vs quality vs price map + differences/similarities boards</div>
-    </div>
-  </figure>
-  <p class="case__figcap">Use the competitive analysis positioning map and the differences/similarities boards here. They justify why this product category should exist at all.</p>
-</section>
-
-<section id="flows">
-  <p class="case__section-label">Core product flows</p>
-  <h2 class="case__h2">The product translates a messy social process into a repeatable sequence.</h2>
-
-  <div class="case__flows">
-
-    <div class="flow">
-      <figure class="flow__media">
-        <div class="flow__phone">
-          <div class="case__video-placeholder">Replace with: Browse rooms / search results / room detail screenshots</div>
+      <!-- ── DESKTOP TOC SIDEBAR ───────────────────────────────── -->
+      <nav class="case__toc" aria-label="Sections">
+        <a href="index.html" class="case__back">Back</a>
+        <div class="case__toc-inner">
+          <ul class="case__toc-list">
+            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
+            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
+            <li><a href="#system"     class="case__toc-link">System</a></li>
+            <li><a href="#research"   class="case__toc-link">Research</a></li>
+            <li><a href="#decisions"  class="case__toc-link">Design Decisions</a></li>
+            <li><a href="#impact"     class="case__toc-link">Impact</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
+          </ul>
         </div>
-        <p class="case__figcap">Use these visuals together: Browse home, search results, room listing, and filter screen.</p>
-      </figure>
-      <div class="flow__copy">
-        <h3 class="flow__title">1. Discover and evaluate rooms</h3>
-        <p class="flow__text">
-          Users browse nearby rooms by capacity, equipment, price, and availability. This is where venue characteristics become a product surface rather than a backend constraint.
-        </p>
-        <ul class="flow__bullets">
-          <li>Search and filter by location, date, room size, streaming support, seating, and AV quality.</li>
-          <li>Expose room attributes that materially affect group decisions, not just cosmetic details.</li>
-          <li>Show availability inline so the evaluation step reduces planning back-and-forth.</li>
-        </ul>
-      </div>
-    </div>
+      </nav>
 
-    <div class="flow">
-      <figure class="flow__media">
-        <div class="flow__phone">
-          <div class="case__video-placeholder">Replace with: payment + confirmation + ticket screenshots</div>
+      <div class="case__body">
+
+        <!-- ══ HERO ═══════════════════════════════════════════ -->
+        <header class="case__hero">
+          <p class="case__eyebrow">neuk · Product Design · 2026</p>
+          <h1 class="case__title">Designing social infrastructure around streaming</h1>
+          <p class="case__copy">A platform for booking private watch rooms that packages the full coordination overhead of shared viewing — scheduling, ticketing, QR room access, and in-session control — into a single workflow.</p>
+
+          <div class="case__media-block case__media-block--hero">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <video class="flow__video" src="covers/neuk-cover.mp4" loop muted playsinline preload="auto" aria-label="neuk — discover, book, enter, and control private watch rooms"></video>
+              </div>
+              <div class="flow__controls">
+                <div class="flow__volume">
+                  <div class="flow__volume-track">
+                    <input class="flow__volume-slider" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume" />
+                  </div>
+                  <button class="flow__btn flow__btn--volume" aria-label="Mute">
+                    <svg class="icon-vol-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    <svg class="icon-vol-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                  </button>
+                </div>
+                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__meta">
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Role</span>
+              <span class="case__meta-val">Lead Product Designer</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Timeline</span>
+              <span class="case__meta-val">6 weeks</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Scope</span>
+              <span class="case__meta-val">Product strategy · Service design · End-to-end mobile experience</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Outcome</span>
+              <span class="case__meta-val">End-to-end service system connecting venue discovery, booking, room access, and in-session control</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- ══ 1. OVERVIEW ════════════════════════════════════ -->
+        <section id="overview">
+          <p class="case__eyebrow">Overview</p>
+          <h2 class="case__section-title">Watching together is socially valuable. Coordinating it isn't.</h2>
+          <p class="case__copy">neuk reframes shared viewing as a systems problem — not a content problem. The gap isn't what to watch. It's having the right environment and a way to get there without the planning falling apart.</p>
+
+          <h3 class="case__subhead">The coordination system</h3>
+          <div class="case__system-glance">
+            <div class="case__system-row">
+              <span class="case__system-key">Inputs</span>
+              <span class="case__system-val">Group size · location · date · content type · room availability</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Product</span>
+              <span class="case__system-val">Discover rooms → book → invite group → QR check-in → in-session remote + ordering</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Outputs</span>
+              <span class="case__system-val">Confirmed group session · QR ticket · room control · booking history</span>
+            </div>
+            <div class="case__system-row">
+              <span class="case__system-key">Loop</span>
+              <span class="case__system-val">Post-session history and favorites support repeat ritual formation</span>
+            </div>
+          </div>
+
+          <h3 class="case__subhead">Three structural forces breaking shared media rituals</h3>
+
+          <div class="case__media-block">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <video class="flow__video" src="neuk-assets/neuk-problem.mp4" loop muted playsinline preload="auto" aria-label="Text thread showing the coordination challenges of shared viewing"></video>
+              </div>
+              <div class="flow__controls">
+                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Streaming fragmentation</h3>
+              <p class="case__copy">Content is split across multiple services — deciding what to watch requires cross-platform negotiation before the event starts.</p>
+              <p class="case__key-insight">Coordination starts before anyone opens the app.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Urban living constraints</h3>
+              <p class="case__copy">Most city apartments can't comfortably host the group viewing experience people actually want. Theaters are inflexible; bars optimize for noise.</p>
+              <p class="case__key-insight">There's no middle option between home and theater.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Group chat as logistics tool</h3>
+              <p class="case__copy">Scheduling, cost-splitting, and confirming attendance across a group chat creates enough friction to cancel plans that would have happened with less overhead.</p>
+              <p class="case__key-insight">The coordination kills the plan.</p>
+            </div>
+          </div>
+
+          <blockquote class="case__quote-block">
+            <p class="case__quote-block-text">The highest-value design move was redefining the problem from "book a room" to "reduce the coordination cost of gathering."</p>
+          </blockquote>
+        </section>
+
+        <!-- ══ 2. SOLUTION ════════════════════════════════════ -->
+        <section id="solution">
+          <p class="case__eyebrow">Solution</p>
+          <h2 class="case__section-title">A bookable layer that turns group intent into a confirmed shared experience.</h2>
+          <p class="case__copy">Three interdependent layers — user, venue, session — work as one connected system.</p>
+
+        <div class="case__media-block">
+          <div class="flow__device">
+            <div class="flow__device-screen">
+              <video 
+                class="flow__video" 
+                src="neuk-assets/neuk-solution.mp4" 
+                loop 
+                muted 
+                playsinline 
+                preload="auto"
+                aria-label="Let's neuk it solution demo">
+              </video>
+            </div>
+
+            <div class="flow__controls">
+              <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="5" y="4" width="4" height="16" rx="1"/>
+                  <rect x="15" y="4" width="4" height="16" rx="1"/>
+                </svg>
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+
+              <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polyline points="1 4 1 10 7 10"/>
+                  <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <p class="case__figcap">Use payment, confirmation, and QR ticket visuals as a vertical sequence.</p>
-      </figure>
-      <div class="flow__copy">
-        <h3 class="flow__title">2. Convert intent into a committed plan</h3>
-        <p class="flow__text">
-          The booking flow turns loose interest into a confirmed session with payment, ticketing, and room-level logistics. This is where Neuk reduces dropout caused by fragmented tools.
-        </p>
-        <ul class="flow__bullets">
-          <li>Users move from room detail to payment with a clear cost breakdown.</li>
-          <li>The QR ticket becomes both proof of purchase and the operational key for entry.</li>
-          <li>Booking details persist inside My Bookings, creating continuity across the session lifecycle.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="flow">
-      <figure class="flow__media">
-        <div class="flow__phone">
-          <div class="case__video-placeholder">Replace with: remote QR scan + remote control UI + pod room image</div>
-        </div>
-        <p class="case__figcap">Show the remote flow with the physical room image visible nearby. This is the key digital-to-physical transition in the product.</p>
-      </figure>
-      <div class="flow__copy">
-        <h3 class="flow__title">3. Extend the product into the room</h3>
-        <p class="flow__text">
-          After arrival, the product shifts from marketplace to operating system. Scanning the on-screen QR code activates the room remote, giving the user control over playback, volume, lighting, and eventually food ordering.
-        </p>
-        <ul class="flow__bullets">
-          <li>The room is not passive context; it is part of the designed system.</li>
-          <li>Remote control is a service layer that links booking data, room state, and in-session actions.</li>
-          <li>This step is what elevates Neuk from booking app to service infrastructure.</li>
-        </ul>
-      </div>
-    </div>
+          <h3 class="case__subhead">Three interdependent layers</h3>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">User layer</h3>
+              <p class="case__copy">Discover, plan, commit. Search by location, date, capacity, and AV setup. Group invite and ticketing happen inside the same flow.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Venue layer</h3>
+              <p class="case__copy">Physical rooms as product surfaces. Room attributes, availability, seating types, and AV capabilities surface as first-class filters — not fine print.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Session layer</h3>
+              <p class="case__copy">Phone as room interface. QR check-in activates the room remote. Playback, volume, lighting, and ordering all flow through the same app.</p>
+            </div>
+          </div>
+        </section>
 
-    <div class="flow">
-      <figure class="flow__media">
-        <div class="flow__phone">
-          <div class="case__video-placeholder">Replace with: My Bookings active/upcoming/past + favorites/account screens</div>
-        </div>
-        <p class="case__figcap">Use bookings and account screens to show the retention layer of the system.</p>
-      </figure>
-      <div class="flow__copy">
-        <h3 class="flow__title">4. Preserve continuity after the session</h3>
-        <p class="flow__text">
-          Post-session screens turn a one-off event into a repeatable behavior. Booking history, favorites, rebooking, and saved preferences support ritual retention rather than one-time novelty.
-        </p>
-        <ul class="flow__bullets">
-          <li>My Bookings structures sessions across active, upcoming, and past states.</li>
-          <li>Favorites and account preferences make subsequent booking faster.</li>
-          <li>This supports the product’s long-term retention model: repeated social rituals, not one-off usage.</li>
-        </ul>
-      </div>
-    </div>
+        <!-- ══ 3. CORE FLOWS ══════════════════════════════════ -->
+        <section id="flows">
+          <p class="case__eyebrow">Core Flows</p>
+          <h2 class="case__section-title">Four moments that turn a messy social plan into a confirmed session.</h2>
+          <p class="case__copy">Discovery, commitment, room activation, and continuity — the minimum proof of a full service loop.</p>
 
-  </div>
-</section>
+          <div class="case__flow-block" id="flow1">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="neuk-assets/1.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Discover: find the right room for the group</h3>
+                <p class="case__copy">Users filter by date, group size, AV quality, and price. Room attributes that materially affect the group decision — screen size, seating type, streaming support — surface as first-class product features, not specs buried in a listing.</p>
+              </div>
+            </div>
+          </div>
 
-<section>
-  <p class="case__section-label">Research to product translation</p>
-  <h2 class="case__h2">I translated insight artifacts into system priorities, not just inspiration.</h2>
+          <div class="case__flow-block" id="flow2">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="neuk-assets/2.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Book: turn intent into a committed plan</h3>
+                <p class="case__copy">The booking flow moves from room detail to payment with a clear cost breakdown, then issues a QR ticket that serves as both proof of purchase and the operational key for room entry.</p>
+              </div>
+            </div>
+          </div>
 
-  <div>
-      <p class="case__p">
-        The strongest research signal was that people were not asking for “bigger screens.” They were asking for a middle ground between the intimacy of home and the quality of theaters, without the friction of hosting.
-      </p>
-      <p class="case__p">
-        That led to a product definition with three priorities: remove coordination overhead, make the environment itself part of the value proposition, and support repeat behavior rather than special-event novelty only.
-      </p>
-    </div>
-    <div>
-                <h3 class="case__h3">Best visual to use here</h3>
-          <p class="case__p">Use the interview insight synthesis diagram, the affinity mapping board, and one or two participant concept testing boards. These show clear translation from research signal → product requirement.</p>
+          <div class="case__flow-block" id="flow3">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="neuk-assets/3.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <img class="case__frame" src="neuk-assets/3.2.png" alt="Enter flow — supplementary screen detail" />
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Enter: phone becomes the room</h3>
+                <p class="case__copy">Scanning the on-screen QR code pairs the phone to the room and activates the remote — playback, volume, lighting, and ordering through the same app. The product doesn't end at the door; it extends into the session itself.</p>
+              </div>
+            </div>
+          </div>
 
-    </div>
+          <div class="case__flow-block" id="flow4">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="neuk-assets/4.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <img class="case__frame" src="neuk-assets/4.2.png" alt="Return flow — supplementary screen detail" />
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Return: build the repeat ritual</h3>
+                <p class="case__copy">Post-session screens structure booking history across active, upcoming, and past states. Favorites and saved preferences make subsequent bookings faster — the product's long-term value is repeated social rituals, not one-off events.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-</section>
+        <!-- ══ 4. SYSTEM THINKING ══════════════════════════════ -->
+        <section id="system">
+          <p class="case__eyebrow">System</p>
+          <h2 class="case__section-title">neuk is a coordination layer, not a booking screen.</h2>
+          <p class="case__copy">Designing any layer in isolation breaks the others. The system works only when user, venue, and session layers are connected end to end.</p>
 
-<section id="impact">
-  <p class="case__section-label">Success model</p>
-  <h2 class="case__h2">Without shipped metrics, I framed success around whether Neuk reduces friction and creates repeat rituals.</h2>
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="System map — user, venue, and session layers with connection points and data flows" />
+          </div>
 
-  
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Reduce discovery friction</h3>
+              <p class="case__copy">Surface room attributes that materially affect group decisions. Show availability inline so evaluation reduces planning back-and-forth.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Collapse the commitment step</h3>
+              <p class="case__copy">Move from browsing to confirmed session in one flow. Payment, ticketing, and group logistics packaged together — no handoff to a separate tool.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Extend the product into the room</h3>
+              <p class="case__copy">QR pairing turns the phone into the room operating layer. Booking data, room state, and in-session actions are connected — not siloed.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Support the return loop</h3>
+              <p class="case__copy">Booking history, favorites, and saved preferences lower the friction of the next visit — the product's long-term value is repeated rituals, not first bookings.</p>
+            </div>
+          </div>
 
-            <h3 class="case__h3">Primary metric</h3>
-          <p class="case__p">Coordination-to-booking conversion</p>
-          <p class="case__p">Of users who begin evaluating rooms, how many reach a confirmed session? This is the clearest proxy for whether Neuk meaningfully reduces planning friction.</p>
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="Service blueprint — customer journey, frontstage touchpoints, and backstage operations" />
+          </div>
 
-            <h3 class="case__h3">How I would talk about impact in interviews</h3>
-          <p class="case__p">I would frame Neuk as a service-system product that creates value by lowering the coordination threshold required to gather. The long-term business question is not simply “will people book a room?” but “can the product make shared viewing repeatable enough to behave like karaoke, bowling, or other social entertainment categories?”</p>
+          <p class="case__key-insight">The value comes from continuity. neuk does not add a tool for each step — it connects steps that were previously handled by group chat, multiple apps, and in-person negotiation.</p>
+        </section>
 
-</section>
+        <!-- ══ 6. RESEARCH ════════════════════════════════════ -->
+        <section id="research">
+          <p class="case__eyebrow">Research</p>
+          <h2 class="case__section-title">People aren't asking for bigger screens. They're asking for a middle ground.</h2>
+          <p class="case__copy">Interviews consistently surfaced the same gap: not the right content, but the right environment — with less overhead than hosting and more intimacy than a theater.</p>
 
-<section>
-  <p class="case__section-label">Brand system</p>
-  <h2 class="case__h2">The name and logo direction reinforce the product’s core promise: your own corner of the city.</h2>
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="Affinity map with interview insight clusters organized by theme — four consistent clusters across participants" />
+          </div>
 
-  <p class="case__p">
-    The Neuk brand exploration drew from the idea of a nook: a small, protected, personal place. That concept aligns directly with the product itself — a private environment carved out of the city for shared media rituals.
-  </p>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Environment over content</h3>
+              <p class="case__copy">The unmet need is a middle ground between home intimacy and theater quality — without the friction of hosting.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Coordination as cancellation</h3>
+              <p class="case__copy">Group chats are a poor operating system for planning. Scheduling and logistics create enough friction to cancel plans that would otherwise happen.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Ritual, not novelty</h3>
+              <p class="case__copy">Shared viewing is already a ritual for sports, premieres, and weekly drops — the product needs to support repetition, not novelty.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Category gap</h3>
+              <p class="case__copy">Theaters are inflexible, bars are loud, and venue booking tools aren't designed for media rituals. The category didn't exist yet.</p>
+            </div>
+          </div>
 
-  <figure class="case__img">
-    <div class="case__img-inner case__img-inner--short">
-      <div class="case__img-label">Replace with: logo sketch sheets + final concept testing board cover if needed</div>
-    </div>
-  </figure>
-  <p class="case__figcap">Use one logo sketch sheet here. This section should stay short; it supports the product concept but should not dominate the case study.</p>
-</section>
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="Competitive landscape — comfort vs. quality vs. flexibility vs. group-friendliness across existing venues" />
+          </div>
+        </section>
 
-</div>
-</div>
+        <!-- ══ 7. DESIGN DECISIONS ════════════════════════════ -->
+        <section id="decisions">
+          <p class="case__eyebrow">Design Decisions</p>
+          <h2 class="case__section-title">Three decisions that made the concept operational.</h2>
+          <p class="case__copy">Each decision came from a specific research signal. None of them were obvious at the start.</p>
 
-</main>
+          <h3 class="case__subhead">Physical gathering, not remote viewing</h3>
+          <p class="case__copy">Research showed the real gap was environment — not access to content. Prototyping a remote watch-party feature early revealed it was the weaker path. The MVP had to center bookable private rooms.</p>
 
-		<footer class="footer">
-			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
-			<p class="footer__time" id="local-time"></p>
-			<nav class="footer__links" aria-label="Social links">
-				<a href="#" class="footer__link">LinkedIn</a>
-				<a href="#" class="footer__link">Email</a>
-				<a href="#" class="footer__link">GitHub</a>
-			</nav>
-		</footer>
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="Remote watch-party concept vs. bookable private room — decision comparison" />
+          </div>
 
-<script src="script.js"></script>
+          <div class="case__decision-pair">
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">What we cut</h4>
+              <p class="case__copy">Remote watch-party layer — adds another fragmented tool without solving the physical space or coordination problems.</p>
+            </div>
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">What we kept</h4>
+              <p class="case__copy">Bookable private rooms — addresses both the environment gap and the coordination overhead in one product surface.</p>
+            </div>
+          </div>
 
+          <h3 class="case__subhead">Coordination workflow, not a booking screen</h3>
+          <p class="case__copy">The hard part happens before playback: agreeing where, when, and who. Discovery, booking, ticketing, and access had to be one connected system — not separate steps across separate tools.</p>
+
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="Single booking flow showing discovery, payment, ticketing, and QR access as one connected path" />
+          </div>
+
+          <div class="case__decision-pair">
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Single flow</h4>
+              <p class="case__copy">Room discovery, payment, group ticketing, and QR access all resolve inside one linear path — no app switching, no shared spreadsheets.</p>
+            </div>
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Persistent booking state</h4>
+              <p class="case__copy">My Bookings holds the full session lifecycle — upcoming, active, and past — so the group doesn't have to reconstruct context from messages.</p>
+            </div>
+          </div>
+
+          <h3 class="case__subhead">Phone as the room interface</h3>
+          <p class="case__copy">Extending the app into the session via QR pairing elevated neuk from booking app to service infrastructure. The remote isn't an extra feature — it's what closes the loop between digital booking and physical delivery.</p>
+
+          <div class="case__media-block">
+            <img class="case__frame" src="covers/neuk.png" alt="QR scan screen and in-session remote control UI showing playback, volume, lighting, and ordering controls" />
+          </div>
+        </section>
+
+        <!-- ══ 8. IMPACT ══════════════════════════════════════ -->
+        <section id="impact">
+          <p class="case__eyebrow">Impact</p>
+          <h2 class="case__section-title">The long-term question isn't "will people book?" — it's "does shared viewing become a ritual?"</h2>
+          <p class="case__copy">Success means lowering the coordination threshold enough that gathering around media behaves like karaoke or bowling — a repeatable category, not a special occasion.</p>
+
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Primary — conversion</h3>
+              <p class="case__copy">≥40% coordination-to-booking conversion among users who begin evaluating rooms.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Retention — 3 months</h3>
+              <p class="case__copy">≥2× repeat bookings per user within 90 days — the signal that viewing has become a ritual.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Session quality</h3>
+              <p class="case__copy">≥50 in-session NPS driven by room quality, remote usability, and group satisfaction.</p>
+            </div>
+          </div>
+
+          <p class="case__key-insight">If the repeat booking signal appears, it means the coordination cost dropped below the threshold that was canceling plans — the core hypothesis proven.</p>
+        </section>
+
+        <!-- ══ 9. REFLECTION ══════════════════════════════════ -->
+        <section id="reflection" class="case__reflection">
+          <p class="case__eyebrow">Reflection</p>
+          <h2 class="case__section-title">What the project clarified.</h2>
+          <p class="case__copy">The strongest insight wasn't about the product — it was about where to draw the system boundary. Booking was the obvious scope. Coordination was the real one.</p>
+
+          <div class="case__col-group">
+            <div>
+              <h3 class="case__subhead">Service systems require designing across layers simultaneously</h3>
+              <p class="case__copy">Every screen decision had downstream effects on the physical service layer. Designing only the UI — without modeling the user, venue, and session layers together — would have produced a booking screen, not a product.</p>
+            </div>
+            <div>
+              <h3 class="case__subhead">Killing a direction clarified the product</h3>
+              <p class="case__copy">Prototyping the remote watch-party path early revealed it was weaker. The research signal was consistent: the gap was physical space and coordination overhead — not content access. Cutting it made the rest of the product sharper.</p>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /.case__body -->
+    </div><!-- /.case__content-grid -->
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links" aria-label="Social links">
+      <a href="#" class="footer__link">LinkedIn</a>
+      <a href="#" class="footer__link">Email</a>
+      <a href="#" class="footer__link">GitHub</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

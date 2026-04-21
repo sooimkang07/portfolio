@@ -10,7 +10,7 @@
     if (!el) return;
     el.textContent = new Date().toLocaleTimeString('en-US', {
       hour: '2-digit', minute: '2-digit', hour12: true
-    }) + ' LOCAL TIME';
+    }) + ' Local Time';
   }
   updateTime();
   setInterval(updateTime, 30_000);
@@ -23,48 +23,19 @@
     const close = () => {
       burger.setAttribute('aria-expanded', 'false');
       menu.classList.remove('is-open');
-      document.body.style.overflow = '';
     };
 
     burger.addEventListener('click', () => {
       const open = burger.getAttribute('aria-expanded') !== 'true';
       burger.setAttribute('aria-expanded', String(open));
       menu.classList.toggle('is-open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
     });
 
     menu.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', close));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   }
 
-  /* ── Hide nav on scroll down, reveal on scroll up ───────── */
-  (function () {
-    const nav = document.querySelector('.nav');
-    if (!nav) return;
-    let lastY = window.scrollY;
-    let ticking = false;
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentY = window.scrollY;
-          // Always show nav when near the top
-          if (currentY < 60) {
-            nav.classList.remove('is-hidden');
-          } else if (currentY > lastY) {
-            // Scrolling down — hide
-            nav.classList.add('is-hidden');
-          } else {
-            // Scrolling up — show
-            nav.classList.remove('is-hidden');
-          }
-          lastY = currentY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  })();
   const cards = document.querySelectorAll('.project-card');
   if (cards.length) {
     if ('IntersectionObserver' in window) {

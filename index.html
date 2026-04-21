@@ -3,13 +3,18 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sooim Kang | Systems Designer</title>
+	<title>Sooim Kang | Systems Product Designer</title>
 	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" href="favicon.ico" />
+	<style>
+		@media (width >= 770px)  { .page-offset { padding-block-start: 10rem; } }
+		@media (width >= 1024px) { .page-offset { padding-block-start: 14rem; } }
+	</style>
 </head>
 <body>
 
 	<header class="nav">
-		<a href="index.html" class="nav__logo">Sooim Kang</a>
+		<a href="index.html" class="nav__logo anim-0">Sooim Kang</a>
 		<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
 			<span></span><span></span>
 		</button>
@@ -26,22 +31,24 @@
 
 			<div class="home-shell">
 
-				<div class="hero anim-1">
-					<h1 class="hero__title">Hi, there!<br>I'm Sooim Kang.</h1>
-					<p class="hero__sub anim-2">
-						<span class="hero__role">Systems designer</span> — framing problems,
-						defining constraints, and directing AI-native product ecosystems
-						from signal to decision.
-					</p>
-				</div>
+				<section class="hero hero--home" aria-label="Introduction">
+					<div class="hero__grid">
+						<h1 class="hero__title anim-1">
+							Hi there! I'm <span class="hero__name">Sooim</span>.
+						</h1>
+						<p class="hero__subtitle anim-2">
+							A NY-Based <span class="hero__role">Product Designer</span> working at the intersection of <span class="hero__role">Storytelling</span>, <span class="hero__role">Human Behavior</span>, and <span class="hero__role">Scalable Systems</span>
+						</p>
+					</div>
+				</section>
 
-				<section class="projects" aria-label="Work">
+			<section class="projects" aria-label="Work">
 
 					<article class="project-card" data-href="instagram-lists.html">
 						<a href="instagram-lists.html" class="project-card__thumb" aria-label="Instagram Lists">
 							<video
 								class="project-card__media"
-								src="covers/instagram-cover-video.mp4"
+								src="covers/instagram-cover.mp4"
 								autoplay loop muted playsinline preload="auto"
 							></video>
 						</a>
@@ -69,11 +76,27 @@
 						</div>
 					</article>
 
+					<article class="project-card" data-href="neuk.html">
+						<a href="neuk.html" class="project-card__thumb" aria-label="neuk">
+							<video
+								class="project-card__media"
+								src="covers/neuk-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Designing Social Infrastructure Around Streaming</h2>
+							</div>
+							<p class="project-card__tag">2026 · neuk</p>
+						</div>
+					</article>
+
 					<article class="project-card" data-href="acuity.html">
 						<a href="acuity.html" class="project-card__thumb" aria-label="Acuity">
 							<video
 								class="project-card__media"
-								src="covers/acuity.mp4"
+								src="covers/acuity-cover.mp4"
 								autoplay loop muted playsinline preload="auto"
 							></video>
 						</a>
@@ -87,7 +110,7 @@
 
 					<article class="project-card" data-href="forage.html">
 						<a href="forage.html" class="project-card__thumb" aria-label="Forage">
-							<img class="project-card__media" src="covers/forage.png" alt="Forage project cover" loading="lazy" />
+							<img class="project-card__media" src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
 						</a>
 						<div class="project-card__meta">
 							<div class="project-card__info">
@@ -97,21 +120,13 @@
 						</div>
 					</article>
 
-					<article class="project-card" data-href="neuk.html">
-						<a href="neuk.html" class="project-card__thumb" aria-label="neuk">
-							<img class="project-card__media" src="covers/neuk.png" alt="neuk project cover" />
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Designing Social Infrastructure Around Streaming</h2>
-							</div>
-							<p class="project-card__tag">2026 · neuk</p>
-						</div>
-					</article>
-
 					<article class="project-card" data-href="capstone.html">
 						<a href="capstone.html" class="project-card__thumb" aria-label="Capstone TBD">
-							<div class="project-card__img project-card__img--checker"></div>
+							<video
+								class="project-card__media"
+								src="covers/capstone-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
 						</a>
 						<div class="project-card__meta">
 							<div class="project-card__info">

@@ -5,400 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instagram Lists · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
   <style>
-    /* ── NEW LAYOUT COMPONENTS (case study only) ──────────────────── */
+    /* ── Instagram Lists: page-specific layout ─────────────────── */
 
-    /* Standout quote — large pull quote treatment */
-    .case__pullquote {
-      margin-block: var(--sp-xl);
-      padding-block: var(--sp-lg);
-      border-block-start: 2px solid var(--clr-accent);
-      border-block-end: 1px solid var(--clr-border);
-    }
-    .case__pullquote-text {
-      font-size: var(--fs-lg);
-      font-weight: var(--fw-semi);
-      line-height: 1.25;
-      color: var(--clr-text);
-      letter-spacing: 0;
-      margin-block-end: var(--sp-sm);
-    }
-    .case__pullquote-attr {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      color: var(--clr-muted);
-      letter-spacing: var(--ls-tight);
+    /* Chosen direction highlight */
+    .ig-exploration__item--chosen {
+      outline: 1.5px solid var(--clr-accent);
+      box-shadow: 0 0 18px 2px rgba(230, 122, 0, 0.18);
+      padding: var(--sp-sm);
     }
 
-    /* Labeled callout block */
-    .case__callout-block {
-      border-inline-start: 2px solid var(--clr-accent);
-      padding-inline-start: var(--sp-lg);
-      margin-block: var(--sp-xl);
-    }
-    .case__callout-block .case__callout-label {
-      display: block;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-      margin-block-end: var(--sp-xs);
-    }
-    .case__callout-block .case__callout-body {
-      font-size: var(--fs-md);
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-
-    /* System table */
-    .case__system-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-block: var(--sp-lg);
-      font-size: var(--fs-sm);
-    }
-    .case__system-table th {
-      text-align: left;
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      font-size: var(--fs-xs);
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-      padding-block: var(--sp-xs);
-      padding-inline-end: var(--sp-lg);
-      border-block-end: 1px solid var(--clr-border);
-    }
-    .case__system-table td {
-      padding-block: var(--sp-sm);
-      padding-inline-end: var(--sp-lg);
-      color: var(--clr-muted);
-      vertical-align: top;
-      border-block-end: 1px solid var(--clr-border);
-      line-height: var(--lh-base);
-    }
-    .case__system-table td:first-child {
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      white-space: nowrap;
-    }
-    .case__system-table tr:last-child td {
-      border-block-end: none;
-    }
-
-    /* Section intro — tight 2-column layout for system thinking */
-    .case__system-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-xl);
-      margin-block: var(--sp-lg);
-      align-items: start;
-    }
-    @media (max-width: 640px) {
-      .case__system-split { grid-template-columns: 1fr; gap: var(--sp-lg); }
-    }
-    .case__system-col-label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-      margin-block-end: var(--sp-sm);
-    }
-    .case__system-col-head {
-      font-size: var(--fs-md);
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      line-height: 1.25;
-      margin-block-end: var(--sp-sm);
-    }
-    .case__system-col-body {
-      font-size: var(--fs-base);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
-    }
-
-    /* Tagged exploration block */
-    .case__expl-tag {
-      display: inline-block;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-muted);
-      margin-block-end: var(--sp-xs);
-    }
-    .case__expl-tag--rejected { color: var(--clr-muted-lt); }
-    .case__expl-tag--chosen   { color: var(--clr-accent); }
-
-    /* Inline comparison row: label + before → after */
-    .case__compare-row {
-      display: grid;
-      grid-template-columns: 10rem 1fr 1fr;
+    /* 3-column equal layout — explorations & reflection */
+    .case__col-group {
+      display: flex;
+      flex-direction: row;
       gap: var(--sp-md);
-      align-items: start;
-      padding-block: var(--sp-sm);
-      border-block-end: 1px solid var(--clr-border);
-      font-size: var(--fs-sm);
-    }
-    .case__compare-row:first-of-type { border-block-start: 1px solid var(--clr-border); }
-    .case__compare-row-dim   { font-size: var(--fs-xs); font-weight: var(--fw-semi); text-transform: uppercase; letter-spacing: var(--ls-tight); color: var(--clr-muted); }
-    .case__compare-row-val   { color: var(--clr-muted); line-height: var(--lh-base); }
-    .case__compare-row-val--accent { color: var(--clr-text); font-weight: var(--fw-semi); }
-    .case__compare-header {
-      display: grid;
-      grid-template-columns: 10rem 1fr 1fr;
-      gap: var(--sp-md);
-      padding-block-end: var(--sp-xs);
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
+      align-items: flex-start;
       margin-block-start: var(--sp-lg);
     }
-    @media (max-width: 640px) {
-      .case__compare-header,
-      .case__compare-row { grid-template-columns: 1fr; }
+    .case__col-group > div {
+      flex: 1 1 0;
+      min-inline-size: 0;
     }
-
-    /* Metric highlight cards */
-    .case__metric-strip {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--sp-md);
-      margin-block: var(--sp-lg);
-    }
-    @media (min-width: 768px) {
-      .case__metric-strip { grid-template-columns: repeat(4, 1fr); }
-    }
-    .case__metric-tile {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      padding-block: var(--sp-md);
-      border-block-start: 2px solid var(--clr-border);
-    }
-    .case__metric-tile--primary { border-block-start-color: var(--clr-accent); }
-    .case__metric-kicker {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-    }
-    .case__metric-val {
-      font-size: var(--fs-lg);
-      font-weight: var(--fw-bold);
-      line-height: var(--lh-tight);
-      color: var(--clr-text);
-      letter-spacing: 0;
-    }
-    .case__metric-desc {
-      font-size: var(--fs-sm);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
-    }
-
-    /* Decision table — more compact than cards for tradeoffs */
-    .case__decision-table {
+    .case__col-group > div img {
+      display: block;
       width: 100%;
-      border-collapse: collapse;
-      margin-block: var(--sp-lg);
-      font-size: var(--fs-sm);
+      margin-block-end: var(--sp-xs);
     }
-    .case__decision-table thead th {
-      text-align: left;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-      padding-block: var(--sp-xs);
-      padding-inline-end: var(--sp-lg);
-      border-block-end: 1px solid var(--clr-border);
+    @media (max-width: 640px) {
+      .case__col-group { flex-direction: column; }
     }
-    .case__decision-table tbody td {
-      padding-block: var(--sp-sm);
-      padding-inline-end: var(--sp-lg);
-      vertical-align: top;
-      border-block-end: 1px solid var(--clr-border);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
-    }
-    .case__decision-table tbody td:first-child {
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      white-space: nowrap;
-    }
-    .case__decision-table tbody tr:last-child td { border-block-end: none; }
 
-    /* Tight labeled list for research findings */
-    .case__insight-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-block: var(--sp-lg);
-    }
-    .case__insight-item {
+    /* Flow block: media first, label + sentence below */
+    .case__flow-block { margin-block-start: var(--sp-xl); }
+    .case__flow-block .case__subhead { margin-block-start: var(--sp-md); }
+
+    /* Flow 3: 2 phones + stacked pair — 2fr:2fr:1fr */
+    .ig-flow__trio {
       display: grid;
-      grid-template-columns: 2.5rem 1fr;
-      gap: var(--sp-md);
-      align-items: baseline;
-      padding-block: var(--sp-sm);
-      border-block-end: 1px solid var(--clr-border);
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
     }
-    .case__insight-item:first-child { border-block-start: 1px solid var(--clr-border); }
-    .case__insight-num {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      color: var(--clr-accent);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-    }
-    .case__insight-text {
-      font-size: var(--fs-base);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
-    }
-    .case__insight-text strong { color: var(--clr-text); font-weight: var(--fw-semi); }
+    .ig-flow__trio > .flow__media-stack { align-self: start; }
+    .ig-flow__trio > .flow__device { display: flex; flex-direction: column; }
+    .ig-flow__trio > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .ig-flow__trio > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
 
-    /* Flow grid for explorations */
-    .flow__grid--bottom {
-      align-items: end;
+    /* Flow 4: 1 large phone + 2×2 grid */
+    .ig-flow__quad {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
+    }
+    .ig-flow__quad > .flow__mini-grid { align-self: start; }
+    .ig-flow__quad > .flow__device { display: flex; flex-direction: column; }
+    .ig-flow__quad > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .ig-flow__quad > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
+
+    /* 2×2 mini-grid */
+    .flow__mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
     }
 
-    /* System diagram placeholder */
-    .case__diagram {
+    /* Stacked pair */
+    .flow__media-stack {
       display: flex;
       flex-direction: column;
       gap: var(--sp-sm);
-      margin-block: var(--sp-lg);
-    }
-    .case__diagram-inner {
-      width: 100%;
-      border: 1px solid var(--clr-border);
-      background: var(--clr-surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 18rem;
-      position: relative;
-      overflow: hidden;
     }
 
-    /* Surface behavior tag */
-    .case__surface-tag {
-      display: inline-block;
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-muted);
-      background: transparent;
-      border: 1px solid var(--clr-border);
-      padding: 0.25em 0.6em;
-      margin-inline-end: 0.4em;
-      margin-block-end: 0.4em;
-    }
-    .case__surface-tag--active {
-      border-color: var(--clr-accent);
-      color: var(--clr-accent);
-    }
+    @media (max-width: 639px) {
+      /* Explorations: first 2 side-by-side, 3rd full-width below */
+      .ig-explorations__cols {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .ig-explorations__cols > div {
+        flex: 1 1 calc(50% - var(--sp-sm));
+        min-inline-size: 0;
+      }
+      .ig-explorations__cols > div:last-child {
+        flex: 0 0 100%;
+      }
 
-    /* Three-column flow section */
-    .case__flow-trio {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-lg);
-      margin-block: var(--sp-lg);
-      align-items: start;
-    }
-    @media (max-width: 768px) {
-      .case__flow-trio { grid-template-columns: 1fr; }
-    }
-    .case__flow-trio-label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-accent);
-      margin-block-end: var(--sp-xs);
-    }
-    .case__flow-trio-head {
-      font-size: var(--fs-base);
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      margin-block-end: var(--sp-xs);
-    }
-    .case__flow-trio-body {
-      font-size: var(--fs-sm);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
-    }
+      /* Trio: first 2 phones stack full-width, last 2 go side-by-side below */
+      .ig-flow__trio {
+        display: flex;
+        flex-direction: column;
+      }
+      .ig-flow__trio > .flow__media-stack {
+        flex-direction: row;
+      }
 
-    /* Divider with label */
-    .case__section-divider {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-md);
-      margin-block: var(--sp-xl);
-    }
-    .case__section-divider::before,
-    .case__section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--clr-border);
-    }
-    .case__section-divider-label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-semi);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-muted-lt);
-      white-space: nowrap;
-    }
-
-    /* Problem framing block */
-    .case__frame-block {
-      margin-block: var(--sp-xl);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-xl);
-    }
-    @media (max-width: 640px) {
-      .case__frame-block { grid-template-columns: 1fr; gap: var(--sp-lg); }
-    }
-    .case__frame-col {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-xs);
-      padding-block-start: var(--sp-md);
-      border-block-start: 2px solid var(--clr-border);
-    }
-    .case__frame-col--accent { border-block-start-color: var(--clr-accent); }
-    .case__frame-col-label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      text-transform: uppercase;
-      letter-spacing: var(--ls-tight);
-      color: var(--clr-muted);
-    }
-    .case__frame-col--accent .case__frame-col-label { color: var(--clr-accent); }
-    .case__frame-col-head {
-      font-size: var(--fs-md);
-      font-weight: var(--fw-semi);
-      color: var(--clr-text);
-      line-height: 1.2;
-    }
-    .case__frame-col-body {
-      font-size: var(--fs-base);
-      color: var(--clr-muted);
-      line-height: var(--lh-base);
+      /* Quad: large phone on top, 2×2 grid below */
+      .ig-flow__quad {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -419,19 +126,18 @@
   </header>
 
   <main class="case-wrap">
-    <a href="index.html" class="case__back--mobile">← Back</a>
+    <a href="index.html" class="case__back--mobile">Back</a>
 
     <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview"        class="case__toc-bar-link">Overview</a>
-      <a href="#problem"         class="case__toc-bar-link">Problem</a>
-      <a href="#solution"        class="case__toc-bar-link">Solution</a>
-      <a href="#flows"           class="case__toc-bar-link">Core Flows</a>
-      <a href="#system"          class="case__toc-bar-link">System Thinking</a>
-      <a href="#research"        class="case__toc-bar-link">Research</a>
-      <a href="#explorations"    class="case__toc-bar-link">Explorations</a>
-      <a href="#decisions"       class="case__toc-bar-link">Design Decisions</a>
-      <a href="#impact"          class="case__toc-bar-link">Impact</a>
-      <a href="#reflection"      class="case__toc-bar-link">Reflection</a>
+      <a href="#overview"     class="case__toc-bar-link">Overview</a>
+      <a href="#solution"     class="case__toc-bar-link">Solution</a>
+      <a href="#flows"        class="case__toc-bar-link">Core Flows</a>
+      <a href="#system"       class="case__toc-bar-link">System</a>
+      <a href="#research"     class="case__toc-bar-link">Research</a>
+      <a href="#explorations" class="case__toc-bar-link">Explorations</a>
+      <a href="#decisions"    class="case__toc-bar-link">Decisions</a>
+      <a href="#impact"       class="case__toc-bar-link">Impact</a>
+      <a href="#reflection"   class="case__toc-bar-link">Reflection</a>
     </nav>
 
     <div class="case__content-grid">
@@ -440,13 +146,12 @@
         <div class="case__toc-inner">
           <ul class="case__toc-list">
             <li><a href="#overview"     class="case__toc-link">Overview</a></li>
-            <li><a href="#problem"      class="case__toc-link">Problem</a></li>
             <li><a href="#solution"     class="case__toc-link">Solution</a></li>
             <li><a href="#flows"        class="case__toc-link">Core Flows</a></li>
-            <li><a href="#system"       class="case__toc-link">System Thinking</a></li>
+            <li><a href="#system"       class="case__toc-link">System</a></li>
             <li><a href="#research"     class="case__toc-link">Research</a></li>
             <li><a href="#explorations" class="case__toc-link">Explorations</a></li>
-            <li><a href="#decisions"    class="case__toc-link">Design Decisions</a></li>
+            <li><a href="#decisions"    class="case__toc-link">Decisions</a></li>
             <li><a href="#impact"       class="case__toc-link">Impact</a></li>
             <li><a href="#reflection"   class="case__toc-link">Reflection</a></li>
           </ul>
@@ -455,16 +160,16 @@
 
       <div class="case__body">
 
-        <!-- ══ 1. OVERVIEW ══════════════════════════════════════════ -->
-        <header class="case__hero" id="overview">
-          <p class="case__label">Instagram · Product Design · Concept · 2025</p>
-          <h1 class="case__title">A context layer for Instagram. Lists as the interface to it.</h1>
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <header class="case__hero">
+          <p class="case__eyebrow">Instagram · Product Design · Concept · 2025</p>
+          <h1 class="case__title">Restructuring the Feed Around Relationship Contexts</h1>
+          <p class="case__copy">A system-level redesign that lets users define who a session is for before Instagram ranks what to show.</p>
 
-          <!-- VISUAL: Hero prototype video — context switcher in action across Home, Stories, Following -->
-          <figure class="case__figure case__figure--hero">
+          <div class="case__media-block case__media-block--hero">
             <div class="flow__device">
               <div class="flow__device-screen">
-                <video class="flow__video" src="instagram-assets/overview-video.mp4" muted playsinline preload="metadata" aria-label="Prototype demo: Lists as a context switcher in Instagram Home"></video>
+                <video class="flow__video" src="covers/instagram-cover.mp4" loop muted playsinline preload="auto" aria-label="Lists as a context layer across Home, Stories, and Following"></video>
               </div>
               <div class="flow__controls">
                 <div class="flow__volume">
@@ -485,158 +190,133 @@
                 </button>
               </div>
             </div>
-            <figcaption class="case__figcap">Lists as a persistent context layer — active across Home, Stories, and Following.</figcaption>
-          </figure>
+          </div>
 
           <div class="case__meta">
             <div class="case__meta-item">
-              <span class="case__meta-label">Role</span>
+              <span class="case__eyebrow">Role</span>
               <span class="case__meta-val">Solo Product Designer</span>
             </div>
             <div class="case__meta-item">
-              <span class="case__meta-label">Timeline</span>
-              <span class="case__meta-val">6 weeks · Nov–Dec 2025</span>
+              <span class="case__eyebrow">Timeline</span>
+              <span class="case__meta-val">7 weeks · Nov–Dec 2025</span>
             </div>
             <div class="case__meta-item">
-              <span class="case__meta-label">Platform</span>
+              <span class="case__eyebrow">Platform</span>
               <span class="case__meta-val">Instagram · iOS Concept</span>
             </div>
             <div class="case__meta-item">
-              <span class="case__meta-label">Scope</span>
+              <span class="case__eyebrow">Scope</span>
               <span class="case__meta-val">Research · Systems Design · Hi-Fi Prototype</span>
             </div>
           </div>
-
-          <!-- Overview callout: the core reframe -->
-          <div class="case__callout-block">
-            <span class="case__callout-label">Core Argument</span>
-            <p class="case__callout-body">Instagram has no layer between the user and the algorithm. Users can't define who a session is for before ranking begins. Lists is that missing layer.</p>
-          </div>
         </header>
 
-        <!-- ══ 2. PROBLEM ════════════════════════════════════════════ -->
-        <section id="problem">
-          <p class="case__section-label">Problem</p>
-          <h2 class="case__h2">Relevance ≠ Priority. Instagram ranks everything. Users can't navigate anything.</h2>
+        <!-- ══ 1. OVERVIEW ════════════════════════════════════════ -->
+        <section id="overview">
+          <p class="case__eyebrow">Overview</p>
+          <h2 class="case__section-title">A single feed forces different relationship contexts to compete for attention.</h2>
+          <p class="case__copy">Instagram is built for discovery — one algorithm, one ranked feed, all relationships together. That model works for content, but it does not reflect how users actually experience their social graph.</p>
 
-          <p class="case__p">
-            Most sessions open with intent: check in on close friends, catch up with school connections, browse a niche interest cluster. But the product offers no mechanism for any of that. There is one feed, and the algorithm decides what appears in it.
-          </p>
+          <h3 class="case__subhead">Problem</h3>
+          <p class="case__copy">A single feed collapses friends, creators, brands, and communities into one ranking system. Users can scroll for a long time without seeing the people or updates they actually meant to check in on.</p>
 
-          <!-- VISUAL: Side-by-side screen recordings — scrolling the undifferentiated feed, missing a close friend's post -->
-          <div class="flow__row">
-            <div class="flow__device">
-              <div class="flow__device-screen">
-                <video class="flow__video" src="instagram-assets/problem-1.mp4" playsinline muted></video>
+          <div class="case__media-block">
+            <div class="flow__row">
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/problem/problem-1.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
               </div>
-              <div class="flow__controls">
-                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                </button>
-                <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                </button>
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/problem/problem-2.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="flow__device">
-              <div class="flow__device-screen">
-                <video class="flow__video" src="instagram-assets/problem-2.mp4" playsinline muted></video>
-              </div>
-              <div class="flow__controls">
-                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                </button>
-                <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="case__frame-block">
-            <div class="case__frame-col">
-              <span class="case__frame-col-label">What exists</span>
-              <p class="case__frame-col-head">Discovery-optimized ranking</p>
-              <p class="case__frame-col-body">The algorithm ranks the full follow graph for engagement. It is well-designed for this. This is not the failure.</p>
-            </div>
-            <div class="case__frame-col case__frame-col--accent">
-              <span class="case__frame-col-label">What's missing</span>
-              <p class="case__frame-col-head">A layer for intentional retrieval</p>
-              <p class="case__frame-col-body">Users hold mental categories for who they follow. The product has no way to act on them. This is the gap.</p>
             </div>
           </div>
 
-          <!-- Standout quote: the core reframe in one sentence -->
-          <div class="case__pullquote">
-            <p class="case__pullquote-text">"The algorithm doesn't need to change. What's missing is a layer that lets users define the pool before ranking begins."</p>
-            <span class="case__pullquote-attr">Problem framing, Week 2</span>
-          </div>
+          <h3 class="case__subhead">Opportunity</h3>
+          <p class="case__copy">As private sharing grows and broad posting declines, the missing layer is not more algorithmic prediction. It is a way for users to define priority in the moment.</p>
 
-          <p class="case__p">
-            This is a relationship structure problem, not a content quality problem. Instagram already has the follow graph. It has no interface for the user to act on the categories they've built inside it.
-          </p>
+          <blockquote class="case__quote-block">
+            <p class="case__quote-block-text">How might we let users choose which relationships matter in the moment without sacrificing discovery?</p>
+          </blockquote>
         </section>
 
-        <!-- ══ 3. SOLUTION ═══════════════════════════════════════════ -->
+        <!-- ══ 2. SOLUTION ════════════════════════════════════════ -->
         <section id="solution">
-          <p class="case__section-label">Solution</p>
-          <h2 class="case__h2">Users define context. Instagram ranks within it.</h2>
+          <p class="case__eyebrow">Solution</p>
+          <h2 class="case__section-title">Instagram Lists: choose context before discovery.</h2>
+          <p class="case__copy">Users define who they're browsing for. Instagram handles the rest.</p>
 
-          <p class="case__p">
-            Lists introduces a context layer between the user and the algorithm. Users organize follows into named groups. Those groups become persistent feed modes. The algorithm still ranks—but only within the selected pool.
-          </p>
-
-          <!-- VISUAL: System overview diagram — three-layer stack: User → Lists (context) → Algorithm (ranking) → Feed -->
-          <figure class="case__figure">
-            <img class="case__frame" src="instagram-assets/systems-thinking.png" alt="System map showing Lists as a shared context layer across Home, Stories, and Following." />
-            <figcaption class="case__figcap">Lists operates as a shared context layer. Every feed surface—Home, Stories, Following—responds to the same list state.</figcaption>
-          </figure>
-
-          <div class="case__flow-trio">
-            <div>
-              <p class="case__flow-trio-label">Before</p>
-              <p class="case__flow-trio-head">One undifferentiated stream</p>
-              <p class="case__flow-trio-body">Algorithm ranks everything. User has no upstream input. Session intent is invisible to the system.</p>
-            </div>
-            <div>
-              <p class="case__flow-trio-label">The shift</p>
-              <p class="case__flow-trio-head">User sets context first</p>
-              <p class="case__flow-trio-body">User selects a list. The pool is scoped. The algorithm ranks within that subset.</p>
-            </div>
-            <div>
-              <p class="case__flow-trio-label">After</p>
-              <p class="case__flow-trio-head">Intentional, revisitable feed modes</p>
-              <p class="case__flow-trio-body">Users can navigate to specific relationships without losing broad discovery. "All" is always one tap away.</p>
+          <div class="case__media-block">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <video class="flow__video" src="instagram-assets/solution/instagram-solution.mp4" loop muted playsinline preload="auto" aria-label="Named lists scope the ranking pool across Home, Stories, and Following"></video>
+              </div>
+              <div class="flow__controls">
+                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                </button>
+              </div>
             </div>
           </div>
 
-          <div class="case__callout-block">
-            <span class="case__callout-label">Key Distinction</span>
-            <p class="case__callout-body">Lists doesn't filter the algorithm. It changes what the algorithm has to work with. That's a different category of solution.</p>
+          <h3 class="case__subhead">Lists reshape ranking across the app.</h3>
+          <p class="case__copy">Home, Stories, and Following adapt to the selected list.</p>
+
+          <div class="case__media-block">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <video class="flow__video" src="instagram-assets/solution/instagram-solution-demo.mp4" loop muted playsinline preload="auto" aria-label="Tap a list — every surface updates. Tap All to return."></video>
+              </div>
+              <div class="flow__controls">
+                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
-        <!-- ══ 4. CORE FLOWS ═════════════════════════════════════════ -->
+        <!-- ══ 3. CORE FLOWS ══════════════════════════════════════ -->
         <section id="flows">
-          <p class="case__section-label">Core Flows</p>
-          <h2 class="case__h2">Four flows. One proves immediate value. Three prove the system holds.</h2>
+          <p class="case__eyebrow">Core Flows</p>
+          <h2 class="case__section-title">The system had to work in everyday behavior, not as a separate tool.</h2>
+          <p class="case__copy">The product only works if creating, switching, and maintaining lists feels native to browsing. Each core flow reduces setup cost while keeping context visible.</p>
 
-          <p class="case__p">
-            The feature succeeds only if it stays in the path of everyday use. These flows cover the full lifecycle: browsing with defaults, switching contexts, creating lists, and ambient maintenance.
-          </p>
-
-          <!-- Flow 1: Default lists -->
-          <h3 class="case__h3">Default lists — immediate value, zero setup</h3>
-          <p class="case__p">All, Following, and Close Friends ship as system defaults. A user who never builds a custom list still gets context-switching from day one. This handles cold start and removes the setup-before-value problem.</p>
-
-          <!-- VISUAL: 3-up video grid — (1) chip rail in Home, (2) list scoping the feed, (3) same state in Following -->
-          <div class="case__media-grid case__media-grid--3">
-            <figure class="case__figure">
+          <div class="case__flow-block">
+            <div class="flow__row">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/default-home-navigation.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/1-default-home-navigation.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -648,12 +328,9 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Chip rail surfaces context options without leaving Home.</figcaption>
-            </figure>
-            <figure class="case__figure">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/default-in-home.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/1-default-following.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -665,37 +342,16 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Selecting a list scopes the feed instantly.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/default-in-following.mp4" muted playsinline preload="metadata"></video>
-                </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Same list state carries into Following.</figcaption>
-            </figure>
+            </div>
+            <h3 class="case__subhead">Default lists create immediate value</h3>
+            <p class="case__copy">All, Following, and Close Friends make the system useful on day one without asking users to organize from scratch.</p>
           </div>
 
-          <!-- Flow 2: Custom lists -->
-          <h3 class="case__h3">Switching contexts — one tap, persistent state</h3>
-          <p class="case__p">Custom lists appear in the same chip rail as defaults. Switching is a single tap. State persists between sessions—this is a navigation behavior, not a filter.</p>
-
-          <!-- VISUAL: 3-up video grid — (1) full rail with custom lists, (2) switching contexts in Home, (3) custom list in Following -->
-          <div class="case__media-grid case__media-grid--3">
-            <figure class="case__figure">
+          <div class="case__flow-block">
+            <div class="flow__row">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/user-lists-in-home.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/2-all-lists-home.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -707,12 +363,9 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Full rail with custom lists. Switching is one tap.</figcaption>
-            </figure>
-            <figure class="case__figure">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/user-lists-in-following.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/2-all-lists-following-lists.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -724,37 +377,16 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Feed scopes to that list. Context state is shared across surfaces.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/all-lists.mp4" muted playsinline preload="metadata"></video>
-                </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Following responds to the same state.</figcaption>
-            </figure>
+            </div>
+            <h3 class="case__subhead">Custom lists extend existing mental models</h3>
+            <p class="case__copy">Users can turn school, brands, sports, food, or niche interests into explicit contexts that already exist in their heads.</p>
           </div>
 
-          <!-- Flow 3: Create -->
-          <h3 class="case__h3">Create — three steps, no navigation required</h3>
-          <p class="case__p">Name, color, members. Creation can be triggered from Home or the lists screen. Either path reaches the same bottom sheet. The friction ceiling is low by design.</p>
-
-          <!-- VISUAL: 2x2 video grid — create flow, inline creation from Home, member search, list in feed -->
-          <div class="case__media-grid case__media-grid--2">
-            <figure class="case__figure">
+          <div class="case__flow-block">
+            <div class="ig-flow__trio">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/create-new-list.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/3-create-list.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -766,12 +398,9 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Name, color, members — one end-to-end flow.</figcaption>
-            </figure>
-            <figure class="case__figure">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/create-new-list-from-home.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/3-new-list-home.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -783,56 +412,46 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Triggered inline from Home — no context switch required.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/new-list-in-home.mp4" muted playsinline preload="metadata"></video>
+              <div class="flow__media-stack">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/3-create-list-from-home.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
                 </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
-                </div>
-              </div>
-              <figcaption class="case__figcap">New list appears in Home rail immediately after creation.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/new-list-in-following.mp4" muted playsinline preload="metadata"></video>
-                </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/3-new-list-following.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <figcaption class="case__figcap">Following screen supports bulk assignment at scale.</figcaption>
-            </figure>
+            </div>
+            <h3 class="case__subhead">Creation happens where intent emerges</h3>
+            <p class="case__copy">Lists can be created from Home, profiles, posts, Stories, Following, and the lists view so setup appears when the need does.</p>
           </div>
 
-          <!-- Flow 4: Ambient maintenance -->
-          <h3 class="case__h3">Ambient maintenance — assign accounts where you already are</h3>
-          <p class="case__p">
-            Categorization happens in context: long-press a post, visit a profile, tap into Stories. Assignment surfaces from all three entry points. Users never need to navigate to a management screen to keep lists current.
-          </p>
-
-          <!-- VISUAL: 2x2 video grid — assign from post long-press, from profile, from Stories, from Following -->
-          <div class="case__media-grid case__media-grid--2">
-            <figure class="case__figure">
+          <div class="case__flow-block">
+            <div class="ig-flow__quad">
               <div class="flow__device">
                 <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/edit-list-from-post.mp4" muted playsinline preload="metadata"></video>
+                  <video class="flow__video" src="instagram-assets/core flows/4-edit-from-post.mp4" loop playsinline muted></video>
                 </div>
                 <div class="flow__controls">
                   <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
@@ -844,388 +463,266 @@
                   </button>
                 </div>
               </div>
-              <figcaption class="case__figcap">Post long-press surfaces assignment from Home.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/edit-list-from-profile.mp4" muted playsinline preload="metadata"></video>
+              <div class="flow__mini-grid">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/4-edit-from-story.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
                 </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/4-edit-from-profile.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/4-edit-from-following.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <video class="flow__video" src="instagram-assets/core flows/4-edit-from-list.mp4" loop playsinline muted></video>
+                  </div>
+                  <div class="flow__controls">
+                    <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <figcaption class="case__figcap">Profile visits expose the same assignment action.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/edit-list-from-story.mp4" muted playsinline preload="metadata"></video>
-                </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Stories supports quick assignment without breaking the viewing flow.</figcaption>
-            </figure>
-            <figure class="case__figure">
-              <div class="flow__device">
-                <div class="flow__device-screen">
-                  <video class="flow__video" src="instagram-assets/edit-list-from-following.mp4" muted playsinline preload="metadata"></video>
-                </div>
-                <div class="flow__controls">
-                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  </button>
-                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
-                  </button>
-                </div>
-              </div>
-              <figcaption class="case__figcap">Following enables bulk assignment for deliberate organization.</figcaption>
-            </figure>
+            </div>
+            <h3 class="case__subhead">Editing happens inside normal browsing</h3>
+            <p class="case__copy">Maintenance happens from posts, Stories, profiles, Following, and list views so organizing feels lightweight rather than administrative.</p>
           </div>
         </section>
 
-        <!-- ══ 5. SYSTEM THINKING ════════════════════════════════════ -->
+        <!-- ══ 4. SYSTEM ═══════════════════════════════════════════ -->
         <section id="system">
-          <p class="case__section-label">System Thinking</p>
-          <h2 class="case__h2">One context state. Every feed surface responds to it.</h2>
+          <p class="case__eyebrow">System</p>
+          <h2 class="case__section-title">Designed as a system, not a feature.</h2>
+          <p class="case__copy">Lists works because it integrates across existing behaviors instead of introducing a separate destination. The same context state can shape Home, Stories, profiles, and Following.</p>
 
-          <p class="case__p">
-            The value of Lists is not any individual screen. It's that one piece of user input—a chosen list—propagates across the entire product without the user needing to repeat themselves. That's what makes it a system change, not a feature addition.
-          </p>
-
-          <!-- Context vs ranking separation -->
-          <h3 class="case__h3">Context and ranking are separate concerns</h3>
-
-          <div class="case__system-split">
-            <div>
-              <p class="case__system-col-label">User-controlled</p>
-              <p class="case__system-col-head">Context layer</p>
-              <p class="case__system-col-body">Who is this session for? The user defines the pool. Lists is the interface for that input. It is explicit, persistent, and adjustable at any time.</p>
+          <div class="case__compare-row">
+            <div class="case__compare-card">
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/system thinking/before-lists.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
+              </div>
+              <h3 class="case__subhead">Before Lists</h3>
+              <p class="case__copy">Every surface reads from the full follow graph, so different relationship contexts compete inside the same ranking pool.</p>
             </div>
-            <div>
-              <p class="case__system-col-label">System-controlled</p>
-              <p class="case__system-col-head">Ranking layer</p>
-              <p class="case__system-col-body">What appears first? The algorithm ranks within the selected pool. Engagement signals, recency, and relationship strength all still apply—but only inside the context the user set.</p>
-            </div>
-          </div>
-
-          <div class="case__callout-block">
-            <span class="case__callout-label">System principle</span>
-            <p class="case__callout-body">The ranking model doesn't change. The input space it operates on does. Separating these concerns is what keeps discovery intact while enabling intentional navigation.</p>
-          </div>
-
-          <!-- Cross-surface integration -->
-          <h3 class="case__h3">Cross-surface integration</h3>
-          <p class="case__p">Lists state is global. The same selection applies across every surface that touches the social graph. This is not achieved through per-surface logic—it's achieved by treating Lists as shared state at the data layer.</p>
-
-          <!-- VISUAL: System diagram — showing Lists as shared context layer with arrows into Home, Stories, Following, DMs -->
-          <table class="case__system-table">
-            <thead>
-              <tr>
-                <th>Surface</th>
-                <th>Before Lists</th>
-                <th>With Lists active</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Home feed</td>
-                <td>Full follow graph, ranked by algorithm</td>
-                <td>Scoped to selected list, ranked within that pool</td>
-              </tr>
-              <tr>
-                <td>Stories tray</td>
-                <td>All accounts with recent Stories</td>
-                <td>Only Stories from accounts in the active list</td>
-              </tr>
-              <tr>
-                <td>Following feed</td>
-                <td>Chronological, all accounts</td>
-                <td>Chronological, filtered to active list</td>
-              </tr>
-              <tr>
-                <td>Account management</td>
-                <td>Flat list of all follows</td>
-                <td>Grouped and filterable by list membership</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Behavior change across the system -->
-          <h3 class="case__h3">How Lists changes user behavior at the system level</h3>
-          <p class="case__p">
-            The current model asks users to scroll until they find what they came for. Lists inverts this: users declare intent first, then browse. That shift—from passive to intentional—changes the quality of every interaction downstream.
-          </p>
-
-          <!-- VISUAL: Before/after behavioral flow diagram — "open app → scroll → maybe find friend" vs "open app → select context → browse intentionally" -->
-          <figure class="case__figure">
-            <img class="case__frame" src="instagram-assets/systems-thinking.png" alt="System map: Lists as shared context layer propagating across all Instagram surfaces." />
-            <figcaption class="case__figcap">Lists does not add a new surface. It adds a shared state layer that every existing surface reads from.</figcaption>
-          </figure>
-
-          <!-- Design system fit -->
-          <h3 class="case__h3">System fit: extending, not replacing</h3>
-
-          <!-- VISUAL: Icon and naming system reference — showing Lists icon alongside existing Instagram navigation elements -->
-          <figure class="case__figure">
-            <img class="case__frame" src="instagram-assets/system-fit.png" alt="Naming and iconography reference for Lists within Instagram's design system." />
-            <figcaption class="case__figcap">The Lists icon uses a rounded square — not a circle, to avoid conflict with notifications and active status indicators.</figcaption>
-          </figure>
-
-          <div class="case__decision-grid case__decision-grid--2col">
-            <div class="case__decision-card">
-              <h3 class="case__decision-title">Builds on Close Friends</h3>
-              <p class="case__decision-body-txt">"Lists" extends an existing mental model—a named group of accounts. No new concept to introduce.</p>
-            </div>
-            <div class="case__decision-card">
-              <h3 class="case__decision-title">No new interaction patterns</h3>
-              <p class="case__decision-body-txt">Multi-select chips, bottom sheets, long-press menus. Lists uses Instagram's existing interaction primitives throughout.</p>
-            </div>
-            <div class="case__decision-card">
-              <h3 class="case__decision-title">Secondary to creation</h3>
-              <p class="case__decision-body-txt">Lists stays visually subordinate to the create button. Context-switching is a navigation behavior, not a primary action.</p>
-            </div>
-            <div class="case__decision-card">
-              <h3 class="case__decision-title">Scalable naming</h3>
-              <p class="case__decision-body-txt">User-named lists. No system-assigned categories that fail to match how users actually think about their relationships.</p>
+            
+            <div class="case__compare-card">
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/system thinking/after-lists.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
+              </div>
+              <h3 class="case__subhead">With Lists</h3>
+              <p class="case__copy">One active context narrows the ranking pool, so Home, Stories, and Following all respond to the same user-defined state.</p>
             </div>
           </div>
+
+          <div class="case__media-block">
+            <img class="case__frame" src="instagram-assets/system thinking/system-thinking.jpg" alt="System map showing Lists as a shared context layer across all Instagram surfaces." />
+          </div>
+
+          <p class="case__key-insight">The value comes from consistency. Lists does not add another isolated tool — it changes how existing surfaces interpret priority.</p>
         </section>
 
-        <!-- ══ 6. RESEARCH ════════════════════════════════════════════ -->
+        <!-- ══ 5. RESEARCH ═════════════════════════════════════════ -->
         <section id="research">
-          <p class="case__section-label">Research &amp; Insights</p>
-          <h2 class="case__h2">The categories are mental. The product can't see them.</h2>
+          <p class="case__eyebrow">Research</p>
+          <h2 class="case__section-title">Algorithms can infer relevance, but they cannot determine intent.</h2>
+          <p class="case__copy">Research showed that users already sort who they follow into different relationship groups. What was missing was not more prediction, but a way to declare priority in the moment.</p>
 
-          <p class="case__p">
-            Five user interviews, a competitive audit across Instagram, BeReal, and Twitter/X, and think-aloud observation. Research goal: locate the problem precisely—navigation, privacy, or something structural in the social graph.
-          </p>
+          <div class="case__media-block">
+            <img class="case__frame" src="instagram-assets/research/user-interviews.jpg" alt="Research synthesis: key insight clusters from five user interviews." />
+          </div>
 
-          <!-- VISUAL: Research synthesis image — affinity map or insight framework showing three clusters: retrieval, mental models, posting inhibition -->
-          <figure class="case__figure">
-            <img class="case__frame" src="instagram-assets/user-interviews.png" alt="Research synthesis: key insight clusters from five user interviews." />
-            <figcaption class="case__figcap">Discovery is strong. Intentional retrieval — navigating to specific people — has no system.</figcaption>
-          </figure>
-
-          <div class="case__insight-list">
-            <div class="case__insight-item">
-              <span class="case__insight-num">01</span>
-              <p class="case__insight-text"><strong>Users hold mental categories, but can't act on them.</strong> Every person interviewed had named groups—close friends, school, niche interests. The categorization is real. The product has no interface for it.</p>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Relevance is not priority</h3>
+              <p class="case__copy">Behavioral signals can estimate what content matters generally, but they cannot tell the system who matters right now.</p>
             </div>
-            <div class="case__insight-item">
-              <span class="case__insight-num">02</span>
-              <p class="case__insight-text"><strong>The problem is retrieval, not volume.</strong> Users don't want less content. They want to reach specific people when they open the app. Reducing noise is a secondary concern.</p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">The problem is retrieval, not just volume</h3>
+              <p class="case__copy">Users were not only overwhelmed by content. They were missing the people and updates they actually meant to see.</p>
             </div>
-            <div class="case__insight-item">
-              <span class="case__insight-num">03</span>
-              <p class="case__insight-text"><strong>Audience collapse suppresses posting.</strong> Users post less when they can't control who sees it. This weakens the close-friends signal that would make retrieval valuable—a compounding problem.</p>
-            </div>
-            <div class="case__insight-item">
-              <span class="case__insight-num">04</span>
-              <p class="case__insight-text"><strong>Nobody asked for a smarter algorithm.</strong> Zero interviews surfaced a desire for better recommendations. The ask, consistently: choose who a session is for before it starts.</p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">The feed collapses different social contexts</h3>
+              <p class="case__copy">Friends, creators, brands, and communities are all ranked together even though they serve different goals.</p>
             </div>
           </div>
 
-          <div class="case__quotes">
-            <blockquote class="case__quote">
-              "I already think of who I'm following in different groups—close friends, old school ones, influencers—but Instagram just mixes everything together."
-              <cite>@laineydow</cite>
-            </blockquote>
-            <blockquote class="case__quote">
-              "Posting feels weird now because everything goes to everyone. Half the time random followers see it instead of my friends, so I don't post as much."
-              <cite>@gracekeirn12</cite>
-            </blockquote>
+          <div class="case__media-block">
+            <img class="case__frame" src="instagram-assets/research/competitive-analysis.jpg" alt="Competitive landscape: intimacy and intentional navigation across platforms." />
           </div>
-
-          <!-- VISUAL: Competitive matrix — Instagram vs BeReal vs Twitter/X across axes of intimacy and intentional navigation -->
-          <figure class="case__figure">
-            <img class="case__frame" src="instagram-assets/competitive-analysis.png" alt="Competitive matrix: intimacy vs. intentional navigation across platforms." />
-            <figcaption class="case__figcap">Instagram leads on engagement and discovery. The gap is intentional social navigation — a space no major platform owns.</figcaption>
-          </figure>
         </section>
 
-        <!-- ══ 7. EXPLORATIONS ════════════════════════════════════════ -->
+        <!-- ══ 6. EXPLORATIONS ═════════════════════════════════════ -->
         <section id="explorations">
-          <p class="case__section-label">Explorations</p>
-          <h2 class="case__h2">Three directions. One changed the system's logic. Two didn't.</h2>
+          <p class="case__eyebrow">Explorations</p>
+          <h2 class="case__section-title">The strongest direction changed the ranking input itself.</h2>
+          <p class="case__copy">Early explorations improved navigation or profile control, but they did not solve the feed's underlying prioritization problem. Social graph organization was the only direction that changed what the algorithm receives.</p>
 
-          <p class="case__p">
-            Each direction addressed a real friction. The test was whether a direction changed the system's unit of prioritization—not just the interface around it.
-          </p>
-
-          <!-- Direction 01 -->
-          <div class="flow__grid flow__grid--bottom">
-            <figure class="flow__media">
-              <img class="case__frame" src="instagram-assets/exploration-1.png" alt="Exploration 1: Navigation simplification" />
-            </figure>
-            <div class="flow__copy">
-              <span class="case__expl-tag case__expl-tag--rejected">Direction 01 · Rejected</span>
-              <h3 class="case__h3">Navigation simplification</h3>
-              <p class="case__p">Surfaced existing controls more clearly. Made the app easier to navigate. But users were still inside one mixed feed—just with better pathways into it.</p>
-              <p class="case__p"><strong>Why it failed:</strong> Navigation improves access. It doesn't define who a session is for. The input problem remains unsolved.</p>
+          <div class="case__col-group ig-explorations__cols">
+            <div>
+              <img class="case__frame" src="instagram-assets/explorations/exploration-1.jpg" alt="Direction 01: Navigation simplification" />
+              <h3 class="case__subhead">Navigation simplification</h3>
+              <p class="case__copy">Improved access to controls, but did not let users define relationship priority.</p>
             </div>
-          </div>
-
-          <!-- Direction 02 -->
-          <div class="flow__grid flow__grid--bottom">
-            <figure class="flow__media">
-              <img class="case__frame" src="instagram-assets/exploration-2.png" alt="Exploration 2: Profile-level curation" />
-            </figure>
-            <div class="flow__copy">
-              <span class="case__expl-tag case__expl-tag--rejected">Direction 02 · Rejected</span>
-              <h3 class="case__h3">Profile-level curation</h3>
-              <p class="case__p">More control over who sees content and how the profile appears. Addressed audience collapse from the posting side.</p>
-              <p class="case__p"><strong>Why it failed:</strong> Identity controls improve self-expression. They don't help users navigate toward the relationships they came to see. Different problem.</p>
+            <div>
+              <img class="case__frame" src="instagram-assets/explorations/exploration-2.jpg" alt="Direction 02: Profile-level curation" />
+              <h3 class="case__subhead">Profile-level curation</h3>
+              <p class="case__copy">Encouraged visibility control and self-curation, but did not address feed attention.</p>
             </div>
-          </div>
-
-          <!-- Direction 03 -->
-          <div class="flow__grid flow__grid--bottom">
-            <figure class="flow__media">
-              <img class="case__frame" src="instagram-assets/exploration-3.png" alt="Exploration 3: Social graph organization" />
-            </figure>
-            <div class="flow__copy">
-              <span class="case__expl-tag case__expl-tag--chosen">Direction 03 · Chosen</span>
-              <h3 class="case__h3">Social graph organization</h3>
-              <p class="case__p">Grouping follows into named lists matched the mental models users already held. Those lists could then act as a context layer before ranking begins—changing the pool, not just the presentation.</p>
-              <p class="case__p"><strong>Why it won:</strong> It was the only direction that changed what the algorithm receives as input. Every other direction worked around the problem. This one addressed the structure.</p>
+            <div class="ig-exploration__item--chosen">
+              <img class="case__frame" src="instagram-assets/explorations/exploration-3.jpg" alt="Direction 03: Social graph organization" />
+              <h3 class="case__subhead">Social graph organization</h3>
+              <p class="case__copy">Grouped followed accounts into contexts that could shape feed priority before ranking.</p>
             </div>
           </div>
         </section>
 
-        <!-- ══ 8. DESIGN DECISIONS ════════════════════════════════════ -->
+        <!-- ══ 7. DECISIONS ════════════════════════════════════════ -->
         <section id="decisions">
-          <p class="case__section-label">Design Decisions</p>
-          <h2 class="case__h2">Every decision made to keep Lists in the path of everyday use.</h2>
+          <p class="case__eyebrow">Design Decisions</p>
+          <h2 class="case__section-title">The feature had to feel native to Instagram's existing system.</h2>
+          <p class="case__copy">The most important decisions were about system fit, persistence, and low-friction maintenance. Lists had to extend familiar patterns instead of asking users to learn a new product model.</p>
 
-          <p class="case__p">
-            The biggest risk for a feature like this: setup once, forget forever. A list created and never returned to is a failed feature. The decisions below are all oriented toward habitual, low-friction use.
-          </p>
+          <h3 class="case__subhead">Structural fit</h3>
+          <p class="case__copy">Lists had to plug into Instagram's existing behavioral flow rather than behave like a separate feature. The system map shows how context creation, switching, filtering, and editing integrate across Home, Stories, profiles, posts, and Following.</p>
 
-          <table class="case__decision-table">
-            <thead>
-              <tr>
-                <th>Decision</th>
-                <th>Rationale</th>
-                <th>Tradeoff accepted</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Chip rail in Home</td>
-                <td>Lists must be visible every session—not buried in settings where they're created once and ignored.</td>
-                <td>Rail takes vertical space. Pinned + recent lists only; too many visible options creates overhead, not flexibility.</td>
-              </tr>
-              <tr>
-                <td>Default lists ship pre-built</td>
-                <td>Solves cold start. Users get immediate value on day one without any setup.</td>
-                <td>Defaults may not match every user's mental model. Names are generic by design—they work before any customization.</td>
-              </tr>
-              <tr>
-                <td>Context state is persistent</td>
-                <td>A filter that resets on next open is not a navigation behavior—it's a filter. Persistence makes it a mode.</td>
-                <td>Users who don't consciously switch may get a narrower feed unexpectedly. "All" is always accessible as a recovery path.</td>
-              </tr>
-              <tr>
-                <td>Ambient assignment entry points</td>
-                <td>Maintenance has to happen in the flow of normal use. If categorization requires navigating to a management screen, it won't happen.</td>
-                <td>Adds a surface to post long-press and profile menus. Must not compete with primary actions like share or follow.</td>
-              </tr>
-              <tr>
-                <td>Discovery preserved in every context</td>
-                <td>Recommendations persist inside any active list. Over-filtering is a real risk—serendipity has to survive within each mode.</td>
-                <td>Reduces algorithm's full data set per session. Accept this to avoid an isolation failure mode that would erode trust in the feature.</td>
-              </tr>
-              <tr>
-                <td>MVP: default lists first, private only</td>
-                <td>Ship defaults and integration across Feed, Stories, and Following before expanding to collaborative or shared lists.</td>
-                <td>Defers social list-sharing feature. Reduces scope risk and keeps the first rollout comprehensible to users.</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="case__media-block">
+            <img class="case__frame" src="instagram-assets/design decisions/system-mapping.jpg" alt="System map: Lists propagating context state across all Instagram surfaces." />
+          </div>
+
+          <div class="case__decision-pair">
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Keep context visible</h4>
+              <p class="case__copy">Lists live in the main rail so users can switch context as part of browsing, not inside settings.</p>
+            </div>
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Make state persistent</h4>
+              <p class="case__copy">A resetting filter is temporary utility. Persistent state turns context into a real navigation mode.</p>
+            </div>
+          </div>
+
+          <h3 class="case__subhead">Visual fit</h3>
+          <p class="case__copy">The visual language had to feel native to Instagram's existing ecosystem. Rather than inventing a new interaction model, Lists extends familiar badges, chips, and Close Friends-adjacent patterns.</p>
+
+          <div class="case__media-block">
+            <img class="case__frame" src="instagram-assets/design decisions/system-fit.jpg" alt="Lists within Instagram's existing design system and iconography." />
+          </div>
+
+          <div class="case__decision-pair">
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Build on familiar visual language</h4>
+              <p class="case__copy">The iconography extends Close Friends and existing list metaphors instead of introducing a new visual system.</p>
+            </div>
+            <div class="case__decision-block">
+              <h4 class="case__decision-title">Support lightweight maintenance</h4>
+              <p class="case__copy">Editing happens from posts, Stories, profiles, and Following so users do not have to manage lists in a separate admin flow.</p>
+            </div>
+          </div>
         </section>
 
-        <!-- ══ 9. IMPACT ═════════════════════════════════════════════ -->
+        <!-- ══ 8. IMPACT ═══════════════════════════════════════════ -->
         <section id="impact">
-          <p class="case__section-label">Impact</p>
-          <h2 class="case__h2">Success isn't creation rate. It's whether users come back.</h2>
+          <p class="case__eyebrow">Impact</p>
+          <h2 class="case__section-title">Success is whether users return to context as part of browsing.</h2>
+          <p class="case__copy">The feature works when list switching becomes repeat behavior, not when users create a list once and never use it again.</p>
 
-          <p class="case__p">
-            This concept was not shipped. The most credible signal of success isn't list creation—that measures onboarding. The signal that matters is repeat use over time: whether Lists becomes a navigation behavior or a novelty that decays.
-          </p>
-
-          <div class="case__metric-strip">
-            <div class="case__metric-tile case__metric-tile--primary">
-              <span class="case__metric-kicker">North Star</span>
-              <p class="case__metric-val">Weekly context switching rate</p>
-              <p class="case__metric-desc">Users who move between lists regularly have made it a navigation behavior—not a one-time setup.</p>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Primary metric</h3>
+              <p class="case__copy">Engagement within user-selected contexts.</p>
             </div>
-            <div class="case__metric-tile">
-              <span class="case__metric-kicker">Engagement</span>
-              <p class="case__metric-val">Interactions per session in list mode</p>
-              <p class="case__metric-desc">Does scoping to a context produce stronger engagement? Higher signal-to-noise should show up here.</p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Secondary metrics</h3>
+              <p class="case__copy">Context switching and list reuse, engagement with close relationships, and discovery retention outside selected contexts.</p>
             </div>
-            <div class="case__metric-tile">
-              <span class="case__metric-kicker">Friction</span>
-              <p class="case__metric-val">List creation completion rate</p>
-              <p class="case__metric-desc">High drop-off indicates the setup cost outweighs the perceived value at first use.</p>
-            </div>
-            <div class="case__metric-tile">
-              <span class="case__metric-kicker">Guardrail</span>
-              <p class="case__metric-val">Discovery engagement in list mode</p>
-              <p class="case__metric-desc">Lists must not reduce broad discovery. If recommendation engagement collapses, the tradeoff has gone too far.</p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Next step</h3>
+              <p class="case__copy">Validate sustained adoption, test mental models, and evolve toward AI-assisted refinement over time.</p>
             </div>
           </div>
 
-          <div class="case__row-list">
-            <div class="case__row-item">
-              <p class="case__row-title">Validated by research</p>
-              <p class="case__row-body">Users hold real mental categories and want to act on them. The problem is structural, not perceptual. These findings are consistent across all five interviews.</p>
-            </div>
-            <div class="case__row-item">
-              <p class="case__row-title">Still assumed</p>
-              <p class="case__row-body">Whether lists are maintained over time without decay. Whether context-scoped browsing improves relationship health without suppressing discovery. Both require behavioral data at scale to verify.</p>
-            </div>
-          </div>
+          <p class="case__key-insight">If validated, Lists could reshape more than feed organization by balancing relationships, discovery, and scalable personalization.</p>
         </section>
 
-        <!-- ══ 10. REFLECTION ════════════════════════════════════════ -->
+        <!-- ══ 9. REFLECTION ═══════════════════════════════════════ -->
         <section id="reflection" class="case__reflection">
-          <p class="case__section-label">Reflection</p>
-          <h2 class="case__h2">What changed in how I think.</h2>
+          <p class="case__eyebrow">Reflection</p>
+          <h2 class="case__section-title">Users define context. Algorithms define relevance.</h2>
+          <p class="case__copy">This project changed my thinking from improving feeds at the screen level to restructuring how prioritization works underneath them. The strongest products come from understanding relationships before optimizing engagement.</p>
 
-          <div class="case__row-list">
-            <div class="case__row-item">
-              <p class="case__row-title">The architecture is the problem, not the algorithm.</p>
-              <p class="case__row-body">I started assuming the feed algorithm was the root cause. It isn't. Ranking works well for discovery. What Instagram lacks is a structural layer for intentional navigation—a way to act on the social graph already built. That reframe changed where the solution had to live.</p>
+          <div class="case__col-group">
+            <div>
+              <img class="case__frame" src="instagram-assets/reflection/reflection-1.jpg" alt="" />
+              <h3 class="case__subhead">Context before ranking</h3>
+              <p class="case__copy">Relevance only works once the right context has been defined.</p>
             </div>
-            <div class="case__row-item">
-              <p class="case__row-title">Design at the system level, not the screen level.</p>
-              <p class="case__row-body">The hardest part wasn't designing a feed filter—it was asking what the product's unit of prioritization should be and how changing that unit would ripple across every surface that touches the social graph. The screen-level work followed from that answer.</p>
+            <div>
+              <img class="case__frame" src="instagram-assets/reflection/reflection-2.jpg" alt="" />
+              <h3 class="case__subhead">Shared responsibility</h3>
+              <p class="case__copy">The model works by dividing labor clearly: users choose who matters, and algorithms rank what matters within that set.</p>
             </div>
-            <div class="case__row-item">
-              <p class="case__row-title">The next version proposes structure; it doesn't require users to build it.</p>
-              <p class="case__row-body">Manual list creation works as a foundation, but the stronger version uses follow behavior, mutual connections, and interaction patterns to suggest lists automatically. Reducing the initial setup burden is the highest-leverage improvement available.</p>
-            </div>
-            <div class="case__row-item">
-              <p class="case__row-title">Some questions can only be answered with a live rollout.</p>
-              <p class="case__row-body">Open questions remain: how users with multi-context accounts manage list overlap, how creator reach holds under heavy filtering, and whether list maintenance decays once initial setup energy fades. None of those questions can be answered without behavioral data at scale.</p>
+            <div>
+              <img class="case__frame" src="instagram-assets/reflection/reflection-3.jpg" alt="" />
+              <h3 class="case__subhead">System-level product thinking</h3>
+              <p class="case__copy">The outcome was not a feature layer but a scalable model for how user intent and algorithmic relevance can work together.</p>
             </div>
           </div>
         </section>
