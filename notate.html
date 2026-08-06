@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notate · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ── Notate: page-specific layout ─────────────────── */
+
+    /* Chosen direction highlight */
+    .notate-exploration__item--chosen {
+      outline: 1.5px solid var(--clr-accent);
+      box-shadow: 0 0 18px 2px rgba(230, 122, 0, 0.18);
+      padding: var(--sp-sm);
+    }
+
+    /* 3-column equal layout — explorations & reflection */
+    .case__col-group {
+      display: flex;
+      flex-direction: row;
+      gap: var(--sp-md);
+      align-items: flex-start;
+      margin-block-start: var(--sp-lg);
+    }
+    .case__col-group > div {
+      flex: 1 1 0;
+      min-inline-size: 0;
+    }
+    .case__col-group > div img {
+      display: block;
+      width: 100%;
+      margin-block-end: var(--sp-xs);
+    }
+    @media (max-width: 640px) {
+      .case__col-group { flex-direction: column; }
+    }
+
+    /* Flow block: media first, label + sentence below */
+    .case__flow-block { margin-block-start: var(--sp-xl); }
+    .case__flow-block .case__subhead { margin-block-start: var(--sp-md); }
+
+    /* Flow 3: 2 phones + stacked pair — 2fr:2fr:1fr */
+    .notate-flow__trio {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
+    }
+    .notate-flow__trio > .flow__media-stack { align-self: start; }
+    .notate-flow__trio > .flow__device { display: flex; flex-direction: column; }
+    .notate-flow__trio > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .notate-flow__trio > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
+
+    /* Flow 4: 1 large phone + 2×2 grid */
+    .notate-flow__quad {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
+    }
+    .notate-flow__quad > .flow__mini-grid { align-self: start; }
+    .notate-flow__quad > .flow__device { display: flex; flex-direction: column; }
+    .notate-flow__quad > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .notate-flow__quad > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
+
+    /* 2×2 mini-grid */
+    .flow__mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+    }
+
+    /* Stacked pair */
+    .flow__media-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+
+    /* Placeholder filler box */
+    .filler-box {
+      background: var(--clr-border);
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-muted);
+      font-size: var(--fs-sm);
+      border-radius: 0;
+      border: 1px solid #EBEBEA;
+    }
+
+    @media (max-width: 639px) {
+      /* Explorations: first 2 side-by-side, 3rd full-width below */
+      .notate-explorations__cols {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .notate-explorations__cols > div {
+        flex: 1 1 calc(50% - var(--sp-sm));
+        min-inline-size: 0;
+      }
+      .notate-explorations__cols > div:last-child {
+        flex: 0 0 100%;
+      }
+
+      /* Trio: first 2 phones stack full-width, last 2 go side-by-side below */
+      .notate-flow__trio {
+        display: flex;
+        flex-direction: column;
+      }
+      .notate-flow__trio > .flow__media-stack {
+        flex-direction: row;
+      }
+
+      /* Quad: large phone on top, 2×2 grid below */
+      .notate-flow__quad {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="page--project">
+
+  <header class="nav">
+    <a href="home.html" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="home.html" class="nav__link nav__link--active">Work</a>
+      <a href="explorations.html" class="nav__link">Explorations</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main class="case-wrap">
+    <a href="home.html" class="case__back--mobile">Back</a>
+
+    <nav class="case__toc-bar" aria-label="Page sections">
+      <a href="#overview"     class="case__toc-bar-link">Overview</a>
+      <a href="#solution"     class="case__toc-bar-link">Solution</a>
+      <a href="#flows"        class="case__toc-bar-link">Core Flows</a>
+      <a href="#system"       class="case__toc-bar-link">System</a>
+      <a href="#research"     class="case__toc-bar-link">Research</a>
+      <a href="#explorations" class="case__toc-bar-link">Explorations</a>
+      <a href="#decisions"    class="case__toc-bar-link">Decisions</a>
+      <a href="#impact"       class="case__toc-bar-link">Impact</a>
+      <a href="#reflection"   class="case__toc-bar-link">Reflection</a>
+    </nav>
+
+    <div class="case__content-grid">
+      <nav class="case__toc" aria-label="Sections">
+        <a href="home.html" class="case__back">Back</a>
+        <div class="case__toc-inner">
+          <ul class="case__toc-list">
+            <li><a href="#overview"     class="case__toc-link">Overview</a></li>
+            <li><a href="#solution"     class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"        class="case__toc-link">Core Flows</a></li>
+            <li><a href="#system"       class="case__toc-link">System</a></li>
+            <li><a href="#research"     class="case__toc-link">Research</a></li>
+            <li><a href="#explorations" class="case__toc-link">Explorations</a></li>
+            <li><a href="#decisions"    class="case__toc-link">Decisions</a></li>
+            <li><a href="#impact"       class="case__toc-link">Impact</a></li>
+            <li><a href="#reflection"   class="case__toc-link">Reflection</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="case__body">
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <header class="case__hero">
+          <p class="case__eyebrow">Notate · Product Design · Concept · 2025</p>
+          <h1 class="case__title">Coming Soon</h1>
+          <p class="case__copy">This case study is under development.</p>
+
+          <div class="case__media-block case__media-block--hero">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <div class="filler-box" style="aspect-ratio: 9/16; height: 400px;">Placeholder</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__meta">
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Role</span>
+              <span class="case__meta-val">Solo Product Designer</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Timeline</span>
+              <span class="case__meta-val">Coming soon</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Platform</span>
+              <span class="case__meta-val">TBD</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Scope</span>
+              <span class="case__meta-val">TBD</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- ══ 1. OVERVIEW ════════════════════════════════════════ -->
+        <section id="overview">
+          <p class="case__eyebrow">Overview</p>
+          <h2 class="case__section-title">Overview coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 2. SOLUTION ════════════════════════════════════════ -->
+        <section id="solution">
+          <p class="case__eyebrow">Solution</p>
+          <h2 class="case__section-title">Solution coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 3. CORE FLOWS ══════════════════════════════════════ -->
+        <section id="flows">
+          <p class="case__eyebrow">Core Flows</p>
+          <h2 class="case__section-title">Core flows coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 4. SYSTEM ═══════════════════════════════════════════ -->
+        <section id="system">
+          <p class="case__eyebrow">System</p>
+          <h2 class="case__section-title">System design coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 5. RESEARCH ═════════════════════════════════════════ -->
+        <section id="research">
+          <p class="case__eyebrow">Research</p>
+          <h2 class="case__section-title">Research coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 6. EXPLORATIONS ═════════════════════════════════════ -->
+        <section id="explorations">
+          <p class="case__eyebrow">Explorations</p>
+          <h2 class="case__section-title">Explorations coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 7. DECISIONS ════════════════════════════════════════ -->
+        <section id="decisions">
+          <p class="case__eyebrow">Design Decisions</p>
+          <h2 class="case__section-title">Design decisions coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 8. IMPACT ═══════════════════════════════════════════ -->
+        <section id="impact">
+          <p class="case__eyebrow">Impact</p>
+          <h2 class="case__section-title">Impact coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+        <!-- ══ 9. REFLECTION ═══════════════════════════════════════ -->
+        <section id="reflection" class="case__reflection">
+          <p class="case__eyebrow">Reflection</p>
+          <h2 class="case__section-title">Reflection coming soon</h2>
+          <p class="case__copy">This section is under development.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+	<footer class="footer">
+		<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
+		<p class="footer__time" id="local-time"></p>
+		<nav class="footer__links" aria-label="Social links">
+			<a href="#" class="footer__link">LinkedIn</a>
+			<a href="#" class="footer__link">Email</a>
+			<a href="#" class="footer__link">GitHub</a>
+		</nav>
+	</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
