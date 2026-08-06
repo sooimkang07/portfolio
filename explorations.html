@@ -37,6 +37,11 @@
       position: absolute;
       inset: 0;
     }
+
+    /* Tighten gap between the two vertical videos in left column */
+    .expl-card:nth-child(1) {
+      margin-block-end: calc(var(--gutter) * 0.3);
+    }
   </style>
 </head>
 <body>
@@ -63,7 +68,29 @@
       <!-- MASONRY GRID -->
       <div class="expl-grid anim-2">
 
-        <!-- col 1 row 1 · Build-a-Bubu — looping video -->
+        <!-- col 1 · Digital Expression Fellowship — looping video -->
+        <a class="expl-card" href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing" target="_blank" rel="noopener" aria-label="Digital Expression Fellowship">
+          <div class="expl-card__media expl-card__media--02">
+            <video src="explorations-assets/digital-expression-fellowship.mov" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Digital Expression Fellowship</p>
+            <p class="expl-card__tag">2026 · Fellowship</p>
+          </div>
+        </a>
+
+        <!-- col 1 · Smart Dillo Marketing Campaign — image -->
+        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:54b9cf98-7a34-49b5-8ddd-816a866e4b23" target="_blank" rel="noopener" aria-label="Smart Dillo">
+          <div class="expl-card__media expl-card__media--05">
+            <img src="explorations-assets/smart-dillo-cover.jpg" alt="Smart Dillo" />
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
+            <p class="expl-card__tag">2022 · Campaign Brand Design</p>
+          </div>
+        </a>
+
+        <!-- col 2 · Build-a-Bubu — looping video -->
         <a class="expl-card" href="https://build-a-bubu.vercel.app/avatar" target="_blank" rel="noopener" aria-label="Build-a-Bubu">
           <div class="expl-card__media expl-card__media--01">
             <video src="explorations-assets/build-a-bubu-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -74,7 +101,18 @@
           </div>
         </a>
 
-        <!-- col 1 row 2 · AMA — iframe -->
+        <!-- col 2 · Windows of Style — looping video -->
+        <a class="expl-card" href="https://sooimkang07.github.io/binding/" target="_blank" rel="noopener" aria-label="Windows of Style">
+          <div class="expl-card__media expl-card__media--04">
+            <video src="explorations-assets/windows-of-style-cover.mov" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Windows of Style</p>
+            <p class="expl-card__tag">2025 · Hand-coded Site</p>
+          </div>
+        </a>
+
+        <!-- col 2 · AMA Website — iframe -->
         <a class="expl-card" href="https://www.ama-digital.com/" target="_blank" rel="noopener" aria-label="AMA Website">
           <div class="expl-card__media expl-card__media--06 expl-card__media--iframe">
             <iframe
@@ -92,7 +130,7 @@
           </div>
         </a>
 
-        <!-- col 2 row 3 · ACR -->
+        <!-- col 2 · Area Council Recruitment Campaign — image -->
         <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:a59b1b24-7710-4baa-a8db-6422cfd86802" target="_blank" rel="noopener" aria-label="Area Council Recruitment">
           <div class="expl-card__media expl-card__media--05">
             <img src="explorations-assets/acr-cover.jpg" alt="Area Council Recruitment" />
@@ -103,7 +141,7 @@
           </div>
         </a>
 
-          <!-- col 2 row 1 · Nothing Good Happens After Midnight — iframe -->
+        <!-- col 3 · Nothing Good Happens After Midnight — iframe -->
         <a class="expl-card" href="https://sooimkang07.github.io/links/" target="_blank" rel="noopener" aria-label="Nothing Good Happens After Midnight">
           <div class="expl-card__media expl-card__media--03 expl-card__media--iframe">
             <iframe
@@ -121,29 +159,7 @@
           </div>
         </a>
 
-        <!-- col 2 row 2 · Windows of Style — looping video -->
-        <a class="expl-card" href="https://sooimkang07.github.io/binding/" target="_blank" rel="noopener" aria-label="Windows of Style">
-          <div class="expl-card__media expl-card__media--04">
-            <video src="explorations-assets/windows-of-style-cover.mov" autoplay loop muted playsinline preload="auto"></video>
-          </div>
-          <div class="expl-card__meta">
-            <p class="expl-card__title">Windows of Style</p>
-            <p class="expl-card__tag">2025 · Hand-coded Site</p>
-          </div>
-        </a>
-
-        <!-- col 1 row 3 · Smart Dillo — image -->
-        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:54b9cf98-7a34-49b5-8ddd-816a866e4b23" target="_blank" rel="noopener" aria-label="Smart Dillo">
-          <div class="expl-card__media expl-card__media--05">
-            <img src="explorations-assets/smart-dillo-cover.jpg" alt="Smart Dillo" />
-          </div>
-          <div class="expl-card__meta">
-            <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
-            <p class="expl-card__tag">2022 · Campaign Brand Design</p>
-          </div>
-        </a>
-
-        <!-- col 3 row 1-2 · What's a phone — looping video -->
+        <!-- col 3 · What's a phone — looping video -->
         <a class="expl-card" href="https://drive.google.com/file/d/17i1Pf_B-AKfrgYZqGrCANgLsJhJH6FyV/view?usp=sharing" target="_blank" rel="noopener" aria-label="What's a phone?">
           <div class="expl-card__media expl-card__media--02">
             <video src="explorations-assets/what-is-a-phone-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
