@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
 </head>
-
 <body class="page--project">
 
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
   <header class="nav">
     <a href="home.html" class="nav__logo">Sooim Kang</a>
     <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
@@ -17,7 +17,7 @@
       <a href="home.html"        class="nav__link nav__link--active">Work</a>
       <a href="explorations.html" class="nav__link">Explorations</a>
       <a href="about.html"        class="nav__link">About</a>
-      <a href="Sooim-Kang-Resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
     </nav>
   </header>
 
@@ -25,550 +25,318 @@
 
     <a href="home.html" class="case__back--mobile">Back</a>
 
-    <!-- Mobile TOC bar: sticky below nav, hidden on desktop -->
+    <!-- ── MOBILE TOC BAR ────────────────────────────────────── -->
     <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview" class="case__toc-bar-link">Overview</a>
-      <a href="#solution" class="case__toc-bar-link">Solution</a>
-      <a href="#ai-workflow" class="case__toc-bar-link">AI workflow</a>
-      <a href="#decisions" class="case__toc-bar-link">Decisions</a>
-      <a href="#system-logic" class="case__toc-bar-link">System</a>
-      <a href="#impact" class="case__toc-bar-link">Impact</a>
-      <a href="#appendix" class="case__toc-bar-link">Appendix</a>
+      <a href="#overview"   class="case__toc-bar-link">Overview</a>
+      <a href="#solution"   class="case__toc-bar-link">Solution</a>
+      <a href="#flows"      class="case__toc-bar-link">Core Flows</a>
+      <a href="#system"     class="case__toc-bar-link">System</a>
+      <a href="#decisions"  class="case__toc-bar-link">Decisions</a>
+      <a href="#impact"     class="case__toc-bar-link">Impact</a>
+      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
     </nav>
 
     <div class="case__content-grid">
 
-      <!-- Sticky TOC (desktop) -->
+      <!-- ── DESKTOP TOC SIDEBAR ───────────────────────────────── -->
       <nav class="case__toc" aria-label="Sections">
         <a href="home.html" class="case__back">Back</a>
         <div class="case__toc-inner">
           <ul class="case__toc-list">
-            <li><a href="#overview" class="case__toc-link">Overview</a></li>
-            <li><a href="#solution" class="case__toc-link">Solution</a></li>
-            <li><a href="#ai-workflow" class="case__toc-link">AI workflow</a></li>
-            <li><a href="#decisions" class="case__toc-link">Key decisions</a></li>
-            <li><a href="#system-logic" class="case__toc-link">System logic</a></li>
-            <li><a href="#impact" class="case__toc-link">Impact</a></li>
-            <li><a href="#appendix" class="case__toc-link">Technical appendix</a></li>
+            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
+            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
+            <li><a href="#system"     class="case__toc-link">System</a></li>
+            <li><a href="#decisions"  class="case__toc-link">Decisions</a></li>
+            <li><a href="#impact"     class="case__toc-link">Impact</a></li>
+            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
           </ul>
         </div>
       </nav>
 
-      <!-- Content column -->
-      <article class="case__body">
+      <div class="case__body">
 
-        <!-- HERO -->
-        <header class="case__hero anim-1">
-          <p class="case__label">ACUITY · AI Startup Design Hackathon · 2026</p>
+        <!-- ══ HERO ═══════════════════════════════════════════ -->
+        <header class="case__hero">
+          <p class="case__eyebrow">ACUITY · AI Health Monitoring · 24hr Challenge · 2026</p>
           <h1 class="case__title">Determining When Health Signals Require Action</h1>
 
-            <figure class="case__img case__hero-img">
-            <div class="case__img-inner">
-              <span class="case__img-label">HERO VISUAL — recommended: bracelet motion still on wrist (clean, 16:9)</span>
+          <div class="case__media-block case__media-block--hero">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+                  <span class="case__img-label">ACUITY — AI-powered health monitoring bracelet + app</span>
+                </div>
+              </div>
             </div>
-            <figcaption class="case__figcap">
-              Use your strongest hardware visual here (bracelet on wrist, minimal background). Alternate option: <strong>AI startup title slide.JPG</strong> for hackathon context.
-            </figcaption>
-          </figure>
+          </div>
 
           <div class="case__meta">
             <div class="case__meta-item">
-              <span class="case__meta-label">Role</span>
-              <span class="case__meta-val">Systems + product designer (interaction, service, motion)</span>
+              <span class="case__eyebrow">Role</span>
+              <span class="case__meta-val">Systems + Product Designer</span>
             </div>
             <div class="case__meta-item">
-              <span class="case__meta-label">Team</span>
-              <span class="case__meta-val">3 (2 designers, 1 pre‑med)</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__meta-label">Timeline</span>
+              <span class="case__eyebrow">Timeline</span>
               <span class="case__meta-val">24 hours</span>
             </div>
             <div class="case__meta-item">
-              <span class="case__meta-label">AI stack</span>
-              <span class="case__meta-val">Claude (reasoning), Figma Make (execution), Midjourney (stills), Sora (motion)</span>
+              <span class="case__eyebrow">Scope</span>
+              <span class="case__meta-val">Hardware concept · Mobile app · Service pathway</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Focus</span>
+              <span class="case__meta-val">Translating biometric signals into medical action</span>
             </div>
           </div>
-
-          <p class="case__p">
-            Maya wakes up with chest discomfort. Her smartwatch shows an elevated heart rate, but the numbers are still technically within a “normal” range.
-            She hesitates — is this something serious, or just stress?
-            <br><br>
-            Modern wearables detect physiological signals but rarely translate them into clear medical action.
-            <strong>ACUITY bridges that gap.</strong> It detects sustained deviation from a user’s baseline and escalates guidance with proportionate urgency:
-            <span class="case__em">nudge → schedule → urgent care</span>.
-          </p>
-
-          
-                    <h3 class="case__h3">Product</h3>
-          <p class="case__p">AI-powered preventive health monitoring ecosystem (bracelet + mobile app + provider pathway)</p>
-
-          <h3 class="case__h3">Primary user</h3>
-          <p class="case__p">High-risk cardiovascular patients during recovery and monitoring periods</p>
-
-          <h3 class="case__h3">Core innovation</h3>
-          <p class="case__p">An intervention engine translating biometric drift into clear medical next actions</p>
-
-          <h3 class="case__h3">Business model</h3>
-          <p class="case__p">Distributed through insurers and healthcare systems for preventive monitoring</p>
-
-          <div class="case__cta">
-            <a class="case__btn case__btn--primary" href="#solution">Watch story film</a>
-            <a class="case__btn case__btn--secondary" href="ACUITY.pdf" target="_blank" rel="noopener">See deck (PDF)</a>
-          </div>
-
-                    <h3 class="case__h3">What I’m optimizing for</h3>
-          <p class="case__p">Hiring signals for innovation roles: judgment under time pressure, systems thinking, AI orchestration, and end‑to‑end craft.
-              This case study is organized around the decisions that shaped ACUITY — not a checklist of process steps.</p>
         </header>
 
-        <!-- OVERVIEW -->
+        <!-- ══ OVERVIEW ════════════════════════════════════════ -->
         <section id="overview">
-          <p class="case__section-label">Overview</p>
-          <h2 class="case__h2">The Data‑Action Gap</h2>
+          <p class="case__eyebrow">Overview</p>
+          <h2 class="case__section-title">Modern wearables detect signals — but don't translate them into action</h2>
+          <p class="case__copy">Patients experience symptoms and see elevated metrics, but don't know what they mean or what to do. ACUITY bridges that gap by detecting sustained deviation from a user's baseline and escalating guidance with proportionate urgency: nudge → schedule → urgent care.</p>
 
-          <p class="case__p">
-            In our research sprint, the pattern was consistent: people experience symptoms, look at their wearable, and still feel stuck.
-            They have numbers — not meaning. ACUITY is designed as an <em>interpretation layer</em> that bridges raw signals to a confident next step,
-            without alarming users or over‑triaging care.
-          </p>
-
-                    <h3 class="case__h3">System at a glance</h3>
-          <h3 class="case__h3">Inputs</h3>
-          <p class="case__p">Multi‑modal vitals (HRV, SpO2, sleep, ECG, blood pressure where available) + patient‑reported symptoms.</p>
-          <h3 class="case__h3">Brain</h3>
-          <p class="case__p">Deviation detector compares real‑time patterns against a personalized baseline + clinical risk priors.</p>
-          <h3 class="case__h3">Outputs</h3>
-          <p class="case__p">Tiered guidance: subtle haptic cue → “Schedule now” pathway → urgent escalation when warranted.</p>
-          <h3 class="case__h3">Deployment</h3>
-          <p class="case__p">Distributed through insurers / health systems to reach high‑risk members and align incentives.</p>
-
-          <div class="case__architecture">
-            <strong>System architecture</strong>
-            <div class="case__architecture-step">Wearable sensors (HRV · ECG · SpO2 · Sleep)</div>
-            <div class="case__architecture-step">Personal baseline model learns normal patterns</div>
-            <div class="case__architecture-step">Deviation detector identifies sustained drift</div>
-            <div class="case__architecture-step">Risk classification engine evaluates severity</div>
-            <div class="case__architecture-step">Intervention engine triggers appropriate action</div>
-            <div class="case__architecture-step">Product responses: nudge → appointment → urgent escalation</div>
+          <div class="case__media-block">
+            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+              <span class="case__img-label">The data-action gap — metrics without meaning</span>
+            </div>
           </div>
 
-                    <h3 class="case__h3">Who</h3>
-          <p class="case__p">High‑risk cardiovascular patients, with specific attention to groups that are frequently misdiagnosed or dismissed.</p>
-          <h3 class="case__h3">What we shipped</h3>
-          <p class="case__p">Hardware concept + end‑to‑end mobile experience + service pathway (provider + insurer integration).</p>
-          <h3 class="case__h3">Constraint</h3>
-          <p class="case__p">24 hours — forced clarity on the few system behaviors that create trust (thresholds, escalation, language).</p>
-
-          <figure class="case__img">
-            <div class="case__img-inner case__img-inner--short">
-              <span class="case__img-label">PROCESS PHOTO STRIP — pick 3: whiteboard.JPG, me presenting.JPG, team holding certificate.PNG</span>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">The problem</h3>
+              <p class="case__copy">Wearables provide raw signals (heart rate, blood oxygen, ECG) but leave interpretation to the user. Symptoms + metrics still leave patients uncertain: is this serious, or just stress?</p>
             </div>
-            <figcaption class="case__figcap">
-              Use a tight 3‑image strip (same tone, minimal clutter). It signals credibility without turning the page into a scrapbook.
-            </figcaption>
-          </figure>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">The opportunity</h3>
+              <p class="case__copy">Systems can detect sustained baseline drift, classify risk tiers, and guide users toward the right care pathway without alarming or over-triaging.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">The constraint</h3>
+              <p class="case__copy">High-risk patients are least likely to self-diagnose. Deployment through insurers and health systems reaches them with integrated pathways, not just app notifications.</p>
+            </div>
+          </div>
         </section>
 
-        <!-- SOLUTION -->
+        <!-- ══ SOLUTION ════════════════════════════════════════ -->
         <section id="solution">
-          <p class="case__section-label">Solution</p>
-          <h2 class="case__h2">A story‑first walkthrough (lead with motion)</h2>
+          <p class="case__eyebrow">Solution</p>
+          <h2 class="case__section-title">An intervention engine that translates biometric drift into clear medical next actions</h2>
+          <p class="case__copy">ACUITY detects sustained deviation from a patient's baseline and routes them to the appropriate care tier. The system's "when do we speak?" logic is designed as a first-class UX surface.</p>
 
-          <p class="case__p">
-            This film is the fastest way to understand the end‑to‑end ecosystem: the bracelet, the tiered alert logic, and the “Schedule now” handoff.
-            Put this above the fold so reviewers get the concept before they decide whether to scroll.
-          </p>
+          <div class="case__media-block">
+            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+              <span class="case__img-label">System architecture — biometrics → baseline model → escalation logic → patient action</span>
+            </div>
+          </div>
 
-          <figure class="case__video">
-            <div class="case__video-inner">              
-              <video controls playsinline preload="metadata" poster="assets/acuity-film-poster.jpg">
-                <source src="acuity-assets/demo-video.mp4" type="video/mp4" />
-              </video>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Personalized baseline</h3>
+              <p class="case__copy">The system learns each patient's normal patterns from initial weeks of monitoring, creating a personalized reference point instead of using population averages.</p>
             </div>
-            <figcaption class="case__figcap">
-              If you export a recruiter cut: 10s (Maya moment) → 15s (tiered alert) → 20s (Schedule now + doctor visit) → 10s (insurer deployment + impact).
-            </figcaption>
-          </figure>
-
-          <div>
-              <h3 class="case__h3">Core promise</h3>
-              <p class="case__p">
-                ACUITY turns sustained baseline drift into a clear action. Not more data. A decision you can trust.
-              </p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Deviation detection</h3>
+              <p class="case__copy">Continuous monitoring flags sustained abnormal patterns — not one-off spikes. Magnitude, duration, and symptom context combine to determine escalation tier.</p>
             </div>
-            <div>
-              <h3 class="case__h3">What’s novel</h3>
-              <p class="case__p">
-                Designing the <em>confidence thresholds</em> and escalation behaviors — the system’s “when do we speak?” logic — as a first‑class UX surface.
-              </p>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Tiered interventions</h3>
+              <p class="case__copy">Tier 1 (monitoring) → Tier 2 (schedule evaluation) → Tier 3 (urgent escalation). Each tier has proportionate language, confidence signals, and clear next steps.</p>
             </div>
-
-          <figure class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">DIAGRAM — “System Architecture Glance” (input → model → tier gate → interventions)</span>
-            </div>
-            <figcaption class="case__figcap">
-              Redraw a crisp blueprint diagram from the deck: bracelet sensors → baseline model → deviation detector → logic gate → actions (nudge/schedule/urgent).
-            </figcaption>
-          </figure>
-
-          <figure class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">HARDWARE MOTION GRID — 4 tiles: wrist close‑up, underside sensors, vibration moment, lifestyle shot</span>
-            </div>
-            <figcaption class="case__figcap">
-              Use your most polished wearable motion assets here. Keep backgrounds neutral; emphasize material/geometry consistency.
-            </figcaption>
-          </figure>
+          </div>
         </section>
 
-        <!-- AI WORKFLOW -->
-        <section id="ai-workflow">
-          <p class="case__section-label">AI workflow</p>
-          <h2 class="case__h2">AI as a force multiplier (directing > executing)</h2>
+        <!-- ══ CORE FLOWS ═══════════════════════════════════════ -->
+        <section id="flows">
+          <p class="case__eyebrow">Core Flows</p>
+          <h2 class="case__section-title">Four touchpoints that close the gap between signal and action</h2>
+          <p class="case__copy">Discovery, alert logic, scheduling, and provider handoff — the minimum proof of an end-to-end care pathway.</p>
 
-          <p class="case__p">
-            In 24 hours, the bottleneck is not ideation — it’s synthesis and throughput. I treated AI tools as an orchestration layer:
-            Claude for reasoning and decision framing, Midjourney/Sora for believable media, and Figma Make for rapid UI construction.
-            My job was to set constraints, define evaluation criteria, and keep the system coherent.
-          </p>
-
-                    <h3 class="case__h3">Brainstorming · Claude</h3>
-          <p class="case__p">Problem framing, tradeoff exploration, tier logic, and copy that avoids medical over‑claiming.</p>
-          <h3 class="case__h3">Execution · Figma Make</h3>
-          <p class="case__p">Accelerated layout scaffolds and component variants so we could spend time on the system behaviors.</p>
-          <h3 class="case__h3">Media · Sora + Midjourney</h3>
-          <p class="case__p">Story film + hardware visuals that made the concept feel “real enough” to evaluate.</p>
-
-                    <h3 class="case__h3">Key takeaway</h3>
-          <p class="case__p">AI didn’t replace design judgment — it surfaced more options faster. The differentiator was choosing <em>which</em> system behaviors mattered and making them legible.</p>
-
-          <figure class="case__img">
-            <div class="case__img-inner case__img-inner--short">
-              <span class="case__img-label">RESEARCH PROOF (optional) — screenshot the doc tab list + 1 highlighted excerpt</span>
+          <!-- Flow 1 — Baseline learning -->
+          <div class="case__flow-block" id="flow1">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+                      <span class="case__img-label">Baseline learning flow</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Establish personalized baseline</h3>
+                <p class="case__copy">The bracelet captures baseline vitals across different states (rest, activity, sleep). The system learns normal patterns for this specific patient, creating a personalized reference point for detecting meaningful deviation.</p>
+              </div>
             </div>
-            <figcaption class="case__figcap">
-              Only include if it’s curated: a single “research receipt” showing breadth (tabs) + depth (one annotated excerpt) is stronger than dumping many pages.
-            </figcaption>
-          </figure>
+          </div>
 
-          <figure class="case__img">
-            <div class="case__img-inner case__img-inner--short">
-              <span class="case__img-label">PROCESS PHOTO — me + krit working desk.JPG (signals collaboration + velocity)</span>
+          <!-- Flow 2 — Alert tier -->
+          <div class="case__flow-block" id="flow2">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+                      <span class="case__img-label">Tiered alert UI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Tiered alert that explains the "why"</h3>
+                <p class="case__copy">Sustained drift triggers a proportionate alert. The card explains risk tier, plain-language interpretation, and confidence signals. Primary CTA is "Schedule evaluation" for Tier 2, with escalation pathways for Tier 3.</p>
+              </div>
             </div>
-            <figcaption class="case__figcap">
-              Use one candid work‑in‑progress photo as a transition into decisions and system logic.
-            </figcaption>
-          </figure>
+          </div>
+
+          <!-- Flow 3 — Scheduling -->
+          <div class="case__flow-block" id="flow3">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+                      <span class="case__img-label">Appointment scheduling flow</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Low-friction handoff to care</h3>
+                <p class="case__copy">The product is only as good as follow-through. Scheduling reduces steps, pre-fills context from the alert, and confirms what happens next. Integration with provider systems ensures seamless transition from app to clinic.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 4 — Provider handoff -->
+          <div class="case__flow-block" id="flow4">
+            <div class="flow__grid flow__grid--full">
+              <div class="flow__media">
+                <div class="flow__device">
+                  <div class="flow__device-screen">
+                    <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+                      <span class="case__img-label">Clinician summary report</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flow__copy">
+                <h3 class="case__subhead">Clinician-ready summary</h3>
+                <p class="case__copy">A concise report translates biometric drift and symptom context into medically relevant information. Providers can triage quickly without patients needing to interpret charts or explain their own metrics.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <!-- DECISIONS -->
+        <!-- ══ SYSTEM THINKING ══════════════════════════════════ -->
+        <section id="system">
+          <p class="case__eyebrow">System</p>
+          <h2 class="case__section-title">Closing the data-action gap requires designing the intervention system</h2>
+          <p class="case__copy">ACUITY's intelligence is not "AI magic." It's a legible system that weighs drift magnitude, duration, and symptom context to route patients to appropriate care tiers with high confidence and low false-alarm rates.</p>
+
+          <div class="case__media-block">
+            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+              <span class="case__img-label">Deviation detector + logic gate system</span>
+            </div>
+          </div>
+
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Deviation detector</h3>
+              <p class="case__copy">Continuously compares current signals to personalized baseline. Flags sustained abnormal patterns, not one-off spikes. Accounts for context: activity level, time of day, recent stress.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Logic gate</h3>
+              <p class="case__copy">Routes users to appropriate tier by combining confidence thresholds, risk priors, and user-reported symptoms. Designed for false positives: only escalates after sustained drift, uses cautious language.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Care pathway</h3>
+              <p class="case__copy">Tier 1 (monitor) → Tier 2 (schedule) → Tier 3 (urgent). Each tier connects to real care infrastructure through health systems and insurers, not just app notifications.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══ DECISIONS ════════════════════════════════════════ -->
         <section id="decisions">
-          <p class="case__section-label">Key decisions</p>
-          <h2 class="case__h2">The decisions that made ACUITY credible</h2>
+          <p class="case__eyebrow">Design Decisions</p>
+          <h2 class="case__section-title">The decisions that made ACUITY credible under time pressure</h2>
+          <p class="case__copy">Each decision came from identifying the core system behaviors that create trust.</p>
 
-                    <h3 class="case__h3">Decision 1 — Interpretation over more data</h3>
-          <p class="case__p">We chose to design a translation layer (meaning + next step) instead of a richer vitals dashboard.</p>
-          <p class="case__p">In early‑symptom moments, “normal range” numbers can still hide dangerous trend shifts. Users needed contextual guidance, not another chart.</p>
-          <p class="case__p">Research repeatedly described uncertainty: symptoms without clarity, or metrics that didn’t map to action.</p>
-          <p class="case__p">Copy + thresholds became core UI. We prioritized “what this means” and “what to do now.”</p>
-          <h3 class="case__h3">Why</h3>
-          <h3 class="case__h3">Evidence</h3>
-          <h3 class="case__h3">Design consequence</h3>
+          <h3 class="case__subhead">Personalized baseline over population norms</h3>
+          <p class="case__copy">Population-average thresholds miss meaningful drift for individual patients. We chose to learn each patient's unique baseline, making the system more sensitive to personal change.</p>
 
-                    <h3 class="case__h3">Decision 2 — Deploy via insurers, not direct‑to‑consumer</h3>
-          <p class="case__p">We designed ACUITY as an infrastructure product: high‑risk enrollment + provider pathways + aligned incentives.</p>
-          <p class="case__p">The people who most need preventive intervention are least likely to self‑purchase a new wearable. Insurer deployment reaches the right users sooner.</p>
-          <p class="case__p">Operationally, prevention works when triage and follow‑through are baked into care pathways — not left to the user.</p>
-          <p class="case__p">We added a clinician‑ready summary and a “Schedule now” CTA as the primary action in the alert card.</p>
-          <h3 class="case__h3">Why</h3>
-          <h3 class="case__h3">Evidence</h3>
-          <h3 class="case__h3">Design consequence</h3>
+          <h3 class="case__subhead">Tiered interventions over binary escalation</h3>
+          <p class="case__copy">A single "alert or not" decision causes either over-triage or missed signals. Three tiers allow proportionate responses: subtle nudge, scheduled evaluation, or urgent care routing.</p>
 
-          <figure class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">WHITEBOARD ARTIFACT — decision capture: must‑haves/should‑haves (whiteboard.JPG or whiteboard + me.jpg)</span>
+          <h3 class="case__subhead">Insurer deployment over direct-to-consumer</h3>
+          <p class="case__copy">Patients who most need preventive monitoring are least likely to self-purchase wearables. Reaching them through health systems and insurers ensures integration with actual care pathways, not just notifications.</p>
+
+          <h3 class="case__subhead">Clinician summary over raw data dashboards</h3>
+          <p class="case__copy">Providers need context, not charts. A concise summary translating biometric drift into medical relevance enables faster triage and higher follow-through rates.</p>
+
+          <div class="case__media-block">
+            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+              <span class="case__img-label">Decision framework</span>
             </div>
-            <figcaption class="case__figcap">
-              Annotate the photo in Figma (light labels) to call out where these decisions were made under time pressure.
-            </figcaption>
-          </figure>
+          </div>
         </section>
 
-        <!-- SYSTEM LOGIC -->
-        <section id="system-logic">
-          <p class="case__section-label">System logic</p>
-          <h2 class="case__h2">Deviation detector + logic gate</h2>
+        <!-- ══ IMPACT ══════════════════════════════════════════ -->
+        <section id="impact">
+          <p class="case__eyebrow">Impact</p>
+          <h2 class="case__section-title">Reducing the gap between symptom and seeking care</h2>
 
-          <p class="case__p">
-            ACUITY’s intelligence isn’t “AI magic.” It’s a legible system that weighs drift magnitude, duration, and symptom context.
-            The UX is designed around trust: reduce false alarms, explain why the system is escalating, and always offer a safe next step.
-          </p>
+          <div class="case__insight-grid">
+            <div class="case__insight-block">
+              <h3 class="case__subhead">User outcomes</h3>
+              <p class="case__copy">Shorter time-to-action. Lower uncertainty. Alerts are meaningful because they're grounded in personalized baseline, not population thresholds. Escalation only happens after sustained drift, reducing alarm fatigue.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">System value</h3>
+              <p class="case__copy">Fewer avoidable emergency admissions. Aligned incentives between insurers, providers, and patients. Scalable care capacity by routing elevated cases to clinics first, not ERs.</p>
+            </div>
+            <div class="case__insight-block">
+              <h3 class="case__subhead">Clinical impact</h3>
+              <p class="case__copy">Early intervention on high-risk patients before acute events occur. Modeled outcomes: 30-40% reduction in time-to-care, 1-2% reduction in emergency admissions, $8-12M annual cost reduction for health systems.</p>
+            </div>
+          </div>
 
-          <div>
-              <h3 class="case__h3">Deviation detector</h3>
-              <p class="case__p">Continuously compares current signals to a personalized baseline; flags sustained abnormal patterns (not one‑off spikes).</p>
+          <p class="case__key-insight">Success is measured by whether high-risk patients seek evaluation sooner and whether escalations reach appropriate care tiers consistently.</p>
+        </section>
+
+        <!-- ══ REFLECTION ══════════════════════════════════════ -->
+        <section id="reflection" class="case__reflection">
+          <p class="case__eyebrow">Reflection</p>
+          <h2 class="case__section-title">What the 24-hour sprint revealed</h2>
+
+          <div class="case__col-group">
+            <div>
+              <h3 class="case__subhead">Time pressure forced systems thinking</h3>
+              <p class="case__copy">24 hours meant designing proof of a thesis, not a gallery of screens. The minimum viable proof was a closed loop — every design decision followed from the core hypothesis: can we detect drift and route patients to appropriate care?</p>
             </div>
             <div>
-              <h3 class="case__h3">Logic gate</h3>
-              <p class="case__p">Routes the user to the right intervention tier by combining confidence thresholds + risk priors + user confirmation.</p>
-            </div>
-
-                    <h3 class="case__h3">Designing for false positives</h3>
-          <p class="case__p">We treated “when do we interrupt?” as a design problem: ACUITY escalates only after sustained drift, uses cautious language,
-              and makes “schedule evaluation” the default path before urgent action.</p>
-
-          
-
-          <figure class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">DIAGRAM — state machine: Stable → Elevated → Emergent (include conditions + exits)</span>
-            </div>
-            <figcaption class="case__figcap">
-              Create a clean state diagram with thresholds (duration + magnitude) and safety exits (user says “I feel fine”, or clinician review).
-            </figcaption>
-          </figure>
-
-          <!-- Flow layout like Rachel Chen (phone video + copy) -->
-          
-        <section id="ai-engine">
-          <p class="case__section-label">AI decision engine</p>
-          <h2 class="case__h2">Turning biometric signals into interventions</h2>
-
-          <p class="case__p">
-            ACUITY’s intelligence lies in the intervention engine — the system that decides when to act.
-            Instead of reacting to individual spikes, the model evaluates multiple signals together:
-          </p>
-
-          <ul class="case__list">
-            <li><strong>Drift magnitude</strong> — how far the signal deviates from baseline</li>
-            <li><strong>Drift duration</strong> — whether abnormal readings persist</li>
-            <li><strong>Context signals</strong> — symptoms, sleep, recent activity</li>
-          </ul>
-
-          <table class="case__table">
-            <thead>
-              <tr>
-                <th>Tier</th>
-                <th>System interpretation</th>
-                <th>Product response</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tier 1</td>
-                <td>Mild deviation</td>
-                <td>Passive monitoring + gentle nudge</td>
-              </tr>
-              <tr>
-                <td>Tier 2</td>
-                <td>Sustained abnormal trend</td>
-                <td>Recommend scheduling evaluation</td>
-              </tr>
-              <tr>
-                <td>Tier 3</td>
-                <td>High-confidence risk</td>
-                <td>Urgent care escalation</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p class="case__p">
-            Designing these thresholds was the core product challenge: intervene too often and users lose trust;
-            intervene too late and critical events are missed.
-          </p>
-        </section>
-
-          <div class="case__flows">
-            <h3 class="case__h3">Core flow examples</h3>
-
-            <div class="flow">
-              <div class="flow__media">
-                <div class="flow__phone">
-                  <span class="case__img-label">SCREEN RECORDING — “Tier Alert → Card → Schedule Now” (cut from fullWalkthrough.mov)</span>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h4 class="flow__title">1) Tiered alert that explains the “why”</h4>
-                <p class="flow__text">
-                  The bracelet vibration is intentionally subtle. The primary UI work happens in the card: risk tier, plain‑language explanation,
-                  and a single primary CTA: <strong>Schedule an appointment soon</strong>.
-                </p>
-              </div>
-            </div>
-
-            <div class="flow">
-              <div class="flow__media">
-                <div class="flow__phone">
-                  <span class="case__img-label">SCREEN RECORDING — “Scheduling → Confirmation → Provider handoff”</span>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h4 class="flow__title">2) Low‑friction handoff to care</h4>
-                <p class="flow__text">
-                  The product is only as good as follow‑through. The scheduling flow reduces steps, pre‑fills context, and confirms what happens next.
-                </p>
-              </div>
-            </div>
-
-            <div class="flow">
-              <div class="flow__media">
-                <div class="flow__phone">
-                  <span class="case__img-label">SCREEN RECORDING — “Clinician summary / report view”</span>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h4 class="flow__title">3) Clinician‑ready summary</h4>
-                <p class="flow__text">
-                  A concise, shareable report translates drift into medically relevant context so providers can triage quickly — without the patient
-                  needing to interpret charts.
-                </p>
-              </div>
+              <h3 class="case__subhead">Infrastructure beats novelty</h3>
+              <p class="case__copy">The wearable is not the story. The story is the intervention engine — the system that decides when to act, how confidently, and where to route care. That's what distinguishes ACUITY from just another health app.</p>
             </div>
           </div>
-
-          <p class="case__p">
-            <em>Note:</em> keep screen recordings framed in a consistent device mock (same scale, same background, no heavy shadows). If you have many screens,
-            group by outcome (alert → action), not by navigation.
-          </p>
         </section>
 
-        <!-- IMPACT -->
-        <section id="impact">
-          <p class="case__section-label">Impact</p>
-          <h2 class="case__h2">User outcomes + system value</h2>
-
-          
-
-          <p class="case__p">
-            ACUITY focuses on reducing the delay between symptom onset and medical evaluation.
-            Even small behavioral shifts could significantly reduce emergency admissions.
-          </p>
-
-          <p class="case__p">
-            If deployed to <strong>100,000 high‑risk cardiovascular patients</strong>, modeled outcomes could include:
-          </p>
-
-          <ul class="case__list">
-            <li>30–40% reduction in time between symptom onset and seeking care</li>
-            <li>1–2% reduction in emergency cardiovascular admissions</li>
-            <li>$8–12M potential annual cost reduction for insurers</li>
-          </ul>
-
-                    <h3 class="case__h3">User impact</h3>
-          <p class="case__p"><strong>Shorter time‑to‑action:</strong> reduces the gap between symptom and seeking care.</p>
-          <p class="case__p"><strong>Lower uncertainty:</strong> replaces raw metrics with meaning + a next step.</p>
-          <p class="case__p"><strong>Less alarm fatigue:</strong> escalates only after sustained drift; cautious language; transparent rationale.</p>
-          <h3 class="case__h3">Business / system value</h3>
-          <p class="case__p"><strong>Fewer avoidable admissions:</strong> even small reductions can meaningfully lower emergency costs.</p>
-          <p class="case__p"><strong>Aligned incentives:</strong> insurer deployment encourages early evaluation and closes the follow‑through loop.</p>
-          <p class="case__p"><strong>Scalable care capacity:</strong> reduces unnecessary ER burden by routing “elevated” to clinics first.</p>
-
-          <figure class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">DIAGRAM — “Cost shift” (ER episode → evaluation visit) + “MLR” framing (simple, 1 chart)</span>
-            </div>
-            <figcaption class="case__figcap">
-              Keep this minimal: one bar comparison or Sankey‑style flow. The point is system logic, not precise finance.
-            </figcaption>
-          </figure>
-
-                    <h3 class="case__h3">Next steps (with more time)</h3>
-          <p class="case__p">Validate tier thresholds with clinicians, prototype “false positive” handling (user confirmation + clinician review), and pilot insurer enrollment workflows.
-              Expand the hardware story with form‑factor iterations and sensor placement constraints.</p>
-
-        </section>
-
-        <!-- APPENDIX -->
-        <section id="appendix">
-          <p class="case__section-label">Technical appendix</p>
-          <h2 class="case__h2">Prompt logs + orchestration notes</h2>
-
-          <p class="case__p">
-            I include prompt artifacts selectively to show how I direct AI systems — not to show “I used AI.”
-            Keep these collapsed by default so the main narrative stays clean.
-          </p>
-
-          <div class="case__appendix">
-
-            <details class="case__details">
-              <summary class="case__summary">Claude · decision framing prompts</summary>
-              <div class="case__details-body">
-                <p class="case__p">Include 3–5 prompts that demonstrate systems thinking and constraint setting. Example categories:</p>
-                <ul class="case__list">
-                  <li>Tier escalation rubric (inputs, thresholds, language constraints)</li>
-                  <li>False positive / false negative tradeoffs and mitigations</li>
-                  <li>Deployment model comparison (DTC vs insurer)</li>
-                </ul>
-                <div class="case__code">
-                  <pre><code>[PROMPT]
-Define a 3-tier escalation system for a wearable that detects cardiovascular risk.
-Constraints: minimize alarm fatigue; avoid medical over-claiming; require sustained deviation; include a safe, actionable next step.
-Output: tier names, trigger conditions, on-device cue, in-app card copy, primary CTA.
-
-[OUTPUT EXCERPT]
-…
-</code></pre>
-                </div>
-              </div>
-            </details>
-
-            <details class="case__details">
-              <summary class="case__summary">Sora / Midjourney · media direction</summary>
-              <div class="case__details-body">
-                <p class="case__p">Show how you locked variables (actor consistency, bracelet geometry, lighting, shot constraints) for physics accuracy and reuse.</p>
-                <div class="case__code">
-                  <pre><code>[PROMPT]
-Continue the video using the SAME woman from the previous clip.
-Bracelet locked on LEFT wrist in every scene.
-Cinematic realism, medium-wide framing, soft natural light.
-…
-</code></pre>
-                </div>
-              </div>
-            </details>
-
-            <details class="case__details">
-              <summary class="case__summary">Figma Make · component scaffolding</summary>
-              <div class="case__details-body">
-                <p class="case__p">Include a short log of what you generated vs. what you intentionally edited by hand (copy, hierarchy, states, CTA priority).</p>
-                <div class="case__code">
-                  <pre><code>[LOG]
-Generated: baseline dashboard scaffolds, card variants, spacing system.
-Refined manually: alert copy, tier semantics, CTA hierarchy, edge-case states.
-</code></pre>
-                </div>
-              </div>
-            </details>
-
-          </div>
-
-          <figure class="case__img">
-            <div class="case__img-inner case__img-inner--short">
-              <span class="case__img-label">END CAP PHOTO (optional) — certificates.JPG or group.PNG (pick one, clean crop)</span>
-            </div>
-            <figcaption class="case__figcap">
-              Optional closer: one photo that signals completion and credibility. Keep it subtle.
-            </figcaption>
-          </figure>
-        </section>
-
-      </article>
-
-    </div>
-
+      </div><!-- /.case__body -->
+    </div><!-- /.case__content-grid -->
   </main>
 
-		<footer class="footer">
-			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, <img src="brain.png" alt="brain" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;">, and <img src="love.png" alt="love" style="display:inline;height:1em;width:auto;vertical-align:middle;position:relative;top:-0.05em;"></p>
-			<p class="footer__time" id="local-time"></p>
-			<nav class="footer__links" aria-label="Social links">
-				<a href="#" class="footer__link">LinkedIn</a>
-				<a href="#" class="footer__link">Email</a>
-				<a href="#" class="footer__link">GitHub</a>
-			</nav>
-		</footer>
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links" aria-label="Social links">
+      <a href="#" class="footer__link">LinkedIn</a>
+      <a href="#" class="footer__link">Email</a>
+      <a href="#" class="footer__link">GitHub</a>
+    </nav>
+  </footer>
 
   <script src="script.js"></script>
 </body>
