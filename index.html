@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sooim Kang | Systems Product Designer</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" href="favicon.ico" />
+	<style>
+		@media (width >= 770px)  { .page-offset { padding-block-start: 10rem; } }
+		@media (width >= 1024px) { .page-offset { padding-block-start: 12rem; } }
+	</style>
+</head>
+<body>
+
+	<header class="nav">
+		<a href="home.html" class="nav__logo anim-0">Sooim Kang</a>
+		<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+			<span></span><span></span>
+		</button>
+		<nav class="nav__links" id="nav-menu">
+			<a href="home.html"        class="nav__link nav__link--active">Work</a>
+			<a href="explorations.html" class="nav__link">Explorations</a>
+			<a href="about.html"        class="nav__link">About</a>
+			<a href="Sooim-Kang-Resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+		</nav>
+	</header>
+
+	<div class="page-offset">
+		<main>
+
+			<div class="home-shell">
+
+				<section class="hero hero--home" aria-label="Introduction">
+					<div class="hero__grid">
+						<h1 class="hero__title anim-1">
+							Hi there! I'm Sooim.
+						</h1>
+						<p class="hero__subtitle anim-2">
+							Product Designer turning complex behavior into intuitive products
+						</p>
+					</div>
+				</section>
+
+			<section class="projects" aria-label="Work">
+
+					<article class="project-card">
+						<a href="yap.html" class="project-card__thumb" aria-label="yap">
+							<video
+								class="project-card__media"
+								src="covers/yap-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Organizing Voice Chats Around Topics, Not Timelines</h2>
+							</div>
+							<p class="project-card__tag">2026 · yap</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<a href="notate.html" class="project-card__thumb" aria-label="Notate">
+							<img class="project-card__media" src="covers/notate-cover.png" alt="Notate project cover" loading="lazy" />
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Annotating the Web Without Losing Context</h2>
+							</div>
+							<p class="project-card__tag">2026 · Notate</p>
+						</div>
+					</article>
+
+					<article class="project-card" data-href="instagram-lists.html">
+						<a href="instagram-lists.html" class="project-card__thumb" aria-label="Instagram Lists">
+							<video
+								class="project-card__media"
+								src="covers/instagram-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Controlling What You See in the Feed</h2>
+							</div>
+							<p class="project-card__tag">2025 · Instagram</p>
+						</div>
+					</article>
+
+					<article class="project-card" data-href="smart-bundles.html">
+						<a href="smart-bundles.html" class="project-card__thumb" aria-label="Smart Bundles">
+							<video
+								class="project-card__media"
+								src="covers/smart-bundles-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Designing Grocery Shopping for What's Actually Eaten</h2>
+							</div>
+							<p class="project-card__tag">2026 · Amazon Fresh</p>
+						</div>
+					</article>
+
+					<article class="project-card" data-href="neuk.html">
+						<a href="neuk.html" class="project-card__thumb" aria-label="neuk">
+							<video
+								class="project-card__media"
+								src="covers/neuk-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Restoring Shared Viewing in the Streaming Era</h2>
+							</div>
+							<p class="project-card__tag">2026 · neuk</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<a href="acuity.html" class="project-card__thumb" aria-label="Acuity">
+							<video
+								class="project-card__media"
+								src="covers/acuity-cover.mp4"
+								autoplay loop muted playsinline preload="auto"
+							></video>
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Determining When Health Signals Require Action</h2>
+							</div>
+							<p class="project-card__tag">2026 · Acuity</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<a href="forage.html" class="project-card__thumb" aria-label="Forage">
+							<img class="project-card__media" src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
+						</a>
+						<div class="project-card__meta">
+							<div class="project-card__info">
+								<h2 class="project-card__name">Transforming Real-World Inspiration into Reusable Design Systems</h2>
+							</div>
+							<p class="project-card__tag">2026 · Forage</p>
+						</div>
+					</article>
+
+				</section>
+			</div>
+
+		</main>
+
+		<footer class="footer">
+			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+			<p class="footer__time" id="local-time"></p>
+			<nav class="footer__links" aria-label="Social links">
+				<a href="#" class="footer__link">LinkedIn</a>
+				<a href="#" class="footer__link">Email</a>
+				<a href="#" class="footer__link">GitHub</a>
+			</nav>
+		</footer>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
