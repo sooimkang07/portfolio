@@ -501,7 +501,7 @@ p,
 .about-layout {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: var(--sp-md);
+	gap: var(--sp-lg);
 	padding-inline: var(--gutter);
 	padding-block: clamp(1.75rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem);
 	min-height: calc(100vh - var(--nav-h));
@@ -517,7 +517,6 @@ p,
 	.about-layout {
 		grid-template-columns: 0.55fr 1fr;
 		align-items: start;
-		gap: var(--sp-lg);
 		padding-block-end: clamp(2rem, 5vw, 3.5rem);
 	}
 	.about-left {
