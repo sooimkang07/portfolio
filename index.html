@@ -3,167 +3,335 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sooim Kang | Systems Product Designer</title>
+	<title>Sooim Kang · Product Designer</title>
 	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="koto.css" />
 	<link rel="icon" href="favicon.ico" />
-	<style>
-		@media (width >= 770px)  { .page-offset { padding-block-start: 10rem; } }
-		@media (width >= 1024px) { .page-offset { padding-block-start: 12rem; } }
-	</style>
 </head>
-<body>
+<body class="home">
 
-	<header class="nav">
-		<a href="/" class="nav__logo anim-0">Sooim Kang</a>
-		<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-			<span></span><span></span>
-		</button>
-		<nav class="nav__links" id="nav-menu">
-			<a href="/"        class="nav__link nav__link--active">Work</a>
-			<a href="explorations" class="nav__link">Explorations</a>
-			<a href="about"        class="nav__link">About</a>
-			<a href="Sooim-Kang-Resume.pdf"        class="nav__link" target="_blank" rel="noopener">Resume</a>
+	<header class="nav is-at-top" id="main-nav" data-ref-header-bar>
+		<div class="nav__backdrop" data-ref-header-backdrop hidden></div>
+		<div class="nav__bar">
+			<button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
+			<a href="/" class="nav__logo">Sooim Kang</a>
+			<span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+			<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+				<span></span><span></span>
+			</button>
+			<nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
+				<a href="/" class="nav__menu-link is-active">
+					<span class="nav__menu-flip">
+						<span class="nav__menu-flip-track">
+							<span class="nav__menu-title">Work</span>
+							<span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+						</span>
+					</span>
+				</a>
+				<a href="explorations" class="nav__menu-link">
+					<span class="nav__menu-flip">
+						<span class="nav__menu-flip-track">
+							<span class="nav__menu-title">Explorations</span>
+							<span class="nav__menu-title" aria-hidden="true">Explore my side quests </span>
+						</span>
+					</span>
+				</a>
+				<a href="about" class="nav__menu-link">
+					<span class="nav__menu-flip">
+						<span class="nav__menu-flip-track">
+							<span class="nav__menu-title">About</span>
+							<span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+						</span>
+					</span>
+				</a>
+				<a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+					<span class="nav__menu-flip">
+						<span class="nav__menu-flip-track">
+							<span class="nav__menu-title">Resume</span>
+							<span class="nav__menu-title" aria-hidden="true">Download PDF</span>
+						</span>
+					</span>
+				</a>
+			</nav>
+		</div>
+		<nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
+			<a href="/" class="nav__strip-link is-active">Work</a>
+			<a href="explorations" class="nav__strip-link">Explorations</a>
+			<a href="about" class="nav__strip-link">About</a>
+			<a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
 		</nav>
+		<time class="nav__clock js-clock" datetime="" aria-label="Local time"></time>
 	</header>
 
-	<div class="page-offset">
-		<main>
+	<main>
 
-			<div class="home-shell">
-
-				<section class="hero hero--home" aria-label="Introduction">
-					<div class="hero__grid">
-						<h1 class="hero__title anim-1">
-							Hi there! I'm Sooim.
-						</h1>
-						<p class="hero__subtitle anim-2">
-							Product Designer turning complex behavior into intuitive products
-						</p>
+		<section class="home-hero" aria-label="Introduction">
+			<div class="home-hero__pin-spacer pin-spacer pin-spacer-showreel-scroll">
+				<div class="home-hero__pin">
+					<div class="home-hero__media" data-ref-showreel-video>
+						<video
+							class="home-hero__video"
+							src="covers/yap-cover.mp4"
+							autoplay
+							loop
+							muted
+							playsinline
+							preload="auto"
+							aria-hidden="true"
+						></video>
+						<button class="home-hero__toggle" type="button" aria-label="Pause">
+							<svg class="home-hero__ring" viewBox="0 0 24 24" aria-hidden="true">
+								<circle cx="12" cy="12" r="11"></circle>
+								<circle class="home-hero__ring-bar" cx="12" cy="12" r="11" pathLength="1"></circle>
+							</svg>
+							<span class="home-hero__toggle-icon" data-icon="pause">
+								<svg viewBox="0 0 10 10" aria-hidden="true">
+									<rect x="2.4" y="1.3" width="1.4" height="7.4"></rect>
+									<rect x="6.2" y="1.3" width="1.4" height="7.4"></rect>
+								</svg>
+							</span>
+						</button>
 					</div>
-				</section>
 
-			<section class="projects" aria-label="Work">
-
-					<article class="project-card">
-						<a href="yap" class="project-card__thumb" aria-label="yap">
-							<video
-								class="project-card__media"
-								src="covers/yap-cover.mp4"
-								autoplay loop muted playsinline preload="auto"
-							></video>
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Organizing Voice Chats Around Topics, Not Timelines</h2>
-							</div>
-							<p class="project-card__tag">2026 · yap</p>
+					<div class="home-hero__chrome">
+						<div class="home-hero__title-wrap" data-ref-showreel-title-container>
+							<h1 class="home-hero__title" data-ref-showreel-title>
+								<span data-ref-showreel-title-title>Sooim Kang</span>
+								<span class="home-hero__kicker" data-ref-showreel-title-subtitle>Product Designer</span>
+							</h1>
 						</div>
-					</article>
+					</div>
+				</div>
+			</div>
+		</section>
 
-					<article class="project-card">
-						<a href="notate" class="project-card__thumb" aria-label="Notate">
-							<img class="project-card__media" src="covers/notate-cover.png" alt="Notate project cover" loading="lazy" />
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Annotating the Web Without Losing Context</h2>
-							</div>
-							<p class="project-card__tag">2026 · Notate</p>
+		<section class="home-intro" data-ref-showreel-intro aria-label="About">
+			<p class="home-intro__copy" data-ref-intro-copy>Building digital products around the people who use them, not the technology behind them. Focused on AI, communication, and the systems shaping how we interact online.</p>
+		</section>
+
+		<section class="home-work" id="section-our-work" aria-label="Work">
+			<div class="home-work__index-shell">
+				<div class="home-work__index">
+					<h2 class="home-work__heading">Work</h2>
+
+					<div class="home-work__titles" aria-live="polite">
+						<p class="home-work__title is-active" data-work-title="0">Organizing voice chats around topics, not timelines</p>
+						<p class="home-work__title" data-work-title="1">Annotating the web without losing context</p>
+						<p class="home-work__title" data-work-title="2">Controlling what you see in the feed</p>
+						<p class="home-work__title" data-work-title="3">Designing grocery shopping for what's actually eaten</p>
+						<p class="home-work__title" data-work-title="4">Restoring shared viewing in the streaming era</p>
+						<p class="home-work__title" data-work-title="5">Determining when health signals require action</p>
+						<p class="home-work__title" data-work-title="6">Transforming real-world inspiration into reusable design systems</p>
+					</div>
+
+					<div class="home-work__meta">
+						<div class="home-work__descriptions" data-ref-featured-project-description>
+							<p class="home-work__desc is-active" data-work-desc="0">Organizing voice chats around topics, not timelines. A platform that restructures how conversations flow, prioritizing topic relevance over chronological order.</p>
+							<p class="home-work__desc" data-work-desc="1">Annotating the web without losing context. A web annotation tool that preserves source context while enabling seamless knowledge capture and sharing.</p>
+							<p class="home-work__desc" data-work-desc="2">Controlling what you see in the feed. Giving users granular control over their feed experience through intelligent list-based curation.</p>
+							<p class="home-work__desc" data-work-desc="3">Designing grocery shopping for what's actually eaten. Smart bundling that predicts consumption patterns and reduces waste through personalized recommendations.</p>
+							<p class="home-work__desc" data-work-desc="4">Restoring shared viewing in the streaming era. A platform that brings back the magic of synchronous viewing in an increasingly isolated streaming landscape.</p>
+							<p class="home-work__desc" data-work-desc="5">Determining when health signals require action. A monitoring system that distinguishes noise from signal, alerting only when intervention is truly necessary.</p>
+							<p class="home-work__desc" data-work-desc="6">Transforming real-world inspiration into reusable design systems. A methodology for capturing insights from everyday environments and systematizing them for product teams.</p>
 						</div>
-					</article>
 
-					<article class="project-card" data-href="instagram-lists">
-						<a href="instagram-lists" class="project-card__thumb" aria-label="Instagram Lists">
-							<video
-								class="project-card__media"
-								src="covers/instagram-cover.mp4"
-								autoplay loop muted playsinline preload="auto"
-							></video>
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Controlling What You See in the Feed</h2>
+						<div class="home-work__footers" data-ref-featured-project-footer>
+							<div class="home-work__footer is-active" data-work-footer="0">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">yap</p>
+									<p class="home-work__footer-meta">2026 · Product Design</p>
+								</div>
 							</div>
-							<p class="project-card__tag">2025 · Instagram</p>
-						</div>
-					</article>
-
-					<article class="project-card" data-href="smart-bundles">
-						<a href="smart-bundles" class="project-card__thumb" aria-label="Smart Bundles">
-							<video
-								class="project-card__media"
-								src="covers/smart-bundles-cover.mp4"
-								autoplay loop muted playsinline preload="auto"
-							></video>
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Designing Grocery Shopping for What's Actually Eaten</h2>
+							<div class="home-work__footer" data-work-footer="1">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">Notate</p>
+									<p class="home-work__footer-meta">2026 · Product Design</p>
+								</div>
 							</div>
-							<p class="project-card__tag">2026 · Amazon Fresh</p>
-						</div>
-					</article>
-
-					<article class="project-card" data-href="neuk">
-						<a href="neuk" class="project-card__thumb" aria-label="neuk">
-							<video
-								class="project-card__media"
-								src="covers/neuk-cover.mp4"
-								autoplay loop muted playsinline preload="auto"
-							></video>
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Restoring Shared Viewing in the Streaming Era</h2>
+							<div class="home-work__footer" data-work-footer="2">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">Instagram Lists</p>
+									<p class="home-work__footer-meta">2025 · Product Design</p>
+								</div>
 							</div>
-							<p class="project-card__tag">2026 · neuk</p>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<a href="acuity" class="project-card__thumb" aria-label="Acuity">
-							<video
-								class="project-card__media"
-								src="covers/acuity-cover.mp4"
-								autoplay loop muted playsinline preload="auto"
-							></video>
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Determining When Health Signals Require Action</h2>
+							<div class="home-work__footer" data-work-footer="3">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">Smart Bundles</p>
+									<p class="home-work__footer-meta">2026 · Amazon Fresh</p>
+								</div>
 							</div>
-							<p class="project-card__tag">2026 · Acuity</p>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<a href="forage" class="project-card__thumb" aria-label="Forage">
-							<img class="project-card__media" src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
-						</a>
-						<div class="project-card__meta">
-							<div class="project-card__info">
-								<h2 class="project-card__name">Transforming Real-World Inspiration into Reusable Design Systems</h2>
+							<div class="home-work__footer" data-work-footer="4">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">neuk</p>
+									<p class="home-work__footer-meta">2026 · Product Design</p>
+								</div>
 							</div>
-							<p class="project-card__tag">2026 · Forage</p>
+							<div class="home-work__footer" data-work-footer="5">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">Acuity</p>
+									<p class="home-work__footer-meta">2026 · Product Design</p>
+								</div>
+							</div>
+							<div class="home-work__footer" data-work-footer="6">
+								<span class="home-work__footer-logo" aria-hidden="true"></span>
+								<div class="home-work__footer-copy">
+									<p class="home-work__footer-line">Forage</p>
+									<p class="home-work__footer-meta">2026 · Product Design</p>
+								</div>
+							</div>
 						</div>
-					</article>
-
-				</section>
+					</div>
+				</div>
 			</div>
 
-		</main>
+			<div class="home-work__stage">
+				<article class="home-work__card is-active" id="work-yap" data-work-index="0" data-name="yap" data-line="Organizing voice chats around topics, not timelines.">
+					<a href="yap" class="home-work__media" data-ref-featured-project-media-landscape="yap" aria-label="yap">
+						<video src="covers/yap-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<div class="home-work__caption">
+						<h3>yap</h3>
+						<p>Organizing voice chats around topics, not timelines.</p>
+						<p>2026 · Product Design</p>
+					</div>
+				</article>
 
-		<footer class="footer">
-			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
-			<p class="footer__time" id="local-time"></p>
-			<nav class="footer__links" aria-label="Social links">
-				<a href="#" class="footer__link">LinkedIn</a>
-				<a href="#" class="footer__link">Email</a>
-				<a href="#" class="footer__link">GitHub</a>
-			</nav>
-		</footer>
+				<article class="home-work__card" id="work-notate" data-work-index="1" data-name="Notate" data-line="Annotating the web without losing context.">
+					<a href="notate" class="home-work__media" data-ref-featured-project-media-landscape="notate" aria-label="Notate">
+						<img src="covers/notate-cover.png" alt="Notate project cover" loading="lazy" />
+					</a>
+					<div class="home-work__caption">
+						<h3>Notate</h3>
+						<p>Annotating the web without losing context.</p>
+						<p>2026 · Product Design</p>
+					</div>
+				</article>
+
+				<article class="home-work__card" id="work-instagram" data-work-index="2" data-name="Instagram Lists" data-line="Controlling what you see in the feed.">
+					<a href="instagram-lists" class="home-work__media" data-ref-featured-project-media-landscape="instagram" aria-label="Instagram Lists">
+						<video src="covers/instagram-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<div class="home-work__caption">
+						<h3>Instagram Lists</h3>
+						<p>Controlling what you see in the feed.</p>
+						<p>2025 · Product Design</p>
+					</div>
+				</article>
+
+				<article class="home-work__card" id="work-bundles" data-work-index="3" data-name="Smart Bundles" data-line="Designing grocery shopping for what's actually eaten.">
+					<a href="smart-bundles" class="home-work__media" data-ref-featured-project-media-landscape="bundles" aria-label="Smart Bundles">
+						<video src="covers/smart-bundles-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<div class="home-work__caption">
+						<h3>Smart Bundles</h3>
+						<p>Designing grocery shopping for what's actually eaten.</p>
+						<p>2026 · Amazon Fresh</p>
+					</div>
+				</article>
+
+				<article class="home-work__card" id="work-neuk" data-work-index="4" data-name="neuk" data-line="Restoring shared viewing in the streaming era.">
+					<a href="neuk" class="home-work__media" data-ref-featured-project-media-landscape="neuk" aria-label="neuk">
+						<video src="covers/neuk-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<div class="home-work__caption">
+						<h3>neuk</h3>
+						<p>Restoring shared viewing in the streaming era.</p>
+						<p>2026 · Product Design</p>
+					</div>
+				</article>
+
+				<article class="home-work__card" id="work-acuity" data-work-index="5" data-name="Acuity" data-line="Determining when health signals require action.">
+					<a href="acuity" class="home-work__media" data-ref-featured-project-media-landscape="acuity" aria-label="Acuity">
+						<video src="covers/acuity-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<div class="home-work__caption">
+						<h3>Acuity</h3>
+						<p>Determining when health signals require action.</p>
+						<p>2026 · Product Design</p>
+					</div>
+				</article>
+
+				<article class="home-work__card" id="work-forage" data-work-index="6" data-name="Forage" data-line="Transforming real-world inspiration into reusable design systems.">
+					<a href="forage" class="home-work__media" data-ref-featured-project-media-landscape="forage" aria-label="Forage">
+						<img src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
+					</a>
+					<div class="home-work__caption">
+						<h3>Forage</h3>
+						<p>Transforming real-world inspiration into reusable design systems.</p>
+						<p>2026 · Product Design</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="home-contact" id="contact" aria-label="Contact">
+			<div class="home-contact__body">
+				<div class="home-contact__intro">
+					<h2 class="home-contact__heading">Contact</h2>
+					<div class="home-contact__card-slot">
+						<div class="home-contact__card-wrap">
+							<a
+								class="home-contact__card"
+								href="mailto:sooimkang@gmail.com"
+								aria-label="Email Sooim at sooimkang@gmail.com"
+							>
+								<span class="home-contact__card-media">
+									<img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
+								</span>
+								<span class="home-contact__card-overlay">
+									<span class="home-contact__card-text">
+										Say hello
+										<span class="home-contact__card-email">sooimkang@gmail.com</span>
+									</span>
+									<span class="home-contact__card-action" aria-hidden="true">Email</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<ul class="home-contact__list">
+					<li>
+						<a href="mailto:sooimkang@gmail.com"><h3>Email</h3></a>
+					</li>
+					<li>
+						<a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener"><h3>LinkedIn</h3></a>
+					</li>
+					<li>
+						<a href="https://github.com/sooimkang07" target="_blank" rel="noopener"><h3>Github</h3></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+		<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+	</footer>
+
+	<div class="home-showreel" hidden>
+		<div class="home-showreel__frame">
+			<video class="home-showreel__video" src="covers/yap-cover.mp4" loop playsinline></video>
+		</div>
 	</div>
 
-	<script src="script.js"></script>
+	<div class="home-cursor" hidden>
+		<span class="home-cursor__play">
+			<svg viewBox="0 0 10 10" aria-hidden="true">
+				<path d="M2 1.2v7.6L8.8 5 2 1.2Z"></path>
+			</svg>
+			Play
+		</span>
+		<span class="home-cursor__close">X Close</span>
+		<span class="home-cursor__work"><span aria-hidden="true">↗</span> View case</span>
+	</div>
+
+	<script src="koto.js"></script>
 </body>
 </html>
