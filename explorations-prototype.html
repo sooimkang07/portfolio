@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorations · Sooim Kang</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home-prototype.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ── iframe cover ────────────────────────────────────────────
+       Iframe is rendered at full 1920×1080px desktop width, then
+       scaled down to fill the card container. This ensures each
+       site renders at its largest breakpoint, not a narrow mobile
+       layout. --iframe-scale is set inline on each card's media
+       div and recalculated on resize via JS.
+       pointer-events:none lets clicks fall through to the <a>.
+       ::after overlay is an extra hit-target guarantee.           */
+    .expl-card__media--iframe {
+      position: relative;
+      overflow: hidden;
+    }
+    .expl-card__media--iframe iframe {
+      display: block;
+      width: 1920px;
+      height: 1080px;
+      border: none;
+      pointer-events: none;
+      transform-origin: top left;
+      transform: scale(var(--iframe-scale, 1));
+      transition: filter var(--t-slow) var(--ease);
+    }
+    .expl-card:hover .expl-card__media--iframe iframe {
+      filter: brightness(0.97);
+    }
+    .expl-card__media--iframe::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="/" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="/"            class="nav__link">Work</a>
+      <a href="explorations-prototype"     class="nav__link nav__link--active">Explorations</a>
+      <a href="about"            class="nav__link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main>
+
+      <!-- HERO -->
+      <section class="expl__hero anim-1">
+        <h1 class="expl__title">Side quests, design sprints, <br>&amp; things I had to try</h1>
+        <p class="expl__sub">Experiments in interaction, AI-native workflows, and systems thinking built to learn fast and test new directions</p>
+      </section>
+
+      <!-- MASONRY GRID -->
+      <div class="expl-grid anim-2">
+
+        <!-- col 1 · Digital Expression Fellowship — looping video -->
+        <a class="expl-card" href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing" target="_blank" rel="noopener" aria-label="Digital Expression Fellowship">
+          <div class="expl-card__media expl-card__media--02">
+            <video src="explorations-assets/digital-expression-fellowship.mov" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Digital Expression Fellowship</p>
+            <p class="expl-card__tag">2026 · Fellowship Winner</p>
+          </div>
+        </a>
+
+        <!-- col 1 · Smart Dillo Marketing Campaign — image -->
+        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:54b9cf98-7a34-49b5-8ddd-816a866e4b23" target="_blank" rel="noopener" aria-label="Smart Dillo">
+          <div class="expl-card__media expl-card__media--05">
+            <img src="explorations-assets/smart-dillo-cover.jpg" alt="Smart Dillo" />
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
+            <p class="expl-card__tag">2022 · Campaign Brand Design</p>
+          </div>
+        </a>
+
+        <!-- col 2 · Build-a-Bubu — looping video -->
+        <a class="expl-card" href="https://build-a-bubu.vercel.app/avatar" target="_blank" rel="noopener" aria-label="Build-a-Bubu">
+          <div class="expl-card__media expl-card__media--01">
+            <video src="explorations-assets/build-a-bubu-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Build-a-Bubu</p>
+            <p class="expl-card__tag">2026 · Vibe Coding</p>
+          </div>
+        </a>
+
+        <!-- col 2 · Windows of Style — looping video -->
+        <a class="expl-card" href="https://sooimkang07.github.io/binding/" target="_blank" rel="noopener" aria-label="Windows of Style">
+          <div class="expl-card__media expl-card__media--04">
+            <video src="explorations-assets/windows-of-style-cover.mov" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Windows of Style</p>
+            <p class="expl-card__tag">2025 · Hand-coded Site</p>
+          </div>
+        </a>
+
+        <!-- col 2 · AMA Website — iframe -->
+        <a class="expl-card" href="https://www.ama-digital.com/" target="_blank" rel="noopener" aria-label="AMA Website">
+          <div class="expl-card__media expl-card__media--06 expl-card__media--iframe">
+            <iframe
+              src="https://www.ama-digital.com/"
+              title="AMA Website"
+              loading="lazy"
+              scrolling="no"
+              tabindex="-1"
+              aria-hidden="true"
+            ></iframe>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">AMA Website</p>
+            <p class="expl-card__tag">2025 · Web Design</p>
+          </div>
+        </a>
+
+        <!-- col 2 · Area Council Recruitment Campaign — image -->
+        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:a59b1b24-7710-4baa-a8db-6422cfd86802" target="_blank" rel="noopener" aria-label="Area Council Recruitment">
+          <div class="expl-card__media expl-card__media--05">
+            <img src="explorations-assets/acr-cover.jpg" alt="Area Council Recruitment" />
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Area Council Recruitment Campaign</p>
+            <p class="expl-card__tag">2021 · Campaign Brand Design</p>
+          </div>
+        </a>
+
+        <!-- col 3 · Nothing Good Happens After Midnight — iframe -->
+        <a class="expl-card" href="https://sooimkang07.github.io/links/" target="_blank" rel="noopener" aria-label="Nothing Good Happens After Midnight">
+          <div class="expl-card__media expl-card__media--03 expl-card__media--iframe">
+            <iframe
+              src="https://sooimkang07.github.io/links/"
+              title="Nothing Good Happens After Midnight"
+              loading="lazy"
+              scrolling="no"
+              tabindex="-1"
+              aria-hidden="true"
+            ></iframe>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">Nothing Good Happens After Midnight</p>
+            <p class="expl-card__tag">2026 · Hand-coded Site</p>
+          </div>
+        </a>
+
+        <!-- col 3 · What's a phone — looping video -->
+        <a class="expl-card" href="https://drive.google.com/file/d/17i1Pf_B-AKfrgYZqGrCANgLsJhJH6FyV/view?usp=sharing" target="_blank" rel="noopener" aria-label="What's a phone?">
+          <div class="expl-card__media expl-card__media--02">
+            <video src="explorations-assets/what-is-a-phone-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <div class="expl-card__meta">
+            <p class="expl-card__title">What's a phone?</p>
+            <p class="expl-card__tag">2026 · Experimental Film</p>
+          </div>
+        </a>
+
+      </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+    <p class="footer__time" id="local-time"></p>
+    <nav class="footer__links" aria-label="Social links">
+      <a href="https://linkedin.com/in/sooimkang/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="mailto:sooimkang@gmail.com" class="footer__link">Email</a>
+				<a href="https://github.com/sooimkang07" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </footer>
+
+  <script src="home-prototype.js"></script>
+  <script>
+    // Scale each iframe so it renders at 1920px wide then fits its card container.
+    // Runs on load and on every resize so it stays accurate as the grid reflows.
+    function scaleIframes() {
+      document.querySelectorAll('.expl-card__media--iframe').forEach(function(el) {
+        var scale = el.offsetWidth / 1920;
+        el.style.setProperty('--iframe-scale', scale);
+      });
+    }
+    scaleIframes();
+    window.addEventListener('resize', scaleIframes);
+  </script>
+</body>
+</html>
