@@ -1,0 +1,28 @@
+/* Shared project media morph (home → case study) */
+
+.project-morph {
+	position: fixed;
+	z-index: 10000;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	pointer-events: none;
+	background: var(--clr-border, #e8e8e8);
+	box-shadow: 0 12px 40px rgb(0 0 0 / 0.12);
+	will-change: top, left, width, height, border-radius;
+}
+
+.project-morph__media {
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}
+
+html.is-project-morph-pending .case__hero [data-project-morph-to] {
+	opacity: 0;
+}
+
+html.is-project-morphing body {
+	cursor: wait;
+}

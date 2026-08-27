@@ -134,6 +134,24 @@
   let titlesHeightTimer = 0
   const workDesktop = window.matchMedia('(width >= 1200px)')
 
+  /* Whole-card click → case study (media/title/footer links also work) */
+  cards.forEach(card => {
+    const href = card.dataset.href
+    if (!href) return
+    card.style.cursor = 'pointer'
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return
+      window.location.href = href
+    })
+    card.addEventListener('keydown', e => {
+      if (e.target !== card) return
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        window.location.href = href
+      }
+    })
+  })
+
   function syncTitlesHeight(index, prevIndex = index) {
     if (!titlesWrap || !titles.length) return
     const active = titles[index]
