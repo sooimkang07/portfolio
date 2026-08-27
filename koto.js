@@ -29,7 +29,6 @@
   /* ── Header bar: top strip, scroll collapse, click open ───── */
   const header = document.querySelector('[data-ref-header-bar]')
   const hit = header && header.querySelector('.nav__hit')
-  const logo = header && header.querySelector('.nav__logo')
   const burger = header && header.querySelector('.nav__burger')
   const menu = header && header.querySelector('#nav-menu')
   const backdrop = header && header.querySelector('[data-ref-header-backdrop]')
@@ -62,7 +61,7 @@
       header.classList.add('is-nav-open')
       if (hit) hit.setAttribute('aria-expanded', 'true')
       if (burger) burger.setAttribute('aria-expanded', 'true')
-      if (menu) menu.classList.toggle('is-open', !navDesktop.matches)
+      if (menu) menu.classList.add('is-open')
       setBackdrop(true)
       return
     }
@@ -96,23 +95,10 @@
       }
     })
 
-    /* Desktop: after scroll, bar/logo toggle menu; close also via backdrop / Esc */
+    /* Desktop scrolled + mobile: burger toggles full-screen menu */
     if (hit) {
       hit.addEventListener('click', e => {
         e.preventDefault()
-        if (!navDesktop.matches) return
-        if (header.classList.contains('is-at-top')) return
-        setNavOpen(!document.body.classList.contains('is-nav-open'))
-      })
-    }
-
-    /* Collapsed: logo toggles menu instead of going home */
-    if (logo) {
-      logo.addEventListener('click', e => {
-        if (!navDesktop.matches) return
-        if (header.classList.contains('is-at-top')) return
-        e.preventDefault()
-        setNavOpen(!document.body.classList.contains('is-nav-open'))
       })
     }
 
