@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Lists · Sooim Kang</title>
+  <link rel="stylesheet" href="home-prototype.css" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* ── Instagram Lists: page-specific layout ─────────────────── */
+
+    /* Chosen direction highlight */
+    .ig-exploration__item--chosen {
+      outline: 1.5px solid var(--clr-accent);
+      box-shadow: 0 0 18px 2px rgba(230, 122, 0, 0.18);
+      padding: var(--sp-sm);
+    }
+
+    /* 3-column equal layout — explorations & reflection */
+    .case__col-group {
+      display: flex;
+      flex-direction: row;
+      gap: var(--sp-md);
+      align-items: flex-start;
+      margin-block-start: var(--sp-lg);
+    }
+    .case__col-group > div {
+      flex: 1 1 0;
+      min-inline-size: 0;
+    }
+    .case__col-group > div img {
+      display: block;
+      width: 100%;
+      margin-block-end: var(--sp-xs);
+    }
+    @media (max-width: 640px) {
+      .case__col-group { flex-direction: column; }
+    }
+
+    /* Flow block: media first, label + sentence below */
+    .case__flow-block { margin-block-start: var(--sp-xl); }
+    .case__flow-block .case__subhead { margin-block-start: var(--sp-md); }
+
+    /* Flow 3: 2 phones + stacked pair — 2fr:2fr:1fr */
+    .ig-flow__trio {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
+    }
+    .ig-flow__trio > .flow__media-stack { align-self: start; }
+    .ig-flow__trio > .flow__device { display: flex; flex-direction: column; }
+    .ig-flow__trio > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .ig-flow__trio > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
+
+    /* Flow 4: 1 large phone + 2×2 grid */
+    .ig-flow__quad {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+      align-items: stretch;
+    }
+    .ig-flow__quad > .flow__mini-grid { align-self: start; }
+    .ig-flow__quad > .flow__device { display: flex; flex-direction: column; }
+    .ig-flow__quad > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
+    .ig-flow__quad > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
+
+    /* 2×2 mini-grid */
+    .flow__mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+    }
+
+    /* Stacked pair */
+    .flow__media-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+
+    @media (max-width: 639px) {
+      /* Explorations: first 2 side-by-side, 3rd full-width below */
+      .ig-explorations__cols {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .ig-explorations__cols > div {
+        flex: 1 1 calc(50% - var(--sp-sm));
+        min-inline-size: 0;
+      }
+      .ig-explorations__cols > div:last-child {
+        flex: 0 0 100%;
+      }
+
+      /* Trio: first 2 phones stack full-width, last 2 go side-by-side below */
+      .ig-flow__trio {
+        display: flex;
+        flex-direction: column;
+      }
+      .ig-flow__trio > .flow__media-stack {
+        flex-direction: row;
+      }
+
+      /* Quad: large phone on top, 2×2 grid below */
+      .ig-flow__quad {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="page--project">
+
+  <header class="nav">
+    <a href="/" class="nav__logo">Sooim Kang</a>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav__links" id="nav-menu">
+      <a href="/" class="nav__link nav__link--active">Work</a>
+      <a href="explorations" class="nav__link">Explorations</a>
+      <a href="about" class="nav__link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main class="case-wrap">
+    <a href="/" class="case__back--mobile">Back</a>
+
+    <nav class="case__toc-bar" aria-label="Page sections">
+      <a href="#overview"     class="case__toc-bar-link">Overview</a>
+      <a href="#solution"     class="case__toc-bar-link">Solution</a>
+      <a href="#flows"        class="case__toc-bar-link">Core Flows</a>
+      <a href="#system"       class="case__toc-bar-link">System</a>
+      <a href="#research"     class="case__toc-bar-link">Research</a>
+      <a href="#explorations" class="case__toc-bar-link">Explorations</a>
+      <a href="#decisions"    class="case__toc-bar-link">Decisions</a>
+      <a href="#impact"       class="case__toc-bar-link">Impact</a>
+      <a href="#reflection"   class="case__toc-bar-link">Reflection</a>
+    </nav>
+
+    <div class="case__content-grid">
+      <nav class="case__toc" aria-label="Sections">
+        <a href="/" class="case__back">Back</a>
+        <div class="case__toc-inner">
+          <ul class="case__toc-list">
+            <li><a href="#overview"     class="case__toc-link">Overview</a></li>
+            <li><a href="#solution"     class="case__toc-link">Solution</a></li>
+            <li><a href="#flows"        class="case__toc-link">Core Flows</a></li>
+            <li><a href="#system"       class="case__toc-link">System</a></li>
+            <li><a href="#research"     class="case__toc-link">Research</a></li>
+            <li><a href="#explorations" class="case__toc-link">Explorations</a></li>
+            <li><a href="#decisions"    class="case__toc-link">Decisions</a></li>
+            <li><a href="#impact"       class="case__toc-link">Impact</a></li>
+            <li><a href="#reflection"   class="case__toc-link">Reflection</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="case__body">
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <header class="case__hero">
+          <p class="case__eyebrow">Instagram · Product Design · Concept · 2025</p>
+          <h1 class="case__title">Controlling What You See in the Feed</h1>
+
+          <div class="case__media-block case__media-block--hero">
+            <div class="flow__device">
+              <div class="flow__device-screen">
+                <video class="flow__video" src="covers/instagram-cover.mp4" loop muted playsinline preload="auto" aria-label="Lists as a context layer across Home, Stories, and Following"></video>
+              </div>
+              <div class="flow__controls">
+                <div class="flow__volume">
+                  <div class="flow__volume-track">
+                    <input class="flow__volume-slider" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume" />
+                  </div>
+                  <button class="flow__btn flow__btn--volume" aria-label="Mute">
+                    <svg class="icon-vol-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    <svg class="icon-vol-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                  </button>
+                </div>
+                <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__meta">
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Role</span>
+              <span class="case__meta-val">Solo Product Designer</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Timeline</span>
+              <span class="case__meta-val">7 weeks · Nov–Dec 2025</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Platform</span>
+              <span class="case__meta-val">Instagram · iOS Concept</span>
+            </div>
+            <div class="case__meta-item">
+              <span class="case__eyebrow">Scope</span>
+              <span class="case__meta-val">Research · Systems Design · Hi-Fi Prototype</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- ══ 1. OVERVIEW ════════════════════════════════════════ -->
+        <section id="overview">
+          <p class="case__eyebrow">Overview</p>
+          <h2 class="case__section-title">A single feed forces different relationship contexts to compete for attention.</h2>
+          <p class="case__copy">Instagram is built for discovery — one algorithm, one ranked feed, all relationships together. That model works for content, but it does not reflect how users actually experience their social graph.</p>
+
+          <h3 class="case__subhead">Problem</h3>
+          <p class="case__copy">A single feed collapses friends, creators, brands, and communities into one ranking system. Users can scroll for a long time without seeing the people or updates they actually meant to check in on.</p>
+
+          <div class="case__media-block">
+            <div class="flow__row">
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/problem/problem-1.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="flow__device">
+                <div class="flow__device-screen">
+                  <video class="flow__video" src="instagram-assets/problem/problem-2.mp4" loop playsinline muted></video>
+                </div>
+                <div class="flow__controls">
+                  <button class="flow__btn flow__btn--pause is-playing" aria-label="Pause">
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  </button>
+                  <button class="flow__btn flow__btn--replay" aria-label="Replay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="case__subhead">Opportunity</h3>
+          <p class="case__copy">As private sharing grows and broad posting declines, the missing layer is not more algorithmic prediction. It is a way for users to define priority in the moment.</p>
+
+          <blockquote class="case__quote-block">
+            <p class="case__quote-block-text">How might we let users choose which relationships matter in the moment without sacrificing discovery?</p>
+          </blockquote>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+		<footer class="footer">
+			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+			<p class="footer__time" id="local-time"></p>
+			<nav class="footer__links" aria-label="Social links">
+				<a href="https://linkedin.com/in/sooimkang/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="mailto:sooimkang@gmail.com" class="footer__link">Email</a>
+				<a href="https://github.com/sooimkang07" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+			</nav>
+		</footer>
+
+  <script src="home-prototype.js"></script>
+</body>
+</html>
