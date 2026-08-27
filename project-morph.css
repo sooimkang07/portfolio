@@ -26,3 +26,86 @@ html.is-project-morph-pending .case__hero [data-project-morph-to] {
 html.is-project-morphing body {
 	cursor: wait;
 }
+
+/* Hide page chrome + copy until the morph reveal starts */
+html.is-project-morph-pending .nav,
+html.is-project-morph-pending .case__back--mobile,
+html.is-project-morph-pending .case__toc-bar,
+html.is-project-morph-pending .case__toc,
+html.is-project-morph-pending .case__hero .case__eyebrow,
+html.is-project-morph-pending .case__hero .case__title,
+html.is-project-morph-pending .case__hero .flow__controls,
+html.is-project-morph-pending .case__hero .case__meta,
+html.is-project-morph-pending .case__body > section,
+html.is-project-morph-pending .footer {
+	opacity: 0;
+	transform: translateY(0.85rem);
+}
+
+/* Top → bottom fade-in, timed with the slower video shift */
+html.is-project-morph-revealing .nav,
+html.is-project-morph-revealing .case__back--mobile,
+html.is-project-morph-revealing .case__toc-bar,
+html.is-project-morph-revealing .case__toc,
+html.is-project-morph-revealing .case__hero .case__eyebrow,
+html.is-project-morph-revealing .case__hero .case__title,
+html.is-project-morph-revealing .case__hero .flow__controls,
+html.is-project-morph-revealing .case__hero .case__meta,
+html.is-project-morph-revealing .case__body > section,
+html.is-project-morph-revealing .footer {
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.is-project-morph-revealing .nav {
+	transition-delay: 120ms;
+}
+
+html.is-project-morph-revealing .case__back--mobile,
+html.is-project-morph-revealing .case__toc-bar,
+html.is-project-morph-revealing .case__toc {
+	transition-delay: 280ms;
+}
+
+html.is-project-morph-revealing .case__hero .case__eyebrow {
+	transition-delay: 420ms;
+}
+
+html.is-project-morph-revealing .case__hero .case__title {
+	transition-delay: 580ms;
+}
+
+html.is-project-morph-revealing .case__hero .flow__controls {
+	transition-delay: 900ms;
+}
+
+html.is-project-morph-revealing .case__hero .case__meta {
+	transition-delay: 1080ms;
+}
+
+html.is-project-morph-revealing .case__body > section {
+	transition-delay: 1280ms;
+}
+
+html.is-project-morph-revealing .footer {
+	transition-delay: 1480ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html.is-project-morph-pending .nav,
+	html.is-project-morph-pending .case__back--mobile,
+	html.is-project-morph-pending .case__toc-bar,
+	html.is-project-morph-pending .case__toc,
+	html.is-project-morph-pending .case__hero .case__eyebrow,
+	html.is-project-morph-pending .case__hero .case__title,
+	html.is-project-morph-pending .case__hero .flow__controls,
+	html.is-project-morph-pending .case__hero .case__meta,
+	html.is-project-morph-pending .case__body > section,
+	html.is-project-morph-pending .footer {
+		opacity: 1;
+		transform: none;
+	}
+}

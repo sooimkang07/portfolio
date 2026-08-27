@@ -6,8 +6,9 @@
   'use strict'
 
   const STORAGE_KEY = 'sooim-project-morph'
-  const MAX_AGE_MS = 8000
-  const DURATION_MS = 920
+  const MAX_AGE_MS = 14000
+  const DURATION_MS = 1700
+  const REVEAL_SETTLE_MS = 2600
   const EASE = 'cubic-bezier(0.65, 0, 0.35, 1)'
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -224,12 +225,17 @@
       clone.remove()
       document.documentElement.classList.remove('is-project-morph-pending')
       document.documentElement.classList.remove('is-project-morphing')
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('is-project-morph-revealing')
+      }, Math.max(0, REVEAL_SETTLE_MS - DURATION_MS))
     }
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const to = target.getBoundingClientRect()
         const toRadius = getComputedStyle(target).borderRadius || '0px'
+
+        document.documentElement.classList.add('is-project-morph-revealing')
 
         clone.style.transition = [
           `top ${DURATION_MS}ms ${EASE}`,
@@ -253,7 +259,7 @@
         }
 
         clone.addEventListener('transitionend', complete, { once: true })
-        window.setTimeout(complete, DURATION_MS + 120)
+        window.setTimeout(complete, DURATION_MS + 180)
       })
     })
   }
