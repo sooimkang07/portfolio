@@ -35,6 +35,15 @@
   const backdrop = header && header.querySelector('[data-ref-header-backdrop]')
   const navDesktop = window.matchMedia('(width >= 770px)')
   const SCROLL_COLLAPSE = 64
+  const NAV_TRANSITION_MS = 900
+  let navCloseTimer = 0
+
+  function finishNavClose() {
+    navCloseTimer = 0
+    document.body.classList.remove('is-nav-open', 'is-nav-closing')
+    header.classList.remove('is-nav-open', 'is-nav-closing')
+    if (menu) menu.classList.remove('is-open')
+  }
 
   function setBackdrop(show) {
     if (!backdrop) return
@@ -43,12 +52,31 @@
 
   function setNavOpen(open) {
     if (!header) return
-    document.body.classList.toggle('is-nav-open', open)
-    header.classList.toggle('is-nav-open', open)
-    if (hit) hit.setAttribute('aria-expanded', String(open))
-    if (burger) burger.setAttribute('aria-expanded', String(open))
-    if (menu) menu.classList.toggle('is-open', open && !navDesktop.matches)
-    setBackdrop(open)
+
+    if (open) {
+      window.clearTimeout(navCloseTimer)
+      navCloseTimer = 0
+      document.body.classList.remove('is-nav-closing')
+      header.classList.remove('is-nav-closing')
+      document.body.classList.add('is-nav-open')
+      header.classList.add('is-nav-open')
+      if (hit) hit.setAttribute('aria-expanded', 'true')
+      if (burger) burger.setAttribute('aria-expanded', 'true')
+      if (menu) menu.classList.toggle('is-open', !navDesktop.matches)
+      setBackdrop(true)
+      return
+    }
+
+    if (!document.body.classList.contains('is-nav-open')) return
+    if (document.body.classList.contains('is-nav-closing')) return
+
+    document.body.classList.add('is-nav-closing')
+    header.classList.add('is-nav-closing')
+    if (hit) hit.setAttribute('aria-expanded', 'false')
+    if (burger) burger.setAttribute('aria-expanded', 'false')
+    setBackdrop(false)
+
+    navCloseTimer = window.setTimeout(finishNavClose, NAV_TRANSITION_MS)
   }
 
   function syncNavTop() {
@@ -118,6 +146,7 @@
   const footers = [...document.querySelectorAll('[data-work-footer]')]
   let activeIndex = 0
   let titlesHeightTimer = 0
+  const workDesktop = window.matchMedia('(width >= 1200px)')
 
   function syncTitlesHeight(index, prevIndex = index) {
     if (!titlesWrap || !titles.length) return
@@ -167,12 +196,31 @@
     video.play().catch(() => {})
   }
 
+  function clearIndexPin() {
+    if (!workIndex) return
+    workIndex.classList.remove('is-pinned', 'is-docked')
+    workIndex.style.inlineSize = ''
+    workIndex.style.insetInlineStart = ''
+  }
+
   function syncIndexPin() {
     if (!workIndex || !cards[0] || !workSection) return
+    /* Sticky index pin only on desktop work layout */
+    if (!workDesktop.matches) {
+      clearIndexPin()
+      return
+    }
     const mid = window.innerHeight * 0.5
     const yapTop = cards[0].getBoundingClientRect().top
-    const workBottom = workSection.getBoundingClientRect().bottom
-    const shouldPin = yapTop <= mid && workBottom > mid
+    const contact = document.querySelector('.home-contact')
+    const contactTop = contact
+      ? contact.getBoundingClientRect().top
+      : workSection.getBoundingClientRect().bottom
+    /* Pin while past yap mid; release once contact enters the viewport */
+    const pastStart = yapTop <= mid
+    const contactInView = contactTop < window.innerHeight
+    const shouldPin = pastStart && !contactInView
+    const shouldDock = pastStart && contactInView
 
     if (shouldPin) {
       if (!workIndex.classList.contains('is-pinned')) {
@@ -181,15 +229,16 @@
         const shellR = shell.getBoundingClientRect()
         workIndex.style.inlineSize = `${r.width}px`
         workIndex.style.insetInlineStart = `${Math.max(r.left, shellR.left)}px`
-        if (workIndexShell) {
-          workIndexShell.style.minBlockSize = `${Math.max(shellR.height, window.innerHeight)}px`
-        }
       }
       workIndex.classList.add('is-pinned')
-    } else {
+      workIndex.classList.remove('is-docked')
+    } else if (shouldDock) {
       workIndex.classList.remove('is-pinned')
+      workIndex.classList.add('is-docked')
       workIndex.style.inlineSize = ''
       workIndex.style.insetInlineStart = ''
+    } else {
+      clearIndexPin()
     }
   }
 
@@ -233,11 +282,7 @@
       })
     }, { passive: true })
     window.addEventListener('resize', () => {
-      if (workIndex?.classList.contains('is-pinned')) {
-        workIndex.classList.remove('is-pinned')
-        workIndex.style.inlineSize = ''
-        workIndex.style.insetInlineStart = ''
-      }
+      clearIndexPin()
       syncTitlesHeight(activeIndex)
       syncActive()
     }, { passive: true })

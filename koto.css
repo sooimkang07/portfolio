@@ -6,6 +6,86 @@
 body.home {
 	background: var(--clr-bg);
 	color: var(--clr-text);
+
+	/* iOS 26 Liquid Glass tokens */
+	--lg-fill: rgb(255 255 255 / 0.22);
+	--lg-fill-strong: rgb(255 255 255 / 0.34);
+	--lg-stroke: rgb(255 255 255 / 0.55);
+	--lg-stroke-soft: rgb(255 255 255 / 0.28);
+	--lg-highlight: rgb(255 255 255 / 0.78);
+	--lg-blur: blur(28px) saturate(1.85);
+	--lg-radius-pill: 999px;
+	--lg-radius-panel: 1.35rem;
+	--lg-shadow:
+		0 0.5px 0.5px rgb(255 255 255 / 0.65) inset,
+		0 -0.5px 0.5px rgb(0 0 0 / 0.06) inset,
+		0 1px 0 rgb(255 255 255 / 0.35) inset,
+		0 10px 28px rgb(0 0 0 / 0.1),
+		0 2px 6px rgb(0 0 0 / 0.05);
+	--lg-shadow-tight:
+		0 0.5px 0.5px rgb(255 255 255 / 0.7) inset,
+		0 -0.5px 0.5px rgb(0 0 0 / 0.05) inset,
+		0 1px 0 rgb(255 255 255 / 0.4) inset,
+		0 6px 18px rgb(0 0 0 / 0.1),
+		0 1px 3px rgb(0 0 0 / 0.05);
+	--nav-duration: 900ms;
+	--nav-ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Shared Liquid Glass surface + specular rim (iOS 26) */
+body.home .home-cursor,
+body.home .nav:not(.is-at-top) .nav__bar,
+body.home.is-nav-open .nav__bar {
+	isolation: isolate;
+	background:
+		linear-gradient(
+			165deg,
+			rgb(255 255 255 / 0.42) 0%,
+			rgb(255 255 255 / 0.14) 42%,
+			rgb(255 255 255 / 0.08) 100%
+		),
+		var(--lg-fill);
+	backdrop-filter: var(--lg-blur);
+	-webkit-backdrop-filter: var(--lg-blur);
+	border: 0.5px solid var(--lg-stroke);
+	box-shadow: var(--lg-shadow);
+}
+
+body.home .nav:not(.is-at-top) .nav__bar,
+body.home.is-nav-open .nav__bar {
+	position: relative;
+}
+
+body.home .home-cursor::before,
+body.home .nav:not(.is-at-top) .nav__bar::before,
+body.home.is-nav-open .nav__bar::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	z-index: 1;
+	background: linear-gradient(
+		180deg,
+		rgb(255 255 255 / 0.55) 0%,
+		rgb(255 255 255 / 0.12) 18%,
+		rgb(255 255 255 / 0) 42%
+	);
+	opacity: 0.9;
+}
+
+body.home .home-cursor::after,
+body.home .nav:not(.is-at-top) .nav__bar::after,
+body.home.is-nav-open .nav__bar::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	z-index: 1;
+	box-shadow:
+		inset 0 0 0 0.5px var(--lg-stroke-soft),
+		inset 0 1px 0 var(--lg-highlight);
 }
 
 body.home .hero,
@@ -43,15 +123,18 @@ body.home .nav__backdrop {
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		visibility 400ms;
+		opacity var(--nav-duration) var(--nav-ease),
+		visibility var(--nav-duration);
 
 	&:not([hidden]) {
 		opacity: 1;
 		visibility: visible;
 	}
 
+	/* Keep display so close can use the same 700ms fade as open
+	   (UA [hidden] { display: none !important } would snap shut). */
 	&[hidden] {
+		display: block !important;
 		opacity: 0;
 		visibility: hidden;
 		pointer-events: none;
@@ -70,15 +153,21 @@ body.home .nav__bar {
 	min-inline-size: 0;
 	max-inline-size: 100%;
 	background: transparent;
-	border: 0;
+	border: 0.5px solid transparent;
+	border-radius: var(--lg-radius-pill);
 	overflow: hidden;
 	transition:
-		background 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		backdrop-filter 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		max-block-size 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		padding 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		inline-size 400ms cubic-bezier(0.65, 0, 0.35, 1),
-		min-inline-size 400ms cubic-bezier(0.65, 0, 0.35, 1);
+		background var(--nav-duration) var(--nav-ease),
+		backdrop-filter var(--nav-duration) var(--nav-ease),
+		border-color var(--nav-duration) var(--nav-ease),
+		border-radius var(--nav-duration) var(--nav-ease),
+		box-shadow var(--nav-duration) var(--nav-ease),
+		block-size var(--nav-duration) var(--nav-ease),
+		min-block-size var(--nav-duration) var(--nav-ease),
+		max-block-size var(--nav-duration) var(--nav-ease),
+		padding var(--nav-duration) var(--nav-ease),
+		inline-size var(--nav-duration) var(--nav-ease),
+		min-inline-size var(--nav-duration) var(--nav-ease);
 }
 
 body.home .nav__hit {
@@ -135,14 +224,15 @@ body.home .nav__mark {
 	min-inline-size: 0;
 	margin: 0;
 	overflow: hidden;
-	font-size: 0.85rem;
+	font-size: 1.1rem;
 	line-height: 1;
 	min-block-size: 1.75rem;
 	color: var(--clr-accent);
 	opacity: 0;
 	transition:
-		opacity 200ms ease,
-		inline-size 200ms ease;
+		opacity var(--nav-duration) var(--nav-ease),
+		inline-size var(--nav-duration) var(--nav-ease),
+		min-inline-size var(--nav-duration) var(--nav-ease);
 	pointer-events: none;
 }
 
@@ -154,6 +244,72 @@ body.home .nav__burger {
 	position: relative;
 	z-index: 4;
 	margin-inline-start: auto;
+	display: grid;
+	grid-template-columns: repeat(2, 0.28rem);
+	grid-template-rows: repeat(2, 0.28rem);
+	place-content: center;
+	gap: 0.22rem;
+	inline-size: 2.5rem;
+	block-size: 2.5rem;
+	padding: 0;
+	flex-shrink: 0;
+	border-radius: 0.45rem;
+	background: transparent;
+	border: 0.5px solid transparent;
+	transition:
+		background var(--nav-duration) var(--nav-ease),
+		border-color var(--nav-duration) var(--nav-ease),
+		box-shadow var(--nav-duration) var(--nav-ease),
+		grid-template-columns var(--nav-duration) var(--nav-ease),
+		grid-template-rows var(--nav-duration) var(--nav-ease),
+		gap var(--nav-duration) var(--nav-ease);
+}
+
+body.home .nav__burger span {
+	display: block;
+	inline-size: 0.28rem;
+	block-size: 0.28rem;
+	margin: 0;
+	border-radius: 0.05rem;
+	background: var(--clr-accent);
+	transform: none;
+	opacity: 1;
+	transition:
+		transform var(--nav-duration) var(--nav-ease),
+		opacity var(--nav-duration) var(--nav-ease),
+		inline-size var(--nav-duration) var(--nav-ease),
+		block-size var(--nav-duration) var(--nav-ease),
+		background 280ms ease;
+}
+
+/* Open: 4-dot grid morphs into an X */
+body.home .nav__burger[aria-expanded="true"] {
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	gap: 0;
+}
+
+body.home .nav__burger[aria-expanded="true"] span {
+	grid-column: 1;
+	grid-row: 1;
+	justify-self: center;
+	align-self: center;
+	inline-size: 1.05rem;
+	block-size: 0.14rem;
+}
+
+body.home .nav__burger[aria-expanded="true"] span:nth-child(1) {
+	transform: rotate(45deg);
+}
+
+body.home .nav__burger[aria-expanded="true"] span:nth-child(4) {
+	transform: rotate(-45deg);
+}
+
+body.home .nav__burger[aria-expanded="true"] span:nth-child(2),
+body.home .nav__burger[aria-expanded="true"] span:nth-child(3) {
+	opacity: 0;
+	transform: scale(0);
 }
 
 body.home .nav__menu {
@@ -167,6 +323,8 @@ body.home .nav__menu {
 }
 
 body.home .nav__menu-link {
+	position: relative;
+	z-index: 2;
 	display: block;
 	padding-block: 0.4rem;
 	padding-inline: 0.15rem;
@@ -177,6 +335,8 @@ body.home .nav__menu-link {
 body.home .nav__menu-flip {
 	display: block;
 	overflow: hidden;
+	font-size: 0.95rem;
+	line-height: 1.35;
 	block-size: 1.35em;
 }
 
@@ -193,11 +353,17 @@ body.home .nav__menu-link:focus-visible .nav__menu-flip-track {
 
 body.home .nav__menu-title {
 	display: block;
-	font-size: 0.8rem;
+	flex: 0 0 auto;
+	font-size: inherit;
 	font-weight: var(--fw-regular);
 	letter-spacing: var(--ls-tight);
-	line-height: 1.35;
+	line-height: inherit;
+	block-size: 1.35em;
 	white-space: nowrap;
+}
+
+body.home .nav__menu-title[aria-hidden="true"] {
+	font-weight: 300;
 }
 
 body.home .nav__links.is-open,
@@ -205,30 +371,201 @@ body.home .nav__menu.is-open {
 	display: flex;
 }
 
-/* Mobile full-window nav open */
+/* Mobile: right-edge burger + full-viewport frosted overlay */
 @media (width < 770px) {
+	/* Keep a full-viewport host so close can animate (parent must not
+	   collapse and clip the bar when is-nav-open is removed). */
+	body.home .nav {
+		inset: 0;
+		block-size: 100%;
+		min-block-size: 100dvh;
+		padding-block: var(--sp-sm);
+		padding-inline: var(--gutter);
+		align-items: stretch;
+		transition: padding var(--nav-duration) var(--nav-ease);
+	}
+
+	body.home .nav__bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		column-gap: 0.5rem;
+		inline-size: 100%;
+		max-inline-size: none;
+		border-radius: 0;
+		/* Explicit lengths so open↔close can interpolate (auto/none snap). */
+		block-size: 3.5rem;
+		min-block-size: 3.5rem;
+		max-block-size: 3.5rem;
+		/* Closed: transparent row so logo left / burger right-edge */
+		background: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		transition:
+			background var(--nav-duration) var(--nav-ease),
+			backdrop-filter var(--nav-duration) var(--nav-ease),
+			border-color var(--nav-duration) var(--nav-ease),
+			box-shadow var(--nav-duration) var(--nav-ease),
+			block-size var(--nav-duration) var(--nav-ease),
+			min-block-size var(--nav-duration) var(--nav-ease),
+			max-block-size var(--nav-duration) var(--nav-ease),
+			padding var(--nav-duration) var(--nav-ease);
+	}
+
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__bar {
+		background: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__bar::before,
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__bar::after {
+		content: none;
+	}
+
+	/* Compact glass chip around the 4-dot control when scrolled */
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__burger {
+		background:
+			linear-gradient(
+				165deg,
+				rgb(255 255 255 / 0.42) 0%,
+				rgb(255 255 255 / 0.14) 42%,
+				rgb(255 255 255 / 0.08) 100%
+			),
+			var(--lg-fill);
+		backdrop-filter: var(--lg-blur);
+		-webkit-backdrop-filter: var(--lg-blur);
+		border-color: var(--lg-stroke);
+		box-shadow: var(--lg-shadow-tight);
+	}
+
+	/* Always flex so height clip can animate; hide when closed */
+	body.home .nav__menu {
+		display: flex;
+		flex: 1 1 100%;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			opacity var(--nav-duration) var(--nav-ease),
+			visibility var(--nav-duration);
+	}
+
 	body.home.is-nav-open {
 		overflow: hidden;
 	}
 
 	body.home.is-nav-open .nav {
 		z-index: 210;
+		padding: 0;
 	}
 
 	body.home.is-nav-open .nav__bar {
-		inline-size: min(100%, 22rem);
-		background: color-mix(in srgb, var(--clr-bg) 62%, transparent);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		max-block-size: none;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		align-content: flex-start;
+		inline-size: 100%;
+		max-inline-size: none;
+		block-size: 100dvh;
+		min-block-size: 100dvh;
+		max-block-size: 100dvh;
+		border-radius: 0;
+		padding-block: var(--sp-sm);
+		padding-inline: var(--gutter);
+		overflow: auto;
+		/* Frosted full-screen sheet — portfolio tokens + liquid glass */
+		background:
+			linear-gradient(
+				165deg,
+				rgb(255 255 255 / 0.5) 0%,
+				rgb(255 255 255 / 0.22) 45%,
+				color-mix(in srgb, var(--clr-bg) 78%, transparent) 100%
+			),
+			color-mix(in srgb, var(--clr-bg) 62%, transparent);
+		backdrop-filter: blur(32px) saturate(1.7);
+		-webkit-backdrop-filter: blur(32px) saturate(1.7);
+		border: 0;
+		border-color: transparent;
+		box-shadow: none;
+	}
+
+	body.home.is-nav-open .nav__bar::before {
+		border-radius: 0;
+		background: linear-gradient(
+			180deg,
+			rgb(255 255 255 / 0.45) 0%,
+			rgb(255 255 255 / 0.1) 16%,
+			rgb(255 255 255 / 0) 40%
+		);
+	}
+
+	body.home.is-nav-open .nav__bar::after {
+		border-radius: 0;
+		box-shadow:
+			inset 0 0 0 0.5px var(--lg-stroke-soft),
+			inset 0 1px 0 var(--lg-highlight);
+	}
+
+	body.home.is-nav-open .nav__burger {
+		background: color-mix(in srgb, var(--clr-accent) 8%, transparent);
+		border-color: color-mix(in srgb, var(--clr-accent) 18%, transparent);
+		box-shadow: none;
 	}
 
 	body.home.is-nav-open .nav__menu,
 	body.home .nav__menu.is-open {
 		display: flex;
+		flex: 1 1 100%;
+		gap: 0.2rem;
+		padding-block-start: clamp(1.75rem, 8vh, 3.25rem);
+		padding-block-end: var(--sp-md);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
 	}
 
-	body.home.is-nav-open .nav__backdrop[hidden] {
+	body.home.is-nav-open .nav__menu-link {
+		padding-block: 0.55rem;
+	}
+
+	body.home.is-nav-open .nav__menu-flip {
+		font-size: clamp(1.35rem, 5.2vw, 1.7rem);
+		line-height: 1.3;
+		block-size: 1.3em;
+	}
+
+	body.home.is-nav-open .nav__menu-title {
+		block-size: 1.3em;
+		font-weight: var(--fw-semi);
+	}
+
+	body.home.is-nav-open .nav__menu-title[aria-hidden="true"] {
+		font-weight: var(--fw-regular);
+	}
+
+	body.home.is-nav-open.is-nav-closing .nav__bar {
+		block-size: 3.5rem;
+		min-block-size: 3.5rem;
+		max-block-size: 3.5rem;
+		border-radius: 0;
+		background: transparent;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+
+	body.home.is-nav-open.is-nav-closing .nav__menu {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	/* Overlay lives on the bar — hide tinted backdrop on mobile */
+	body.home.is-nav-open .nav__backdrop {
 		display: none;
 	}
 }
@@ -266,7 +603,15 @@ body.home .nav__clock {
 	}
 
 	body.home .nav__bar {
+		display: inline-block;
 		max-block-size: 2.75rem;
+	}
+
+	body.home.is-nav-open .nav__bar {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		column-gap: 0;
 	}
 
 	body.home .nav__mark {
@@ -277,19 +622,29 @@ body.home .nav__clock {
 		position: absolute;
 		inset-inline-start: 0;
 		inset-block-start: 100%;
+		flex: none;
 		display: flex;
 		flex-direction: column;
-		inline-size: 14rem;
+		inline-size: 0;
 		min-inline-size: 0;
-		padding-block: 0.35rem 0.5rem;
-		padding-inline: 0.75rem;
+		max-inline-size: 0;
+		block-size: 0;
+		padding-block: 0;
+		padding-inline: 0;
 		opacity: 0;
+		visibility: hidden;
 		pointer-events: none;
 		max-block-size: 0;
-		overflow: hidden;
-		background: color-mix(in srgb, var(--clr-bg) 62%, transparent);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
+		overflow: clip;
+		background: transparent;
+		border: 0;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		transition:
+			opacity var(--nav-duration) var(--nav-ease),
+			max-block-size var(--nav-duration) var(--nav-ease),
+			padding-block var(--nav-duration) var(--nav-ease),
+			visibility var(--nav-duration);
 	}
 
 	/* At top: logo-width bar + strip immediately beside it */
@@ -327,13 +682,52 @@ body.home .nav__clock {
 		}
 	}
 
-	/* Scrolled: compact logo pill — glass, hug logo only */
+	/* Scrolled: compact logo pill — Liquid Glass */
 	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__bar {
-		background: color-mix(in srgb, var(--clr-bg) 62%, transparent);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
 		inline-size: fit-content;
+		width: fit-content;
 		min-inline-size: 0;
+		max-inline-size: none;
+		border-radius: var(--lg-radius-pill);
+		overflow: hidden;
+	}
+
+	/* Hit sits above logo so hover/click use nav__hit only (not logo:hover) */
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__hit {
+		z-index: 5;
+	}
+
+	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__logo {
+		pointer-events: none;
+	}
+
+	/* Hover hit only: preview open width when scrolled (menu still click-to-open) */
+	body.home .nav:not(.is-at-top):not(.is-nav-open):has(.nav__hit:hover) .nav__bar,
+	body.home .nav:not(.is-at-top):not(.is-nav-open):has(.nav__hit:focus-visible) .nav__bar {
+		min-inline-size: 16.5rem;
+		border-radius: var(--lg-radius-panel);
+		transition:
+			background var(--nav-duration) var(--nav-ease),
+			backdrop-filter var(--nav-duration) var(--nav-ease),
+			border-color var(--nav-duration) var(--nav-ease),
+			border-radius var(--nav-duration) var(--nav-ease),
+			box-shadow var(--nav-duration) var(--nav-ease),
+			max-block-size var(--nav-duration) var(--nav-ease),
+			padding var(--nav-duration) var(--nav-ease),
+			inline-size var(--nav-duration) var(--nav-ease),
+			min-inline-size var(--nav-duration) var(--nav-ease);
+	}
+
+	body.home .nav:not(.is-at-top):not(.is-nav-open):has(.nav__hit:hover) .nav__mark,
+	body.home .nav:not(.is-at-top):not(.is-nav-open):has(.nav__hit:focus-visible) .nav__mark {
+		opacity: 1;
+		inline-size: 1.1rem;
+		min-inline-size: 1.1rem;
+		overflow: visible;
+		transition:
+			opacity 700ms cubic-bezier(0.65, 0, 0.35, 1),
+			inline-size 700ms cubic-bezier(0.65, 0, 0.35, 1),
+			min-inline-size 700ms cubic-bezier(0.65, 0, 0.35, 1);
 	}
 
 	body.home .nav:not(.is-at-top):not(.is-nav-open) .nav__strip {
@@ -355,19 +749,24 @@ body.home .nav__clock {
 
 	/* Click open: widen + reveal menu (close via backdrop / Esc only) */
 	body.home.is-nav-open .nav__bar {
-		inline-size: 16.5rem;
 		min-inline-size: 16.5rem;
 		max-block-size: 22rem;
-		background: color-mix(in srgb, var(--clr-bg) 62%, transparent);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		overflow: visible;
+		border-radius: var(--lg-radius-panel);
+		overflow: hidden;
+		background:
+			linear-gradient(
+				165deg,
+				rgb(255 255 255 / 0.48) 0%,
+				rgb(255 255 255 / 0.18) 42%,
+				rgb(255 255 255 / 0.1) 100%
+			),
+			var(--lg-fill-strong);
 	}
 
 	body.home.is-nav-open .nav__mark {
 		opacity: 1;
-		inline-size: auto;
-		min-inline-size: 0.85rem;
+		inline-size: 1.1rem;
+		min-inline-size: 1.1rem;
 		overflow: visible;
 	}
 
@@ -381,11 +780,46 @@ body.home .nav__clock {
 	}
 
 	body.home.is-nav-open .nav__menu {
-		inline-size: 16.5rem;
+		position: relative;
+		inset: auto;
+		flex: 1 1 100%;
+		inline-size: 100%;
+		max-inline-size: none;
+		block-size: auto;
 		opacity: 1;
+		visibility: visible;
 		pointer-events: auto;
 		max-block-size: 20rem;
-		overflow: visible;
+		overflow: hidden;
+		margin: 0;
+		padding-block: 0.35rem 0.55rem;
+		padding-inline: 0;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+
+	body.home.is-nav-open.is-nav-closing .nav__bar {
+		min-inline-size: 0;
+		max-block-size: 2.75rem;
+		border-radius: var(--lg-radius-pill);
+	}
+
+	body.home.is-nav-open.is-nav-closing .nav__mark {
+		opacity: 0;
+		inline-size: 0;
+		min-inline-size: 0;
+		overflow: hidden;
+	}
+
+	body.home.is-nav-open.is-nav-closing .nav__menu {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		max-block-size: 0;
+		padding-block: 0;
 	}
 
 	/* Expanded (open): • → — */
@@ -415,8 +849,10 @@ body.home .nav__clock {
 
 	body.home .nav.is-at-top:not(.is-nav-open) .nav__menu {
 		opacity: 0;
+		visibility: hidden;
 		pointer-events: none;
 		max-block-size: 0;
+		padding-block: 0;
 	}
 }
 
@@ -549,9 +985,9 @@ body.home .nav__clock {
 
 .home-hero__title {
 	margin: 0;
-	font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+	font-size: clamp(2rem, 3.6vw, 2.75rem);
 	font-weight: var(--fw-semi);
-	line-height: 1.05;
+	line-height: 0.95;
 	letter-spacing: var(--ls-tight);
 	color: #fff;
 	text-wrap: balance;
@@ -572,7 +1008,7 @@ body.home .nav__clock {
 	z-index: 2;
 	margin-block-start: -22svh;
 	padding-inline: var(--gutter);
-	padding-block: clamp(3.5rem, 10vw, 7.5rem) clamp(4rem, 12vw, 8rem);
+	padding-block: clamp(1.25rem, 3vw, 2rem) clamp(14rem, 36vw, 24rem);
 	background: var(--clr-bg);
 
 	@media (width < 900px) {
@@ -582,7 +1018,7 @@ body.home .nav__clock {
 
 .home-intro__copy {
 	margin: 0;
-	max-inline-size: 38rem;
+	max-inline-size: 50vw;
 	font-size: var(--fs-md);
 	font-weight: var(--fw-regular);
 	line-height: var(--lh-base);
@@ -590,7 +1026,7 @@ body.home .nav__clock {
 	text-wrap: pretty;
 
 	@media (width >= 900px) {
-		font-size: clamp(1.5rem, 2.4vw, 2.375rem);
+		font-size: clamp(1.35rem, 2.05vw, 2rem);
 		font-weight: 300;
 		line-height: 1.15;
 		letter-spacing: -0.01em;
@@ -636,6 +1072,8 @@ body.home .nav__clock {
 }
 
 /* ── WORK ───────────────────────────────────────────────────── */
+/* <1200: stacked — heading → cards → footer-copy
+   ≥1200: sticky left index + right stage (desktop grid) */
 .home-work {
 	position: relative;
 	display: flex;
@@ -643,84 +1081,92 @@ body.home .nav__clock {
 	padding-inline: var(--gutter);
 	padding-block: var(--sp-lg) 0;
 
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
 		display: grid;
 		grid-template-columns: minmax(18rem, 6fr) minmax(0, 10fr);
 		column-gap: var(--gutter);
 		padding-block-start: 0;
-		align-items: start;
+		align-items: stretch;
+	}
+}
+
+/* Stacked: flatten wrappers so heading / stage / meta can reorder */
+.home-work__index-shell,
+.home-work__index {
+	display: contents;
+
+	@media (width >= 1200px) {
+		display: block;
 	}
 }
 
 .home-work__index-shell {
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
 		position: relative;
 		min-block-size: 100svh;
-		align-self: start;
+		align-self: stretch;
 	}
 }
 
 .home-work__index {
-	display: flex;
-	flex-direction: column;
-	gap: var(--sp-sm);
-	position: relative;
-	z-index: 3;
-	pointer-events: none;
-	padding-block: var(--sp-md) var(--sp-sm);
-	margin-inline: calc(-1 * var(--gutter));
-	padding-inline: var(--gutter);
-	background: color-mix(in srgb, var(--clr-bg) 88%, transparent);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
+		display: flex;
+		flex-direction: column;
 		gap: var(--sp-md);
+		position: relative;
+		z-index: 3;
+		pointer-events: none;
 		block-size: 100svh;
-		margin-inline: 0;
-		padding-inline: 0;
 		padding-inline-end: var(--sp-sm);
 		padding-block-start: 28svh;
 		padding-block-end: var(--gutter);
 		background: transparent;
-		backdrop-filter: none;
-		-webkit-backdrop-filter: none;
-	}
 
-	&.is-pinned {
-		position: fixed;
-		inset-block-start: 0;
-		inset-block-end: auto;
-		background: color-mix(in srgb, var(--clr-bg) 88%, transparent);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-
-		@media (width >= 900px) {
+		&.is-pinned {
+			position: fixed;
+			inset-block-start: 0;
+			inset-block-end: auto;
 			background: transparent;
 			backdrop-filter: none;
 			-webkit-backdrop-filter: none;
+		}
+
+		&.is-docked {
+			position: absolute;
+			inset-block-start: auto;
+			inset-block-end: 0;
+			inset-inline: 0;
 		}
 	}
 }
 
 .home-work__heading {
+	order: 1;
+	margin: 0;
+	padding-block: 0 var(--sp-sm);
 	font-size: clamp(0.95rem, 1.2vw, 1.15rem);
 	font-weight: 400;
 	line-height: 1.1;
 	letter-spacing: var(--ls-tight);
 	text-transform: uppercase;
 	color: var(--clr-accent);
+
+	@media (width >= 1200px) {
+		order: unset;
+		padding-block: 0;
+	}
 }
 
-/* Sliding active title — all absolute to avoid wrap overlap */
+/* Sliding active title — desktop index only */
 .home-work__titles {
-	position: relative;
-	font-size: clamp(1.05rem, 4.5vw, 1.45rem);
-	block-size: 3.6em;
-	overflow: hidden;
+	display: none;
 
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
+		display: block;
+		position: relative;
 		font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+		block-size: 3.6em;
+		overflow: hidden;
 	}
 }
 
@@ -768,25 +1214,33 @@ body.home .nav__clock {
 	}
 }
 
-/* Description sits directly above footer at bottom of sticky column */
+/* Stacked: footer under cards; desktop: desc + footer at bottom of sticky column */
 .home-work__meta {
-	display: none;
+	order: 3;
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-sm);
 	pointer-events: auto;
+	padding-block: var(--sp-sm) var(--sp-md);
 
-	@media (width >= 900px) {
-		display: flex;
-		flex-direction: column;
-		gap: var(--sp-sm);
+	@media (width >= 1200px) {
+		order: unset;
 		margin-block-start: auto;
+		padding-block: 0;
 	}
 }
 
-/* Sliding description */
+/* Sliding description — desktop only */
 .home-work__descriptions {
-	position: relative;
-	min-block-size: 7.5rem;
-	max-inline-size: 20rem;
-	overflow: hidden;
+	display: none;
+
+	@media (width >= 1200px) {
+		display: block;
+		position: relative;
+		min-block-size: 7.5rem;
+		max-inline-size: 20rem;
+		overflow: hidden;
+	}
 }
 
 .home-work__desc {
@@ -857,7 +1311,8 @@ body.home .nav__clock {
 	min-inline-size: 2.75rem;
 	block-size: auto;
 	aspect-ratio: 1 / 1;
-	background: #c4c9cf;
+	object-fit: cover;
+	display: block;
 }
 
 .home-work__footer-copy {
@@ -885,11 +1340,13 @@ body.home .nav__clock {
 }
 
 .home-work__stage {
+	order: 2;
 	display: flex;
 	flex-direction: column;
 	gap: var(--sp-lg);
 
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
+		order: unset;
 		gap: 0.75rem;
 		padding-block-end: var(--sp-lg);
 	}
@@ -900,9 +1357,10 @@ body.home .nav__clock {
 	flex-direction: column;
 	gap: var(--sp-sm);
 	scroll-margin-block-start: calc(var(--nav-h) + var(--sp-sm));
+	border-radius: var(--lg-radius-panel);
 	transition: opacity 167ms linear;
 
-	@media (width >= 900px) {
+	@media (width >= 1200px) {
 		opacity: 0.2;
 
 		&.is-active {
@@ -915,6 +1373,7 @@ body.home .nav__clock {
 	display: block;
 	position: relative;
 	overflow: hidden;
+	border-radius: var(--lg-radius-panel);
 	aspect-ratio: 16 / 9;
 	background: var(--clr-border);
 	outline: 1px solid var(--clr-border);
@@ -1052,6 +1511,7 @@ body.home .nav__clock {
 	position: relative;
 	inline-size: 100%;
 	overflow: hidden;
+	border-radius: var(--lg-radius-panel);
 	color: #fff;
 	text-decoration: none;
 	transform: scale(0);
@@ -1069,7 +1529,7 @@ body.home .nav__clock {
 .home-contact__card-media {
 	display: block;
 	position: relative;
-	aspect-ratio: 5 / 3;
+	aspect-ratio: 1 / 1;
 	overflow: hidden;
 	background: var(--clr-border);
 
@@ -1149,23 +1609,26 @@ body.home .nav__clock {
 }
 
 /* ── CUSTOM CURSOR ──────────────────────────────────────────── */
-.home-cursor {
+body.home .home-cursor {
 	position: fixed;
 	z-index: 60;
 	pointer-events: none;
 	inset-block-start: 0;
 	inset-inline-start: 0;
-	padding: 0.35rem 0.6rem;
-	background: var(--clr-bg);
-	border: 1px solid var(--clr-border);
+	padding: 0.55rem 0.85rem;
+	border-radius: var(--lg-radius-pill);
+	overflow: hidden;
 	opacity: 0;
 	transform: translate(-50%, -50%);
 	transition: opacity var(--t-fast) var(--ease);
 	max-inline-size: 16rem;
+	box-shadow: var(--lg-shadow-tight);
 
 	.home-cursor__play,
 	.home-cursor__close,
 	.home-cursor__work {
+		position: relative;
+		z-index: 2;
 		display: none;
 		align-items: center;
 		gap: 0.4rem;
