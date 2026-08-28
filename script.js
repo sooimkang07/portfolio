@@ -19,7 +19,7 @@
   const burger = document.querySelector('.nav__burger');
   const menu   = document.getElementById('nav-menu');
 
-  if (burger && menu) {
+  if (burger && menu && !document.body.classList.contains('home')) {
     const close = () => {
       burger.setAttribute('aria-expanded', 'false');
       menu.classList.remove('is-open');

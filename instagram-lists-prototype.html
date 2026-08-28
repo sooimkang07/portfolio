@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instagram Lists · Sooim Kang</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="koto.css" />
   <link rel="stylesheet" href="project-morph.css" />
   <link rel="icon" href="favicon.ico" />
   <script>
@@ -21,6 +22,10 @@
   </script>
   <style>
     /* ── Instagram Lists: page-specific layout ─────────────────── */
+
+    body.home.page--project main.case-wrap {
+      padding-block-start: calc(2.75rem + var(--sp-sm));
+    }
 
     /* Chosen direction highlight */
     .ig-exploration__item--chosen {
@@ -153,19 +158,57 @@
     }
   </style>
 </head>
-<body class="page--project">
+<body class="home page--project">
 
-  <header class="nav">
-    <a href="/" class="nav__logo">Sooim Kang</a>
-    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav__links" id="nav-menu">
-      <a href="/" class="nav__link nav__link--active">Work</a>
-      <a href="explorations" class="nav__link">Explorations</a>
-      <a href="about" class="nav__link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
+    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
+    <div class="nav__bar">
+      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
+      <a href="/" class="nav__logo">Sooim Kang</a>
+      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
+        <a href="/" class="nav__menu-link is-active">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Work</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+            </span>
+          </span>
+        </a>
+        <a href="explorations" class="nav__menu-link">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Explorations</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
+            </span>
+          </span>
+        </a>
+        <a href="about" class="nav__menu-link">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">About</span>
+              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+            </span>
+          </span>
+        </a>
+        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Resume</span>
+              <span class="nav__menu-title" aria-hidden="true">Download</span>
+            </span>
+          </span>
+        </a>
+      </nav>
+    </div>
+    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
+      <a href="/" class="nav__strip-link is-active">Work</a>
+      <a href="explorations" class="nav__strip-link">Explorations</a>
+      <a href="about" class="nav__strip-link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
     </nav>
   </header>
 
@@ -772,18 +815,75 @@
 
       </div>
     </div>
+
+    <section class="home-contact" id="contact" aria-label="Contact">
+      <div class="home-contact__body">
+        <div class="home-contact__intro">
+          <h2 class="home-contact__heading">Contact</h2>
+          <div class="home-contact__card-slot">
+            <div class="home-contact__card-wrap">
+              <a
+                class="home-contact__card"
+                href="mailto:sooimkang@gmail.com"
+                aria-label="Email Sooim at sooimkang@gmail.com"
+              >
+                <span class="home-contact__card-media">
+                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
+                </span>
+                <span class="home-contact__card-overlay">
+                  <span class="home-contact__card-text">
+                    Say hello
+                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
+                  </span>
+                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <ul class="home-contact__list">
+          <li>
+            <a href="mailto:sooimkang1015@gmail.com">
+              <span class="home-contact__flip">
+                <span class="home-contact__flip-track">
+                  <span class="home-contact__flip-label">Email</span>
+                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
+              <span class="home-contact__flip">
+                <span class="home-contact__flip-track">
+                  <span class="home-contact__flip-label">LinkedIn</span>
+                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
+              <span class="home-contact__flip">
+                <span class="home-contact__flip-track">
+                  <span class="home-contact__flip-label">Github</span>
+                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
-		<footer class="footer">
-			<p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
-			<p class="footer__time" id="local-time"></p>
-			<nav class="footer__links" aria-label="Social links">
-				<a href="https://linkedin.com/in/sooimkang/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
-				<a href="mailto:sooimkang@gmail.com" class="footer__link">Email</a>
-				<a href="https://github.com/sooimkang07" class="footer__link" target="_blank" rel="noopener">GitHub</a>
-			</nav>
-		</footer>
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
+    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
+  </footer>
 
+  <script src="koto.js"></script>
   <script src="script.js"></script>
   <script src="project-morph.js"></script>
 </body>

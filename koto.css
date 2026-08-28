@@ -1246,7 +1246,7 @@ body.home .nav__strip {
 	margin: 0;
 	padding-block: 0 var(--sp-sm);
 	font-size: clamp(1.7rem, 2.8vw, 2.65rem);
-	font-weight: 400;
+	font-weight: var(--fw-semi);
 	line-height: 1.1;
 	letter-spacing: var(--ls-tight);
 	text-transform: uppercase;
@@ -1582,12 +1582,17 @@ body.home .nav__strip {
 }
 
 .home-contact__heading {
+	margin: 0;
 	font-size: clamp(1.7rem, 2.8vw, 2.65rem);
 	font-weight: var(--fw-semi);
 	line-height: 1.1;
 	letter-spacing: var(--ls-tight);
 	text-transform: uppercase;
 	color: var(--clr-accent);
+
+	@media (width >= 770px) {
+		font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+	}
 }
 
 .home-contact__list {
@@ -1597,45 +1602,54 @@ body.home .nav__strip {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	text-transform: uppercase;
 
 	li {
 		margin: 0;
 	}
 
 	a {
-		position: relative;
 		display: inline-block;
 		text-decoration: none;
 		color: inherit;
-
-		&::after {
-			content: '';
-			position: absolute;
-			inset-inline: 0;
-			inset-block-end: 0;
-			block-size: 1px;
-			background: currentColor;
-			transform: scaleX(0);
-			transform-origin: right;
-			transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-		}
-
-		&:hover::after,
-		&:focus-visible::after {
-			transform: scaleX(1);
-			transform-origin: left;
-		}
 	}
+}
 
-	h3 {
-		margin: 0;
-		font-size: 0.8rem;
-		font-weight: var(--fw-semi);
-		color: var(--clr-accent);
-		letter-spacing: var(--ls-tight);
-		text-transform: uppercase;
-	}
+.home-contact__flip {
+	display: block;
+	overflow: hidden;
+	font-size: 0.95rem;
+	line-height: 1.35;
+	block-size: 1.35em;
+}
+
+.home-contact__flip-track {
+	display: flex;
+	flex-direction: column;
+	transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-contact__list a:hover .home-contact__flip-track,
+.home-contact__list a:focus-visible .home-contact__flip-track {
+	transform: translateY(-50%);
+}
+
+.home-contact__flip-label {
+	display: block;
+	flex: 0 0 auto;
+	padding-inline: 0;
+	font-size: inherit;
+	font-weight: var(--fw-semi);
+	letter-spacing: var(--ls-tight);
+	line-height: inherit;
+	block-size: 1.35em;
+	white-space: nowrap;
+	color: var(--clr-accent);
+	text-transform: uppercase;
+}
+
+.home-contact__flip-label[aria-hidden="true"] {
+	font-weight: 300;
+	text-transform: uppercase;
 }
 
 /* Contact card sits below intro, in flow */
