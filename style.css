@@ -857,7 +857,7 @@ p,
 .expl-card__title {
 	font-size: var(--fs-base);
 	font-weight: var(--fw-regular);
-	line-height: var(--lh-base);
+	line-height: 1.05;
 	letter-spacing: var(--ls-tight);
 	color: var(--clr-text);
 }
