@@ -1,5 +1,5 @@
 /* ============================================================
-   SOOIM KANG — Global script.js
+   WORK — case study interactions (TOC, video, zoom, legacy nav)
    ============================================================ */
 (function () {
   'use strict';

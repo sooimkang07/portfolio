@@ -1,3 +1,8 @@
+/* ============================================================
+   SITE — home, about, explorations chrome
+   Nav, work grid, contact, explorations cards.
+   ============================================================ */
+
 /* ══════════════════════════════════════════════════════════════
    HOMEPAGE — Koto layout, Sooim design system
    Darker Grotesque · --clr-accent · mobile-first
@@ -1950,3 +1955,158 @@ body.home .footer__links {
 		transition: none;
 	}
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   EXPLORATIONS
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.expl__hero {
+	padding-inline: var(--gutter);
+	padding-block: clamp(1.75rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+.expl__title {
+	font-size: var(--fs-xl);
+	font-weight: var(--fw-semi);
+	line-height: var(--lh-small);
+	color: var(--clr-accent);
+	margin-block-end: var(--sp-lg);
+}
+
+.expl__sub {
+	font-size: var(--fs-base);
+	color: var(--clr-text);
+	line-height: var(--lh-base);
+}
+
+/* ── Masonry grid ── */
+/* 3 equal columns; CSS columns for true masonry stacking       */
+.expl-grid {
+	columns: 3;
+	column-gap: var(--gutter);
+	padding-inline: var(--gutter);
+	padding-block-end: 6rem;
+}
+
+/* ── Each exploration card ── */
+.expl-card {
+	display: block;             /* full anchor */
+	break-inside: avoid;        /* don't split across columns */
+	margin-block-end: calc(var(--gutter)*1.5);
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Media container — no fixed aspect ratio; natural height */
+.expl-card__media {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	background: var(--clr-border);
+	margin-block-end: var(--sp-sm);
+	position: relative;
+}
+
+.expl-card__media img,
+.expl-card__media video {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform var(--t-slow) var(--ease);
+}
+
+.expl-card:hover .expl-card__media img,
+.expl-card:hover .expl-card__media video {
+	transform: scale(1.03);
+}
+
+/* Placeholder colour fills (used when no real media) */
+.expl-card__media--01 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--02 {
+	aspect-ratio: 9/16;
+	background: #F1F3F5;
+}
+
+.expl-card__media--03 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--04 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--05 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--05 img {
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.expl-card__media--06 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--07 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+.expl-card__media--08 {
+	aspect-ratio: 16/9;
+	background: #F1F3F5;
+}
+
+/* Card text */
+.expl-card__meta {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.5rem 1rem;
+	padding-block-start: 0.25rem;
+}
+
+.expl-card__title {
+	font-size: var(--fs-base);
+	font-weight: var(--fw-regular);
+	line-height: 1.05;
+	letter-spacing: var(--ls-tight);
+	color: var(--clr-text);
+}
+
+.expl-card__tag {
+	font-size: var(--fs-base);
+	font-weight: var(--fw-regular);
+	color: var(--clr-text);
+	white-space: nowrap;
+	text-align: right;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+	.expl-grid {
+		columns: 2;
+	}
+}
+
+@media (max-width: 540px) {
+	.expl-grid {
+		columns: 1;
+	}
+}
+
+/* ══════════════════════════════════════════════════════════════

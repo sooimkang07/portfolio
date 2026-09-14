@@ -1,5 +1,5 @@
 /* ============================================================
-   HOMEPAGE — Koto interactions
+   SITE — chrome interactions (home, about, explorations)
    Live clock, expanding header, work scroll sync, showreel
    ============================================================ */
 (function () {
