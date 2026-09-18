@@ -43,10 +43,11 @@
 	--nav-h:    3.25rem;
 	--gutter:   clamp(1rem, 2.5vw, 1.5rem);
 	--gap:      clamp(0.75rem, 1.5vw, 1.25rem);
-	--toc-col:  18.75rem;
+	--toc-col:  20rem; /* matches Koto --spacing-sidebar */
 	--case-max: 56rem;
-	--r-sm:     0;
-	--r-md:     0;
+	--flow-gap: 0.5rem; /* shared gap inside flow media layouts */
+	--r-sm:     0.5rem;
+	--r-md:     0.5rem; /* shared media corner radius on project pages */
 
 	/* Checker pattern (WIP card) */
 	--ck-sz: 1.2rem;

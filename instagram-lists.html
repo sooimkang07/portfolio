@@ -39,7 +39,7 @@
     .case__col-group {
       display: flex;
       flex-direction: row;
-      gap: var(--sp-md);
+      gap: var(--flow-gap);
       align-items: flex-start;
       margin-block-start: var(--sp-lg);
     }
@@ -64,7 +64,7 @@
     .ig-flow__trio {
       display: grid;
       grid-template-columns: 2fr 2fr 1fr;
-      gap: var(--sp-sm);
+      gap: var(--flow-gap);
       align-items: stretch;
     }
     .ig-flow__trio > .flow__media-stack { align-self: start; }
@@ -76,7 +76,7 @@
     .ig-flow__quad {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--sp-sm);
+      gap: var(--flow-gap);
       align-items: stretch;
     }
     .ig-flow__quad > .flow__mini-grid { align-self: start; }
@@ -88,14 +88,14 @@
     .flow__mini-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--sp-sm);
+      gap: var(--flow-gap);
     }
 
     /* Stacked pair */
     .flow__media-stack {
       display: flex;
       flex-direction: column;
-      gap: var(--sp-sm);
+      gap: var(--flow-gap);
     }
 
     @media (max-width: 639px) {
@@ -126,37 +126,7 @@
         grid-template-columns: 1fr;
       }
     }
-  
-    /* 2-col layout: sticky TOC | body fills remaining width */
-    @media (width >= 770px) {
-      .case__content-grid {
-        display: grid;
-        grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
-        grid-template-areas: "toc body";
-        align-items: start;
-        max-inline-size: none;
-        margin-inline: 0;
-        padding-inline: 0;
-        padding-block-end: 6rem;
-      }
 
-      .case__toc {
-        grid-area: toc;
-      }
-
-      .case__body {
-        grid-area: body;
-        max-inline-size: none;
-        min-width: 0;
-        padding-inline: var(--sp-lg) var(--gutter);
-      }
-    }
-
-    @media (width >= 1024px) {
-      .case__body {
-        max-inline-size: none;
-      }
-    }
   </style>
 </head>
 <body class="home page--project">
