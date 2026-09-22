@@ -144,6 +144,22 @@
 	color: var(--clr-accent);
 }
 
+img.footer__icon,
+.footer__icon {
+	display: inline !important;
+	width: 12px !important;
+	height: 12px !important;
+	max-width: 12px !important;
+	max-height: 12px !important;
+	inline-size: 12px !important;
+	block-size: 12px !important;
+	max-inline-size: 12px !important;
+	object-fit: contain;
+	vertical-align: -1px;
+	margin-inline: 0.15em;
+}
+
+/* ══════════════════════════════════════════════════════════════
    CASE STUDY — LAYOUT SHELL
    ══════════════════════════════════════════════════════════════ */
 

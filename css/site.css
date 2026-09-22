@@ -5,7 +5,7 @@
 
 /* ══════════════════════════════════════════════════════════════
    HOMEPAGE — Koto layout, Sooim design system
-   Darker Grotesque · --clr-accent · mobile-first
+   Instrument Sans · --clr-accent · mobile-first
    ══════════════════════════════════════════════════════════════ */
 
 body.home {
@@ -1929,6 +1929,21 @@ body.home .footer__time {
 
 body.home .footer__links {
 	display: none;
+}
+
+body.home .footer__icon,
+body.home img.footer__icon {
+	display: inline !important;
+	width: 12px !important;
+	height: 12px !important;
+	max-width: 12px !important;
+	max-height: 12px !important;
+	inline-size: 12px !important;
+	block-size: 12px !important;
+	max-inline-size: 12px !important;
+	object-fit: contain;
+	vertical-align: -1px;
+	margin-inline: 0.15em;
 }
 
 /* ── MOTION ─────────────────────────────────────────────────── */

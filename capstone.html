@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="js/preview-gate.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capstone · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1" />
   <link rel="stylesheet" href="css/site.css" />
   <link rel="stylesheet" href="css/work.css" />
   <link rel="stylesheet" href="css/morph.css" />
@@ -137,11 +138,17 @@
 </header>
 
         <section id="overview">
-          <p class="case__eyebrow">Overview</p>
-          <h2 class="case__section-title">This case study is in progress.</h2>
-          <p class="case__copy">My senior capstone is a year-long product design project in partnership with a city agency. The full documentation — research, system model, design outcomes — will be published here upon completion in May 2026. Below is an early snapshot of the problem framing, research direction, and design principles that are guiding the work.</p>
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Overview</p>
+              <h2 class="case__section-title">This case study is in progress.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">My senior capstone is a year-long product design project in partnership with a city agency. The full documentation — research, system model, design outcomes — will be published here upon completion in May 2026. Below is an early snapshot of the problem framing, research direction, and design principles that are guiding the work.</p>
+            </div>
+          </div>
 
-                    <h3 class="case__subhead">System at a glance</h3>
+<h3 class="case__subhead">System at a glance</h3>
           <h3 class="case__subhead">Inputs</h3>
           <p class="case__copy">Resident intent (permits, benefits, services, programs), literacy level, language, device type</p>
           <h3 class="case__subhead">Intelligence</h3>
@@ -159,10 +166,17 @@
         </section>
 
         <section id="problem">
-          <p class="case__eyebrow">Problem</p>
-          <h2 class="case__section-title">Civic information is organized for agencies, not for residents.</h2>
-          <p class="case__copy">Local government information is fragmented across dozens of websites, PDFs, and phone trees — organized by department structure, not by resident need. A person trying to navigate a permit, a benefit, or a community program has to understand how the city is organized before they can find what they're looking for. For residents with lower digital literacy, non-English speakers, or elderly populations, the system is effectively inaccessible — not by design, but by default.</p>
-                    <h3 class="case__subhead">Who's affected</h3>
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Problem</p>
+              <h2 class="case__section-title">Civic information is organized for agencies, not for residents.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">Local government information is fragmented across dozens of websites, PDFs, and phone trees — organized by department structure, not by resident need. A person trying to navigate a permit, a benefit, or a community program has to understand how the city is organized before they can find what they're looking for. For residents with lower digital literacy, non-English speakers, or elderly populations, the system is effectively inaccessible — not by design, but by default.</p>
+            </div>
+          </div>
+
+<h3 class="case__subhead">Who's affected</h3>
           <p class="case__copy">Residents navigating permits, benefits, services, and programs — with higher impact on those with lower digital literacy, non-English speakers, and elderly populations</p>
           <h3 class="case__subhead">The structural problem</h3>
           <p class="case__copy">Information is organized around agency structure, not resident mental models — creating a translation burden that falls entirely on the resident</p>
@@ -172,13 +186,17 @@
         </section>
 
         <section id="research">
-          <p class="case__eyebrow">Research</p>
-          <h2 class="case__section-title">Residents trust people over pages. That's not a workaround — that's a signal.</h2>
-          <p class="case__copy">We conducted 14 contextual interviews with residents across three city neighborhoods, focused on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Research</p>
+              <h2 class="case__section-title">Residents trust people over pages. That's not a workaround — that's a signal.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">We conducted 14 contextual interviews with residents across three city neighborhoods, focused on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
+            </div>
+          </div>
 
-          
-
-          <div class="case__img">
+<div class="case__img">
             <div class="case__img-inner">
               <span class="case__img-label">Research — interview synthesis map</span>
             </div>
@@ -190,10 +208,17 @@
         </section>
 
         <section id="direction">
-          <p class="case__eyebrow">Direction</p>
-          <h2 class="case__section-title">Design for trust before usability.</h2>
-          <p class="case__copy">Our working hypothesis: no amount of IA improvement will solve the problem if residents don't trust the source. The challenge isn't making the website "easier to use" — it's making it legible, accountable, and proactive in the way community members are. Plain language, visible accountability, and anticipatory communication are the design primitives. Usability follows from trust, not the other way around.</p>
-          <div class="case__img">
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Direction</p>
+              <h2 class="case__section-title">Design for trust before usability.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">Our working hypothesis: no amount of IA improvement will solve the problem if residents don't trust the source. The challenge isn't making the website "easier to use" — it's making it legible, accountable, and proactive in the way community members are. Plain language, visible accountability, and anticipatory communication are the design primitives. Usability follows from trust, not the other way around.</p>
+            </div>
+          </div>
+
+<div class="case__img">
             <div class="case__img-inner case__img-inner--short">
               <span class="case__img-label">Design principles — trust framework</span>
             </div>
@@ -201,20 +226,33 @@
         </section>
 
         <section id="process">
-          <p class="case__eyebrow">Process</p>
-          <h2 class="case__section-title">Where we are now.</h2>
-          <p class="case__copy">We've completed research synthesis and defined three design directions, currently in low-fi testing with community members biweekly. We're also navigating the realities of institutional partnership: stakeholder constraints, political sensitivities, and the gap between what agency representatives say they want and what residents actually need. That gap is its own design problem.</p>
-          <div class="case__video">
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Process</p>
+              <h2 class="case__section-title">Where we are now.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">We've completed research synthesis and defined three design directions, currently in low-fi testing with community members biweekly. We're also navigating the realities of institutional partnership: stakeholder constraints, political sensitivities, and the gap between what agency representatives say they want and what residents actually need. That gap is its own design problem.</p>
+            </div>
+          </div>
+
+<div class="case__video">
             <div class="case__video-inner"></div>
           </div>
         </section>
 
         <section id="reflection" class="case__reflection">
-          <p class="case__eyebrow">Reflection</p>
-          <h2 class="case__section-title">In progress.</h2>
-          <p class="case__copy">The most unexpected learning so far: the hardest design problems in civic technology aren't technical — they're relational and political. Designing for a community partner requires holding the user's needs alongside institutional constraints that are real and sometimes immovable. That navigation is as much a design skill as wireframing.</p>
-          <p class="case__copy">Full reflection and outcomes coming May 2026, once we've shipped and measured impact with the community partner.</p>
-        </section>
+          <div class="case__intro">
+            <div class="case__intro-lead">
+              <p class="case__eyebrow">Reflection</p>
+              <h2 class="case__section-title">In progress.</h2>
+            </div>
+            <div class="case__intro-body">
+              <p class="case__copy">The most unexpected learning so far: the hardest design problems in civic technology aren't technical — they're relational and political. Designing for a community partner requires holding the user's needs alongside institutional constraints that are real and sometimes immovable. That navigation is as much a design skill as wireframing.</p>
+              <p class="case__copy">Full reflection and outcomes coming May 2026, once we've shipped and measured impact with the community partner.</p>
+            </div>
+          </div>
+</section>
 
       </div>
     </div>
