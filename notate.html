@@ -4,148 +4,17 @@
   <script src="js/preview-gate.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Notate — a Chrome extension for annotating the web without losing context. By Sooim Kang." />
   <title>Notate · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1">
-  <link rel="stylesheet" href="css/site.css?v=footer-icon-4">
-  <link rel="stylesheet" href="css/work.css?v=footer-icon-4">
-  <link rel="stylesheet" href="css/case-layout.css" />
-  <link rel="stylesheet" href="css/morph.css" />
+  <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
+  <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
+  <link rel="stylesheet" href="css/notate.css?v=1" />
   <link rel="icon" href="favicon.ico" />
-  <script>
-    /* Hide hero target before paint when a morph is in flight */
-    try {
-      var raw = sessionStorage.getItem('sooim-project-morph');
-      if (raw) {
-        var data = JSON.parse(raw);
-        if (data && data.id === 'notate' && Date.now() - (data.ts || 0) < 14000) {
-          document.documentElement.classList.add('is-project-morph-pending');
-        }
-      }
-    } catch (e) {}
-  </script>
-  <style>
-    body.home.page--project main.case-wrap {
-      padding-block-start: calc(2.75rem + var(--sp-sm));
-    }
-
-    /* ── Notate: page-specific layout ─────────────────── */
-
-    /* Chosen direction highlight */
-    .notate-exploration__item--chosen {
-      outline: 1.5px solid var(--clr-accent);
-      box-shadow: 0 0 18px 2px rgba(230, 122, 0, 0.18);
-      padding: var(--sp-sm);
-    }
-
-    /* 3-column equal layout — explorations & reflection */
-    .case__col-group {
-      display: flex;
-      flex-direction: row;
-      gap: var(--flow-gap);
-      align-items: flex-start;
-      margin-block-start: var(--sp-lg);
-    }
-    .case__col-group > div {
-      flex: 1 1 0;
-      min-inline-size: 0;
-    }
-    .case__col-group > div img {
-      display: block;
-      width: 100%;
-      margin-block-end: var(--sp-xs);
-    }
-    @media (max-width: 640px) {
-      .case__col-group { flex-direction: column; }
-    }
-
-    /* Flow block: media first, label + sentence below */
-    .case__flow-block { margin-block-start: var(--sp-xl); }
-    .case__flow-block .case__subhead { margin-block-start: var(--sp-md); }
-
-    /* Flow 3: 2 phones + stacked pair — 2fr:2fr:1fr */
-    .notate-flow__trio {
-      display: grid;
-      grid-template-columns: 2fr 2fr 1fr;
-      gap: var(--flow-gap);
-      align-items: stretch;
-    }
-    .notate-flow__trio > .flow__media-stack { align-self: start; }
-    .notate-flow__trio > .flow__device { display: flex; flex-direction: column; }
-    .notate-flow__trio > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
-    .notate-flow__trio > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
-
-    /* Flow 4: 1 large phone + 2×2 grid */
-    .notate-flow__quad {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--flow-gap);
-      align-items: stretch;
-    }
-    .notate-flow__quad > .flow__mini-grid { align-self: start; }
-    .notate-flow__quad > .flow__device { display: flex; flex-direction: column; }
-    .notate-flow__quad > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
-    .notate-flow__quad > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
-
-    /* 2×2 mini-grid */
-    .flow__mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--flow-gap);
-    }
-
-    /* Stacked pair */
-    .flow__media-stack {
-      display: flex;
-      flex-direction: column;
-      gap: var(--flow-gap);
-    }
-
-    /* Placeholder filler box */
-    .filler-box {
-      background: var(--clr-border);
-      width: 100%;
-      height: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--clr-muted);
-      font-size: var(--fs-sm);
-      border-radius: 0;
-      border: 1px solid #EBEBEA;
-    }
-
-    @media (max-width: 639px) {
-      /* Explorations: first 2 side-by-side, 3rd full-width below */
-      .notate-explorations__cols {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      .notate-explorations__cols > div {
-        flex: 1 1 calc(50% - var(--sp-sm));
-        min-inline-size: 0;
-      }
-      .notate-explorations__cols > div:last-child {
-        flex: 0 0 100%;
-      }
-
-      /* Trio: first 2 phones stack full-width, last 2 go side-by-side below */
-      .notate-flow__trio {
-        display: flex;
-        flex-direction: column;
-      }
-      .notate-flow__trio > .flow__media-stack {
-        flex-direction: row;
-      }
-
-      /* Quad: large phone on top, 2×2 grid below */
-      .notate-flow__quad {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<link rel="stylesheet" href="css/project-clean.css?v=7">
+<link rel="stylesheet" href="css/notate-refinements.css?v=3">
 </head>
-<body class="home page--project">
-
+<body class="home notate-page">
+  <a class="nt-skip" href="#overview">Skip to case study</a>
   <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
     <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
     <div class="nav__bar">
@@ -198,338 +67,101 @@
     </nav>
   </header>
 
-  <main class="case-wrap">
-    <a href="/" class="case__back--mobile">Back</a>
+  <main id="top" class="nt-main">
 
-    <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview"     class="case__toc-bar-link">Overview</a>
-      <a href="#solution"     class="case__toc-bar-link">Solution</a>
-      <a href="#flows"        class="case__toc-bar-link">Core Flows</a>
-      <a href="#system"       class="case__toc-bar-link">System</a>
-      <a href="#research"     class="case__toc-bar-link">Research</a>
-      <a href="#explorations" class="case__toc-bar-link">Explorations</a>
-      <a href="#decisions"    class="case__toc-bar-link">Decisions</a>
-      <a href="#impact"       class="case__toc-bar-link">Impact</a>
-      <a href="#reflection"   class="case__toc-bar-link">Reflection</a>
-    </nav>
-
-    <div class="case__content-grid">
-      <nav class="case__toc" aria-label="Sections">
-        <a href="/" class="case__back">Back</a>
-        <div class="case__toc-inner">
-          <ul class="case__toc-list">
-            <li><a href="#overview"     class="case__toc-link">Overview</a></li>
-            <li><a href="#solution"     class="case__toc-link">Solution</a></li>
-            <li><a href="#flows"        class="case__toc-link">Core Flows</a></li>
-            <li><a href="#system"       class="case__toc-link">System</a></li>
-            <li><a href="#research"     class="case__toc-link">Research</a></li>
-            <li><a href="#explorations" class="case__toc-link">Explorations</a></li>
-            <li><a href="#decisions"    class="case__toc-link">Decisions</a></li>
-            <li><a href="#impact"       class="case__toc-link">Impact</a></li>
-            <li><a href="#reflection"   class="case__toc-link">Reflection</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="case__body">
-
-        <!-- ══ HERO ══════════════════════════════════════════════ -->
-        <header class="case__hero">
-          <p class="case__eyebrow">Notate · Product Design · Concept · 2025</p>
-          <h1 class="case__title">Coming Soon</h1>
-          <p class="case__copy">This case study is under development.</p>
-
-          <div class="case__media-block case__media-block--hero">
-            <div class="flow__device">
-              <div class="flow__device-screen">
-                <div class="filler-box">Placeholder</div>
-              </div>
-            </div>
+<figure class="nt-media nt-wide nt-hero-media"><div class="nt-placeholder nt-cinema" role="img" aria-label="Placeholder for 15-second Notate cover video"></div></figure>
+    <div class="nt-story">
+      <aside class="nt-rail">
+        <nav class="nt-toc" aria-label="Case study sections">
+          <a class="nt-back" href="/">← Back</a>
+          <ol>
+            <li><a href="#overview" aria-current="location"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li>
+            <li><a href="#problem"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Problem</span><span class="project-toc-title" aria-hidden="true">Problem</span></span></span></a></li>
+            <li><a href="#solution"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Solution</span><span class="project-toc-title" aria-hidden="true">Solution</span></span></span></a></li>
+            <li><a href="#decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li>
+            <li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li>
+          </ol>
+        </nav>
+      </aside>
+      <div class="nt-chapters">
+    <header class="nt-hero nt-reading">
+      <p class="nt-kicker">Notate · Product Design · Concept · 2025</p>
+      <h1>Annotating the web<br>without losing context.</h1>
+      <p class="nt-deck">Notes attached to the live web.<br>Right where your thinking happens.</p>
+      <dl class="nt-meta">
+        <div><dt>Role</dt><dd>Solo Product Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Coming soon</dd></div>
+        <div><dt>Platform</dt><dd>TBD</dd></div>
+        <div><dt>Scope</dt><dd>TBD</dd></div>
+      </dl>
+    </header>
+        <section id="overview" class="nt-section" aria-labelledby="overview-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">01 / Overview</p>
+            <h2 id="overview-title">Your notes. Their original context.</h2>
+            <p>Notate is a Chrome extension for annotating the live web. Attach notes to elements on a page, organize them into folders, and return to what you saved—right where you found it.</p>
+            <p class="nt-paragraph">I designed and built the extension from end to end. It’s fully functional and being prepared for release on the Chrome Web Store.</p>
+            <!-- Replace this non-interactive label with the verified listing link. -->
+            <span class="nt-link nt-link-pending">Chrome Web Store · publishing soon</span>
+          </div>
+        </section>
+        <section id="problem" class="nt-section" aria-labelledby="problem-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">02 / Problem</p>
+            <h2 id="problem-title">Saving a page isn’t the same<br>as saving what mattered.</h2>
+            <p>Open tabs, bookmarks, and screenshots can hold onto a reference. But the detail that caught your eye—and what you wanted to say about it—can get lost along the way.</p>
+          </div>
+<figure class="nt-media nt-process"><a class="nt-problem-image" href="notate-assets/problem-collage.png" target="_blank" rel="noopener" aria-label="View problem collage at full size (opens in a new tab)"><img src="notate-assets/problem-collage.png" alt="Collage of a crowded Chrome tab bar, cascading bookmark folders, and scattered screenshots with comment pins." width="1536" height="1024" loading="lazy" decoding="async" /></a></figure>
+          <div class="nt-process nt-problems">
+            <div><h3>Tabs keep piling up.</h3><p>Keeping a page open becomes a way to remember to come back.</p></div>
+            <div><h3>Bookmarks lose the detail.</h3><p>A saved link doesn’t capture which part mattered or why.</p></div>
+            <div><h3>Screenshots leave the page.</h3><p>The visual survives, but its connection to the live source gets weaker.</p></div>
+          </div>
+        </section>
+        <section id="solution" class="nt-section" aria-labelledby="solution-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">03 / Solution</p>
+            <h2 id="solution-title">Annotate. Organize. Return.</h2>
+            <p>A focused workflow that keeps the reference, the note, and the way back together.</p>
           </div>
 
-          <div class="case__meta">
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Role</span>
-              <span class="case__meta-val">Solo Product Designer</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Timeline</span>
-              <span class="case__meta-val">Coming soon</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Platform</span>
-              <span class="case__meta-val">TBD</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Scope</span>
-              <span class="case__meta-val">TBD</span>
-            </div>
+<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Annotate</h3><p>Select an element on a live webpage and attach a note directly to it.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for annotate screen recording"></div></figure></div>
+<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Organize</h3><p>Save notes into folders to keep references grouped by project or purpose.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for organize screen recording"></div></figure></div>
+<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Return</h3><p>Reopen a saved page and jump back to the note in its original context.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for return screen recording"></div></figure></div>
+        </section>
+        <section id="decisions" class="nt-section" aria-labelledby="decisions-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">04 / Design decisions</p>
+            <h2 id="decisions-title">Keep the interaction close<br>to the content.</h2>
+            <p>Three choices shape how notes connect to the page, stay organized, and remain easy to revisit.</p>
           </div>
-        </header>
-
-        <!-- ══ 1. OVERVIEW ════════════════════════════════════════ -->
-        <section id="overview">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Overview</p>
-
-              <h2 class="case__section-title">Overview coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
+          <div class="nt-process nt-decisions">
+<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 1</h3><h4>Work directly on the live page.</h4><p>Attach and manipulate notes in place, keeping the element and the response visible together.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for direct manipulation animation"></div></figure></article>
+<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 2</h3><h4>Organize around a purpose.</h4><p>Folders group notes by project or purpose, giving saved references a structure beyond individual pages.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for folder organization animation"></div></figure></article>
+<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 3</h3><h4>Preview before opening.</h4><p>A dropdown preview provides a quick look at saved content before returning to the page.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for dropdown preview animation"></div></figure></article>
           </div>
-</section>
-
-        <!-- ══ 2. SOLUTION ════════════════════════════════════════ -->
-        <section id="solution">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Solution</p>
-
-              <h2 class="case__section-title">Solution coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
+        </section>
+        <section id="reflection" class="nt-section nt-reflection" aria-labelledby="reflection-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">05 / Reflection</p>
+            <h2 id="reflection-title">The hardest part was deciding<br>what belonged.</h2>
+            <p>Building and using Notate shifted my focus from individual interactions to what the product needed to do well. Each feature meant deciding whether it supported the core workflow or simply added complexity.</p>
+            <p>Keeping that scope focused helped me turn a personal workflow into a fully functional extension, ready to share with others.</p>
           </div>
-</section>
-
-        <!-- ══ 3. CORE FLOWS ══════════════════════════════════════ -->
-        <section id="flows">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Core Flows</p>
-
-              <h2 class="case__section-title">Core flows coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 4. SYSTEM ═══════════════════════════════════════════ -->
-        <section id="system">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">System</p>
-
-              <h2 class="case__section-title">System design coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 5. RESEARCH ═════════════════════════════════════════ -->
-        <section id="research">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Research</p>
-
-              <h2 class="case__section-title">Research coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 6. EXPLORATIONS ═════════════════════════════════════ -->
-        <section id="explorations">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Explorations</p>
-
-              <h2 class="case__section-title">Explorations coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 7. DECISIONS ════════════════════════════════════════ -->
-        <section id="decisions">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Design Decisions</p>
-
-              <h2 class="case__section-title">Design decisions coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 8. IMPACT ═══════════════════════════════════════════ -->
-        <section id="impact">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Impact</p>
-
-              <h2 class="case__section-title">Impact coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
-        <!-- ══ 9. REFLECTION ═══════════════════════════════════════ -->
-        <section id="reflection" class="case__reflection">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Reflection</p>
-
-              <h2 class="case__section-title">Reflection coming soon</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">This section is under development.</p>
-
-            </div>
-
-          </div>
-</section>
-
+        </section>
       </div>
     </div>
-
-    <section class="home-contact" id="contact" aria-label="Contact">
-      <div class="home-contact__body">
-        <div class="home-contact__intro">
-          <h2 class="home-contact__heading">Contact</h2>
-          <div class="home-contact__card-slot">
-            <div class="home-contact__card-wrap">
-              <a
-                class="home-contact__card"
-                href="mailto:sooimkang@gmail.com"
-                aria-label="Email Sooim at sooimkang@gmail.com"
-              >
-                <span class="home-contact__card-media">
-                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-                </span>
-                <span class="home-contact__card-overlay">
-                  <span class="home-contact__card-text">
-                    Say hello
-                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
-                  </span>
-                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <ul class="home-contact__list">
-          <li>
-            <a href="mailto:sooimkang1015@gmail.com">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Email</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">LinkedIn</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Github</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
+    <div class="nt-end nt-reading">
+      <a href="/">← Explore more work</a>
+      <a href="mailto:sooimkang@gmail.com">Let’s talk ↗</a>
+    </div>
   </main>
-
 	<footer class="footer">
     <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon" width="12" height="12">, <img src="brain.png" alt="brain" class="footer__icon" width="12" height="12">, and <img src="love.png" alt="love" class="footer__icon" width="12" height="12"></p>
     <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
   </footer>
 
   <script src="js/site.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/case-layout.js"></script>
-  <script src="js/morph.js"></script>
-
+  <script src="js/notate.js"></script>
 </body>
 </html>

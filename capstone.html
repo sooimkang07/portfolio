@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script src="js/preview-gate.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capstone · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1" />
-  <link rel="stylesheet" href="css/site.css" />
-  <link rel="stylesheet" href="css/work.css" />
-  <link rel="stylesheet" href="css/morph.css" />
-  <link rel="icon" href="favicon.ico" />
-  <script>
+<script src="js/preview-gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capstone · Sooim Kang</title>
+<link href="css/base.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/site.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/work.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/case-layout.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/morph.css" rel="stylesheet"/>
+<link href="favicon.ico" rel="icon"/>
+<script>
     /* Hide hero target before paint when a morph is in flight */
     try {
       var raw = sessionStorage.getItem('sooim-project-morph');
@@ -22,311 +24,175 @@
       }
     } catch (e) {}
   </script>
-  <style>
+<style>
     body.home.page--project main.case-wrap {
       padding-block-start: calc(2.75rem + var(--sp-sm));
     }
   </style>
-</head>
-<body class="home page--project">
-
-  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-    <div class="nav__bar">
-      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-      <a href="/" class="nav__logo">Sooim Kang</a>
-      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span><span></span>
-      </button>
-      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="/" class="nav__menu-link is-active">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Work</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
-            </span>
-          </span>
-        </a>
-        <a href="explorations" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Explorations</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-            </span>
-          </span>
-        </a>
-        <a href="about" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">About</span>
-              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
-            </span>
-          </span>
-        </a>
-        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Resume</span>
-              <span class="nav__menu-title" aria-hidden="true">Download</span>
-            </span>
-          </span>
-        </a>
-      </nav>
-    </div>
-    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="/" class="nav__strip-link is-active">Work</a>
-      <a href="explorations" class="nav__strip-link">Explorations</a>
-      <a href="about" class="nav__strip-link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
-
-  <main class="case-wrap">
-
-    <a href="/" class="case__back--mobile">Back</a>
-
-    <!-- Mobile TOC bar: sticky below nav, hidden on desktop -->
-    <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview" class="case__toc-bar-link">Overview</a>
-      <a href="#problem" class="case__toc-bar-link">Problem</a>
-      <a href="#research" class="case__toc-bar-link">Research</a>
-      <a href="#direction" class="case__toc-bar-link">Direction</a>
-      <a href="#process" class="case__toc-bar-link">Process</a>
-      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
-    </nav>
-    <div class="case__content-grid">
-
-      <nav class="case__toc" aria-label="Sections">
-        <a href="/" class="case__back">Back</a>
-        <div class="case__toc-inner">
-          <ul class="case__toc-list">
-            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
-            <li><a href="#problem"    class="case__toc-link">Problem</a></li>
-            <li><a href="#research"   class="case__toc-link">Research</a></li>
-            <li><a href="#direction"  class="case__toc-link">Direction</a></li>
-            <li><a href="#process"    class="case__toc-link">Process</a></li>
-            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="case__body">
-
-        <header class="case__hero">
-          <p class="case__eyebrow">Capstone · 2026 · Product Design</p>
-          <h1 class="case__title">Organizing Voice Chats Around Topics, Not Timelines</h1>
-          <figure class="case__hero-img" aria-label="Project hero image" class="case__hero-placeholder">Hero Image — Capstone</figure>
-          <div class="case__meta">
-            <div class="case__meta-item">
-              <span class="case__meta-label">Role</span>
-              <span class="case__meta-val">Lead Designer</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__meta-label">Timeline</span>
-              <span class="case__meta-val">Jan – May 2026</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__meta-label">Team</span>
-              <span class="case__meta-val">4 students</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__meta-label">Skills</span>
-              <span class="case__meta-val">Product Design<br>User Research<br>Systems Framing<br>Design Strategy</span>
-            </div>
-          </div>
+<link href="css/project-clean.css?v=6" rel="stylesheet"/>
+<link href="css/notate.css?v=nt-1" rel="stylesheet"/><link href="css/notate-refinements.css?v=nt-1" rel="stylesheet"/><link href="css/project-notate.css?v=nt-1" rel="stylesheet"/></head>
+<body class="home page--project notate-page nt-case capstone-page"><a class="nt-skip" href="#overview">Skip to case study</a>
+<header class="nav is-at-top" data-ref-header-bar="" id="main-nav">
+<div class="nav__backdrop" data-ref-header-backdrop="" hidden=""></div>
+<div class="nav__bar">
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__hit" tabindex="-1" type="button"></button>
+<a class="nav__logo" href="/">Sooim Kang</a>
+<span aria-hidden="true" class="nav__mark"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__burger">
+<span></span><span></span><span></span><span></span>
+</button>
+<nav class="nav__menu" data-ref-header-bar-menu-desktop="" id="nav-menu">
+<a class="nav__menu-link is-active" href="/">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Work</span>
+<span aria-hidden="true" class="nav__menu-title">Explore case studies</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="explorations">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Explorations</span>
+<span aria-hidden="true" class="nav__menu-title">Explore side quests </span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="about">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">About</span>
+<span aria-hidden="true" class="nav__menu-title">Get to know me</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Resume</span>
+<span aria-hidden="true" class="nav__menu-title">Download</span>
+</span>
+</span>
+</a>
+</nav>
+</div>
+<nav aria-label="Primary" class="nav__strip" data-ref-header-bar-expanded="">
+<a class="nav__strip-link is-active" href="/">Work</a>
+<a class="nav__strip-link" href="explorations">Explorations</a>
+<a class="nav__strip-link" href="about">About</a>
+<a class="nav__strip-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">Resume</a>
+</nav>
 </header>
+<main class="nt-main" id="top"><figure class="nt-media nt-wide nt-hero-media nt-case-cover"><div aria-label="Placeholder for Hero Image — Capstone" class="nt-placeholder nt-cinema" role="img"></div></figure><div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#problem"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Problem</span><span aria-hidden="true" class="project-toc-title">Problem</span></span></span></a></li><li><a href="#research"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Research</span><span aria-hidden="true" class="project-toc-title">Research</span></span></span></a></li><li><a href="#direction"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Direction</span><span aria-hidden="true" class="project-toc-title">Direction</span></span></span></a></li><li><a href="#process"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Process</span><span aria-hidden="true" class="project-toc-title">Process</span></span></span></a></li><li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading">
+<p class="nt-kicker">Capstone · 2026 · Product Design</p>
+<h1>Organizing Voice Chats Around Topics, Not Timelines</h1>
 
-        <section id="overview">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Overview</p>
-              <h2 class="case__section-title">This case study is in progress.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">My senior capstone is a year-long product design project in partnership with a city agency. The full documentation — research, system model, design outcomes — will be published here upon completion in May 2026. Below is an early snapshot of the problem framing, research direction, and design principles that are guiding the work.</p>
-            </div>
-          </div>
-
+<dl class="nt-meta"><div><dt>Role</dt><dd>Lead Designer</dd></div><div><dt>Timeline</dt><dd>Jan – May 2026</dd></div><div><dt>Team</dt><dd>4 students</dd></div><div><dt>Skills</dt><dd>Product Design<br/>User Research<br/>Systems Framing<br/>Design Strategy</dd></div></dl>
+</header><section aria-labelledby="overview-title" class="nt-section nt-case-section nt-reading" id="overview">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">01 / Overview</p>
+<h2 class="case__section-title" id="overview-title">This case study is in progress.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">My senior capstone is a year-long product design project in partnership with a city agency. The full documentation — research, system model, design outcomes — will be published here upon completion in May 2026. Below is an early snapshot of the problem framing, research direction, and design principles that are guiding the work.</p>
+</div>
+</div>
 <h3 class="case__subhead">System at a glance</h3>
-          <h3 class="case__subhead">Inputs</h3>
-          <p class="case__copy">Resident intent (permits, benefits, services, programs), literacy level, language, device type</p>
-          <h3 class="case__subhead">Intelligence</h3>
-          <p class="case__copy">Information architecture organized around resident mental models — not agency org charts — with plain language and proactive status communication</p>
-          <h3 class="case__subhead">Outputs</h3>
-          <p class="case__copy">The right information, at the right moment, in plain language — surfaced before residents need to ask</p>
-          <h3 class="case__subhead">Feedback loop</h3>
-          <p class="case__copy">Search queries, task abandonment, and community navigator flags surface gaps in the information system for continuous improvement</p>
-
-          <div class="case__img">
-            <div class="case__img-inner case__img-inner--tall" class="case__hero-placeholder">
-              <span class="case__img-label">Capstone — coming May 2026</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="problem">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Problem</p>
-              <h2 class="case__section-title">Civic information is organized for agencies, not for residents.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">Local government information is fragmented across dozens of websites, PDFs, and phone trees — organized by department structure, not by resident need. A person trying to navigate a permit, a benefit, or a community program has to understand how the city is organized before they can find what they're looking for. For residents with lower digital literacy, non-English speakers, or elderly populations, the system is effectively inaccessible — not by design, but by default.</p>
-            </div>
-          </div>
-
+<h3 class="case__subhead">Inputs</h3>
+<p class="case__copy">Resident intent (permits, benefits, services, programs), literacy level, language, device type</p>
+<h3 class="case__subhead">Intelligence</h3>
+<p class="case__copy">Information architecture organized around resident mental models — not agency org charts — with plain language and proactive status communication</p>
+<h3 class="case__subhead">Outputs</h3>
+<p class="case__copy">The right information, at the right moment, in plain language — surfaced before residents need to ask</p>
+<h3 class="case__subhead">Feedback loop</h3>
+<p class="case__copy">Search queries, task abandonment, and community navigator flags surface gaps in the information system for continuous improvement</p>
+<div class="case__img">
+<div class="case__hero-placeholder">
+<span class="case__img-label">Capstone — coming May 2026</span>
+</div>
+</div>
+</section><section aria-labelledby="problem-title" class="nt-section nt-case-section nt-reading" id="problem">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">02 / Problem</p>
+<h2 class="case__section-title" id="problem-title">Civic information is organized for agencies, not for residents.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Local government information is fragmented across dozens of websites, PDFs, and phone trees — organized by department structure, not by resident need. A person trying to navigate a permit, a benefit, or a community program has to understand how the city is organized before they can find what they're looking for. For residents with lower digital literacy, non-English speakers, or elderly populations, the system is effectively inaccessible — not by design, but by default.</p>
+</div>
+</div>
 <h3 class="case__subhead">Who's affected</h3>
-          <p class="case__copy">Residents navigating permits, benefits, services, and programs — with higher impact on those with lower digital literacy, non-English speakers, and elderly populations</p>
-          <h3 class="case__subhead">The structural problem</h3>
-          <p class="case__copy">Information is organized around agency structure, not resident mental models — creating a translation burden that falls entirely on the resident</p>
-          <h3 class="case__subhead">The design opportunity</h3>
-          <p class="case__copy">A resident-facing system organized around "what do I need to do?" rather than "which department owns this?" — with proactive status communication baked in</p>
-
-        </section>
-
-        <section id="research">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Research</p>
-              <h2 class="case__section-title">Residents trust people over pages. That's not a workaround — that's a signal.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">We conducted 14 contextual interviews with residents across three city neighborhoods, focused on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
-            </div>
-          </div>
-
+<p class="case__copy">Residents navigating permits, benefits, services, and programs — with higher impact on those with lower digital literacy, non-English speakers, and elderly populations</p>
+<h3 class="case__subhead">The structural problem</h3>
+<p class="case__copy">Information is organized around agency structure, not resident mental models — creating a translation burden that falls entirely on the resident</p>
+<h3 class="case__subhead">The design opportunity</h3>
+<p class="case__copy">A resident-facing system organized around "what do I need to do?" rather than "which department owns this?" — with proactive status communication baked in</p>
+</section><section aria-labelledby="research-title" class="nt-section nt-case-section nt-reading" id="research">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">03 / Research</p>
+<h2 class="case__section-title" id="research-title">Residents trust people over pages. That's not a workaround — that's a signal.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">We conducted 14 contextual interviews with residents across three city neighborhoods, focused on recent moments when they had to navigate a city service. We also audited 47 city-facing web pages for readability, navigation structure, and mobile accessibility.</p>
+</div>
+</div>
 <div class="case__img">
-            <div class="case__img-inner">
-              <span class="case__img-label">Research — interview synthesis map</span>
-            </div>
-          </div>
-          <h3 class="case__subhead">Key insight: the informal network is the real infrastructure</h3>
-          <p class="case__copy">Every interview participant described going to a neighbor, a community organizer, or a family member before attempting a city website. The informal network was faster, more reliable, and in plain language. This wasn't a failure of digital literacy — it was a rational response to a system that consistently failed them. Our design direction had to earn trust the way community members do.</p>
-          <h3 class="case__subhead">Key insight: the problem is architecture, not content</h3>
-          <p class="case__copy">The information residents need exists. It's just buried, inconsistently formatted, and organized for administrators, not people. The design challenge isn't creating new content — it's restructuring how existing information is surfaced, and to whom, and when.</p>
-        </section>
-
-        <section id="direction">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Direction</p>
-              <h2 class="case__section-title">Design for trust before usability.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">Our working hypothesis: no amount of IA improvement will solve the problem if residents don't trust the source. The challenge isn't making the website "easier to use" — it's making it legible, accountable, and proactive in the way community members are. Plain language, visible accountability, and anticipatory communication are the design primitives. Usability follows from trust, not the other way around.</p>
-            </div>
-          </div>
-
+<div class="case__img-inner">
+<span class="case__img-label">Research — interview synthesis map</span>
+</div>
+</div>
+<h3 class="case__subhead">Key insight: the informal network is the real infrastructure</h3>
+<p class="case__copy">Every interview participant described going to a neighbor, a community organizer, or a family member before attempting a city website. The informal network was faster, more reliable, and in plain language. This wasn't a failure of digital literacy — it was a rational response to a system that consistently failed them. Our design direction had to earn trust the way community members do.</p>
+<h3 class="case__subhead">Key insight: the problem is architecture, not content</h3>
+<p class="case__copy">The information residents need exists. It's just buried, inconsistently formatted, and organized for administrators, not people. The design challenge isn't creating new content — it's restructuring how existing information is surfaced, and to whom, and when.</p>
+</section><section aria-labelledby="direction-title" class="nt-section nt-case-section nt-reading" id="direction">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">04 / Direction</p>
+<h2 class="case__section-title" id="direction-title">Design for trust before usability.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Our working hypothesis: no amount of IA improvement will solve the problem if residents don't trust the source. The challenge isn't making the website "easier to use" — it's making it legible, accountable, and proactive in the way community members are. Plain language, visible accountability, and anticipatory communication are the design primitives. Usability follows from trust, not the other way around.</p>
+</div>
+</div>
 <div class="case__img">
-            <div class="case__img-inner case__img-inner--short">
-              <span class="case__img-label">Design principles — trust framework</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="process">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Process</p>
-              <h2 class="case__section-title">Where we are now.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">We've completed research synthesis and defined three design directions, currently in low-fi testing with community members biweekly. We're also navigating the realities of institutional partnership: stakeholder constraints, political sensitivities, and the gap between what agency representatives say they want and what residents actually need. That gap is its own design problem.</p>
-            </div>
-          </div>
-
+<div class="case__img-inner case__img-inner--short">
+<span class="case__img-label">Design principles — trust framework</span>
+</div>
+</div>
+</section><section aria-labelledby="process-title" class="nt-section nt-case-section nt-reading" id="process">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">05 / Process</p>
+<h2 class="case__section-title" id="process-title">Where we are now.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">We've completed research synthesis and defined three design directions, currently in low-fi testing with community members biweekly. We're also navigating the realities of institutional partnership: stakeholder constraints, political sensitivities, and the gap between what agency representatives say they want and what residents actually need. That gap is its own design problem.</p>
+</div>
+</div>
 <div class="case__video">
-            <div class="case__video-inner"></div>
-          </div>
-        </section>
-
-        <section id="reflection" class="case__reflection">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Reflection</p>
-              <h2 class="case__section-title">In progress.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">The most unexpected learning so far: the hardest design problems in civic technology aren't technical — they're relational and political. Designing for a community partner requires holding the user's needs alongside institutional constraints that are real and sometimes immovable. That navigation is as much a design skill as wireframing.</p>
-              <p class="case__copy">Full reflection and outcomes coming May 2026, once we've shipped and measured impact with the community partner.</p>
-            </div>
-          </div>
-</section>
-
-      </div>
-    </div>
-
-    <section class="home-contact" id="contact" aria-label="Contact">
-      <div class="home-contact__body">
-        <div class="home-contact__intro">
-          <h2 class="home-contact__heading">Contact</h2>
-          <div class="home-contact__card-slot">
-            <div class="home-contact__card-wrap">
-              <a
-                class="home-contact__card"
-                href="mailto:sooimkang@gmail.com"
-                aria-label="Email Sooim at sooimkang@gmail.com"
-              >
-                <span class="home-contact__card-media">
-                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-                </span>
-                <span class="home-contact__card-overlay">
-                  <span class="home-contact__card-text">
-                    Say hello
-                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
-                  </span>
-                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <ul class="home-contact__list">
-          <li>
-            <a href="mailto:sooimkang1015@gmail.com">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Email</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">LinkedIn</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Github</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-		<footer class="footer">
-    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
-    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
-  </footer>
-
-  <script src="js/site.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/morph.js"></script>
-
-</body>
+<div class="case__video-inner"></div>
+</div>
+</section><section aria-labelledby="reflection-title" class="nt-section nt-case-section nt-reading nt-reflection" id="reflection">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">06 / Reflection</p>
+<h2 class="case__section-title" id="reflection-title">In progress.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">The most unexpected learning so far: the hardest design problems in civic technology aren't technical — they're relational and political. Designing for a community partner requires holding the user's needs alongside institutional constraints that are real and sometimes immovable. That navigation is as much a design skill as wireframing.</p>
+<p class="case__copy">Full reflection and outcomes coming May 2026, once we've shipped and measured impact with the community partner.</p>
+</div>
+</div>
+</section></div></div><div class="nt-end nt-reading"><a href="/">← Explore more work</a><a href="mailto:sooimkang@gmail.com">Let’s talk ↗</a></div></main>
+<footer class="footer">
+<p class="footer__copy">© 2026 · Built with <img alt="Claude" class="footer__icon" src="claude.png"/>, <img alt="brain" class="footer__icon" src="brain.png"/>, and <img alt="love" class="footer__icon" src="love.png"/></p>
+<time aria-label="Local time" class="footer__time js-clock" datetime=""></time>
+</footer>
+<script src="js/site.js"></script>
+<script src="js/work.js"></script>
+<script src="js/morph.js"></script>
+<script src="js/notate.js?v=nt-1"></script></body>
 </html>

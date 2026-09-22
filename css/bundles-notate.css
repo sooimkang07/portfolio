@@ -1,0 +1,31 @@
+/* Smart Bundles on the Notate layout: Notate shell, Smart Bundles media components. */
+body.home.sb-notate { --clr-bg: #fdfdfc; background: #fdfdfc; }
+.sb-notate .nt-main { padding-top: 76px; }
+.sb-notate .sb-cover.sb-tile, .sb-notate .sb-cover .sb-tile { aspect-ratio: 2 / 1; }
+.sb-notate .sb-cover .sb-tile { width: 100%; }
+.sb-notate .nt-hero h1 { font-size: clamp(36px, 4vw, 52px); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; margin-bottom: 24px; }
+.sb-notate .nt-deck { font-size: 19px; line-height: 1.5; color: var(--nt-muted); }
+.sb-notate .nt-meta { margin-bottom: 0; }
+.sb-notate .nt-meta dt { font-size: 13px; }
+.sb-notate .sb-section { padding-bottom: 112px; scroll-margin-top: 110px; }
+.sb-notate .sb-reading > p:not(.nt-kicker) + p { margin-top: 18px; }
+.sb-notate .sb-reading .sb-minimal-graphic { margin-top: 36px; }
+.sb-notate .sb-media { margin-top: 36px; }
+.sb-notate .sb-media .sb-figma-wrap { margin: 0; padding: 0; max-width: none; }
+.sb-notate .sb-media .sb-figma iframe { width: 100%; height: 100%; }
+.sb-notate .sb-flow-grid { margin-bottom: 0; }
+.sb-notate .sb-flow-caption h3 { font-size: clamp(22px, 2.2vw, 26px); font-weight: 500; letter-spacing: -.025em; margin-bottom: 10px; }
+@media (max-width: 1199px) {
+  .sb-notate .nt-rail { z-index: 20; }
+  body.home.sb-notate .nt-toc { overflow: visible; }
+  body.home.sb-notate .nt-toc ol { width: 100%; min-width: 0; gap: 20px; overflow-x: auto; justify-content: safe center; scrollbar-width: none; }
+  body.home.sb-notate .nt-toc li { flex: 0 0 auto; }
+  .sb-notate .sb-section { scroll-margin-top: 180px; }
+}
+@media (max-width: 600px) {
+  .sb-notate .sb-cover.sb-tile, .sb-notate .sb-cover .sb-tile { aspect-ratio: 4 / 3; }
+  .sb-notate .sb-section { padding-bottom: 72px; }
+  .sb-notate .nt-deck { font-size: 17px; }
+  .sb-notate .sb-media { width: calc(100% - 40px); }
+}
+body.home.sb-notate .nt-toc li + li { margin-top: 0; }

@@ -1,0 +1,102 @@
+/* Case studies on the Notate layout: bridges the shared case__/flow__ content
+   blocks into Notate's single reading column, rail navigation and rhythm. */
+body.home.nt-case { background: #fdfdfc; }
+.nt-case .nt-main { padding-top: 76px; }
+
+/* Cover */
+.nt-case .nt-case-cover { margin-top: 0; }
+.nt-case .nt-case-cover .flow__device { position: relative; width: 100%; max-width: none; margin: 0; }
+.nt-case .nt-case-cover .flow__device-screen { overflow: hidden; border-radius: 12px; background: #eeefed; }
+.nt-case .nt-case-cover video { display: block; width: 100%; max-height: calc(100svh - 100px); object-fit: cover; }
+
+/* Intro header */
+.nt-case .nt-hero h1 { font-size: clamp(36px, 4vw, 52px); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; margin-bottom: 24px; max-width: none; }
+.nt-case .nt-meta { font-size: 13px; line-height: 1.5; margin-bottom: 0; }
+.nt-case .nt-meta dd { font-size: 13px; }
+
+/* Section rhythm */
+.nt-case .nt-case-section { margin-block: 0; padding-top: 0; padding-bottom: 112px; }
+.nt-case .case__intro { display: block; margin: 0 0 32px; }
+.nt-case .case__intro-lead { position: static; }
+.nt-case .case__intro-body { margin-top: 24px; }
+.nt-case .case__eyebrow.nt-kicker { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 20px; color: inherit; }
+.nt-case .case__section-title { font-size: clamp(28px, 3vw, 36px); font-weight: 500; line-height: 1.18; letter-spacing: -.038em; max-width: none; margin-bottom: 24px; }
+.nt-case .case__intro .case__section-title { margin-bottom: 0; }
+.nt-case .case__copy { max-width: none; margin: 0 0 18px; color: #565d57; }
+.nt-case .case__copy:last-child { margin-bottom: 0; }
+.nt-case .case__subhead { font-size: clamp(22px, 2.2vw, 26px); font-weight: 500; line-height: 1.25; letter-spacing: -.025em; margin: 40px 0 12px; }
+
+body.home.nt-case :is(.case__section-title, .case__copy, .case__intro-lead, .case__intro-body, .case__subhead, .case__title) { max-inline-size: none !important; }
+
+/* Media */
+.nt-case .case__media-block { margin: 28px 0 40px; padding: 0; max-width: none; width: 100%; }
+.nt-case .case__frame { width: 100%; height: auto; display: block; }
+.nt-case .flow__device { position: relative; width: 100%; max-width: none; margin: 0; }
+.nt-case .flow__device-screen { overflow: hidden; border-radius: 12px; background: #eeefed; }
+.nt-case .flow__video { display: block; width: 100%; height: auto; }
+.nt-case .flow__row { display: flex; gap: 20px; align-items: stretch; }
+.nt-case .flow__row .flow__device { min-inline-size: 0; flex: 1 1 0; }
+.nt-case .flow__controls { right: 12px; bottom: 12px; top: auto; }
+.nt-case .case__img-placeholder,
+.nt-case .case__img-inner,
+.nt-case .case__video-inner { display: grid; place-items: center; width: 100%; background: #eeefed; border-radius: 12px; padding: 24px; text-align: center; }
+.nt-case .case__img-placeholder--16-9 { aspect-ratio: 16 / 9; }
+.nt-case .case__img-placeholder--9-16 { aspect-ratio: 9 / 16; max-height: 640px; }
+.nt-case .case__img-label { font-size: 13px; line-height: 1.5; color: #7b817b; }
+.nt-case .case__img, .nt-case .case__video { margin: 28px 0 40px; }
+
+/* Flows: copy first, then the full-width visual */
+.nt-case .case__flow-block { margin: 64px 0 0; width: 100%; }
+.nt-case .case__flow-block > .case__subhead:first-child { margin-top: 0; }
+.nt-case .flow__grid, .nt-case .flow__grid--full { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+.nt-case .flow__grid > * { min-inline-size: 0; width: 100%; }
+.nt-case .flow__copy { order: -1; padding: 0 !important; max-width: none; }
+.nt-case .flow__copy .case__subhead:first-child { margin-top: 0; }
+.nt-case .flow__media { width: 100%; }
+
+/* Grouped findings: Notate's three-up problem row */
+.nt-case .case__insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin: 36px 0; }
+.nt-case .case__insight-block { padding: 0; background: none; border: 0; }
+.nt-case .case__insight-block .case__subhead { font-size: 18px; margin: 0 0 8px; }
+.nt-case .case__key-insight { padding: 0; border: 0; font-style: normal; background: none; margin: 32px 0 0; font-size: clamp(20px, 2vw, 24px) !important; line-height: 1.4; color: #242725; }
+.nt-case .case__quote-block { padding: 24px 0; margin: 24px 0 0; background: none; }
+.nt-case .case__quote-block-text { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; color: #242725; }
+
+/* Multi-column groups */
+.nt-case .case__col-group { display: flex; gap: 28px; align-items: flex-start; margin-top: 36px; }
+.nt-case .case__col-group > div { flex: 1 1 0; min-inline-size: 0; }
+.nt-case .case__col-group .case__subhead { margin-top: 0; font-size: 20px; }
+.nt-case .case__col-group > div > img, .nt-case .case__col-group .case__frame { margin-top: 16px; }
+.nt-case .case__compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 32px 0; }
+.nt-case .case__compare-card { padding: 0; background: none; }
+.nt-case .case__compare-card .case__subhead { margin-top: 0; }
+
+/* Decisions: Notate's copy | visual pairing */
+.nt-case .case__decision-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px); margin-top: 28px; }
+.nt-case .case__decision-block { padding: 0; margin: 0; background: none; }
+.nt-case .case__decision-title { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+
+/* System at a glance */
+.nt-case .case__system-glance { margin: 32px 0; padding: 0; background: none; }
+.nt-case .case__system-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 14px 0; }
+.nt-case .case__system-key { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #666c68; }
+
+/* Reflection */
+.nt-case .nt-reflection { padding-top: 0; }
+
+@media (min-width: 1200px) { .nt-case .nt-toc li a { font-size: 14px; } }
+@media (max-width: 1199px) {
+  .nt-case .nt-rail { z-index: 20; }
+  body.home.nt-case .nt-toc { overflow: visible; }
+  body.home.nt-case .nt-toc ol { width: 100%; min-width: 0; gap: 20px; overflow-x: auto; justify-content: safe center; scrollbar-width: none; }
+  body.home.nt-case .nt-toc li { flex: 0 0 auto; }
+}
+@media (max-width: 700px) {
+  .nt-case .nt-case-section { padding-bottom: 72px; }
+  .nt-case .case__col-group, .nt-case .case__compare-row, .nt-case .case__decision-pair { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .nt-case .case__insight-grid { grid-template-columns: 1fr; gap: 24px; }
+  .nt-case .case__system-row { grid-template-columns: 1fr; gap: 4px; }
+  .nt-case .flow__row { gap: 12px; }
+  .nt-case .flow__controls { right: 8px; bottom: 8px; gap: 5px; }
+}
+body.home.nt-case .nt-toc li + li { margin-top: 0; }

@@ -3,6 +3,7 @@
   const chapters = tocLinks.map(link => document.querySelector(link.getAttribute('href')));
   let activeChapter = -1;
   function updateChapter() {
+    if (!tocLinks.length) return;
     let current = 0;
     chapters.forEach((chapter, index) => {
       if (chapter.getBoundingClientRect().top <= 180) current = index;
@@ -19,9 +20,8 @@
   }
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const videos = [...document.querySelectorAll('.sb-tile video')];
-  const visible = new Set();
   const syncVideo = video => {
-    if (visible.has(video) && !document.hidden && video.dataset.paused !== 'true' && !reduced.matches) video.play().catch(() => {});
+    if (!document.hidden && video.dataset.paused !== 'true') video.play().catch(() => {});
     else video.pause();
   };
   videos.forEach(video => {
@@ -38,10 +38,6 @@
     });
   });
   if ('IntersectionObserver' in window) {
-    const mediaObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-      entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target); syncVideo(entry.target);
-    }), { threshold: .12 });
-    videos.forEach(video => mediaObserver.observe(video));
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.remove('is-waiting'); revealObserver.unobserve(entry.target); }
     }), { threshold: .06 });
@@ -50,6 +46,7 @@
       revealObserver.observe(tile);
     });
   }
+  videos.forEach(syncVideo);
   document.addEventListener('visibilitychange', () => videos.forEach(syncVideo));
   reduced.addEventListener('change', () => { videos.forEach(syncVideo); document.querySelectorAll('.is-waiting').forEach(el => el.classList.remove('is-waiting')); });
   const progress = document.querySelector('.sb-progress');
@@ -58,8 +55,8 @@
   function paint() {
     updateChapter();
     const length = document.documentElement.scrollHeight - innerHeight;
-    progress.style.transform = `scaleX(${length > 0 ? scrollY / length : 0})`;
-    if (!reduced.matches) {
+    if (progress) progress.style.transform = `scaleX(${length > 0 ? scrollY / length : 0})`;
+    if (!reduced.matches && hero) {
       const rect = hero.getBoundingClientRect();
       hero.style.setProperty('--hero-scale', String(1 + Math.min(.045, Math.max(0, -rect.top / (rect.height + innerHeight) * .08))));
     }

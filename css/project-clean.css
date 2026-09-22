@@ -1,0 +1,126 @@
+/* Project pages use spacing, rather than rules, to separate content. */
+body:is(.page--project, .bundles-page, .notate-page) :is(main, footer, main section, main article, main header, main aside, main nav, main div, main figure, main dl, main blockquote, main iframe, main img, main video, main a) {
+  border-width: 0 !important;
+}
+body:is(.page--project, .bundles-page, .notate-page) main :is(figure, img, video, div):not(:focus-visible) {
+  outline: none !important;
+}
+body:is(.page--project, .bundles-page, .notate-page) :is(hr, .case__divider, .sb-progress, figcaption, .case__viz-caption) {
+  display: none !important;
+}
+/* Keep flow explanations above their media on stacked layouts. */
+@media (max-width: 700px) {
+  .bundles-page .sb-prototype .sb-flow-caption { grid-row: 1; padding-top: 0; }
+  .bundles-page .sb-prototype .sb-prototype-media { grid-row: 2; }
+}
+
+/* Comfortable reading size across the project layouts. */
+body:is(.page--project, .bundles-page, .notate-page) {
+  --fs-base: 1.1875rem;
+  --fs-sm: 1.0625rem;
+}
+body:is(.page--project, .bundles-page, .notate-page) :is(
+  .case__copy, .case__lede, .case__intro-body .case__copy,
+  .sb-editorial-body, .sb-editorial-body > p, .sb-flow-caption p,
+  .nt-section p:not(.nt-kicker), .nt-problems p,
+  .nt-decision p:not(.nt-kicker)
+) {
+  font-size: 1.1875rem !important;
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  body:is(.page--project, .bundles-page, .notate-page) :is(
+    .case__copy, .case__lede, .case__intro-body .case__copy,
+    .sb-editorial-body, .sb-editorial-body > p, .sb-flow-caption p,
+    .nt-section p:not(.nt-kicker), .nt-problems p,
+    .nt-decision p:not(.nt-kicker)
+  ) { font-size: 1.125rem !important; }
+}
+
+/* Match Smart Bundles' 12px media corners throughout the case studies. */
+body:is(.page--project, .bundles-page, .notate-page) {
+  --project-media-radius: 12px;
+  --sb-radius: var(--project-media-radius);
+}
+body:is(.page--project, .bundles-page, .notate-page) main :is(
+  img, video, iframe, .nt-placeholder, .sb-tile, .case__frame,
+  .flow__device-screen, .img-zoom-wrap, .filler-box
+) { border-radius: var(--project-media-radius) !important; }
+
+/* Larger labels, more compact rows. */
+body:is(.page--project, .bundles-page, .notate-page) :is(
+  .nt-toc li a, .sb-toc a, .case__toc-link, .case__toc-bar-link
+) {
+  font-size: 15px;
+  line-height: 1.4;
+  padding-block: 3px;
+}
+.nt-toc li + li { margin-top: 0; }
+.sb-toc, .case__toc-list { row-gap: 0; }
+.nt-toc li a span { font-size: 12px; }
+.nt-toc-label, .nt-top { font-size: 12px; }
+@media (min-width: 1200px) {
+  .nt-rail { left: 24px; width: 168px; }
+}
+@media (max-width: 1199px) {
+  .notate-page .nt-toc li a { font-size: 14px; padding-block: 8px; }
+}
+@media (max-width: 1000px) {
+  .bundles-page .sb-toc a { font-size: 14px; padding-block: 8px; }
+}
+.page--project .case__toc-bar-link { font-size: 14px; padding-block: 8px; }
+
+/* Match the main navigation's rolling text and timing. */
+body.home .project-toc-flip {
+  display: block;
+  overflow: hidden;
+  font-size: inherit;
+  line-height: 1.4;
+  block-size: 1.4em;
+}
+body.home .project-toc-flip-track {
+  display: flex;
+  flex-direction: column;
+  font-size: inherit;
+  transition: transform 420ms cubic-bezier(.22, 1, .36, 1);
+}
+body.home .project-toc-title {
+  display: block;
+  flex: 0 0 auto;
+  font-size: inherit;
+  line-height: 1.4;
+  block-size: 1.4em;
+  white-space: nowrap;
+  color: inherit;
+}
+body.home .nt-toc .project-toc-flip,
+body.home .nt-toc .project-toc-flip-track,
+body.home .nt-toc .project-toc-title { font-size: inherit; color: inherit; }
+body.home .project-toc-title[aria-hidden="true"] { font-weight: 300; }
+a:is(:hover, :focus-visible) .project-toc-flip-track { transform: translateY(-50%); }
+@media (prefers-reduced-motion: reduce) {
+  body.home .project-toc-flip-track { transition: none; }
+  a:is(:hover, :focus-visible) .project-toc-flip-track { transform: none; }
+}
+
+/* Align reading blocks to their associated media canvas. */
+.notate-page .nt-reading { width: min(880px, calc(100% - 48px)); }
+.notate-page .nt-hero { width: calc(100% - 64px); max-width: 1600px; }
+.notate-page .nt-deck { max-width: none; }
+.notate-page .nt-kicker,
+.notate-page .nt-meta dt { text-transform: uppercase; letter-spacing: .04em; }
+.notate-page .nt-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.home:is(.notate-page, .page--project, .bundles-page) .footer__copy { font-size: 12px; line-height: 1.5; }
+@media (min-width: 1200px) {
+  .notate-page .nt-reading:not(.nt-hero) { max-width: min(880px, calc(100vw - 400px)); }
+}
+@media (max-width: 600px) {
+  .notate-page .nt-reading { width: calc(100% - 40px); }
+  .notate-page .nt-hero { width: calc(100% - 24px); }
+  .notate-page .nt-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .notate-page .nt-meta > :last-child { grid-column: auto; }
+}
+/* Explicit stacking keeps the alternate label clipped to one text row. */
+body.home .nt-toc .project-toc-flip { display: block; overflow: hidden; height: 1.4em; }
+body.home .nt-toc .project-toc-flip-track { display: flex; flex-direction: column; }
+body.home .nt-toc .project-toc-title { display: block; flex: 0 0 1.4em; }

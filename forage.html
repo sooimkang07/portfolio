@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script src="js/preview-gate.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forage · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1" />
-  <link rel="stylesheet" href="css/site.css" />
-  <link rel="stylesheet" href="css/work.css" />
-  <link rel="stylesheet" href="css/morph.css" />
-  <link rel="icon" href="favicon.ico" />
-  <script>
+<script src="js/preview-gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forage · Sooim Kang</title>
+<link href="css/base.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/site.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/work.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/case-layout.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/morph.css" rel="stylesheet"/>
+<link href="favicon.ico" rel="icon"/>
+<script>
     /* Hide hero target before paint when a morph is in flight */
     try {
       var raw = sessionStorage.getItem('sooim-project-morph');
@@ -22,481 +24,310 @@
       }
     } catch (e) {}
   </script>
-  <style>
+<style>
     body.home.page--project main.case-wrap {
       padding-block-start: calc(2.75rem + var(--sp-sm));
     }
   </style>
-</head>
-<body class="home page--project">
+<link href="css/project-clean.css?v=6" rel="stylesheet"/>
+<link href="css/notate.css?v=nt-1" rel="stylesheet"/><link href="css/notate-refinements.css?v=nt-1" rel="stylesheet"/><link href="css/project-notate.css?v=nt-1" rel="stylesheet"/></head>
+<body class="home page--project notate-page nt-case forage-page"><a class="nt-skip" href="#overview">Skip to case study</a>
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<header class="nav is-at-top" data-ref-header-bar="" id="main-nav">
+<div class="nav__backdrop" data-ref-header-backdrop="" hidden=""></div>
+<div class="nav__bar">
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__hit" tabindex="-1" type="button"></button>
+<a class="nav__logo" href="/">Sooim Kang</a>
+<span aria-hidden="true" class="nav__mark"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__burger">
+<span></span><span></span><span></span><span></span>
+</button>
+<nav class="nav__menu" data-ref-header-bar-menu-desktop="" id="nav-menu">
+<a class="nav__menu-link is-active" href="/">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Work</span>
+<span aria-hidden="true" class="nav__menu-title">Explore case studies</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="explorations">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Explorations</span>
+<span aria-hidden="true" class="nav__menu-title">Explore side quests </span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="about">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">About</span>
+<span aria-hidden="true" class="nav__menu-title">Get to know me</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Resume</span>
+<span aria-hidden="true" class="nav__menu-title">Download</span>
+</span>
+</span>
+</a>
+</nav>
+</div>
+<nav aria-label="Primary" class="nav__strip" data-ref-header-bar-expanded="">
+<a class="nav__strip-link is-active" href="/">Work</a>
+<a class="nav__strip-link" href="explorations">Explorations</a>
+<a class="nav__strip-link" href="about">About</a>
+<a class="nav__strip-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">Resume</a>
+</nav>
+</header>
+<main class="nt-main" id="top"><figure class="nt-media nt-wide nt-hero-media nt-case-cover"><div aria-label="Placeholder for Forage — Wearable + AI inspiration capture system" class="nt-placeholder nt-cinema" role="img"></div></figure><div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#solution"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Solution</span><span aria-hidden="true" class="project-toc-title">Solution</span></span></span></a></li><li><a href="#flows"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Core Flows</span><span aria-hidden="true" class="project-toc-title">Core Flows</span></span></span></a></li><li><a href="#system"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">System</span><span aria-hidden="true" class="project-toc-title">System</span></span></span></a></li><li><a href="#decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Decisions</span><span aria-hidden="true" class="project-toc-title">Decisions</span></span></span></a></li><li><a href="#impact"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Impact</span><span aria-hidden="true" class="project-toc-title">Impact</span></span></span></a></li><li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading">
+<p class="nt-kicker">Forage · Wearable + AI · 2026</p>
+<h1>A wearable + AI system that turns fleeting inspiration into reusable design assets</h1>
 
-  <!-- ── NAV ──────────────────────────────────────────────────── -->
-  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-    <div class="nav__bar">
-      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-      <a href="/" class="nav__logo">Sooim Kang</a>
-      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span><span></span>
-      </button>
-      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="/" class="nav__menu-link is-active">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Work</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
-            </span>
-          </span>
-        </a>
-        <a href="explorations" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Explorations</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-            </span>
-          </span>
-        </a>
-        <a href="about" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">About</span>
-              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
-            </span>
-          </span>
-        </a>
-        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Resume</span>
-              <span class="nav__menu-title" aria-hidden="true">Download</span>
-            </span>
-          </span>
-        </a>
-      </nav>
-    </div>
-    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="/" class="nav__strip-link is-active">Work</a>
-      <a href="explorations" class="nav__strip-link">Explorations</a>
-      <a href="about" class="nav__strip-link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
-
-  <main class="case-wrap">
-
-    <a href="/" class="case__back--mobile">Back</a>
-
-    <!-- ── MOBILE TOC BAR ────────────────────────────────────── -->
-    <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview"   class="case__toc-bar-link">Overview</a>
-      <a href="#solution"   class="case__toc-bar-link">Solution</a>
-      <a href="#flows"      class="case__toc-bar-link">Flows</a>
-      <a href="#system"     class="case__toc-bar-link">System</a>
-      <a href="#decisions"  class="case__toc-bar-link">Decisions</a>
-      <a href="#impact"     class="case__toc-bar-link">Impact</a>
-      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
-    </nav>
-
-    <div class="case__content-grid">
-
-      <!-- ── DESKTOP TOC SIDEBAR ───────────────────────────────── -->
-      <nav class="case__toc" aria-label="Sections">
-        <a href="/" class="case__back">Back</a>
-        <div class="case__toc-inner">
-          <ul class="case__toc-list">
-            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
-            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
-            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
-            <li><a href="#system"     class="case__toc-link">System</a></li>
-            <li><a href="#decisions"  class="case__toc-link">Decisions</a></li>
-            <li><a href="#impact"     class="case__toc-link">Impact</a></li>
-            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="case__body">
-
-        <!-- ══ HERO ═══════════════════════════════════════════ -->
-        <header class="case__hero">
-          <p class="case__eyebrow">Forage · Wearable + AI · 2026</p>
-          <h1 class="case__title">A wearable + AI system that turns fleeting inspiration into reusable design assets</h1>
-
-          <div class="case__media-block case__media-block--hero">
-            <div class="flow__device">
-              <div class="flow__device-screen">
-                <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-                  <span class="case__img-label">Forage — Wearable + AI inspiration capture system</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="case__meta">
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Role</span>
-              <span class="case__meta-val">Product Designer · Systems thinking</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Timeline</span>
-              <span class="case__meta-val">8 weeks</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Scope</span>
-              <span class="case__meta-val">0→1 product definition · Hardware · Web app</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Focus</span>
-              <span class="case__meta-val">Capture-to-retrieval system for design inspiration</span>
-            </div>
-          </div>
-        </header>
-
-        <!-- ══ OVERVIEW ════════════════════════════════════════ -->
-        <section id="overview">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Overview</p>
-              <h2 class="case__section-title">Design inspiration is high-signal but low-retention</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">Designers notice usable moments in the physical world but lose them before turning them into reusable material. Forage bridges that gap by capturing in context, translating raw input into structured design assets, and making retrieval a first-class product behavior.</p>
-            </div>
-          </div>
-
+<dl class="nt-meta"><div><dt>Role</dt><dd>Product Designer · Systems thinking</dd></div><div><dt>Timeline</dt><dd>8 weeks</dd></div><div><dt>Scope</dt><dd>0→1 product definition · Hardware · Web app</dd></div><div><dt>Focus</dt><dd>Capture-to-retrieval system for design inspiration</dd></div></dl>
+</header><section aria-labelledby="overview-title" class="nt-section nt-case-section nt-reading" id="overview">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">01 / Overview</p>
+<h2 class="case__section-title" id="overview-title">Design inspiration is high-signal but low-retention</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Designers notice usable moments in the physical world but lose them before turning them into reusable material. Forage bridges that gap by capturing in context, translating raw input into structured design assets, and making retrieval a first-class product behavior.</p>
+</div>
+</div>
 <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">Problem framing — fleeting moments vs. structured assets</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The capture problem</h3>
-              <p class="case__copy">Best inspiration happens mid-movement, in public spaces, or in passing moments too fast for manual capture. A wearable input surface makes the act of saving low-friction enough to happen in real time.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The translation problem</h3>
-              <p class="case__copy">Raw captures are generic photos or notes. AI becomes the translation layer, classifying captures into usable asset types: images, color, typography, and motion.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The retrieval problem</h3>
-              <p class="case__copy">Stored fragments are usually organized by file, not intent. The web interface indexes captures by type and recency, making them browsable and reusable instead of lost in a camera roll.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ SOLUTION ════════════════════════════════════════ -->
-        <section id="solution">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Solution</p>
-              <h2 class="case__section-title">Four touchpoints. One complete system.</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">Forage works as a pipeline: capture in context, translate to design objects, organize into a structured library, and retrieve when building. The ring is the entry point; the system is the value.</p>
-            </div>
-          </div>
-
-<div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">System architecture — Sense → Capture → Translate → Organize → Reuse</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Ring capture</h3>
-              <p class="case__copy">A minimal wearable interaction lets designers save moments without interrupting their flow. Supports spontaneous capture away from a desk.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">AI translation</h3>
-              <p class="case__copy">The system classifies captures into four asset types and extracts reusable properties: dominant colors, typography characteristics, image subjects, animation references.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Structured library</h3>
-              <p class="case__copy">A web app organizes captures by type and recency. Designers can browse, filter, and inspect captures in detail — transforming scattered moments into a personal inspiration channel.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ CORE FLOWS ═══════════════════════════════════════ -->
-        <section id="flows">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Core Flows</p>
-              <h2 class="case__section-title">From noticing to reuse in four steps</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">The strongest story is not capture alone. It is capture → interpretation → retrieval → reuse.</p>
-            </div>
-          </div>
-
-<!-- Flow 1 — Capture -->
-          <div class="case__flow-block" id="flow1">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
-                      <span class="case__img-label">Ring capture mockup</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Capture in context</h3>
-                <p class="case__copy">The user notices a design-relevant moment and saves it with a minimal ring interaction. The value is speed and low disruption — supporting spontaneous capture outside desk-based workflows.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Flow 2 — Translation -->
-          <div class="case__flow-block" id="flow2">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
-                      <span class="case__img-label">AI translation UI</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">AI translates the moment into a design object</h3>
-                <p class="case__copy">The system classifies the capture and generates metadata depending on asset type. Raw input becomes categorized references: images, color palettes, typography characteristics, or animation references.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Flow 3 — Browse -->
-          <div class="case__flow-block" id="flow3">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-                      <span class="case__img-label">Web library browse interface</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Browse and retrieve</h3>
-                <p class="case__copy">The web app functions like a personal inspiration channel. Users can scan by recency, filter by asset type, and inspect captures in detail. Transforms scattered moments into a structured design library.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Flow 4 — Reuse -->
-          <div class="case__flow-block" id="flow4">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-                      <span class="case__img-label">Reuse in design workflow</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Reuse inside creative work</h3>
-                <p class="case__copy">The capture becomes an input into later design work. Designers return to the library when building brand systems, moodboards, or motion studies, proving the system creates downstream value.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ SYSTEM THINKING ══════════════════════════════════ -->
-        <section id="system">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">System</p>
-              <h2 class="case__section-title">Forage works because it is a pipeline, not a feature</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">The value is not in any single screen. It is in how wearable input, AI interpretation, data structure, and retrieval behavior reinforce each other.</p>
-            </div>
-          </div>
-
-<div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">System diagram</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Capture → Translation</h3>
-              <p class="case__copy">Hardware reduces interaction cost; AI does the work a designer would otherwise do later — classify, extract, organize, and prepare for reuse.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Organization → Retrieval</h3>
-              <p class="case__copy">Indexing by type and recency creates browsable structure. Users find captures when they need them, not lost in generic photo libraries.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Retrieval → Reuse</h3>
-              <p class="case__copy">Making the library a first-class product behavior closes the loop. Designers actively reference past captures in their creative work.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ DECISIONS ════════════════════════════════════════ -->
-        <section id="decisions">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Design Decisions</p>
-              <h2 class="case__section-title">The decisions that made the concept cohere</h2>
-            </div>
-            <div class="case__intro-body">
-              <p class="case__copy">Each decision came from identifying where the system was breaking or unclear.</p>
-            </div>
-          </div>
-
-<h3 class="case__subhead">Narrow to four output types</h3>
-          <p class="case__copy">"Capture anything" is broad but weak. Limiting the system to images, color, typography, and motion makes the concept more teachable, more buildable, and more strategically coherent.</p>
-
-          <h3 class="case__subhead">Ring as low-friction entry point</h3>
-          <p class="case__copy">The wearable only works if it reduces interaction cost. Inspiration is often noticed mid-movement or in social settings where opening an app is too slow and too disruptive.</p>
-
-          <h3 class="case__subhead">AI as translation infrastructure</h3>
-          <p class="case__copy">AI is positioned as infrastructure, not a gimmick. It does the structural work a designer would otherwise do later: classify, extract, organize, and prepare captures for reuse.</p>
-
-          <h3 class="case__subhead">Make retrieval as important as capture</h3>
-          <p class="case__copy">Many concepts stop at acquisition. The stronger move was designing the web app as an inspiration repository with type filters, recency sorting, and browsable organization.</p>
-
-          <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">Design decision framework</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ IMPACT ══════════════════════════════════════════ -->
-        <section id="impact">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Impact</p>
-              <h2 class="case__section-title">Reducing the friction between noticing and reusing inspiration</h2>
-            </div>
-          </div>
-
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Problem framing — fleeting moments vs. structured assets</span>
+</div>
+</div>
 <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Capture velocity</h3>
-              <p class="case__copy">Ring interaction reduces friction enough that designers capture moments instead of letting them disappear. The act of saving becomes automatic.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Asset quality</h3>
-              <p class="case__copy">AI translation converts raw captures into structured design objects. A photo becomes a color reference; a moment becomes an animation study.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Reuse integration</h3>
-              <p class="case__copy">Organized library becomes a reliable reference in creative workflows. Designers return to past captures when building, extending their creative reach.</p>
-            </div>
-          </div>
+<div class="case__insight-block">
+<h3 class="case__subhead">The capture problem</h3>
+<p class="case__copy">Best inspiration happens mid-movement, in public spaces, or in passing moments too fast for manual capture. A wearable input surface makes the act of saving low-friction enough to happen in real time.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">The translation problem</h3>
+<p class="case__copy">Raw captures are generic photos or notes. AI becomes the translation layer, classifying captures into usable asset types: images, color, typography, and motion.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">The retrieval problem</h3>
+<p class="case__copy">Stored fragments are usually organized by file, not intent. The web interface indexes captures by type and recency, making them browsable and reusable instead of lost in a camera roll.</p>
+</div>
+</div>
+</section><section aria-labelledby="solution-title" class="nt-section nt-case-section nt-reading" id="solution">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">02 / Solution</p>
+<h2 class="case__section-title" id="solution-title">Four touchpoints. One complete system.</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Forage works as a pipeline: capture in context, translate to design objects, organize into a structured library, and retrieve when building. The ring is the entry point; the system is the value.</p>
+</div>
+</div>
+<div class="case__media-block">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">System architecture — Sense → Capture → Translate → Organize → Reuse</span>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">Ring capture</h3>
+<p class="case__copy">A minimal wearable interaction lets designers save moments without interrupting their flow. Supports spontaneous capture away from a desk.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">AI translation</h3>
+<p class="case__copy">The system classifies captures into four asset types and extracts reusable properties: dominant colors, typography characteristics, image subjects, animation references.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Structured library</h3>
+<p class="case__copy">A web app organizes captures by type and recency. Designers can browse, filter, and inspect captures in detail — transforming scattered moments into a personal inspiration channel.</p>
+</div>
+</div>
+</section><section aria-labelledby="flows-title" class="nt-section nt-case-section nt-reading" id="flows">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">03 / Core Flows</p>
+<h2 class="case__section-title" id="flows-title">From noticing to reuse in four steps</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">The strongest story is not capture alone. It is capture → interpretation → retrieval → reuse.</p>
+</div>
+</div>
+<!-- Flow 1 — Capture -->
+<div class="case__flow-block" id="flow1">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Capture in context</h3>
+<p class="case__copy">The user notices a design-relevant moment and saves it with a minimal ring interaction. The value is speed and low disruption — supporting spontaneous capture outside desk-based workflows.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+<span class="case__img-label">Ring capture mockup</span>
+</div>
+</div>
+</div>
+</div>
 
-          <p class="case__key-insight">Success is measured by whether designers actively retrieve past captures during creative work — not by how many times they save.</p>
-        </section>
+</div>
+</div>
+<!-- Flow 2 — Translation -->
+<div class="case__flow-block" id="flow2">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">AI translates the moment into a design object</h3>
+<p class="case__copy">The system classifies the capture and generates metadata depending on asset type. Raw input becomes categorized references: images, color palettes, typography characteristics, or animation references.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+<span class="case__img-label">AI translation UI</span>
+</div>
+</div>
+</div>
+</div>
 
-        <!-- ══ REFLECTION ══════════════════════════════════════ -->
-        <section id="reflection" class="case__reflection">
-          <div class="case__intro">
-            <div class="case__intro-lead">
-              <p class="case__eyebrow">Reflection</p>
-              <h2 class="case__section-title">What the project clarified</h2>
-            </div>
-          </div>
+</div>
+</div>
+<!-- Flow 3 — Browse -->
+<div class="case__flow-block" id="flow3">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Browse and retrieve</h3>
+<p class="case__copy">The web app functions like a personal inspiration channel. Users can scan by recency, filter by asset type, and inspect captures in detail. Transforms scattered moments into a structured design library.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Web library browse interface</span>
+</div>
+</div>
+</div>
+</div>
 
+</div>
+</div>
+<!-- Flow 4 — Reuse -->
+<div class="case__flow-block" id="flow4">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Reuse inside creative work</h3>
+<p class="case__copy">The capture becomes an input into later design work. Designers return to the library when building brand systems, moodboards, or motion studies, proving the system creates downstream value.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Reuse in design workflow</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section><section aria-labelledby="system-title" class="nt-section nt-case-section nt-reading" id="system">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">04 / System</p>
+<h2 class="case__section-title" id="system-title">Forage works because it is a pipeline, not a feature</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">The value is not in any single screen. It is in how wearable input, AI interpretation, data structure, and retrieval behavior reinforce each other.</p>
+</div>
+</div>
+<div class="case__media-block">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">System diagram</span>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">Capture → Translation</h3>
+<p class="case__copy">Hardware reduces interaction cost; AI does the work a designer would otherwise do later — classify, extract, organize, and prepare for reuse.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Organization → Retrieval</h3>
+<p class="case__copy">Indexing by type and recency creates browsable structure. Users find captures when they need them, not lost in generic photo libraries.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Retrieval → Reuse</h3>
+<p class="case__copy">Making the library a first-class product behavior closes the loop. Designers actively reference past captures in their creative work.</p>
+</div>
+</div>
+</section><section aria-labelledby="decisions-title" class="nt-section nt-case-section nt-reading" id="decisions">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">05 / Design Decisions</p>
+<h2 class="case__section-title" id="decisions-title">The decisions that made the concept cohere</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Each decision came from identifying where the system was breaking or unclear.</p>
+</div>
+</div>
+<h3 class="case__subhead">Narrow to four output types</h3>
+<p class="case__copy">"Capture anything" is broad but weak. Limiting the system to images, color, typography, and motion makes the concept more teachable, more buildable, and more strategically coherent.</p>
+<h3 class="case__subhead">Ring as low-friction entry point</h3>
+<p class="case__copy">The wearable only works if it reduces interaction cost. Inspiration is often noticed mid-movement or in social settings where opening an app is too slow and too disruptive.</p>
+<h3 class="case__subhead">AI as translation infrastructure</h3>
+<p class="case__copy">AI is positioned as infrastructure, not a gimmick. It does the structural work a designer would otherwise do later: classify, extract, organize, and prepare captures for reuse.</p>
+<h3 class="case__subhead">Make retrieval as important as capture</h3>
+<p class="case__copy">Many concepts stop at acquisition. The stronger move was designing the web app as an inspiration repository with type filters, recency sorting, and browsable organization.</p>
+<div class="case__media-block">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Design decision framework</span>
+</div>
+</div>
+</section><section aria-labelledby="impact-title" class="nt-section nt-case-section nt-reading" id="impact">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">06 / Impact</p>
+<h2 class="case__section-title" id="impact-title">Reducing the friction between noticing and reusing inspiration</h2>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">Capture velocity</h3>
+<p class="case__copy">Ring interaction reduces friction enough that designers capture moments instead of letting them disappear. The act of saving becomes automatic.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Asset quality</h3>
+<p class="case__copy">AI translation converts raw captures into structured design objects. A photo becomes a color reference; a moment becomes an animation study.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Reuse integration</h3>
+<p class="case__copy">Organized library becomes a reliable reference in creative workflows. Designers return to past captures when building, extending their creative reach.</p>
+</div>
+</div>
+<p class="case__key-insight">Success is measured by whether designers actively retrieve past captures during creative work — not by how many times they save.</p>
+</section><section aria-labelledby="reflection-title" class="nt-section nt-case-section nt-reading nt-reflection" id="reflection">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">07 / Reflection</p>
+<h2 class="case__section-title" id="reflection-title">What the project clarified</h2>
+</div>
+</div>
 <div class="case__col-group">
-            <div>
-              <h3 class="case__subhead">Product definition over object design</h3>
-              <p class="case__copy">The strongest part of this work is not the ring form factor. It is identifying the system failure — between noticing and reuse — and designing a pipeline to solve it. The wearable is simply the low-friction input surface for a larger system.</p>
-            </div>
-            <div>
-              <h3 class="case__subhead">Retrieval as a first-class behavior</h3>
-              <p class="case__copy">Most speculative concepts emphasize capture. The stronger move was designing the retrieval and reuse sides with equal rigor. The library interface became as important as the wearable.</p>
-            </div>
-          </div>
-        </section>
-
-      </div><!-- /.case__body -->
-    </div><!-- /.case__content-grid -->
-
-    <section class="home-contact" id="contact" aria-label="Contact">
-      <div class="home-contact__body">
-        <div class="home-contact__intro">
-          <h2 class="home-contact__heading">Contact</h2>
-          <div class="home-contact__card-slot">
-            <div class="home-contact__card-wrap">
-              <a
-                class="home-contact__card"
-                href="mailto:sooimkang@gmail.com"
-                aria-label="Email Sooim at sooimkang@gmail.com"
-              >
-                <span class="home-contact__card-media">
-                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-                </span>
-                <span class="home-contact__card-overlay">
-                  <span class="home-contact__card-text">
-                    Say hello
-                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
-                  </span>
-                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <ul class="home-contact__list">
-          <li>
-            <a href="mailto:sooimkang1015@gmail.com">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Email</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">LinkedIn</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Github</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ── FOOTER ────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
-    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
-  </footer>
-
-  <script src="js/site.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/morph.js"></script>
-
-</body>
+<div>
+<h3 class="case__subhead">Product definition over object design</h3>
+<p class="case__copy">The strongest part of this work is not the ring form factor. It is identifying the system failure — between noticing and reuse — and designing a pipeline to solve it. The wearable is simply the low-friction input surface for a larger system.</p>
+</div>
+<div>
+<h3 class="case__subhead">Retrieval as a first-class behavior</h3>
+<p class="case__copy">Most speculative concepts emphasize capture. The stronger move was designing the retrieval and reuse sides with equal rigor. The library interface became as important as the wearable.</p>
+</div>
+</div>
+</section></div></div><div class="nt-end nt-reading"><a href="/">← Explore more work</a><a href="mailto:sooimkang@gmail.com">Let’s talk ↗</a></div></main>
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer class="footer">
+<p class="footer__copy">© 2026 · Built with <img alt="Claude" class="footer__icon" src="claude.png"/>, <img alt="brain" class="footer__icon" src="brain.png"/>, and <img alt="love" class="footer__icon" src="love.png"/></p>
+<time aria-label="Local time" class="footer__time js-clock" datetime=""></time>
+</footer>
+<script src="js/site.js"></script>
+<script src="js/work.js"></script>
+<script src="js/morph.js"></script>
+<script src="js/notate.js?v=nt-1"></script></body>
 </html>

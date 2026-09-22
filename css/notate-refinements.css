@@ -1,0 +1,63 @@
+/* Refined navigation and explicit text/media groups for Notate. */
+.notate-page .nt-toc li a { text-transform: uppercase; }
+@media (max-width: 1199px) {
+  .notate-page .nt-toc ol { width: max-content; min-width: 0; margin-inline: auto; }
+}
+.notate-page .nt-feature { margin-top: 80px; }
+.notate-page .nt-feature-heading { display: block; }
+.notate-page .nt-feature-heading h3 {
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  margin-bottom: 14px;
+}
+.notate-page .nt-feature .nt-media { margin-top: 20px; }
+.notate-page .nt-decision {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  padding-block: 32px;
+}
+.notate-page .nt-decision + .nt-decision { margin-top: 40px; }
+.notate-page .nt-decision h3 {
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  margin-bottom: 28px;
+}
+.notate-page .nt-decision h4 {
+  font-size: clamp(23px, 2.3vw, 28px);
+  font-weight: 500;
+  color: #747b74;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  margin-bottom: 20px;
+}
+.notate-page .nt-decision .nt-placeholder { aspect-ratio: 4 / 5; }
+@media (max-width: 600px) {
+  .notate-page .nt-feature { margin-top: 56px; }
+  .notate-page .nt-decision { grid-template-columns: 1fr; gap: 24px; }
+  .notate-page .nt-decision h3 { margin-bottom: 20px; }
+  .notate-page .nt-decision + .nt-decision { margin-top: 24px; }
+}
+
+/* Open on the cover; introduce the project within the story below it. */
+.notate-page .nt-main { padding-top: 76px; }
+.notate-page .nt-chapters > .nt-hero {
+  width: min(880px, calc(100% - 48px));
+  margin-bottom: 80px;
+}
+@media (min-width: 1200px) {
+  .notate-page .nt-chapters > .nt-hero { max-width: min(880px, calc(100vw - 400px)); }
+}
+@media (max-width: 600px) {
+  .notate-page .nt-chapters > .nt-hero { width: calc(100% - 40px); margin-bottom: 56px; }
+}
+
+.notate-page .nt-toc > .nt-back { display: block; margin: 0 0 20px; }
+@media (max-width: 1199px) {
+  .notate-page .nt-toc > .nt-back { width: max-content; margin: 8px auto 4px; }
+  .notate-page .nt-section { scroll-margin-top: 180px; }
+}

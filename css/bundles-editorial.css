@@ -1,0 +1,36 @@
+/* Uses the same editorial widths and navigation as Notate. */
+.bundles-editorial .nt-media video,
+.bundles-editorial .nt-media img { display: block; width: 100%; height: auto; border-radius: 6px; background: #edf0e9; }
+.be-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; margin-top: 36px; }
+.nt-section .be-pair .nt-media { margin-top: 0; }
+.be-pair video, .be-pair img { aspect-ratio: 4 / 5; object-fit: contain; }
+.be-insight { margin-top: 36px; padding: 28px 0; border-block: 1px solid var(--nt-rule); }
+.be-tradeoff { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 32px; background: #f0f2ec; margin-top: 36px; border-radius: 6px; }
+.be-tradeoff > div + div { border-left: 1px solid #d4dbce; padding-left: 32px; }
+.be-after { margin-top: 32px; }
+.be-flows { display: grid; gap: 48px; margin-top: 64px; scroll-margin-top: 152px; }
+.be-flow { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; }
+.nt-section .be-phone { margin-top: 0; }
+.be-phone video { max-height: 560px; object-fit: contain; }
+.be-system { margin-top: 64px; padding-block: 32px; border-block: 1px solid var(--nt-rule); scroll-margin-top: 152px; }
+.be-system ol { display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; gap: 12px; margin-top: 28px; }
+.be-system li { background: #edf0e9; padding: 16px 8px; text-align: center; font-size: 14px; border-radius: 3px; }
+.nt-section .be-loop-caption { font-size: 12px; margin-top: 12px; }
+.be-targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-block: 1px solid var(--nt-rule); padding-block: 32px; margin-top: 36px; }
+.be-targets strong { display: block; font-size: clamp(30px, 4vw, 44px); font-weight: 500; letter-spacing: -.04em; margin-bottom: 16px; }
+.be-targets h3 { font-size: 16px; }
+.nt-section .be-targets p { font-size: 13px; }
+.be-next-steps { margin-top: 32px; }
+.be-next-steps > div { padding-block: 24px; border-top: 1px solid var(--nt-rule); }
+@media (max-width: 600px) {
+ .be-pair { gap: 12px; }
+ .be-tradeoff, .be-flow { grid-template-columns: 1fr; gap: 24px; }
+ .be-tradeoff { padding: 24px; }
+ .be-tradeoff > div + div { border-left: 0; border-top: 1px solid #d4dbce; padding: 24px 0 0; }
+ .be-flows { margin-top: 44px; }
+ .be-targets { grid-template-columns: 1fr; gap: 24px; }
+ .be-targets > div + div { border-top: 1px solid var(--nt-rule); padding-top: 24px; }
+ .be-targets strong { margin-bottom: 8px; }
+ .be-system ol { gap: 6px; }
+ .be-system li { font-size: 12px; }
+}

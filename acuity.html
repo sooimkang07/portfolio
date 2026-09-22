@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <script src="js/preview-gate.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acuity · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1">
-  <link rel="stylesheet" href="css/site.css?v=footer-icon-4">
-  <link rel="stylesheet" href="css/work.css?v=footer-icon-4">
-  <link rel="stylesheet" href="css/case-layout.css" />
-  <link rel="stylesheet" href="css/morph.css" />
-  <link rel="icon" href="favicon.ico" />
-  <script>
+<script src="js/preview-gate.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acuity · Sooim Kang</title>
+<link href="css/base.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/site.css?v=type-scale-2" rel="stylesheet"/>
+<link href="css/work.css?v=layout-sb-2" rel="stylesheet"/>
+<link href="css/case-layout.css?v=layout-sb-2" rel="stylesheet">
+<link href="css/morph.css" rel="stylesheet">
+<link href="favicon.ico" rel="icon">
+<script>
     /* Hide hero target before paint when a morph is in flight */
     try {
       var raw = sessionStorage.getItem('sooim-project-morph');
@@ -23,509 +24,303 @@
       }
     } catch (e) {}
   </script>
-  <style>
+<style>
     body.home.page--project main.case-wrap {
       padding-block-start: calc(2.75rem + var(--sp-sm));
     }
   </style>
-</head>
-<body class="home page--project">
+<link href="css/project-clean.css?v=6" rel="stylesheet"/>
+</link></link></link><link href="css/notate.css?v=nt-1" rel="stylesheet"/><link href="css/notate-refinements.css?v=nt-1" rel="stylesheet"/><link href="css/project-notate.css?v=nt-1" rel="stylesheet"/></head>
+<body class="home page--project notate-page nt-case acuity-page"><a class="nt-skip" href="#overview">Skip to case study</a>
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<header class="nav is-at-top" data-ref-header-bar="" id="main-nav">
+<div class="nav__backdrop" data-ref-header-backdrop="" hidden=""></div>
+<div class="nav__bar">
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__hit" tabindex="-1" type="button"></button>
+<a class="nav__logo" href="/">Sooim Kang</a>
+<span aria-hidden="true" class="nav__mark"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+<button aria-expanded="false" aria-label="Toggle menu" class="nav__burger">
+<span></span><span></span><span></span><span></span>
+</button>
+<nav class="nav__menu" data-ref-header-bar-menu-desktop="" id="nav-menu">
+<a class="nav__menu-link is-active" href="/">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Work</span>
+<span aria-hidden="true" class="nav__menu-title">Explore case studies</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="explorations">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Explorations</span>
+<span aria-hidden="true" class="nav__menu-title">Explore side quests </span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="about">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">About</span>
+<span aria-hidden="true" class="nav__menu-title">Get to know me</span>
+</span>
+</span>
+</a>
+<a class="nav__menu-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">
+<span class="nav__menu-flip">
+<span class="nav__menu-flip-track">
+<span class="nav__menu-title">Resume</span>
+<span aria-hidden="true" class="nav__menu-title">Download</span>
+</span>
+</span>
+</a>
+</nav>
+</div>
+<nav aria-label="Primary" class="nav__strip" data-ref-header-bar-expanded="">
+<a class="nav__strip-link is-active" href="/">Work</a>
+<a class="nav__strip-link" href="explorations">Explorations</a>
+<a class="nav__strip-link" href="about">About</a>
+<a class="nav__strip-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">Resume</a>
+</nav>
+</header>
+<main class="nt-main" id="top"><figure class="nt-media nt-wide nt-hero-media nt-case-cover"><div aria-label="Placeholder for ACUITY — AI-powered health monitoring bracelet + app" class="nt-placeholder nt-cinema" role="img"></div></figure><div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#solution"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Solution</span><span aria-hidden="true" class="project-toc-title">Solution</span></span></span></a></li><li><a href="#flows"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Core Flows</span><span aria-hidden="true" class="project-toc-title">Core Flows</span></span></span></a></li><li><a href="#system"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">System</span><span aria-hidden="true" class="project-toc-title">System</span></span></span></a></li><li><a href="#decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Decisions</span><span aria-hidden="true" class="project-toc-title">Decisions</span></span></span></a></li><li><a href="#impact"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Impact</span><span aria-hidden="true" class="project-toc-title">Impact</span></span></span></a></li><li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading">
+<p class="nt-kicker">ACUITY · AI Health Monitoring · 24hr Challenge · 2026</p>
+<h1>Determining When Health Signals Require Action</h1>
 
-  <!-- ── NAV ──────────────────────────────────────────────────── -->
-  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-    <div class="nav__bar">
-      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-      <a href="/" class="nav__logo">Sooim Kang</a>
-      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span><span></span>
-      </button>
-      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="/" class="nav__menu-link is-active">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Work</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
-            </span>
-          </span>
-        </a>
-        <a href="explorations" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Explorations</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-            </span>
-          </span>
-        </a>
-        <a href="about" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">About</span>
-              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
-            </span>
-          </span>
-        </a>
-        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
-              <span class="nav__menu-title">Resume</span>
-              <span class="nav__menu-title" aria-hidden="true">Download</span>
-            </span>
-          </span>
-        </a>
-      </nav>
-    </div>
-    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="/" class="nav__strip-link is-active">Work</a>
-      <a href="explorations" class="nav__strip-link">Explorations</a>
-      <a href="about" class="nav__strip-link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
-
-  <main class="case-wrap">
-
-    <a href="/" class="case__back--mobile">Back</a>
-
-    <!-- ── MOBILE TOC BAR ────────────────────────────────────── -->
-    <nav class="case__toc-bar" aria-label="Page sections">
-      <a href="#overview"   class="case__toc-bar-link">Overview</a>
-      <a href="#solution"   class="case__toc-bar-link">Solution</a>
-      <a href="#flows"      class="case__toc-bar-link">Core Flows</a>
-      <a href="#system"     class="case__toc-bar-link">System</a>
-      <a href="#decisions"  class="case__toc-bar-link">Decisions</a>
-      <a href="#impact"     class="case__toc-bar-link">Impact</a>
-      <a href="#reflection" class="case__toc-bar-link">Reflection</a>
-    </nav>
-
-    <div class="case__content-grid">
-
-      <!-- ── DESKTOP TOC SIDEBAR ───────────────────────────────── -->
-      <nav class="case__toc" aria-label="Sections">
-        <a href="/" class="case__back">Back</a>
-        <div class="case__toc-inner">
-          <ul class="case__toc-list">
-            <li><a href="#overview"   class="case__toc-link">Overview</a></li>
-            <li><a href="#solution"   class="case__toc-link">Solution</a></li>
-            <li><a href="#flows"      class="case__toc-link">Core Flows</a></li>
-            <li><a href="#system"     class="case__toc-link">System</a></li>
-            <li><a href="#decisions"  class="case__toc-link">Decisions</a></li>
-            <li><a href="#impact"     class="case__toc-link">Impact</a></li>
-            <li><a href="#reflection" class="case__toc-link">Reflection</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="case__body">
-
-        <!-- ══ HERO ═══════════════════════════════════════════ -->
-        <header class="case__hero">
-          <p class="case__eyebrow">ACUITY · AI Health Monitoring · 24hr Challenge · 2026</p>
-          <h1 class="case__title">Determining When Health Signals Require Action</h1>
-
-          <div class="case__media-block case__media-block--hero">
-            <div class="flow__device">
-              <div class="flow__device-screen">
-                <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-                  <span class="case__img-label">ACUITY — AI-powered health monitoring bracelet + app</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="case__meta">
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Role</span>
-              <span class="case__meta-val">Systems + Product Designer</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Timeline</span>
-              <span class="case__meta-val">24 hours</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Scope</span>
-              <span class="case__meta-val">Hardware concept · Mobile app · Service pathway</span>
-            </div>
-            <div class="case__meta-item">
-              <span class="case__eyebrow">Focus</span>
-              <span class="case__meta-val">Translating biometric signals into medical action</span>
-            </div>
-          </div>
-        </header>
-
-        <!-- ══ OVERVIEW ════════════════════════════════════════ -->
-        <section id="overview">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Overview</p>
-
-              <h2 class="case__section-title">Modern wearables detect signals — but don't translate them into action</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">Patients experience symptoms and see elevated metrics, but don't know what they mean or what to do. ACUITY bridges that gap by detecting sustained deviation from a user's baseline and escalating guidance with proportionate urgency: nudge → schedule → urgent care.</p>
-
-            </div>
-
-          </div>
+<dl class="nt-meta"><div><dt>Role</dt><dd>Systems + Product Designer</dd></div><div><dt>Timeline</dt><dd>24 hours</dd></div><div><dt>Scope</dt><dd>Hardware concept · Mobile app · Service pathway</dd></div><div><dt>Focus</dt><dd>Translating biometric signals into medical action</dd></div></dl>
+</header><section aria-labelledby="overview-title" class="nt-section nt-case-section nt-reading" id="overview">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">01 / Overview</p>
+<h2 class="case__section-title" id="overview-title">Modern wearables detect signals — but don't translate them into action</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Patients experience symptoms and see elevated metrics, but don't know what they mean or what to do. ACUITY bridges that gap by detecting sustained deviation from a user's baseline and escalating guidance with proportionate urgency: nudge → schedule → urgent care.</p>
+</div>
+</div>
 <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">The data-action gap — metrics without meaning</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The problem</h3>
-              <p class="case__copy">Wearables provide raw signals (heart rate, blood oxygen, ECG) but leave interpretation to the user. Symptoms + metrics still leave patients uncertain: is this serious, or just stress?</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The opportunity</h3>
-              <p class="case__copy">Systems can detect sustained baseline drift, classify risk tiers, and guide users toward the right care pathway without alarming or over-triaging.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">The constraint</h3>
-              <p class="case__copy">High-risk patients are least likely to self-diagnose. Deployment through insurers and health systems reaches them with integrated pathways, not just app notifications.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ SOLUTION ════════════════════════════════════════ -->
-        <section id="solution">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Solution</p>
-
-              <h2 class="case__section-title">An intervention engine that translates biometric drift into clear medical next actions</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">ACUITY detects sustained deviation from a patient's baseline and routes them to the appropriate care tier. The system's "when do we speak?" logic is designed as a first-class UX surface.</p>
-
-            </div>
-
-          </div>
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">The data-action gap — metrics without meaning</span>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">The problem</h3>
+<p class="case__copy">Wearables provide raw signals (heart rate, blood oxygen, ECG) but leave interpretation to the user. Symptoms + metrics still leave patients uncertain: is this serious, or just stress?</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">The opportunity</h3>
+<p class="case__copy">Systems can detect sustained baseline drift, classify risk tiers, and guide users toward the right care pathway without alarming or over-triaging.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">The constraint</h3>
+<p class="case__copy">High-risk patients are least likely to self-diagnose. Deployment through insurers and health systems reaches them with integrated pathways, not just app notifications.</p>
+</div>
+</div>
+</section><section aria-labelledby="solution-title" class="nt-section nt-case-section nt-reading" id="solution">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">02 / Solution</p>
+<h2 class="case__section-title" id="solution-title">An intervention engine that translates biometric drift into clear medical next actions</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">ACUITY detects sustained deviation from a patient's baseline and routes them to the appropriate care tier. The system's "when do we speak?" logic is designed as a first-class UX surface.</p>
+</div>
+</div>
 <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">System architecture — biometrics → baseline model → escalation logic → patient action</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Personalized baseline</h3>
-              <p class="case__copy">The system learns each patient's normal patterns from initial weeks of monitoring, creating a personalized reference point instead of using population averages.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Deviation detection</h3>
-              <p class="case__copy">Continuous monitoring flags sustained abnormal patterns — not one-off spikes. Magnitude, duration, and symptom context combine to determine escalation tier.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Tiered interventions</h3>
-              <p class="case__copy">Tier 1 (monitoring) → Tier 2 (schedule evaluation) → Tier 3 (urgent escalation). Each tier has proportionate language, confidence signals, and clear next steps.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ CORE FLOWS ═══════════════════════════════════════ -->
-        <section id="flows">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Core Flows</p>
-
-              <h2 class="case__section-title">Four touchpoints that close the gap between signal and action</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">Discovery, alert logic, scheduling, and provider handoff — the minimum proof of an end-to-end care pathway.</p>
-
-            </div>
-
-          </div>
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">System architecture — biometrics → baseline model → escalation logic → patient action</span>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">Personalized baseline</h3>
+<p class="case__copy">The system learns each patient's normal patterns from initial weeks of monitoring, creating a personalized reference point instead of using population averages.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Deviation detection</h3>
+<p class="case__copy">Continuous monitoring flags sustained abnormal patterns — not one-off spikes. Magnitude, duration, and symptom context combine to determine escalation tier.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Tiered interventions</h3>
+<p class="case__copy">Tier 1 (monitoring) → Tier 2 (schedule evaluation) → Tier 3 (urgent escalation). Each tier has proportionate language, confidence signals, and clear next steps.</p>
+</div>
+</div>
+</section><section aria-labelledby="flows-title" class="nt-section nt-case-section nt-reading" id="flows">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">03 / Core Flows</p>
+<h2 class="case__section-title" id="flows-title">Four touchpoints that close the gap between signal and action</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Discovery, alert logic, scheduling, and provider handoff — the minimum proof of an end-to-end care pathway.</p>
+</div>
+</div>
 <!-- Flow 1 — Baseline learning -->
-          <div class="case__flow-block" id="flow1">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
-                      <span class="case__img-label">Baseline learning flow</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Establish personalized baseline</h3>
-                <p class="case__copy">The bracelet captures baseline vitals across different states (rest, activity, sleep). The system learns normal patterns for this specific patient, creating a personalized reference point for detecting meaningful deviation.</p>
-              </div>
-            </div>
-          </div>
+<div class="case__flow-block" id="flow1">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Establish personalized baseline</h3>
+<p class="case__copy">The bracelet captures baseline vitals across different states (rest, activity, sleep). The system learns normal patterns for this specific patient, creating a personalized reference point for detecting meaningful deviation.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+<span class="case__img-label">Baseline learning flow</span>
+</div>
+</div>
+</div>
+</div>
 
-          <!-- Flow 2 — Alert tier -->
-          <div class="case__flow-block" id="flow2">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
-                      <span class="case__img-label">Tiered alert UI</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Tiered alert that explains the "why"</h3>
-                <p class="case__copy">Sustained drift triggers a proportionate alert. The card explains risk tier, plain-language interpretation, and confidence signals. Primary CTA is "Schedule evaluation" for Tier 2, with escalation pathways for Tier 3.</p>
-              </div>
-            </div>
-          </div>
+</div>
+</div>
+<!-- Flow 2 — Alert tier -->
+<div class="case__flow-block" id="flow2">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Tiered alert that explains the "why"</h3>
+<p class="case__copy">Sustained drift triggers a proportionate alert. The card explains risk tier, plain-language interpretation, and confidence signals. Primary CTA is "Schedule evaluation" for Tier 2, with escalation pathways for Tier 3.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+<span class="case__img-label">Tiered alert UI</span>
+</div>
+</div>
+</div>
+</div>
 
-          <!-- Flow 3 — Scheduling -->
-          <div class="case__flow-block" id="flow3">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
-                      <span class="case__img-label">Appointment scheduling flow</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Low-friction handoff to care</h3>
-                <p class="case__copy">The product is only as good as follow-through. Scheduling reduces steps, pre-fills context from the alert, and confirms what happens next. Integration with provider systems ensures seamless transition from app to clinic.</p>
-              </div>
-            </div>
-          </div>
+</div>
+</div>
+<!-- Flow 3 — Scheduling -->
+<div class="case__flow-block" id="flow3">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Low-friction handoff to care</h3>
+<p class="case__copy">The product is only as good as follow-through. Scheduling reduces steps, pre-fills context from the alert, and confirms what happens next. Integration with provider systems ensures seamless transition from app to clinic.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--9-16">
+<span class="case__img-label">Appointment scheduling flow</span>
+</div>
+</div>
+</div>
+</div>
 
-          <!-- Flow 4 — Provider handoff -->
-          <div class="case__flow-block" id="flow4">
-            <div class="flow__grid flow__grid--full">
-              <div class="flow__media">
-                <div class="flow__device">
-                  <div class="flow__device-screen">
-                    <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-                      <span class="case__img-label">Clinician summary report</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flow__copy">
-                <h3 class="case__subhead">Clinician-ready summary</h3>
-                <p class="case__copy">A concise report translates biometric drift and symptom context into medically relevant information. Providers can triage quickly without patients needing to interpret charts or explain their own metrics.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+</div>
+</div>
+<!-- Flow 4 — Provider handoff -->
+<div class="case__flow-block" id="flow4">
+<div class="flow__grid flow__grid--full"><div class="flow__copy">
+<h3 class="case__subhead">Clinician-ready summary</h3>
+<p class="case__copy">A concise report translates biometric drift and symptom context into medically relevant information. Providers can triage quickly without patients needing to interpret charts or explain their own metrics.</p>
+</div>
+<div class="flow__media">
+<div class="flow__device">
+<div class="flow__device-screen">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Clinician summary report</span>
+</div>
+</div>
+</div>
+</div>
 
-        <!-- ══ SYSTEM THINKING ══════════════════════════════════ -->
-        <section id="system">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">System</p>
-
-              <h2 class="case__section-title">Closing the data-action gap requires designing the intervention system</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">ACUITY's intelligence is not "AI magic." It's a legible system that weighs drift magnitude, duration, and symptom context to route patients to appropriate care tiers with high confidence and low false-alarm rates.</p>
-
-            </div>
-
-          </div>
+</div>
+</div>
+</section><section aria-labelledby="system-title" class="nt-section nt-case-section nt-reading" id="system">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">04 / System</p>
+<h2 class="case__section-title" id="system-title">Closing the data-action gap requires designing the intervention system</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">ACUITY's intelligence is not "AI magic." It's a legible system that weighs drift magnitude, duration, and symptom context to route patients to appropriate care tiers with high confidence and low false-alarm rates.</p>
+</div>
+</div>
 <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">Deviation detector + logic gate system</span>
-            </div>
-          </div>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Deviation detector</h3>
-              <p class="case__copy">Continuously compares current signals to personalized baseline. Flags sustained abnormal patterns, not one-off spikes. Accounts for context: activity level, time of day, recent stress.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Logic gate</h3>
-              <p class="case__copy">Routes users to appropriate tier by combining confidence thresholds, risk priors, and user-reported symptoms. Designed for false positives: only escalates after sustained drift, uses cautious language.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Care pathway</h3>
-              <p class="case__copy">Tier 1 (monitor) → Tier 2 (schedule) → Tier 3 (urgent). Each tier connects to real care infrastructure through health systems and insurers, not just app notifications.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ DECISIONS ════════════════════════════════════════ -->
-        <section id="decisions">
-          <div class="case__intro">
-
-            <div class="case__intro-lead">
-
-              <p class="case__eyebrow">Design Decisions</p>
-
-              <h2 class="case__section-title">The decisions that made ACUITY credible under time pressure</h2>
-
-            </div>
-
-            <div class="case__intro-body">
-
-              <p class="case__copy">Each decision came from identifying the core system behaviors that create trust.</p>
-
-            </div>
-
-          </div>
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Deviation detector + logic gate system</span>
+</div>
+</div>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">Deviation detector</h3>
+<p class="case__copy">Continuously compares current signals to personalized baseline. Flags sustained abnormal patterns, not one-off spikes. Accounts for context: activity level, time of day, recent stress.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Logic gate</h3>
+<p class="case__copy">Routes users to appropriate tier by combining confidence thresholds, risk priors, and user-reported symptoms. Designed for false positives: only escalates after sustained drift, uses cautious language.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Care pathway</h3>
+<p class="case__copy">Tier 1 (monitor) → Tier 2 (schedule) → Tier 3 (urgent). Each tier connects to real care infrastructure through health systems and insurers, not just app notifications.</p>
+</div>
+</div>
+</section><section aria-labelledby="decisions-title" class="nt-section nt-case-section nt-reading" id="decisions">
+<div class="case__intro">
+<div class="case__intro-lead">
+<p class="case__eyebrow nt-kicker">05 / Design Decisions</p>
+<h2 class="case__section-title" id="decisions-title">The decisions that made ACUITY credible under time pressure</h2>
+</div>
+<div class="case__intro-body">
+<p class="case__copy">Each decision came from identifying the core system behaviors that create trust.</p>
+</div>
+</div>
 <h3 class="case__subhead">Personalized baseline over population norms</h3>
-          <p class="case__copy">Population-average thresholds miss meaningful drift for individual patients. We chose to learn each patient's unique baseline, making the system more sensitive to personal change.</p>
+<p class="case__copy">Population-average thresholds miss meaningful drift for individual patients. We chose to learn each patient's unique baseline, making the system more sensitive to personal change.</p>
+<h3 class="case__subhead">Tiered interventions over binary escalation</h3>
+<p class="case__copy">A single "alert or not" decision causes either over-triage or missed signals. Three tiers allow proportionate responses: subtle nudge, scheduled evaluation, or urgent care routing.</p>
+<h3 class="case__subhead">Insurer deployment over direct-to-consumer</h3>
+<p class="case__copy">Patients who most need preventive monitoring are least likely to self-purchase wearables. Reaching them through health systems and insurers ensures integration with actual care pathways, not just notifications.</p>
+<h3 class="case__subhead">Clinician summary over raw data dashboards</h3>
+<p class="case__copy">Providers need context, not charts. A concise summary translating biometric drift into medical relevance enables faster triage and higher follow-through rates.</p>
+<div class="case__media-block">
+<div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
+<span class="case__img-label">Decision framework</span>
+</div>
+</div>
+</section><section aria-labelledby="impact-title" class="nt-section nt-case-section nt-reading" id="impact">
+<p class="case__eyebrow nt-kicker">06 / Impact</p>
+<h2 class="case__section-title" id="impact-title">Reducing the gap between symptom and seeking care</h2>
+<div class="case__insight-grid">
+<div class="case__insight-block">
+<h3 class="case__subhead">User outcomes</h3>
+<p class="case__copy">Shorter time-to-action. Lower uncertainty. Alerts are meaningful because they're grounded in personalized baseline, not population thresholds. Escalation only happens after sustained drift, reducing alarm fatigue.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">System value</h3>
+<p class="case__copy">Fewer avoidable emergency admissions. Aligned incentives between insurers, providers, and patients. Scalable care capacity by routing elevated cases to clinics first, not ERs.</p>
+</div>
+<div class="case__insight-block">
+<h3 class="case__subhead">Clinical impact</h3>
+<p class="case__copy">Early intervention on high-risk patients before acute events occur. Modeled outcomes: 30-40% reduction in time-to-care, 1-2% reduction in emergency admissions, $8-12M annual cost reduction for health systems.</p>
+</div>
+</div>
+<p class="case__key-insight">Success is measured by whether high-risk patients seek evaluation sooner and whether escalations reach appropriate care tiers consistently.</p>
+</section><section aria-labelledby="reflection-title" class="nt-section nt-case-section nt-reading nt-reflection" id="reflection">
+<p class="case__eyebrow nt-kicker">07 / Reflection</p>
+<h2 class="case__section-title" id="reflection-title">What the 24-hour sprint revealed</h2>
+<div class="case__col-group">
+<div>
+<h3 class="case__subhead">Time pressure forced systems thinking</h3>
+<p class="case__copy">24 hours meant designing proof of a thesis, not a gallery of screens. The minimum viable proof was a closed loop — every design decision followed from the core hypothesis: can we detect drift and route patients to appropriate care?</p>
+</div>
+<div>
+<h3 class="case__subhead">Infrastructure beats novelty</h3>
+<p class="case__copy">The wearable is not the story. The story is the intervention engine — the system that decides when to act, how confidently, and where to route care. That's what distinguishes ACUITY from just another health app.</p>
+</div>
+</div>
+</section></div></div><div class="nt-end nt-reading"><a href="/">← Explore more work</a><a href="mailto:sooimkang@gmail.com">Let’s talk ↗</a></div></main>
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer class="footer">
+<p class="footer__copy">© 2026 · Built with <img alt="Claude" class="footer__icon" height="12" src="claude.png" width="12"/>, <img alt="brain" class="footer__icon" height="12" src="brain.png" width="12"/>, and <img alt="love" class="footer__icon" height="12" src="love.png" width="12"/></p>
+<time aria-label="Local time" class="footer__time js-clock" datetime=""></time>
+</footer>
+<script src="js/site.js"></script>
+<script src="js/work.js"></script>
 
-          <h3 class="case__subhead">Tiered interventions over binary escalation</h3>
-          <p class="case__copy">A single "alert or not" decision causes either over-triage or missed signals. Three tiers allow proportionate responses: subtle nudge, scheduled evaluation, or urgent care routing.</p>
-
-          <h3 class="case__subhead">Insurer deployment over direct-to-consumer</h3>
-          <p class="case__copy">Patients who most need preventive monitoring are least likely to self-purchase wearables. Reaching them through health systems and insurers ensures integration with actual care pathways, not just notifications.</p>
-
-          <h3 class="case__subhead">Clinician summary over raw data dashboards</h3>
-          <p class="case__copy">Providers need context, not charts. A concise summary translating biometric drift into medical relevance enables faster triage and higher follow-through rates.</p>
-
-          <div class="case__media-block">
-            <div class="case__img-inner case__img-placeholder case__img-placeholder--16-9">
-              <span class="case__img-label">Decision framework</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══ IMPACT ══════════════════════════════════════════ -->
-        <section id="impact">
-          <p class="case__eyebrow">Impact</p>
-          <h2 class="case__section-title">Reducing the gap between symptom and seeking care</h2>
-
-          <div class="case__insight-grid">
-            <div class="case__insight-block">
-              <h3 class="case__subhead">User outcomes</h3>
-              <p class="case__copy">Shorter time-to-action. Lower uncertainty. Alerts are meaningful because they're grounded in personalized baseline, not population thresholds. Escalation only happens after sustained drift, reducing alarm fatigue.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">System value</h3>
-              <p class="case__copy">Fewer avoidable emergency admissions. Aligned incentives between insurers, providers, and patients. Scalable care capacity by routing elevated cases to clinics first, not ERs.</p>
-            </div>
-            <div class="case__insight-block">
-              <h3 class="case__subhead">Clinical impact</h3>
-              <p class="case__copy">Early intervention on high-risk patients before acute events occur. Modeled outcomes: 30-40% reduction in time-to-care, 1-2% reduction in emergency admissions, $8-12M annual cost reduction for health systems.</p>
-            </div>
-          </div>
-
-          <p class="case__key-insight">Success is measured by whether high-risk patients seek evaluation sooner and whether escalations reach appropriate care tiers consistently.</p>
-        </section>
-
-        <!-- ══ REFLECTION ══════════════════════════════════════ -->
-        <section id="reflection" class="case__reflection">
-          <p class="case__eyebrow">Reflection</p>
-          <h2 class="case__section-title">What the 24-hour sprint revealed</h2>
-
-          <div class="case__col-group">
-            <div>
-              <h3 class="case__subhead">Time pressure forced systems thinking</h3>
-              <p class="case__copy">24 hours meant designing proof of a thesis, not a gallery of screens. The minimum viable proof was a closed loop — every design decision followed from the core hypothesis: can we detect drift and route patients to appropriate care?</p>
-            </div>
-            <div>
-              <h3 class="case__subhead">Infrastructure beats novelty</h3>
-              <p class="case__copy">The wearable is not the story. The story is the intervention engine — the system that decides when to act, how confidently, and where to route care. That's what distinguishes ACUITY from just another health app.</p>
-            </div>
-          </div>
-        </section>
-
-      </div><!-- /.case__body -->
-    </div><!-- /.case__content-grid -->
-
-    <section class="home-contact" id="contact" aria-label="Contact">
-      <div class="home-contact__body">
-        <div class="home-contact__intro">
-          <h2 class="home-contact__heading">Contact</h2>
-          <div class="home-contact__card-slot">
-            <div class="home-contact__card-wrap">
-              <a
-                class="home-contact__card"
-                href="mailto:sooimkang@gmail.com"
-                aria-label="Email Sooim at sooimkang@gmail.com"
-              >
-                <span class="home-contact__card-media">
-                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-                </span>
-                <span class="home-contact__card-overlay">
-                  <span class="home-contact__card-text">
-                    Say hello
-                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
-                  </span>
-                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <ul class="home-contact__list">
-          <li>
-            <a href="mailto:sooimkang1015@gmail.com">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Email</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">LinkedIn</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Github</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ── FOOTER ────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon" width="12" height="12">, <img src="brain.png" alt="brain" class="footer__icon" width="12" height="12">, and <img src="love.png" alt="love" class="footer__icon" width="12" height="12"></p>
-    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
-  </footer>
-
-  <script src="js/site.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/case-layout.js"></script>
-  <script src="js/morph.js"></script>
-
-</body>
+<script src="js/morph.js"></script>
+<script src="js/notate.js?v=nt-1"></script></body>
 </html>

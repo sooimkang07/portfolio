@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=instrument-sans-1" />
-  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
+  <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
   <link rel="icon" href="favicon.ico" />
   <style>
     .expl-card__media {
@@ -14,7 +14,7 @@
     }
 
     .expl__title {
-      font-size: clamp(2rem, 3.75vw, 3.1rem);
+      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
     }
 
     body.home .expl-page {
@@ -31,8 +31,8 @@
     @media (width >= 1200px) {
       .expl-page__layout {
         display: grid;
-        grid-template-columns: minmax(10rem, 3fr) minmax(0, 13fr);
-        column-gap: var(--gutter);
+        grid-template-columns: minmax(13.5rem, 16vw) minmax(0, 1fr);
+        column-gap: clamp(28px, 4vw, 56px);
         padding-inline: var(--gutter);
         align-items: start;
       }
@@ -42,7 +42,7 @@
         top: 0;
         align-self: start;
         block-size: 100svh;
-        max-inline-size: 16rem;
+        max-inline-size: none;
         padding-block: calc(2.75rem + var(--sp-sm) + var(--sp-lg)) var(--gutter);
         padding-inline-end: var(--sp-sm);
         overflow-y: auto;
@@ -388,7 +388,7 @@
             <div class="expl-card__shell">
               <div class="expl-card__frame">
                 <div class="expl-card__media">
-                  <img src="about-me-assets/brainstorming.jpg" alt="Brainstorming with my team for Figbuild 2026" />
+                  <img src="about-me-assets/brainstorming.JPG" alt="Brainstorming with my team for Figbuild 2026" />
                 </div>
                 <div class="expl-card__meta">
                   <div class="expl-card__meta-inner">

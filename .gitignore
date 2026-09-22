@@ -1,0 +1,5 @@
+.DS_Store
+.tmp-read/
+_preview.log
+_preview_server.py
+_restore/

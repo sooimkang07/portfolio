@@ -7,8 +7,8 @@
 .case__intro {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: var(--sp-md, 1.25rem);
-	margin-block-end: var(--sp-lg, 2rem);
+	gap: var(--sp-sm, 0.75rem);
+	margin-block-end: var(--sp-md, 1.25rem);
 	align-items: start;
 }
 .case__intro .case__eyebrow { margin-block-end: 0.4rem; }
@@ -24,13 +24,30 @@
 
 @media (width >= 770px) {
 	.case__intro {
-		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
-		column-gap: clamp(1.5rem, 4vw, 3.5rem);
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		column-gap: clamp(24px, 4vw, 56px);
 	}
 	.case__intro-lead {
 		position: sticky;
 		top: calc(var(--sp-sm, 0.75rem) + 3.5rem);
 	}
+}
+
+/* Project pages: slightly larger body type than the global scale */
+body.page--project,
+body.home.page--project,
+body.home.bundles-page {
+	--fs-base: clamp(1.0625rem, 1.25vw, 1.1875rem);
+	--fs-sm:   clamp(0.95rem, 1.15vw, 1.0625rem);
+	--fs-md:   clamp(1.125rem, 1.5vw, 1.3125rem);
+	--fs-lg:   clamp(1.4rem, 2.1vw, 1.75rem);
+}
+
+.page--project .case__copy,
+.page--project .case__lede,
+.bundles-page .sb-editorial-body {
+	font-size: var(--fs-base);
+	line-height: 1.55;
 }
 
 /* Larger core-flow media — take more of the page */
@@ -43,10 +60,10 @@
 	width: min(100%, var(--case-flow-max));
 }
 .page--project .case__flow-block {
-	margin-block: clamp(2.5rem, 5vw, 4.5rem);
+	margin-block: 1.25rem;
 }
 .page--project .case__flow-block + .case__flow-block {
-	margin-block-start: clamp(3.5rem, 8vw, 6.5rem);
+	margin-block-start: 1.75rem;
 }
 .page--project .flow__device,
 .page--project .flow__phone {
@@ -78,8 +95,8 @@
 
 /* Smart Bundles: phone + caption as a dominant band */
 .page--project .sb-flow {
-	margin-block-start: clamp(3.25rem, 7vw, 5.5rem);
-	margin-block-end: clamp(1rem, 2vw, 2rem);
+	margin-block-start: 1.5rem;
+	margin-block-end: 0.75rem;
 }
 .page--project .sb-flow .case__subhead { margin-block-start: 1rem; }
 .page--project .sb-flow .flow__device {
@@ -381,4 +398,30 @@
 .page--project .sb-viz.is-in {
 	opacity: 1;
 	transform: none;
+}
+
+
+/* Koto-tight vertical rhythm on project pages */
+.page--project .case__body > section {
+	padding-block: 1.15rem 1.35rem;
+}
+.page--project .case__media-block,
+.page--project .case__quote-block,
+.page--project .case__col-group,
+.page--project .ig-gallery {
+	margin-block: 0.85rem;
+}
+.page--project .case__subhead {
+	margin-block-start: 1rem;
+	margin-block-end: 0.45rem;
+}
+.page--project .case__copy {
+	margin-block-end: 0.75rem;
+}
+.page--project .case__meta {
+	margin-block-end: 1rem;
+	gap: var(--sp-md);
+}
+.page--project .flow__row {
+	margin-block-start: 0.85rem;
 }

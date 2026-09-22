@@ -271,22 +271,28 @@ img.footer__icon,
 	color: var(--clr-accent);
 }
 
-/* Case body */
+/* Case body — tight section rhythm (Koto-like) */
 .case__body {
 	display: flex;
 	flex-direction: column;
-	gap: 4rem;
+	gap: 0;
 	padding-inline: var(--gutter);
 }
 
 .case__body > section {
-	padding-block-start: 2rem;
+	padding-block: 1.25rem;
+	border-block-start: 1px solid var(--clr-border);
+}
+
+.case__body > section:first-of-type {
+	border-block-start: 0;
+	padding-block-start: 0.75rem;
 }
 
 /* ── CASE STUDY — HERO ──────────────────────────────────────── */
 .case__hero {
-	padding-block-start: var(--sp-lg);
-	padding-block-end: var(--sp-lg);
+	padding-block-start: var(--sp-md);
+	padding-block-end: var(--sp-md);
 }
 
 .case__hero-img {
@@ -347,7 +353,7 @@ img.footer__icon,
 }
 
 .case__subhead {
-	font-size: clamp(1.3rem, 2vw, 1.6rem);
+	font-size: clamp(1.144rem, 2vw, 1.408rem);
 	font-weight: var(--fw-semi);
 	color: var(--clr-accent);
 	margin-block-start: var(--sp-lg);
@@ -366,7 +372,7 @@ img.footer__icon,
 }
 
 .case__section-title {
-	font-size: clamp(1.75rem, 2.8vw, 2.2rem);
+	font-size: clamp(1.54rem, 2.8vw, 1.936rem);
 	font-weight: var(--fw-semi);
 	line-height: 1.1;
 	margin-block-end: var(--sp-md);
@@ -402,11 +408,11 @@ img.footer__icon,
 	display: flex;
 	flex-direction: column;
 	gap: var(--sp-sm);
-	margin-block: var(--sp-lg);
+	margin-block: 1rem;
 }
 
 .case__media-block--hero {
-	margin-block-start: var(--sp-lg);
+	margin-block-start: 1rem;
 }
 
 /* ── CASE STUDY — META ──────────────────────────────────────── */
@@ -557,7 +563,7 @@ img.case__frame {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 2.5rem;
+	font-size: 2.2rem;
 	color: color-mix(in srgb, #fff 28%, transparent);
 }
 
@@ -903,7 +909,7 @@ img.case__frame {
 
 .case__code pre {
 	padding: var(--sp-sm) var(--sp-md);
-	font-size: 0.82rem;
+	font-size: 0.722rem;
 	line-height: var(--lh-base);
 }
 
@@ -1431,7 +1437,7 @@ img.case__frame {
 .case__viz-arrow {
 	text-align: center;
 	color: var(--clr-text);
-	font-size: 1.2rem;
+	font-size: 1.056rem;
 	line-height: 1;
 }
 
@@ -1906,13 +1912,13 @@ img.case__frame {
 		display: none;
 	}
 
-	/* Case study: sticky TOC | body fills remainder */
+	/* Case study: sticky TOC | body — match Smart Bundles proportions */
 	.case__content-grid {
 		display: grid;
-		grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+		grid-template-columns: minmax(13.5rem, 16vw) minmax(0, 1fr);
 		grid-template-areas: "toc body";
 		align-items: start;
-		column-gap: 1rem;
+		column-gap: clamp(28px, 4vw, 56px);
 		max-inline-size: none;
 		margin-inline: 0;
 		padding-inline: 0;
@@ -1943,7 +1949,7 @@ img.case__frame {
 	}
 
 	.case__hero {
-		padding-block-start: 3.5rem;
+		padding-block-start: 1.5rem;
 	}
 
 	.flow {
@@ -1972,7 +1978,7 @@ img.case__frame {
 	}
 
 	.hero__title {
-		font-size: clamp(2.98rem, 5.95vw, 5.95rem);
+		font-size: clamp(2.622rem, 5.95vw, 5.236rem);
 		line-height: 0.85;
 	}
 
