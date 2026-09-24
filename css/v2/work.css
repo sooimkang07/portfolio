@@ -1,0 +1,39 @@
+/* WORK (v2): two-tone heading, filters, lead project, 3-column grid */
+
+.work-head { padding-top: calc(var(--nav-h) + clamp(3rem, 8vw, 6rem)); padding-bottom: var(--s-6); display: grid; gap: var(--s-5); }
+.work-head .display { max-width: 18ch; }
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+.chip {
+	height: 2.25rem; padding: 0 0.95rem; border-radius: var(--r-pill);
+	box-shadow: 0 0 0 1px var(--rule);
+	background: var(--white);
+	transition: background-color var(--d-1), box-shadow var(--d-1), transform var(--d-1);
+}
+.chip .caps { color: var(--body); }
+.chip:hover { box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 22%, var(--rule)); }
+.chip:active { transform: scale(0.97); }
+.chip.is-on { background: var(--ink); box-shadow: none; }
+.chip.is-on .caps { color: var(--white); }
+
+/* Lead project */
+.lead { display: grid; gap: var(--s-4); margin-bottom: var(--s-7); }
+.lead .media { aspect-ratio: 16 / 8; }
+@media (width < 700px) { .lead .media { aspect-ratio: 4 / 3; } }
+.lead__copy { display: grid; gap: var(--s-3); }
+@media (width >= 900px) { .lead__copy { grid-template-columns: 1fr 1.2fr; gap: var(--s-6); } }
+.lead__title { display: grid; gap: 0.35rem; align-content: start; }
+.lead__text { display: grid; gap: var(--s-3); align-content: start; }
+
+/* Grid */
+.grid { display: grid; gap: var(--s-7) var(--s-4); grid-template-columns: 1fr; }
+@media (width >= 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (width >= 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.card { display: grid; gap: 0.6rem; align-content: start; }
+.card .media { aspect-ratio: 4 / 3; margin-bottom: 0.4rem; }
+.card__row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-2); }
+.card__name { color: var(--ink); font-weight: var(--fw-m); font-size: 1.125rem; letter-spacing: -0.01em; }
+.card__year { font-size: var(--fs-small); color: var(--muted); }
+.card__line { color: var(--body); text-wrap: pretty; }
+.is-hidden { display: none !important; }
+.grid__empty { padding-block: var(--s-6); }

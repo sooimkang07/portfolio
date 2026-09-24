@@ -1,0 +1,90 @@
+/* ============================================================
+   TOKENS (v2): one source for type, color, space, motion.
+   Site UI stays neutral; color lives only in the work (--accent).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap');
+
+:root {
+	/* Color */
+	--ink: #1C1D1C;
+	--body: #1C1D1C;
+	--muted: #8A8F89;
+	--rule: #E6E7E4;
+	--surface: #FAFAF8;
+	--panel: #F1F2EF;
+	--white: #FFFFFF;
+	--accent: var(--ink);
+
+	/* Glass: only on chrome that floats over content */
+	--glass-fill: rgb(255 255 255 / 0.62);
+	--glass-fill-hover: rgb(255 255 255 / 0.8);
+	--glass-blur: blur(20px) saturate(180%);
+	--glass-edge: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 0 0 1px rgb(0 0 0 / 0.06);
+	--glass-shadow: 0 8px 24px -12px rgb(28 29 28 / 0.18);
+
+	/* Type */
+	--ff: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--fw: 400;
+	--fw-m: 500;
+	--fs-display: clamp(2.5rem, 5.2vw, 3.5rem);   /* 56/60 */
+	--lh-display: 1.07;
+	--fs-h1: clamp(1.75rem, 3vw, 2.25rem);        /* 36/44 */
+	--lh-h1: 1.22;
+	--fs-h2: clamp(1.4rem, 2.3vw, 1.75rem);       /* 28/34 */
+	--lh-h2: 1.21;
+	--fs-body: 1rem;                              /* 16/26 */
+	--lh-body: 1.625;
+	--fs-small: 0.875rem;
+	--fs-eyebrow: 0.75rem;                        /* 12/16 caps */
+	--lh-eyebrow: 1.33;
+	--ls-eyebrow: 0.08em;
+	--ls-tight: -0.02em;
+
+	/* Space + layout */
+	--gutter: clamp(1rem, 3vw, 1.5rem);
+	--w-text: 40rem;      /* 640 */
+	--w-figure: 60rem;    /* 960 */
+	--w-max: 77.5rem;     /* 1240 */
+	--s-1: 0.5rem;
+	--s-2: 0.75rem;
+	--s-3: 1rem;
+	--s-4: 1.5rem;
+	--s-5: 2rem;
+	--s-6: 3rem;
+	--s-7: 4.5rem;
+	--s-8: clamp(4.5rem, 10vw, 7.5rem);
+
+	/* Radius */
+	--r-pill: 999px;
+	--r-lg: 20px;
+	--r-md: 12px;
+	--r-sm: 8px;
+
+	/* Motion */
+	--d-1: 160ms;
+	--d-2: 240ms;
+	--d-3: 420ms;
+	--d-4: 720ms;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+	--nav-h: 4rem;
+	--edge: max(var(--gutter), calc((100vw - var(--w-max)) / 2));
+}
+
+/* One accent per project, used only in its work */
+[data-case="yap"], [data-accent="yap"] { --accent: #B8A4F0; }
+[data-case="notate"], [data-accent="notate"] { --accent: #F5C400; }
+[data-case="instagram"], [data-accent="instagram"] { --accent: #E1306C; }
+[data-case="smart-bundles"], [data-accent="smart-bundles"] { --accent: #2E8B57; }
+[data-case="neuk"], [data-accent="neuk"] { --accent: #5AA0E6; }
+[data-case="acuity"], [data-accent="acuity"] { --accent: #7C83F0; }
+[data-case="forage"], [data-accent="forage"] { --accent: #C9A46B; }
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--d-2: 160ms;
+		--d-3: 160ms;
+		--d-4: 160ms;
+	}
+}

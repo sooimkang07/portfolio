@@ -1,0 +1,94 @@
+/* NOTATE figures: problem ladder, anatomy callouts, outcome stats, takeaway.
+   Sits on top of the existing Notate page styles. */
+
+body.notate-page .nt-section p:not(.nt-kicker),
+body.notate-page .nt-decision p:not(.nt-kicker) { color: var(--nt-ink, #242725); }
+.nt-hero h1 .nt-tone { color: #9a9f9b; }
+.nt-lead { color: var(--nt-ink, #242725); font-weight: 500; font-size: 17px; line-height: 1.4; margin-bottom: 8px; }
+body.notate-page .nt-section .nt-step-label { font-size: 12px; font-weight: 500; letter-spacing: .035em; text-transform: uppercase; color: var(--nt-muted, #666c68); margin-bottom: 10px; }
+body.notate-page .nt-section .nt-feature-heading h3, body.home.notate-page .nt-feature-heading h3 { font-size: clamp(22px, 2.2vw, 26px); line-height: 1.25; letter-spacing: -.03em; }
+
+/* Shared figure panel: dotted grid, rounded */
+.ntf-panel {
+	position: relative;
+	border-radius: 20px;
+	background: radial-gradient(circle, rgb(36 39 37 / .07) .6px, transparent .9px) 0 0 / 10px 10px, #f1f2ef;
+	padding: clamp(16px, 3vw, 36px);
+	overflow: hidden;
+}
+.ntf-tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #8a8f89; }
+
+/* Ladder: each fix creates the next problem */
+.ntf-ladder { display: grid; gap: 14px; margin-top: 22px; }
+@media (width >= 800px) {
+	.ntf-ladder { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: 32px; margin-top: 30px; }
+	.ntf-step:nth-child(2) { margin-bottom: 40px; }
+	.ntf-step:nth-child(3) { margin-bottom: 80px; }
+	.ntf-step:not(:last-child)::after {
+		content: ""; position: absolute; top: 50%; right: -32px; width: 32px;
+		border-top: 1.5px dashed rgb(36 39 37 / .35);
+	}
+}
+.ntf-step { position: relative; background: #fff; border-radius: 12px; padding: 12px; box-shadow: 0 0 0 1px #e3e5e2, 0 12px 24px -18px rgb(36 39 37 / .25); }
+.ntf-step .ntf-tag { display: block; margin: 14px 4px 0; }
+.body-copy.ntf-text, .ntf-step p.ntf-text { font-size: 15px; line-height: 1.45; color: #242725; margin: 8px 4px 0; }
+.ntf-fail { display: inline-flex; gap: 6px; margin: 10px 4px 2px; font-size: 12px; color: #b4412f; }
+.ntf-fail::before { content: "×"; font-weight: 600; }
+
+/* Mini browser drawn in CSS */
+.mb { border-radius: 8px; background: #fff; box-shadow: 0 0 0 1px #e3e5e2; overflow: hidden; font-size: 9px; color: #666; }
+.mb__bar { display: flex; align-items: center; gap: 3px; padding: 5px 6px; background: #f4f4f2; border-bottom: 1px solid #e3e5e2; min-height: 20px; overflow: hidden; }
+.mb__bar i { flex: 0 0 auto; width: 4px; height: 4px; border-radius: 50%; background: #d5d5d0; }
+.mb__tab { flex: 0 1 auto; min-width: 6px; height: 11px; border-radius: 3px; background: #e6e6e1; }
+.mb__tabs--many .mb__tab { width: 9px; }
+.mb__body { position: relative; height: 104px; padding: 8px; display: grid; gap: 5px; align-content: start; }
+.mb__line { height: 5px; border-radius: 3px; background: #ededea; }
+.mb__line.w6 { width: 60%; } .mb__line.w8 { width: 80%; } .mb__line.w4 { width: 40%; }
+.mb__folder { display: flex; align-items: center; gap: 5px; padding: 3px 4px; border-radius: 4px; background: #f7f7f4; color: #555; }
+.mb__folder::before { content: ""; width: 9px; height: 7px; border-radius: 1.5px; background: #d9d6cc; }
+.mb__q { position: absolute; right: 8px; bottom: 8px; padding: 3px 6px; border-radius: 999px; background: #fff0ec; color: #b4412f; font-size: 9px; }
+.mb__split { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; height: 104px; padding: 8px; }
+.mb__shot { border-radius: 4px; background: linear-gradient(135deg, #eee 0 40%, #e3e3de 40% 100%); position: relative; }
+.mb__shot::after { content: "IMG_4021.png"; position: absolute; left: 4px; bottom: 3px; font-size: 7px; color: #888; }
+.mb__notes { border-radius: 4px; background: #fffbea; padding: 5px; display: grid; gap: 4px; align-content: start; }
+.mb__notes .mb__line { background: #f0e6bd; }
+
+/* Anatomy: the screen on top, four labels below, joined by dashed lines */
+.ntf-anatomy { position: relative; display: grid; gap: 40px 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (width >= 900px) { .ntf-anatomy { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ntf-shot { position: relative; grid-column: 1 / -1; }
+.ntf-shot img, body.notate-page .ntf-shot img { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; border-radius: 12px; display: block; }
+.ntf-dot {
+	position: absolute; width: 24px; height: 24px; border-radius: 50%;
+	transform: translate(-50%, -50%);
+	display: grid; place-items: center;
+	background: #242725; color: #fff; font-size: 11px; font-weight: 500;
+	box-shadow: 0 0 0 4px rgb(245 196 0 / .6);
+}
+.ntf-anno { background: #fff; border-radius: 12px; padding: 12px 14px; box-shadow: 0 0 0 1px #e3e5e2; }
+.ntf-anno .ntf-tag { color: #242725; display: flex; gap: 8px; align-items: center; }
+.ntf-anno .ntf-tag b { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #242725; color: #fff; font-size: 10px; font-weight: 500; letter-spacing: 0; }
+.ntf-lines { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.ntf-lines > path { fill: none; stroke: rgb(36 39 37 / .45); stroke-width: 1.25; stroke-dasharray: 3 4; }
+.ntf-lines > circle { fill: #242725; }
+@media (width < 900px) { .ntf-lines { display: none; } }
+
+/* Beat the shared case-page type rules for figure text */
+body.case-page.case-page.notate-page main .nt-feature-heading h3 { font-size: clamp(22px, 2.2vw, 26px); line-height: 1.25; letter-spacing: -.03em; margin-bottom: 10px; }
+body.case-page.case-page.notate-page.notate-page main .nt-section.nt-section p.ntf-takeaway-line.ntf-takeaway-line.ntf-takeaway-line { font-size: clamp(26px, 3vw, 34px) !important; line-height: 1.2 !important; letter-spacing: -.035em; font-weight: 500; color: #242725; margin-top: 10px; max-width: 30ch; }
+body.case-page.case-page.notate-page.notate-page main .nt-section.nt-section p.nt-lead.nt-lead.nt-lead { font-size: 17px !important; line-height: 1.4 !important; font-weight: 500; margin-bottom: 8px; }
+body.case-page.case-page.notate-page.notate-page main .nt-section.nt-section :is(.ntf-anno.ntf-anno.ntf-anno p, .ntf-stat.ntf-stat.ntf-stat p, p.ntf-text.ntf-text.ntf-text) { font-size: 14px !important; line-height: 1.45 !important; margin-top: 6px; }
+body.case-page.case-page.notate-page.notate-page main .nt-section.nt-section p.ntf-tag.ntf-tag.ntf-tag { font-size: 11px !important; line-height: 1.4 !important; }
+
+/* Outcome stats */
+.ntf-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 32px; }
+.ntf-stat { background: #fff; border-radius: 20px; padding: 22px; box-shadow: 0 0 0 1px #e3e5e2; display: grid; gap: 6px; align-content: start; }
+.ntf-stat strong { font-size: clamp(36px, 4vw, 48px); line-height: 1; color: #242725; font-weight: 500; letter-spacing: -.03em; }
+.ntf-stat--accent strong { color: #c79a00; }
+.nt-section .ntf-stat p { font-size: 14px; line-height: 1.45; }
+
+/* Takeaway: the last line on the page */
+.ntf-takeaway { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e3e5e2; }
+.nt-section .ntf-takeaway p.ntf-takeaway-line { font-size: clamp(26px, 3vw, 34px); line-height: 1.2; letter-spacing: -.035em; font-weight: 500; color: #242725; margin-top: 10px; }
+
+body.case-page.case-page.notate-page.notate-page main .nt-section.nt-section p.nt-step-label.nt-step-label.nt-step-label { font-size: 12px !important; line-height: 1.4 !important; letter-spacing: .035em; text-transform: uppercase; color: #666c68; margin-bottom: 10px; }

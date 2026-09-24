@@ -1,0 +1,56 @@
+{
+  "_howto": "Edit this one file to update the Recently row on About. Leave a field empty (\"\") to hide it. Dates are YYYY-MM-DD. Eating: copy your latest Beli ranking (place, area, visits, a favorite dish, your score). Watching: poster is the Letterboxd poster image URL.",
+  "photos": {
+    "updated": "2026-09-14",
+    "link": "https://www.instagram.com/taken_on_my_iphone/",
+    "items": [
+      {
+        "src": "about-me-assets/web/us-open.jpg",
+        "caption": "US Open",
+        "date": "2026-09-10"
+      },
+      {
+        "src": "about-me-assets/web/eating-out.jpg",
+        "caption": "Eating out",
+        "date": "2026-09-11"
+      },
+      {
+        "src": "about-me-assets/web/movie-night.jpg",
+        "caption": "Movie night",
+        "date": "2026-09-14"
+      }
+    ]
+  },
+  "eating": {
+    "updated": "2026-09-15",
+    "place": "Baby Blues Luncheonette",
+    "area": "Southside, Brooklyn",
+    "visits": "2 visits",
+    "fave": "Blueberry & cream babycakes",
+    "score": "9.6",
+    "link": "https://beliapp.co/app/sooimkang",
+    "photo": "about-me-assets/web/beli.jpg"
+  },
+  "watching": {
+    "updated": "2026-07-24",
+    "title": "Backrooms",
+    "year": "2026",
+    "rating": "★★★",
+    "link": "https://letterboxd.com/sooimkang/film/backrooms-2026/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
+    "review": "uhmm not sure how i feel about that…one thing for sure is set design was insane wtf"
+  },
+  "listening": {
+    "updated": "",
+    "episode": "",
+    "show": "",
+    "link": ""
+  },
+  "story": {
+    "updated": "",
+    "headline": "",
+    "source": "",
+    "link": "",
+    "take": ""
+  }
+}

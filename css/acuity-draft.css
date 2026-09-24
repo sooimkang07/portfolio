@@ -1,0 +1,7 @@
+/* Acuity draft: real media inside figure slots */
+.fig .ac-media{position:relative;overflow:hidden;background:#F4F5F7}
+.fig .ac-media video,.fig .ac-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+body.case-page main .nt-step + .nt-step{margin-top:72px}
+body.case-page main .nt-step .nt-media{margin-top:28px}
+body.case-page main .ac-snapshot{margin-top:32px}
+body.case-page main .ac-snapshot a{text-decoration:underline;text-underline-offset:3px}

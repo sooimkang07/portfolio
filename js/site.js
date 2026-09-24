@@ -7,6 +7,17 @@
 
   if (!document.body.classList.contains('home')) return
 
+  /* ── Nav strip links: fliptrack on hover ───────────────────── */
+  document.querySelectorAll('.nav__strip-link').forEach(link => {
+    if (link.querySelector('.nav__strip-flip')) return
+    const label = link.textContent.trim()
+    link.setAttribute('aria-label', label)
+    link.innerHTML =
+      '<span class="nav__strip-flip" aria-hidden="true"><span class="nav__strip-flip-track">' +
+      `<span>${label}</span><span>${label}</span>` +
+      '</span></span>'
+  })
+
   /* ── Live clock (LOCAL TIME) ──────────────────────────────── */
   function updateClock() {
     const now = new Date()
@@ -552,6 +563,15 @@
   buildIntroLines()
   syncNavTop()
   syncHeroIntroScroll()
+
+  /* Line breaks are measured from the rendered font. If they were measured
+     with the fallback font, re-measure once Instrument Sans has loaded. */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      buildIntroLines()
+      syncHeroIntroScroll()
+    })
+  }
 
   /* ── Keep hero video playing ─────────────────────────────── */
   window.addEventListener('load', () => {

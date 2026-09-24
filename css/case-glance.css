@@ -1,0 +1,20 @@
+/* At a glance: Overview, Problem, and Solution readable in seconds,
+   then a rule, then the detailed breakdown. */
+body.case-page.case-page main .nt-glance { padding-bottom: 96px; }
+body.case-page.case-page main .nt-glance-grid {
+	width: 100%; margin: -40px 0 0;
+	display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; row-gap: 48px;
+	}
+body.case-page.case-page main .nt-glance-col h2 {
+	font-size: clamp(22px, 2.1vw, 26px); line-height: 1.22; letter-spacing: -.03em; margin-bottom: 16px;
+}
+body.case-page.case-page main .nt-glance .nt-media { margin-top: 64px; }
+/* The rule that marks where the breakdown starts */
+body.case-page.case-page main .nt-glance + .nt-section { position: relative; padding-top: 96px; }
+body.case-page.case-page main .nt-glance + .nt-section::before {
+	content: "Breakdown"; position: absolute; top: 0; left: 0; width: 100%; padding-top: 16px; border-top: 1px solid var(--nt-rule, #e3e5e2);
+	font-size: 11.25px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8a8f89;
+}
+@media (max-width: 700px) {
+	body.case-page.case-page main .nt-glance-grid { grid-template-columns: 1fr; margin-top: -24px; }
+}

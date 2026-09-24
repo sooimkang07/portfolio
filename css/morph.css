@@ -1,115 +1,48 @@
 /* ============================================================
-   MORPH — home card → case study shared-element transition
+   MORPH — card → case study cover (see js/morph.js)
    ============================================================ */
-
-/* Shared project media morph (home → case study) */
-
 .project-morph {
 	position: fixed;
 	z-index: 10000;
 	margin: 0;
-	padding: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: var(--clr-border, #e8e8e8);
-	box-shadow: 0 12px 40px rgb(0 0 0 / 0.12);
+	background: #f0f1ef;
 	will-change: top, left, width, height, border-radius;
 }
-
 .project-morph__media {
 	display: block;
-	inline-size: 100%;
-	block-size: 100%;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+	border-radius: 0 !important;
+	transform: none !important;
 }
 
-html.is-project-morph-pending .case__hero [data-project-morph-to] {
+/* Leaving the home / work page: everything but the growing media recedes */
+html.is-morph-leaving body { cursor: progress; }
+html.is-morph-leaving :is(main, .footer) {
 	opacity: 0;
+	transition: opacity 280ms linear;
 }
 
-html.is-project-morphing body {
-	cursor: wait;
-}
-
-/* Hide page chrome + copy until the morph reveal starts */
-html.is-project-morph-pending .nav,
-html.is-project-morph-pending .case__back--mobile,
-html.is-project-morph-pending .case__toc-bar,
-html.is-project-morph-pending .case__toc,
-html.is-project-morph-pending .case__hero .case__eyebrow,
-html.is-project-morph-pending .case__hero .case__title,
-html.is-project-morph-pending .case__hero .flow__controls,
-html.is-project-morph-pending .case__hero .case__meta,
-html.is-project-morph-pending .case__body > section,
-html.is-project-morph-pending .footer {
+/* Arriving on a case page: only the cover rect exists until it is ready */
+html.is-project-morph-pending,
+html.is-project-morph-pending body { overflow: hidden; }
+html.is-project-morph-pending :is(.nav, .nt-story, .footer, .nt-skip) {
 	opacity: 0;
-	transform: translateY(0.85rem);
+	transform: translateY(12px);
 }
-
-/* Top → bottom fade-in, timed with the slower video shift */
-html.is-project-morph-revealing .nav,
-html.is-project-morph-revealing .case__back--mobile,
-html.is-project-morph-revealing .case__toc-bar,
-html.is-project-morph-revealing .case__toc,
-html.is-project-morph-revealing .case__hero .case__eyebrow,
-html.is-project-morph-revealing .case__hero .case__title,
-html.is-project-morph-revealing .case__hero .flow__controls,
-html.is-project-morph-revealing .case__hero .case__meta,
-html.is-project-morph-revealing .case__body > section,
-html.is-project-morph-revealing .footer {
+html.is-project-morph-revealing :is(.nav, .nt-story, .footer) {
 	opacity: 1;
-	transform: translateY(0);
-	transition:
-		opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
-		transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+	transform: none;
+	transition: opacity 480ms cubic-bezier(0.22, 1, 0.36, 1), transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-html.is-project-morph-revealing .nav {
-	transition-delay: 120ms;
-}
-
-html.is-project-morph-revealing .case__back--mobile,
-html.is-project-morph-revealing .case__toc-bar,
-html.is-project-morph-revealing .case__toc {
-	transition-delay: 280ms;
-}
-
-html.is-project-morph-revealing .case__hero .case__eyebrow {
-	transition-delay: 420ms;
-}
-
-html.is-project-morph-revealing .case__hero .case__title {
-	transition-delay: 580ms;
-}
-
-html.is-project-morph-revealing .case__hero .flow__controls {
-	transition-delay: 900ms;
-}
-
-html.is-project-morph-revealing .case__hero .case__meta {
-	transition-delay: 1080ms;
-}
-
-html.is-project-morph-revealing .case__body > section {
-	transition-delay: 1280ms;
-}
-
-html.is-project-morph-revealing .footer {
-	transition-delay: 1480ms;
-}
+html.is-project-morph-revealing .nav { transition-delay: 60ms; }
+html.is-project-morph-revealing .nt-story { transition-delay: 120ms; }
+html.is-project-morph-revealing .case-cover .flow__controls { transition: opacity 300ms linear 200ms; }
+html.is-project-morph-pending .case-cover .flow__controls { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
-	html.is-project-morph-pending .nav,
-	html.is-project-morph-pending .case__back--mobile,
-	html.is-project-morph-pending .case__toc-bar,
-	html.is-project-morph-pending .case__toc,
-	html.is-project-morph-pending .case__hero .case__eyebrow,
-	html.is-project-morph-pending .case__hero .case__title,
-	html.is-project-morph-pending .case__hero .flow__controls,
-	html.is-project-morph-pending .case__hero .case__meta,
-	html.is-project-morph-pending .case__body > section,
-	html.is-project-morph-pending .footer {
-		opacity: 1;
-		transform: none;
-	}
+	html.is-project-morph-pending :is(.nav, .nt-story, .footer, .nt-skip) { opacity: 1; transform: none; }
 }

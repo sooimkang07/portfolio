@@ -5,276 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About · Sooim Kang</title>
+  <meta name="description" content="Sooim Kang is a New York-based product designer interested in the human behavior behind our digital interactions." />
   <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
   <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
   <link rel="icon" href="favicon.ico" />
-  <style>
-    .expl-card__media {
-      border-radius: 0.85rem;
-    }
-
-    .expl__title {
-      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
-    }
-
-    body.home .expl-page {
-      padding-block-start: calc(2.75rem + var(--sp-sm));
-    }
-
-    @media (width >= 1200px) {
-      body.home .expl-page {
-        padding-block-start: 0;
-      }
-    }
-
-    /* ── Koto /work layout (≥1200px) — same shell as explorations ── */
-    @media (width >= 1200px) {
-      .expl-page__layout {
-        display: grid;
-        grid-template-columns: minmax(13.5rem, 16vw) minmax(0, 1fr);
-        column-gap: clamp(28px, 4vw, 56px);
-        padding-inline: var(--gutter);
-        align-items: start;
-      }
-
-      .expl-page__sidebar {
-        position: sticky;
-        top: 0;
-        align-self: start;
-        block-size: 100svh;
-        max-inline-size: none;
-        padding-block: calc(2.75rem + var(--sp-sm) + var(--sp-lg)) var(--gutter);
-        padding-inline-end: var(--sp-sm);
-        overflow-y: auto;
-        scrollbar-width: none;
-      }
-
-      .expl-page__sidebar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .expl__hero {
-        padding: 0;
-      }
-
-      .expl__hero .about-p {
-        font-size: var(--fs-base);
-        color: var(--clr-text);
-        line-height: var(--lh-base);
-        margin-block-end: var(--sp-md);
-      }
-
-      .expl__hero .about-p:last-child {
-        margin-block-end: 0;
-      }
-
-      .expl__hero .about-p a {
-        color: var(--clr-accent);
-        font-weight: var(--fw-semi);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      .expl-page__stage {
-        min-inline-size: 0;
-        padding-block: calc(2.75rem + var(--sp-sm) + var(--sp-md)) var(--sp-lg);
-      }
-
-      .expl-grid {
-        columns: 3;
-        column-gap: 0.375rem;
-        padding: 0;
-      }
-
-      .expl-card {
-        position: relative;
-        display: block;
-        width: 100%;
-        margin-block-end: 0.375rem;
-        break-inside: avoid;
-        transition: opacity 167ms linear;
-        text-decoration: none;
-        color: inherit;
-        cursor: default;
-      }
-
-      a.expl-card {
-        cursor: pointer;
-      }
-
-      .expl-grid:has(.expl-card:hover) .expl-card:not(:hover),
-      .expl-grid:has(.expl-card:focus-visible) .expl-card:not(:focus-visible) {
-        opacity: 0.3;
-      }
-
-      .expl-card {
-        aspect-ratio: 1 / 1;
-      }
-
-      .expl-card__shell {
-        position: absolute;
-        inset: 0;
-      }
-
-      .expl-card__frame {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-
-      .expl-card__media {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        margin-block-end: 0;
-        aspect-ratio: unset;
-        border-radius: 0.85rem;
-        transition: height 167ms linear;
-        background: var(--clr-border);
-      }
-
-      .expl-card:hover .expl-card__media,
-      .expl-card:focus-visible .expl-card__media {
-        height: calc(100% - var(--expl-meta-reveal, 1.75rem));
-      }
-
-      .expl-card__media img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transform: translate(-50%, -50%);
-        transition: none;
-      }
-
-      .expl-card:hover .expl-card__media img,
-      .expl-card:focus-visible .expl-card__media img {
-        transform: translate(-50%, -50%);
-      }
-
-      .expl-card__meta {
-        position: absolute;
-        inset-inline: 0;
-        inset-block-end: 0;
-        z-index: 2;
-        display: block;
-        padding: 0;
-        overflow: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 167ms linear;
-        transition-delay: 0ms;
-      }
-
-      .expl-card:hover .expl-card__meta,
-      .expl-card:focus-visible .expl-card__meta {
-        opacity: 1;
-        transition-delay: 167ms;
-      }
-
-      .expl-card__meta-inner {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 0.5rem 1rem;
-        padding-block-start: 0.25rem;
-      }
-
-      .expl-card__title {
-        flex: 1 1 auto;
-        min-inline-size: 0;
-        margin: 0;
-      }
-    }
-
-    /* Mobile / tablet: stack sidebar + photo grid */
-    @media (width < 1200px) {
-      .expl-page__layout {
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-lg);
-        padding-inline: var(--gutter);
-        padding-block: clamp(1.75rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem);
-      }
-
-      .expl__hero {
-        padding: 0;
-      }
-
-      .expl__hero .about-p {
-        font-size: var(--fs-base);
-        color: var(--clr-text);
-        line-height: var(--lh-base);
-        margin-block-end: var(--sp-md);
-      }
-
-      .expl__hero .about-p:last-child {
-        margin-block-end: 0;
-      }
-
-      .expl__hero .about-p a {
-        color: var(--clr-accent);
-        font-weight: var(--fw-semi);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      .expl-grid {
-        columns: 2;
-        column-gap: 0.375rem;
-        padding: 0;
-      }
-
-      .expl-card {
-        display: block;
-        width: 100%;
-        margin-block-end: 0.375rem;
-        break-inside: avoid;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .expl-card__media {
-        aspect-ratio: 1 / 1;
-        margin-block-end: var(--sp-sm);
-      }
-
-      .expl-card__media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .expl-card__meta {
-        display: block;
-      }
-
-      .expl-card__meta-inner {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 0.5rem 1rem;
-      }
-
-      .expl-card__title {
-        margin: 0;
-      }
-    }
-
-    @media (width < 600px) {
-      .expl-grid {
-        columns: 1;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/about.css?v=39" />
 </head>
-<body class="home">
+<body class="home about-page">
 
   <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
     <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
@@ -286,7 +26,7 @@
         <span></span><span></span><span></span><span></span>
       </button>
       <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="/" class="nav__menu-link">
+        <a href="work" class="nav__menu-link">
           <span class="nav__menu-flip">
             <span class="nav__menu-flip-track">
               <span class="nav__menu-title">Work</span>
@@ -321,222 +61,143 @@
       </nav>
     </div>
     <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="/" class="nav__strip-link">Work</a>
+      <a href="work" class="nav__strip-link">Work</a>
       <a href="explorations" class="nav__strip-link">Explorations</a>
       <a href="about" class="nav__strip-link is-active">About</a>
       <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
     </nav>
   </header>
 
-  <main class="expl-page">
-
-    <div class="expl-page__layout">
-      <aside class="expl-page__sidebar">
-        <section class="expl__hero anim-1">
-          <h1 class="expl__title">I'm a Product Designer shaped by storytelling, systems, and figuring out what actually matters.</h1>
-          <p class="about-p">
-            Good products rarely fail because of the interface. More often, they're solving the wrong problem.
-          </p>
-          <p class="about-p">
-            That's the part of design I enjoy most: understanding where friction actually comes from, reframing the problem when needed, and turning those insights into products that feel intuitive. AI has become an integral part of how I work, helping me move faster from observation to iteration while staying grounded in real user behavior.
-          </p>
-          <p class="about-p">
-            When I'm not designing, I'm usually watching a new show, going on long walks with friends, or trying a new place on Beli.
-          </p>
-          <p class="about-p">
-            I'm looking for thoughtful product teams building ambitious tools with real cultural or behavioral impact. Feel free to reach out on
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">LinkedIn</a>
-            or email me at <a href="mailto:sooimkang1015@gmail.com">sooimkang1015@gmail.com</a>.
-          </p>
-        </section>
-      </aside>
-
-      <div class="expl-page__stage">
-        <div class="expl-grid anim-2">
-
-          <div class="expl-card" aria-label="Hi there!">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/me.jpg" alt="This is me!" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Hi there!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="expl-card" href="https://www.instagram.com/p/DVQ4ckijiNr/" target="_blank" rel="noopener" aria-label="With my team for Parsons 2026 AI Startup Design Hackathon">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/teamwork.jpg" alt="Me with my team for AI Startup Design Hackathon" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">With my team for Parsons 2026 AI Startup Design Hackathon</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="expl-card" href="https://devpost.com/software/forage-5rhbv6" target="_blank" rel="noopener" aria-label="Brainstorming with my team for Figbuild 2026">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/brainstorming.JPG" alt="Brainstorming with my team for Figbuild 2026" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Brainstorming with my team for Figbuild 2026</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <div class="expl-card" aria-label="Us fellows for Parsons' 2026 Digital Expression Fellowship">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/fellowship.jpg" alt="Design fellowship experience" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Us fellows for Parsons' 2026 Digital Expression Fellowship</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="expl-card" aria-label="Always listening to something">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/music.jpg" alt="Always listening to something, hit 45K minutes listened last year on Spotify" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Always listening to something, hit 45K minutes listened last year on Spotify</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="expl-card" href="https://www.instagram.com/taken_on_my_iphone/" target="_blank" rel="noopener" aria-label="Love to take photos">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/photography.jpg" alt="I love to be outdoors and take photos of what I see." />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Love to take photos, check 'em out: @taken_on_my_iphone</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <div class="expl-card" aria-label="Always up for ice cream">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/ice-cream.jpg" alt="Always up for ice cream" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Have the biggest sweet tooth so always up for ice cream</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="expl-card" aria-label="Exploring museums and galleries">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/museum.jpg" alt="Exploring museums and galleries" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Favorite thing to do when traveling is exploring the local museums and galleries</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="expl-card" href="https://open.spotify.com/album/0l8zYqoUeBYg47Gmevq9HZ?si=Y798HA0DQrGripgnaFxJqQ" target="_blank" rel="noopener" aria-label="The Art of Loving, my recent favorite album">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/album.jpg" alt="The Art of Loving, my recent favorite album" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">The Art of Loving, my recent favorite album</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="expl-card" href="https://www.imdb.com/title/tt9059760/" target="_blank" rel="noopener" aria-label="Normal People, my favorite show">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/show.jpg" alt="Normal People, my favorite show" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Normal People, my favorite show</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="expl-card" href="https://www.goodreads.com/book/show/22822858-a-little-life" target="_blank" rel="noopener" aria-label="A Little Life, my favorite book">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/book.jpg" alt="A Little Life, my favorite book" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">A Little Life, my favorite book</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="expl-card" href="https://www.imdb.com/title/tt8033592/" target="_blank" rel="noopener" aria-label="Us and Them, my favorite movie">
-            <div class="expl-card__shell">
-              <div class="expl-card__frame">
-                <div class="expl-card__media">
-                  <img src="about-me-assets/movie.jpg" alt="Us and Them, my favorite movie" />
-                </div>
-                <div class="expl-card__meta">
-                  <div class="expl-card__meta-inner">
-                    <p class="expl-card__title">Us and Them, my favorite movie</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-
+  <main class="ab">
+    <header class="ab-hero ab-col">
+      <figure class="ab-hero__pic ab-reel" aria-label="Short clips from my life: me, graduation, eating out, family, working, game night, cooking"><div class="ab-reel__track" data-reel><div class="ab-reel__item" data-clip="me"><video data-src="about-me-assets/web/me.mp4" poster="about-me-assets/web/me.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">214</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Hiii guyss!! Let’s doom scroll my feed lately</p></div></div><div class="ab-reel__item" data-clip="graduation"><video data-src="about-me-assets/web/graduation.mp4" poster="about-me-assets/web/graduation.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">1,208</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Officially a Master of Communication Design 🎓 <b>#parsons</b></p></div></div><div class="ab-reel__item" data-clip="eating"><video data-src="about-me-assets/web/eating.mp4" poster="about-me-assets/web/eating.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">486</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">7.5/10 ⭐ food review of London Bagel Museum in 안국점 with <b>@neda</b></p></div></div><div class="ab-reel__item" data-clip="family"><video data-src="about-me-assets/web/family.mp4" poster="about-me-assets/web/family.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">352</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Missing my mommy and auntie💛</p></div></div><div class="ab-reel__item" data-clip="working"><video data-src="about-me-assets/web/working.mp4" poster="about-me-assets/web/working.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">167</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">A late night journaling session hatessss to see me coming</p></div></div><div class="ab-reel__item" data-clip="game"><video data-src="about-me-assets/web/game.mp4" poster="about-me-assets/web/game.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">298</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">pov: a friday night after saying we should do something lol <b>@lucytrep</b></p></div></div><div class="ab-reel__item" data-clip="cooking"><video data-src="about-me-assets/web/cooking.mp4" poster="about-me-assets/web/cooking.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">143</span></button>
+<button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
+<button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
+<a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap"><b>@hellofresh</b> pls sponsor me i'm begging</p></div></div></div><span class="ab-reel__paused" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.9c0-1.2 1.3-1.9 2.3-1.3l11 6.9c1 .6 1 2 0 2.6l-11 6.9c-1 .6-2.3-.1-2.3-1.3z"/></svg></span><div class="ab-reel__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><section class="ab-cm" data-cm hidden aria-label="Comments"><div class="ab-cm__panel"><header class="ab-cm__head"><span data-cm-title>Comments</span><button class="ab-cm__x" type="button" data-cm-close aria-label="Close comments"><svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg></button></header><ol class="ab-cm__list" data-cm-list></ol><form class="ab-cm__form" data-cm-form><div class="ab-cm__emoji" data-cm-emoji><button type="button">😳</button><button type="button">😁</button><button type="button">🥰</button><button type="button">😂</button><button type="button">😏</button><button type="button">😅</button><button type="button">🥺</button></div><div class="ab-cm__row"><span class="ab-cm__av" aria-hidden="true"></span><label class="ab-cm__box"><span class="ab-sr">Comment</span><textarea class="ab-cm__input" name="text" rows="1" maxlength="300" placeholder="Add comment…" required></textarea></label></div><div class="ab-cm__tools"><input class="ab-cm__name" name="name" maxlength="40" placeholder="Your name (optional)" autocomplete="nickname"><button class="ab-cm__send" type="submit" aria-label="Post comment" disabled><svg viewBox="0 0 24 24"><path d="M12 19V6m0 0-5.5 5.5M12 6l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><p class="ab-cm__note" data-cm-note></p></form></div></section></figure>
+      <div class="ab-hero__text">
+        <div class="ab-hero__top"><p class="ab-label">About</p><div class="ab-actions ab-actions--top">
+          <a class="ab-icon glass" href="mailto:sooimkang1015@gmail.com" aria-label="Email me" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+          <a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        </div></div>
+        <h1 class="ab-h1"><span class="ab-h1__hi">Hi, I’m <button class="ab-name glass" type="button" data-say aria-label="Sooim, play how to say my name" aria-pressed="false"><span class="ab-name__t">Sooim</span><span class="ab-name__spk" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L11.5 6v12l-4.3-3.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path class="ab-say__w1" d="M15 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ab-say__w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button><audio data-say-audio src="about-me-assets/Sooim.m4a" preload="none"></audio></span> <span class="ab-h1__rest">A product designer interested in the human behavior behind our digital interactions.</span></h1>
+        <div class="ab-prose">
+          <p>I’m a New York-based product designer, born in Seoul and raised in Kansas (<em>Go Chiefs!</em>). My background in journalism and visual design shapes how I work: observe closely, question the obvious, and design around what people actually do.</p>
+          <p>Outside of design, I’m usually making my way through my Letterboxd watchlist, walking around the city with friends, or trying a new spot on Beli.</p>
         </div>
+        <div class="ab-widgets"><div class="ab-w ab-w--clock" role="img" aria-label="Local time in New York"><svg class="ab-clock" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="ab-clock__face"/><g class="ab-clock__ticks"><line x1="50" y1="4" x2="50" y2="9" transform="rotate(0 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(6 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(12 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(18 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(24 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(30 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(36 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(42 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(48 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(54 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(60 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(66 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(72 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(78 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(84 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(90 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(96 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(102 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(108 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(114 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(120 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(126 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(132 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(138 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(144 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(150 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(156 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(162 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(168 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(174 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(180 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(186 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(192 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(198 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(204 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(210 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(216 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(222 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(228 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(234 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(240 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(246 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(252 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(258 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(264 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(270 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(276 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(282 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(288 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(294 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(300 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(306 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(312 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(318 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(324 50 50)"/><line x1="50" y1="4" x2="50" y2="9" transform="rotate(330 50 50)" class="maj"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(336 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(342 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(348 50 50)"/><line x1="50" y1="4.5" x2="50" y2="7.2" transform="rotate(354 50 50)"/></g><g class="ab-clock__nums"><text x="50.0" y="18.8">12</text><text x="67.8" y="23.6">1</text><text x="80.7" y="36.5">2</text><text x="85.5" y="54.3">3</text><text x="80.7" y="72.0">4</text><text x="67.8" y="85.0">5</text><text x="50.0" y="89.8">6</text><text x="32.2" y="85.0">7</text><text x="19.3" y="72.1">8</text><text x="14.5" y="54.3">9</text><text x="19.3" y="36.5">10</text><text x="32.2" y="23.6">11</text></g><g data-h><line class="ab-clock__o" x1="50" y1="50" x2="50" y2="27"/><line class="ab-clock__h" x1="50" y1="50" x2="50" y2="27"/></g><g data-m><line class="ab-clock__o" x1="50" y1="50" x2="50" y2="13"/><line class="ab-clock__m" x1="50" y1="50" x2="50" y2="13"/></g><g data-s><line class="ab-clock__s" x1="50" y1="58" x2="50" y2="7"/></g><circle cx="50" cy="50" r="2.6" class="ab-clock__pin"/><circle cx="50" cy="50" r="1" fill="#fff"/></svg><span class="ab-w__foot"><span class="ab-w__time">Current time</span><strong data-clock-now>–</strong><span data-clock-tz>Eastern Time</span></span></div><div class="ab-w ab-w--findmy" role="img" aria-label="Find My: on weekends Sooim is near McCarren Park, Brooklyn"><svg class="ab-map" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#f6f4ef"/><g fill="#ebe8e1" transform="rotate(-28 100 100)"><rect x="-80" y="-80" width="31" height="21" rx="1.5"/><rect x="-80" y="-54" width="31" height="21" rx="1.5"/><rect x="-80" y="-28" width="31" height="21" rx="1.5"/><rect x="-80" y="-2" width="31" height="21" rx="1.5"/><rect x="-80" y="24" width="31" height="21" rx="1.5"/><rect x="-80" y="50" width="31" height="21" rx="1.5"/><rect x="-80" y="76" width="31" height="21" rx="1.5"/><rect x="-80" y="102" width="31" height="21" rx="1.5"/><rect x="-80" y="128" width="31" height="21" rx="1.5"/><rect x="-80" y="154" width="31" height="21" rx="1.5"/><rect x="-80" y="180" width="31" height="21" rx="1.5"/><rect x="-80" y="206" width="31" height="21" rx="1.5"/><rect x="-80" y="232" width="31" height="21" rx="1.5"/><rect x="-80" y="258" width="31" height="21" rx="1.5"/><rect x="-44" y="-80" width="31" height="21" rx="1.5"/><rect x="-44" y="-54" width="31" height="21" rx="1.5"/><rect x="-44" y="-28" width="31" height="21" rx="1.5"/><rect x="-44" y="-2" width="31" height="21" rx="1.5"/><rect x="-44" y="24" width="31" height="21" rx="1.5"/><rect x="-44" y="50" width="31" height="21" rx="1.5"/><rect x="-44" y="76" width="31" height="21" rx="1.5"/><rect x="-44" y="102" width="31" height="21" rx="1.5"/><rect x="-44" y="128" width="31" height="21" rx="1.5"/><rect x="-44" y="154" width="31" height="21" rx="1.5"/><rect x="-44" y="180" width="31" height="21" rx="1.5"/><rect x="-44" y="206" width="31" height="21" rx="1.5"/><rect x="-44" y="232" width="31" height="21" rx="1.5"/><rect x="-44" y="258" width="31" height="21" rx="1.5"/><rect x="-8" y="-80" width="31" height="21" rx="1.5"/><rect x="-8" y="-54" width="31" height="21" rx="1.5"/><rect x="-8" y="-28" width="31" height="21" rx="1.5"/><rect x="-8" y="-2" width="31" height="21" rx="1.5"/><rect x="-8" y="24" width="31" height="21" rx="1.5"/><rect x="-8" y="50" width="31" height="21" rx="1.5"/><rect x="-8" y="76" width="31" height="21" rx="1.5"/><rect x="-8" y="102" width="31" height="21" rx="1.5"/><rect x="-8" y="128" width="31" height="21" rx="1.5"/><rect x="-8" y="154" width="31" height="21" rx="1.5"/><rect x="-8" y="180" width="31" height="21" rx="1.5"/><rect x="-8" y="206" width="31" height="21" rx="1.5"/><rect x="-8" y="232" width="31" height="21" rx="1.5"/><rect x="-8" y="258" width="31" height="21" rx="1.5"/><rect x="28" y="-80" width="31" height="21" rx="1.5"/><rect x="28" y="-54" width="31" height="21" rx="1.5"/><rect x="28" y="-28" width="31" height="21" rx="1.5"/><rect x="28" y="-2" width="31" height="21" rx="1.5"/><rect x="28" y="24" width="31" height="21" rx="1.5"/><rect x="28" y="50" width="31" height="21" rx="1.5"/><rect x="28" y="76" width="31" height="21" rx="1.5"/><rect x="28" y="102" width="31" height="21" rx="1.5"/><rect x="28" y="128" width="31" height="21" rx="1.5"/><rect x="28" y="154" width="31" height="21" rx="1.5"/><rect x="28" y="180" width="31" height="21" rx="1.5"/><rect x="28" y="206" width="31" height="21" rx="1.5"/><rect x="28" y="232" width="31" height="21" rx="1.5"/><rect x="28" y="258" width="31" height="21" rx="1.5"/><rect x="64" y="-80" width="31" height="21" rx="1.5"/><rect x="64" y="-54" width="31" height="21" rx="1.5"/><rect x="64" y="-28" width="31" height="21" rx="1.5"/><rect x="64" y="-2" width="31" height="21" rx="1.5"/><rect x="64" y="24" width="31" height="21" rx="1.5"/><rect x="64" y="50" width="31" height="21" rx="1.5"/><rect x="64" y="76" width="31" height="21" rx="1.5"/><rect x="64" y="102" width="31" height="21" rx="1.5"/><rect x="64" y="128" width="31" height="21" rx="1.5"/><rect x="64" y="154" width="31" height="21" rx="1.5"/><rect x="64" y="180" width="31" height="21" rx="1.5"/><rect x="64" y="206" width="31" height="21" rx="1.5"/><rect x="64" y="232" width="31" height="21" rx="1.5"/><rect x="64" y="258" width="31" height="21" rx="1.5"/><rect x="100" y="-80" width="31" height="21" rx="1.5"/><rect x="100" y="-54" width="31" height="21" rx="1.5"/><rect x="100" y="-28" width="31" height="21" rx="1.5"/><rect x="100" y="-2" width="31" height="21" rx="1.5"/><rect x="100" y="24" width="31" height="21" rx="1.5"/><rect x="100" y="50" width="31" height="21" rx="1.5"/><rect x="100" y="76" width="31" height="21" rx="1.5"/><rect x="100" y="102" width="31" height="21" rx="1.5"/><rect x="100" y="128" width="31" height="21" rx="1.5"/><rect x="100" y="154" width="31" height="21" rx="1.5"/><rect x="100" y="180" width="31" height="21" rx="1.5"/><rect x="100" y="206" width="31" height="21" rx="1.5"/><rect x="100" y="232" width="31" height="21" rx="1.5"/><rect x="100" y="258" width="31" height="21" rx="1.5"/><rect x="136" y="-80" width="31" height="21" rx="1.5"/><rect x="136" y="-54" width="31" height="21" rx="1.5"/><rect x="136" y="-28" width="31" height="21" rx="1.5"/><rect x="136" y="-2" width="31" height="21" rx="1.5"/><rect x="136" y="24" width="31" height="21" rx="1.5"/><rect x="136" y="50" width="31" height="21" rx="1.5"/><rect x="136" y="76" width="31" height="21" rx="1.5"/><rect x="136" y="102" width="31" height="21" rx="1.5"/><rect x="136" y="128" width="31" height="21" rx="1.5"/><rect x="136" y="154" width="31" height="21" rx="1.5"/><rect x="136" y="180" width="31" height="21" rx="1.5"/><rect x="136" y="206" width="31" height="21" rx="1.5"/><rect x="136" y="232" width="31" height="21" rx="1.5"/><rect x="136" y="258" width="31" height="21" rx="1.5"/><rect x="172" y="-80" width="31" height="21" rx="1.5"/><rect x="172" y="-54" width="31" height="21" rx="1.5"/><rect x="172" y="-28" width="31" height="21" rx="1.5"/><rect x="172" y="-2" width="31" height="21" rx="1.5"/><rect x="172" y="24" width="31" height="21" rx="1.5"/><rect x="172" y="50" width="31" height="21" rx="1.5"/><rect x="172" y="76" width="31" height="21" rx="1.5"/><rect x="172" y="102" width="31" height="21" rx="1.5"/><rect x="172" y="128" width="31" height="21" rx="1.5"/><rect x="172" y="154" width="31" height="21" rx="1.5"/><rect x="172" y="180" width="31" height="21" rx="1.5"/><rect x="172" y="206" width="31" height="21" rx="1.5"/><rect x="172" y="232" width="31" height="21" rx="1.5"/><rect x="172" y="258" width="31" height="21" rx="1.5"/><rect x="208" y="-80" width="31" height="21" rx="1.5"/><rect x="208" y="-54" width="31" height="21" rx="1.5"/><rect x="208" y="-28" width="31" height="21" rx="1.5"/><rect x="208" y="-2" width="31" height="21" rx="1.5"/><rect x="208" y="24" width="31" height="21" rx="1.5"/><rect x="208" y="50" width="31" height="21" rx="1.5"/><rect x="208" y="76" width="31" height="21" rx="1.5"/><rect x="208" y="102" width="31" height="21" rx="1.5"/><rect x="208" y="128" width="31" height="21" rx="1.5"/><rect x="208" y="154" width="31" height="21" rx="1.5"/><rect x="208" y="180" width="31" height="21" rx="1.5"/><rect x="208" y="206" width="31" height="21" rx="1.5"/><rect x="208" y="232" width="31" height="21" rx="1.5"/><rect x="208" y="258" width="31" height="21" rx="1.5"/><rect x="244" y="-80" width="31" height="21" rx="1.5"/><rect x="244" y="-54" width="31" height="21" rx="1.5"/><rect x="244" y="-28" width="31" height="21" rx="1.5"/><rect x="244" y="-2" width="31" height="21" rx="1.5"/><rect x="244" y="24" width="31" height="21" rx="1.5"/><rect x="244" y="50" width="31" height="21" rx="1.5"/><rect x="244" y="76" width="31" height="21" rx="1.5"/><rect x="244" y="102" width="31" height="21" rx="1.5"/><rect x="244" y="128" width="31" height="21" rx="1.5"/><rect x="244" y="154" width="31" height="21" rx="1.5"/><rect x="244" y="180" width="31" height="21" rx="1.5"/><rect x="244" y="206" width="31" height="21" rx="1.5"/><rect x="244" y="232" width="31" height="21" rx="1.5"/><rect x="244" y="258" width="31" height="21" rx="1.5"/></g><path d="M-10 -10 H30 C24 30 16 62 20 100 C24 140 10 172 4 215 H-10 Z" fill="#a9d3f2"/><path d="M98 40 L136 28 L154 84 L147 95 L112 100 Z" fill="#c4e5b4"/><g stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"><path d="M-20 172 L220 60"/><path d="M52 230 L136 -20"/></g><g stroke="#f6d77a" stroke-width="3" fill="none" stroke-linecap="round"><path d="M200 20 L150 210"/></g><text x="36" y="24" class="ab-map__lbl">GREENPOINT</text><text x="30" y="82" class="ab-map__lbl">WILLIAMSBURG</text></svg><span class="ab-pin"><img src="about-me-assets/me.jpg" alt="" decoding="async"></span><span class="ab-pin__dot"></span><span class="ab-w__foot"><span class="ab-w__time">Weekends</span><strong>McCarren Park</strong><span>Brooklyn, NY</span></span></div><a class="ab-w ab-w--spotify" href="https://open.spotify.com/track/3BmaFHt6q91CmMrA7fLLRC" target="_blank" rel="noopener" aria-label="Listening on Spotify: Petals on the Moon by Wasia Project"><img class="ab-sp__bg" src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c45422f06ae3e14b7343fe4a" alt="" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'"><span class="ab-sp__top"><img class="ab-sp__art" src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c45422f06ae3e14b7343fe4a" alt="" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'"><svg class="ab-sp__logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1ed760"/><path d="M6.5 9.3c3.6-1.1 7.9-.8 11 1M7.2 12.4c3-.8 6.4-.5 9 .9M7.8 15.2c2.4-.6 4.9-.4 7 .7" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></span><span class="ab-sp__meta"><span class="ab-sp__k"><span class="ab-sp__eq" aria-hidden="true"><i></i><i></i><i></i></span>Listening to</span><strong>Petals on the Moon</strong><span>Wasia Project</span></span></a></div>
       </div>
-    </div>
+    </header>
+
+
+    <section class="ab-sec ab-col" aria-labelledby="ab-exp">
+      <h2 class="ab-h2" id="ab-exp">Experience</h2>
+      <ol class="ab-exp">
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Graphic Designer (Freelance)</span><span class="ab-exp__place">Regular People</span></span><span class="ab-exp__proof">11 clients · a 7-week sold-out Off-Broadway run</span><span class="ab-exp__years">2025–now</span></li>
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Digital Marketing &amp; Design Coordinator</span><span class="ab-exp__place">AKADEMIA Test Prep</span></span><span class="ab-exp__proof">One design system across 100+ deliverables</span><span class="ab-exp__years">2023–25</span></li>
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Product &amp; Visual Designer (Contract)</span><span class="ab-exp__place">Meal Village</span></span><span class="ab-exp__proof">+20% investor demo engagement</span><span class="ab-exp__years">2022–23</span></li>
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Lead Product &amp; Brand Designer</span><span class="ab-exp__place">Authentic Media Ascension (acq. by Jellysmack)</span></span><span class="ab-exp__proof">30+ creators · 60M+ subscribers · 20B+ views</span><span class="ab-exp__years">2021–23</span></li>
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Graphic Designer</span><span class="ab-exp__place">Northwestern Student Affairs</span></span><span class="ab-exp__proof">200+ applications from one campaign</span><span class="ab-exp__years">2020–22</span></li>
+      </ol>
+      <h3 class="ab-label ab-sub">Education</h3>
+      <ol class="ab-exp">
+            <li><span class="ab-exp__main"><span class="ab-exp__role">Master of Communication Design</span><span class="ab-exp__place">Parsons School of Design</span></span><span class="ab-exp__proof">Merit Scholar · Digital Expression Fellow</span><span class="ab-exp__years">2025–26</span></li>
+            <li><span class="ab-exp__main"><span class="ab-exp__role">B.S. in Journalism</span><span class="ab-exp__place">Northwestern, Medill</span></span><span class="ab-exp__proof">Magna cum laude · IMC certificate</span><span class="ab-exp__years">2019–22</span></li>
+      </ol>
+    </section>
+
+
+    <section class="ab-sec ab-col" aria-labelledby="ab-out">
+      <div class="ab-album-head"><div class="ab-album-text"><h2 class="ab-h2" id="ab-out">Camera roll</h2></div><button class="ab-play glass" type="button" data-album-play aria-label="Play Camera roll as a slideshow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button></div>
+      <div class="ab-photos">
+        <figure class="ab-photo"><img src="about-me-assets/teamwork.jpg" alt="With my team at the Parsons 2026 AI Startup Design Hackathon" loading="lazy"><figcaption>With my team at the Parsons 2026 AI Startup Design Hackathon</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/brainstorming.JPG" alt="Brainstorming at FigBuild 2026" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Brainstorming at FigBuild 2026</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/fellowship.jpg" alt="Parsons 2026 Digital Expression Fellows" loading="lazy"><figcaption>Parsons 2026 Digital Expression Fellows</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/music.jpg" alt="Always listening to something: 45K minutes on Spotify last year" loading="lazy"><figcaption>Always listening to something: 45K minutes on Spotify last year</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/photography.jpg" alt="Out taking photos" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Out taking photos</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/museum.jpg" alt="Local museums first, whenever I travel" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Local museums first, whenever I travel</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/ice-cream.jpg" alt="Biggest sweet tooth, always up for ice cream" loading="lazy"><figcaption>Biggest sweet tooth, always up for ice cream</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/team.jpg" alt="With the team" loading="lazy"><figcaption>With the team</figcaption></figure>
+        <figure class="ab-photo"><img src="about-me-assets/food-1600.jpg" alt="Street food break" loading="lazy"><figcaption>Street food break</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="ab-sec ab-col" aria-labelledby="ab-rec" data-recents hidden>
+      <h2 class="ab-h2" id="ab-rec">Recent activity</h2>
+      <ul class="ab-recents" data-recents-list></ul>
+    </section>
+
+    <section class="ab-sec ab-col" aria-labelledby="ab-fav">
+      <h2 class="ab-h2" id="ab-fav">Favorites</h2>
+      <ul class="ab-favs">
+            <li class="ab-fav">
+              <a class="ab-fav__cover" href="https://www.imdb.com/title/tt8033592/" target="_blank" rel="noopener"><img src="about-me-assets/movie.jpg" alt="Us and Them" loading="lazy"></a>
+              <a class="ab-fav__app glass" href="https://letterboxd.com/sooimkang/" target="_blank" rel="noopener" aria-label="My Letterboxd"><span class="ab-fav__app-pill">My Letterboxd ↗</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a>
+              <p class="ab-label ab-fav__cat">Film</p>
+              <p class="ab-fav__title">Us and Them</p>
+              <p class="ab-fav__by">Rene Liu</p>
+            </li>
+            <li class="ab-fav">
+              <a class="ab-fav__cover" href="https://www.goodreads.com/book/show/22822858-a-little-life" target="_blank" rel="noopener"><img src="about-me-assets/book.jpg" alt="A Little Life" loading="lazy"></a>
+              <a class="ab-fav__app glass" href="https://fable.co/fabler/sooim-kang-511031180708" target="_blank" rel="noopener" aria-label="My Fable"><span class="ab-fav__app-pill">My Fable ↗</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a>
+              <p class="ab-label ab-fav__cat">Book</p>
+              <p class="ab-fav__title">A Little Life</p>
+              <p class="ab-fav__by">Hanya Yanagihara</p>
+            </li>
+            <li class="ab-fav">
+              <a class="ab-fav__cover" href="https://open.spotify.com/album/0l8zYqoUeBYg47Gmevq9HZ" target="_blank" rel="noopener"><img src="about-me-assets/album.jpg" alt="The Art of Loving" loading="lazy"></a>
+              <a class="ab-fav__app glass" href="https://open.spotify.com/user/toqaquj337002gpznodg2pyr6" target="_blank" rel="noopener" aria-label="My Spotify"><span class="ab-fav__app-pill">My Spotify ↗</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a>
+              <p class="ab-label ab-fav__cat">Album</p>
+              <p class="ab-fav__title">The Art of Loving</p>
+              <p class="ab-fav__by">Olivia Dean</p>
+            </li>
+            <li class="ab-fav">
+              <a class="ab-fav__cover" href="https://www.imdb.com/title/tt9059760/" target="_blank" rel="noopener"><img src="about-me-assets/show.jpg" alt="Normal People" loading="lazy"></a>
+              <p class="ab-label ab-fav__cat">Show</p>
+              <p class="ab-fav__title">Normal People</p>
+              <p class="ab-fav__by">Sally Rooney</p>
+            </li>
+      </ul>
+    </section>
 
     <section class="home-contact" id="contact" aria-label="Contact">
       <div class="home-contact__body">
@@ -606,18 +267,7 @@
   </footer>
 
   <script src="js/site.js"></script>
-  <script>
-    function setExplMetaReveal() {
-      if (window.innerWidth < 1200) return;
-      document.querySelectorAll('.expl-card').forEach(function(card) {
-        var meta = card.querySelector('.expl-card__meta-inner');
-        if (!meta) return;
-        card.style.setProperty('--expl-meta-reveal', meta.offsetHeight + 'px');
-      });
-    }
-
-    setExplMetaReveal();
-    window.addEventListener('resize', setExplMetaReveal);
-  </script>
+  <script src="js/comments-config.js?v=2"></script>
+  <script src="js/about.js?v=31" defer></script>
 </body>
 </html>

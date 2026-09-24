@@ -61,3 +61,49 @@
   .notate-page .nt-toc > .nt-back { width: max-content; margin: 8px auto 4px; }
   .notate-page .nt-section { scroll-margin-top: 180px; }
 }
+
+/* Solution + decision motion clips */
+.notate-page .nt-video { display: block; width: 100%; height: auto; background: #eeefed; }
+
+/* ── Page structure (Problem → Solution → First run → Launch) ── */
+/* Each loop step: full-width walkthrough, then its decision beside a detail clip. */
+.notate-page .nt-step + .nt-step { margin-top: clamp(72px, 8vw, 112px); }
+.notate-page .nt-step > .nt-decisions { margin-top: 40px; }
+.notate-page .nt-step .nt-decision { padding-block: 0; }
+
+/* First run: three small setup clips in sequence. */
+.notate-page .nt-onboarding {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-media, 28px) 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-media, 12px);
+}
+.notate-page .nt-onboarding .nt-media { margin: 0; }
+.notate-page .nt-onboarding p { margin-top: 10px; font-size: 14px !important; color: var(--c-ink, #242725) !important; }
+.notate-page .nt-onboarding p span { color: var(--c-muted, #80867f); margin-right: 8px; font-variant-numeric: tabular-nums; }
+/* Hide playback buttons on these small clips; they're short loops. */
+body.case-page.case-page.notate-page .nt-onboarding .flow__controls { display: none; }
+.notate-page #first-run .nt-decisions { margin-top: 40px; }
+
+/* Launch: store screenshots, first one large, then a 2×2 grid. */
+.notate-page .nt-store-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-media, 12px);
+  margin-top: var(--sp-media, 28px);
+}
+.notate-page .nt-store-gallery img { display: block; width: 100%; height: auto; }
+.notate-page .nt-store-gallery img:first-child { grid-column: 1 / -1; }
+.notate-page .nt-next { margin-top: 56px; }
+.notate-page .nt-next h3 { margin-bottom: 14px; }
+.notate-page .nt-next strong { color: var(--c-ink, #242725); font-weight: 500; }
+
+/* Store link: pending until STORE_URL is set in js/notate.js. */
+.notate-page .nt-store-link:not(.nt-link-pending)::after { content: " ↗"; }
+
+@media (max-width: 700px) {
+  .notate-page .nt-onboarding { grid-template-columns: 1fr; gap: 24px; }
+  .notate-page .nt-store-gallery { grid-template-columns: 1fr; }
+}

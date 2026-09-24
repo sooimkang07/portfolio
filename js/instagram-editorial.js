@@ -1,29 +1,5 @@
-/* Autoplay every gallery video, preserving intentional manual pauses. */
+/* Video playback lives in js/case.js; this file only drives the findings scene. */
 (() => {
-  const videos = [...document.querySelectorAll('video')];
-  videos.forEach(video => {
-    video.muted = true;
-    video.controls = false;
-    const device = video.closest('.flow__device, .ig-gallery__tile');
-    const button = device?.querySelector('.flow__btn--pause');
-    const sync = () => {
-      button?.classList.toggle('is-playing', !video.paused);
-      button?.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
-    };
-    button?.addEventListener('click', () => {
-      if (video.paused) { video.dataset.userPaused = ''; video.play().catch(sync); }
-      else { video.dataset.userPaused = 'true'; video.pause(); }
-    });
-    device?.querySelector('.flow__btn--replay')?.addEventListener('click', () => {
-      video.currentTime = 0; video.dataset.userPaused = ''; video.play().catch(sync);
-    });
-    video.addEventListener('play', sync);
-    video.addEventListener('pause', sync);
-    video.play().catch(sync);
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) videos.forEach(v => { if (!v.dataset.userPaused) v.play().catch(() => {}); });
-  });
   document.querySelectorAll('.ig-motion-toggle').forEach(button => {
     button.addEventListener('click', () => {
       const paused = button.closest('.ig-findings').classList.toggle('is-paused');

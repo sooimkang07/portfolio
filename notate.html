@@ -11,10 +11,14 @@
   <link rel="stylesheet" href="css/notate.css?v=1" />
   <link rel="icon" href="favicon.ico" />
 <link rel="stylesheet" href="css/project-clean.css?v=7">
-<link rel="stylesheet" href="css/notate-refinements.css?v=3">
+<link rel="stylesheet" href="css/notate-refinements.css?v=6">
+<link rel="stylesheet" href="css/morph.css?v=2">
+<link rel="stylesheet" href="css/case.css?v=11">
+<link rel="stylesheet" href="css/notate-figures.css?v=1">
+<script data-morph-id="notate">try{var d=JSON.parse(sessionStorage.getItem("sooim-project-morph")||"null");if(d&&d.id==="notate"&&Date.now()-(d.ts||0)<8000)document.documentElement.classList.add("is-project-morph-pending")}catch(e){}</script>
 </head>
-<body class="home notate-page">
-  <a class="nt-skip" href="#overview">Skip to case study</a>
+<body class="home notate-page case-page page--project" data-case="notate">
+  <a class="nt-skip" href="#problem">Skip to case study</a>
   <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
     <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
     <div class="nav__bar">
@@ -25,7 +29,7 @@
         <span></span><span></span><span></span><span></span>
       </button>
       <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="/" class="nav__menu-link is-active">
+        <a href="work" class="nav__menu-link is-active">
           <span class="nav__menu-flip">
             <span class="nav__menu-flip-track">
               <span class="nav__menu-title">Work</span>
@@ -60,7 +64,7 @@
       </nav>
     </div>
     <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="/" class="nav__strip-link is-active">Work</a>
+      <a href="work" class="nav__strip-link is-active">Work</a>
       <a href="explorations" class="nav__strip-link">Explorations</a>
       <a href="about" class="nav__strip-link">About</a>
       <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
@@ -68,8 +72,13 @@
   </header>
 
   <main id="top" class="nt-main">
-
-<figure class="nt-media nt-wide nt-hero-media"><div class="nt-placeholder nt-cinema" role="img" aria-label="Placeholder for 15-second Notate cover video"></div></figure>
+    <figure class="case-cover" data-case-cover>
+      <div class="flow__device">
+        <div class="flow__device-screen"><video class="flow__video case-cover__media" data-project-morph-to="notate" src="notate-assets/n-notate-logo.mp4" poster="covers/notate-cover.png" autoplay loop muted playsinline preload="auto" aria-label="Notate logo animation"></video></div>
+        <div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
+        
+      </div>
+    </figure>
     <div class="nt-story">
       <aside class="nt-rail">
         <nav class="nt-toc" aria-label="Case study sections">
@@ -78,82 +87,80 @@
             <li><a href="#overview" aria-current="location"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li>
             <li><a href="#problem"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Problem</span><span class="project-toc-title" aria-hidden="true">Problem</span></span></span></a></li>
             <li><a href="#solution"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Solution</span><span class="project-toc-title" aria-hidden="true">Solution</span></span></span></a></li>
-            <li><a href="#decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li>
-            <li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li>
+            <li><a href="#craft"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Craft</span><span class="project-toc-title" aria-hidden="true">Craft</span></span></span></a></li>
+            <li><a href="#outcome"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Outcome</span><span class="project-toc-title" aria-hidden="true">Outcome</span></span></span></a></li>
           </ol>
         </nav>
       </aside>
       <div class="nt-chapters">
-    <header class="nt-hero nt-reading">
-      <p class="nt-kicker">Notate · Product Design · Concept · 2025</p>
-      <h1>Annotating the web<br>without losing context.</h1>
-      <p class="nt-deck">Notes attached to the live web.<br>Right where your thinking happens.</p>
+    <header class="nt-hero nt-reading" id="overview">
+      <p class="nt-kicker">Chrome extension · 0→1 · 2026</p>
+      <h1>Notate is a Chrome extension for annotating live webpages. <span class="nt-tone">Pin a note to the exact part of a page, sort it into folders, and jump back to it later.</span></h1>
       <dl class="nt-meta">
-        <div><dt>Role</dt><dd>Solo Product Designer</dd></div>
-        <div><dt>Timeline</dt><dd>Coming soon</dd></div>
-        <div><dt>Platform</dt><dd>TBD</dd></div>
-        <div><dt>Scope</dt><dd>TBD</dd></div>
+        <div><dt>Role</dt><dd>Product Designer<br>Engineer (solo)</dd></div>
+        <div><dt>Scope</dt><dd>Problem framing<br>Product<br>Build<br>Launch</dd></div>
+        <div><dt>Platform</dt><dd>Chrome extension</dd></div>
+        <div><dt>Status</dt><dd>In Chrome Web Store review</dd></div>
       </dl>
+      <a class="nt-link nt-store-link nt-link-pending" data-store-link aria-disabled="true">Chrome Web Store · publishing soon</a>
     </header>
-        <section id="overview" class="nt-section" aria-labelledby="overview-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">01 / Overview</p>
-            <h2 id="overview-title">Your notes. Their original context.</h2>
-            <p>Notate is a Chrome extension for annotating the live web. Attach notes to elements on a page, organize them into folders, and return to what you saved—right where you found it.</p>
-            <p class="nt-paragraph">I designed and built the extension from end to end. It’s fully functional and being prepared for release on the Chrome Web Store.</p>
-            <!-- Replace this non-interactive label with the verified listing link. -->
-            <span class="nt-link nt-link-pending">Chrome Web Store · publishing soon</span>
-          </div>
-        </section>
         <section id="problem" class="nt-section" aria-labelledby="problem-title">
           <div class="nt-reading">
-            <p class="nt-kicker">02 / Problem</p>
-            <h2 id="problem-title">Saving a page isn’t the same<br>as saving what mattered.</h2>
-            <p>Open tabs, bookmarks, and screenshots can hold onto a reference. But the detail that caught your eye—and what you wanted to say about it—can get lost along the way.</p>
+            <p class="nt-kicker">Problem</p>
+            <h2 id="problem-title">Every way we save the web loses why we saved it.</h2>
+            <p>When something on a page sparks a thought, the usual tools split the thought from its source. Each workaround fixes the last one and creates a new problem.</p>
           </div>
-<figure class="nt-media nt-process"><a class="nt-problem-image" href="notate-assets/problem-collage.png" target="_blank" rel="noopener" aria-label="View problem collage at full size (opens in a new tab)"><img src="notate-assets/problem-collage.png" alt="Collage of a crowded Chrome tab bar, cascading bookmark folders, and scattered screenshots with comment pins." width="1536" height="1024" loading="lazy" decoding="async" /></a></figure>
-          <div class="nt-process nt-problems">
-            <div><h3>Tabs keep piling up.</h3><p>Keeping a page open becomes a way to remember to come back.</p></div>
-            <div><h3>Bookmarks lose the detail.</h3><p>A saved link doesn’t capture which part mattered or why.</p></div>
-            <div><h3>Screenshots leave the page.</h3><p>The visual survives, but its connection to the live source gets weaker.</p></div>
-          </div>
+          <figure class="nt-media nt-process"><div class="ntf-panel"><span class="ntf-tag">Each fix creates the next problem</span><div class="ntf-ladder"><div class="ntf-step"><div class="mb"><div class="mb__bar mb__tabs--many"><i></i><i></i><i></i><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span><span class="mb__tab"></span></div><div class="mb__body"><span class="mb__line w8"></span><span class="mb__line w6"></span><span class="mb__line w4"></span><span class="mb__q">40 tabs</span></div></div><span class="ntf-tag">Step 1 · Keep the tab open</span><p class="ntf-text">40 tabs later, you can’t find anything and your laptop slows down.</p><span class="ntf-fail">Can’t find it</span></div><div class="ntf-step"><div class="mb"><div class="mb__bar"><i></i><i></i><i></i><span class="mb__tab" style="width:40px"></span></div><div class="mb__body"><span class="mb__folder">Design refs</span><span class="mb__folder">Read later</span><span class="mb__folder">Misc 2</span><span class="mb__q">why this one?</span></div></div><span class="ntf-tag">Step 2 · Bookmark it</span><p class="ntf-text">Tabs closed. A month later: why did I save this?</p><span class="ntf-fail">Loses the why</span></div><div class="ntf-step"><div class="mb"><div class="mb__bar"><i></i><i></i><i></i><span class="mb__tab" style="width:40px"></span></div><div class="mb__split"><span class="mb__shot"></span><span class="mb__notes"><span class="mb__line w8"></span><span class="mb__line w6"></span><span class="mb__line"></span></span></div></div><span class="ntf-tag">Step 3 · Screenshot it, note it elsewhere</span><p class="ntf-text">The thought is in one app. The page is in another, and it moves on without you.</p><span class="ntf-fail">Split in two</span></div></div></div></figure>
+          <div class="nt-reading"><p style="margin-top:32px">That’s why the answer isn’t a better bookmark manager. The note has to live on the page itself.</p></div>
         </section>
         <section id="solution" class="nt-section" aria-labelledby="solution-title">
           <div class="nt-reading">
-            <p class="nt-kicker">03 / Solution</p>
-            <h2 id="solution-title">Annotate. Organize. Return.</h2>
-            <p>A focused workflow that keeps the reference, the note, and the way back together.</p>
+            <p class="nt-kicker">Solution</p>
+            <h2 id="solution-title">Notate puts the note on the page, attached to exactly what you noticed.</h2>
+            <p>I scoped it to one loop: annotate, organize, return. Instead of saving screenshots, collecting disconnected bookmarks, or leaving dozens of tabs open, your notes stay attached to their original context.</p>
           </div>
-
-<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Annotate</h3><p>Select an element on a live webpage and attach a note directly to it.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for annotate screen recording"></div></figure></div>
-<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Organize</h3><p>Save notes into folders to keep references grouped by project or purpose.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for organize screen recording"></div></figure></div>
-<div class="nt-feature"><div class="nt-reading nt-feature-heading"><h3>Return</h3><p>Reopen a saved page and jump back to the note in its original context.</p></div><figure class="nt-media nt-process"><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for return screen recording"></div></figure></div>
+          <figure class="nt-media nt-process"><div class="ntf-panel"><div class="ntf-anatomy" data-anatomy><div class="ntf-shot"><img src="notate-assets/notate-solutions/return-poster.png" alt="Notate on figma.com: a yellow note pinned to the headline, and the side panel listing saved pages and their notes." width="1920" height="1080" loading="lazy" decoding="async"><span class="ntf-dot" data-for="element" style="left:16%;top:40%">1</span><span class="ntf-dot" data-for="note" style="left:47%;top:50%">2</span><span class="ntf-dot" data-for="folder" style="left:82%;top:35%">3</span><span class="ntf-dot" data-for="panel" style="left:84%;top:58%">4</span></div><div class="ntf-anno" data-anno="element"><span class="ntf-tag"><b>1</b>The element</span><p>Any part of the page: a headline, an image, a button.</p></div><div class="ntf-anno" data-anno="note"><span class="ntf-tag"><b>2</b>The note</span><p>Your thought, pinned right beside it.</p></div><div class="ntf-anno" data-anno="folder"><span class="ntf-tag"><b>3</b>The folders</span><p>Filter by project. Any note can go in any folder.</p></div><div class="ntf-anno" data-anno="panel"><span class="ntf-tag"><b>4</b>The side panel</span><p>Every page you’ve annotated, with its notes underneath.</p></div></div></div></figure>
+<div class="nt-step"><div class="nt-feature"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Annotate</p><h3>Click New, pick any element, and write. The note stays attached as the page moves.</h3><p>A pencil cursor highlights whatever you point at. Save, and the note is pinned beside it.</p></div><figure class="nt-media nt-process"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/annotate.mp4" poster="notate-assets/notate-portfolio-motion/annotate-poster.png" width="1920" height="1080" loop muted playsinline preload="metadata" aria-label="Selecting a heading on a live page, typing a note, and saving it"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></div><div class="nt-decisions"><article class="nt-decision"><div class="nt-decision-copy"><p class="nt-lead">A click has to mean one thing.</p><p>On a live page, a click either follows a link or picks an element, never both. While browsing, notes stay visible and the site works normally. New switches to a pencil that only picks, and saving keeps you there so you can leave several notes in a row.</p></div><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/live-page.mp4" poster="notate-assets/notate-portfolio-motion/live-page-poster.png" width="1080" height="1350" loop muted playsinline preload="metadata" aria-label="Clicking New and targeting an element directly on the live page"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></article></div></div>
+<div class="nt-step"><div class="nt-feature"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Organize</p><h3>Put any note in any folder, or make a new folder without leaving the page.</h3><p>Folders work across websites, so one project can collect notes from everywhere you researched it.</p></div><figure class="nt-media nt-process"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/organize.mp4" poster="notate-assets/notate-portfolio-motion/organize-poster-folder.png" width="1920" height="1080" loop muted playsinline preload="metadata" aria-label="Creating a Design folder, choosing a color, and saving the note into it"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></div><div class="nt-decisions"><article class="nt-decision"><div class="nt-decision-copy"><p class="nt-lead">One palette for every folder.</p><p>Every folder color shares the same lightness, so no project looks louder than another. Tags and nested folders were cut: one folder per note keeps filtering predictable.</p></div><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/purpose.mp4" poster="notate-assets/notate-portfolio-motion/purpose-poster.png" width="1080" height="1350" loop muted playsinline preload="metadata" aria-label="Saving a note to a colored folder and filtering notes by folder"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></article></div></div>
+<div class="nt-step"><div class="nt-feature"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Return</p><h3>Open a note from the side panel and land right back on what you annotated.</h3><p>The page reopens, or an existing tab is reused, and it scrolls straight to the element.</p></div><figure class="nt-media nt-process"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/return.mp4" poster="notate-assets/notate-portfolio-motion/return-poster-sidebar.png" width="1920" height="1080" loop muted playsinline preload="metadata" aria-label="Opening Notate from a new tab and jumping back to a saved note on its page"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></div><div class="nt-decisions"><article class="nt-decision"><div class="nt-decision-copy"><p class="nt-lead">Preview before opening.</p><p>The side panel lists every saved page with its notes underneath, so you can read what you saved before deciding to reopen it.</p></div><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-portfolio-motion/preview.mp4" poster="notate-assets/notate-portfolio-motion/preview-poster.png" width="1080" height="1350" loop muted playsinline preload="metadata" aria-label="Expanding saved pages in the sidebar to preview notes before opening them"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></article></div></div>
         </section>
-        <section id="decisions" class="nt-section" aria-labelledby="decisions-title">
+        <section id="craft" class="nt-section" aria-labelledby="craft-title">
           <div class="nt-reading">
-            <p class="nt-kicker">04 / Design decisions</p>
-            <h2 id="decisions-title">Keep the interaction close<br>to the content.</h2>
-            <p>Three choices shape how notes connect to the page, stay organized, and remain easy to revisit.</p>
+            <p class="nt-kicker">Craft</p>
+            <h2 id="craft-title">Setup ends with a real note, not a demo.</h2>
+            <p>Chrome tucks new extensions behind the puzzle-piece menu, so a fresh install is easy to lose. The welcome page walks through opening the side panel and pinning Notate, and checks off each step only when Chrome confirms it.</p>
           </div>
-          <div class="nt-process nt-decisions">
-<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 1</h3><h4>Work directly on the live page.</h4><p>Attach and manipulate notes in place, keeping the element and the response visible together.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for direct manipulation animation"></div></figure></article>
-<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 2</h3><h4>Organize around a purpose.</h4><p>Folders group notes by project or purpose, giving saved references a structure beyond individual pages.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for folder organization animation"></div></figure></article>
-<article class="nt-decision"><div class="nt-decision-copy"><h3>Decision 3</h3><h4>Preview before opening.</h4><p>A dropdown preview provides a quick look at saved content before returning to the page.</p></div><figure class="nt-media "><div class="nt-placeholder nt-landscape" role="img" aria-label="Placeholder for dropdown preview animation"></div></figure></article>
+          <ol class="nt-process nt-onboarding"><li><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-welcome/01-install.mp4" poster="notate-assets/notate-welcome/01-install.png" width="1200" height="870" loop muted playsinline preload="metadata" aria-label="Chrome Web Store listing with Add to Chrome"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure><p><span>01</span>Install</p></li><li><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-welcome/02-open-sidebar.mp4" poster="notate-assets/notate-welcome/02-open-sidebar.png" width="1200" height="870" loop muted playsinline preload="metadata" aria-label="Opening Notate from the Extensions menu"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure><p><span>02</span>Open the side panel</p></li><li><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-welcome/03-pin.mp4" poster="notate-assets/notate-welcome/03-pin.png" width="1200" height="870" loop muted playsinline preload="metadata" aria-label="Pinning Notate to the Chrome toolbar"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure><p><span>03</span>Pin to the toolbar</p></li></ol>
+          <div class="nt-process nt-decisions"><article class="nt-decision"><div class="nt-decision-copy"><p class="nt-lead">The tour finishes on a real page.</p><p>The last step opens a real webpage, points at New, and completes only after your first note is saved. No sample notes are written into your library.</p></div><figure class="nt-media"><div class="flow__device"><div class="flow__device-screen"><video class="flow__video nt-video" src="notate-assets/notate-welcome/04-make-a-note.mp4" poster="notate-assets/notate-welcome/04-make-a-note.png" width="1316" height="920" loop muted playsinline preload="metadata" aria-label="Welcome tour card: select an element, then write a note"></video></div><div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure></article></div>
+          <div class="nt-reading" style="margin-top:72px">
+            <h2 id="launch-title">Designing how Notate gets found.</h2>
+            <p>The store listing is the first screen most people see, so each screenshot shows one step of the loop on a real page, with one line of copy.</p>
+          </div>
+          <div class="nt-process nt-store-gallery">
+            <img src="notate-assets/notate-chrome-webpage/notate-01-1600.jpg" alt="Chrome Web Store screenshot: Your thoughts. Right where they happen." width="1600" height="1000" loading="lazy" decoding="async">
+            <img src="notate-assets/notate-chrome-webpage/notate-02-1600.jpg" alt="Chrome Web Store screenshot: See something? Leave a note." width="1600" height="1000" loading="lazy" decoding="async">
+            <img src="notate-assets/notate-chrome-webpage/notate-03-1600.jpg" alt="Chrome Web Store screenshot: A little color. A lot more organized." width="1600" height="1000" loading="lazy" decoding="async">
+            <img src="notate-assets/notate-chrome-webpage/notate-04-1600.jpg" alt="Chrome Web Store screenshot: Pick up where you left a thought." width="1600" height="1000" loading="lazy" decoding="async">
+            <img src="notate-assets/notate-chrome-webpage/notate-05-1600.jpg" alt="Chrome Web Store screenshot: Make the web your thinking space." width="1600" height="1000" loading="lazy" decoding="async">
           </div>
         </section>
-        <section id="reflection" class="nt-section nt-reflection" aria-labelledby="reflection-title">
+        <section id="outcome" class="nt-section" aria-labelledby="outcome-title">
           <div class="nt-reading">
-            <p class="nt-kicker">05 / Reflection</p>
-            <h2 id="reflection-title">The hardest part was deciding<br>what belonged.</h2>
-            <p>Building and using Notate shifted my focus from individual interactions to what the product needed to do well. Each feature meant deciding whether it supported the core workflow or simply added complexity.</p>
-            <p>Keeping that scope focused helped me turn a personal workflow into a fully functional extension, ready to share with others.</p>
+            <p class="nt-kicker">Outcome</p>
+            <h2 id="outcome-title">Built and submitted: Notate is in Chrome Web Store review.</h2>
+            <p>No usage data yet, so here’s what’s true today. Next, I’ll watch three people create, file, and return to a note without coaching, and let people move a note when its element disappears from a changed page.</p>
+            <div class="ntf-stats">
+              <div class="ntf-stat ntf-stat--accent"><span class="ntf-tag">Built and submitted</span><strong>v1.14</strong><p>To the Chrome Web Store.</p></div>
+              <div class="ntf-stat"><span class="ntf-tag">Permissions</span><strong>4</strong><p>Each one justified in the listing.</p></div>
+              <div class="ntf-stat"><span class="ntf-tag">Accounts needed</span><strong>0</strong><p>Notes stay in your browser.</p></div>
+            </div>
+            <div class="ntf-takeaway">
+              <p class="ntf-tag">Takeaway</p>
+              <p class="ntf-takeaway-line">Remembering why something was saved matters more than what was saved.</p>
+            </div>
           </div>
         </section>
       </div>
-    </div>
-    <div class="nt-end nt-reading">
-      <a href="/">← Explore more work</a>
-      <a href="mailto:sooimkang@gmail.com">Let’s talk ↗</a>
     </div>
   </main>
 	<footer class="footer">
@@ -162,6 +169,9 @@
   </footer>
 
   <script src="js/site.js"></script>
-  <script src="js/notate.js"></script>
+  <script src="js/notate.js?v=4"></script>
+<script src="js/case.js?v=7"></script>
+<script src="js/morph.js?v=2"></script>
+<script src="js/notate-figures.js?v=1"></script>
 </body>
 </html>

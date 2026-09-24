@@ -1,0 +1,21 @@
+/* Shared helpers for the case-study drafts: real media in panels, image grids. */
+body.case-page main .dx-media { position: relative; border-radius: 20px; overflow: hidden; background: #F1F1EE; }
+body.case-page main .dx-media > img, body.case-page main .dx-media > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+body.case-page main .dx-grid { display: grid; gap: 12px; }
+body.case-page main .dx-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body.case-page main .dx-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.case-page main .dx-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.case-page main .dx-cell { margin: 0; }
+body.case-page main .dx-cell .dx-media { border-radius: 14px; }
+body.case-page main .dx-cell figcaption { margin-top: 0.6rem; font-size: 0.8rem; line-height: 1.4; color: #1c1d1c; }
+body.case-page main .dx-cell figcaption span { display: block; color: #8a939e; }
+.fig .dx-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fig .mini, .fig .mid, .fig .img, .fig .gcell { position: relative; overflow: hidden; }
+body.case-page main .nt-step + .nt-step { margin-top: 64px; }
+body.case-page main .nt-section > :is(.nt-reading, figure) + .nt-step { margin-top: 56px; }
+body.case-page main .dx-step h3 { margin-top: 0; }
+body.case-page main .dx-snap { margin-top: 1.25rem; }
+body.case-page main .dx-snap a { text-decoration: underline; text-underline-offset: 3px; }
+@media (width < 700px) {
+	body.case-page main .dx-grid--3, body.case-page main .dx-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

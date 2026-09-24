@@ -31,3 +31,30 @@
   addEventListener('hashchange', schedule);
   update();
 })();
+
+/* Respect reduced motion: show the poster frame with controls instead of autoplaying. */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const apply = () => document.querySelectorAll('.nt-video').forEach(video => {
+    if (reduce.matches) { video.pause(); video.removeAttribute('autoplay'); video.controls = true; }
+    else { video.controls = false; video.play().catch(() => {}); }
+  });
+  apply();
+  reduce.addEventListener('change', apply);
+})();
+
+/* ── Chrome Web Store link ─────────────────────────────────────
+   Paste the listing URL here once Notate is approved. Both store
+   links on the page (under the title and in Launch) go live. */
+const STORE_URL = '';
+(() => {
+  if (!STORE_URL) return;
+  document.querySelectorAll('[data-store-link]').forEach(link => {
+    link.href = STORE_URL;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.removeAttribute('aria-disabled');
+    link.classList.remove('nt-link-pending');
+    link.textContent = 'Get Notate on the Chrome Web Store';
+  });
+})();

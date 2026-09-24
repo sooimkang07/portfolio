@@ -7,7 +7,8 @@
 	<title>Sooim Kang · Product Designer</title>
 	<link rel="stylesheet" href="css/base.css?v=layout-sb-2">
 	<link rel="stylesheet" href="css/site.css?v=type-scale-2">
-	<link rel="stylesheet" href="css/morph.css" />
+	<link rel="stylesheet" href="css/morph.css?v=2" />
+	<link rel="stylesheet" href="css/work-index.css?v=1" />
 	<link rel="icon" href="favicon.ico" />
 </head>
 <body class="home">
@@ -22,7 +23,7 @@
 				<span></span><span></span><span></span><span></span>
 			</button>
 			<nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-				<a href="/" class="nav__menu-link is-active">
+				<a href="work" class="nav__menu-link" data-page-transition>
 					<span class="nav__menu-flip">
 						<span class="nav__menu-flip-track">
 							<span class="nav__menu-title">Work</span>
@@ -57,7 +58,7 @@
 			</nav>
 		</div>
 		<nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-			<a href="/" class="nav__strip-link is-active">Work</a>
+			<a href="work" class="nav__strip-link" data-page-transition>Work</a>
 			<a href="explorations" class="nav__strip-link">Explorations</a>
 			<a href="about" class="nav__strip-link">About</a>
 			<a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
@@ -192,7 +193,7 @@
 			</div>
 
 			<div class="home-work__stage">
-				<article class="home-work__card is-active" id="work-yap" data-work-index="0" data-href="yap" data-name="yap" data-line="Organizing voice chats around topics, not timelines.">
+				<article class="home-work__card is-active" id="work-yap" data-work-index="0" data-href="yap" data-project-morph="yap" data-name="yap" data-line="Organizing voice chats around topics, not timelines.">
 					<a href="yap" class="home-work__media" data-ref-featured-project-media-landscape="yap" aria-label="yap">
 						<video src="covers/yap-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
@@ -202,8 +203,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">yap</p>
 							<p class="home-work__footer-meta">2026 · Product Design</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>yap</h3>
 						<p>Organizing voice chats around topics, not timelines.</p>
@@ -211,7 +212,7 @@
 					</div>
 				</article>
 
-				<article class="home-work__card" id="work-notate" data-work-index="1" data-href="notate" data-name="Notate" data-line="Annotating the web without losing context.">
+				<article class="home-work__card" id="work-notate" data-work-index="1" data-href="notate" data-project-morph="notate" data-name="Notate" data-line="Annotating the web without losing context.">
 					<a href="notate" class="home-work__media" data-ref-featured-project-media-landscape="notate" aria-label="Notate">
 						<img src="covers/notate-cover.png" alt="Notate project cover" loading="lazy" />
 					</a>
@@ -221,8 +222,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">Notate</p>
 							<p class="home-work__footer-meta">2026 · Product Design</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>Notate</h3>
 						<p>Annotating the web without losing context.</p>
@@ -240,8 +241,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">Instagram Lists</p>
 							<p class="home-work__footer-meta">2025 · Product Design</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>Instagram Lists</h3>
 						<p>Controlling what you see in the feed.</p>
@@ -249,7 +250,7 @@
 					</div>
 				</article>
 
-				<article class="home-work__card" id="work-bundles" data-work-index="3" data-href="smart-bundles" data-name="Smart Bundles" data-line="Designing grocery shopping for what's actually eaten.">
+				<article class="home-work__card" id="work-bundles" data-work-index="3" data-href="smart-bundles" data-project-morph="bundles" data-name="Smart Bundles" data-line="Designing grocery shopping for what's actually eaten.">
 					<a href="smart-bundles" class="home-work__media" data-ref-featured-project-media-landscape="bundles" aria-label="Smart Bundles">
 						<video src="covers/smart-bundles-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
@@ -259,8 +260,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">Smart Bundles</p>
 							<p class="home-work__footer-meta">2026 · Amazon Fresh</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>Smart Bundles</h3>
 						<p>Designing grocery shopping for what's actually eaten.</p>
@@ -268,7 +269,7 @@
 					</div>
 				</article>
 
-				<article class="home-work__card" id="work-neuk" data-work-index="4" data-href="neuk" data-name="neuk" data-line="Restoring shared viewing in the streaming era.">
+				<article class="home-work__card" id="work-neuk" data-work-index="4" data-href="neuk" data-project-morph="neuk" data-name="neuk" data-line="Restoring shared viewing in the streaming era.">
 					<a href="neuk" class="home-work__media" data-ref-featured-project-media-landscape="neuk" aria-label="neuk">
 						<video src="covers/neuk-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
@@ -278,8 +279,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">neuk</p>
 							<p class="home-work__footer-meta">2026 · Product Design</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>neuk</h3>
 						<p>Restoring shared viewing in the streaming era.</p>
@@ -287,7 +288,7 @@
 					</div>
 				</article>
 
-				<article class="home-work__card" id="work-acuity" data-work-index="5" data-href="acuity" data-name="Acuity" data-line="Determining when health signals require action.">
+				<article class="home-work__card" id="work-acuity" data-work-index="5" data-href="acuity" data-project-morph="acuity" data-name="Acuity" data-line="Determining when health signals require action.">
 					<a href="acuity" class="home-work__media" data-ref-featured-project-media-landscape="acuity" aria-label="Acuity">
 						<video src="covers/acuity-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
@@ -297,8 +298,8 @@
 						<div class="home-work__footer-copy">
 							<p class="home-work__footer-line">Acuity</p>
 							<p class="home-work__footer-meta">2026 · Product Design</p>
-						</a>
-					</div>
+						</div>
+					</a>
 					<div class="home-work__caption">
 						<h3>Acuity</h3>
 						<p>Determining when health signals require action.</p>
@@ -306,7 +307,11 @@
 					</div>
 				</article>
 
-				<!-- <article class="home-work__card" id="work-forage" data-work-index="6" data-href="forage" data-name="Forage" data-line="Transforming real-world inspiration into reusable design systems.">
+				<a class="home-work__all" href="work" data-work-all>
+					<span class="home-work__all-label"><span class="home-work__all-br" aria-hidden="true">[</span><span>View all projects</span><span class="home-work__all-br" aria-hidden="true">]</span></span>
+				</a>
+
+				<!-- <article class="home-work__card" id="work-forage" data-work-index="6" data-href="forage" data-project-morph="forage" data-name="Forage" data-line="Transforming real-world inspiration into reusable design systems.">
 					<a href="forage" class="home-work__media" data-ref-featured-project-media-landscape="forage" aria-label="Forage">
 						<img src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
 					</a>
@@ -412,6 +417,7 @@
 	</div>
 
 	<script src="js/site.js"></script>
-	<script src="js/morph.js"></script>
+	<script src="js/morph.js?v=2"></script>
+	<script src="js/page-transition.js?v=1"></script>
 </body>
 </html>
