@@ -8,219 +8,12 @@
   <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
   <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
   <link rel="icon" href="favicon.ico" />
-  <style>
-    /* ── iframe cover ────────────────────────────────────────────
-       Iframe is rendered at full 1920×1080px desktop width, then
-       scaled down to fill the card container. This ensures each
-       site renders at its largest breakpoint, not a narrow mobile
-       layout. --iframe-scale is set inline on each card's media
-       div and recalculated on resize via JS.
-       pointer-events:none lets clicks fall through to the <a>.
-       ::after overlay is an extra hit-target guarantee.           */
-    .expl-card__media--iframe {
-      position: relative;
-      overflow: hidden;
-    }
-    .expl-card__media--iframe iframe {
-      display: block;
-      width: 1920px;
-      height: 1080px;
-      border: none;
-      pointer-events: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform-origin: center center;
-      transform: translate(-50%, -50%) scale(var(--iframe-scale, 1));
-      transition: filter var(--t-slow) var(--ease);
-    }
-
-    .expl-card:hover .expl-card__media--iframe iframe {
-      filter: brightness(0.97);
-    }
-    .expl-card__media--iframe::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-    }
-
-    .expl-card__media {
-      border-radius: 0.85rem;
-    }
-
-    .expl__title {
-      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
-    }
-
-    body.home .expl-page {
-      padding-block-start: calc(2.75rem + var(--sp-sm));
-    }
-
-    @media (width >= 1200px) {
-      body.home .expl-page {
-        padding-block-start: 0;
-      }
-    }
-
-    /* ── Koto /work layout (≥1200px) ─────────────────────────────
-       Clip height transition (167ms linear), sibling dimming, meta fade. */
-    @media (width >= 1200px) {
-      .expl-page__layout {
-        display: grid;
-        grid-template-columns: minmax(13.5rem, 16vw) minmax(0, 1fr);
-        column-gap: clamp(28px, 4vw, 56px);
-        padding-inline: var(--gutter);
-        align-items: start;
-      }
-
-      .expl-page__sidebar {
-        position: sticky;
-        top: 0;
-        align-self: start;
-        block-size: 100svh;
-        max-inline-size: none;
-        padding-block: calc(2.75rem + var(--sp-sm) + var(--sp-lg)) var(--gutter);
-        padding-inline-end: var(--sp-sm);
-      }
-
-      .expl__hero {
-        padding: 0;
-      }
-
-      .expl-page__stage {
-        min-inline-size: 0;
-        padding-block: calc(2.75rem + var(--sp-sm) + var(--sp-md)) var(--sp-lg);
-      }
-
-      /* Brick-style masonry — cards pack into columns, not aligned rows */
-      .expl-grid {
-        columns: 2;
-        column-gap: 0.375rem;
-        padding: 0;
-      }
-
-      .expl-card {
-        position: relative;
-        display: block;
-        width: 100%;
-        margin-block-end: 0.375rem;
-        break-inside: avoid;
-        transition: opacity 167ms linear;
-      }
-
-      /* Dim non-hovered cards — matches koto.com/work + home-work__card */
-      .expl-grid:has(.expl-card:hover) .expl-card:not(:hover),
-      .expl-grid:has(.expl-card:focus-visible) .expl-card:not(:focus-visible) {
-        opacity: 0.3;
-      }
-
-      .expl-card:has(.expl-card__media--01),
-      .expl-card:has(.expl-card__media--03),
-      .expl-card:has(.expl-card__media--04),
-      .expl-card:has(.expl-card__media--05),
-      .expl-card:has(.expl-card__media--06),
-      .expl-card:has(.expl-card__media--07),
-      .expl-card:has(.expl-card__media--08) {
-        aspect-ratio: 16 / 9;
-      }
-
-      .expl-card:has(.expl-card__media--02) {
-        aspect-ratio: 9 / 16;
-      }
-
-      .expl-card__shell {
-        position: absolute;
-        inset: 0;
-      }
-
-      .expl-card__frame {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-
-      /* Koto clip — height transition on the media box (smoother than grid rows) */
-      .expl-card__media {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        margin-block-end: 0;
-        aspect-ratio: unset;
-        border-radius: 0.85rem;
-        transition: height 167ms linear;
-      }
-
-      .expl-card:hover .expl-card__media,
-      .expl-card:focus-visible .expl-card__media {
-        height: calc(100% - var(--expl-meta-reveal, 1.75rem));
-      }
-
-      .expl-card__media img,
-      .expl-card__media video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transform: translate(-50%, -50%);
-        transition: none;
-      }
-
-      .expl-card:hover .expl-card__media img,
-      .expl-card:hover .expl-card__media video,
-      .expl-card:focus-visible .expl-card__media img,
-      .expl-card:focus-visible .expl-card__media video {
-        transform: translate(-50%, -50%);
-      }
-
-      .expl-card__meta {
-        position: absolute;
-        inset-inline: 0;
-        inset-block-end: 0;
-        z-index: 2;
-        display: block;
-        padding: 0;
-        overflow: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 167ms linear;
-        transition-delay: 0ms;
-      }
-
-      .expl-card:hover .expl-card__meta,
-      .expl-card:focus-visible .expl-card__meta {
-        opacity: 1;
-        transition-delay: 167ms;
-      }
-
-      .expl-card__meta-inner {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 0.5rem 1rem;
-        padding-block-start: 0.25rem;
-      }
-
-      .expl-card__title {
-        flex: 1 1 auto;
-        min-inline-size: 0;
-        margin: 0;
-      }
-
-      .expl-card__tag {
-        flex-shrink: 0;
-        margin: 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/glass.css?v=1" />
+  <link rel="stylesheet" href="css/explorations.css?v=1" />
+  <meta name="robots" content="noindex">
 	<link rel="stylesheet" href="css/text-sooim.css?v=5" />
 </head>
-<body class="home">
+<body class="home expl2-page">
 
   <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
     <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
@@ -274,172 +67,68 @@
     </nav>
   </header>
 
-  <main class="expl-page">
-
-    <div class="expl-page__layout">
-      <aside class="expl-page__sidebar">
-        <section class="expl__hero anim-1">
-          <h1 class="expl__title">Side quests, design sprints, <br>&amp; things I had to try</h1>
-          <p class="expl__sub">Experiments in interaction, AI-native workflows, and systems thinking built to learn fast and test new directions</p>
-        </section>
-      </aside>
-
-      <div class="expl-page__stage">
-        <div class="expl-grid anim-2">
-
-        <!-- col 1 · Digital Expression Fellowship — looping video -->
-        <a class="expl-card" href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing" target="_blank" rel="noopener" aria-label="Digital Expression Fellowship">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--02">
-            <video src="explorations-assets/digital-expression-fellowship.mov" autoplay loop muted playsinline preload="auto"></video>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Digital Expression Fellowship</p>
-              <p class="expl-card__tag">2026 · Fellowship Winner</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 1 · Smart Dillo Marketing Campaign — image -->
-        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:54b9cf98-7a34-49b5-8ddd-816a866e4b23" target="_blank" rel="noopener" aria-label="Smart Dillo">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--05">
-            <img src="explorations-assets/smart-dillo-cover.jpg" alt="Smart Dillo" />
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Smart Dillo Marketing Campaign</p>
-              <p class="expl-card__tag">2022 · Campaign Brand Design</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 2 · Build-a-Bubu — looping video -->
-        <a class="expl-card" href="https://build-a-bubu.vercel.app/avatar" target="_blank" rel="noopener" aria-label="Build-a-Bubu">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--01">
-            <video src="explorations-assets/build-a-bubu-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Build-a-Bubu</p>
-              <p class="expl-card__tag">2026 · Vibe Coding</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 2 · Windows of Style — looping video -->
-        <a class="expl-card" href="https://sooimkang07.github.io/binding/" target="_blank" rel="noopener" aria-label="Windows of Style">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--04">
-            <video src="explorations-assets/windows-of-style-cover.mov" autoplay loop muted playsinline preload="auto"></video>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Windows of Style</p>
-              <p class="expl-card__tag">2025 · Hand-coded Site</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 2 · AMA Website — iframe -->
-        <a class="expl-card" href="https://www.ama-digital.com/" target="_blank" rel="noopener" aria-label="AMA Website">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--06 expl-card__media--iframe">
-            <iframe
-              src="https://www.ama-digital.com/"
-              title="AMA Website"
-              loading="lazy"
-              scrolling="no"
-              tabindex="-1"
-              aria-hidden="true"
-            ></iframe>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">AMA Website</p>
-              <p class="expl-card__tag">2025 · Web Design</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 2 · Area Council Recruitment Campaign — image -->
-        <a class="expl-card" href="https://acrobat.adobe.com/id/urn:aaid:sc:US:a59b1b24-7710-4baa-a8db-6422cfd86802" target="_blank" rel="noopener" aria-label="Area Council Recruitment">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--05">
-            <img src="explorations-assets/acr-cover.jpg" alt="Area Council Recruitment" />
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Area Council Recruitment Campaign</p>
-              <p class="expl-card__tag">2021 · Campaign Brand Design</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 3 · Nothing Good Happens After Midnight — iframe -->
-        <a class="expl-card" href="https://sooimkang07.github.io/links/" target="_blank" rel="noopener" aria-label="Nothing Good Happens After Midnight">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--03 expl-card__media--iframe">
-            <iframe
-              src="https://sooimkang07.github.io/links/"
-              title="Nothing Good Happens After Midnight"
-              loading="lazy"
-              scrolling="no"
-              tabindex="-1"
-              aria-hidden="true"
-            ></iframe>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">Nothing Good Happens After Midnight</p>
-              <p class="expl-card__tag">2026 · Hand-coded Site</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        <!-- col 3 · What's a phone — looping video -->
-        <a class="expl-card" href="https://drive.google.com/file/d/17i1Pf_B-AKfrgYZqGrCANgLsJhJH6FyV/view?usp=sharing" target="_blank" rel="noopener" aria-label="What's a phone?">
-          <div class="expl-card__shell">
-          <div class="expl-card__frame">
-          <div class="expl-card__media expl-card__media--02">
-            <video src="explorations-assets/what-is-a-phone-cover.mp4" autoplay loop muted playsinline preload="auto"></video>
-          </div>
-          <div class="expl-card__meta">
-            <div class="expl-card__meta-inner">
-              <p class="expl-card__title">What's a phone?</p>
-              <p class="expl-card__tag">2026 · Experimental Film</p>
-            </div>
-          </div>
-          </div>
-          </div>
-        </a>
-
-        </div>
-      </div>
-    </div>
+    <main class="ex">
+    <header class="ex-head">
+      <p class="ex-label">Explorations</p>
+      <h1 class="ex-h1">Side quests, design sprints, and <span class="ex-tone">things I had to try.</span></h1>
+      <p class="ex-sub">Experiments in interaction, AI-native workflows, and systems thinking, built to learn fast and test new directions.</p>
+    </header>
+    <ul class="ex-grid">
+        <li class="ex-tile ex-tile--lg">
+          <button class="ex-tile__btn" type="button" data-i="0" data-kind="video" data-title="Windows of Style" data-tag="2025 · Hand-coded Site" data-href="https://sooimkang07.github.io/binding/" data-media="explorations-assets/web/windows-of-style-cover.mp4" data-poster="explorations-assets/web/windows-of-style-cover.jpg" aria-label="Windows of Style, 2025 · Hand-coded Site">
+            <span class="ex-tile__media"><img src="explorations-assets/web/windows-of-style-cover.jpg" alt="" loading="lazy"><video data-src="explorations-assets/web/windows-of-style-cover.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></span>
+            <span class="ex-tile__pill glass"><span>Windows of Style</span><span class="ex-tile__tag">2025 · Hand-coded Site</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--tall">
+          <button class="ex-tile__btn" type="button" data-i="1" data-kind="video" data-title="Digital Expression Fellowship" data-tag="2026 · Fellowship Winner" data-href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing" data-media="explorations-assets/web/digital-expression-fellowship.mp4" data-poster="explorations-assets/web/digital-expression-fellowship.jpg" aria-label="Digital Expression Fellowship, 2026 · Fellowship Winner">
+            <span class="ex-tile__media"><img src="explorations-assets/web/digital-expression-fellowship.jpg" alt="" loading="lazy"><video data-src="explorations-assets/web/digital-expression-fellowship.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></span>
+            <span class="ex-tile__pill glass"><span>Digital Expression Fellowship</span><span class="ex-tile__tag">2026 · Fellowship Winner</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--sq">
+          <button class="ex-tile__btn" type="button" data-i="2" data-kind="video" data-title="Build-a-Bubu" data-tag="2026 · Vibe Coding" data-href="https://build-a-bubu.vercel.app/avatar" data-media="explorations-assets/web/build-a-bubu-cover.mp4" data-poster="explorations-assets/web/build-a-bubu-cover.jpg" aria-label="Build-a-Bubu, 2026 · Vibe Coding">
+            <span class="ex-tile__media"><img src="explorations-assets/web/build-a-bubu-cover.jpg" alt="" loading="lazy"><video data-src="explorations-assets/web/build-a-bubu-cover.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></span>
+            <span class="ex-tile__pill glass"><span>Build-a-Bubu</span><span class="ex-tile__tag">2026 · Vibe Coding</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--sq">
+          <button class="ex-tile__btn" type="button" data-i="3" data-kind="image" data-title="Smart Dillo Marketing Campaign" data-tag="2022 · Campaign Brand Design" data-href="https://acrobat.adobe.com/id/urn:aaid:sc:US:54b9cf98-7a34-49b5-8ddd-816a866e4b23" data-media="explorations-assets/web/smart-dillo-cover.jpg" data-poster="explorations-assets/web/smart-dillo-cover.jpg" aria-label="Smart Dillo Marketing Campaign, 2022 · Campaign Brand Design">
+            <span class="ex-tile__media"><img src="explorations-assets/web/smart-dillo-cover.jpg" alt="" loading="lazy"></span>
+            <span class="ex-tile__pill glass"><span>Smart Dillo Marketing Campaign</span><span class="ex-tile__tag">2022 · Campaign Brand Design</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--sq">
+          <button class="ex-tile__btn" type="button" data-i="4" data-kind="image" data-title="Area Council Recruitment Campaign" data-tag="2021 · Campaign Brand Design" data-href="https://acrobat.adobe.com/id/urn:aaid:sc:US:a59b1b24-7710-4baa-a8db-6422cfd86802" data-media="explorations-assets/web/acr-cover.jpg" data-poster="explorations-assets/web/acr-cover.jpg" aria-label="Area Council Recruitment Campaign, 2021 · Campaign Brand Design">
+            <span class="ex-tile__media"><img src="explorations-assets/web/acr-cover.jpg" alt="" loading="lazy"></span>
+            <span class="ex-tile__pill glass"><span>Area Council Recruitment Campaign</span><span class="ex-tile__tag">2021 · Campaign Brand Design</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--tall">
+          <button class="ex-tile__btn" type="button" data-i="5" data-kind="video" data-title="What&#39;s a phone?" data-tag="2026 · Experimental Film" data-href="https://drive.google.com/file/d/17i1Pf_B-AKfrgYZqGrCANgLsJhJH6FyV/view?usp=sharing" data-media="explorations-assets/web/what-is-a-phone-cover.mp4" data-poster="explorations-assets/web/what-is-a-phone-cover.jpg" aria-label="What&#39;s a phone?, 2026 · Experimental Film">
+            <span class="ex-tile__media"><img src="explorations-assets/web/what-is-a-phone-cover.jpg" alt="" loading="lazy"><video data-src="explorations-assets/web/what-is-a-phone-cover.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></span>
+            <span class="ex-tile__pill glass"><span>What&#39;s a phone?</span><span class="ex-tile__tag">2026 · Experimental Film</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--lg">
+          <button class="ex-tile__btn" type="button" data-i="6" data-kind="site" data-title="AMA Website" data-tag="2025 · Web Design" data-href="https://www.ama-digital.com/" data-media="https://www.ama-digital.com/" data-poster="" aria-label="AMA Website, 2025 · Web Design">
+            <span class="ex-tile__media"><iframe src="https://www.ama-digital.com/" title="AMA Website" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></span>
+            <span class="ex-tile__pill glass"><span>AMA Website</span><span class="ex-tile__tag">2025 · Web Design</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--lg">
+          <button class="ex-tile__btn" type="button" data-i="7" data-kind="site" data-title="Nothing Good Happens After Midnight" data-tag="2026 · Hand-coded Site" data-href="https://sooimkang07.github.io/links/" data-media="https://sooimkang07.github.io/links/" data-poster="" aria-label="Nothing Good Happens After Midnight, 2026 · Hand-coded Site">
+            <span class="ex-tile__media"><iframe src="https://sooimkang07.github.io/links/" title="Nothing Good Happens After Midnight" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></span>
+            <span class="ex-tile__pill glass"><span>Nothing Good Happens After Midnight</span><span class="ex-tile__tag">2026 · Hand-coded Site</span></span>
+          </button>
+        </li>
+        <li class="ex-tile ex-tile--tall">
+          <button class="ex-tile__btn" type="button" data-i="8" data-kind="video" data-title="How long does it take to waste a city?" data-tag="Kinetic Type Film" data-href="" data-media="explorations-assets/web/how-long-does-it-take-to-waste-a-city.mp4" data-poster="explorations-assets/web/how-long-does-it-take-to-waste-a-city.jpg" aria-label="How long does it take to waste a city?, Kinetic Type Film">
+            <span class="ex-tile__media"><img src="explorations-assets/web/how-long-does-it-take-to-waste-a-city.jpg" alt="" loading="lazy"><video data-src="explorations-assets/web/how-long-does-it-take-to-waste-a-city.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></span>
+            <span class="ex-tile__pill glass"><span>How long does it take to waste a city?</span><span class="ex-tile__tag">Kinetic Type Film</span></span>
+          </button>
+        </li>
+    </ul>
 
     <section class="home-contact" id="contact" aria-label="Contact">
       <div class="home-contact__body">
@@ -449,8 +138,8 @@
             <div class="home-contact__card-wrap">
               <a
                 class="home-contact__card"
-                href="mailto:sooimkang@gmail.com"
-                aria-label="Email Sooim at sooimkang@gmail.com"
+                href="mailto:sooimkang1015@gmail.com"
+                aria-label="Email Sooim at sooimkang1015@gmail.com"
               >
                 <span class="home-contact__card-media">
                   <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
@@ -458,7 +147,7 @@
                 <span class="home-contact__card-overlay">
                   <span class="home-contact__card-text">
                     Say hello
-                    <span class="home-contact__card-email">sooimkang@gmail.com</span>
+                    <span class="home-contact__card-email">sooimkang1015@gmail.com</span>
                   </span>
                   <span class="home-contact__card-action" aria-hidden="true">Email</span>
                 </span>
@@ -509,33 +198,7 @@
   </footer>
 
   <script src="js/site.js"></script>
-  <script>
-    // Scale each iframe so it renders at 1920px wide then fits its card container.
-    // Runs on load and on every resize so it stays accurate as the grid reflows.
-    function scaleIframes() {
-      document.querySelectorAll('.expl-card__media--iframe').forEach(function(el) {
-        var scale = el.offsetWidth / 1920;
-        el.style.setProperty('--iframe-scale', scale);
-      });
-    }
-
-    function setExplMetaReveal() {
-      if (window.innerWidth < 1200) return;
-      document.querySelectorAll('.expl-card').forEach(function(card) {
-        var meta = card.querySelector('.expl-card__meta-inner');
-        if (!meta) return;
-        card.style.setProperty('--expl-meta-reveal', meta.offsetHeight + 'px');
-      });
-    }
-
-    function onExplLayoutChange() {
-      scaleIframes();
-      setExplMetaReveal();
-    }
-
-    onExplLayoutChange();
-    window.addEventListener('resize', onExplLayoutChange);
-  </script>
+  <script src="js/explorations.js?v=1" defer></script>
 	<script src="js/text-sooim.js?v=5" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

@@ -1,587 +1,208 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<script src="js/preview-gate.js"></script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>yap · Sooim Kang</title>
-<link href="css/base.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/site.css?v=type-scale-2" rel="stylesheet"/>
-<link href="css/work.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/case-layout.css?v=layout-sb-2" rel="stylesheet">
-<link href="css/morph.css?v=2" rel="stylesheet">
-<link href="favicon.ico" rel="icon">
-
-<style>
-    body.home.page--project main.case-wrap {
-      padding-block-start: calc(2.75rem + var(--sp-sm));
-    }
-
-    /* ── yap: page-specific layout ─────────────────── */
-
-    /* Chosen direction highlight */
-    .yap-exploration__item--chosen {
-      outline: 1.5px solid var(--clr-accent);
-      box-shadow: 0 0 18px 2px rgba(230, 122, 0, 0.18);
-      padding: var(--sp-sm);
-    }
-
-    /* 3-column equal layout — explorations & reflection */
-    .case__col-group {
-      display: flex;
-      flex-direction: row;
-      gap: var(--flow-gap);
-      align-items: flex-start;
-      margin-block-start: var(--sp-lg);
-    }
-    .case__col-group > div {
-      flex: 1 1 0;
-      min-inline-size: 0;
-    }
-    .case__col-group > div img {
-      display: block;
-      width: 100%;
-      margin-block-end: var(--sp-xs);
-    }
-    @media (max-width: 640px) {
-      .case__col-group { flex-direction: column; }
-    }
-
-    /* Flow block: media first, label + sentence below */
-    .case__flow-block { margin-block-start: var(--sp-xl); }
-    .case__flow-block .case__subhead { margin-block-start: var(--sp-md); }
-
-    /* Flow 3: 2 phones + stacked pair — 2fr:2fr:1fr */
-    .yap-flow__trio {
-      display: grid;
-      grid-template-columns: 2fr 2fr 1fr;
-      gap: var(--flow-gap);
-      align-items: stretch;
-    }
-    .yap-flow__trio > .flow__media-stack { align-self: start; }
-    .yap-flow__trio > .flow__device { display: flex; flex-direction: column; }
-    .yap-flow__trio > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
-    .yap-flow__trio > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
-
-    /* Flow 4: 1 large phone + 2×2 grid */
-    .yap-flow__quad {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--flow-gap);
-      align-items: stretch;
-    }
-    .yap-flow__quad > .flow__mini-grid { align-self: start; }
-    .yap-flow__quad > .flow__device { display: flex; flex-direction: column; }
-    .yap-flow__quad > .flow__device .flow__device-screen { flex: 1; min-block-size: 0; }
-    .yap-flow__quad > .flow__device .flow__video { block-size: 100%; object-fit: cover; }
-
-    /* 2×2 mini-grid */
-    .flow__mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--flow-gap);
-    }
-
-    /* Stacked pair */
-    .flow__media-stack {
-      display: flex;
-      flex-direction: column;
-      gap: var(--flow-gap);
-    }
-
-    /* Blank media styling */
-    .flow__video,
-    .case__frame {
-      background: #e8e6e2 !important;
-    }
-
-    @media (max-width: 639px) {
-      /* Explorations: first 2 side-by-side, 3rd full-width below */
-      .yap-explorations__cols {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      .yap-explorations__cols > div {
-        flex: 1 1 calc(50% - var(--sp-sm));
-        min-inline-size: 0;
-      }
-      .yap-explorations__cols > div:last-child {
-        flex: 0 0 100%;
-      }
-
-      /* Trio: first 2 phones stack full-width, last 2 go side-by-side below */
-      .yap-flow__trio {
-        display: flex;
-        flex-direction: column;
-      }
-      .yap-flow__trio > .flow__media-stack {
-        flex-direction: row;
-      }
-
-      /* Quad: large phone on top, 2×2 grid below */
-      .yap-flow__quad {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-<link href="css/project-clean.css?v=6" rel="stylesheet"/>
-</link></link></link><link href="css/notate.css?v=nt-1" rel="stylesheet"/><link href="css/notate-refinements.css?v=nt-1" rel="stylesheet"/><link href="css/project-notate.css?v=nt-1" rel="stylesheet"/><link rel="stylesheet" href="css/case.css?v=11">
+  <meta name="robots" content="noindex">
+  <script src="js/preview-gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="yap: a voice-first group chat where AI splits long voice memos into topics friends can reply to one by one. By Sooim Kang." />
+  <title>yap · Sooim Kang</title>
+  <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
+  <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
+  <link rel="stylesheet" href="css/notate.css?v=1" />
+  <link rel="icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/project-clean.css?v=7">
+<link rel="stylesheet" href="css/notate-refinements.css?v=6">
+<link rel="stylesheet" href="css/morph.css?v=2">
+<link rel="stylesheet" href="css/case.css?v=11">
+<link rel="stylesheet" href="css/notate-figures.css?v=3">
+<link rel="stylesheet" href="css/case-glance.css?v=1">
+<link rel="stylesheet" href="css/figures.css?v=4">
 <script data-morph-id="yap">try{var d=JSON.parse(sessionStorage.getItem("sooim-project-morph")||"null");if(d&&d.id==="yap"&&Date.now()-(d.ts||0)<8000)document.documentElement.classList.add("is-project-morph-pending")}catch(e){}</script>
 	<link rel="stylesheet" href="css/text-sooim.css?v=5" />
 </head>
-<body class="home page--project notate-page nt-case yap-page case-page" data-case="yap"><a class="nt-skip" href="#overview">Skip to case study</a>
-<header class="nav is-at-top" data-ref-header-bar="" id="main-nav">
-<div class="nav__backdrop" data-ref-header-backdrop="" hidden=""></div>
-<div class="nav__bar">
-<button aria-expanded="false" aria-label="Toggle menu" class="nav__hit" tabindex="-1" type="button"></button>
-<a class="nav__logo" href="/">Sooim Kang</a>
-<span aria-hidden="true" class="nav__mark"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-<button aria-expanded="false" aria-label="Toggle menu" class="nav__burger">
-<span></span><span></span><span></span><span></span>
-</button>
-<nav class="nav__menu" data-ref-header-bar-menu-desktop="" id="nav-menu">
-<a class="nav__menu-link is-active" href="work">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
-<span class="nav__menu-title">Work</span>
-<span aria-hidden="true" class="nav__menu-title">Explore case studies</span>
-</span>
-</span>
-</a>
-<a class="nav__menu-link" href="explorations">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
-<span class="nav__menu-title">Explorations</span>
-<span aria-hidden="true" class="nav__menu-title">Explore side quests </span>
-</span>
-</span>
-</a>
-<a class="nav__menu-link" href="about">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
-<span class="nav__menu-title">About</span>
-<span aria-hidden="true" class="nav__menu-title">Get to know me</span>
-</span>
-</span>
-</a>
-<a class="nav__menu-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
-<span class="nav__menu-title">Resume</span>
-<span aria-hidden="true" class="nav__menu-title">Download</span>
-</span>
-</span>
-</a>
-</nav>
-</div>
-<nav aria-label="Primary" class="nav__strip" data-ref-header-bar-expanded="">
-<a class="nav__strip-link is-active" href="work">Work</a>
-<a class="nav__strip-link" href="explorations">Explorations</a>
-<a class="nav__strip-link" href="about">About</a>
-<a class="nav__strip-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">Resume</a>
-</nav>
-</header>
-<main class="nt-main" id="top">
+<body class="home notate-page case-page page--project" data-case="yap">
+  <a class="nt-skip" href="#at-a-glance">Skip to case study</a>
+  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
+    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
+    <div class="nav__bar">
+      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
+      <a href="/" class="nav__logo">Sooim Kang</a>
+      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
+        <a href="work" class="nav__menu-link is-active">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Work</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+            </span>
+          </span>
+        </a>
+        <a href="explorations" class="nav__menu-link">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Explorations</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
+            </span>
+          </span>
+        </a>
+        <a href="about" class="nav__menu-link">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">About</span>
+              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+            </span>
+          </span>
+        </a>
+        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+          <span class="nav__menu-flip">
+            <span class="nav__menu-flip-track">
+              <span class="nav__menu-title">Resume</span>
+              <span class="nav__menu-title" aria-hidden="true">Download</span>
+            </span>
+          </span>
+        </a>
+      </nav>
+    </div>
+    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
+      <a href="work" class="nav__strip-link is-active">Work</a>
+      <a href="explorations" class="nav__strip-link">Explorations</a>
+      <a href="about" class="nav__strip-link">About</a>
+      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="top" class="nt-main">
     <figure class="case-cover" data-case-cover>
       <div class="flow__device">
         <div class="flow__device-screen"><video class="flow__video case-cover__media" data-project-morph-to="yap" src="covers/yap-cover.mp4" autoplay loop muted playsinline preload="auto" aria-label="yap cover"></video></div>
         <div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
       </div>
     </figure>
-    <div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#solution"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Solution</span><span aria-hidden="true" class="project-toc-title">Solution</span></span></span></a></li><li><a href="#flows"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Core Flows</span><span aria-hidden="true" class="project-toc-title">Core Flows</span></span></span></a></li><li><a href="#system"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">System</span><span aria-hidden="true" class="project-toc-title">System</span></span></span></a></li><li><a href="#research"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Research</span><span aria-hidden="true" class="project-toc-title">Research</span></span></span></a></li><li><a href="#decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Decisions</span><span aria-hidden="true" class="project-toc-title">Decisions</span></span></span></a></li><!-- IMPACT TOC (hidden for now — restore by removing this comment)
-<li><a href="#impact"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Impact</span><span aria-hidden="true" class="project-toc-title">Impact</span></span></span></a></li>
---><li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading" id="overview">
-<p class="nt-kicker">yap · Product Design · 2026</p>
-<h1>Voice chats organized by topic, not timeline</h1>
+    <div class="nt-story">
+      <aside class="nt-rail">
+        <nav class="nt-toc" aria-label="Case study sections">
+          <a class="nt-back" href="work">← Back</a>
+          <ol>
+            <li><a href="#overview" aria-current="location"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li>
+            <li><a href="#research"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Research</span><span class="project-toc-title" aria-hidden="true">Research</span></span></span></a></li>
+            <li><a href="#core-flows"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Core flows</span><span class="project-toc-title" aria-hidden="true">Core flows</span></span></span></a></li>
+            <li><a href="#iterations"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Iterations</span><span class="project-toc-title" aria-hidden="true">Iterations</span></span></span></a></li>
+            <li><a href="#design-decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li>
+            <li><a href="#system"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">System</span><span class="project-toc-title" aria-hidden="true">System</span></span></span></a></li>
+            <li><a href="#launch"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Launch</span><span class="project-toc-title" aria-hidden="true">Launch</span></span></span></a></li>
+            <li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li>
+          </ol>
+        </nav>
+      </aside>
+      <div class="nt-chapters">
+        <header class="nt-hero nt-reading" id="overview">
+          <p class="nt-kicker">Voice-first PWA · 0→1 · 2026</p>
+          <h1>yap is a voice-first group chat where AI splits long voice memos into topics friends can reply to one by one. <span class="nt-tone">Designed and built as a live PWA.</span></h1>
+          <dl class="nt-meta">
+            <div><dt>Role</dt><dd>Solo designer<br>Builder</dd></div>
+            <div><dt>Scope</dt><dd>Product design<br>Interaction design<br>Build<br>Launch</dd></div>
+            <div><dt>Platform</dt><dd>Mobile web app (PWA)</dd></div>
+            <div><dt>Status</dt><dd>Live</dd></div>
+          </dl>
+        </header>
+        <section id="at-a-glance" class="nt-section nt-glance" aria-label="At a glance">
+          <div class="nt-glance-grid">
+            <div class="nt-glance-col">
+              <p class="nt-kicker">Problem</p>
+              <h2>A four-minute voice memo gets a one-word reply.</h2>
+              <p>One memo can hold five different things. The reply usually answers one of them. Nobody scrubs back through four minutes to find the rest, so it gets buried.</p>
+            </div>
+            <div class="nt-glance-col">
+              <p class="nt-kicker">Solution</p>
+              <h2>AI finds the topics and leaves the voice alone.</h2>
+              <p>The sender talks once. yap transcribes the memo, finds where the topic changes, and texts the group. Friends play only the new topics and reply to the one they care about.</p>
+            </div>
+          </div>
+          <figure class="nt-media nt-process nt-glance-hero"><div class="fig" role="img" aria-label="Swimlane: the sender talks, yap transcribes and finds topic breaks, then friends play only new topics and reply to one"><div class="flow"><div class="sw" style="grid-template-columns:auto repeat(5,1fr)"><div></div><div class="swh">RECORD</div><div class="swh">ORGANIZE</div><div class="swh">NOTIFY</div><div class="swh">LISTEN</div><div class="swh">REPLY</div><div class="swl"><span class="lanedot"></span>SENDER</div><div class="swn ">Talks for 4 minutes</div><div></div><div></div><div></div><div></div><div class="swl"><span class="lanedot"></span>YAP · AI</div><div></div><div class="swn hi">Transcribes, finds topic breaks</div><div class="swn ">Texts the group</div><div></div><div class="swn ">Threads the reply</div><div class="swl"><span class="lanedot"></span>FRIENDS</div><div></div><div></div><div class="swn ">Tap the link</div><div class="swn ">Play only new topics</div><div class="swn ">Reply to one topic</div></div></div></div></figure>
+        </section>
+        <section id="research" class="nt-section" aria-labelledby="research-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Research</p>
+            <h2 id="research-title">People don’t skip voice memos because they’re long. They skip them because there’s no way to answer part of one.</h2>
+            <p>Length wasn’t the complaint. Replying was: there’s no way to point at one part of a memo, so everything after the first reply goes unanswered.</p>
+          </div>
+        </section>
+        <section id="core-flows" class="nt-section" aria-labelledby="core-flows-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Core flows</p>
+            <h2 id="core-flows-title">Send, reply, catch up.</h2>
+            <p>The sender talks once. Everyone else answers and listens topic by topic.</p>
+          </div>
+          <div class="nt-step"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Send</p><h3>Talk once. yap turns it into topics.</h3><p>Tap the mic and talk. yap organizes the memo, and the topics appear as cards in the chat.</p></div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Send flow: tap the mic, talk, yap organizes, topics appear"><div class="flow"><div class="strip"><div class="step"><div class="mini phone"></div><div class="snum">01</div><div class="slab">TAP THE MIC</div></div><div class="step"><div class="mini phone"></div><div class="snum">02</div><div class="slab">TALK</div></div><div class="step"><div class="mini phone"></div><div class="snum">03</div><div class="slab">ORGANIZING…</div></div><div class="step"><div class="mini phone"></div><div class="snum">04</div><div class="slab">TOPICS APPEAR</div></div></div></div></div></figure></div>
+          <div class="nt-step"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Reply</p><h3>Reply to the part you actually have something to say about.</h3><p>Each topic has an AI-written label, its own clip, and a line of what was said, so you know what it is before you play it. Your voice reply lives inside that topic.</p></div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Topic thread anatomy: topic label, clip range, excerpt, voice reply"><svg class="conn" viewBox="0 0 160 100" preserveAspectRatio="none"><path d="M44.800000000000004 28 H57.36000000000001 V31.28 H69.92"/><circle cx="69.92" cy="31.28" r="0.9"/><path d="M44.800000000000004 66 H57.36000000000001 V46.879999999999995 H69.92"/><circle cx="69.92" cy="46.879999999999995" r="0.9"/><path d="M115.2 34 H102.64000000000001 V38.56 H90.08"/><circle cx="90.08" cy="38.56" r="0.9"/><path d="M115.2 74 H102.64000000000001 V68.72 H90.08"/><circle cx="90.08" cy="68.72" r="0.9"/></svg><div class="dev phone" style="left:42.5%;top:24.0%;width:15%;height:52.0%;"></div><div class="hl" style="left:43.7%;top:28.080000000000002%;width:12.6%;height:6.4%;"></div><div class="abs" style="left:4%;top:28%;width:24%;transform:translateY(-50%);"><div class="card "><div class="c-lab">THE TOPIC</div><div class="c-txt">A label the AI wrote, like “Weekend plans.”</div></div></div><div class="hl" style="left:43.7%;top:43.67999999999999%;width:12.6%;height:6.4%;"></div><div class="abs" style="left:4%;top:66%;width:24%;transform:translateY(-50%);"><div class="card "><div class="c-lab">THE CLIP</div><div class="c-txt">Just this part of the memo: 0:48–1:32.</div></div></div><div class="hl" style="left:43.7%;top:35.36%;width:12.6%;height:6.4%;"></div><div class="abs" style="left:72%;top:34%;width:24%;transform:translateY(-50%);"><div class="card "><div class="c-lab">THE EXCERPT</div><div class="c-txt">A line of what was said, so you know before you play.</div></div></div><div class="hl" style="left:43.7%;top:65.52%;width:12.6%;height:6.4%;"></div><div class="abs" style="left:72%;top:74%;width:24%;transform:translateY(-50%);"><div class="card "><div class="c-lab">REPLY WITH VOICE</div><div class="c-txt">Your answer lives inside this topic.</div></div></div></div></figure></div>
+          <div class="nt-step"><div class="nt-reading nt-feature-heading"><p class="nt-step-label">Catch up</p><h3>New topics come first, so catching up takes seconds, not minutes.</h3><p>Unheard topics are marked. Instead of playing every memo start to finish, you play only what’s new.</p></div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Before and after: three memos taking 13 minutes versus five new topics"><div class="flow"><div class="ba"><div class="bacol"><div class="c-lab">WITHOUT YAP</div><div class="mid phone"><div class="rows"><div class="row bar l">4:12</div><div class="row bar m">2:47</div><div class="row bar xl">6:03</div></div></div><div class="baline">3 memos. 13 minutes to catch up.</div></div><div class="basep"></div><div class="bacol"><div class="c-lab">WITH YAP</div><div class="mid phone"><div class="rows"><div class="row t">● Weekend plans</div><div class="row t">● Maria’s interview</div><div class="row t">● Birthday gift</div><div class="row t dim">Rent</div><div class="row t dim">Show recs</div></div></div><div class="baline">5 new topics. Play only what’s new.</div></div></div></div></div></figure></div>
+        </section>
+        <section id="iterations" class="nt-section" aria-labelledby="iterations-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Iterations</p>
+            <h2 id="iterations-title">The first version made one long group recording easier to scrub. The shipped one breaks it into topics.</h2>
+            <p>The early direction was one group audio timeline with a transcript, @mentions, 1×–2× speed, and “Jump in” to speak. Speed and transcripts made it easier to scrub, but it was still one long timeline. Only topics fixed replying.</p>
+          </div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Early direction, one group audio timeline, versus the shipped topic view"><div class="flow"><div class="versions"><div class="vgroup dim"><div class="vphones"><div class="mini phone"><span class="mark no">✕</span></div><div class="mini phone"></div><div class="mini phone"></div></div><div class="vname">Early direction</div><div class="vline">One group audio timeline with a transcript, @mentions, 1×–2× speed, and “Jump in” to speak. Easier to scrub, still one long timeline.</div></div><div class="vgroup "><div class="vphones"><div class="mini phone"><span class="mark ok">✓</span></div><div class="mini phone"></div></div><div class="vname">Shipped</div><div class="vline">Each memo split into topics you can play and reply to.</div></div></div></div></div></figure>
+        </section>
+        <section id="design-decisions" class="nt-section" aria-labelledby="design-decisions-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Design decisions</p>
+            <h2 id="design-decisions-title">I shipped a PWA with text-message invites, so friends join from a link, not an App Store.</h2>
+            <p>A native iOS app meant the App Store or TestFlight, an install before anyone could reply, and extra Apple setup for push. With a PWA, a friend gets a text, taps the link, and is in the chat.</p>
+          </div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Native iOS app versus PWA with text-message invites"><div class="flow"><div class="ba"><div class="ocol dim"><div class="ohead"><span class="mark no">✕</span><span class="c-lab">NATIVE iOS APP</span></div><div class="mid phone"></div><div class="osteps"><div class="ostep">App Store or TestFlight</div><div class="ostep">Install before you can reply</div><div class="ostep">Push needs Apple setup</div></div></div><div class=basep></div><div class="ocol "><div class="ohead"><span class="mark ok">✓</span><span class="c-lab">PWA + TEXT INVITES</span></div><div class="mid phone"></div><div class="osteps"><div class="ostep">Get a text</div><div class="ostep">Tap the link</div><div class="ostep">You’re in the chat</div></div></div></div></div></div></figure>
+        </section>
+        <section id="system" class="nt-section" aria-labelledby="system-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">System</p>
+            <h2 id="system-title">Soft, glassy, and voice-first: the record button is the brand.</h2>
+            <p>A pastel gradient field, glass controls, system type, a glow for each participant, and a coral waveform. The components are built around recording and playing voice.</p>
+          </div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Style guide: type, color, and core components"><div class="sg"><div class="sgleft"><div class="c-lab">BRAND TYPE</div><div class="sgAa">Aa</div><div class="c-txt">SF Pro · system type, 13–19px in app</div>
+    <div class="c-lab" style="margin-top:2cqw">COLOR</div><div class="sp-body plain"><div class="sp-item"><div class="sw" style="background:#EDEDEA"></div><span>Sooim</span></div><div class="sp-item"><div class="sw" style="background:#DDDDDA"></div><span>Chloe</span></div><div class="sp-item"><div class="sw" style="background:#CFCFCB"></div><span>Maria</span></div><div class="sp-item"><div class="sw" style="background:#C2C2BE"></div><span>Lime</span></div><div class="sp-item"><div class="sw" style="background:#8F8F8B"></div><span>Wave</span></div><div class="sp-item"><div class="sw" style="background:#111"></div><span>Ink</span></div></div></div>
+    <div class="sgright"><div class="c-lab">COMPONENTS</div><div class="sgcomp"><div class="gcell"><div class="hint">Record button · 3 states</div></div><div class="gcell"><div class="hint">Waveform · active / stopped</div></div><div class="gcell"><div class="hint">Glass play / pause</div></div><div class="gcell"><div class="hint">Topic card · unheard</div></div><div class="gcell"><div class="hint">Memo bubble</div></div><div class="gcell"><div class="hint">Reply composer</div></div></div></div></div></div></figure>
+        </section>
+        <section id="launch" class="nt-section" aria-labelledby="launch-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Launch</p>
+            <h2 id="launch-title">A voice app needs a physical presence: stickers and posters sent people to the app.</h2>
+            <p>A link alone doesn’t get people talking into their phones. I printed stickers and posters that pointed people to the app.</p>
+          </div>
+        </section>
+        <section id="reflection" class="nt-section" aria-labelledby="reflection-title">
+          <div class="nt-reading">
+            <p class="nt-kicker">Reflection</p>
+            <h2 id="reflection-title">yap didn’t stop at a prototype: it shipped as a live app, and I presented it at the final showcase.</h2>
+            <p>Friends join from a text with no install: enter your number, enter the code, and the chat opens.</p>
+          </div>
+          <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Joining from a text: get a text, enter your number, enter the code, the chat opens"><div class="flow"><div class="strip"><div class="step"><div class="mini phone"><div class="hint">“Sooim sent a new yap in Besties”</div></div><div class="snum">01</div><div class="slab">GET A TEXT</div></div><div class="step"><div class="mini phone"></div><div class="snum">02</div><div class="slab">ENTER YOUR NUMBER</div></div><div class="step"><div class="mini phone"></div><div class="snum">03</div><div class="slab">ENTER THE CODE</div></div><div class="step"><div class="mini phone"></div><div class="snum">04</div><div class="slab">THE CHAT OPENS</div></div></div></div></div></figure>
+          <div class="nt-reading">
+            <div class="ntf-takeaway">
+              <p class="ntf-tag">Takeaway</p>
+              <p class="ntf-takeaway-line">AI can separate topics, match replies, and track what’s been heard – turning fragmented, out-of-sync voice memos into a conversation people can actually follow.</p>
+            </div>
+            <p class="nt-snapshot">This is a snapshot. <a class="nt-link" href="mailto:sooimkang1015@gmail.com">Email me</a> for the full story.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+	<footer class="footer">
+    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon" width="12" height="12">, <img src="brain.png" alt="brain" class="footer__icon" width="12" height="12">, and <img src="love.png" alt="love" class="footer__icon" width="12" height="12"></p>
+    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
+  </footer>
 
-<dl class="nt-meta"><div><dt>Role</dt><dd>Solo designer</dd></div><div><dt>Timeline</dt><dd>2 weeks · Jun 2026</dd></div><div><dt>Platform</dt><dd>Voice chat app concept</dd></div><div><dt>Scope</dt><dd>Product design · Interaction design · Prototyping</dd></div></dl>
-</header><section aria-labelledby="overview-title" class="nt-section nt-case-section nt-reading" id="overview-intro">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">01 / Overview</p>
-<h2 class="case__section-title" id="overview-title">Long voice calls get lost in chronology.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">Voice calls run long and span many topics, but apps file them by time. Once the feed moves on, what was said is gone.</p>
-</div>
-</div>
-<h3 class="case__subhead">Problem</h3>
-<p class="case__copy">Users can't find past points in a call. Nothing organizes long calls by subject.</p>
-<div class="case__media-block">
-<div class="flow__row">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-</div>
-</div>
-<h3 class="case__subhead">Opportunity</h3>
-<p class="case__copy">Let people mark topics as they talk. Timestamps become searchable; calls become navigable.</p>
-<blockquote class="case__quote-block">
-<p class="case__quote-block-text">How might we make voice calls navigable by topic?</p>
-</blockquote>
-</section><section aria-labelledby="solution-title" class="nt-section nt-case-section nt-reading" id="solution">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">02 / Solution</p>
-<h2 class="case__section-title" id="solution-title">One tap mid-call marks a topic shift.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">A tap during the call marks a topic shift. Afterward, the app builds a searchable outline.</p>
-</div>
-</div>
-<div class="case__media-block">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-</div>
-<h3 class="case__subhead">Topics make calls searchable</h3>
-<p class="case__copy">After the call, jump straight to the discussion you need.</p>
-<div class="case__media-block">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video">
-<video aria-label="yap demo walkthrough video" class="flow__video" loop="" muted="" playsinline="" preload="auto" src="yap-assets/yap-demo.mp4"></video>
-</div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-</div>
-</section><section aria-labelledby="flows-title" class="nt-section nt-case-section nt-reading" id="flows">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">03 / Core Flows</p>
-<h2 class="case__section-title" id="flows-title">Marking can never interrupt the conversation.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">Marking had to happen inside the call: one tap, then name the topic.</p>
-</div>
-</div>
-<div class="case__flow-block"><h3 class="case__subhead">Mark without pausing the call</h3><p class="case__copy">A button in the call controls adds a marker without pausing the conversation.</p>
-<div class="flow__row">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-</div>
-
-
-</div>
-<div class="case__flow-block"><h3 class="case__subhead">The outline appears after</h3><p class="case__copy">Participants see what was discussed, by topic. Tap any topic to jump to its timestamp.</p>
-<div class="yap-flow__trio">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<div class="flow__media-stack">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-</div>
-</div>
-
-
-</div>
-</section><section aria-labelledby="system-title" class="nt-section nt-case-section nt-reading" id="system">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">04 / System</p>
-<h2 class="case__section-title" id="system-title">Topics live inside the call, not beside it.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">It works because it lives in the existing call interface, not as a separate feature.</p>
-</div>
-</div>
-<div class="case__compare-row">
-<div class="case__compare-card">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<h3 class="case__subhead">Before topics</h3>
-<p class="case__copy">Long calls become one unsearchable recording.</p>
-</div>
-<div class="case__compare-card">
-<div class="flow__device">
-<div class="flow__device-screen">
-<div class="flow__video"></div>
-</div>
-<div class="flow__controls">
-<button aria-label="Pause" class="flow__btn flow__btn--pause is-playing">
-<svg class="icon-pause" fill="currentColor" viewbox="0 0 24 24"><rect height="16" rx="1" width="4" x="5" y="4"></rect><rect height="16" rx="1" width="4" x="15" y="4"></rect></svg>
-<svg class="icon-play" fill="currentColor" viewbox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-</button>
-<button aria-label="Replay" class="flow__btn flow__btn--replay">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg>
-</button>
-</div>
-</div>
-<h3 class="case__subhead">With topics</h3>
-<p class="case__copy">Calls become outlines you can navigate and revisit.</p>
-</div>
-</div>
-<div class="case__media-block">
-<img alt="System map showing topic markers as a layer across the voice chat interface" class="case__frame"/>
-</div>
-<p class="case__key-insight">The value: ephemeral talk becomes reference material.</p>
-</section><section aria-labelledby="research-title" class="nt-section nt-case-section nt-reading" id="research">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">05 / Research</p>
-<h2 class="case__section-title" id="research-title">Voice is harder to revisit than text.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">Users struggle to find moments in past calls, and often re-record audio to document decisions.</p>
-</div>
-</div>
-<div class="case__media-block">
-<img alt="User interview synthesis: voice messaging pain points" class="case__frame"/>
-</div>
-<div class="case__insight-grid">
-<div class="case__insight-block">
-<h3 class="case__subhead">Voice is rich but unsearchable</h3>
-<p class="case__copy">Audio carries tone and nuance, but you can't search or skim it.</p>
-</div>
-<div class="case__insight-block">
-<h3 class="case__subhead">Long calls blur together</h3>
-<p class="case__copy">Users remember that something was said, not when.</p>
-</div>
-<div class="case__insight-block">
-<h3 class="case__subhead">Context gets lost</h3>
-<p class="case__copy">Without structure, key moments get lost.</p>
-</div>
-</div>
-<div class="case__media-block">
-<img alt="Competitive analysis: how platforms handle long audio" class="case__frame"/>
-</div>
-</section><section aria-labelledby="decisions-title" class="nt-section nt-case-section nt-reading" id="decisions">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">06 / Design Decisions</p>
-<h2 class="case__section-title" id="decisions-title">Every decision protected focus on the conversation.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">The key decisions minimized cognitive load and kept attention on the call, not the tool.</p>
-</div>
-</div>
-<h3 class="case__subhead">Structural fit</h3>
-<p class="case__copy">The marker lives in the call controls, reachable without breaking conversational flow.</p>
-<div class="case__media-block">
-<img alt="System map: topic markers integrated into call UI" class="case__frame"/>
-</div>
-<div class="case__decision-pair">
-<div class="case__decision-block">
-<h4 class="case__decision-title">Keep markers lightweight</h4>
-<p class="case__copy">One tap to mark, a quick voice label after.</p>
-</div>
-<div class="case__decision-block">
-<h4 class="case__decision-title">Show the outline after</h4>
-<p class="case__copy">The outline appears when the call ends, when people are ready to use it.</p>
-</div>
-</div>
-<h3 class="case__subhead">Navigation fit</h3>
-<p class="case__copy">The outline mirrors messaging-app patterns, so navigation needs no learning.</p>
-<div class="case__media-block">
-<img alt="Topic outline mimics familiar list navigation patterns" class="case__frame"/>
-</div>
-<div class="case__decision-pair">
-<div class="case__decision-block">
-<h4 class="case__decision-title">Simple, scannable outlines</h4>
-<p class="case__copy">Topic name and timestamp only; tap to jump to the segment.</p>
-</div>
-<div class="case__decision-block">
-<h4 class="case__decision-title">Allow flexible labeling</h4>
-<p class="case__copy">People name topics in their own words, with no fixed taxonomy.</p>
-</div>
-</div>
-</section><!-- IMPACT (hidden for now — restore by removing this comment)
-<section aria-labelledby="impact-title" class="nt-section nt-case-section nt-reading" id="impact">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">07 / Impact</p>
-<h2 class="case__section-title" id="impact-title">Success is whether users reference past conversations.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">The feature works if topic markers make users more likely to jump back into old calls to find information.</p>
-</div>
-</div>
-<div class="case__insight-grid">
-<div class="case__insight-block">
-<h3 class="case__subhead">Primary metric</h3>
-<p class="case__copy">Engagement with historical call outlines and topic-based playback.</p>
-</div>
-<div class="case__insight-block">
-<h3 class="case__subhead">Secondary metrics</h3>
-<p class="case__copy">Marker adoption rate, average markers per call, re-reference frequency.</p>
-</div>
-<div class="case__insight-block">
-<h3 class="case__subhead">Next step</h3>
-<p class="case__copy">Test with user groups, measure whether topic markers actually reduce the need for follow-up text messages.</p>
-</div>
-</div>
-<p class="case__key-insight">If this works, it could transform how teams document decisions made in real-time conversation.</p>
-</section>
---><section aria-labelledby="reflection-title" class="nt-section nt-case-section nt-reading nt-reflection" id="reflection">
-<div class="case__intro">
-<div class="case__intro-lead">
-<p class="case__eyebrow nt-kicker">07 / Reflection</p>
-<h2 class="case__section-title" id="reflection-title">Structure should emerge from behavior.</h2>
-</div>
-<div class="case__intro-body">
-<p class="case__copy">The best organizing systems ride on what people already do. Voice calls don't need transcription or tagging workflows, just one natural moment to mark what matters.</p>
-</div>
-</div>
-<div class="case__col-group">
-<div><h3 class="case__subhead">Timing is everything</h3><p class="case__copy">Organize when something feels important, not after the fact.</p>
-<img alt="" class="case__frame"/>
-
-
-</div>
-<div><h3 class="case__subhead">Simplicity scales</h3><p class="case__copy">One tap beats complex tagging, if it lives where the behavior happens.</p>
-<img alt="" class="case__frame"/>
-
-
-</div>
-<div><h3 class="case__subhead">Voice is underrated</h3><p class="case__copy">Design often treats voice as a fallback. Structured well, it's richer than text.</p>
-<img alt="" class="case__frame"/>
-
-
-</div>
-</div>
-</section></div></div></main>
-<footer class="footer">
-<p class="footer__copy">© 2026 · Built with <img alt="Claude" class="footer__icon" height="12" src="claude.png" width="12"/>, <img alt="brain" class="footer__icon" height="12" src="brain.png" width="12"/>, and <img alt="love" class="footer__icon" height="12" src="love.png" width="12"/></p>
-<time aria-label="Local time" class="footer__time js-clock" datetime=""></time>
-</footer>
-<script src="js/site.js"></script>
-<script src="js/notate.js?v=nt-1"></script><script src="js/case.js?v=6"></script>
+  <script src="js/site.js"></script>
+  <script src="js/notate.js?v=4"></script>
+<script src="js/case.js?v=7"></script>
 <script src="js/morph.js?v=2"></script>
 	<script src="js/text-sooim.js?v=5" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
