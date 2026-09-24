@@ -1,0 +1,8 @@
+name = "text-sooim"
+main = "text-sooim-worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+MODEL = "claude-haiku-4-5"
+
+# Secret (never commit): npx wrangler secret put ANTHROPIC_API_KEY
