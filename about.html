@@ -6,16 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About · Sooim Kang</title>
   <meta name="description" content="Sooim Kang is a New York-based product designer interested in the human behavior behind our digital interactions." />
-  <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
-  <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/base.css?v=layout-sb-2-ds2" />
+  <link rel="stylesheet" href="css/glass.css?v=2-ds2">
+  <link rel="stylesheet" href="css/site.css?v=koto-2-ds2" />
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+	<link rel="icon" type="image/png" sizes="16x16" href="16.png?v=2">
+	<link rel="icon" type="image/png" sizes="32x32" href="32.png?v=2">
+	<link rel="icon" type="image/png" sizes="64x64" href="64.png?v=2">
+	<link rel="apple-touch-icon" href="touch.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="css/about.css?v=39" />
-	<link rel="stylesheet" href="css/text-sooim.css?v=5" />
+  <link rel="stylesheet" href="css/about.css?v=40-ds2" />
+	<link rel="stylesheet" href="css/text-sooim.css?v=6" />
+	<script src="js/page-fade.js?v=1"></script>
 </head>
-<body class="home about-page">
+<body id="top" class="home about-page">
 
   <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
     <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
@@ -28,32 +34,32 @@
       </button>
       <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
         <a href="work" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Work</span>
               <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
             </span>
           </span>
         </a>
         <a href="explorations" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Explorations</span>
               <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
             </span>
           </span>
         </a>
         <a href="about" class="nav__menu-link is-active">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">About</span>
               <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
             </span>
           </span>
         </a>
         <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Resume</span>
               <span class="nav__menu-title" aria-hidden="true">Download</span>
             </span>
@@ -72,43 +78,43 @@
   <main class="ab">
     <header class="ab-hero ab-col">
       <figure class="ab-hero__pic ab-reel" aria-label="Short clips from my life: me, graduation, eating out, family, working, game night, cooking"><div class="ab-reel__track" data-reel><div class="ab-reel__item" data-clip="me"><video data-src="about-me-assets/web/me.mp4" poster="about-me-assets/web/me.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">214</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
-<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Hiii guyss!! Let’s doom scroll my feed lately</p></div></div><div class="ab-reel__item" data-clip="graduation"><video data-src="about-me-assets/web/graduation.mp4" poster="about-me-assets/web/graduation.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Hiii guyss!! Let’s doom scroll together</p></div></div><div class="ab-reel__item" data-clip="graduation"><video data-src="about-me-assets/web/graduation.mp4" poster="about-me-assets/web/graduation.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">1,208</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Officially a Master of Communication Design 🎓 <b>#parsons</b></p></div></div><div class="ab-reel__item" data-clip="eating"><video data-src="about-me-assets/web/eating.mp4" poster="about-me-assets/web/eating.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">486</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">7.5/10 ⭐ food review of London Bagel Museum in 안국점 with <b>@neda</b></p></div></div><div class="ab-reel__item" data-clip="family"><video data-src="about-me-assets/web/family.mp4" poster="about-me-assets/web/family.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">352</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">Missing my mommy and auntie💛</p></div></div><div class="ab-reel__item" data-clip="working"><video data-src="about-me-assets/web/working.mp4" poster="about-me-assets/web/working.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">167</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">A late night journaling session hatessss to see me coming</p></div></div><div class="ab-reel__item" data-clip="game"><video data-src="about-me-assets/web/game.mp4" poster="about-me-assets/web/game.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">298</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
 <a class="ab-tt__act" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="Share: LinkedIn"><svg viewBox="0 0 24 24"><path d="M13.5 4.5 21 11.6l-7.5 7v-4.1c-5 0-8.3 1.4-10.5 4.9.8-5.2 3.8-9.9 10.5-10.8z"/></svg></a></div>
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap">pov: a friday night after saying we should do something lol <b>@lucytrep</b></p></div></div><div class="ab-reel__item" data-clip="cooking"><video data-src="about-me-assets/web/cooking.mp4" poster="about-me-assets/web/cooking.jpg" muted playsinline preload="none" aria-hidden="true"></video>
-<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/web/me.jpg" alt=""><i>+</i></span>
+<div class="ab-tt__rail"><span class="ab-tt__avatar"><img src="about-me-assets/me.jpg" alt=""><i>+</i></span>
 <button class="ab-tt__act" type="button" data-like aria-label="Like" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="ab-tt__n">143</span></button>
 <button class="ab-tt__act" type="button" data-comments aria-label="Comments"><svg viewBox="0 0 24 24"><path d="M12 3.5c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4 15.5 3 13.4 3 11.1 3 6.9 7 3.5 12 3.5z"/><circle cx="8" cy="11.2" r="1.2" fill="#fff"/><circle cx="12" cy="11.2" r="1.2" fill="#fff"/><circle cx="16" cy="11.2" r="1.2" fill="#fff"/></svg><span class="ab-tt__n" data-ccount>0</span></button>
 <button class="ab-tt__act" type="button" data-save aria-label="Save" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6.5 3h11A1.5 1.5 0 0 1 19 4.5V21l-7-4.5L5 21V4.5A1.5 1.5 0 0 1 6.5 3z"/></svg></button>
@@ -116,6 +122,7 @@
 <div class="ab-tt__meta"><p class="ab-tt__name">Sooim Kang, Product Designer</p><p class="ab-tt__cap"><b>@hellofresh</b> pls sponsor me i'm begging</p></div></div></div><span class="ab-reel__paused" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.9c0-1.2 1.3-1.9 2.3-1.3l11 6.9c1 .6 1 2 0 2.6l-11 6.9c-1 .6-2.3-.1-2.3-1.3z"/></svg></span><div class="ab-reel__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><section class="ab-cm" data-cm hidden aria-label="Comments"><div class="ab-cm__panel"><header class="ab-cm__head"><span data-cm-title>Comments</span><button class="ab-cm__x" type="button" data-cm-close aria-label="Close comments"><svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg></button></header><ol class="ab-cm__list" data-cm-list></ol><form class="ab-cm__form" data-cm-form><div class="ab-cm__emoji" data-cm-emoji><button type="button">😳</button><button type="button">😁</button><button type="button">🥰</button><button type="button">😂</button><button type="button">😏</button><button type="button">😅</button><button type="button">🥺</button></div><div class="ab-cm__row"><span class="ab-cm__av" aria-hidden="true"></span><label class="ab-cm__box"><span class="ab-sr">Comment</span><textarea class="ab-cm__input" name="text" rows="1" maxlength="300" placeholder="Add comment…" required></textarea></label></div><div class="ab-cm__tools"><input class="ab-cm__name" name="name" maxlength="40" placeholder="Your name (optional)" autocomplete="nickname"><button class="ab-cm__send" type="submit" aria-label="Post comment" disabled><svg viewBox="0 0 24 24"><path d="M12 19V6m0 0-5.5 5.5M12 6l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><p class="ab-cm__note" data-cm-note></p></form></div></section></figure>
       <div class="ab-hero__text">
         <div class="ab-hero__top"><p class="ab-label">About</p><div class="ab-actions ab-actions--top">
+<a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
           <a class="ab-icon glass" href="mailto:sooimkang1015@gmail.com" aria-label="Email me" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
           <a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
@@ -150,15 +157,15 @@
     <section class="ab-sec ab-col" aria-labelledby="ab-out">
       <div class="ab-album-head"><div class="ab-album-text"><h2 class="ab-h2" id="ab-out">Camera roll</h2></div><button class="ab-play glass" type="button" data-album-play aria-label="Play Camera roll as a slideshow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button></div>
       <div class="ab-photos">
-        <figure class="ab-photo"><img src="about-me-assets/teamwork.jpg" alt="With my team at the Parsons 2026 AI Startup Design Hackathon" loading="lazy"><figcaption>With my team at the Parsons 2026 AI Startup Design Hackathon</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/brainstorming.JPG" alt="Brainstorming at FigBuild 2026" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Brainstorming at FigBuild 2026</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/fellowship.jpg" alt="Parsons 2026 Digital Expression Fellows" loading="lazy"><figcaption>Parsons 2026 Digital Expression Fellows</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/music.jpg" alt="Always listening to something: 45K minutes on Spotify last year" loading="lazy"><figcaption>Always listening to something: 45K minutes on Spotify last year</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/photography.jpg" alt="Out taking photos" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Out taking photos</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/museum.jpg" alt="Local museums first, whenever I travel" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Local museums first, whenever I travel</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/ice-cream.jpg" alt="Biggest sweet tooth, always up for ice cream" loading="lazy"><figcaption>Biggest sweet tooth, always up for ice cream</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/team.jpg" alt="With the team" loading="lazy"><figcaption>With the team</figcaption></figure>
-        <figure class="ab-photo"><img src="about-me-assets/food-1600.jpg" alt="Street food break" loading="lazy"><figcaption>Street food break</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/teamwork.jpg?v=2" src="about-me-assets/teamwork-square.jpg?v=2" alt="With my team at the Parsons 2026 AI Startup Design Hackathon" loading="lazy"><figcaption>With my team at the Parsons 2026 AI Startup Design Hackathon</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/brainstorming.jpg?v=2" src="about-me-assets/brainstorming-square.jpg?v=2" alt="Brainstorming at FigBuild 2026" loading="lazy"><figcaption>Brainstorming at FigBuild 2026</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/fellowship.jpg?v=2" src="about-me-assets/fellowship-square.jpg?v=2" alt="Parsons 2026 Digital Expression Fellows" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Parsons 2026 Digital Expression Fellows</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/music.jpg?v=2" src="about-me-assets/music-square.jpg?v=2" alt="Always listening to something: 45K minutes on Spotify last year" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>Always listening to something: 45K minutes on Spotify last year</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/photography.jpg?v=2" src="about-me-assets/photography-square.jpg?v=2" alt="Out taking photos" loading="lazy"><figcaption>Out taking photos</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/museum.jpg?v=2" src="about-me-assets/museum-square.jpg?v=2" alt="Local museums first, whenever I travel" loading="lazy"><figcaption>Local museums first, whenever I travel</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/ice-cream.jpg?v=2" src="about-me-assets/ice-cream-square.jpg?v=2" alt="Biggest sweet tooth, always up for ice cream" loading="lazy"><figcaption>Biggest sweet tooth, always up for ice cream</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/family.jpg?v=2" src="about-me-assets/family-square.jpg?v=2" alt="With my family" loading="lazy"><svg class="ab-photo__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg><figcaption>With my family</figcaption></figure>
+        <figure class="ab-photo"><img data-full="about-me-assets/food.jpg?v=2" src="about-me-assets/food-square.jpg?v=2" alt="Street food break" loading="lazy"><figcaption>Street food break</figcaption></figure>
       </div>
     </section>
 
@@ -200,76 +207,21 @@
       </ul>
     </section>
 
-    <section class="home-contact" id="contact" aria-label="Contact">
-      <div class="home-contact__body">
-        <div class="home-contact__intro">
-          <h2 class="home-contact__heading">Contact</h2>
-          <div class="home-contact__card-slot">
-            <div class="home-contact__card-wrap">
-              <a
-                class="home-contact__card"
-                href="mailto:sooimkang1015@gmail.com"
-                aria-label="Email Sooim at sooimkang1015@gmail.com"
-              >
-                <span class="home-contact__card-media">
-                  <img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-                </span>
-                <span class="home-contact__card-overlay">
-                  <span class="home-contact__card-text">
-                    Say hello
-                    <span class="home-contact__card-email">sooimkang1015@gmail.com</span>
-                  </span>
-                  <span class="home-contact__card-action" aria-hidden="true">Email</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <ul class="home-contact__list">
-          <li>
-            <a href="mailto:sooimkang1015@gmail.com">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Email</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">LinkedIn</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-                </span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-              <span class="home-contact__flip">
-                <span class="home-contact__flip-track">
-                  <span class="home-contact__flip-label">Github</span>
-                  <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
+    
 
   </main>
 
-  <footer class="footer">
-    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon">, <img src="brain.png" alt="brain" class="footer__icon">, and <img src="love.png" alt="love" class="footer__icon"></p>
-    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
-  </footer>
+  <footer class="footer portfolio-footer">
+ <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
+ <div class="portfolio-footer__portrait"><img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
+ <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism<br>Based in New York City</p></div>
+ <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
+ <div class="portfolio-footer__bottom"><p>© 2026 Sooim Kang</p><p>Updated <time datetime="2026-09-25">09/25/2026</time></p><time class="footer__time js-clock" datetime="" aria-label="Local time in New York"></time></div>
+</footer>
 
-  <script src="js/site.js"></script>
+  <script src="js/site.js?v=orphan-1-ds2"></script>
   <script src="js/comments-config.js?v=2"></script>
-  <script src="js/about.js?v=31" defer></script>
-	<script src="js/text-sooim.js?v=5" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
+  <script src="js/about.js?v=31-ds2" defer></script>
+	<script src="js/text-sooim.js?v=6" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

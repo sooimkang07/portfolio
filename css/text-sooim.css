@@ -78,7 +78,7 @@
 	border: 0;
 	border-radius: 50%;
 	background: var(--ts-gray) center / cover no-repeat;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), 0 0 0 2px #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 	cursor: pointer;
 	transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1), opacity 0.2s;
 }
@@ -89,16 +89,26 @@
 	position: absolute;
 	top: -2px;
 	right: -2px;
+	width: 20px;
 	min-width: 20px;
 	height: 20px;
-	padding: 0 6px;
-	border-radius: 10px;
+	padding: 0;
+	border-radius: 50%;
 	background: var(--ts-red);
 	color: #fff;
-	font: 600 13px/20px var(--ts-font);
-	box-shadow: 0 0 0 2px #fff;
+	font: 400 13px/20px var(--ts-font);
+	text-align: center;
+	box-shadow: none;
 }
 .ts-root.is-open .ts-launcher { transform: scale(0.6); opacity: 0; pointer-events: none; }
+/* Phones: slides down out of view while the visitor scrolls down */
+.ts-root.is-tucked .ts-launcher,
+.ts-root.is-tucked .ts-banner.is-shown {
+	transform: translateY(calc(100% + var(--ts-inset) + 12px));
+	opacity: 0;
+	pointer-events: none;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s 0.1s;
+}
 
 .ts-banner {
 	position: fixed;

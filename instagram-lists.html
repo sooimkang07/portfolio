@@ -7,20 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Notate — a Chrome extension for annotating the web without losing context. By Sooim Kang." />
   <title>Instagram Lists · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=layout-sb-2" />
-  <link rel="stylesheet" href="css/site.css?v=type-scale-2" />
-  <link rel="stylesheet" href="css/notate.css?v=1" />
-  <link rel="icon" href="favicon.ico" />
-<link rel="stylesheet" href="css/project-clean.css?v=7">
-<link rel="stylesheet" href="css/notate-refinements.css?v=6">
-<link rel="stylesheet" href="css/morph.css?v=2">
-<link rel="stylesheet" href="css/case.css?v=11">
-<link rel="stylesheet" href="css/notate-figures.css?v=3">
-<link rel="stylesheet" href="css/case-glance.css?v=1">
+  <link rel="stylesheet" href="css/base.css?v=layout-sb-2-ds2" />
+  <link rel="stylesheet" href="css/glass.css?v=2-ds2">
+  <link rel="stylesheet" href="css/site.css?v=koto-2-ds2" />
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+	<link rel="icon" type="image/png" sizes="16x16" href="16.png?v=2">
+	<link rel="icon" type="image/png" sizes="32x32" href="32.png?v=2">
+	<link rel="icon" type="image/png" sizes="64x64" href="64.png?v=2">
+	<link rel="apple-touch-icon" href="touch.png?v=2">
+<link rel="stylesheet" href="css/morph.css?v=2-ds2">
+<link rel="stylesheet" href="css/case.css?v=11-ds1-m-ds2">
+<link rel="stylesheet" href="css/notate-figures.css?v=3-ds2">
+<link rel="stylesheet" href="css/case-glance.css?v=1-ds2">
 <link rel="stylesheet" href="css/figures.css?v=4">
-<link rel="stylesheet" href="css/draft-extras.css?v=1">
+<link rel="stylesheet" href="css/draft-extras.css?v=1-ds2">
   <meta name="robots" content="noindex">
-	<link rel="stylesheet" href="css/text-sooim.css?v=5" />
+	<link rel="stylesheet" href="css/text-sooim.css?v=6" />
+	<script src="js/page-fade.js?v=1"></script>
 </head>
 <body class="home notate-page case-page page--project" data-case="instagram">
   <a class="nt-skip" href="#at-a-glance">Skip to case study</a>
@@ -35,32 +38,32 @@
       </button>
       <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
         <a href="work" class="nav__menu-link is-active">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Work</span>
               <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
             </span>
           </span>
         </a>
         <a href="explorations" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Explorations</span>
               <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
             </span>
           </span>
         </a>
         <a href="about" class="nav__menu-link">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">About</span>
               <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
             </span>
           </span>
         </a>
         <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-          <span class="nav__menu-flip">
-            <span class="nav__menu-flip-track">
+          <span class="flip">
+            <span class="flip__track">
               <span class="nav__menu-title">Resume</span>
               <span class="nav__menu-title" aria-hidden="true">Download</span>
             </span>
@@ -87,13 +90,13 @@
         <nav class="nt-toc" aria-label="Case study sections">
           <a class="nt-back" href="work">← Back</a>
           <ol>
-            <li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li>
-            <li><a href="#research"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Research</span><span class="project-toc-title" aria-hidden="true">Research</span></span></span></a></li>
-            <li><a href="#core-flows"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Core flows</span><span class="project-toc-title" aria-hidden="true">Core flows</span></span></span></a></li>
-            <li><a href="#iterations"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Iterations</span><span class="project-toc-title" aria-hidden="true">Iterations</span></span></span></a></li>
-            <li><a href="#design-decisions"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li>
-            <li><a href="#system"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">System</span><span class="project-toc-title" aria-hidden="true">System</span></span></span></a></li>
-            <li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li>
+            <li><a href="#overview"><span class="flip"><span class="flip__track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li>
+            <li><a href="#core-flows"><span class="flip"><span class="flip__track"><span class="project-toc-title">Core flows</span><span class="project-toc-title" aria-hidden="true">Core flows</span></span></span></a></li>
+            <li><a href="#research"><span class="flip"><span class="flip__track"><span class="project-toc-title">Research</span><span class="project-toc-title" aria-hidden="true">Research</span></span></span></a></li>
+            <li><a href="#iterations"><span class="flip"><span class="flip__track"><span class="project-toc-title">Iterations</span><span class="project-toc-title" aria-hidden="true">Iterations</span></span></span></a></li>
+            <li><a href="#design-decisions"><span class="flip"><span class="flip__track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li>
+            <li><a href="#system"><span class="flip"><span class="flip__track"><span class="project-toc-title">System</span><span class="project-toc-title" aria-hidden="true">System</span></span></span></a></li>
+            <li><a href="#reflection"><span class="flip"><span class="flip__track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li>
           </ol>
         </nav>
       </aside>
@@ -110,8 +113,8 @@
           </div>
           <figure class="nt-media nt-process"><div class="dx-media"><video src="instagram-assets/solution/instagram-solution.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Switching lists reshapes Home, Stories, and Following"></video></div></figure>
         </section>
-        <section id="research" class="nt-section" aria-labelledby="research-title"><div class="nt-reading"><p class="nt-kicker">Research</p><h2 id="research-title">Algorithms can predict relevance, not intent.</h2><p>People already sort who they follow into groups in their heads. What’s missing is a way to say who matters right now.</p><p>The problem wasn’t volume. It was retrieval: people were missing the ones they meant to see.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/generated/user-interviews.png" alt="User interviews" loading="lazy"></div><figcaption>User interviews</figcaption></figure><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/generated/competitive-analysis.png" alt="Competitive audit" loading="lazy"></div><figcaption>Competitive audit</figcaption></figure></div></figure><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">The deeper problem</p><h3>The feed optimizes for consuming content, not for rediscovering the accounts behind it.</h3><p>Friends, creators, brands, and communities rank together even though they serve different goals.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/problem/problem-1.mp4" autoplay loop muted playsinline preload="metadata" aria-label=""></video></div></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/problem/problem-2.mp4" autoplay loop muted playsinline preload="metadata" aria-label=""></video></div></figure></div></figure></div></section>
         <section id="core-flows" class="nt-section" aria-labelledby="core-flows-title"><div class="nt-reading"><p class="nt-kicker">Core flows</p><h2 id="core-flows-title">Lists live inside browsing, not beside it.</h2><p>Creating, switching, and editing a list had to feel like browsing, so every flow cuts setup and keeps the context visible.</p></div><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">Defaults</p><h3>Start with default lists, so it’s useful from the first session.</h3><p>All, Following, and Close Friends work right away, with nothing to organize first.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/1-default-home-navigation.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Home"></video></div><figcaption>Home</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/1-default-following.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Following"></video></div><figcaption>Following</figcaption></figure></div></figure></div><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">Create</p><h3>Creation happens where intent emerges.</h3><p>Make a list from Home, a profile, a post, a story, or Following, wherever the need shows up.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--3"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/3-create-list-from-home.mp4" autoplay loop muted playsinline preload="metadata" aria-label="From Home"></video></div><figcaption>From Home</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/3-new-list-following.mp4" autoplay loop muted playsinline preload="metadata" aria-label="From Following"></video></div><figcaption>From Following</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/3-create-list.mp4" autoplay loop muted playsinline preload="metadata" aria-label="New list"></video></div><figcaption>New list</figcaption></figure></div></figure></div><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">Edit</p><h3>Editing happens where intent already exists.</h3><p>Add or move someone from a post, a story, a profile, or Following. Upkeep stays light, not administrative.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--3"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/4-edit-from-post.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Post"></video></div><figcaption>Post</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/4-edit-from-story.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Story"></video></div><figcaption>Story</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/core flows/4-edit-from-profile.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Profile"></video></div><figcaption>Profile</figcaption></figure></div></figure></div></section>
+        <section id="research" class="nt-section" aria-labelledby="research-title"><div class="nt-reading"><p class="nt-kicker">Research</p><h2 id="research-title">Algorithms can predict relevance, not intent.</h2><p>People already sort who they follow into groups in their heads. What’s missing is a way to say who matters right now.</p><p>The problem wasn’t volume. It was retrieval: people were missing the ones they meant to see.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/generated/user-interviews.png" alt="User interviews" loading="lazy"></div><figcaption>User interviews</figcaption></figure><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/generated/competitive-analysis.png" alt="Competitive audit" loading="lazy"></div><figcaption>Competitive audit</figcaption></figure></div></figure><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">The deeper problem</p><h3>The feed optimizes for consuming content, not for rediscovering the accounts behind it.</h3><p>Friends, creators, brands, and communities rank together even though they serve different goals.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/problem/problem-1.mp4" autoplay loop muted playsinline preload="metadata" aria-label=""></video></div></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/problem/problem-2.mp4" autoplay loop muted playsinline preload="metadata" aria-label=""></video></div></figure></div></figure></div></section>
         <section id="iterations" class="nt-section" aria-labelledby="iterations-title"><div class="nt-reading"><p class="nt-kicker">Iterations</p><h2 id="iterations-title">Three directions, tested with real people. Only one fixed the root problem.</h2><p>Navigation and profile ideas improved control, not priority. Only organizing who you follow changed what the ranking receives.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--3"><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/explorations/exploration-1.png" alt="Navigation simplification&lt;span&gt;Easier controls, but no way to set priority.&lt;/span&gt;" loading="lazy"></div><figcaption>Navigation simplification<span>Easier controls, but no way to set priority.</span></figcaption></figure><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/explorations/exploration-2.png" alt="Profile-level curation&lt;span&gt;Visibility control, but feed attention stayed the same.&lt;/span&gt;" loading="lazy"></div><figcaption>Profile-level curation<span>Visibility control, but feed attention stayed the same.</span></figcaption></figure><figure class="dx-cell"><div class="dx-media"><img src="instagram-assets/explorations/exploration-3.png" alt="Social graph organization ✓&lt;span&gt;Groups set feed priority before ranking.&lt;/span&gt;" loading="lazy"></div><figcaption>Social graph organization ✓<span>Groups set feed priority before ranking.</span></figcaption></figure></div></figure></section>
         <section id="design-decisions" class="nt-section" aria-labelledby="design-decisions-title"><div class="nt-reading"><p class="nt-kicker">Design decisions</p><h2 id="design-decisions-title">The risks I designed around.</h2><p>Lists stays in the main rail, remembers the active list, and edits in place, so it reads as a way of browsing, not a settings chore.</p></div><figure class="nt-media nt-process"><div class="fig" role="img" aria-label="IG-11 mock"><div class="flow"><div class="cards n4"><div class="card "><div class="c-lab">LIST FRAGMENTATION</div><div class="c-txt">Too many lists, none used.</div></div><div class="card "><div class="c-lab">DISCOVERY COLLAPSE</div><div class="c-txt">Lists shouldn’t kill finding new things.</div></div><div class="card "><div class="c-lab">MAINTENANCE DECAY</div><div class="c-txt">Lists go stale if upkeep is work.</div></div><div class="card "><div class="c-lab">MULTI-CONTEXT PEOPLE</div><div class="c-txt">One friend, several lists.</div></div></div></div></div></figure></section>
         <section id="system" class="nt-section" aria-labelledby="system-title"><div class="nt-reading"><p class="nt-kicker">System</p><h2 id="system-title">Designed as a system, not a feature.</h2><p>Lists adds no new destination. One context state shapes Home, Stories, profiles, and Following at once.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--2"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/system thinking/before-lists.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Before Lists&lt;span&gt;Every surface reads the full follow graph.&lt;/span&gt;"></video></div><figcaption>Before Lists<span>Every surface reads the full follow graph.</span></figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/system thinking/after-lists.mp4" autoplay loop muted playsinline preload="metadata" aria-label="With Lists&lt;span&gt;One active list narrows the pool everywhere.&lt;/span&gt;"></video></div><figcaption>With Lists<span>One active list narrows the pool everywhere.</span></figcaption></figure></div></figure><div class="nt-step"><div class="nt-reading dx-step"><p class="nt-step-label">Visuals</p><h3>Lists looks like it always belonged in Instagram.</h3><p>No new visual language: icons extend Close Friends, and list pills sit where the verified tag already does.</p></div><figure class="nt-media nt-process"><div class="dx-grid dx-grid--3"><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/animations/logotoLists.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Logo → Lists"></video></div><figcaption>Logo → Lists</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/animations/listIcons.mp4" autoplay loop muted playsinline preload="metadata" aria-label="List icons"></video></div><figcaption>List icons</figcaption></figure><figure class="dx-cell"><div class="dx-media"><video src="instagram-assets/animations/storiesFilter.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Stories filter"></video></div><figcaption>Stories filter</figcaption></figure></div></figure></div></section>
@@ -119,15 +122,18 @@
       </div>
     </div>
   </main>
-	<footer class="footer">
-    <p class="footer__copy">© 2026 · Built with <img src="claude.png" alt="Claude" class="footer__icon" width="12" height="12">, <img src="brain.png" alt="brain" class="footer__icon" width="12" height="12">, and <img src="love.png" alt="love" class="footer__icon" width="12" height="12"></p>
-    <time class="footer__time js-clock" datetime="" aria-label="Local time"></time>
-  </footer>
+	<footer class="footer portfolio-footer">
+ <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
+ <div class="portfolio-footer__portrait"><img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
+ <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism<br>Based in New York City</p></div>
+ <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
+ <div class="portfolio-footer__bottom"><p>© 2026 Sooim Kang</p><p>Updated <time datetime="2026-09-25">09/25/2026</time></p><time class="footer__time js-clock" datetime="" aria-label="Local time in New York"></time></div>
+</footer>
 
-  <script src="js/site.js"></script>
+  <script src="js/site.js?v=orphan-1-ds2"></script>
   <script src="js/notate.js?v=4"></script>
 <script src="js/case.js?v=7"></script>
 <script src="js/morph.js?v=2"></script>
-	<script src="js/text-sooim.js?v=5" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
+	<script src="js/text-sooim.js?v=6" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

@@ -616,6 +616,9 @@
 	// ---- Boot
 	function boot() {
 		document.body.appendChild(root);
+		var returning = false;
+		try { returning = localStorage.getItem("ts-visited") === "1"; localStorage.setItem("ts-visited", "1"); } catch (e) {}
+		if (returning && !state.msgs.length) state.unread = 0;
 		if (!state.unread) badge.hidden = true;
 		tick();
 		setInterval(tick, 15000);
@@ -634,6 +637,24 @@
 			}, 6000);
 		}
 	}
+	// ---- Phones: tuck the launcher away while scrolling down, bring it back on scroll up,
+	// after a pause, or at the end of the page. Desktop keeps it put.
+	var phone = matchMedia("(max-width: 759px)");
+	var lastY = window.scrollY, travel = 0, idleTimer = 0;
+	function tuck(on) { root.classList.toggle("is-tucked", on); }
+	window.addEventListener("scroll", function () {
+		var y = window.scrollY, dy = y - lastY;
+		lastY = y;
+		if (!phone.matches || root.classList.contains("is-open")) { tuck(false); return; }
+		travel = (dy > 0) === (travel > 0) ? travel + dy : dy;
+		var atEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 160;
+		if (atEnd || y < 80 || travel < -8) tuck(false);
+		else if (travel > 24) tuck(true);
+		clearTimeout(idleTimer);
+		idleTimer = setTimeout(function () { tuck(false); }, 2000);
+	}, { passive: true });
+	phone.addEventListener("change", function () { tuck(false); });
+
 	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 
 	window.TextSooim = { open: open, close: close, reset: function () { try { sessionStorage.removeItem(STORE); } catch (e) {} location.reload(); } };

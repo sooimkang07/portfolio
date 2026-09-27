@@ -35,7 +35,7 @@
 	/* Album Play: a full-screen slideshow, modeled on Apple Photos */
 	const playBtn = document.querySelector('[data-album-play]')
 	const openShow = (start = 0, autoplay = true, opener = playBtn) => {
-		const photos = [...document.querySelectorAll('.ab-photos img')].map(i => ({ src: i.currentSrc || i.src, alt: i.alt }))
+		const photos = [...document.querySelectorAll('.ab-photos img')].map(i => ({ src: i.dataset.full || i.currentSrc || i.src, alt: i.alt }))
 		if (!photos.length) return
 		const I = {
 			close: '<svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg>',
@@ -50,10 +50,10 @@
 		show.setAttribute('role', 'dialog'); show.setAttribute('aria-modal', 'true'); show.setAttribute('aria-label', 'Camera roll slideshow')
 		show.tabIndex = -1
 		show.innerHTML = `<div class="ab-show__stage"><div class="ab-show__track">${photos.map(p => `<div class="ab-show__slide"><img src="${esc(p.src)}" alt="${esc(p.alt)}"></div>`).join('')}</div></div>
-			<button class="ab-show__back ab-lglass" type="button" data-x aria-label="Close slideshow">${I.close}</button>
-			<button class="ab-show__big ab-lglass" type="button" data-big aria-label="Play">${I.play}</button>
-			<button class="ab-show__arrow ab-show__arrow--prev ab-lglass" type="button" data-p aria-label="Previous photo">${I.back}</button>
-			<button class="ab-show__arrow ab-show__arrow--next ab-lglass" type="button" data-n aria-label="Next photo">${I.next}</button>
+			<button class="ab-show__back glass" type="button" data-x aria-label="Close slideshow">${I.close}</button>
+			<button class="ab-show__big glass" type="button" data-big aria-label="Play">${I.play}</button>
+			<button class="ab-show__arrow ab-show__arrow--prev glass" type="button" data-p aria-label="Previous photo">${I.back}</button>
+			<button class="ab-show__arrow ab-show__arrow--next glass" type="button" data-n aria-label="Next photo">${I.next}</button>
 			<div class="ab-show__strip">${photos.map((p, n) => `<button class="ab-show__thumb" type="button" data-i="${n}" aria-label="Photo ${n + 1}"><img src="${esc(p.src)}" alt=""></button>`).join('')}</div>`
 		document.body.append(show)
 		document.documentElement.style.overflow = 'hidden'
@@ -77,7 +77,7 @@
 			thumbs[i].classList.add('is-on')
 			thumbs[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduced ? 'auto' : 'smooth' })
 		}
-		const schedule = () => { clearInterval(timer); if (playing) timer = setInterval(() => go(i + 1), 2000) }
+		const schedule = () => { clearInterval(timer); if (playing) timer = setInterval(() => go(i + 1), 3500) }
 		const setPlaying = v => {
 			playing = v; show.classList.toggle('is-paused', !v)
 			schedule()
@@ -407,9 +407,9 @@
 		view.innerHTML = `<div class="ab-stories__frame">
 			<div class="ab-stories__bars">${items.map(() => '<span class="ab-stories__bar"><span></span></span>').join('')}</div>
 			<img alt="">${who(items[0].date || p.updated)}<p class="ab-stories__cap"></p>
-			<button class="ab-stories__close" type="button" aria-label="Close">×</button></div>
-			<button class="ab-stories__nav ab-stories__nav--prev ab-lglass" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button>
-			<button class="ab-stories__nav ab-stories__nav--next ab-lglass" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button>`
+			<button class="ab-stories__close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4 20 20M20 4 4 20"/></svg></button></div>
+			<button class="ab-stories__nav ab-stories__nav--prev glass" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button>
+			<button class="ab-stories__nav ab-stories__nav--next glass" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button>`
 		document.body.append(view)
 		const frame = view.querySelector('.ab-stories__frame')
 		const img = frame.querySelector('img')
@@ -457,12 +457,12 @@
 		}
 
 		frame.addEventListener('pointerdown', e => {
-			if (e.target === closeBtn) return
+			if (e.target.closest('.ab-stories__close')) return
 			downAt = performance.now(); downY = e.clientY; held = false
 			holdT = setTimeout(() => { held = true; pause() }, 220)
 		})
 		frame.addEventListener('pointerup', e => {
-			if (e.target === closeBtn) return
+			if (e.target.closest('.ab-stories__close')) return
 			clearTimeout(holdT)
 			if (e.clientY - downY > 80) return close()
 			if (held) return resume()

@@ -1,12 +1,18 @@
 /* BASE — tokens, reset, type */
+/* Cascade order: reset < legacy (old page sheets) < everything unlayered */
+@layer reset, legacy;
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
+	/* One cool-grey palette for every page */
 	--clr-accent: #1c2430;
 	--clr-bg:     #FAFCFD;
 	--clr-border: #e6e8ea;
 	--clr-text:   #1c1d1c;
-	--clr-muted:  #8a939e;
+	--clr-muted:  #626b76;   /* AA on --clr-bg, even at label size */
+	--clr-muted-strong: var(--clr-muted);
+	--clr-panel:  #f1f3f5;
+	--clr-panel-hover: #e7eaee;
 
 	--ff: 'Instrument Sans', system-ui, sans-serif;
 	--fw-regular: 400;
@@ -20,13 +26,27 @@
 	--fs-md:   clamp(1.025rem, 1.35vw, 1.1875rem);
 	--fs-lg:   clamp(1.35rem, 2vw, 1.7rem);
 	--fs-xl:   clamp(1.8rem, 3.4vw, 2.7rem);
-	--fs-hero: clamp(2rem, 4.5vw, 3.5rem);
 
 	--lh-base: 1.55;
 	--lh-small: 1.25;
 	--lh-tight: 1.2;
 	--ls-base: 0;
 	--ls-tight: 0.04em;
+
+	/* Headings: every H1 matches About's H1; H2 and H3 match About's H2 */
+	--h-fw: 500;
+	--h1-fs: clamp(1.875rem, 2.8vw, 2.625rem);
+	--h1-lh: 1.1;
+	--h1-ls: -0.035em;
+	--h2-fs: clamp(1.5rem, 2.1vw, 1.875rem);
+	--h2-lh: 1.18;
+	--h2-ls: -0.025em;
+
+	/* Caps label: the only uppercase style */
+	--label-fs: 0.75rem;
+	--label-fw: 500;
+	--label-ls: 0.06em;
+	--label-lh: 1.3;
 
 	--sp-sm: 0.75rem;
 	--sp-md: 1.25rem;
@@ -35,32 +55,57 @@
 
 	--nav-h: 3.25rem;
 	--gutter: clamp(1rem, 2.5vw, 1.5rem);
-	--gap: clamp(0.75rem, 1.5vw, 1.25rem);
 	--toc-col: minmax(13.5rem, 16vw);
-	--case-max: 56rem;
 	--flow-gap: 0.75rem;
-	--r-sm: 0.5rem;
-	--r-md: 0.5rem;
 
-	--ease: cubic-bezier(0.22, 1, 0.36, 1);
-	--t-fast: 140ms;
-	--t-med: 260ms;
+	/* Radius */
+	--r-xs: 4px;    /* tags, bars */
+	--r-sm: 8px;    /* thumbs, small controls */
+	--r-md: 12px;   /* all media and cards */
+	--r-lg: 20px;   /* portraits, feature media, panels */
+	--r-pill: 999px;
+
+	/* Elevation (non-glass) */
+	--shadow-1: 0 0 0 .5px rgb(0 0 0 / .06), 0 1px 2px rgb(0 0 0 / .06);
+	--shadow-2: 0 8px 24px -12px rgb(28 29 28 / .22);
+	--shadow-3: 0 18px 32px -18px rgb(28 29 28 / .45);
+
+	/* Motion */
+	--ease:        cubic-bezier(0.22, 1, 0.36, 1);   /* default: hovers, flips, reveals */
+	--ease-inout:  cubic-bezier(0.65, 0, 0.35, 1);   /* nav, sheens, page-level moves */
+	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+	--dur-1: 150ms;  /* color, opacity */
+	--dur-2: 250ms;  /* background, small transforms */
+	--dur-3: 420ms;  /* fliptrack, media zoom */
+	--dur-4: 900ms;  /* nav, page-level */
+	--t-fast: var(--dur-1);
 	--t-slow: 480ms;
+	--zoom: 1.03;    /* media hover zoom */
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 100%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-	font-family: var(--ff);
-	font-size: var(--fs-base);
-	font-weight: var(--fw-regular);
-	background: var(--clr-bg);
-	color: var(--clr-text);
-	line-height: var(--lh-base);
-	letter-spacing: var(--ls-base);
-	min-block-size: 100vh;
+@layer reset {
+	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+	html { font-size: 100%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+	body {
+		font-family: var(--ff);
+		font-size: var(--fs-base);
+		font-weight: var(--fw-regular);
+		background: var(--clr-bg);
+		color: var(--clr-text);
+		line-height: var(--lh-base);
+		letter-spacing: var(--ls-base);
+		min-block-size: 100vh;
+	}
+	img { display: block; max-inline-size: 100%; }
+	video { display: block; }
+	a { color: inherit; text-decoration: none; }
+	ul { list-style: none; }
+	button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
 }
-img { display: block; max-inline-size: 100%; }
+
+h1 { font-size: var(--h1-fs); font-weight: var(--h-fw); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); }
+h2, h3, h4 { font-size: var(--h2-fs); font-weight: var(--h-fw); line-height: var(--h2-lh); letter-spacing: var(--h2-ls); }
+
 img.footer__icon,
 .footer__icon {
 	display: inline !important;
@@ -75,7 +120,3 @@ img.footer__icon,
 	vertical-align: -1px;
 	margin-inline: 0.15em;
 }
-video { display: block; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }

@@ -6,22 +6,25 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Capstone · Sooim Kang</title>
-<link href="css/base.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/site.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/work.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/case-layout.css?v=layout-sb-2" rel="stylesheet"/>
-<link href="css/morph.css?v=2" rel="stylesheet"/>
-<link href="favicon.ico" rel="icon"/>
+<link href="css/base.css?v=layout-sb-2-ds2" rel="stylesheet"/>
+<link rel="stylesheet" href="css/glass.css?v=2-ds2">
+<link href="css/site.css?v=koto-2-ds2" rel="stylesheet"/>
+<link href="css/capstone-legacy.css?v=1" rel="stylesheet"/>
+<link href="css/morph.css?v=2-ds2" rel="stylesheet"/>
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+	<link rel="icon" type="image/png" sizes="16x16" href="16.png?v=2">
+	<link rel="icon" type="image/png" sizes="32x32" href="32.png?v=2">
+	<link rel="icon" type="image/png" sizes="64x64" href="64.png?v=2">
+	<link rel="apple-touch-icon" href="touch.png?v=2">
 
 <style>
     body.home.page--project main.case-wrap {
       padding-block-start: calc(2.75rem + var(--sp-sm));
     }
-  </style>
-<link href="css/project-clean.css?v=6" rel="stylesheet"/>
-<link href="css/notate.css?v=nt-1" rel="stylesheet"/><link href="css/notate-refinements.css?v=nt-1" rel="stylesheet"/><link href="css/project-notate.css?v=nt-1" rel="stylesheet"/><link rel="stylesheet" href="css/case.css?v=11">
+  </style><link rel="stylesheet" href="css/case.css?v=11-ds1-m-ds2">
 <script data-morph-id="capstone">try{var d=JSON.parse(sessionStorage.getItem("sooim-project-morph")||"null");if(d&&d.id==="capstone"&&Date.now()-(d.ts||0)<8000)document.documentElement.classList.add("is-project-morph-pending")}catch(e){}</script>
-	<link rel="stylesheet" href="css/text-sooim.css?v=5" />
+	<link rel="stylesheet" href="css/text-sooim.css?v=6" />
+	<script src="js/page-fade.js?v=1"></script>
 </head>
 <body class="home page--project notate-page nt-case capstone-page case-page" data-case="capstone"><a class="nt-skip" href="#overview">Skip to case study</a>
 <header class="nav is-at-top" data-ref-header-bar="" id="main-nav">
@@ -35,32 +38,32 @@
 </button>
 <nav class="nav__menu" data-ref-header-bar-menu-desktop="" id="nav-menu">
 <a class="nav__menu-link is-active" href="work">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
+<span class="flip">
+<span class="flip__track">
 <span class="nav__menu-title">Work</span>
 <span aria-hidden="true" class="nav__menu-title">Explore case studies</span>
 </span>
 </span>
 </a>
 <a class="nav__menu-link" href="explorations">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
+<span class="flip">
+<span class="flip__track">
 <span class="nav__menu-title">Explorations</span>
 <span aria-hidden="true" class="nav__menu-title">Explore side quests </span>
 </span>
 </span>
 </a>
 <a class="nav__menu-link" href="about">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
+<span class="flip">
+<span class="flip__track">
 <span class="nav__menu-title">About</span>
 <span aria-hidden="true" class="nav__menu-title">Get to know me</span>
 </span>
 </span>
 </a>
 <a class="nav__menu-link" href="Sooim-Kang-Resume.pdf" rel="noopener" target="_blank">
-<span class="nav__menu-flip">
-<span class="nav__menu-flip-track">
+<span class="flip">
+<span class="flip__track">
 <span class="nav__menu-title">Resume</span>
 <span aria-hidden="true" class="nav__menu-title">Download</span>
 </span>
@@ -79,10 +82,10 @@
     <figure class="case-cover" data-case-cover>
       <div class="flow__device">
         <div class="flow__device-screen"><video class="flow__video case-cover__media" data-project-morph-to="capstone" src="covers/capstone-cover.mp4" autoplay loop muted playsinline preload="auto" aria-label="Capstone cover"></video></div>
-        <div class="flow__controls"><button class="flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
+        <div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
       </div>
     </figure>
-    <div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#problem"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Problem</span><span aria-hidden="true" class="project-toc-title">Problem</span></span></span></a></li><li><a href="#research"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Research</span><span aria-hidden="true" class="project-toc-title">Research</span></span></span></a></li><li><a href="#direction"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Direction</span><span aria-hidden="true" class="project-toc-title">Direction</span></span></span></a></li><li><a href="#process"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Process</span><span aria-hidden="true" class="project-toc-title">Process</span></span></span></a></li><li><a href="#reflection"><span class="project-toc-flip"><span class="project-toc-flip-track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading" id="overview">
+    <div class="nt-story"><aside class="nt-rail"><nav aria-label="Case study sections" class="nt-toc"><a class="nt-back" href="/">← Back</a><ol><li><a href="#overview"><span class="flip"><span class="flip__track"><span class="project-toc-title">Overview</span><span aria-hidden="true" class="project-toc-title">Overview</span></span></span></a></li><li><a href="#problem"><span class="flip"><span class="flip__track"><span class="project-toc-title">Problem</span><span aria-hidden="true" class="project-toc-title">Problem</span></span></span></a></li><li><a href="#research"><span class="flip"><span class="flip__track"><span class="project-toc-title">Research</span><span aria-hidden="true" class="project-toc-title">Research</span></span></span></a></li><li><a href="#direction"><span class="flip"><span class="flip__track"><span class="project-toc-title">Direction</span><span aria-hidden="true" class="project-toc-title">Direction</span></span></span></a></li><li><a href="#process"><span class="flip"><span class="flip__track"><span class="project-toc-title">Process</span><span aria-hidden="true" class="project-toc-title">Process</span></span></span></a></li><li><a href="#reflection"><span class="flip"><span class="flip__track"><span class="project-toc-title">Reflection</span><span aria-hidden="true" class="project-toc-title">Reflection</span></span></span></a></li></ol></nav></aside><div class="nt-chapters"><header class="nt-hero nt-reading" id="overview">
 <p class="nt-kicker">Capstone · 2026 · Product Design</p>
 <h1>Resident-centered information architecture for civic services</h1>
 
@@ -186,13 +189,16 @@
 </div>
 </div>
 </section></div></div></main>
-<footer class="footer">
-<p class="footer__copy">© 2026 · Built with <img alt="Claude" class="footer__icon" src="claude.png"/>, <img alt="brain" class="footer__icon" src="brain.png"/>, and <img alt="love" class="footer__icon" src="love.png"/></p>
-<time aria-label="Local time" class="footer__time js-clock" datetime=""></time>
+<footer class="footer portfolio-footer">
+ <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
+ <div class="portfolio-footer__portrait"><img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
+ <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism<br>Based in New York City</p></div>
+ <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
+ <div class="portfolio-footer__bottom"><p>© 2026 Sooim Kang</p><p>Updated <time datetime="2026-09-25">09/25/2026</time></p><time class="footer__time js-clock" datetime="" aria-label="Local time in New York"></time></div>
 </footer>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=orphan-1-ds2"></script>
 <script src="js/notate.js?v=nt-1"></script><script src="js/case.js?v=6"></script>
 <script src="js/morph.js?v=2"></script>
-	<script src="js/text-sooim.js?v=5" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
+	<script src="js/text-sooim.js?v=6" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 	margin: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: #f0f1ef;
+	background: var(--clr-panel);
 	will-change: top, left, width, height, border-radius;
 }
 .project-morph__media {
@@ -36,7 +36,7 @@ html.is-project-morph-pending :is(.nav, .nt-story, .footer, .nt-skip) {
 html.is-project-morph-revealing :is(.nav, .nt-story, .footer) {
 	opacity: 1;
 	transform: none;
-	transition: opacity 480ms cubic-bezier(0.22, 1, 0.36, 1), transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+	transition: opacity 480ms var(--ease), transform 480ms var(--ease);
 }
 html.is-project-morph-revealing .nav { transition-delay: 60ms; }
 html.is-project-morph-revealing .nt-story { transition-delay: 120ms; }

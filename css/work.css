@@ -308,14 +308,14 @@ img.footer__icon,
 	font-size: var(--fs-sm);
 	font-weight: var(--fw-semi);
 	outline: 1px solid var(--clr-border);
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .case__hero-image {
 	display: block;
 	inline-size: 100%;
 	block-size: auto;
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -490,7 +490,7 @@ img.footer__icon,
 	border: 1px solid var(--clr-border);
 	background: #ffffff;
 	overflow: hidden;
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 img.case__frame {
@@ -509,7 +509,7 @@ img.case__frame {
 	overflow: hidden;
 	margin-block: var(--sp-lg);
 	outline: 1px solid var(--clr-border);
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .case__img-inner {
@@ -548,7 +548,7 @@ img.case__frame {
 	overflow: hidden;
 	margin-block: var(--sp-lg);
 	background: #1a1a1a;
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .case__video-inner {
@@ -585,7 +585,7 @@ img.case__frame {
 /* Unified corner radius for any remaining case-study media */
 .case__body img,
 .case__body video {
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 /* ── CASE STUDY — COMPARISON ROW ───────────────────────────── */
@@ -1071,7 +1071,7 @@ img.case__frame {
 	block-size: auto;
 	object-fit: unset;
 	outline: 1px solid var(--clr-border);
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 /* ── Image zoom button (top-right, same as flow__btn) ─────── */
@@ -1079,13 +1079,13 @@ img.case__frame {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .img-zoom-wrap img {
 	display: block;
 	width: 100%;
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .img-zoom-btn {
@@ -1228,20 +1228,24 @@ img.case__frame {
 	inline-size: 2.4rem;
 	block-size: 2.4rem;
 	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+}
+
+/* Legacy dark chip; buttons marked .glass use css/glass.css instead */
+.flow__btn:not(.glass) {
 	background: rgba(50, 64, 79, 0.25);
 	backdrop-filter: blur(12px) saturate(1.2);
 	-webkit-backdrop-filter: blur(12px) saturate(1.2);
 	color: #ffffff;
-	border: none;
-	cursor: pointer;
 	transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
-.flow__btn:hover {
+.flow__btn:not(.glass):hover {
 	background: rgba(50, 64, 79, 0.45);
 }
 
-.flow__btn:active {
+.flow__btn:not(.glass):active {
 	transform: scale(0.92);
 }
 
@@ -1774,7 +1778,7 @@ img.case__frame {
 	align-items: center;
 	justify-content: center;
 	border: 1px solid var(--clr-border);
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 }
 
 .case__img-placeholder {
@@ -1783,7 +1787,7 @@ img.case__frame {
 	align-items: center;
 	justify-content: center;
 	border: 1px solid var(--clr-border);
-	border-radius: var(--r-md);
+	border-radius: var(--r-sm);
 	overflow: hidden;
 }
 

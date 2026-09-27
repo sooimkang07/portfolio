@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "_preview_server.py",
+        "8124"
+      ],
+      "port": 8124
+    }
+  ]
+}

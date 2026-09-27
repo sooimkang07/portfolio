@@ -1,0 +1,5 @@
+/* Capstone still depends on three pre-system sheets. Loading them in a
+   cascade layer lets the unlayered case system win without specificity hacks. */
+@import url("work.css?v=layout-sb-2-ds1") layer(legacy);
+@import url("case-layout.css?v=layout-sb-2") layer(legacy);
+@import url("project-notate.css?v=nt-1") layer(legacy);

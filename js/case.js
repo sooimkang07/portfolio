@@ -6,6 +6,18 @@
 (() => {
 	'use strict'
 
+	// Pair text with a single video, excluding galleries and mixed-media figures.
+ document.querySelectorAll('.nt-step, .nt-section').forEach(section => {
+  const children = [...section.children];
+  const copy = children.find(el => el.matches('.nt-reading'));
+  const media = children.find(el => el.matches('figure.nt-media'));
+  if (children.length === 2 && copy && media &&
+      media.querySelectorAll('video').length === 1 &&
+      !media.querySelector('img, .dx-grid, .ig-gallery')) {
+   section.classList.add('case-single-video');
+  }
+ });
+
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)')
 
 	/* ── 1. Video playback ─────────────────────────────────── */
@@ -14,7 +26,7 @@
 		return v && typeof v.play === 'function' ? v : null
 	}
 
-	document.querySelectorAll('.flow__device, .ig-gallery__tile').forEach(device => {
+	document.querySelectorAll('.flow__device, .ig-gallery__tile, .dx-media:has(> .flow__controls)').forEach(device => {
 		const video = realVideo(device)
 		const pauseBtn = device.querySelector('.flow__btn--pause')
 		const replayBtn = device.querySelector('.flow__btn--replay')
@@ -27,7 +39,7 @@
 			pauseBtn.classList.toggle('is-playing', !video.paused)
 			pauseBtn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video')
 		}
-		const play = () => { if (!video.dataset.userPaused) video.play().catch(sync) }
+		const play = () => { if (!reduced.matches && !video.dataset.userPaused) video.play().catch(sync) }
 
 		video.addEventListener('play', sync)
 		video.addEventListener('pause', sync)

@@ -9,11 +9,11 @@
 
   /* ── Nav strip links: fliptrack on hover ───────────────────── */
   document.querySelectorAll('.nav__strip-link').forEach(link => {
-    if (link.querySelector('.nav__strip-flip')) return
+    if (link.querySelector('.flip')) return
     const label = link.textContent.trim()
     link.setAttribute('aria-label', label)
     link.innerHTML =
-      '<span class="nav__strip-flip" aria-hidden="true"><span class="nav__strip-flip-track">' +
+      '<span class="flip" aria-hidden="true"><span class="flip__track">' +
       `<span>${label}</span><span>${label}</span>` +
       '</span></span>'
   })
@@ -93,6 +93,19 @@
     if (!header) return
     const atTop = window.scrollY <= SCROLL_COLLAPSE
     header.classList.toggle('is-at-top', atTop)
+  }
+
+  /* Logo + burger wear the shared .glass once the nav floats over content */
+  const logo = header && header.querySelector('.nav__logo')
+  function syncNavGlass() {
+    const floating = !header.classList.contains('is-at-top')
+    const open = header.classList.contains('is-nav-open')
+    if (logo) logo.classList.toggle('glass', floating && !open)
+    if (burger) burger.classList.toggle('glass', floating || open)
+  }
+  if (header) {
+    new MutationObserver(syncNavGlass).observe(header, { attributes: true, attributeFilter: ['class'] })
+    syncNavGlass()
   }
 
   if (header) {
@@ -225,36 +238,8 @@
       clearIndexPin()
       return
     }
-    const mid = window.innerHeight * 0.5
-    const yapTop = cards[0].getBoundingClientRect().top
-    const contact = document.querySelector('.home-contact')
-    const contactTop = contact
-      ? contact.getBoundingClientRect().top
-      : workSection.getBoundingClientRect().bottom
-    /* Pin while past yap mid; release once contact enters the viewport */
-    const pastStart = yapTop <= mid
-    const contactInView = contactTop < window.innerHeight
-    const shouldPin = pastStart && !contactInView
-    const shouldDock = pastStart && contactInView
-
-    if (shouldPin) {
-      if (!workIndex.classList.contains('is-pinned')) {
-        const shell = workIndexShell || workIndex
-        const r = workIndex.getBoundingClientRect()
-        const shellR = shell.getBoundingClientRect()
-        workIndex.style.inlineSize = `${r.width}px`
-        workIndex.style.insetInlineStart = `${Math.max(r.left, shellR.left)}px`
-      }
-      workIndex.classList.add('is-pinned')
-      workIndex.classList.remove('is-docked')
-    } else if (shouldDock) {
-      workIndex.classList.remove('is-pinned')
-      workIndex.classList.add('is-docked')
-      workIndex.style.inlineSize = ''
-      workIndex.style.insetInlineStart = ''
-    } else {
-      clearIndexPin()
-    }
+    // CSS sticky keeps the index inside its section without a fixed-position jump.
+    clearIndexPin()
   }
 
   function setActive(index) {
@@ -412,7 +397,7 @@
   }
 
   if (showreel) {
-    showreel.addEventListener('click', () => closeShowreel())
+    showreel.addEventListener('click', e => { if (!e.target.closest('video')) closeShowreel() })
     showreel.addEventListener('pointerenter', () => showCursor('is-close-cursor'))
     showreel.addEventListener('pointermove', () => {
       if (document.body.classList.contains('is-showreel-open')) showCursor('is-close-cursor')
@@ -457,7 +442,8 @@
       return
     }
 
-    const words = source.split(/\s+/).filter(Boolean)
+    // Glue the last two words together so the copy never ends on an orphan
+    const words = source.replace(/ (\S+)$/, '\u00a0$1').split(/ +/).filter(Boolean)
     introCopy.replaceChildren(
       ...words.flatMap((word, i) => {
         const span = document.createElement('span')
@@ -578,6 +564,20 @@
     document.querySelectorAll('.home-hero video').forEach(video => {
       video.play().catch(() => {})
     })
+  })
+
+  // Keep the observed box stable while its contents expand from the corner.
+  document.querySelectorAll('.portfolio-footer__portrait').forEach(portrait => {
+    if (!('IntersectionObserver' in window)) return
+    const motion = document.createElement('div')
+    motion.className = 'portfolio-footer__portrait-motion'
+    while (portrait.firstChild) motion.append(portrait.firstChild)
+    portrait.append(motion)
+    const observer = new IntersectionObserver(([entry]) => {
+      motion.classList.toggle('is-visible', entry.isIntersecting || portrait.contains(document.activeElement))
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' })
+    observer.observe(portrait)
+    portrait.addEventListener('focusin', () => motion.classList.add('is-visible'))
   })
 
   /* ── Contact card: scale in on scroll (Koto mt-auto) ─────── */
