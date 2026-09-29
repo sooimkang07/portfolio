@@ -1,0 +1,179 @@
+:root {
+	--ink: #0c0d0c;
+	--paper: #fafcfd;
+	--cobalt: #2a3cff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+	height: 100%;
+	background: #050505;
+	overflow: hidden;
+	font-family: 'Instrument Sans', system-ui, sans-serif;
+}
+
+#viewport {
+	position: fixed;
+	inset: 0 0 48px 0;
+	display: grid;
+	place-items: center;
+}
+
+#stage {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1920px;
+	height: 1080px;
+	overflow: hidden;
+	background: var(--paper);
+	transform-origin: 0 0;
+	contain: strict;
+}
+
+body.render #viewport { inset: 0; }
+body.render #ui { display: none; }
+body.render #stage { left: 0; top: 0; transform: none !important; }
+
+#ui {
+	position: fixed;
+	inset: auto 0 0 0;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 0 16px;
+	color: #ddd;
+	font: 500 13px/1 'Instrument Sans', system-ui, sans-serif;
+}
+#ui button {
+	font: inherit;
+	color: inherit;
+	background: #222;
+	border: 1px solid #333;
+	border-radius: 6px;
+	padding: 6px 12px;
+	cursor: pointer;
+	min-width: 64px;
+}
+#scrub { flex: 1; accent-color: var(--cobalt); }
+#clock { font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* ── stage primitives ─────────────────────────── */
+.scene {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	display: none;
+}
+.scene.on { display: block; }
+
+.fill { position: absolute; inset: 0; }
+
+/* centred element: transform places its centre at (x, y) */
+.c {
+	position: absolute;
+	left: 0;
+	top: 0;
+	will-change: transform, opacity;
+}
+
+.vbox {
+	overflow: hidden;
+	background: #000;
+}
+.vbox video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.t {
+	white-space: nowrap;
+	line-height: 1;
+	font-weight: 700;
+	letter-spacing: -0.035em;
+}
+.serif {
+	font-family: 'Instrument Serif', serif;
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.02em;
+}
+.ch { display: inline-block; white-space: pre; }
+.mask { overflow: hidden; display: inline-block; vertical-align: top; }
+
+/* video-inside-type: black glyphs on white, screened over footage */
+.knock {
+	position: absolute;
+	inset: 0;
+	background: var(--paper);
+	color: #000;
+	mix-blend-mode: screen;
+	display: grid;
+	place-items: center;
+}
+.iso { isolation: isolate; }
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	padding: 18px 30px 18px 22px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 34px;
+	letter-spacing: -0.01em;
+	white-space: nowrap;
+	line-height: 1;
+}
+.chip i {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	font-style: normal;
+	font-size: 14px;
+}
+
+.window {
+	border-radius: 18px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 40px 80px -30px rgba(30, 20, 0, .35), 0 0 0 1px rgba(0, 0, 0, .06);
+}
+.window__bar {
+	height: 34px;
+	background: #f1f1ef;
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	padding-left: 14px;
+}
+.window__bar b { width: 11px; height: 11px; border-radius: 50%; background: #d9d9d6; }
+.window__screen { position: relative; }
+
+/* HUD */
+#hud {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 50;
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: -0.005em;
+}
+#hud .row { position: absolute; display: flex; gap: 14px; align-items: baseline; }
+#hud .tl { left: 64px; top: 56px; }
+#hud .tr { right: 64px; top: 56px; }
+#hud .bl { left: 64px; bottom: 52px; }
+#hud .br { right: 64px; bottom: 52px; font-variant-numeric: tabular-nums; }
+#hud .idx { opacity: .55; font-variant-numeric: tabular-nums; }
+#hud .desc { font-weight: 500; opacity: .75; }
+#hud .roll { display: inline-block; overflow: hidden; height: 1.15em; vertical-align: top; }
+#hud .roll span { display: inline-block; }

@@ -16,7 +16,7 @@ body.home.notate-page { --nt-ink: var(--clr-text); --nt-muted: var(--clr-muted-s
 .nt-kicker span { color: var(--clr-muted); margin-inline: 10px; }
 .nt-hero h1 { margin-bottom: 24px; }
 .nt-deck { font-size: 19px; line-height: 1.5; color: var(--nt-muted); max-width: 490px; }
-.nt-meta { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; margin: 36px 0 40px; padding-top: 24px; border-top: 1px solid var(--nt-rule); font-size: 13px; }
+.nt-meta { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; margin: 36px 0 40px; padding-top: 24px; font-size: 13px; }
 .nt-meta dt { color: var(--nt-muted); margin-bottom: 6px; }
 .nt-meta dd { margin: 0; }
 .nt-media figcaption { display: flex; justify-content: space-between; gap: 16px; font-size: 11px; line-height: 1.5; color: var(--nt-muted); margin-top: 12px; }
@@ -33,15 +33,15 @@ body.home.notate-page { --nt-ink: var(--clr-text); --nt-muted: var(--clr-muted-s
 .nt-section h2 { margin-bottom: 24px; }
 .nt-section h3 { margin-bottom: 10px; }
 .nt-section .nt-media { margin-top: 36px; }
-.nt-link { display: inline-block; font-size: 14px; font-weight: 500; margin-top: 24px; border-bottom: 1px solid #929890; padding-bottom: 4px; }
+.nt-link { display: inline-block; font-size: 14px; font-weight: 500; margin-top: 24px; border-bottom: 1px solid #91959a; padding-bottom: 4px; }
 .nt-link-pending { color: var(--nt-muted); border-color: var(--nt-rule); cursor: default; }
 .nt-feature { margin-top: 64px; }
 .nt-feature-heading { display: grid; grid-template-columns: 125px 1fr; gap: 24px; }
 .nt-feature .nt-media { margin-top: 28px; }
-.nt-decision { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; padding-block: 32px; border-top: 1px solid var(--nt-rule); }
+.nt-decision { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; padding-block: 32px; }
 .nt-decision .nt-media { margin: 0; }
 .nt-decision .nt-kicker { font-size: 11px; margin-bottom: 12px; color: var(--nt-muted); }
-.nt-reflection .nt-reading { padding-top: 40px; border-top: 1px solid var(--nt-rule); }
+.nt-reflection .nt-reading { padding-top: 40px; }
 .nt-reflection p + p { margin-top: 18px; }
 .notate-page a:focus-visible { outline: 2px solid #475e4b; outline-offset: 5px; }
 .nt-skip { position: fixed; left: 20px; top: -80px; padding: 10px 18px; background: white; z-index: 100; }
@@ -51,7 +51,7 @@ body.home.notate-page { --nt-ink: var(--clr-text); --nt-muted: var(--clr-muted-s
     .nt-process { max-width: min(880px, calc(100vw - 400px)); }
 }
 @media (max-width: 1199px) {
-  .nt-rail { position: sticky; top: 72px; width: 100%; margin-bottom: 48px; padding: 0 24px; background: rgb(253 253 252 / .96); border-block: 1px solid var(--nt-rule); }
+  .nt-rail { position: sticky; top: 72px; width: 100%; margin-bottom: 48px; padding: 0 24px; background: rgb(253 253 252 / .96); }
   .nt-rail::before { content: ""; position: absolute; bottom: 100%; left: 0; width: 100%; height: 73px; background: var(--clr-bg); }
   .nt-toc { position: static; overflow-x: auto; scrollbar-width: thin; }
   .nt-toc ol { display: flex; gap: 24px; min-width: max-content; }
@@ -79,8 +79,9 @@ body.home.notate-page { --nt-ink: var(--clr-text); --nt-muted: var(--clr-muted-s
 
 
 /* ══ 2 · formerly project-clean.css ═════════════════════════════════════════ */
-/* Project pages use spacing, rather than rules, to separate content. */
-body:is(.page--project, .bundles-page, .notate-page) :is(main, footer, main section, main article, main header, main aside, main nav, main div, main figure, main dl, main blockquote, main iframe, main img, main video, main a) {
+/* Project pages use spacing, never rules or divider lines, to separate content.
+   Chart axes are drawn with backgrounds (see .fig .axis-* in figures.css). */
+body:is(.page--project, .bundles-page, .notate-page, .case-page) :is(main, footer, main *, main *::before, main *::after, footer *) {
   border-width: 0 !important;
 }
 body:is(.page--project, .bundles-page, .notate-page) main :is(figure, img, video, div):not(:focus-visible) {
@@ -171,7 +172,7 @@ body.home:is(.notate-page, .page--project, .bundles-page) .footer__copy { font-s
   margin-bottom: 28px;
 }
 .notate-page .nt-decision h4 {
-  color: #747b74;
+  color: #74787d;
   margin-bottom: 20px;
 }
 @media (max-width: 600px) {
@@ -208,38 +209,96 @@ body.home:is(.notate-page, .page--project, .bundles-page) .footer__copy { font-s
 .notate-page .nt-step + .nt-step { margin-top: clamp(72px, 8vw, 112px); }
 .notate-page .nt-step .nt-decision { padding-block: 0; }
 
-/* First run: three small setup clips in sequence. */
-.notate-page .nt-onboarding {
-  list-style: none;
-  padding: 0;
-  margin: var(--sp-media, 28px) 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--gap-media, 12px);
-}
+/* Carousels (First run clips, Launch cards): one slide at a time */
+.notate-page .nt-carousel { margin-top: var(--sp-media, 28px); }
+/* Arrows straddle the visuals' side edges, half on and half off, vertically centered */
+.notate-page .nt-carousel__stage { position: relative; }
+.notate-page .nt-carousel__btn { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border-radius: 50%; color: var(--clr-text); transform: translateY(-50%); transition: opacity var(--dur-2, 200ms) ease; }
+.notate-page .nt-carousel__btn[data-dir="-1"] { left: 0; translate: -50% 0; }
+.notate-page .nt-carousel__btn[data-dir="1"] { right: 0; translate: 50% 0; }
+.notate-page .nt-carousel__btn svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
+.notate-page .nt-carousel__btn:disabled { opacity: 0; pointer-events: none; }
+.notate-page .nt-carousel:not(.is-scrollable) .nt-carousel__btn { display: none; }
+.notate-page .nt-carousel__rail { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--gap-media, 12px); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.notate-page .nt-carousel__rail::-webkit-scrollbar { display: none; }
+.notate-page .nt-carousel__rail:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.notate-page .nt-carousel__rail > li { flex: 0 0 min(78%, 560px); scroll-snap-align: start; }
+.notate-page .nt-carousel--single .nt-carousel__rail > li { flex-basis: 100%; scroll-snap-stop: always; }
+.notate-page .nt-store-carousel .nt-carousel__rail img { display: block; width: 100%; height: auto; border-radius: var(--r-md); }
+
 .notate-page .nt-onboarding .nt-media { margin: 0; }
-.notate-page #first-run .nt-decisions { margin-top: 40px; }
 .notate-page .nt-onboarding p { color: var(--c-ink, var(--clr-text)); }
 .notate-page .nt-onboarding p span { color: var(--c-muted, var(--clr-muted)); margin-right: 8px; font-variant-numeric: tabular-nums; }
 /* Hide playback buttons on these small clips; they're short loops. */
 body.case-page.notate-page .nt-onboarding .flow__controls { display: none; }
+@media (hover: none) { .notate-page .nt-carousel__btn { display: none; } }
 
-/* Launch: store screenshots, first one large, then a 2×2 grid. */
-.notate-page .nt-store-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--gap-media, 12px);
-  margin-top: var(--sp-media, 28px);
+
+
+/* Hero: title left, the extension as it appears in the store right */
+.notate-page .nt-hero-head { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 24px 40px; align-items: start; }
+body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
+.notate-page .nt-store-card { margin: 0; }
+.notate-page .nt-store-card a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 18px 14px; padding: 20px; border-radius: var(--r-md); background: var(--clr-panel); color: inherit; text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
+.notate-page .nt-store-card a:hover { background: color-mix(in srgb, var(--clr-panel) 80%, var(--clr-text) 6%); }
+.notate-page .nt-store-card a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.notate-page .nt-store-card img { width: 56px; height: 56px; border-radius: 13px; }
+.notate-page .nt-store-card__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: 17px; font-weight: 500; line-height: 1.25; }
+.notate-page .nt-store-card__name small { font-size: 12px; font-weight: 400; color: var(--nt-muted); }
+.notate-page .nt-store-card__cta { grid-column: 1 / -1; padding: 12px 16px; border-radius: var(--r-pill); background: #0b57d0; color: #fff; font-size: 14px; font-weight: 500; text-align: center; white-space: nowrap; }
+@media (max-width: 760px) {
+  .notate-page .nt-hero-head { grid-template-columns: minmax(0, 1fr); }
+  .notate-page .nt-store-card { max-width: 20rem; }
 }
-.notate-page .nt-store-gallery img { display: block; width: 100%; height: auto; }
-.notate-page .nt-store-gallery img:first-child { grid-column: 1 / -1; }
 
-/* Store link: pending until STORE_URL is set in js/notate.js. */
-.notate-page .nt-store-link:not(.nt-link-pending)::after { content: " ↗"; }
+/* Launch: the listing as it appears in Chrome Web Store search */
+.notate-page .nt-listing-fig { margin: var(--sp-media, 28px) 0 0; }
+.notate-page .nt-listing { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto; gap: 24px; align-items: start; padding: 14px; border-radius: 24px; background: #eef1f6; color: #1f1f1f; text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
+.notate-page .nt-listing:hover { background: #e6eaf2; }
+.notate-page .nt-listing:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.notate-page .nt-listing__cover { display: block; aspect-ratio: 440 / 280; overflow: hidden; border-radius: 16px; }
+.notate-page .nt-listing__cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.notate-page .nt-listing__body { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; min-width: 0; }
+.notate-page .nt-listing__name { font-size: 16px; font-weight: 500; }
+.notate-page .nt-listing__rating { display: inline-flex; align-items: center; gap: 4px; font-size: 15px; }
+.notate-page .nt-listing__rating svg { width: 13px; height: 13px; margin-inline-start: 4px; color: #5f6368; }
+.notate-page .nt-listing__desc { font-size: 15px; line-height: 1.45; color: #3c4043; }
+.notate-page .nt-listing__status { display: inline-flex; align-items: center; gap: 6px; padding: 8px 8px 0 0; font-size: 14px; font-weight: 500; color: #137333; white-space: nowrap; }
+.notate-page .nt-listing__status svg { width: 16px; height: 16px; }
+@media (max-width: 700px) {
+  .notate-page .nt-listing { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .notate-page .nt-listing__body { padding-top: 0; }
+  .notate-page .nt-listing__status { padding: 0; }
+}
+
+/* Reflection: results in the same ruled, labeled grid as the overview meta */
+.notate-page .nt-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 40px 0 0; }
+.notate-page .nt-stats dt { margin-bottom: 14px; font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--nt-muted); }
+.notate-page .nt-stats dd { display: flex; flex-direction: column; gap: 8px; margin: 0; }
+.notate-page .nt-stats strong { font-size: var(--h2-fs); font-weight: var(--h-fw); line-height: 1; letter-spacing: var(--h2-ls); color: var(--nt-ink); font-variant-numeric: tabular-nums; }
+.notate-page .nt-stats span { font-size: 14px; line-height: 1.45; color: var(--nt-muted); }
+@media (max-width: 600px) {
+  .notate-page .nt-stats { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+
+/* Launch: the live listing in a browser window (same frame as IBFF in Explorations) */
+.notate-page .nt-browser-fig { margin-top: var(--sp-media, 28px); }
+.notate-page .nt-hero .nt-browser-fig { margin-top: 40px; }
+.notate-page .nt-browser { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--r-md); background: #fff; box-shadow: var(--shadow-1), var(--shadow-2); color: inherit; text-decoration: none; }
+.notate-page .nt-browser:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.notate-page .nt-browser__bar { position: relative; display: flex; align-items: center; flex: none; height: 2.25rem; padding-inline: 0.9rem; background: var(--clr-panel); border-block-end: 1px solid var(--clr-border); }
+.notate-page .nt-browser__dots { display: flex; gap: 0.4rem; }
+.notate-page .nt-browser__dots i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: #d3d8de; }
+.notate-page .nt-browser__url { position: absolute; left: 50%; transform: translateX(-50%); width: min(40%, 22rem); padding: 0.2rem 0.75rem; border-radius: var(--r-sm); background: #fff; font-size: 0.6875rem; line-height: 1.4; text-align: center; color: var(--clr-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.notate-page .nt-browser__screen { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.notate-page .nt-browser__screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform var(--dur-4, 600ms) var(--ease, ease); }
+@media (hover: hover) { .notate-page .nt-browser:hover .nt-browser__screen img { transform: scale(1.015); } }
+@media (max-width: 560px) {
+  .notate-page .nt-browser__url { width: 60%; }
+}
 
 @media (max-width: 700px) {
-  .notate-page .nt-onboarding { grid-template-columns: 1fr; gap: 24px; }
-  .notate-page .nt-store-gallery { grid-template-columns: 1fr; }
+  .notate-page .nt-carousel__rail > li { flex-basis: 86%; }
 }
 
 
@@ -323,11 +382,10 @@ body.case-page .nt-section:last-child { padding-bottom: 0; }
 body.case-page .case-cover {
 	position: relative;
 	margin: 0 var(--case-g) clamp(56px, 7vw, 104px);
-	/* Always the full width between the gutters. Height is 16:9 of that
-	   width, capped to the viewport; the video crops (object-fit: cover)
-	   instead of the frame narrowing. Mirrors coverRect() in js/morph.js. */
+	/* Always the full width between the gutters at the covers' native 16:9,
+	   so the video is never cropped. Mirrors coverRect() in js/morph.js. */
 	width: auto;
-	height: min(calc((100vw - 2 * var(--case-g)) * 9 / 16), calc(100svh - var(--case-top) - var(--case-g)));
+	aspect-ratio: 16 / 9;
 	border-radius: var(--radius);
 	overflow: hidden;
 	background: var(--c-panel);
@@ -473,8 +531,8 @@ body.case-page main .nt-meta {
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: 20px;
 	margin: 32px 0 0;
-	padding-top: 20px;
-	border-top: 1px solid var(--c-rule) !important;
+	padding-top: 0;
+	border-top: 0 !important;
 	font-size: var(--fs-small);
 	line-height: 1.45;
 }
@@ -697,7 +755,7 @@ body.case-page main :is(.nt-decision, .ig-decision) > :is(.nt-media, .case__medi
 @media (min-width: 960px) {
  body.case-page main .case-single-video {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); /* the recording gets the larger share */
   align-items: start;
   gap: clamp(24px, 4vw, 64px);
  }
@@ -728,3 +786,45 @@ body.case-page .dx-media .flow__btn--pause.is-playing .icon-play { display: none
  body.case-page .nt-toc li { flex: 0 0 auto; }
 }
 @media (max-width: 759px) { body.case-page { --sp-section: 96px; } }
+
+/* ── Notate: research → decision traceability ─────────────────── */
+/* Three workarounds, each named by what it loses, lined up under the research figure */
+.notate-page .nt-insights { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 32px 0 0; padding: 0; }
+.notate-page .nt-insights li { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.notate-page .nt-insights strong { font-size: var(--h2-fs); font-weight: var(--h-fw); line-height: 1.1; letter-spacing: var(--h2-ls); color: var(--nt-ink); }
+.notate-page .nt-insights blockquote { margin: 0; font-size: 15px; line-height: 1.5; color: var(--nt-muted); }
+.notate-page .nt-hmw { margin-top: 56px; }
+body.notate-page main .nt-section p.nt-hmw__q { max-width: 32ch; font-size: var(--h2-fs); font-weight: var(--h-fw); line-height: 1.2; letter-spacing: var(--h2-ls); color: var(--nt-ink); text-wrap: balance; }
+@media (max-width: 700px) { .notate-page .nt-insights { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+
+/* Each decision is labeled as the trade-off behind its step */
+body.case-page main .nt-decision .nt-decision-kicker { margin-bottom: 8px; }
+.notate-page .nt-todo { padding: 0 2px; border-radius: 3px; background: #ffe98a; color: inherit; }
+
+/* ── Smart Bundles: decisions traced to research ─────────────── */
+body.case-page main .sb-decision { margin-top: var(--sp-block, 64px); }
+body.case-page main .sb-decision h3 { margin: 0 0 8px; color: var(--c-ink); }
+body.case-page main .nt-section p.sb-evidence { display: flex; gap: 12px; margin-top: 12px; font-size: 14px; line-height: 1.5; color: var(--c-muted, var(--clr-muted)); }
+body.case-page main .sb-evidence span { flex: none; font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); line-height: 1.8; text-transform: uppercase; color: var(--c-ink); }
+/* Launch: each piece full width, one after another */
+body.case-page main .dx-grid.dx-grid--1 { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+body.case-page main .sb-launch .dx-media { aspect-ratio: 16 / 9; }
+@media (max-width: 600px) { body.case-page main .nt-section p.sb-evidence { flex-direction: column; gap: 4px; } }
+
+/* ── Smart Bundles: waste across one order ───────────────────── */
+body.case-page main .sbw { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; font-family: inherit; }
+.sbw-wipe { transform-box: fill-box; transform-origin: left center; transition: transform 1600ms cubic-bezier(.45, 0, .2, 1); }
+.sbw-callout, .sbw-loop { transition: opacity 500ms ease 1400ms; }
+.sbw-loop { transition-delay: 1700ms; }
+.sbw-fig.reveal-ready:not(.is-in) .sbw-wipe { transform: scaleX(0); }
+.sbw-fig.reveal-ready:not(.is-in) :is(.sbw-callout, .sbw-loop) { opacity: 0; }
+/* Decision visuals: the flow video, cropped to 16:9 and zoomed onto the moment the decision shows */
+body.case-page main .sb-decision-fig { margin-top: var(--sp-media, 28px); }
+body.case-page main .sb-crop { aspect-ratio: 16 / 9; }
+body.case-page main .sb-crop > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); transform: scale(var(--crop-zoom, 1.25)); }
+/* Empty 16:9 figure slot for a decision visual still being designed */
+body.case-page main .case-fig-empty { aspect-ratio: 16 / 9; border-radius: var(--r-lg, 20px); background: radial-gradient(circle, rgb(32 38 45 / .07) .6px, transparent .9px) 0 0 / 10px 10px, var(--clr-panel); }
+/* Decisions open with the research finding that prompted them */
+body.case-page main .nt-section p.sb-evidence--lead { margin: 0 0 14px; }
+/* Branding figures (logo, type, color, signature components) */
+body.case-page main .brand-svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; font-family: inherit; }

@@ -1,0 +1,54 @@
+/* neuk case study: research photos in the gap figure, insight lists, the concept testing
+   embed, the three visual directions, the sideways wireframe strip, and the room cards. */
+
+/* The gap: real photos in the header cells, and a balanced HMW line */
+body.case-page main .nk-gap .mxq { max-width: 72cqw; text-wrap: balance; }
+body.case-page main .nk-gap .img { overflow: hidden; }
+body.case-page main .nk-gap .img img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
+
+/* Insight lists: a plain sentence under each headline */
+body.notate-page .nt-section .nk-insights li > p:not(.ntf-tag) { margin: 0; font-size: 15px; line-height: 1.5; color: var(--nt-muted); }
+
+/* User interview insights, laid out like the deck slide: checked insights beside the stacked quotes */
+body.case-page main .nk-board { container-type: inline-size; margin-top: var(--sp-media, 28px); padding: clamp(20px, 4vw, 48px); border-radius: var(--r-lg, 20px); background: #161616 radial-gradient(#2A2A2A .6px, transparent .9px) 0 0 / 10px 10px; color: #F2F2F2; }
+body.case-page main .nk-board__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
+body.case-page main .nk-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(18px, 2.4vw, 30px); }
+body.case-page main .nk-checks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 14px; align-items: start; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.4; }
+body.case-page main .nk-checks li::before { content: ""; width: 26px; height: 26px; border-radius: 50%; background: #26313B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F2F2F2' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 12.5 10 17 19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .16); }
+body.case-page main .nk-notes { container-type: inline-size; position: relative; width: 100%; max-width: 380px; aspect-ratio: 1 / 1; justify-self: center; }
+body.case-page main .nk-note { position: absolute; width: 62%; aspect-ratio: 1 / 1; margin: 0; padding: 4.4cqw; overflow: hidden; font-size: clamp(12px, 4.4cqw, 16px); line-height: 1.4; color: #1A1A1A; box-shadow: 0 10px 30px rgb(0 0 0 / .28); }
+body.case-page main .nk-note--pink { left: 0; top: 0; background: #FFA8DC; }
+body.case-page main .nk-note--yellow { left: 19%; top: 17%; background: #FFE19B; }
+body.case-page main .nk-note--blue { left: 38%; top: 34%; background: #6BB6EC; }
+@container (min-width: 620px) {
+	body.case-page main .nk-board__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4cqw, 48px); }
+	body.case-page main .nk-notes { max-width: none; }
+}
+
+/* Concept testing deck (Google Slides adds a 29px toolbar under the 16:9 slide) */
+body.case-page main .nk-embed__frame { aspect-ratio: 960 / 569; border-radius: var(--r-lg, 20px); overflow: hidden; background: var(--clr-panel, #EFF1F3); }
+body.case-page main .nk-embed__frame iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 0 !important; }
+
+/* Three visual directions on one figure panel */
+body.case-page main .nk-directions__panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); padding: clamp(14px, 2.4vw, 28px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .nk-dir { margin: 0; min-width: 0; }
+body.case-page main .nk-dir img { display: block; width: 100%; height: auto; aspect-ratio: 37 / 20; object-fit: cover; }
+body.case-page main .nk-dir figcaption { display: block; margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--nt-muted); }
+body.case-page main .nk-dir figcaption .ntf-tag { display: block; margin-bottom: 2px; color: var(--nt-ink); }
+@media (max-width: 700px) { body.case-page main .nk-directions__panel { grid-template-columns: minmax(0, 1fr); } }
+
+/* Low-fidelity wireframes: one long strip, scrolled sideways (js/neuk.js adds mouse drag) */
+body.case-page main .nk-scroll__rail { display: flex; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; padding: clamp(14px, 2.4vw, 28px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; cursor: grab; scrollbar-width: thin; }
+body.case-page main .nk-scroll__rail.is-dragging { cursor: grabbing; user-select: none; }
+body.case-page main .nk-scroll__rail:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 3px; }
+body.case-page main .nk-scroll__rail img { flex: none; display: block; width: auto; height: clamp(260px, 34vw, 460px); max-width: none; border-radius: 0 !important; -webkit-user-drag: none; }
+
+/* Room cards swiping back and forth over the brand background; paused on hover */
+body.case-page main .nk-cards { background: #2F4657 url("../neuk-assets/neuk-bg.png") center / cover no-repeat; }
+body.case-page main .nk-cards__strip { position: absolute; top: 10%; left: 6cqw; height: 80%; width: auto; max-width: none; border-radius: 0 !important; animation: nk-swipe 17s cubic-bezier(.45, 0, .55, 1) infinite alternate; }
+body.case-page main .nk-cards:hover .nk-cards__strip { animation-play-state: paused; }
+@keyframes nk-swipe {
+	0%, 8% { transform: translateX(0); }
+	92%, 100% { transform: translateX(calc(100cqw - 100% - 12cqw)); }
+}
+@media (prefers-reduced-motion: reduce) { body.case-page main .nk-cards__strip { animation: none; } }

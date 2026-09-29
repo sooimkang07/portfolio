@@ -11,7 +11,7 @@ body.case-page main .nt-glance .nt-media { margin-top: 64px; }
 /* The rule that marks where the breakdown starts */
 body.case-page main .nt-glance + .nt-section { position: relative; padding-top: 96px; }
 body.case-page main .nt-glance + .nt-section::before {
-	content: "Breakdown"; position: absolute; top: 0; left: 0; width: 100%; padding-top: 16px; border-top: 1px solid var(--nt-rule, var(--clr-border));
+	content: "Breakdown"; position: absolute; top: 0; left: 0; width: 100%;
 	font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--clr-muted);
 }
 @media (max-width: 700px) {

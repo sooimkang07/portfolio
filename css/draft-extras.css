@@ -1,5 +1,5 @@
 /* Shared helpers for the case-study drafts: real media in panels, image grids. */
-body.case-page main .dx-media { position: relative; border-radius: var(--r-lg); overflow: hidden; background: #F1F1EE; }
+body.case-page main .dx-media { position: relative; border-radius: var(--r-lg); overflow: hidden; background: #EFF1F3; }
 body.case-page main .dx-media > img, body.case-page main .dx-media > video { display: block; width: 100%; height: 100%; object-fit: cover; }
 body.case-page main .dx-grid { display: grid; gap: 12px; }
 body.case-page main .dx-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -14,7 +14,12 @@ body.case-page main .dx-cell figcaption span { display: block; color: #8a939e; }
 body.case-page main .nt-step + .nt-step { margin-top: 64px; }
 body.case-page main .nt-section > :is(.nt-reading, figure) + .nt-step { margin-top: 56px; }
 body.case-page main .dx-step h3 { margin-top: 0; }
-body.case-page main .dx-snap a { text-decoration: underline; text-underline-offset: 3px; }
 @media (width < 700px) {
 	body.case-page main .dx-grid--3, body.case-page main .dx-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Grouped grid: one lead cell + a nested group (e.g. Instagram edit flows) */
+body.case-page main .dx-grid--split { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 32px; }
+@media (width < 700px) {
+	body.case-page main .dx-grid--split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+	body.case-page main .dx-grid--split > .dx-grid { display: contents; }
 }

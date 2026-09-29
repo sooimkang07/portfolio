@@ -1,0 +1,194 @@
+/* Portfolio tokens (css/base.css) — the reel uses the same system */
+:root {
+	--clr-accent: #1c2430;
+	--clr-bg: #FAFCFD;
+	--clr-border: #e6e8ea;
+	--clr-text: #1c1d1c;
+	--clr-muted: #626b76;
+	--clr-panel: #f1f3f5;
+	--ff: 'Instrument Sans', system-ui, sans-serif;
+	--h1-ls: -0.035em;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+	height: 100%;
+	background: #e9ecef;
+	overflow: hidden;
+	font-family: var(--ff);
+	color: var(--clr-text);
+}
+
+#viewport { position: fixed; inset: 0 0 48px 0; }
+
+#stage {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1920px;
+	height: 1080px;
+	overflow: hidden;
+	background: var(--clr-bg);
+	transform-origin: 0 0;
+	isolation: isolate;
+}
+#stage > .layer { position: absolute; inset: 0; overflow: hidden; }
+
+body.render { background: var(--clr-bg); }
+body.render #viewport { inset: 0; }
+body.render #ui { display: none; }
+body.render #stage { left: 0; top: 0; transform: none !important; }
+
+#ui {
+	position: fixed;
+	inset: auto 0 0 0;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 0 16px;
+	font: 500 13px/1 var(--ff);
+	color: var(--clr-text);
+}
+#ui button {
+	font: inherit; color: inherit; background: #fff; border: 1px solid var(--clr-border);
+	border-radius: 999px; padding: 6px 14px; cursor: pointer; min-width: 72px;
+}
+#scrub { flex: 1; accent-color: var(--clr-accent); }
+#clock { font-variant-numeric: tabular-nums; min-width: 56px; text-align: right; }
+
+/* ── stage primitives ─────────────────────────── */
+.root { position: absolute; inset: 0; display: none; }
+.root.on { display: block; }
+.abs { position: absolute; left: 0; top: 0; }
+.c { position: absolute; left: 0; top: 0; will-change: transform, opacity; }
+.fill { position: absolute; inset: 0; }
+
+.vbox { position: absolute; overflow: hidden; }
+.vbox video {
+	position: absolute; inset: 0; width: 100%; height: 100%;
+	object-fit: cover; display: block;
+}
+
+/* a project's colour world, clipped by its own brand shape */
+.world { position: absolute; inset: 0; overflow: hidden; }
+.world__cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+
+/* media card: the site's rounded media with a soft lift */
+.card {
+	position: absolute; left: 0; top: 0; overflow: hidden;
+	border-radius: 24px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgb(0 0 0 / .06), 0 40px 80px -40px rgb(28 29 28 / .45);
+	will-change: transform;
+}
+.card > .vbox { inset: 0; }
+
+/* phone: device frame around a bezel-less screen recording */
+.phone {
+	position: absolute; left: 0; top: 0;
+	background: #0f1012;
+	border-radius: 64px;
+	padding: 13px;
+	box-shadow: 0 0 0 1.5px #2b2d31 inset, 0 50px 90px -40px rgb(28 29 28 / .55);
+	will-change: transform;
+}
+.phone__screen { position: relative; width: 100%; height: 100%; border-radius: 52px; overflow: hidden; background: #000; }
+.phone__screen > .vbox { inset: 0; }
+
+/* explorations browser window (explorations.html) */
+.browser {
+	position: absolute; left: 0; top: 0; overflow: hidden;
+	border-radius: 20px; background: #fff;
+	box-shadow: 0 0 0 1px var(--clr-border), 0 40px 80px -40px rgb(28 29 28 / .4);
+}
+.browser__bar {
+	height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 18px;
+	background: #f4f5f7; border-bottom: 1px solid var(--clr-border);
+}
+.browser__bar i { width: 12px; height: 12px; border-radius: 50%; background: #d9dce0; }
+.browser__url {
+	margin: 0 auto; transform: translateX(-30px);
+	font: 500 15px/1 var(--ff); color: var(--clr-muted);
+	background: #fff; border: 1px solid var(--clr-border); border-radius: 999px; padding: 7px 28px;
+}
+.browser__screen { position: absolute; left: 0; right: 0; top: 44px; bottom: 0; }
+.browser__screen > .vbox { inset: 0; }
+
+/* app icon tile */
+.icon { position: absolute; left: 0; top: 0; width: 220px; height: 220px; will-change: transform, opacity; }
+.icon img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 22px 26px rgb(28 29 28 / .16)); }
+
+/* greeting (css/intro.css + glass.css) */
+.greet {
+	position: absolute; left: 0; top: 0;
+	font-weight: 500; letter-spacing: var(--h1-ls); line-height: 1.12; white-space: nowrap;
+	color: var(--clr-text); transform-origin: 0 0; will-change: transform, opacity, filter;
+}
+.pill {
+	position: relative; display: inline-flex; align-items: center; vertical-align: baseline;
+	margin: 0 .02em; padding: .02em .32em .06em; border-radius: 999px; isolation: isolate;
+	background: linear-gradient(-75deg, rgb(20 24 30 / .07), rgb(20 24 30 / .02), rgb(20 24 30 / .07));
+	line-height: 1.05;
+	box-shadow: inset 0 2px 2px #0000000d, inset 0 -2px 2px #ffffff80, 0 6px 4px -4px #00000033, 0 0 3px 6px inset #ffffff33;
+}
+.pill__rim, .pill__sheen { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+.pill__rim {
+	z-index: 2; padding: 1.5px;
+	background: conic-gradient(from var(--a, -75deg) at 50% 50%, #00000080, #0000 5% 40%, #00000080 50%, #0000 60% 95%, #00000080), linear-gradient(180deg, #ffffff80, #ffffff80);
+	box-shadow: inset 0 0 0 .75px #ffffff80;
+	-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+	mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.pill__sheen {
+	z-index: 1; mix-blend-mode: screen;
+	background-image: linear-gradient(-45deg, rgb(255 255 255 / 0) 30%, rgb(255 255 255 / .95) 45%, rgb(255 255 255 / .95) 52%, rgb(255 255 255 / 0) 67%);
+	background-size: 300% 300%; background-position: 100% center;
+}
+.pill__t { position: relative; z-index: 3; }
+
+/* ── v4: showreel kit ─────────────────────────── */
+/* case-study figure panel (css/figures.css), scaled to the 1920 frame */
+.dots { position: absolute; inset: 0; background: #eff1f3 radial-gradient(#d3d7db 1.1px, transparent 1.5px) 0 0 / 14px 14px; }
+
+.media { position: absolute; left: 0; top: 0; overflow: hidden; border-radius: 20px; background: #eef0f2;
+	box-shadow: 0 1px 2px rgb(0 0 0 / .05), 0 40px 80px -44px rgb(28 29 28 / .42); will-change: transform; }
+.media > .vbox { inset: 0; }
+.media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; will-change: transform; }
+.media.flat { box-shadow: none; }
+
+/* two-tone headline (the site's H1: ink + .nt-tone grey) */
+.hl { position: absolute; left: 0; top: 0; font-weight: 500; letter-spacing: -0.035em; line-height: 1.04; color: var(--clr-text); white-space: nowrap; }
+.hl__line { display: block; transform-origin: 0 100%; will-change: transform, opacity, filter; }
+.hl__tone { color: var(--clr-muted); }
+
+/* selection marquee */
+.sel { position: absolute; left: 0; top: 0; border: 2.5px dashed rgb(255 255 255 / .95); border-radius: 10px;
+	box-shadow: 0 0 0 1px rgb(0 0 0 / .08); pointer-events: none; }
+.sel i { position: absolute; width: 14px; height: 14px; border-radius: 4px; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .3); }
+
+/* pointer */
+.cursor { position: absolute; left: 0; top: 0; width: 44px; height: 44px; pointer-events: none; z-index: 30;
+	filter: drop-shadow(0 3px 5px rgb(0 0 0 / .3)); }
+.ripple { position: absolute; left: 0; top: 0; width: 80px; height: 80px; border-radius: 50%;
+	border: 2px solid rgb(28 36 48 / .5); pointer-events: none; }
+
+/* footer name block */
+.meta { position: absolute; left: 0; top: 0; white-space: nowrap; }
+
+/* ── v5: the glass pill as mark and matte ─────── */
+.pillx {
+	position: absolute; left: 0; top: 0; border-radius: 999px; overflow: hidden; isolation: isolate;
+	background: linear-gradient(-75deg, rgb(20 24 30 / .07), rgb(20 24 30 / .02), rgb(20 24 30 / .07)), var(--clr-bg);
+	box-shadow: inset 0 2px 2px #0000000d, inset 0 -2px 2px #ffffff80, 0 0 3px 6px inset #ffffff33;
+}
+.ring { position: absolute; left: 0; top: 0; pointer-events: none; box-shadow: 0 10px 8px -8px rgb(0 0 0 / .22), 0 30px 60px -40px rgb(28 29 28 / .35); }
+.namet { position: absolute; left: 0; top: 0; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; color: var(--clr-text); white-space: nowrap; will-change: transform, opacity, filter; }
+.url { position: absolute; left: 0; top: 0; font-weight: 500; letter-spacing: -0.01em; color: var(--clr-muted); white-space: nowrap; }
+.dots.big { background-size: 18px 18px; }
+.plane { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-origin: 0 0; transform-style: preserve-3d; }
+.tile { position: absolute; left: 0; top: 0; overflow: hidden; background: #e9ecef;
+	box-shadow: 0 1px 2px rgb(0 0 0 / .06), 0 22px 40px -26px rgb(28 29 28 / .45); }
+.tile img, .tile video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.feather { -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); }

@@ -43,18 +43,33 @@
   reduce.addEventListener('change', apply);
 })();
 
-/* ── Chrome Web Store link ─────────────────────────────────────
-   Paste the listing URL here once Notate is approved. Both store
-   links on the page (under the title and in Launch) go live. */
-const STORE_URL = '';
-(() => {
-  if (!STORE_URL) return;
-  document.querySelectorAll('[data-store-link]').forEach(link => {
-    link.href = STORE_URL;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.removeAttribute('aria-disabled');
-    link.classList.remove('nt-link-pending');
-    link.textContent = 'Get Notate on the Chrome Web Store';
-  });
-})();
+/* Carousels: arrows page one slide at a time and hide at either end. */
+document.querySelectorAll('[data-carousel]').forEach(carousel => {
+  const rail = carousel.querySelector('.nt-carousel__rail');
+  const buttons = carousel.querySelectorAll('.nt-carousel__btn');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const total = rail.children.length;
+  const sync = () => {
+    const max = rail.scrollWidth - rail.clientWidth;
+    carousel.classList.toggle('is-scrollable', max > 4);
+    buttons[0].disabled = rail.scrollLeft <= 4;
+    buttons[1].disabled = rail.scrollLeft >= max - 4;
+  };
+  let target = 0;
+  const stepWidth = () => rail.firstElementChild.offsetWidth + parseFloat(getComputedStyle(rail).columnGap || 0);
+  buttons.forEach(button => button.addEventListener('click', () => {
+    // Page from the slide we're heading to, so quick repeat clicks never land between slides.
+    const step = stepWidth();
+    const from = rail.dataset.moving ? target : Math.round(rail.scrollLeft / step);
+    target = Math.max(0, Math.min(total - 1, from + Number(button.dataset.dir)));
+    rail.dataset.moving = '1';
+    rail.scrollTo({ left: target * step, behavior: reduce.matches ? 'auto' : 'smooth' });
+  }));
+  // scrollend isn't in every browser, so also settle after scrolling goes quiet.
+  let idle = 0;
+  const settle = () => { delete rail.dataset.moving; };
+  rail.addEventListener('scrollend', settle);
+  rail.addEventListener('scroll', () => { sync(); clearTimeout(idle); idle = setTimeout(settle, 150); }, { passive: true });
+  new ResizeObserver(sync).observe(rail);
+  sync();
+});

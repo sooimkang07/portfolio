@@ -15,9 +15,10 @@
 .home-logo__tile > img { grid-area: 1 / 1; }
 .home-logo img { width: 100%; height: 100%; object-fit: contain; }
 .home-logo:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 100001; background: var(--clr-bg); }
 .portfolio-intro { position: fixed; inset: 0; z-index: 100000; overflow: hidden; background: var(--clr-bg); color: var(--clr-text); }
 .portfolio-intro__text { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
-.portfolio-intro__line { display: block; font-size: clamp(32px, 6vw, 90px); font-weight: 500; line-height: 1.12; letter-spacing: -.045em; white-space: nowrap; transform-origin: top left; }
+.portfolio-intro__line { display: block; font-size: clamp(32px, 6vw, 90px); font-weight: var(--h-fw); line-height: 1.12; letter-spacing: var(--h1-ls); white-space: nowrap; transform-origin: top left; } /* same em tracking as the strip, so the scaled text lands at its exact width */
 .portfolio-intro__skip, .intro-replay { font: inherit; font-size: 12px; color: var(--clr-text); padding: 10px 15px; border: 1px solid color-mix(in srgb, var(--clr-text) 19%, transparent); border-radius: var(--r-pill); background: var(--clr-bg); cursor: pointer; }
 .portfolio-intro__skip { position: absolute; right: var(--gutter); bottom: 24px; }
 .intro-replay { position: fixed; z-index: 9999; left: var(--gutter); bottom: 24px; }

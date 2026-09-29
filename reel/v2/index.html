@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sooim Kang · Showreel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400..700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="reel.css">
+</head>
+<body>
+<div id="viewport">
+	<div id="stage">
+		<canvas id="bg" width="1920" height="1080"></canvas>
+		<div id="dom0" class="layer"></div>
+		<canvas id="fx" width="1920" height="1080"></canvas>
+		<div id="dom1" class="layer"></div>
+		<canvas id="grain" width="1920" height="1080"></canvas>
+		<canvas id="hud" width="1920" height="1080"></canvas>
+	</div>
+</div>
+<div id="ui">
+	<button id="play" type="button">Pause</button>
+	<input id="scrub" type="range" min="0" max="60" step="0.0166" value="0">
+	<span id="clock">00.00</span>
+</div>
+<svg width="0" height="0" style="position:absolute">
+	<filter id="mbx" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur id="mbx-b" stdDeviation="0 0"/></filter>
+</svg>
+<script src="engine.js"></script>
+<script src="scenes-a.js"></script>
+<script src="scenes-b.js"></script>
+<script src="scenes-c.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

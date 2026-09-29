@@ -28,12 +28,11 @@
 	/* Must mirror css/case.css: .case-cover geometry */
 	function coverRect() {
 		const vw = html.clientWidth
-		const vh = innerHeight
 		const g = parseFloat(getComputedStyle(html).getPropertyValue('--gutter')) ||
 			Math.min(24, Math.max(16, vw * 0.025))
 		const top = vw <= 700 ? 68 : 76
 		const width = vw - 2 * g
-		const height = Math.min(width * 9 / 16, vh - top - g)
+		const height = width * 9 / 16
 		return { top, left: g, width, height, radius: vw <= 700 ? 10 : 12 }
 	}
 

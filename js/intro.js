@@ -18,8 +18,12 @@
   const firstLine = overlay.querySelector('.portfolio-intro__line');
   firstLine.replaceChildren(document.createTextNode('Hi, I’m '), loadingName);
   document.body.append(overlay);
-  const overflow = document.documentElement.style.overflow;
-  document.documentElement.style.overflow = 'hidden';
+  document.documentElement.classList.remove('is-intro-pending');
+  const root = document.documentElement.style;
+  const overflow = root.overflow, gutter = root.scrollbarGutter;
+  // Keep the scrollbar's space while scrolling is locked, so the strip doesn't shift sideways when it comes back.
+  root.scrollbarGutter = 'stable';
+  root.overflow = 'hidden';
   strip.style.visibility = 'hidden';
   const animations = [], timers = [];
   let ended = false;
@@ -30,7 +34,8 @@
    animations.forEach(a => a.cancel());
    overlay.remove();
    strip.style.visibility = '';
-   document.documentElement.style.overflow = overflow;
+   root.overflow = overflow;
+   root.scrollbarGutter = gutter;
    document.removeEventListener('keydown', onKey);
    window.removeEventListener('resize', finish);
    reduced.removeEventListener('change', finish);
@@ -66,6 +71,7 @@
   timers.push(setTimeout(finish, 4500));
  }
  if (!location.hash) run();
+ document.documentElement.classList.remove('is-intro-pending');
  if (preview) {
   const replay = document.createElement('button');
   replay.className = 'intro-replay'; replay.textContent = 'Replay intro ↻';
@@ -73,6 +79,7 @@
   document.body.append(replay);
  }
  const button = document.querySelector('.home-logo');
+ if (!button) return;
  const tile = button.querySelector('.home-logo__tile');
  let img = tile.querySelector('img');
  const logos = [['yap','yap'],['notate','Notate'],['instagram','Instagram Lists'],['amazon','Smart Bundles'],['neuk','Neuk'],['forage','Forage'],['acuity','Acuity']];

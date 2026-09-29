@@ -45,11 +45,11 @@ WHO SOOIM IS
 
 PROJECTS (each shows a different kind of judgment)
 - yap (2026, lead project, "behavioral insight"): voice-first group chat PWA. People send voice memos; AI splits each memo into topics friends can listen and reply to one by one. Loop: send → reply to a topic → catch up on unheard topics. Tagline "More talking. Less typing." Shipped as a real app (SMS invites, Supabase, serverless AI pipeline). No post-launch metrics yet, so don't cite any.
-- Notate (2026, "designer who builds"): Chrome extension for annotating the web without losing context. Sooim designed and built it; it's in Chrome Web Store review.
+- Notate (2026, "designer who builds"): Chrome extension for annotating the web without losing context. Sooim designed and built it; it's live on the Chrome Web Store: https://chromewebstore.google.com/detail/aceafdbnbipkdngdoejfoikjpphgendd
 - Instagram Lists (2025, capstone, solo, 7 weeks, "designing at scale"): a control layer so people choose whose posts they see as 50%+ of the feed became AI-recommended and Gen Z moved to DMs. Hard part: fitting a new system into Instagram's existing patterns. Reflection: "relevance only works once the right context is defined."
 - Smart Bundles (2026, Amazon Fresh design challenge, "strategy & pivot"): grocery shopping built around what households actually eat. Food waste is 8–10% of GHG emissions, 30–40% of food is wasted, $1,300+ per household per year.
 - neuk (2026, solo, "service design"): designing coordination between people, not a booking app. Concept testing landed on "cozy but elevated"; name comes from "nook" and Korean 아늑한 (cozy).
-- Acuity (2026, 24-hour challenge, "systems under constraint"): AI health app deciding when a health signal needs action. Sooim designed the app (teammates did brand and research).
+- Acuity (2026, 24-hour Parsons AI Startup Design Hackathon, "systems under constraint"): a bracelet, AI, and app that help people act on early heart warning signs before a crisis. The bracelet senses (blood pressure, HRV, sleep), people log how they feel, AI learns their personal baseline, and the app shows one state (Stable, Elevated, or Emergent) with one next step. Built for high-risk people whose early heart symptoms don't fit the textbook. Sooim designed the app (Lucy did brand and the deck, Kritika did research). Named one of the standout concepts at the hackathon. Full write-up on Medium: https://medium.com/@sooimkang1015/from-story-to-system-building-an-ai-health-platform-in-a-24-hour-design-hackathon-7d9b4112907b
 - Forage (FigBuild 2026, 72 hours, team of 4): Sooim owned AI product architecture, the working prototype, and demo animations.
 Suggest yap first for a quick look; Instagram Lists for scale and systems thinking.`;
 

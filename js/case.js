@@ -94,6 +94,15 @@
 		})
 	})
 
+	/* Figures marked data-reveal animate in once, when scrolled into view (hidden only once JS is running) */
+	const reveals = document.querySelectorAll('[data-reveal]')
+	if (reveals.length && 'IntersectionObserver' in window && !reduced.matches) {
+		const io = new IntersectionObserver(entries => entries.forEach(e => {
+			if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target) }
+		}), { threshold: 0.35 })
+		reveals.forEach(el => { el.classList.add('reveal-ready'); io.observe(el) })
+	}
+
 	/* ── 2. Image zoom lightbox ─────────────────────────────── */
 	const frames = document.querySelectorAll('main img.case__frame[src]')
 	if (frames.length) {

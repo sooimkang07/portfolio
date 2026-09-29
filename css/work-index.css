@@ -110,30 +110,8 @@ body.work-page { background: var(--clr-bg); color: var(--wi-ink); }
 .work-card__media:hover :is(img, video) { transform: scale(var(--zoom)); }
 .work-card__media:hover img { animation-play-state: paused; }
 
-/* Point-of-view chip: what this project proves */
-.work-card__pov {
-	position: absolute;
-	left: 14px;
-	bottom: 14px;
-	z-index: 2;
-	padding: 7px 11px 6px;
-	border-radius: var(--r-pill);
-	background: rgb(253 253 252 / 0.82);
-	-webkit-backdrop-filter: blur(14px);
-	backdrop-filter: blur(14px);
-	font-family: var(--wi-mono);
-	font-size: var(--label-fs);
-	font-weight: var(--label-fw);
-	line-height: 1;
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--wi-ink);
-	opacity: 0;
-	transform: translateY(8px);
-	transition: opacity 260ms linear, transform var(--dur-3) var(--ease);
-}
-.work-card__media:is(:hover, :focus-visible) .work-card__pov { opacity: 1; transform: none; }
-@media (hover: none) { .work-card__pov { opacity: 1; transform: none; } }
+/* Hover shows the shared glass cursor (site.css .home-cursor) in place of the arrow */
+@media (width >= 900px) { .work-card__media { cursor: none; } }
 
 .work-card__body {
 	display: grid;
