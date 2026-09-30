@@ -13,6 +13,7 @@
   const media = children.find(el => el.matches('figure.nt-media'));
   if (children.length === 2 && copy && media &&
       media.querySelectorAll('video').length === 1 &&
+      !media.matches('.cs-gallery') &&
       !media.querySelector('img, .dx-grid, .ig-gallery')) {
    section.classList.add('case-single-video');
   }

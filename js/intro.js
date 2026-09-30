@@ -11,7 +11,7 @@
   const overlay = document.createElement('div');
   overlay.className = 'portfolio-intro';
   overlay.setAttribute('aria-label', 'Hi, I’m Sooim. Product designer based in New York.');
-  overlay.innerHTML = '<div class="portfolio-intro__text" aria-hidden="true"><span class="portfolio-intro__line">Hi, I’m Sooim</span><span class="portfolio-intro__line">Product designer</span><span class="portfolio-intro__line">Based in New York</span></div><button class="portfolio-intro__skip" type="button">Skip intro ↗</button>';
+  overlay.innerHTML = '<div class="portfolio-intro__text" aria-hidden="true"><span class="portfolio-intro__line">Hi, I’m Sooim</span><span class="portfolio-intro__line">Product designer</span><span class="portfolio-intro__line">Based in New York</span></div>';
   const loadingName = document.createElement('span');
   loadingName.className = 'ab-name glass';
   loadingName.innerHTML = strip.querySelector('.ab-name').innerHTML;
@@ -45,7 +45,6 @@
   document.addEventListener('keydown', onKey);
   window.addEventListener('resize', finish);
   reduced.addEventListener('change', finish);
-  overlay.querySelector('button').addEventListener('click', finish);
   const animate = (el, frames, options) => { const a = el.animate(frames, {fill:'both', ...options}); animations.push(a); return a; };
   timers.push(setTimeout(() => loadingName.classList.add('is-sweep-in'), 900));
   const lines = [...overlay.querySelectorAll('.portfolio-intro__line')];
@@ -65,7 +64,6 @@
     animate(line, [{transform:'translate(0,0) scale(1)'}, {transform:`translate(${x}px,${y}px) scale(${scale})`}], {duration:1100, easing:'cubic-bezier(.76,0,.24,1)'});
    });
    animate(overlay, [{backgroundColor:'#FAFCFD'}, {backgroundColor:'rgba(250,252,253,0)'}], {duration:1100});
-   animate(overlay.querySelector('button'), [{opacity:1},{opacity:0}], {duration:250});
    timers.push(setTimeout(finish, 1120));
   }, 2200));
   timers.push(setTimeout(finish, 4500));
@@ -78,42 +76,6 @@
   replay.addEventListener('click', () => { window.scrollTo({top:0, behavior:'instant'}); run(); });
   document.body.append(replay);
  }
- const button = document.querySelector('.home-logo');
- if (!button) return;
- const tile = button.querySelector('.home-logo__tile');
- let img = tile.querySelector('img');
- const logos = [['yap','yap'],['notate','Notate'],['instagram','Instagram Lists'],['amazon','Smart Bundles'],['neuk','Neuk'],['forage','Forage'],['acuity','Acuity']];
- logos.forEach(([name]) => { const preload = new Image(); preload.src = `project-app-icons/icon-${name}.png`; });
- let index = 0, paused = reduced.matches, visible = false, swiping = false;
- const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; });
- observer.observe(button);
- function label() { button.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} rotating project logos`); }
- label();
- button.addEventListener('click', () => { paused = !paused; label(); });
- reduced.addEventListener('change', () => { paused = reduced.matches; label(); });
- // Swipe left to right: the current logo winds up and flings out to the right,
- // the next one springs in from the left with a little overshoot.
- setInterval(async () => {
-  if (paused || !visible || document.hidden || swiping) return;
-  swiping = true;
-  index = (index + 1) % logos.length;
-  const next = img.cloneNode();
-  next.src = `project-app-icons/icon-${logos[index][0]}.png`; next.alt = logos[index][1];
-  next.style.opacity = '0';
-  tile.append(next);
-  const out = img.animate([
-   {transform:'translateX(0) rotate(0) scale(1)', opacity:1},
-   {transform:'translateX(-8%) rotate(-4deg) scale(1.04)', opacity:1, offset:.3},
-   {transform:'translateX(140%) rotate(24deg) scale(.6)', opacity:0}
-  ], {duration:560, easing:'cubic-bezier(.5,0,.75,0)', fill:'forwards'});
-  const enter = next.animate([
-   {transform:'translateX(-140%) rotate(-24deg) scale(.6)', opacity:0},
-   {transform:'translateX(0) rotate(0) scale(1)', opacity:1}
-  ], {duration:760, delay:180, easing:'cubic-bezier(.34,1.56,.64,1)', fill:'backwards'});
-  try { await Promise.all([out.finished, enter.finished]); } catch {}
-  next.style.opacity = '';
-  img.remove(); img = next; swiping = false;
- }, 2800);
 })();
 
 ;(() => {

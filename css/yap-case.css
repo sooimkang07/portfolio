@@ -1,0 +1,100 @@
+/* yap case study: problem animations, opportunity, live demo, diagrams, launch. */
+
+body.case-page main .yap-overview-img { margin-top: 32px; }
+body.case-page main .yap-overview-img img { display: block; width: 100%; height: auto; }
+
+/* ── Problem: three ways people yap today ─────────────────────── */
+.yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, 12px); }
+.yap-problem__cell { min-width: 0; }
+.yap-card { position: relative; aspect-ratio: 4 / 5; background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: 20px; overflow: hidden; }
+.yap-problem__name { margin: 28px 0 4px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
+.yap-problem__why { margin: 0; font-size: 14px; line-height: 1.4; color: var(--clr-muted, #626b76); text-wrap: pretty; }
+
+/* Calling: FaceTime tiles waiting for people who aren't free yet */
+.yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: 8px; border-radius: 12px; will-change: transform; }
+.yap-call__tile span { display: grid; place-items: center; width: 42%; aspect-ratio: 1; border-radius: 50%; background: #f7f7f7; font-size: clamp(14px, 2.4vw, 30px); color: #1c1d1c; }
+.yap-call__tile em { font-style: normal; font-size: 11px; color: #8a8f98; }
+.yap-call__tile--l { left: 13%; top: 8%; width: 64%; aspect-ratio: 1; background: #d9d9d9; animation: yap-float-l 7s ease-in-out infinite; }
+.yap-call__tile--k { left: 56%; top: 49%; width: 32%; aspect-ratio: 1; background: #c6c6c6; animation: yap-float-k 6s ease-in-out infinite; }
+.yap-call__tile--m { left: 25%; top: 66%; width: 32%; aspect-ratio: 1; background: #e0e0e0; animation: yap-float-m 8s ease-in-out infinite; }
+.yap-call__tile--k span, .yap-call__tile--m span { width: 46%; font-size: clamp(11px, 1.6vw, 20px); }
+@keyframes yap-float-l { 0%, 100% { transform: translate(0, 0) scale(1); } 35% { transform: translate(-4%, 3%) scale(.94); } 70% { transform: translate(3%, -2%) scale(1.03); } }
+@keyframes yap-float-k { 0%, 100% { transform: translate(0, 0) scale(1); } 40% { transform: translate(-10%, -8%) scale(1.1); } 75% { transform: translate(6%, 4%) scale(.92); } }
+@keyframes yap-float-m { 0%, 100% { transform: translate(0, 0) scale(1); } 30% { transform: translate(8%, -6%) scale(.9); } 65% { transform: translate(-6%, 5%) scale(1.08); } }
+
+/* Texting: iMessage bubbles, sent one after another */
+.yap-text__stack { position: absolute; left: 10%; right: 10%; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; }
+.yap-bubble { position: relative; margin: 0; max-height: 0; opacity: 0; padding: 0 14px; border-radius: 19px; background: #1b8cfb; color: #fff; font-size: clamp(12px, 1.3vw, 16px); line-height: 1.35; white-space: nowrap; transform-origin: 100% 100%; overflow: visible; animation: 8s cubic-bezier(.34, 1.4, .64, 1) infinite; }
+.yap-bubble--1 { animation-name: yap-b1; } .yap-bubble--2 { animation-name: yap-b2; } .yap-bubble--3 { animation-name: yap-b3; }
+@keyframes yap-b1 { 0%, 8% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 13%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
+@keyframes yap-b2 { 0%, 22% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 27%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
+@keyframes yap-b3 { 0%, 36% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 41%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
+
+/* Voice memo: the real recording, cropped to the bubble */
+.yap-memo { display: grid; place-items: center; }
+.yap-memo video { width: 80%; height: auto; display: block; border-radius: 0 !important; background: transparent; }
+
+@media (max-width: 760px) {
+  .yap-problem { grid-template-columns: 1fr; }
+  .yap-card { aspect-ratio: 4 / 3; }
+  .yap-call__tile--l { left: 30%; top: 8%; width: 40%; }
+  .yap-call__tile--k { left: 62%; top: 44%; width: 22%; }
+  .yap-call__tile--m { left: 18%; top: 58%; width: 22%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yap-call__tile { animation: none; }
+  .yap-bubble { animation: none; max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; }
+}
+
+/* ── Opportunity ───────────────────────────────────────────────── */
+body.case-page main .yap-hmw { margin-top: 56px; padding: 40px 0 8px; border-top: 1px solid var(--clr-border, #e6e8ea); }
+body.case-page main .yap-hmw__q { margin: 12px 0 0; max-width: 28ch; font-size: clamp(24px, 2.6vw, 36px); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; color: var(--clr-text, #1c1d1c); }
+
+/* ── Live demo in the iPhone frame (same 1080×1350 stage as the feature videos) ── */
+.yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg, 20px); overflow: hidden; background: #f4f1ee; }
+.yap-demo__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
+.yap-demo__screen { position: absolute; left: 26.093%; top: 9.711%; width: 47.722%; height: 80.563%; overflow: hidden; border-radius: 14.36% / 6.8%; background: #fff; }
+.yap-demo__screen iframe { position: absolute; left: 0; top: 0; width: 402px; height: 848px; border: 0; transform-origin: 0 0; border-radius: 0 !important; }
+.yap-demo__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; filter: saturate(.9); }
+.yap-demo__start { position: absolute; left: 50%; bottom: 10%; transform: translateX(-50%); padding: 12px 20px; border: 0; border-radius: 999px; background: #1c1d1c; color: #fff; font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .45); }
+.yap-demo__frame { position: absolute; left: 24.676%; top: 8.889%; width: 50.676%; height: 82.222%; pointer-events: none; border-radius: 0 !important; }
+
+/* ── Diagrams and placeholders ─────────────────────────────────── */
+.yap-diagram svg { display: block; width: 100%; height: auto; }
+.yap-diagram + .yap-diagram, .yap-diagram + figure { margin-top: 16px; }
+.yap-todo { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; aspect-ratio: 16 / 9; padding: 24px; border-radius: var(--r-lg, 20px); background: #f1f3f5 radial-gradient(#DADAD5 1px, transparent 1px) 0 0 / 10px 10px; text-align: center; font-size: 14px; color: #626b76; }
+.yap-todo__tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: #1c1d1c; }
+
+/* ── Launch ────────────────────────────────────────────────────── */
+.yap-launch-hero img { display: block; width: 100%; height: auto; }
+.yap-launch-grid .cs-cell > video.nt-video { height: 100%; object-fit: cover; }
+.yap-tweet { display: flex; justify-content: center; padding: 32px 16px; border-radius: var(--r-lg, 20px); background: #f1f3f5; }
+.yap-tweet .twitter-tweet { margin: 0 !important; }
+.yap-tweet blockquote.twitter-tweet { max-width: 480px; padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }
+body.case-page main .yap-text .yap-bubble.yap-bubble { color: #fff; }
+
+/* problem captions: override the case-study paragraph defaults, no orphans */
+body.case-page main .yap-problem .yap-problem__name { margin: 28px 0 4px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
+body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: 14px; line-height: 1.45; color: var(--clr-muted, #626b76); text-wrap: pretty; }
+/* tweet sits on the page, no figure panel */
+body.case-page main .yap-tweet { display: block; padding: 0; background: none; border-radius: 0; }
+body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
+@media (min-width: 960px) { body.case-page main .yap-feedback { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+/* the embed adds its own top margin; line the copy up with the tweet card */
+body.case-page main .yap-feedback .twitter-tweet, body.case-page main .yap-feedback .twitter-tweet-rendered { margin-top: 0 !important; }
+body.case-page main .yap-memo video { width: 80%; height: auto; margin: 0 auto; }
+body.case-page main .yap-launch-hero img { width: min(100%, 440px); margin: 0 auto; }
+body.case-page main .yap-launch-hero video { display: block; width: min(100%, 440px); height: auto; margin: 0 auto; }
+/* figure titles live on the page, above the figure */
+body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
+body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
+
+/* iMessage tail: one drawn shape (no masking patch), fades to the newest bubble */
+.yap-bubble::after { content: ""; position: absolute; right: -7px; bottom: 0; width: 17px; height: 21px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 21'><path d='M0 0v12c0 5 4 8.5 10 9 3 .2 5.5-.3 7-1-4-1-7-4.5-7-9V0z' fill='%231b8cfb'/></svg>") no-repeat 0 0 / 100% 100%; opacity: 0; animation: 8s linear infinite; pointer-events: none; }
+.yap-bubble--1::after { animation-name: yap-t1; }
+.yap-bubble--2::after { animation-name: yap-t2; }
+.yap-bubble--3::after { animation-name: yap-t3; }
+@keyframes yap-t1 { 0%, 8% { opacity: 0; } 8.01%, 22% { opacity: 1; } 22.01%, 100% { opacity: 0; } }
+@keyframes yap-t2 { 0%, 22% { opacity: 0; } 22.01%, 36% { opacity: 1; } 36.01%, 100% { opacity: 0; } }
+@keyframes yap-t3 { 0%, 36% { opacity: 0; } 36.01%, 88% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .yap-bubble::after { animation: none; } .yap-bubble--3::after { opacity: 1; } }

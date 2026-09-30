@@ -91,7 +91,7 @@ function nameScene(a, b, T) {
    into the glass pill and the pill says her name.        b0 – b5.4
    ================================================================ */
 const OPEN = [
-	['ib_hero', 1.2, 1, 50],
+	['c_annot', 7.2, 1.12, 38],     // Notate on a live page: open on the product, not the festival site
 	['yap_wave', .8, 1.25, 0],      // scaled from the top: the avatar row stays out of frame
 	['c_lists', .9, 1, 50],
 	['nk_logo', .5, 1, 50],
@@ -142,8 +142,9 @@ scene(bt(4.2), bt(10.85), {
 });
 
 /* ================================================================
-   03 · MOBILE — phones on their brands' own colours, paged on the
-   beat; each phone trails its panel a touch.            b10 – b16
+   03 · MOBILE — one phone holds centre and turns on the beat; at
+   the edge-on moment the next product takes the screen and its
+   brand colour opens out from behind the phone.         b10 – b16
    ================================================================ */
 const PANELS = [
 	['p_igc', 'linear-gradient(135deg,#fdc830 0%,#f77737 24%,#e1306c 52%,#c13584 74%,#833ab4 100%)', .2],
@@ -152,26 +153,35 @@ const PANELS = [
 	['p_acl', '#eef1f6', .5],
 ];
 const MOVES = [[10.0, 10.8], [11.8, 12.6], [13.2, 14.0], [14.6, 15.4]];
+const R_MAX = Math.hypot(W, H) / 2 + 40;
 scene(bt(10.0), bt(16.05), {
 	init(s) {
 		s.r0.style.zIndex = 12;
-		s.panels = PANELS.map(([n, bg]) => {
-			const p = el('div', 'abs', s.r0, { width: W + 'px', height: H + 'px', background: bg, perspective: '2000px' });
-			return { p, ph: phone(p, n, 860) };
-		});
+		s.bgs = PANELS.map(([, bg]) => el('div', 'fill', s.r0, { background: bg }));
+		s.stage = el('div', 'fill', s.r0, { perspective: '2200px', zIndex: 3 });
+		s.phones = PANELS.map(([n]) => phone(s.stage, n, 920));
 	},
 	dom(t, s) {
 		const B = beat(t);
-		const pg = MOVES.reduce((a, [b0, b1]) => a + P(B, b0, b1, 'inout'), 0);
-		const pp = MOVES.reduce((a, [b0, b1]) => a + P(B, b0 + .14, b1 + .14, 'inout'), 0);
-		s.panels.forEach((o, k) => {
-			const left = W * (k + 1 - pg);
-			vis(o.p, left < W && left > -W);
-			o.p.style.transform = `translateX(${left.toFixed(1)}px)`;
-			const lag = (pg - pp) * W * .24;
-			place(o.ph.el, { x: W / 2 + lag, y: H / 2 + 12 + 7 * Math.sin(t * 1.7 + k), ry: -(pg - pp) * 38, rx: 3 });
-			at(o.ph.c, from(t, MOVES[k][0], PANELS[k][2]));
+		const enter = P(B, MOVES[0][0], MOVES[0][1], 'inout');
+		s.r0.style.transform = enter < 1 ? `translateX(${((1 - enter) * W).toFixed(1)}px)` : 'none';
+		let k = 0;
+		for (let i = 1; i < MOVES.length; i++) if (B >= MOVES[i][0]) k = i;
+		const p = k ? P(B, MOVES[k][0], MOVES[k][1], 'inout') : 1;
+		const from_ = k ? k - 1 : 0;
+		s.bgs.forEach((bg, i) => {
+			vis(bg, i === k || (i === from_ && p < 1));
+			bg.style.clipPath = i === k && p < 1 ? `circle(${(R_MAX * EZ.strip(p)).toFixed(1)}px at 50% 52%)` : 'none';
+			bg.style.zIndex = i === k ? 2 : 1;
 		});
+		const ang = p * 180, face = ang < 90 ? from_ : k, ry = ang < 90 ? ang : ang - 180;
+		const lift = Math.sin(Math.PI * p);
+		s.phones.forEach((ph, i) => {
+			vis(ph.el, i === face);
+			if (i !== face) return;
+			place(ph.el, { x: W / 2, y: H / 2 + 14 - 34 * lift + 6 * Math.sin(t * 1.6), s: 1 - .07 * lift, ry: ry + (1 - enter) * -24, rx: 3 });
+		});
+		PANELS.forEach(([, , s0], i) => at(s.phones[i].c, from(t, MOVES[i][0], s0)));
 	},
 });
 
@@ -221,11 +231,11 @@ scene(bt(19), bt(22.05), {
 });
 
 /* ================================================================
-   05 · 3D — the Acuity band in its colourways, one per beat; then
-   the Forage ring.                                       b22 – b28
+   05 · 3D — the Acuity band in two colourways, one per beat; then
+   the Forage ring.                                       b22 – b26
    ================================================================ */
 const BANDS = ['#f3f4f6', '#e6dcec', '#d9e3ee', '#e1e6d6'];
-scene(bt(22), bt(26.05), {
+scene(bt(22), bt(24.05), {
 	init(s) {
 		s.r0.style.zIndex = 16;
 		s.bg = el('div', 'fill', s.r0);
@@ -233,13 +243,13 @@ scene(bt(22), bt(26.05), {
 		s.c.box.classList.add('feather');
 	},
 	dom(t, s) {
-		const B = beat(t), k = clamp(Math.floor(B - 22), 0, 3);
+		const B = beat(t), k = clamp(Math.floor(B - 22), 0, 1);
 		s.bg.style.background = BANDS[k];
 		at(s.c, from(t, 22, .1));
-		s.c.box.style.transform = `scale(${lerp(1, 1.07, P(B, 22, 26))})`;
+		s.c.box.style.transform = `scale(${lerp(1, 1.05, P(B, 22, 24))})`;
 	},
 });
-scene(bt(26), bt(28.05), {
+scene(bt(24), bt(26.05), {
 	init(s) {
 		s.r0.style.zIndex = 17;
 		el('div', 'fill', s.r0, { background: '#f5f0fe' });
@@ -247,33 +257,35 @@ scene(bt(26), bt(28.05), {
 	},
 	dom(t, s) {
 		const B = beat(t);
-		at(s.c, from(t, 26, .3));
-		s.c.v.style.transform = `scale(${lerp(1.02, 1.1, P(B, 26, 28)) * settle(t, 26, .04, .6)})`;
+		at(s.c, from(t, 24, .3));
+		s.c.v.style.transform = `scale(${lerp(1.02, 1.1, P(B, 24, 26)) * settle(t, 24, .04, .6)})`;
 	},
 });
 
 /* ================================================================
    06 · AI — a voice memo becomes text, then yap finds the topics.
-   Cropped so no photo of her is on screen.               b28 – b32
+   The topic UI gets the longest hold in the reel, large enough to
+   read. Cropped so no photo of her is on screen.        b26 – b32
    ================================================================ */
-scene(bt(28), bt(32.05), {
+const YC = { w: 1560, h: 650 };
+scene(bt(26), bt(32.05), {
 	init(s) {
 		s.r0.style.zIndex = 18;
 		s.wave = clip('yap_wave', s.r0, fullBox());
-		s.card = el('div', 'media', s.r0, { width: '1300px', height: '542px', borderRadius: '26px' });
-		s.card._w = 1300; s.card._h = 542;
-		s.topics = clip('yap_topics', s.card, { left: 0, top: 0, width: '1300px', height: '731px' });
+		s.card = el('div', 'media', s.r0, { width: YC.w + 'px', height: YC.h + 'px', borderRadius: '28px' });
+		s.card._w = YC.w; s.card._h = YC.h;
+		s.topics = clip('yap_topics', s.card, { left: 0, top: 0, width: YC.w + 'px', height: Math.round(YC.w * 731 / 1300) + 'px' });
 	},
 	dom(t, s) {
 		const B = beat(t);
-		at(s.wave, from(t, 28, .7, 1.1), 1.1);
+		at(s.wave, from(t, 26, .7, 1.1), 1.1);
 		s.wave.v.style.transformOrigin = '50% 0';
-		s.wave.v.style.transform = `scale(${1.25 * lerp(1, 1.04, P(B, 28, 32))})`;
-		const a = P(B, 29.7, 30.7, 'ease');
-		s.wave.box.style.filter = a > .01 ? `blur(${(a * 7).toFixed(1)}px)` : 'none';
-		vis(s.card, B >= 29.7);
-		place(s.card, { y: lerp(H + 330, H / 2 + 20, a), s: lerp(.94, 1, a) });
-		at(s.topics, from(t, 29.7, .9, 1.35), 1.35);
+		s.wave.v.style.transform = `scale(${1.25 * lerp(1, 1.04, P(B, 26, 28))})`;
+		const a = P(B, 27.2, 28.2, 'ease');
+		s.wave.box.style.filter = a > .01 ? `blur(${(a * 9).toFixed(1)}px)` : 'none';
+		vis(s.card, B >= 27.2);
+		place(s.card, { y: lerp(H + 380, H / 2 + 10, a), s: lerp(.94, 1, a) * lerp(1, 1.03, P(B, 28.2, 32, 'inout')) });
+		at(s.topics, from(t, 27.2, .9, 1.15), 1.15);
 	},
 });
 

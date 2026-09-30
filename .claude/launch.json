@@ -18,6 +18,32 @@
         "8126"
       ],
       "port": 8126
+    },
+    {
+      "name": "portfolio-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8791",
+        "--bind",
+        "127.0.0.1"
+      ],
+      "port": 8791
+    },
+    {
+      "name": "yap-demo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8792",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/sooimkang/Developer/yap"
+      ],
+      "port": 8792
     }
   ]
 }

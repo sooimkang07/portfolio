@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/glass.css?v=2-ds2">
 	<link rel="stylesheet" href="css/site.css?v=koto-3-ds2">
 	<link rel="stylesheet" href="css/morph.css?v=2-ds2" />
-	<link rel="stylesheet" href="css/work-index.css?v=2-ds2" />
+	<link rel="stylesheet" href="css/work-index.css?v=3-sprints" />
 	<link rel="icon" href="favicon.ico?v=2" sizes="any">
 	<link rel="icon" type="image/png" sizes="16x16" href="16.png?v=2">
 	<link rel="icon" type="image/png" sizes="32x32" href="32.png?v=2">
@@ -77,7 +77,7 @@
 		<header class="work-index__head">
 			<p class="work-index__kicker">Selected work</p>
 			<h1 class="work-index__title">Work</h1>
-			<p class="work-index__intro">I design and build digital products around how people think, connect, and live.</p>
+			<p class="work-index__intro">I design AI products and build them myself: prototyped in hours with Figma Make, shipped over months with Claude Code.</p>
 		</header>
 
 		<section class="work-grid" aria-label="Projects">
@@ -86,7 +86,7 @@
 					<video src="covers/yap-cover.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
 				</a>
 				<div class="work-card__body">
-					<ul class="work-card__tags" aria-label="Disciplines"><li>Interaction design</li><li>Mobile</li></ul>
+					<ul class="work-card__tags" aria-label="Disciplines"><li>AI</li><li>Shipped</li><li>Claude Code</li></ul>
 					<div class="work-card__copy">
 						<h2 class="work-card__title"><a href="yap">yap</a></h2>
 						<p class="work-card__line">Voice chats organized by topic, not timeline</p>
@@ -99,7 +99,7 @@
 					<video src="notate-assets/n-notate-logo.mp4" poster="covers/notate-cover.png" muted loop playsinline preload="metadata" aria-hidden="true"></video>
 				</a>
 				<div class="work-card__body">
-					<ul class="work-card__tags" aria-label="Disciplines"><li>0→1</li><li>Chrome extension</li></ul>
+					<ul class="work-card__tags" aria-label="Disciplines"><li>0→1</li><li>Shipped</li><li>Chrome Web Store</li></ul>
 					<div class="work-card__copy">
 						<h2 class="work-card__title"><a href="notate">Notate</a></h2>
 						<p class="work-card__line">Annotating the web without losing context</p>
@@ -120,20 +120,7 @@
 					<span class="work-card__year">2025</span>
 				</div>
 			</article>
-			<article class="work-card" style="--i:3" data-href="smart-bundles" data-project-morph="bundles">
-				<a class="work-card__media" href="smart-bundles" aria-label="Smart Bundles — Grocery shopping for what’s actually eaten" data-morph-media>
-					<video src="covers/smart-bundles-cover.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
-				</a>
-				<div class="work-card__body">
-					<ul class="work-card__tags" aria-label="Disciplines"><li>Amazon Fresh</li><li>10-hr sprint</li></ul>
-					<div class="work-card__copy">
-						<h2 class="work-card__title"><a href="smart-bundles">Smart Bundles</a></h2>
-						<p class="work-card__line">Grocery shopping for what’s actually eaten</p>
-					</div>
-					<span class="work-card__year">2026</span>
-				</div>
-			</article>
-			<article class="work-card" style="--i:4" data-href="neuk" data-project-morph="neuk">
+			<article class="work-card" style="--i:3" data-href="neuk" data-project-morph="neuk">
 				<a class="work-card__media" href="neuk" aria-label="neuk — Designing coordination, not a booking app" data-morph-media>
 					<video src="covers/neuk-cover.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
 				</a>
@@ -146,15 +133,50 @@
 					<span class="work-card__year">2026</span>
 				</div>
 			</article>
-			<article class="work-card" style="--i:5" data-href="acuity" data-project-morph="acuity">
+		</section>
+
+		<header class="work-index__head work-index__head--sub">
+			<p class="work-index__kicker">AI sprints</p>
+			<h2 class="work-index__subtitle">Built in hours</h2>
+			<p class="work-index__intro">Hackathon and sprint projects. I built each working prototype with Figma Make and designed how the AI should behave.</p>
+		</header>
+
+		<section class="work-grid work-grid--3" aria-label="AI sprints">
+			<article class="work-card" style="--i:0" data-href="acuity" data-project-morph="acuity">
 				<a class="work-card__media" href="acuity" aria-label="Acuity — Deciding when a health signal needs action" data-morph-media>
 					<video src="covers/acuity-cover.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
 				</a>
 				<div class="work-card__body">
-					<ul class="work-card__tags" aria-label="Disciplines"><li>AI</li><li>Health</li><li>24-hr challenge</li></ul>
+					<ul class="work-card__tags" aria-label="Disciplines"><li>24-hr sprint</li><li>Figma Make</li></ul>
 					<div class="work-card__copy">
 						<h2 class="work-card__title"><a href="acuity">Acuity</a></h2>
 						<p class="work-card__line">Deciding when a health signal needs action</p>
+					</div>
+					<span class="work-card__year">2026</span>
+				</div>
+			</article>
+			<article class="work-card" style="--i:1" data-href="smart-bundles" data-project-morph="bundles">
+				<a class="work-card__media" href="smart-bundles" aria-label="Smart Bundles — Grocery shopping for what’s actually eaten" data-morph-media>
+					<video src="covers/smart-bundles-cover.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+				</a>
+				<div class="work-card__body">
+					<ul class="work-card__tags" aria-label="Disciplines"><li>10-hr sprint</li><li>Figma Make</li></ul>
+					<div class="work-card__copy">
+						<h2 class="work-card__title"><a href="smart-bundles">Smart Bundles</a></h2>
+						<p class="work-card__line">Grocery shopping for what’s actually eaten</p>
+					</div>
+					<span class="work-card__year">2026</span>
+				</div>
+			</article>
+			<article class="work-card" style="--i:2" data-href="forage" data-project-morph="forage">
+				<a class="work-card__media" href="forage" aria-label="Forage — Capturing inspiration with a gesture" data-morph-media>
+					<img src="covers/forage-cover.png" alt="" loading="lazy" decoding="async">
+				</a>
+				<div class="work-card__body">
+					<ul class="work-card__tags" aria-label="Disciplines"><li>72-hr sprint</li><li>Figma Make</li></ul>
+					<div class="work-card__copy">
+						<h2 class="work-card__title"><a href="forage">Forage</a></h2>
+						<p class="work-card__line">Capturing inspiration with a gesture</p>
 					</div>
 					<span class="work-card__year">2026</span>
 				</div>
@@ -177,6 +199,6 @@
 	<script src="js/site.js?v=orphan-1-ds2"></script>
 	<script src="js/morph.js?v=3"></script>
 	<script src="js/work-index.js?v=3"></script>
-	<script src="js/text-sooim.js?v=7" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
+	<script src="js/text-sooim.js?v=8" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

@@ -248,3 +248,50 @@
 .fig .pt.hi .ptl{font-size:1.7cqw}
 .fig .pt:has(.logo){transform:translate(-1.3cqw,-50%)}
 .fig .pt.hi:has(.logo){transform:translate(-1.8cqw,-50%)}
+
+/* Real screens inside figure phones */
+.fig .phone.shot{position:relative;background:#fff;overflow:visible;padding:0;box-shadow:0 0 0 1px rgba(28,29,28,.06),0 1.2cqw 2.4cqw -1.4cqw rgba(28,29,28,.4)}
+.fig .dev.phone.shot{position:absolute}
+.fig .phone.shot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit!important}
+.fig .phone.shot>.mark{z-index:2}
+.fig .vgroup.dim .phone.shot{opacity:.7}
+.fig .vnote{display:block;margin-top:.6cqw;font-size:1.1cqw;color:#8a8f98}
+
+
+.yap-try .yap-try__actions{display:flex;flex-direction:column;gap:18px;margin-top:22px}
+.yap-try__btn{align-self:flex-start;display:inline-block;padding:12px 20px;border-radius:999px;background:#1c1d1c;color:#fff !important;text-decoration:none;font-size:15px;font-weight:500}
+.yap-try__qr{display:flex;align-items:center;gap:14px;font-size:13px;color:#626b76}
+.yap-try__qr img{width:96px;height:96px;padding:8px;background:#fff;border-radius:12px}
+.fig.yap-try__fig{display:grid;place-items:center}
+.fig .yap-try__phone{width:26cqw;position:relative}
+.fig .yap-try__phone iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:inherit;background:#fff}
+.yap-try__load{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);white-space:nowrap;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 6px 20px -8px rgba(0,0,0,.35);font:inherit;font-size:13px;cursor:pointer;z-index:2}
+@media (hover:none){.yap-try__qr{display:none}}
+
+/* yap: bigger screens in every figure */
+.fig .strip .mini.phone{width:17cqw}
+.fig .strip:has(> .step:nth-child(3):last-child) .mini.phone{width:22cqw}
+.fig .step{max-width:24cqw}
+.fig .mid.phone{width:23cqw}
+.fig .vgroup{max-width:48cqw}
+.fig .versions .mini.phone{width:14.5cqw}
+.fig .vline{max-width:40cqw}
+/* yap launch: station photo leads, clip and poster beside it */
+.yap-launch{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto 1fr;gap:16px}
+.yap-launch>*{width:100%;height:100%;object-fit:cover;display:block}
+.yap-launch__station{grid-row:1 / span 2;aspect-ratio:3/4}
+.yap-launch__clip{aspect-ratio:16/9}
+.yap-launch__poster{object-position:bottom}
+@media (max-width:700px){.yap-launch{grid-template-columns:1fr}.yap-launch__station{grid-row:auto}}
+
+/* yap: every phone is a framed iPhone 16 Pro image (402x874 screen, 60/60% squircle) */
+.fig .phone.shot{aspect-ratio:1300/2642;background:transparent;box-shadow:none;border-radius:0}
+.fig .phone.shot>img{object-fit:contain;border-radius:0!important;filter:drop-shadow(0 1.2cqw 1.6cqw rgba(28,29,28,.18))}
+.fig .yap-try__phone iframe{inset:.95% 4.46%;width:91.08%;height:98.1%;border-radius:15% / 6.9%}
+
+/* Figures with phone screens grow to fit them instead of clipping at 16:9 */
+.fig:has(.flow .phone.shot){aspect-ratio:auto}
+.fig:has(.flow .phone.shot) .flow{position:static}
+
+/* One card gap across the site: every group of cards inside a figure uses the media gap token */
+.fig .cards,.fig .strip,.fig .vphones,.fig .sw{gap:var(--gap-media,12px)}

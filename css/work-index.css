@@ -209,3 +209,9 @@ html.is-pt-enter.is-pt-run body > main {
 	html.is-pt-enter::after { display: none; }
 	html.is-pt-enter body > main { transform: none; }
 }
+
+/* AI sprints tier */
+.work-index__head--sub { margin-top: clamp(96px, 12vw, 160px); }
+.work-index__subtitle { color: var(--wi-ink); font-size: clamp(1.75rem, 3.2vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; }
+.work-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (width < 900px) { .work-grid--3 { grid-template-columns: 1fr; } }

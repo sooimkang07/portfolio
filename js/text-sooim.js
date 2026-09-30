@@ -31,7 +31,7 @@
 		document.head.appendChild(font);
 	}
 	var NAME = "Sooim Kang";
-	var SUBTITLE = "New York, NY";
+	var SUBTITLE = "AI me · built on Claude";
 	var PLACEHOLDER = "Ask me anything!";
 	var STORE = "text-sooim:v4";
 	var MAX_TURNS = 16;
