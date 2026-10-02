@@ -807,7 +807,7 @@ body.case-page main .sb-decision h3 { margin: 0 0 8px; color: var(--c-ink); }
 body.case-page main .nt-section p.sb-evidence { display: flex; gap: 12px; margin-top: 12px; font-size: 14px; line-height: 1.5; color: var(--c-muted, var(--clr-muted)); }
 body.case-page main .sb-evidence span { flex: none; font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); line-height: 1.8; text-transform: uppercase; color: var(--c-ink); }
 /* Launch: each piece full width, one after another */
-body.case-page main .dx-grid.dx-grid--1 { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+body.case-page main .dx-grid.dx-grid--1 { grid-template-columns: minmax(0, 1fr); gap: var(--gap-media); }
 body.case-page main .sb-launch .dx-media { aspect-ratio: 16 / 9; }
 @media (max-width: 600px) { body.case-page main .nt-section p.sb-evidence { flex-direction: column; gap: 4px; } }
 
@@ -828,3 +828,17 @@ body.case-page main .case-fig-empty { aspect-ratio: 16 / 9; border-radius: var(-
 body.case-page main .nt-section p.sb-evidence--lead { margin: 0 0 14px; }
 /* Branding figures (logo, type, color, signature components) */
 body.case-page main .brand-svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; font-family: inherit; }
+
+/* ── One media gap: figures stacked back to back sit --gap-media apart, matching grid gaps ── */
+body.case-page main :is(.nt-media, .nt-process, .nk-board) + :is(.nt-media, .nt-process, .nk-board) { margin-top: var(--gap-media); }
+
+/* ── Hero pair + overview media (shared) ─────────────────────── */
+body.case-page .case-cover:has(+ .case-hero-pair) { margin-bottom: var(--gap-media, 12px); }
+body.case-page .case-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, 12px); margin: 0 var(--case-g) clamp(56px, 7vw, 104px); }
+body.case-page .case-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); }
+@media (max-width: 760px) { body.case-page .case-hero-pair { grid-template-columns: 1fr; } }
+body.case-page main .case-overview-media { margin: 32px 0; }
+body.case-page main .case-overview-media video { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); }
+/* Mixed-ratio pair (4:5 + 16:9): columns sized by aspect ratio so both show uncropped at equal height. */
+body.case-page .case-hero-pair--fit { grid-template-columns: 0.8fr 1.7778fr; }
+body.case-page .case-hero-pair--fit img { height: auto; aspect-ratio: auto; }

@@ -30,6 +30,55 @@
   addEventListener('resize', schedule);
   addEventListener('hashchange', schedule);
   update();
+
+  /* Chapter links: lazy media above the target loads mid-scroll and pushes it down, so a
+     plain anchor jump lands a section early. Load what's above first, scroll, then keep the
+     target aligned until the page stops shifting or the reader takes over. */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let release = null;
+  function jumpTo(target) {
+    if (release) release();
+    const margin = () => parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    const top = () => target.getBoundingClientRect().top + scrollY - margin();
+    document.querySelectorAll('main img[loading="lazy"], main video[preload="metadata"], main video[preload="none"]').forEach(el => {
+      if (el.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING) {
+        if (el.tagName === 'IMG') el.loading = 'eager';
+        else el.preload = 'auto';
+      }
+    });
+    scrollTo({ top: top(), behavior: reduce.matches ? 'instant' : 'smooth' });
+    let idle = 0;
+    const atBottom = () => scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+    // Past the target: always pull back. Short of it: only if the page can still scroll further.
+    const settle = () => {
+      const off = target.getBoundingClientRect().top - margin();
+      if (off < -2 || (off > 2 && !atBottom())) scrollTo({ top: top(), behavior: 'instant' });
+    };
+    const onScroll = () => { clearTimeout(idle); idle = setTimeout(settle, 140); };
+    const ro = new ResizeObserver(() => { clearTimeout(idle); idle = setTimeout(settle, 140); });
+    ro.observe(document.querySelector('main') || document.body);
+    const stop = () => release && release();
+    const timer = setTimeout(stop, 4000);
+    release = () => {
+      clearTimeout(idle); clearTimeout(timer); ro.disconnect();
+      removeEventListener('scroll', onScroll);
+      ['wheel', 'touchstart', 'keydown'].forEach(type => removeEventListener(type, stop));
+      release = null;
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    ['wheel', 'touchstart', 'keydown'].forEach(type => addEventListener(type, stop, { passive: true }));
+  }
+  for (const link of links) {
+    const target = document.querySelector(link.hash);
+    if (!target) continue;
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+      event.preventDefault();
+      history.pushState(null, '', link.hash);
+      jumpTo(target);
+      schedule();
+    });
+  }
 })();
 
 /* Respect reduced motion: show the poster frame with controls instead of autoplaying. */

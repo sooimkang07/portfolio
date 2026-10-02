@@ -19,6 +19,18 @@
   }
  });
 
+	// No orphans: glue each text block's last two words so a line never ends on one word.
+	document.querySelectorAll('main :is(p, li, h1, h2, h3, h4, dd, figcaption)').forEach(el => {
+		const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT)
+		let last = null
+		while (walker.nextNode()) if (walker.currentNode.nodeValue.trim()) last = walker.currentNode
+		if (!last) return
+		const text = last.nodeValue.replace(/\s+$/, '')
+		const i = text.lastIndexOf(' ')
+		if (i < 1 || text.length - i > 18) return
+		last.nodeValue = text.slice(0, i) + ' ' + text.slice(i + 1) + last.nodeValue.slice(text.length)
+	})
+
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)')
 
 	/* ── 1. Video playback ─────────────────────────────────── */

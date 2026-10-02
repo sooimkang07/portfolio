@@ -397,7 +397,7 @@
   }
 
   if (showreel) {
-    showreel.addEventListener('click', e => { if (!e.target.closest('video')) closeShowreel() })
+    showreel.addEventListener('click', () => closeShowreel())
     showreel.addEventListener('pointerenter', () => showCursor('is-close-cursor'))
     showreel.addEventListener('pointermove', () => {
       if (document.body.classList.contains('is-showreel-open')) showCursor('is-close-cursor')
