@@ -561,6 +561,8 @@
 
   /* ── Keep hero video playing ─────────────────────────────── */
   window.addEventListener('load', () => {
+    // While the intro is up it owns the start: it plays the reel when it lands on its first frame (js/intro.js).
+    if (document.querySelector('.portfolio-intro')) return
     document.querySelectorAll('.home-hero video').forEach(video => {
       video.play().catch(() => {})
     })

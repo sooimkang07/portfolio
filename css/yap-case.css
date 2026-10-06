@@ -348,6 +348,8 @@ body.case-page main .yap-board-pair { display: grid; grid-template-columns: minm
 body.case-page main .yap-board-pair__cell img { display: block; width: 100%; height: auto; }
 body.case-page main .yap-board-pair .yap-board-pair__label { margin: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
 body.case-page main .yap-board--inset { padding: clamp(16px, 3vw, 40px); }
+/* full-bleed Figma screenshots: the image is the whole 16:9 figure */
+body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cover; }
 body.case-page main .yap-board--inset img { border-radius: 10px; box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 16px 32px -18px rgba(28, 29, 28, .35); }
 @media (max-width: 760px) { body.case-page main .yap-board-pair { grid-template-columns: minmax(0, 1fr); } }
 
@@ -355,11 +357,13 @@ body.case-page main .yap-board--inset img { border-radius: 10px; box-shadow: 0 0
 body.case-page main .yap-join .strip .mini.phone { width: 13.6cqw; }
 
 /* Testing: the virtual session beside the in-person video, at equal height */
-body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, 1.3229fr) minmax(0, .5625fr); gap: var(--gap-media, 12px); align-items: start; }
+body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, 12px); align-items: start; }
 body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg, 20px); }
 body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: 16px 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-todo--tall { aspect-ratio: 1080 / 1920; padding: 16px; }
-@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell:last-child { width: min(100%, 320px); } }
+body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
+body.case-page main .yap-test-pair__video > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell--video { width: min(100%, 320px); } }
 
 /* Reflection: the room and the projected screen, side by side at equal height */
 body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, 12px); }
@@ -401,3 +405,10 @@ body.case-page main .yap-rail__btn--prev { left: -1.5rem; }
 body.case-page main .yap-rail__btn--next { right: -1.5rem; }
 body.case-page main .yap-rail__btn:disabled { opacity: 0; pointer-events: none; }
 @media (max-width: 759px) { body.case-page main .yap-rail__btn--prev { left: -.75rem; } body.case-page main .yap-rail__btn--next { right: -.75rem; } }
+/* Shipped tab: larger phones, still inside the 16:9 frame with their labels */
+body.case-page main .yap-it__shipped .strip .mini.phone { width: 20.5cqw; }
+
+/* Feedback tweet in a dotted figure frame, like the forage/acuity Instagram embeds */
+body.case-page main .yap-tweet { display: block; padding: 24px 16px; border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .yap-tweet .twitter-tweet, body.case-page main .yap-tweet .twitter-tweet-rendered { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
+body.case-page main .yap-tweet blockquote.twitter-tweet { padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }

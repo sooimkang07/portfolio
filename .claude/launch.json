@@ -44,6 +44,15 @@
         "/Users/sooimkang/Developer/yap"
       ],
       "port": 8792
+    },
+    {
+      "name": "portfolio-forage",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "_preview_server.py",
+        "8133"
+      ],
+      "port": 8133
     }
   ]
 }

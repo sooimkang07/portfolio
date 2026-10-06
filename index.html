@@ -17,8 +17,8 @@
 	<link rel="icon" type="image/png" sizes="64x64" href="64.png?v=2">
 	<link rel="apple-touch-icon" href="touch.png?v=2">
 	<link rel="stylesheet" href="css/text-sooim.css?v=6" />
-	<link rel="stylesheet" href="css/intro.css?v=17-ds2">
-	<script src="js/intro.js?v=17-ds2" defer></script>
+	<link rel="stylesheet" href="css/intro.css?v=18-reel">
+	<script src="js/intro.js?v=18-reel" defer></script>
 	<script>/* Cover the page until the deferred intro mounts, so home never flashes first. */if(!location.hash&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-intro-pending");setTimeout(function(){document.documentElement.classList.remove("is-intro-pending")},3000)}</script>
 	<script src="js/page-fade.js?v=1"></script>
 </head>
@@ -78,18 +78,21 @@
 
 	<main>
 
+		<!-- The greeting strip, off for now: the loader hands straight to the full-window showreel (js/intro.js).
 		<section class="home-greeting" aria-label="Introduction">
             <h1 class="home-greeting__strip"><span data-line="1">Product designer</span><span data-line="0">Hi, I’m <button class="ab-name glass" type="button" data-say aria-label="Sooim, play how to say my name" aria-pressed="false"><span class="ab-name__t">Sooim</span><span class="ab-name__spk" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L11.5 6v12l-4.3-3.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path class="ab-say__w1" d="M15 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ab-say__w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button><audio data-say-audio src="about-me-assets/Sooim.m4a" preload="none"></audio></span><span data-line="2">Based in New York</span></h1>
         </section>
+		-->
         <section class="home-hero" aria-label="Showreel">
+			<h1 class="visually-hidden">Hi, I’m Sooim, a product designer based in New York</h1>
 			<div class="home-hero__pin-spacer pin-spacer pin-spacer-showreel-scroll">
 				<div class="home-hero__pin">
 					<div class="home-hero__media" data-ref-showreel-video>
+						<!-- No autoplay: js/intro.js starts the reel the moment the loader lands on its first frame. -->
 						<video
 							class="home-hero__video"
-							src="covers/reel/showreel.mp4"
-							poster="covers/reel/showreel.jpg"
-							autoplay
+							src="covers/reel/showreel-loop.mp4"
+							poster="covers/reel/showreel-loop.jpg"
 							loop
 							muted
 							playsinline
@@ -163,7 +166,7 @@
 			<div class="home-work__stage">
 				<article class="home-work__card is-active" id="work-yap" data-work-index="0" data-href="yap" data-project-morph="yap" data-name="yap" data-line="Organizing voice chats around topics, not timelines.">
 					<a href="yap" class="home-work__media" data-ref-featured-project-media-landscape="yap" aria-label="yap">
-						<video src="covers/reel/yap.mp4" poster="covers/reel/yap.jpg" loop muted playsinline preload="metadata"></video>
+						<video src="covers/yap-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
 					<a href="yap" class="home-work__card-title">Organizing voice chats around topics, not timelines</a>
 					<a href="yap" class="home-work__card-footer">
@@ -182,7 +185,7 @@
 
 				<article class="home-work__card" id="work-notate" data-work-index="1" data-href="notate" data-project-morph="notate" data-name="Notate" data-line="Annotating the web without losing context.">
 					<a href="notate" class="home-work__media" data-ref-featured-project-media-landscape="notate" aria-label="Notate">
-						<video src="notate-assets/n-notate-logo.mp4" poster="covers/notate-cover.png" loop muted playsinline preload="metadata" aria-label="Notate project cover"></video>
+						<video src="covers/notate-cover.mp4" loop muted playsinline preload="metadata" aria-label="Notate project cover"></video>
 					</a>
 					<a href="notate" class="home-work__card-title">Annotating the web without losing context</a>
 					<a href="notate" class="home-work__card-footer">
@@ -201,7 +204,7 @@
 
 				<article class="home-work__card" id="work-instagram" data-work-index="2" data-href="instagram-lists" data-project-morph="instagram" data-name="Instagram Lists" data-line="Controlling what you see in the feed.">
 					<a href="instagram-lists" class="home-work__media" data-ref-featured-project-media-landscape="instagram" aria-label="Instagram Lists">
-						<video src="covers/reel/instagram.mp4" poster="covers/reel/instagram.jpg" loop muted playsinline preload="metadata"></video>
+						<video src="covers/instagram-cover.mp4" loop muted playsinline preload="metadata"></video>
 					</a>
 					<a href="instagram-lists" class="home-work__card-title">Controlling what you see in the feed</a>
 					<a href="instagram-lists" class="home-work__card-footer">
@@ -309,7 +312,7 @@
 
 	<div class="home-showreel" hidden>
 		<div class="home-showreel__frame">
-			<video class="home-showreel__video" src="covers/reel/showreel.mp4" loop playsinline></video>
+			<video class="home-showreel__video" src="covers/reel/showreel-loop.mp4" loop playsinline></video>
 		</div>
 	</div>
 
@@ -324,7 +327,7 @@
 		<span class="home-cursor__work"><span aria-hidden="true">↗</span> View case study</span>
 	</div>
 
-	<script src="js/site.js?v=orphan-2-ds2"></script>
+	<script src="js/site.js?v=orphan-3-reel"></script>
 	<script src="js/morph.js?v=3"></script>
 	<script src="js/text-sooim.js?v=8" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>

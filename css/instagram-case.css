@@ -36,44 +36,26 @@ body.case-page main .dx-media.ig-problem > video { position: absolute; top: auto
 body.case-page main .ig-problems__cell:nth-child(1) .dx-media.ig-problem > video { clip-path: polygon(0% 100%, 0.144% 17.003%, 0.144% 16.331%, 0.144% 15.659%, 0.144% 14.987%, 0.144% 14.315%, 0.144% 13.642%, 0.144% 12.970%, 0.240% 12.298%, 0.337% 11.626%, 0.337% 10.954%, 0.529% 10.282%, 0.625% 9.610%, 0.817% 8.938%, 1.106% 8.266%, 1.394% 7.594%, 1.779% 6.922%, 2.260% 6.250%, 2.933% 5.578%, 3.510% 4.906%, 4.375% 4.234%, 5.240% 3.562%, 6.298% 2.890%, 6.779% 2.621%, 7.356% 2.352%, 7.933% 2.083%, 8.510% 1.815%, 9.183% 1.546%, 9.952% 1.277%, 10.913% 1.008%, 12.163% 0.739%, 14.087% 0.470%, 18.317% 0.202%, 18.462% 0.101%, 81.346% 0.101%, 81.490% 0.202%, 85.817% 0.470%, 87.740% 0.739%, 88.894% 1.008%, 89.856% 1.277%, 90.625% 1.546%, 91.298% 1.815%, 91.971% 2.083%, 92.452% 2.352%, 93.029% 2.621%, 93.510% 2.890%, 94.567% 3.562%, 95.433% 4.234%, 96.298% 4.906%, 96.971% 5.578%, 97.548% 6.250%, 98.029% 6.922%, 98.413% 7.594%, 98.798% 8.266%, 98.990% 8.938%, 99.183% 9.610%, 99.279% 10.282%, 99.471% 10.954%, 99.567% 11.626%, 99.567% 12.298%, 99.663% 12.970%, 99.663% 13.642%, 99.663% 14.315%, 99.663% 14.987%, 99.760% 15.659%, 99.760% 16.331%, 99.760% 17.003%, 100% 100%); }
 body.case-page main .ig-problems__cell:nth-child(2) .dx-media.ig-problem > video { clip-path: polygon(0% 100%, 0.625% 17.003%, 0.625% 16.331%, 0.625% 15.659%, 0.625% 14.987%, 0.625% 14.315%, 0.625% 13.642%, 0.625% 12.970%, 0.721% 12.298%, 0.721% 11.626%, 0.817% 10.954%, 0.913% 10.282%, 1.106% 9.610%, 1.202% 8.938%, 1.490% 8.266%, 1.779% 7.594%, 2.163% 6.922%, 2.644% 6.250%, 3.221% 5.578%, 3.798% 4.906%, 4.567% 4.234%, 5.529% 3.562%, 6.490% 2.890%, 6.971% 2.621%, 7.452% 2.352%, 8.029% 2.083%, 8.606% 1.815%, 9.183% 1.546%, 9.952% 1.277%, 10.817% 1.008%, 11.875% 0.739%, 13.317% 0.470%, 15.817% 0.202%, 15.962% 0.101%, 84.135% 0.101%, 84.279% 0.202%, 86.779% 0.470%, 88.221% 0.739%, 89.279% 1.008%, 90.144% 1.277%, 90.817% 1.546%, 91.490% 1.815%, 92.067% 2.083%, 92.644% 2.352%, 93.125% 2.621%, 93.606% 2.890%, 94.567% 3.562%, 95.433% 4.234%, 96.298% 4.906%, 96.875% 5.578%, 97.452% 6.250%, 97.933% 6.922%, 98.317% 7.594%, 98.606% 8.266%, 98.798% 8.938%, 98.990% 9.610%, 99.183% 10.282%, 99.279% 10.954%, 99.375% 11.626%, 99.375% 12.298%, 99.375% 12.970%, 99.471% 13.642%, 99.471% 14.315%, 99.471% 14.987%, 99.471% 15.659%, 99.471% 16.331%, 99.471% 17.003%, 100% 100%); }
 
+/* problem 2's recording ends in a dark pixel row: drop it just below the box's clipped edge */
+body.case-page main .ig-problems__cell:nth-child(2) .dx-media.ig-problem > video { bottom: -3px; }
+
 /* ── Annotated phone (Context + Ranking) ───────────────────────── */
 .fig.ig-anno .ig-anno__phone { position: absolute; left: 32.05%; top: 8%; width: 35.9%; height: auto; border-radius: 0 !important; filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 29, 28, .18)); }
 .fig.ig-anno .conn { z-index: 1; }
 .fig.ig-anno .abs { z-index: 2; }
-
-/* ── System mapping collage ────────────────────────────────────── */
-.fig.ig-collage { aspect-ratio: 16 / 10; }
-.fig.ig-collage .ig-sheet { position: absolute; height: auto; background: #fff; border-radius: 1.2cqw !important; box-shadow: 0 0 0 1px rgba(28, 29, 28, .05), 0 1.6cqw 3.2cqw -1.2cqw rgba(28, 29, 28, .28); }
-.fig.ig-collage .ig-sheet--mscw { left: 4%; top: 7%; width: 50%; transform: rotate(-3deg); }
-.fig.ig-collage .ig-sheet--journey { right: 4%; top: 5%; width: 38%; transform: rotate(3deg); }
-.fig.ig-collage .ig-sheet--map { left: 10%; bottom: 6%; width: 64%; transform: rotate(-1deg); }
-
-/* ── System fit: existing → tested → final ─────────────────────── */
-.fig.ig-fit { display: flex; align-items: flex-start; justify-content: center; gap: 1.2cqw; padding: 3.5cqw 3cqw 3cqw; aspect-ratio: auto; }
-.fig.ig-fit .ig-fit__arrow { align-self: center; }
-.ig-fit__col { flex: 1 1 0; min-width: 0; }
-.ig-fit__lab { display: flex; gap: .8cqw; margin: 0 0 1.2cqw; font-size: 1.05cqw; letter-spacing: .08em; text-transform: uppercase; color: #111; }
-.ig-fit__lab span { color: #777; }
-.ig-fit__card { overflow: hidden; background: #fff; border: 1px solid #DFE1E4; border-radius: 1.2cqw; box-shadow: 0 .3cqw 1.2cqw rgba(0, 0, 0, .05); }
-.ig-fit__card img { display: block; width: 100%; height: auto; border-radius: 0 !important; }
-.ig-fit__sub { margin: 1cqw 0 0; font-size: 1.25cqw; line-height: 1.35; color: #6A6E74; }
-.ig-fit__arrow { flex: none; width: 2.6cqw; height: 2.6cqw; color: #888C91; }
-body.case-page main .ig-fit p { margin-bottom: 0; }
-
-/* ── Before Lists: grayscale screen on the figure background ───── */
-body.case-page main .ig-beforeafter .dx-media { aspect-ratio: 4 / 5; }
-body.case-page main .dx-media.ig-before { background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
-body.case-page main .dx-media.ig-before > video { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: auto; height: 84%; aspect-ratio: 808 / 1748; object-fit: cover; filter: grayscale(1); border-radius: 15.2% / 7.04% !important; outline: 3px solid #B9BCC0 !important; outline-offset: -2px; background: transparent; }
 
 /* ── Captions (case.css hides every figcaption on project pages) ── */
 body.case-page main .dx-cell p.nt-step-label.ig-cap--center { margin: 14px 0 0; text-align: center; }
 body.case-page main .dx-cell p.ig-cap { margin: 0.6rem 0 0; font-size: 0.8rem; line-height: 1.4; color: #1c1d1c; }
 body.case-page main .dx-cell .ig-cap span { display: block; color: #8a939e; }
 
-/* ── Impact: cards led by a list-colored rounded square ──────────── */
-body.case-page main .ig-impact-list { margin-top: 32px; }
+/* ── Impact: video, then three plain columns ── */
+body.case-page main .ig-impact-video { margin-top: 32px; }
+body.case-page main .ig-impact-video .dx-media { border-radius: var(--r-lg, 20px); }
+body.case-page main .ig-impact-video video { display: block; width: 100%; height: auto; }
+body.case-page main .ig-next.ig-impact-list { margin-top: 32px; gap: 32px clamp(24px, 3vw, 40px); }
+body.case-page main .ig-next.ig-impact-list li { padding: 0; border-radius: 0; background: none; }
 body.case-page main .ig-impact-list + .nt-step { margin-top: 72px; }
-body.case-page main .ig-swatch { display: block; width: 22px; height: 22px; margin: 0 0 16px; border-radius: 6px; background: var(--sw); }
 
 /* ── Next steps: three numbered cards ──────────────────────────── */
 body.case-page main .ig-next { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, 12px); }
@@ -88,11 +70,6 @@ body.case-page main .ig-next .ig-next__body { margin: 0; font-size: 14px; line-h
 
 @media (max-width: 760px) {
 	body.case-page main .ig-next { grid-template-columns: 1fr; }
-	.fig.ig-fit { flex-direction: column; aspect-ratio: auto; padding: 8cqw 14cqw; gap: 4cqw; }
-	.fig.ig-fit .ig-fit__col { width: 100%; }
-	.fig.ig-fit .ig-fit__arrow { transform: rotate(90deg); width: 7cqw; height: 7cqw; }
-	.fig.ig-fit .ig-fit__lab { font-size: 3.2cqw; margin-bottom: 2.4cqw; }
-	.fig.ig-fit .ig-fit__sub { font-size: 3.4cqw; margin-top: 2.4cqw; }
 }
 @media (min-width: 760px) { body.case-page main .ig-next--grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
@@ -121,94 +98,47 @@ body.case-page main .ig-rail__btn--next { right: -1.5rem; }
 body.case-page main .ig-rail__btn:disabled { opacity: 0; pointer-events: none; }
 @media (max-width: 759px) { body.case-page main .ig-rail__btn--prev { left: -.75rem; } body.case-page main .ig-rail__btn--next { right: -.75rem; } }
 
-/* ── Boards: research + system mapping, one system (dotted panel, 12-col grid, white labeled tiles) ── */
-.fig.ig-board { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.2cqw; padding: 2.6cqw; aspect-ratio: 16 / 9; }
-.ig-tile { display: flex; flex-direction: column; min-width: 0; min-height: 0; margin: 0; padding: 1.2cqw; background: #fff; border: 1px solid #DFE1E4; border-radius: 1cqw; box-shadow: 0 .3cqw 1.2cqw rgba(0, 0, 0, .04); }
-body.case-page main .ig-tile .ig-tile__lab { flex: none; margin: 0 0 .9cqw; font-size: .95cqw; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: #777; }
-.ig-tile__img { position: relative; flex: 1 1 auto; min-height: 0; }
-.ig-tile__img > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; border-radius: 0 !important; }
+/* ── Single image figure (Takeaway 02) ─────────────────────────── */
+body.case-page main .ig-figimg img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); }
 
-/* Platform audits: Instagram wide on top, the others below; comparison + positioning on the right */
-.ig-board--audit { grid-template-rows: 1.05fr 1fr; }
-.ig-g-ig { grid-column: 1 / 8; grid-row: 1; }
-.ig-g-fb { grid-column: 1 / 4; grid-row: 2; }
-.ig-g-snap { grid-column: 4 / 6; grid-row: 2; }
-.ig-g-tok { grid-column: 6 / 8; grid-row: 2; }
-.ig-g-table { grid-column: 8 / 13; grid-row: 1; }
-.ig-g-map { grid-column: 8 / 13; grid-row: 2; }
+/* ── Card boards: research, system mapping, system fit ─────────────
+   Same panels as yap's component library: gray title bar and white body, on the dotted figure.
+   Each row's column widths follow its images' aspect ratios, so cards in a row share one height. */
+.fig.ig-cards { aspect-ratio: auto; display: flex; flex-direction: column; gap: 1cqw; padding: 1.4cqw; }
+.ig-cards__row { display: grid; grid-template-columns: var(--cols, minmax(0, 1fr)); gap: 1cqw; align-items: stretch; }
+.ig-card { display: flex; flex-direction: column; min-width: 0; background: #fff; border-radius: 1cqw; overflow: hidden; }
+body.case-page main .ig-cards .ig-card { border: 1px solid #e6e8eb; border-width: 1px !important; }
+body.case-page main .ig-card .ig-card__title { flex: none; max-width: none; margin: 0; padding: .9cqw 1.2cqw .8cqw; background: #f7f8fa; border-bottom: 1px solid #edeef1; border-width: 0 0 1px !important; font-size: max(10px, 1.12cqw); font-weight: 600; line-height: 1.2; letter-spacing: 0; color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ig-card__body { flex: 1 1 auto; display: flex; min-height: 0; padding: 1cqw; }
+body.case-page main .ig-card__frame { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; min-width: 0; padding: .8cqw; }
+.ig-card__frame > img { display: block; width: 100%; height: auto; border-radius: 0 !important; }
 
-.ig-ftable { width: 100%; flex: 1; border-collapse: collapse; font-size: 1.05cqw; line-height: 1.25; color: #111; }
-.ig-ftable th, .ig-ftable td { padding: .55cqw .4cqw; border-top: 1px solid #ECEEF0; text-align: center; vertical-align: middle; font-weight: 400; }
-.ig-ftable thead th { border-top: 0; padding-top: 0; }
-.ig-ftable thead th:first-child, .ig-ftable tbody th { text-align: left; padding-left: 0; }
-.ig-ftable thead th:first-child { font-size: .95cqw; letter-spacing: .08em; text-transform: uppercase; color: #777; }
-.ig-ftable thead img { display: block; width: 1.9cqw; height: 1.9cqw; margin: 0 auto; object-fit: contain; border-radius: 0 !important; }
-.ig-ftable .is-ig { background: #F7F0FA; }
-.ig-ftable thead th.is-ig { border-radius: .6cqw .6cqw 0 0; padding-top: .45cqw; }
-.ig-ck { display: inline-block; width: 1.5cqw; height: 1.5cqw; border-radius: 50%; background: #111 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat; vertical-align: middle; }
-.ig-na { color: #B9BCC0; }
-.ig-lim { font-size: .9cqw; color: #626b76; }
+/* MoSCoW gets its own full-width row, so its text can stay readable */
+.ig-sys-msc .ig-card__frame { align-items: stretch; padding: 1.2cqw; }
 
-.ig-pmap { position: relative; flex: 1; min-height: 0; }
-.ig-pmap__ax { position: absolute; background: #B9BCC0; }
-.ig-pmap__ax--v { left: 50%; top: 8%; bottom: 8%; width: 1px; }
-.ig-pmap__ax--h { top: 50%; left: 0; right: 0; height: 1px; }
-.ig-pmap__lab { position: absolute; z-index: 1; padding: .3cqw .7cqw; border-radius: .4cqw; background: #6A6E74; color: #fff; font-size: .78cqw; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-.ig-pmap__lab--t { top: 0; left: 50%; transform: translateX(-50%); }
-.ig-pmap__lab--b { bottom: 0; left: 50%; transform: translateX(-50%); }
-.ig-pmap__lab--l { top: 50%; left: 0; transform: translateY(-50%); }
-.ig-pmap__lab--r { top: 50%; right: 0; transform: translateY(-50%); }
-.ig-pmap__pt { position: absolute; transform: translate(-50%, -50%); }
-.ig-pmap__pt img { display: block; width: 2.6cqw; height: 2.6cqw; object-fit: contain; border-radius: 0 !important; }
-.ig-pmap__pt--q { padding: .5cqw; border: 1.5px dashed #D62976; border-radius: 1cqw; }
-.ig-pmap__pt--q b { position: absolute; right: -.7cqw; top: -.7cqw; display: grid; place-items: center; width: 1.5cqw; height: 1.5cqw; border-radius: 50%; background: #D62976; color: #fff; font-size: 1cqw; font-weight: 600; }
-
-/* Interviews: four quotes on top; affinity map, sessions, and research plan below */
-.ig-board--interviews { grid-template-rows: .98fr 1fr 1fr; }
-.ig-quotes4 { grid-column: 1 / 13; grid-row: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2cqw; min-height: 0; }
-.ig-q { justify-content: space-between; gap: .8cqw; }
-.ig-q__av { width: 2.6cqw; height: 2.6cqw; border-radius: 50% !important; object-fit: cover; }
-body.case-page main .ig-q .ig-q__txt { flex: 1; margin: 0; font-size: 1.06cqw; line-height: 1.35; color: #111; text-wrap: pretty; }
-.ig-q__by { font-size: .9cqw; color: #777; }
-.ig-g-aff { grid-column: 1 / 9; grid-row: 2 / 4; }
-.ig-g-calls { grid-column: 9 / 13; grid-row: 2; }
-.ig-g-docs { grid-column: 9 / 13; grid-row: 3; }
-.ig-pair, .ig-trio { flex: 1; min-height: 0; display: grid; gap: .8cqw; }
-.ig-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.ig-trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.ig-pair img, .ig-trio img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: top; border-radius: .5cqw !important; border: 1px solid #ECEEF0; }
-
-/* System mapping: system map + MoSCoW on the left, journeys on the right */
-.ig-board--system { grid-template-rows: .68fr 1.32fr; }
-.ig-g-sysmap { grid-column: 1 / 8; grid-row: 1; }
-.ig-g-msc { grid-column: 1 / 8; grid-row: 2; }
-.ig-g-jrny { grid-column: 8 / 13; grid-row: 1 / 3; }
-.ig-msc { flex: 1; min-height: 0; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: .8cqw; }
+.ig-msc { flex: 1; min-width: 0; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1.2cqw; align-content: start; }
 .ig-msc__col { min-width: 0; }
-body.case-page main .ig-msc .ig-msc__h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 .6cqw; padding: .35cqw .7cqw; border-radius: .4cqw; background: #6A6E74; color: #fff; font-size: .82cqw; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+body.case-page main .ig-msc .ig-msc__h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 .7cqw; padding: .45cqw .9cqw; border-radius: .5cqw; background: #6A6E74; color: #fff; font-size: max(10px, 1.1cqw); font-weight: 500; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; }
 .ig-msc__h span { opacity: .7; }
-.ig-msc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4cqw; }
+.ig-msc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5cqw; }
 .ig-msc__col--must ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.ig-msc li { padding: .35cqw .55cqw; border-radius: .35cqw; font-size: .8cqw; line-height: 1.25; color: #111; background: var(--msc); }
+body.case-page main .ig-msc li { margin: 0; padding: .55cqw .8cqw; border-radius: .45cqw; font-size: max(11px, 1.3cqw); line-height: 1.3; color: #111; background: var(--msc); text-wrap: pretty; overflow-wrap: normal; hyphens: none; }
 .ig-msc__col--must { --msc: #FBDDEB; }
 .ig-msc__col--should { --msc: #FBEDC6; }
 .ig-msc__col--could { --msc: #D6EAFB; }
 .ig-msc__col--would { --msc: #D7F3D6; }
 
+/* Phones: one card per row, chrome scaled up so titles and MoSCoW stay readable */
 @media (max-width: 760px) {
-	.fig.ig-board { aspect-ratio: auto; display: flex; flex-direction: column; gap: 3cqw; padding: 4cqw; }
-	.ig-tile { padding: 3cqw; border-radius: 2.4cqw; }
-	body.case-page main .ig-tile .ig-tile__lab { font-size: 2.8cqw; margin-bottom: 2cqw; }
-	.ig-tile__img { aspect-ratio: var(--ar, 16 / 10); flex: none; }
-	.ig-ftable { font-size: 3cqw; } .ig-ftable thead th:first-child { font-size: 2.6cqw; } .ig-ftable thead img { width: 5cqw; height: 5cqw; } .ig-ck { width: 4cqw; height: 4cqw; } .ig-lim { font-size: 2.6cqw; }
-	.ig-pmap { aspect-ratio: 4 / 3; flex: none; } .ig-pmap__lab { font-size: 2.2cqw; padding: 1cqw 1.6cqw; } .ig-pmap__pt img { width: 7cqw; height: 7cqw; } .ig-pmap__pt--q b { width: 4cqw; height: 4cqw; font-size: 2.6cqw; right: -2cqw; top: -2cqw; }
-	.ig-quotes4 { grid-template-columns: 1fr 1fr; gap: 3cqw; } .ig-q__av { width: 7cqw; height: 7cqw; } body.case-page main .ig-q .ig-q__txt { font-size: 3.2cqw; } .ig-q__by { font-size: 2.6cqw; }
-	.ig-pair, .ig-trio { flex: none; } .ig-msc { grid-template-columns: 1fr 1fr; gap: 2cqw; } .ig-msc__col--must { grid-column: 1 / -1; } body.case-page main .ig-msc .ig-msc__h { font-size: 2.6cqw; padding: 1cqw 2cqw; margin-bottom: 1.6cqw; } .ig-msc li { font-size: 2.6cqw; padding: 1cqw 1.6cqw; border-radius: 1cqw; } .ig-msc ul { gap: 1.2cqw; }
+	.fig.ig-cards { gap: 3cqw; padding: 3cqw; }
+	.ig-cards__row { grid-template-columns: minmax(0, 1fr); gap: 3cqw; }
+	.ig-card { border-radius: 3cqw; }
+	body.case-page main .ig-card .ig-card__title { padding: 2.4cqw 3.2cqw 2.2cqw; font-size: max(12px, 3.4cqw); }
+	.ig-card__body { padding: 2.4cqw; }
+	body.case-page main .ig-card__frame { padding: 2cqw; }
+	.ig-msc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4cqw; }
+	.ig-msc__col--must { grid-column: 1 / -1; }
+	body.case-page main .ig-msc .ig-msc__h { font-size: max(10px, 2.8cqw); padding: 1cqw 2cqw; margin-bottom: 1.6cqw; border-radius: 1cqw; }
+	.ig-msc ul { gap: 1.2cqw; }
+	body.case-page main .ig-msc li { font-size: max(11px, 3cqw); padding: 1.2cqw 1.8cqw; border-radius: 1cqw; }
 }
-
-/* System fit: same tile system as the boards (label inside the white card) */
-.fig.ig-fit .ig-fit__col { padding: 1.2cqw; background: #fff; border: 1px solid #DFE1E4; border-radius: 1cqw; box-shadow: 0 .3cqw 1.2cqw rgba(0, 0, 0, .04); }
-body.case-page main .fig.ig-fit .ig-fit__lab { margin: 0 0 .9cqw; font-size: .95cqw; letter-spacing: .08em; color: #777; }
-.fig.ig-fit .ig-fit__lab span { color: #B0B4B9; }
-.fig.ig-fit .ig-fit__card { border: 0; border-radius: .6cqw; box-shadow: none; background: #F7F8F9; }
-body.case-page main .fig.ig-fit .ig-fit__sub { margin-top: .9cqw; font-size: 1.05cqw; color: #626b76; }

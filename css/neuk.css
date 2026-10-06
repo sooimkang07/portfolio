@@ -1,54 +1,137 @@
-/* neuk case study: research photos in the gap figure, insight lists, the concept testing
-   embed, the three visual directions, the sideways wireframe strip, and the room cards. */
+/* neuk case study, built on the yap case-study classes (css/yap-case.css):
+   problem cards, room sizes, phone strips, the 1920×1080 figure boards, and the reflection pair. */
 
-/* The gap: real photos in the header cells, and a balanced HMW line */
-body.case-page main .nk-gap .mxq { max-width: 72cqw; text-wrap: balance; }
-body.case-page main .nk-gap .img { overflow: hidden; }
-body.case-page main .nk-gap .img img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
+/* Every neuk phone is the framed iPhone 16 Pro export (903×1867) */
+body.case-page main .fig .phone.shot { aspect-ratio: 903 / 1867; }
+body.case-page main .nk-strip .strip .mini.phone { width: 13.6cqw; }
 
-/* Insight lists: a plain sentence under each headline */
-body.notate-page .nt-section .nk-insights li > p:not(.ntf-tag) { margin: 0; font-size: 15px; line-height: 1.5; color: var(--nt-muted); }
+/* ── Problem: three places to watch together, each giving something up ── */
+body.case-page main .nk-place > img { position: absolute; inset: 17% 11%; width: 78%; height: 66%; object-fit: cover; border-radius: 14px !important; box-shadow: 0 18px 32px -18px rgba(28, 29, 28, .45); }
+body.case-page main .nk-place--chat > img { inset: 9% 11% 41%; height: 50%; }
+body.case-page main .nk-chat { position: absolute; left: 11%; right: 11%; bottom: 8%; display: flex; flex-direction: column; gap: 6px; }
+body.case-page main .nk-chat span { max-width: 84%; padding: 7px 12px; border-radius: 16px; font-size: clamp(11px, 1.05vw, 14px); line-height: 1.3; text-wrap: pretty; box-shadow: 0 6px 16px -8px rgba(28, 29, 28, .35); opacity: 0; transform: translateY(8px) scale(.96); animation: nk-chat 9s cubic-bezier(.34, 1.4, .64, 1) infinite; }
+body.case-page main .nk-chat .is-in { align-self: flex-start; background: #e9e9eb; color: #1c1d1c; }
+body.case-page main .nk-chat .is-out { align-self: flex-end; background: #1b8cfb; color: #fff; }
+body.case-page main .nk-chat span:nth-child(2) { animation-delay: .9s; }
+body.case-page main .nk-chat span:nth-child(3) { animation-delay: 1.8s; }
+@keyframes nk-chat { 0%, 4% { opacity: 0; transform: translateY(8px) scale(.96); } 10%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+@media (prefers-reduced-motion: reduce) { body.case-page main .nk-chat span { animation: none; opacity: 1; transform: none; } }
 
-/* User interview insights, laid out like the deck slide: checked insights beside the stacked quotes */
-body.case-page main .nk-board { container-type: inline-size; margin-top: var(--sp-media, 28px); padding: clamp(20px, 4vw, 48px); border-radius: var(--r-lg, 20px); background: #161616 radial-gradient(#2A2A2A .6px, transparent .9px) 0 0 / 10px 10px; color: #F2F2F2; }
-body.case-page main .nk-board__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
-body.case-page main .nk-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(18px, 2.4vw, 30px); }
-body.case-page main .nk-checks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 14px; align-items: start; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.4; }
-body.case-page main .nk-checks li::before { content: ""; width: 26px; height: 26px; border-radius: 50%; background: #26313B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F2F2F2' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 12.5 10 17 19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .16); }
-body.case-page main .nk-notes { container-type: inline-size; position: relative; width: 100%; max-width: 380px; aspect-ratio: 1 / 1; justify-self: center; }
-body.case-page main .nk-note { position: absolute; width: 62%; aspect-ratio: 1 / 1; margin: 0; padding: 4.4cqw; overflow: hidden; font-size: clamp(12px, 4.4cqw, 16px); line-height: 1.4; color: #1A1A1A; box-shadow: 0 10px 30px rgb(0 0 0 / .28); }
-body.case-page main .nk-note--pink { left: 0; top: 0; background: #FFA8DC; }
-body.case-page main .nk-note--yellow { left: 19%; top: 17%; background: #FFE19B; }
-body.case-page main .nk-note--blue { left: 38%; top: 34%; background: #6BB6EC; }
-@container (min-width: 620px) {
-	body.case-page main .nk-board__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4cqw, 48px); }
-	body.case-page main .nk-notes { max-width: none; }
+/* ── Solution: three room sizes, each card on the figure background ── */
+body.case-page main .nk-room { display: grid; place-items: center; }
+body.case-page main .nk-room > img { width: auto; height: 82%; max-width: 86%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 26px rgba(28, 29, 28, .28)); }
+body.case-page main .nt-section > h3.yap-subhead--section + .yap-problem { margin-top: 20px; }
+
+/* Stats from the screener, set like a row of findings */
+body.case-page main .nk-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
+body.case-page main .nk-stats div { display: flex; flex-direction: column; gap: 8px; }
+body.case-page main .nk-stats strong { font-size: clamp(32px, 3.4vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--clr-text, #1c1d1c); }
+body.case-page main .nk-stats span { font-size: 15px; line-height: 1.45; color: var(--clr-muted, #626b76); text-wrap: pretty; }
+@media (max-width: 759px) { body.case-page main .nk-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; } }
+
+/* Iterations: each direction sits on the figure background at 16:9 */
+body.case-page main .nk-dir { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: clamp(14px, 3vw, 40px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .nk-dir img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 0 !important; }
+body.case-page main .yap-it__panel .yap-it__notes a, body.case-page main .nt-reading a.nk-link { color: var(--clr-text, #1c1d1c); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Low-fidelity strip: the yap screen rail, on the figure background */
+body.case-page main .nk-rail .yap-rail__track { background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .nk-rail .yap-rail__inner { padding: clamp(14px, 2.4vw, 28px); }
+
+/* ── Figure boards: laid out at 1920×1080 and scaled to the column by js/neuk.js ── */
+body.case-page main .nkb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+.nkb__stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; font-family: var(--ff, 'Instrument Sans', system-ui, sans-serif); color: #1c1d1c; line-height: 1.3; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+body.case-page main .nkb img { display: block; max-width: none; border-radius: 0 !important; }
+
+/* The card every board uses (yap component library panel): title bar over a body */
+.nkp { display: flex; flex-direction: column; background: #fff; border: 1px solid #e6e8eb; border-radius: 20px; overflow: hidden; }
+.nkp__title { flex: none; padding: 18px 24px 16px; background: #f7f8fa; border-bottom: 1px solid #edeef1; font-size: 22px; font-weight: 600; line-height: normal; }
+.nkp__body { flex: 1; min-height: 0; padding: 24px; display: flex; flex-direction: column; }
+.nkp__frame { flex: 1; min-height: 0; display: grid; place-items: center; border-radius: 14px; background: #1a1a1a; overflow: hidden; }
+/* case.css zeroes every border in main; the panels need theirs back */
+.nkb .nkp { border-width: 1px !important; }
+.nkb .nkp__title { border-width: 0 0 1px !important; }
+
+/* Competitive landscape: four columns, the same five checks in each */
+.nkl { position: absolute; inset: 96px 64px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.nkl .nkp__title { font-size: 26px; }
+.nkl__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 400px; }
+.nkb .nkl__photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px !important; }
+.nkb .nkl__photos img:only-child { grid-column: 1 / -1; }
+.nkl__rows { display: flex; flex-direction: column; margin-top: 24px; }
+.nkl__row { display: flex; align-items: center; gap: 18px; height: 66px; font-size: 26px; font-weight: 500; }
+.nkl__row + .nkl__row { border-top: 1px solid #edeef1; }
+.nkb .nkl__row + .nkl__row { border-width: 1px 0 0 !important; }
+.nkl__ic { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #e9ebee; color: #9aa0a8; }
+.nkl__ic svg { width: 19px; height: 19px; }
+.nkl__row.is-yes .nkl__ic { background: #6ab4ea; color: #fff; }
+.nkl__row:not(.is-yes) { color: #9aa0a8; }
+.nkl__col--neuk { background: #1a1a1a; border-color: #2c3a45 !important; color: #fffff2; box-shadow: 0 24px 48px -24px rgba(26, 26, 26, .55); }
+.nkl__col--neuk .nkp__title { background: #222b30; border-color: #2c3a45 !important; display: flex; align-items: center; }
+.nkl__col--neuk .nkp__title img { height: 26px; width: auto; }
+.nkl__col--neuk .nkl__row { color: #fffff2; }
+.nkl__col--neuk .nkl__row + .nkl__row { border-color: #2c3a45; }
+
+/* Interviews: the screener and script beside the affinity map */
+.nki { position: absolute; inset: 64px; display: grid; grid-template-columns: 400px minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 28px; }
+.nki__map { grid-column: 2; grid-row: 1 / span 2; }
+.nki .nkp__body { display: grid; place-items: center; background: #f4f5f7; }
+.nkb .nki__doc { height: 330px; width: auto; box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 16px 32px -18px rgba(28, 29, 28, .35); }
+.nkb .nki__map img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Personas: three people, who they came from, and what they need */
+.nkpe { position: absolute; inset: 0 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: center; gap: 28px; }
+.nkpe .nkp__body { padding: 48px; gap: 32px; }
+.nkpe__top { display: flex; align-items: center; gap: 28px; }
+.nkb .nkpe__top img { flex: none; width: 160px; height: 160px; border-radius: 32px !important; object-fit: cover; }
+.nkpe__name { font-size: 40px; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; }
+.nkpe__tags { display: flex; gap: 10px; margin-top: 18px; }
+.nkpe__tags span { padding: 8px 18px; border-radius: 999px; font-size: 22px; font-weight: 600; }
+.nkpe__tags span:nth-child(1) { background: #dfe8ff; }
+.nkpe__tags span:nth-child(2) { background: #f3f8c9; }
+.nkpe__label { margin-top: 8px; font-size: 18px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8a8f98; }
+.nkpe__needs { display: flex; flex-direction: column; gap: 14px; margin-top: -14px; }
+.nkpe__needs span { align-self: flex-start; padding: 14px 24px; border-radius: 16px; background: #f4f5f7; font-size: 28px; font-weight: 500; }
+
+/* Concept testing: three participants' sorted slides, vibe above food and drink */
+.nkc { position: absolute; inset: 0 112px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: center; gap: 28px; }
+.nkb .nkc img { width: 100%; height: auto; aspect-ratio: 572 / 321; object-fit: cover; border-radius: 14px !important; box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 18px 36px -20px rgba(28, 29, 28, .4); }
+
+/* Brand: the system on one sheet */
+.nkbr { position: absolute; inset: 64px; display: grid; grid-template-columns: 560px 300px 440px minmax(0, 1fr); grid-template-rows: 420px minmax(0, 1fr); gap: 28px; }
+.nkbr__wordmark { grid-column: 1 / span 2; }
+.nkbr__colors .nkp__body { justify-content: center; gap: 22px; padding: 32px; }
+.nkbr__swatch { display: flex; align-items: center; gap: 20px; font-size: 26px; font-weight: 500; color: #1c1d1c; }
+.nkbr__swatch i { flex: none; width: 64px; height: 64px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(28, 29, 28, .12); }
+.nkbr__sketches .nkp__body { flex-direction: row; gap: 16px; align-items: center; justify-content: center; background: #f4f5f7; }
+.nkb .nkbr__sketches img { height: 100%; width: auto; box-shadow: 0 14px 28px -18px rgba(28, 29, 28, .4); }
+.nkbr__ui { grid-column: 2 / span 2; }
+.nkbr__rooms .nkp__frame { display: flex; gap: 14px; padding: 24px; place-items: unset; align-items: center; justify-content: center; }
+.nkb .nkbr__rooms img { height: 250px; width: auto; }
+
+/* ── Reflection: before, a group chat that can't settle on a place; after, the couch ── */
+body.case-page main .nk-reflect { display: grid; grid-template-columns: minmax(0, .62fr) minmax(0, 1.333fr); gap: var(--gap-media, 12px); }
+body.case-page main .nk-reflect__before { position: relative; display: grid; place-items: center; border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .nk-reflect__before > img { width: auto; height: 86%; max-width: 80%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 26px rgba(28, 29, 28, .22)); }
+body.case-page main .nk-badge { position: absolute; right: 9%; top: 12%; width: 26%; aspect-ratio: 1; border-radius: 24%; background: linear-gradient(#5ff777, #0ec53a); display: grid; place-items: center; box-shadow: 0 14px 28px -12px rgba(28, 29, 28, .45); }
+body.case-page main .nk-badge svg { width: 62%; }
+body.case-page main .nk-badge b { position: absolute; right: -22%; top: -18%; padding: .2em .45em; border-radius: 999px; background: #ff3b30; color: #fff; font-size: clamp(12px, 1.4vw, 20px); font-weight: 600; line-height: 1.1; }
+body.case-page main .nk-reflect__after { position: relative; }
+body.case-page main .nk-reflect__after > img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-lg, 20px) !important; }
+body.case-page main .nk-dnd { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; padding: 12px 22px 12px 16px; border-radius: 999px; background: rgba(28, 26, 24, .72); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); color: #fff; white-space: nowrap; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .6); }
+body.case-page main .nk-dnd svg { width: 26px; height: 26px; flex: none; }
+body.case-page main .nk-dnd span { display: flex; flex-direction: column; font-size: clamp(12px, 1.2vw, 16px); font-weight: 600; line-height: 1.2; }
+body.case-page main .nk-dnd small { font-size: .8em; font-weight: 400; color: rgba(255, 255, 255, .7); }
+@media (max-width: 760px) {
+	body.case-page main .nk-reflect { grid-template-columns: minmax(0, 1fr); }
+	body.case-page main .nk-reflect__before { aspect-ratio: 4 / 5; }
 }
-
-/* Concept testing deck (Google Slides adds a 29px toolbar under the 16:9 slide) */
-body.case-page main .nk-embed__frame { aspect-ratio: 960 / 569; border-radius: var(--r-lg, 20px); overflow: hidden; background: var(--clr-panel, #EFF1F3); }
-body.case-page main .nk-embed__frame iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 0 !important; }
-
-/* Three visual directions on one figure panel */
-body.case-page main .nk-directions__panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media); padding: clamp(14px, 2.4vw, 28px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
-body.case-page main .nk-dir { margin: 0; min-width: 0; }
-body.case-page main .nk-dir img { display: block; width: 100%; height: auto; aspect-ratio: 37 / 20; object-fit: cover; }
-body.case-page main .nk-dir figcaption { display: block; margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--nt-muted); }
-body.case-page main .nk-dir figcaption .ntf-tag { display: block; margin-bottom: 2px; color: var(--nt-ink); }
-@media (max-width: 700px) { body.case-page main .nk-directions__panel { grid-template-columns: minmax(0, 1fr); } }
-
-/* Low-fidelity wireframes: one long strip, scrolled sideways (js/neuk.js adds mouse drag) */
-body.case-page main .nk-scroll__rail { display: flex; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; padding: clamp(14px, 2.4vw, 28px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; cursor: grab; scrollbar-width: thin; }
-body.case-page main .nk-scroll__rail.is-dragging { cursor: grabbing; user-select: none; }
-body.case-page main .nk-scroll__rail:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 3px; }
-body.case-page main .nk-scroll__rail img { flex: none; display: block; width: auto; height: clamp(260px, 34vw, 460px); max-width: none; border-radius: 0 !important; -webkit-user-drag: none; }
-
-/* Room cards swiping back and forth over the brand background; paused on hover */
-body.case-page main .nk-cards { background: #2F4657 url("../neuk-assets/neuk-bg.png") center / cover no-repeat; }
-body.case-page main .nk-cards__strip { position: absolute; top: 10%; left: 6cqw; height: 80%; width: auto; max-width: none; border-radius: 0 !important; animation: nk-swipe 17s cubic-bezier(.45, 0, .55, 1) infinite alternate; }
-body.case-page main .nk-cards:hover .nk-cards__strip { animation-play-state: paused; }
-@keyframes nk-swipe {
-	0%, 8% { transform: translateX(0); }
-	92%, 100% { transform: translateX(calc(100cqw - 100% - 12cqw)); }
+body.case-page main .nk-stats + .yap-calls { margin-top: 56px; }
+/* Next steps: one "How might we…" over the three open questions */
+body.case-page main .nt-section > .nk-hmw-label { margin: 48px 0 0; }
+body.case-page main .nk-hmw-label + .yap-calls { margin-top: 20px; }
+@media (max-width: 760px) {
+	body.case-page main .nk-place > img { inset: 10% 14%; width: 72%; height: 80%; }
+	body.case-page main .nk-place--chat > img { inset: 7% 14% 46%; height: 47%; }
+	body.case-page main .nk-chat { left: 14%; right: 14%; bottom: 7%; }
 }
-@media (prefers-reduced-motion: reduce) { body.case-page main .nk-cards__strip { animation: none; } }

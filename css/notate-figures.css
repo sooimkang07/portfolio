@@ -106,3 +106,9 @@ body.notate-page main .nt-section p.nt-step-label { font-size: var(--label-fs); 
 
 /* ── Research: each fix creates the next problem (1920×1080 illustration) ── */
 .ntl-fig .ntl-svg { display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1080; font-family: inherit; }
+
+/* ── Build: doc map (same diagram + on-page title as yap's "The spec the agents built from") ── */
+.yap-diagram svg { display: block; width: 100%; height: auto; }
+body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
+body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
+body.case-page main .yap-diagram + .nt-reading { margin-top: 56px; }

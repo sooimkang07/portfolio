@@ -1,0 +1,114 @@
+/* forage case study: challenge + problem splits, gestures, live prototype, PRD, submission. */
+
+/* ── Text beside a figure (same split as yap's bug rows) ──────── */
+body.case-page main .fg-split { display: grid; gap: 40px; }
+body.case-page main .fg-split > .nt-reading { max-width: none; }
+@media (min-width: 960px) {
+  body.case-page main .fg-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  body.case-page main .fg-split > .nt-media { margin-top: 0; }
+}
+
+/* Challenge */
+body.case-page main .fg-prompt { margin: 20px 0 0; padding: 0 0 0 18px; border-left: 2px solid #B99EEB; font-size: 17px; line-height: 1.5; color: var(--clr-text, #1c1d1c); }
+body.case-page main .fg-facts { display: grid; gap: 14px; margin: 28px 0 0; padding: 0; list-style: none; }
+body.case-page main .fg-facts li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-top: 14px; border-top: 1px solid var(--clr-border, #e6e8ea); font-size: 15px; line-height: 1.45; }
+body.case-page main .fg-facts b { font-weight: 500; color: var(--clr-text, #1c1d1c); }
+body.case-page main .fg-facts span { color: var(--clr-muted, #626b76); }
+body.case-page main .fg-insta { display: block; padding: 24px 16px; border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .fg-insta .instagram-media { width: 100% !important; max-width: 420px !important; min-width: 260px !important; margin: 0 auto !important; border-radius: 14px !important; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .08) !important; }
+body.case-page main .fg-insta blockquote.instagram-media { padding: 24px; font-size: 15px; }
+body.case-page main .fg-insta iframe { border-radius: 14px !important; }
+
+/* Problem: four senses, staggered, each under a 60% palette wash */
+body.case-page main .fg-senses { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1fr); gap: var(--gap-media, 12px); padding: clamp(20px, 3.5vw, 44px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+.fg-senses__col { display: grid; gap: var(--gap-media, 12px); align-content: start; container-type: inline-size; }
+.fg-sense { position: relative; overflow: hidden; border-radius: var(--r-lg, 20px); background: #ddd; }
+.fg-sense > img, .fg-sense > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
+.fg-sense::after { content: ""; position: absolute; inset: 0; background: var(--wash); opacity: .6; }
+.fg-sense span { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; color: #fff; font-size: 23cqi; font-weight: 400; letter-spacing: -0.02em; }
+.fg-senses__col + .fg-senses__col .fg-sense span { font-size: 17cqi; }
+.fg-sense--color { --wash: #EC3F90; aspect-ratio: 300 / 400; }
+.fg-sense--motion { --wash: #B99EEB; aspect-ratio: 300 / 445; }
+.fg-sense--image { --wash: #3777FF; aspect-ratio: 405 / 555; }
+.fg-sense--text { --wash: #F27927; aspect-ratio: 405 / 285; }
+
+/* Wearable */
+body.case-page main .fg-wear .dx-media { aspect-ratio: 883 / 589; }
+body.case-page main .fg-wear .dx-media video { background: #fff; object-fit: contain; }
+body.case-page main .fg-wear__line { background: #fff; }
+
+/* Gestures */
+body.case-page main .fg-gestures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap-media, 12px); }
+.fg-gesture { display: flex; flex-direction: column; padding: 20px 18px 18px; border-radius: var(--r-md, 14px); background: #F4F5F7; border-top: 4px solid var(--tone, #1c1d1c); }
+.fg-gesture--step { --tone: #1c1d1c; }
+.fg-gesture--image { --tone: #3777FF; }
+.fg-gesture--color { --tone: #EC3F90; }
+.fg-gesture--text { --tone: #F27927; }
+.fg-gesture--motion { --tone: #B99EEB; }
+body.case-page main .fg-gesture p { margin: 0; font-size: 14px; line-height: 1.45; }
+body.case-page main .fg-gesture .fg-gesture__n { margin-bottom: 10px; font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--clr-muted, #626b76); }
+body.case-page main .fg-gesture h4 { margin: 0 0 6px; font-size: 17px; font-weight: 600; line-height: 1.25; color: var(--clr-text, #1c1d1c); }
+body.case-page main .fg-gesture .fg-gesture__out { margin-top: auto; padding-top: 16px; font-size: 13px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
+@media (max-width: 960px) { body.case-page main .fg-gestures { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fg-gesture--step { grid-column: 1 / -1; } }
+
+/* Live prototype in a browser window */
+body.case-page main .fg-site { overflow: hidden; border-radius: var(--r-lg, 20px); background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 24px 48px -28px rgba(0, 0, 0, .35); }
+.fg-site__bar { display: flex; align-items: center; gap: 7px; height: 38px; padding: 0 14px; background: #F1F2F4; border-bottom: 1px solid rgba(0, 0, 0, .06); }
+.fg-site__bar i { width: 11px; height: 11px; border-radius: 50%; background: #d9dbde; }
+.fg-site__bar span { margin: 0 auto; padding: 4px 14px; border-radius: 8px; background: #fff; font-size: 12px; color: #626b76; transform: translateX(-24px); }
+.fg-site__screen { position: relative; aspect-ratio: 16 / 10; background: #fff; }
+.fg-site__poster, .fg-site__screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0 !important; }
+.fg-site__poster { object-fit: cover; object-position: top left; }
+.fg-site__screen iframe { width: 1440px; height: 900px; transform-origin: 0 0; }
+body.case-page main .fg-site__link { margin: 14px 0 0; font-size: 14px; }
+body.case-page main .fg-site__link a { color: var(--clr-text, #1c1d1c); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Use cases */
+body.case-page main .fg-uc { aspect-ratio: 4 / 3; }
+
+/* Figures exported from Figma */
+body.case-page main .fg-img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); }
+
+/* PRD */
+body.case-page main .fg-prd { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 28px); padding: clamp(20px, 4vw, 48px); border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+.fg-prd__page { display: block; transition: transform .3s cubic-bezier(.3, 1.4, .6, 1); }
+.fg-prd__page:hover { transform: translateY(-4px); }
+.fg-prd__page img { display: block; width: 100%; height: auto; border-radius: 6px !important; box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 16px 32px -20px rgba(0, 0, 0, .3); }
+@media (max-width: 560px) { body.case-page main .fg-prd { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fg-prd__page:last-child { display: none; } }
+
+/* Iterations */
+body.case-page main .fg-stack { margin-top: 24px; }
+body.case-page main .fg-render .dx-media { aspect-ratio: 4 / 3; background: #fff; }
+body.case-page main .fg-render .dx-media img { object-fit: cover; }
+body.case-page main .fg-render .dx-media:nth-child(2) img { object-fit: contain; }
+body.case-page main .fg-gesture-it .dx-media { aspect-ratio: 16 / 10; }
+body.case-page main .yap-it .fg-it__img { aspect-ratio: 3420 / 2214; object-fit: cover; object-position: top left; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .06); }
+@media (max-width: 760px) { body.case-page main .fg-render { grid-template-columns: minmax(0, 1fr); } body.case-page main .fg-gesture-it { grid-template-columns: minmax(0, 1fr); } }
+
+/* Submission */
+body.case-page main .fg-film .dx-media { aspect-ratio: 16 / 9; background: #000; }
+body.case-page main .fg-film video { object-fit: contain; }
+body.case-page main .fg-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, 12px); margin-top: var(--gap-media, 12px); }
+body.case-page main .fg-link { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; border-radius: var(--r-md, 14px); background: var(--glass-bg, #f4f5f7), #F4F5F7; color: var(--clr-text, #1c1d1c); text-decoration: none; }
+.fg-link span { font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--clr-muted, #626b76); }
+.fg-link b { font-size: 16px; font-weight: 500; }
+@media (max-width: 760px) { body.case-page main .fg-links { grid-template-columns: minmax(0, 1fr); } }
+
+/* Devpost reactions, redrawn */
+body.case-page main .fg-links + .fg-feedback { margin-top: 72px; }
+@media (min-width: 960px) { body.case-page main .fg-feedback { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; } body.case-page main .fg-feedback > .nt-media { margin-top: 0; } }
+body.case-page main .fg-post { display: grid; gap: 20px; padding: clamp(20px, 3vw, 32px); border-radius: var(--r-lg, 20px); background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+.fg-post__likes { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px solid #eceef0; }
+.fg-post__btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 8px; background: #4fa393; color: #fff; font-size: 15px; font-weight: 500; }
+.fg-post__btn svg { width: 16px; height: 16px; opacity: .85; }
+.fg-post__btn b { margin-left: 4px; padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .5); font-weight: 500; }
+.fg-post__faces { display: flex; align-items: center; }
+.fg-post__faces i { display: grid; place-items: center; width: 28px; height: 28px; margin-left: -6px; border: 2px solid #fff; border-radius: 50%; background: var(--c); color: #fff; font-size: 12px; font-style: normal; }
+.fg-post__faces i:first-child { margin-left: 0; }
+.fg-post__faces em { margin-left: 10px; font-size: 14px; font-style: normal; color: #3a6fc9; }
+.fg-post__comment { display: flex; gap: 14px; padding: 18px; border-radius: 12px; background: #F4F5F5; }
+.fg-post__avatar { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: #6a7d8f; color: #fff; font-size: 14px; }
+body.case-page main .fg-post__comment p { margin: 0; }
+body.case-page main .fg-post__meta { font-size: 13px; color: #8a939e; }
+body.case-page main .fg-post__meta b { font-weight: 500; color: #3a6fc9; }
+body.case-page main .fg-post__text { margin-top: 4px !important; font-size: 17px; color: var(--clr-text, #1c1d1c); }
