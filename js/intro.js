@@ -114,7 +114,7 @@
   timers.push(setTimeout(finish, 4500));
  }
  if (!location.hash && !reduced.matches) run();
- else playReel();
+ else if (!reduced.matches) playReel();   // reduced motion: the reel waits on its first frame (the greeting) until clicked
  document.documentElement.classList.remove('is-intro-pending');
  if (preview) {
   const replay = document.createElement('button');

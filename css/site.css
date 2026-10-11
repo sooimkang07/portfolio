@@ -161,7 +161,7 @@ body.home .nav__mark {
 	min-inline-size: 0;
 	margin: 0;
 	overflow: hidden;
-	font-size: 0.968rem;
+	font-size: var(--fs-base);
 	line-height: 1;
 	min-block-size: 1.75rem;
 	color: var(--clr-accent);
@@ -1534,7 +1534,7 @@ body.home .nav__strip {
  border: 1px solid rgba(255,255,255,.55);
  border-radius: var(--r-pill);
  color: #fff;
- font-size: .8rem;
+ font-size: var(--fs-base);
  font-weight: 500;
  line-height: 1.2;
  background: linear-gradient(135deg, rgba(255,255,255,.28), rgba(255,255,255,.1));
@@ -1968,9 +1968,9 @@ body.home .footer.portfolio-footer {
 .portfolio-footer__portrait img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 
 .portfolio-footer__bio strong { font-size: 18px; font-weight: 500; }
-.portfolio-footer__bio p { font-size: 14px; line-height: 1.7; margin: 10px 0 0; }
-.portfolio-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; font-size: 14px; }
-.portfolio-footer__bottom { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; border-top: 0; padding-top: 24px; font-size: 12px; }
+.portfolio-footer__bio p { font-size: var(--fs-base); line-height: 1.7; margin: 10px 0 0; }
+.portfolio-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; font-size: var(--fs-base); }
+.portfolio-footer__bottom { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; border-top: 0; padding-top: 24px; font-size: var(--fs-base); }
 .portfolio-footer__bottom p { margin: 0; }
 body.home .portfolio-footer__bottom .footer__time { order: unset; }
 @media (max-width: 640px) {
@@ -2011,7 +2011,7 @@ body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1.5fr) min
 	transition: padding 260ms var(--ease), background var(--dur-1) linear;
 }
 .portfolio-footer .ab-fav__app-pill { display: none; white-space: nowrap; }
-.portfolio-footer .ab-fav__app-dot { font-size: 0.8rem; line-height: 1; }
+.portfolio-footer .ab-fav__app-dot { font-size: var(--fs-base); line-height: 1; }
 .portfolio-footer .ab-fav__app:hover, .portfolio-footer .ab-fav__app:focus-visible { padding: 0 0.7rem; }
 .portfolio-footer .ab-fav__app:hover .ab-fav__app-pill, .portfolio-footer .ab-fav__app:focus-visible .ab-fav__app-pill { display: inline; }
 .portfolio-footer .ab-fav__app:hover .ab-fav__app-dot, .portfolio-footer .ab-fav__app:focus-visible .ab-fav__app-dot { display: inline; margin-left: 0.4rem; }
@@ -2054,9 +2054,23 @@ html.is-page-leave body { opacity: 0; transition: opacity 180ms ease-in; }
 
 @media (max-width: 759px) { .portfolio-footer__portrait, .portfolio-footer__nav { justify-self: start; } }
 
-/* Footer shares the Recent Work grid: right column starts where the project media starts */
+/* Footer: the right column's left edge sits on the window's horizontal middle.
+   The footer spans the window with equal side gutters, so 50% of its content box is the midpoint. */
 @media (width >= 760px) {
-	/* 6 of 16 columns with 8px gaps, same as .home-work */
-	body.home .footer.portfolio-footer { grid-template-columns: calc((100% - 120px) * 6 / 16 + 40px) minmax(0, 1fr); column-gap: 8px; }
+	body.home .footer.portfolio-footer { grid-template-columns: calc(50% - 8px) minmax(0, 1fr); column-gap: 8px; }
 	.portfolio-footer__portrait, .portfolio-footer__nav { justify-self: start; }
 }
+
+/* ── Links inside body paragraphs only: underline + ↗ (reference: yap's .yap-inline-link).
+   Meta, buttons, cards and nav links keep their own styles. ── */
+:is(body.case-page main, .ab-prose, .ex-head__intro, .work-index__intro) p:not(.nt-kicker, .nt-step-label) a:not([class]),
+body.case-page main a:is(.yap-inline-link, .sb-fellowship-link) {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: .18em;
+	text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+	transition: text-decoration-color var(--dur-1) var(--ease);
+}
+:is(body.case-page main, .ab-prose, .ex-head__intro, .work-index__intro) p:not(.nt-kicker, .nt-step-label) a:not([class]):hover,
+body.case-page main a:is(.yap-inline-link, .sb-fellowship-link):hover { text-decoration-color: currentColor; }

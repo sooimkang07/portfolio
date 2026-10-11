@@ -6,19 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="robots" content="noindex">
 	<title>Sooim Kang · Product Designer</title>
-	<link rel="stylesheet" href="css/base.css?v=layout-sb-2-ds2">
+	<link rel="stylesheet" href="css/base.css?v=ds4">
 	<link rel="stylesheet" href="css/glass.css?v=2-ds2">
-	<link rel="stylesheet" href="css/site.css?v=koto-4-ds2">
+	<link rel="stylesheet" href="css/site.css?v=ds7">
 	<link rel="stylesheet" href="css/morph.css?v=2-ds2" />
-	<link rel="stylesheet" href="css/work-index.css?v=1-ds2" />
+	<link rel="stylesheet" href="css/work-index.css?v=ds4" />
 	<link rel="icon" href="favicon.ico?v=2" sizes="any">
 	<link rel="icon" type="image/png" sizes="16x16" href="16.png?v=2">
 	<link rel="icon" type="image/png" sizes="32x32" href="32.png?v=2">
 	<link rel="icon" type="image/png" sizes="64x64" href="64.png?v=2">
 	<link rel="apple-touch-icon" href="touch.png?v=2">
-	<link rel="stylesheet" href="css/text-sooim.css?v=6" />
-	<link rel="stylesheet" href="css/intro.css?v=18-reel">
-	<script src="js/intro.js?v=18-reel" defer></script>
+	<link rel="stylesheet" href="css/text-sooim.css?v=ds9" />
+	<link rel="stylesheet" href="css/intro.css?v=ds4">
+	<script src="js/intro.js?v=19-player" defer></script>
 	<script>/* Cover the page until the deferred intro mounts, so home never flashes first. */if(!location.hash&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-intro-pending");setTimeout(function(){document.documentElement.classList.remove("is-intro-pending")},3000)}</script>
 	<script src="js/page-fade.js?v=1"></script>
 </head>
@@ -87,18 +87,21 @@
 			<h1 class="visually-hidden">Hi, I’m Sooim, a product designer based in New York</h1>
 			<div class="home-hero__pin-spacer pin-spacer pin-spacer-showreel-scroll">
 				<div class="home-hero__pin">
-					<div class="home-hero__media" data-ref-showreel-video>
-						<!-- No autoplay: js/intro.js starts the reel the moment the loader lands on its first frame. -->
+					<div class="home-hero__media" data-ref-showreel-video role="button" tabindex="0" aria-label="Play the showreel">
+						<!-- No autoplay and no loop: js/intro.js starts the reel the moment the loader lands on its first frame,
+						     it plays through once and rests on its last frame (the greeting); clicking opens it full-window (js/site.js). -->
 						<video
 							class="home-hero__video"
-							src="covers/reel/showreel-loop.mp4"
 							poster="covers/reel/showreel-loop.jpg"
-							loop
 							muted
 							playsinline
 							preload="auto"
 							aria-hidden="true"
-						></video>
+						>
+							<!-- 2560×1440 for large and high-density screens, 1920×1080 otherwise (picked once, at load) -->
+							<source src="covers/reel/showreel-loop-1440.mp4" type="video/mp4" media="(min-resolution: 1.5dppx) and (min-width: 1000px), (min-width: 2000px)">
+							<source src="covers/reel/showreel-loop.mp4" type="video/mp4">
+						</video>
 					</div>
 
 				</div>
@@ -118,7 +121,7 @@
 						<a href="yap" class="home-work__title is-active" data-work-title="0">Organizing voice chats around topics, not timelines</a>
 						<a href="notate" class="home-work__title" data-work-title="1">Annotating the web without losing context</a>
 						<a href="instagram-lists" class="home-work__title" data-work-title="2">Controlling what you see in the feed</a>
-						<!-- <a href="forage" class="home-work__title" data-work-title="6">Transforming real-world inspiration into reusable design systems</a> -->
+						<a href="neuk" class="home-work__title" data-work-title="3">Booking a private room to watch together</a>
 					</div>
 
 					<div class="home-work__meta">
@@ -126,7 +129,7 @@
 							<p class="home-work__desc is-active" data-work-desc="0">yap is a voice-first group chat for friends who send long voice memos. AI transcribes each memo and splits it into topics, so friends can play only what’s new and reply to the part they care about. I designed it and shipped it as a web app that friends join from a text invite.</p>
 							<p class="home-work__desc" data-work-desc="1">Notate is a Chrome extension for keeping a thought next to what sparked it. Tabs, bookmarks, and screenshots split an idea from its source. Notate pins a note to the exact element on a page, sorts it into folders that work across sites, and takes you back to it later.</p>
 							<p class="home-work__desc" data-work-desc="2">Instagram Lists is a concept for grouping the accounts you follow. One feed makes friends, creators, and brands compete for attention, so people miss the ones they meant to check on. Lists let you choose who you’re browsing for, and Home, Stories, and Following all follow that choice.</p>
-							<!-- <p class="home-work__desc" data-work-desc="6">Transforming real-world inspiration into reusable design systems. A methodology for capturing insights from everyday environments and systematizing them for product teams.</p> -->
+							<p class="home-work__desc" data-work-desc="3">neuk is a mobile booking experience for private screening rooms. Small apartments can’t hold the group, so friends find a room nearby, book it by the hour, unlock the door with a QR code, and turn their phone into the remote. Designed solo as a six-week service design concept.</p>
 						</div>
 
 						<div class="home-work__footers" data-ref-featured-project-footer>
@@ -151,13 +154,13 @@
 									<p class="home-work__footer-meta">2025 · Product Design</p>
 								</div>
 							</a>
-							<!-- <a href="forage" class="home-work__footer" data-work-footer="6">
-								<img class="home-work__footer-logo" src="project-app-icons/icon-forage.png" alt="" width="44" height="44" aria-hidden="true" />
+							<a href="neuk" class="home-work__footer" data-work-footer="3">
+								<img class="home-work__footer-logo" src="project-app-icons/icon-neuk.png" alt="" width="44" height="44" aria-hidden="true" />
 								<div class="home-work__footer-copy">
-									<p class="home-work__footer-line">Forage</p>
-									<p class="home-work__footer-meta">2026 · Product Design</p>
+									<p class="home-work__footer-line">neuk</p>
+									<p class="home-work__footer-meta">2025 · Service Design</p>
 								</div>
-							</a> -->
+							</a>
 						</div>
 					</div>
 				</div>
@@ -221,28 +224,31 @@
 					</div>
 				</article>
 
+				<article class="home-work__card" id="work-neuk" data-work-index="3" data-href="neuk" data-project-morph="neuk" data-name="neuk" data-line="Booking a private room to watch together.">
+					<a href="neuk" class="home-work__media" data-ref-featured-project-media-landscape="neuk" aria-label="neuk">
+						<video src="covers/neuk-cover.mp4" loop muted playsinline preload="metadata"></video>
+					</a>
+					<a href="neuk" class="home-work__card-title">Booking a private room to watch together</a>
+					<a href="neuk" class="home-work__card-footer">
+						<img class="home-work__footer-logo" src="project-app-icons/icon-neuk.png" alt="" width="44" height="44" aria-hidden="true" />
+						<div class="home-work__footer-copy">
+							<p class="home-work__footer-line">neuk</p>
+							<p class="home-work__footer-meta">2025 · Service Design</p>
+						</div>
+					</a>
+					<div class="home-work__caption">
+						<h3>neuk</h3>
+						<p>Booking a private room to watch together.</p>
+						<p>2025 · Service Design</p>
+					</div>
+				</article>
+
+
 				<a class="home-work__all" href="work" data-work-all>
 					<span class="home-work__all-label"><span class="home-work__all-br" aria-hidden="true">[</span><span>View all projects</span><span class="home-work__all-br" aria-hidden="true">]</span></span>
 				</a>
 
-				<!-- <article class="home-work__card" id="work-forage" data-work-index="6" data-href="forage" data-project-morph="forage" data-name="Forage" data-line="Transforming real-world inspiration into reusable design systems.">
-					<a href="forage" class="home-work__media" data-ref-featured-project-media-landscape="forage" aria-label="Forage">
-						<img src="covers/forage-cover.png" alt="Forage project cover" loading="lazy" />
-					</a>
-					<a href="forage" class="home-work__card-title">Transforming real-world inspiration into reusable design systems</a>
-					<a href="forage" class="home-work__card-footer">
-						<img class="home-work__footer-logo" src="project-app-icons/icon-forage.png" alt="" width="44" height="44" aria-hidden="true" />
-						<div class="home-work__footer-copy">
-							<p class="home-work__footer-line">Forage</p>
-							<p class="home-work__footer-meta">2026 · Product Design</p>
-						</div>
-					</a>
-					<div class="home-work__caption">
-						<h3>Forage</h3>
-						<p>Transforming real-world inspiration into reusable design systems.</p>
-						<p>2026 · Product Design</p>
-					</div>
-				</article> -->
+
 			</div>
 		</section>
 
@@ -310,11 +316,13 @@
  <div class="portfolio-footer__bottom"><p>© 2026 Sooim Kang</p><p>Updated <time datetime="2026-09-25">09/25/2026</time></p><time class="footer__time js-clock" datetime="" aria-label="Local time in New York"></time></div>
 </footer>
 
+	<!-- The separate full-screen player, off: the hero video itself opens full-window now (js/site.js).
 	<div class="home-showreel" hidden>
 		<div class="home-showreel__frame">
 			<video class="home-showreel__video" src="covers/reel/showreel-loop.mp4" loop playsinline></video>
 		</div>
 	</div>
+	-->
 
 	<div class="home-cursor glass" hidden>
 		<span class="home-cursor__play">
@@ -327,8 +335,8 @@
 		<span class="home-cursor__work"><span aria-hidden="true">↗</span> View case study</span>
 	</div>
 
-	<script src="js/site.js?v=orphan-3-reel"></script>
+	<script src="js/site.js?v=orphan-4-player"></script>
 	<script src="js/morph.js?v=3"></script>
-	<script src="js/text-sooim.js?v=8" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
+	<script src="js/text-sooim.js?v=ds4" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script>
 </body>
 </html>

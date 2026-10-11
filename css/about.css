@@ -64,7 +64,7 @@ body.about-page {
 	transition: padding 260ms var(--ease), background var(--dur-1) linear;
 }
 .ab-fav__app-pill { display: none; white-space: nowrap; }
-.ab-fav__app-dot { font-size: 0.8rem; line-height: 1; }
+.ab-fav__app-dot { font-size: var(--fs-base); line-height: 1; }
 .ab-fav__app:hover, .ab-fav__app:focus-visible { padding: 0 0.7rem; }
 .ab-fav__app:hover .ab-fav__app-pill, .ab-fav__app:focus-visible .ab-fav__app-pill { display: inline; }
 .ab-fav__app:hover .ab-fav__app-dot, .ab-fav__app:focus-visible .ab-fav__app-dot { display: none; }

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>neuk · branding figure mockups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Montserrat:wght@700&family=IBM+Plex+Sans:wght@500&family=Plaster&family=DynaPuff&family=Homemade+Apple&family=BBH+Sans+Hegarty&family=Winky+Sans:wght@800&display=swap">
+<style>
+/* Review page only: three layout options for the neuk brand boards, each shown with Lume and the final brand */
+:root { --ink: #1c1d1c; --muted: #626b76; --faint: #8a8f98; --line: #e3e6ea; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 48px 40px 120px; background: #fafbfc; font-family: 'Instrument Sans', system-ui, sans-serif; color: var(--ink); }
+h1 { margin: 0 0 8px; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
+.intro { margin: 0 0 56px; max-width: 70ch; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.opt { margin-bottom: 96px; }
+.opt h2 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+.opt > p { margin: 0 0 20px; max-width: 80ch; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pair .cap { margin: 10px 0 0; font-size: 13px; color: var(--faint); }
+
+/* Every board is laid out at 1920×1080 on the standard dotted background and scaled to fit */
+.fig { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 20px; background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; container-type: inline-size; }
+.stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; transform: scale(calc(100cqw / 1920px)); }
+.stage img { display: block; max-width: none; }
+@supports not (transform: scale(calc(100cqw / 1920px))) { .stage { transform: none; } }
+
+/* Shared pieces, identical in every option */
+.lab { font-size: 15px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.aa-row { display: flex; gap: 40px; align-items: flex-end; }
+.aa { font-size: 132px; line-height: .95; }
+.aa-name { margin-top: 14px; font-size: 18px; font-weight: 600; }
+.aa-use { margin-top: 2px; font-size: 15px; color: var(--faint); }
+.sw-row { display: flex; gap: 20px; }
+.sw { display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 500; letter-spacing: .04em; color: var(--muted); }
+.sw i { display: block; width: 92px; height: 92px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(28,29,28,.12); }
+.det-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.det { display: flex; flex-direction: column; gap: 12px; font-size: 16px; font-weight: 500; color: var(--muted); }
+.det b { display: flex; align-items: center; height: 40px; }
+.det .line::before { content: ""; width: 110px; border-top: 1px solid var(--ink); }
+.det .line.thick::before { border-top-width: 6px; }
+.det .line.none::before { border: 0; height: 22px; border-radius: 11px; background: var(--ink); }
+.det .corner::before { content: ""; width: 66px; height: 40px; border: 3px solid var(--ink); }
+.det .corner.mid::before { border-radius: 11px; } .det .corner.round::before { border-radius: 20px; } .det .corner.square::before { border-radius: 0; }
+.det .space { gap: 20px; } .det .space.tight { gap: 4px; } .det .space.wide { gap: 30px; }
+.det .space i { width: 16px; height: 16px; border-radius: 4px; background: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips span { padding: 9px 18px; border-radius: 999px; background: rgba(0,0,0,.07); font-size: 18px; font-weight: 600; }
+.on-dark .chips span { background: rgba(255,255,242,.12); }
+.phone { height: 100%; width: auto; border-radius: 52px; }
+.phone.framed { border-radius: 0; filter: drop-shadow(0 20px 30px rgba(28,29,28,.18)); }
+.cover { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Option A: one sheet, hairline grid (editorial, like the Glup Glup board) ── */
+.A { position: absolute; inset: 56px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1fr 1fr; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+.A > * { padding: 40px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.A .lab { margin-bottom: auto; }
+.A .id { grid-column: 1 / span 4; grid-row: 1; }
+.A .ty { grid-column: 1 / span 4; grid-row: 2; border-bottom: 0; }
+.A .ph { grid-column: 5 / span 3; grid-row: 1 / span 2; align-items: center; justify-content: center; border-bottom: 0; background: #f6f7f9; padding: 56px 28px; }
+.A .ph .lab { align-self: flex-start; margin-bottom: 28px; }
+.A .ph img { height: auto; width: 100%; flex: 1; min-height: 0; object-fit: contain; }
+.A .mo { grid-column: 8 / span 5; grid-row: 1; border-right: 0; padding: 0; }
+.A .co { grid-column: 8 / span 5; grid-row: 2; border-right: 0; border-bottom: 0; gap: 0; }
+.A .co .sw-row { margin: 28px 0 36px; }
+.A .mark { font-size: 120px; line-height: 1; margin-top: 24px; }
+.A .sub { margin-top: 18px; font-size: 26px; font-weight: 600; }
+.A .tag { margin-top: 6px; font-size: 20px; color: var(--muted); }
+.A .chips { margin-top: 28px; }
+
+/* ── Option B: one hero panel + equal modules (cards on the dotted background) ── */
+.B { position: absolute; inset: 56px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.B > * { position: relative; overflow: hidden; border-radius: 20px; background: #fff; padding: 36px; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.B .hero { grid-column: 1 / span 6; grid-row: 1 / span 2; justify-content: center; align-items: center; text-align: center; }
+.B .hero .lab { position: absolute; left: 36px; top: 32px; }
+.B .hero .mark { font-size: 200px; line-height: 1; }
+.B .hero .sub { margin-top: 26px; font-size: 30px; font-weight: 600; }
+.B .hero .tag { margin-top: 8px; font-size: 22px; opacity: .72; }
+.B .hero .chips { position: absolute; left: 36px; right: 36px; bottom: 32px; justify-content: center; }
+.B .mo { grid-column: 1 / span 6; grid-row: 3; padding: 0; }
+.B .ph { grid-column: 7 / span 3; grid-row: 1 / span 3; align-items: center; justify-content: center; background: #f6f7f9; }
+.B .ph img { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+.B .ty, .B .co, .B .de { grid-column: 10 / span 3; }
+.B .ty { grid-row: 1; } .B .co { grid-row: 2; } .B .de { grid-row: 3; }
+.B .lab { margin-bottom: auto; }
+.B .aa { font-size: 96px; } .B .aa-row { gap: 24px; }
+.B .sw i { width: 64px; height: 64px; } .B .sw-row { gap: 12px; } .B .sw span { display: none; }
+.B .det-row { gap: 12px; } .B .det { font-size: 14px; } .B .det .line::before { width: 64px; } .B .det .corner::before { width: 48px; height: 30px; }
+
+/* ── Option C: full-width bands (like the Khreō sheet) ── */
+.C { position: absolute; inset: 56px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 400px 1fr 300px; gap: 24px; }
+.C > * { border-radius: 20px; overflow: hidden; min-width: 0; min-height: 0; }
+.C .hero { grid-column: 1 / span 12; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.C .hero .lab { position: absolute; left: 40px; top: 34px; }
+.C .hero .mark { font-size: 170px; line-height: 1; }
+.C .hero .sub { margin-top: 18px; font-size: 26px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+.C .hero .chips { position: absolute; right: 40px; top: 30px; }
+.C .cell { background: #fff; padding: 36px 40px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; }
+.C .ty { grid-column: 1 / span 4; } .C .co { grid-column: 5 / span 4; } .C .de { grid-column: 9 / span 4; }
+.C .ty .aa-row, .C .sw-row { justify-content: center; }
+.C .aa { font-size: 104px; }
+.C .sw i { width: 76px; height: 76px; } .C .sw-row { gap: 14px; }
+.C .det-row { width: 100%; } .C .det { align-items: center; }
+.C .mo { grid-column: 1 / span 9; }
+.C .ph { grid-column: 10 / span 3; background: #f6f7f9; display: flex; align-items: flex-start; justify-content: center; padding-top: 28px; }
+.C .ph img { width: 72%; height: auto; }
+.C .ph.crop { align-items: flex-start; }
+
+/* Brand themes */
+.t-lume { background: #181716; color: #FFFFF2; } .t-lume .lab { color: rgba(255,255,242,.5); }
+.t-final { background: linear-gradient(#2F4657, #1f2429); color: #FFFFF2; } .t-final .lab { color: rgba(255,255,242,.55); }
+.A .t-lume, .A .t-final { border-color: transparent; }
+.mark-lume { font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: .06em; }
+.wm { height: 1em; width: auto; mix-blend-mode: lighten; }
+.collage { width: 100%; height: 100%; display: grid; grid-template-columns: 1.7fr 1fr; grid-template-rows: 1fr 1fr; gap: 0; }
+.collage img { width: 100%; height: 100%; object-fit: cover; }
+.collage img.tall { grid-column: 2; grid-row: 1 / span 2; }
+</style>
+</head>
+<body>
+<h1>neuk · branding figure mockups</h1>
+<p class="intro">Three layouts for the brand boards (the three design directions and the final brand). Each option uses the same 12-column grid, the same 24px gutters, and the same label style, and every element snaps to that grid. Each option is shown with Lume and with the final brand. Pick one (or mix), and I’ll build all four boards in it.</p>
+
+<section class="opt"><h2>Option A · One sheet, hairline grid</h2>
+<p>Everything lives on a single white sheet divided by thin lines, like an editorial spec page. Calmest and most “system”-looking. The name panel takes the brand color; nothing floats.</p>
+<div class="pair"><div><div class="fig"><div class="stage" data-layout="A" data-brand="lume"></div></div><p class="cap">Direction 01 · Lume</p></div>
+<div><div class="fig"><div class="stage" data-layout="A" data-brand="final"></div></div><p class="cap">Final brand</p></div></div></section>
+
+<section class="opt"><h2>Option B · Hero panel + equal modules</h2>
+<p>A big brand-colored hero leads, the phone runs the full height in the middle, and three equal modules stack on the right. Strongest first impression; closest to what’s on the page now, but on a strict grid.</p>
+<div class="pair"><div><div class="fig"><div class="stage" data-layout="B" data-brand="lume"></div></div><p class="cap">Direction 01 · Lume</p></div>
+<div><div class="fig"><div class="stage" data-layout="B" data-brand="final"></div></div><p class="cap">Final brand</p></div></div></section>
+
+<section class="opt"><h2>Option C · Full-width bands</h2>
+<p>Stacked horizontal bands, like the Khreō sheet: a wide name band, then three equal cells (type, color, details), then the moodboard beside the app screen. Most poster-like and symmetric.</p>
+<div class="pair"><div><div class="fig"><div class="stage" data-layout="C" data-brand="lume"></div></div><p class="cap">Direction 01 · Lume</p></div>
+<div><div class="fig"><div class="stage" data-layout="C" data-brand="final"></div></div><p class="cap">Final brand</p></div></div></section>
+
+<script>
+const A = '../neuk-assets/'
+const brands = {
+	lume: {
+		theme: 't-lume', label: 'Direction 01', mark: '<span class="mark-lume">LUMA</span>', sub: 'The Chromatic Chamber', tag: '“Experience streaming in a new dimension”',
+		chips: ['Cinematic', 'Intelligent', 'High-tech', 'Moody'],
+		type: [['Aa', "font-family:'Montserrat';font-weight:700", 'Montserrat', 'Display'], ['Aa', "font-family:'IBM Plex Sans';font-weight:500", 'IBM Plex Sans', 'Body']],
+		colors: ['#181716', '#6AB4EA', '#FFFFF2'],
+		det: [['line', '', 'Thin lines'], ['corner', 'mid', 'Medium round'], ['space', '', 'Airy']],
+		phone: `<img class="phone" src="${A}iterations/directions/phone-1.webp" alt="">`,
+		mood: `<img class="cover" src="${A}iterations/directions/mood-1.webp" alt="">`,
+	},
+	final: {
+		theme: 't-final', label: 'Final brand', mark: `<img class="wm" src="${A}brand/wordmark.webp" alt="">`, sub: 'nook + 아늑한, Korean for cozy', tag: '“Let’s neuk it”',
+		chips: ['Convenient', 'Social', 'Cozy', 'Cinematic'],
+		type: null,
+		colors: ['#181716', '#282625', '#2F4657', '#6AB4EA', '#FFFFF2'],
+		det: [['line', '', '1px lines'], ['corner', 'round', 'Rounded'], ['space', '', 'Glass buttons']],
+		phone: `<img class="phone framed" src="${A}screens/00-login.webp" alt="">`,
+		mood: `<div class="collage"><img src="${A}core-flows/neuk-core-flow-3B.jpg" alt=""><img class="tall" src="${A}solution/rooms/lounge-neon.webp" alt="" ><img src="${A}core-flows/neuk-core-flow-4B.jpg" alt=""></div>`,
+	},
+}
+const typeBlock = b => b.type
+	? `<div class="aa-row">${b.type.map(([aa, st, n, u]) => `<div><div class="aa" style="${st}">${aa}</div><div class="aa-name">${n}</div><div class="aa-use">${u}</div></div>`).join('')}</div>`
+	: `<div><img src="${A}brand/type-confirmed.png" alt="" style="width:100%;max-width:420px;height:auto;background:#181716;padding:22px 26px;border-radius:14px"><div class="aa-name">Articulat CF</div><div class="aa-use">Regular, Medium, Demi Bold</div></div>`
+const colorBlock = b => `<div class="sw-row">${b.colors.map(c => `<div class="sw"><i style="background:${c}"></i><span>${c}</span></div>`).join('')}</div>`
+const detBlock = b => `<div class="det-row">${b.det.map(([k, v, t]) => `<div class="det"><b class="${k} ${v}">${k === 'space' ? '<i></i><i></i><i></i>' : ''}</b>${t}</div>`).join('')}</div>`
+const chips = b => `<div class="chips">${b.chips.map(c => `<span>${c}</span>`).join('')}</div>`
+
+const layouts = {
+	A: b => `<div class="A">
+		<div class="id ${b.theme}"><div class="lab">${b.label}</div><div class="mark">${b.mark}</div><div class="sub">${b.sub}</div><div class="tag" style="color:inherit;opacity:.7">${b.tag}</div>${chips(b)}</div>
+		<div class="ty"><div class="lab">Typography</div>${typeBlock(b)}</div>
+		<div class="ph"><div class="lab">App</div>${b.phone}</div>
+		<div class="mo">${b.mood}</div>
+		<div class="co"><div class="lab">Color</div>${colorBlock(b)}<div class="lab" style="margin:0 0 20px">Details</div>${detBlock(b)}</div>
+	</div>`,
+	B: b => `<div class="B">
+		<div class="hero ${b.theme}"><div class="lab">${b.label}</div><div class="mark">${b.mark}</div><div class="sub">${b.sub}</div><div class="tag">${b.tag}</div>${chips(b)}</div>
+		<div class="mo">${b.mood}</div>
+		<div class="ph">${b.phone}</div>
+		<div class="ty"><div class="lab">Typography</div>${typeBlock(b)}</div>
+		<div class="co"><div class="lab">Color</div>${colorBlock(b)}</div>
+		<div class="de"><div class="lab">Details</div>${detBlock(b)}</div>
+	</div>`,
+	C: b => `<div class="C">
+		<div class="hero ${b.theme}"><div class="lab">${b.label}</div>${chips(b)}<div class="mark">${b.mark}</div><div class="sub">${b.sub}</div></div>
+		<div class="cell ty"><div class="lab">Typography</div>${typeBlock(b)}</div>
+		<div class="cell co"><div class="lab">Color</div>${colorBlock(b)}</div>
+		<div class="cell de"><div class="lab">Details</div>${detBlock(b)}</div>
+		<div class="mo">${b.mood}</div>
+		<div class="ph">${b.phone}</div>
+	</div>`,
+}
+document.querySelectorAll('[data-layout]').forEach(st => { st.innerHTML = layouts[st.dataset.layout](brands[st.dataset.brand]) })
+// scale each 1920×1080 stage to its figure (fallback where calc() in scale isn't supported)
+const fit = () => document.querySelectorAll('.fig').forEach(f => { f.querySelector('.stage').style.transform = `scale(${f.clientWidth / 1920})` })
+addEventListener('resize', fit); fit()
+</script>
+</body>
+</html>

@@ -39,3 +39,23 @@ document.querySelectorAll('[data-ig-rail]').forEach(fig => {
 	track.querySelector('img')?.addEventListener('load', sync)
 	sync()
 })
+
+/* Exploration concept slides: arrows step one slide, dots track position. */
+document.querySelectorAll('[data-igx]').forEach(root => {
+	const track = root.querySelector('[data-igx-track]')
+	const dots = [...root.querySelectorAll('[data-igx-dots] span')]
+	const prev = root.querySelector('[data-igx-prev]'), next = root.querySelector('[data-igx-next]')
+	const gap = () => parseFloat(getComputedStyle(track).columnGap) || 0
+	const step = dir => track.scrollBy({ left: dir * (track.clientWidth + gap()), behavior: 'smooth' })
+	const sync = () => {
+		const i = Math.round(track.scrollLeft / (track.clientWidth + gap()))
+		dots.forEach((d, k) => d.classList.toggle('is-on', k === i))
+		if (prev) prev.disabled = i <= 0
+		if (next) next.disabled = i >= dots.length - 1
+	}
+	prev?.addEventListener('click', () => step(-1))
+	next?.addEventListener('click', () => step(1))
+	track.addEventListener('scroll', sync, { passive: true })
+	new ResizeObserver(sync).observe(track)
+	sync()
+})

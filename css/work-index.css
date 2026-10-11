@@ -71,7 +71,7 @@ body.work-page { background: var(--clr-bg); color: var(--wi-ink); }
 .work-index__intro {
 	justify-self: end;
 	max-width: 36ch;
-	font-size: 0.9375rem;
+	font-size: var(--fs-base);
 	line-height: 1.55;
 	color: var(--wi-ink);
 }
@@ -143,7 +143,7 @@ body.work-page { background: var(--clr-bg); color: var(--wi-ink); }
 .work-card__title a { color: inherit; }
 .work-card__line {
 	margin-top: 4px;
-	font-size: 0.8125rem;
+	font-size: var(--fs-base);
 	line-height: 1.45;
 	color: var(--wi-ink);
 }

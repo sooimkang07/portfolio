@@ -1,0 +1,161 @@
+/* Smart Bundles: page-specific pieces on top of the yap components (css/yap-case.css)
+   and the shared figure kit (css/figures.css). Figures are 16:9 .fig panels sized in cqw. */
+
+/* ── Overview: three stat cards (yap-problem cells) ─────────────── */
+/* sized off the card's width or height, whichever is tighter, so the stat fits stacked (landscape) cards too */
+body.case-page main .sb-stat { container-type: size; --u: min(1cqw, .8cqh); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6em; padding: 0 10%; }
+body.case-page main .sb-stat > * { margin: 0; }
+.sb-stat__num { font-size: calc(15 * var(--u)); font-weight: 500; letter-spacing: -.04em; line-height: 1; color: #20262d; }
+.sb-stat--solo .sb-stat__num { font-size: calc(21 * var(--u)); }
+.sb-stat__unit { display: block; margin-top: calc(3 * var(--u)); font-size: calc(6 * var(--u)); font-weight: 400; letter-spacing: 0; color: #626b76; text-align: center; }
+.sb-stat svg { display: block; width: calc(58 * var(--u)); height: auto; overflow: visible; }
+.sb-stat .seg { display: flex; gap: calc(1.6 * var(--u)); width: calc(70 * var(--u)); }
+.sb-stat .seg i { flex: 1; height: calc(13 * var(--u)); border-radius: calc(1.6 * var(--u)); background: #d6d9dc; }
+.sb-stat .seg i.on { background: #20262d; }
+.sb-stat .seg i.mid { background: repeating-linear-gradient(135deg, #20262d 0 calc(1.2 * var(--u)), #898d92 calc(1.2 * var(--u)) calc(2.4 * var(--u))); }
+
+/* ── Solution: four phones in the real iPhone frame ─────────────── */
+body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sb-phone { position: relative; height: 100%; aspect-ratio: 402 / 874; padding: 2.6%; border-radius: 15.5% / 7.2%; background: linear-gradient(145deg, #fdfdfd, #eceef0); box-shadow: inset 0 0 0 1.5px #c9ccd0, inset 0 0 0 3px #f7f8f9, 0 18px 28px rgba(28, 29, 28, .16); }
+.sb-phone::after { content: ""; position: absolute; left: 50%; top: 3.4%; width: 29%; height: 3.3%; transform: translateX(-50%); border-radius: 99px; background: #0b0c0d; }
+body.case-page main .yap-step .sb-phone img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: top; filter: none; border-radius: 13% / 6% !important; background: #fff; }
+@media (max-width: 760px) { body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── Core flows: the bundle-cards clip sits under the Touchpoint 01 copy ── */
+body.case-page main .sb-inline-video { margin: 28px 0 0; }
+/* Touchpoint 01: copy starts level with the big video's top; the small clip sits on its bottom edge */
+body.case-page main #core-flows .nt-step:has(.sb-inline-video) { align-items: stretch; }
+body.case-page main #core-flows .nt-step:has(.sb-inline-video) > .nt-reading { display: flex; flex-direction: column; }
+body.case-page main #core-flows .nt-step:has(.sb-inline-video) .sb-inline-video { margin-top: auto; padding-top: 28px; }
+body.case-page main .sb-inline-video .dx-media > video { height: auto; aspect-ratio: 1080 / 1350; object-fit: cover; }
+body.case-page main #core-flows .dx-media > video { height: auto; aspect-ratio: 1080 / 1350; }
+body.case-page main #core-flows > .nt-step + .nt-media { margin-top: 64px; }
+body.case-page main #core-flows > .nt-media .dx-media > video { aspect-ratio: 16 / 9; }
+
+/* ── Spacing between stacked blocks inside a section ───────────── */
+body.case-page main .nt-section > .nt-media + .nt-media { margin-top: var(--gap-media, 12px); }
+body.case-page main .nt-section > .nt-media + .nt-reading,
+body.case-page main .nt-section > .yap-hmw + .nt-reading { margin-top: 64px; }
+body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: 56px; }
+body.case-page main .sb-prompt { margin: 0; max-width: 32ch; font-size: clamp(24px, 2.6vw, 36px); font-weight: 500; line-height: 1.18; letter-spacing: -.03em; color: var(--clr-text, #1c1d1c); }
+body.case-page main .sb-prompt + p { margin-top: 16px; }
+
+/* ── Figure kit additions (all sizes in cqw of the 16:9 panel) ──── */
+.fig .sbf-tag { position: absolute; left: 4cqw; top: 3.4cqw; font-size: 1.05cqw; letter-spacing: .08em; text-transform: uppercase; color: #626b76; }
+.fig .sbf-tag.r { left: auto; right: 4cqw; }
+.fig .sbf-name { font-size: 1.9cqw; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; color: #20262d; }
+.fig .sbf-sub { font-size: 1.35cqw; line-height: 1.4; color: #626b76; }
+.fig svg.sbf-svg { position: absolute; inset: 0; width: 100%; height: 100%; font-family: inherit; }
+
+/* Personas */
+.fig .sbp { position: absolute; inset: 0; padding: 8cqw 4cqw 5cqw; display: flex; flex-direction: column; justify-content: center; gap: 2.2cqw; }
+.fig .sbp-bar { display: flex; height: 1.4cqw; border-radius: 99px; overflow: hidden; gap: .3cqw; }
+.fig .sbp-bar i { display: block; height: 100%; }
+.fig .sbp-cards { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 1.6cqw; }
+.fig .sbp-card { display: flex; flex-direction: column; padding: 2.2cqw; background: #fff; border: 1px solid #DFE1E4; border-radius: 1.2cqw; }
+.fig .sbp-card .c-big { margin: 1.6cqw 0 .6cqw; font-size: 5cqw; }
+.fig .sbp-card .sbf-sub { margin-top: 1cqw; }
+.fig .sbp-key { display: inline-block; width: 1cqw; height: 1cqw; border-radius: 50%; margin-right: .7cqw; vertical-align: -.05cqw; }
+.fig .sbp-card.hi { background: #20262d; border-color: #20262d; }
+.fig .sbp-card.hi :is(.sbf-name, .c-big) { color: #fff; }
+.fig .sbp-card.hi :is(.c-lab, .sbf-sub) { color: #b4b7bb; }
+.fig .sbp-cmp { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .8cqw 1cqw; font-size: 1.15cqw; color: #b4b7bb; }
+.fig .sbp-cmp b { display: block; height: 1cqw; border-radius: 99px; background: #fff; }
+.fig .sbp-cmp b.o { background: #626b76; }
+.fig .sbp-cmp em { font-style: normal; color: #fff; font-weight: 500; }
+.fig .sbp-needs { display: flex; align-items: center; gap: .6cqw; flex-wrap: wrap; margin-top: 1.6cqw; }
+.fig .sbp-needs em { font-style: normal; font-size: 1.05cqw; letter-spacing: .08em; color: #b4b7bb; margin-right: .3cqw; }
+.fig .sbp-needs span { font-size: 1.05cqw; padding: .35cqw .9cqw; border-radius: 99px; border: 1px solid #626b76; color: #e6e8ea; }
+
+/* Journey */
+.fig .sbj { position: absolute; inset: 9cqw 4cqw 8.5cqw; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; }
+.fig .sbj-band { position: absolute; top: 3.2cqw; height: 2.4cqw; display: flex; align-items: center; gap: .8cqw; font-size: 1.05cqw; letter-spacing: .08em; text-transform: uppercase; }
+.fig .sbj-band.see { left: 4cqw; color: #20262d; }
+.fig .sbj-band.dark { left: calc(50% + .8cqw); color: #626b76; }
+.fig .sbj-band svg { width: 2cqw; height: auto; }
+.fig .sbj-col { display: flex; flex-direction: column; padding: 2.2cqw; border-radius: 1.2cqw; background: #fff; border: 1px solid #DFE1E4; }
+.fig .sbj-col.out { background: repeating-linear-gradient(135deg, #e6e8eb 0 .5cqw, #eff1f3 .5cqw 1cqw); border-style: dashed; border-color: #b4b7bb; }
+.fig .sbj-ico { width: 3.6cqw; height: 3.6cqw; color: #20262d; }
+.fig .sbj-col .c-lab { margin: 2cqw 0 .8cqw; }
+.fig .sbj-col .sbf-name { font-size: 2.1cqw; }
+.fig .sbj-col .sbf-sub { margin-top: auto; padding-top: 1.6cqw; }
+.fig .sbj-loop { position: absolute; left: 4cqw; right: 4cqw; bottom: 2.6cqw; height: 4.4cqw; }
+.fig .sbj-loop svg { width: 100%; height: 100%; overflow: visible; }
+.fig .sbj-loop span { position: absolute; left: 50%; top: 100%; transform: translate(-50%, -50%); padding: .5cqw 1.4cqw; border-radius: 99px; background: #eff1f3; border: 1px solid #d6d9dc; font-size: 1.2cqw; color: #626b76; white-space: nowrap; }
+
+/* Inset image (meal kits) */
+.fig.sbf-inset { padding: 0; background: none; }
+body.case-page main .fig.sbf-inset img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
+
+/* Market */
+.fig .sbm { position: absolute; inset: 9cqw 4cqw 5cqw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqw; }
+.fig .sbm-col { display: flex; flex-direction: column; padding: 2.4cqw; background: #fff; border: 1px solid #DFE1E4; border-radius: 1.2cqw; }
+.fig .sbm-vis { height: 13cqw; display: flex; align-items: flex-end; }
+.fig .sbm-bars { display: flex; align-items: flex-end; gap: .7cqw; width: 100%; height: 100%; }
+.fig .sbm-bars i { flex: 1; border-radius: .4cqw .4cqw 0 0; background: #d6d9dc; }
+.fig .sbm-bars i:last-child { background: #20262d; }
+.fig .sbm-vis svg { width: 100%; height: 100%; overflow: visible; }
+.fig .sbm-dots { display: grid; grid-template-columns: repeat(23, 1fr); gap: .45cqw; width: 100%; }
+.fig .sbm-dots i { aspect-ratio: 1; border-radius: 50%; background: #20262d; }
+.fig .sbm-col .c-big { margin: 2.4cqw 0 .8cqw; font-size: 4.8cqw; }
+.fig .sbm-col .sbf-sub { margin-top: .6cqw; }
+.fig .sbm-axis { display: flex; justify-content: space-between; margin-top: .6cqw; font-size: 1.05cqw; color: #898d92; letter-spacing: .04em; }
+
+/* Feature comparison */
+.fig .sbc { position: absolute; inset: 7cqw 4cqw 6.5cqw; display: grid; grid-template-columns: 19cqw repeat(7, 1fr) 1.15fr; grid-template-rows: 2cqw 7cqw repeat(4, 1fr); column-gap: .8cqw; }
+.fig .sbc-grp { grid-row: 1; align-self: end; padding-bottom: .5cqw; box-shadow: 0 1.5px 0 #b4b7bb; font-size: 1.05cqw; letter-spacing: .08em; text-transform: uppercase; color: #626b76; text-align: center; }
+.fig .sbc-head { grid-row: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7cqw; font-size: 1.05cqw; color: #626b76; text-align: center; line-height: 1.2; }
+.fig .sbc-head img { width: 3cqw; height: 3cqw; border-radius: .7cqw; object-fit: contain; background: #fff; box-shadow: 0 0 0 1px #e6e8ea; }
+.fig .sbc-head .logo--mono { width: 3cqw; height: 3cqw; border-radius: .7cqw; display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px #e6e8ea; font-size: 1.05cqw; font-weight: 600; color: #626b76; }
+.fig .sbc-row { grid-column: 1; display: flex; align-items: center; font-size: 1.5cqw; line-height: 1.25; color: #20262d; box-shadow: 0 -1px 0 #d6d9dc; padding-right: 1cqw; }
+.fig .sbc-cell { display: grid; place-items: center; box-shadow: 0 -1px 0 #d6d9dc; }
+.fig .sbc-sb { grid-column: 9; grid-row: 1 / -1; background: #fff; border: 1px solid #DFE1E4; border-radius: 1.2cqw; box-shadow: 0 .3cqw 1.2cqw rgba(0, 0, 0, .05); }
+.fig .sbc-hi { position: relative; z-index: 1; }
+.fig .sbc-hi.sbc-head { color: #20262d; font-weight: 500; }
+.fig .sbc-hi.sbc-cell { box-shadow: none; }
+.fig .dot { width: 1.7cqw; height: 1.7cqw; border-radius: 50%; box-shadow: inset 0 0 0 .2cqw #20262d; }
+.fig .dot.y { background: #20262d; }
+.fig .dot.p { background: linear-gradient(90deg, #20262d 50%, #fff 50%); }
+.fig .dot.n { box-shadow: inset 0 0 0 .2cqw #b4b7bb; }
+.fig .sbc-legend { position: absolute; left: 4cqw; bottom: 2.6cqw; display: flex; align-items: center; gap: 1.8cqw; font-size: 1.15cqw; color: #626b76; }
+.fig .sbc-legend span { display: inline-flex; align-items: center; gap: .6cqw; }
+.fig .sbc-legend .dot { width: 1.3cqw; height: 1.3cqw; }
+
+/* Iterations */
+.fig .sbi { position: absolute; inset: 3cqw 0; display: grid; grid-template-columns: repeat(10, 5.35cqw); grid-auto-rows: 11.96cqw; gap: .8cqw 1.2cqw; justify-content: center; align-content: center; }
+.fig .sbi img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: .55cqw !important; background: #fff; box-shadow: 0 0 0 1px #DFE1E4, 0 .3cqw .9cqw rgba(0, 0, 0, .06); }
+
+/* Next steps: three notes */
+body.case-page main .sb-next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 40px; margin-top: 40px; }
+body.case-page main .sb-next p { margin: 0; }
+body.case-page main .sb-next .yap-it__tag { margin: 0 0 6px; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-muted, #626b76); }
+body.case-page main .sb-next h3 { margin: 0 0 6px; font-size: 18px; }
+@media (max-width: 759px) { body.case-page main .sb-next { grid-template-columns: minmax(0, 1fr); } }
+
+/* Reflection link */
+
+/* Impact loop: cards sit on the loop around the center order */
+.fig .card.sbx { position: absolute; width: 22cqw; transform: translate(-50%, -50%); padding: 1.6cqw 1.8cqw; }
+.fig .card.sbx .c-txt { font-size: 1.55cqw; }
+
+/* Pilot targets on a 12-month axis */
+.fig .sbt { position: absolute; inset: 0; }
+.fig .sbt-axis { position: absolute; left: 8%; right: 8%; top: 72%; height: .35cqw; border-radius: 99px; background: #b4b7bb; transform: translateY(-50%); }
+.fig .sbt-tick { position: absolute; top: 72%; width: 0; }
+.fig .sbt-tick::before { content: ""; position: absolute; left: -.5cqw; top: -.5cqw; width: 1cqw; height: 1cqw; border-radius: 50%; background: #b4b7bb; }
+.fig .sbt-tick span { position: absolute; top: 2cqw; left: 0; transform: translateX(-50%); font-size: 1.05cqw; letter-spacing: .08em; color: #626b76; white-space: nowrap; }
+.fig .sbt-mark { position: absolute; top: 72%; width: 0; }
+.fig .sbt-mark::before { content: ""; position: absolute; left: -.9cqw; top: -.9cqw; width: 1.8cqw; height: 1.8cqw; border-radius: 50%; background: #20262d; box-shadow: 0 0 0 .5cqw #eff1f3; z-index: 1; }
+.fig .sbt-mark::after { content: ""; position: absolute; left: -1px; bottom: 0; width: 2px; height: 5cqw; background: #20262d; }
+.fig .sbt-mark .card { position: absolute; bottom: 5cqw; left: -1.2cqw; width: 19.5cqw; }
+.fig .sbt-mark.end .card { left: auto; right: -1.2cqw; }
+.fig .sbt-mark .c-big { font-size: 4.2cqw; }
+
+/* Touchpoint 01: the bundle cards in a row, sliding one at a time (js/card-carousel.js) */
+body.case-page main .sb-deck { overflow: hidden; }
+body.case-page main .sb-deck__track { display: flex; gap: 12px; transition: transform .7s cubic-bezier(.65, 0, .35, 1); }
+body.case-page main .sb-deck__track img { flex: 0 0 72%; width: 72%; height: auto; aspect-ratio: 850 / 805; border-radius: 0 !important; }
+@media (prefers-reduced-motion: reduce) { body.case-page main .sb-deck__track { transition: none; } }
+/* the carousel sits right under its text (like neuk's room cards), not pinned to the bottom */
+body.case-page main #core-flows .nt-step:has(.sb-deck) .sb-deck { margin-top: 32px; padding-top: 0; }
+body.case-page main #core-flows .nt-step:has(.sb-deck) { align-items: start; }

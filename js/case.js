@@ -39,7 +39,25 @@
 		return v && typeof v.play === 'function' ? v : null
 	}
 
-	document.querySelectorAll('.flow__device, .ig-gallery__tile, .dx-media:has(> .flow__controls)').forEach(device => {
+	/* Every case-study video gets the same glass pause + replay pair, top-right.
+	   Videos whose markup already carries controls are left alone; videos with native
+	   controls (long talks with sound) and the stepped Notate onboarding keep theirs. */
+	const CONTROLS = '<div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>'
+	const hasControls = v => {
+		for (let a = v.parentElement, i = 0; a && i < 4; a = a.parentElement, i++) {
+			if (a.querySelector(':scope > :is(.flow__controls, .sb-video-controls, .ig-scene-controls)')) return true
+		}
+		return false
+	}
+	document.querySelectorAll('body.case-page main video').forEach(v => {
+		if (v.hasAttribute('controls') || v.closest('.nt-onboarding') || hasControls(v)) return
+		const host = v.parentElement
+		if (host.querySelectorAll('video').length > 1) return
+		host.classList.add('vc-host')
+		host.insertAdjacentHTML('beforeend', CONTROLS)
+	})
+
+	document.querySelectorAll('.flow__device, .ig-gallery__tile, .dx-media:has(> .flow__controls), .vc-host').forEach(device => {
 		const video = realVideo(device)
 		const pauseBtn = device.querySelector('.flow__btn--pause')
 		const replayBtn = device.querySelector('.flow__btn--replay')
@@ -86,6 +104,7 @@
 				video.muted = !video.muted
 				if (!video.muted && video.volume === 0) video.volume = 1
 				volBtn.classList.toggle('is-muted', video.muted)
+				volBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video')
 				if (volSlider) volSlider.value = video.muted ? 0 : video.volume
 			})
 		}

@@ -1,14 +1,14 @@
 /* yap case study: problem animations, opportunity, live demo, diagrams, launch. */
 
 body.case-page main .yap-overview-img { margin-top: 32px; }
-body.case-page main .yap-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 
 /* ── Problem: three ways people yap today ─────────────────────── */
 .yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, 12px); }
 .yap-problem__cell { min-width: 0; }
-.yap-card { position: relative; aspect-ratio: 4 / 5; background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: 20px; overflow: hidden; }
-.yap-problem__name { margin: 28px 0 4px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
-.yap-problem__why { margin: 0; font-size: 14px; line-height: 1.4; color: var(--clr-muted, #626b76); text-wrap: pretty; }
+.yap-card { position: relative; aspect-ratio: 4 / 5; background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); overflow: hidden; }
+.yap-problem__name { margin: 28px 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
+.yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: 1.55; text-wrap: pretty; }
 
 /* Calling: FaceTime tiles waiting for people who aren't free yet */
 .yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: 8px; border-radius: 12px; will-change: transform; }
@@ -51,7 +51,7 @@ body.case-page main .yap-hmw { margin-top: 56px; padding: 40px 0 8px; border-top
 body.case-page main .yap-hmw__q { margin: 12px 0 0; max-width: 28ch; font-size: clamp(24px, 2.6vw, 36px); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; color: var(--clr-text, #1c1d1c); }
 
 /* ── Live demo in the iPhone frame (same 1080×1350 stage as the feature videos) ── */
-.yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg, 20px); overflow: hidden; background: #f4f1ee; }
+.yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg); overflow: hidden; background: #f4f1ee; }
 .yap-demo__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
 .yap-demo__screen { position: absolute; left: 26.093%; top: 9.711%; width: 47.722%; height: 80.563%; overflow: hidden; border-radius: 14.36% / 6.8%; background: #fff; }
 .yap-demo__screen iframe { position: absolute; left: 0; top: calc(var(--yap-demo-top, 54px) * var(--yap-demo-scale, 1)); width: 402px; height: calc(848px - var(--yap-demo-top, 54px)); border: 0; transform-origin: 0 0; border-radius: 0 !important; }
@@ -71,20 +71,21 @@ body.case-page main .yap-hmw__q { margin: 12px 0 0; max-width: 28ch; font-size: 
 /* ── Diagrams and placeholders ─────────────────────────────────── */
 .yap-diagram svg { display: block; width: 100%; height: auto; }
 .yap-diagram + .yap-diagram, .yap-diagram + figure { margin-top: 16px; }
-.yap-todo { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; aspect-ratio: 16 / 9; padding: 24px; border-radius: var(--r-lg, 20px); background: #f1f3f5 radial-gradient(#DADAD5 1px, transparent 1px) 0 0 / 10px 10px; text-align: center; font-size: 14px; color: #626b76; }
+.yap-todo { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; aspect-ratio: 16 / 9; padding: 24px; border-radius: var(--r-lg); background: #f1f3f5 radial-gradient(#DADAD5 1px, transparent 1px) 0 0 / 10px 10px; text-align: center; font-size: var(--fs-base); color: #626b76; }
 .yap-todo__tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: #1c1d1c; }
 
 /* ── Launch ────────────────────────────────────────────────────── */
 .yap-launch-hero img { display: block; width: 100%; height: auto; }
 .yap-launch-grid .cs-cell > video.nt-video { height: 100%; object-fit: cover; }
-.yap-tweet { display: flex; justify-content: center; padding: 32px 16px; border-radius: var(--r-lg, 20px); background: #f1f3f5; }
+.yap-tweet { display: flex; justify-content: center; padding: 32px 16px; border-radius: var(--r-lg); background: #f1f3f5; }
 .yap-tweet .twitter-tweet { margin: 0 !important; }
 .yap-tweet blockquote.twitter-tweet { max-width: 480px; padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }
 body.case-page main .yap-text .yap-bubble.yap-bubble { color: #fff; }
 
 /* problem captions: override the case-study paragraph defaults, no orphans */
-body.case-page main .yap-problem .yap-problem__name { margin: 28px 0 4px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
-body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: 14px; line-height: 1.45; color: var(--clr-muted, #626b76); text-wrap: pretty; }
+/* problem captions match the solution principles: bold heading + standard body copy */
+body.case-page main .yap-problem .yap-problem__name { margin: 28px 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
+body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: 1.55; text-wrap: pretty; }
 /* tweet sits on the page, no figure panel */
 body.case-page main .yap-tweet { display: block; padding: 0; background: none; border-radius: 0; }
 body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
@@ -95,7 +96,7 @@ body.case-page main .yap-memo video { width: 80%; height: auto; margin: 0 auto; 
 body.case-page main .yap-launch-hero img { width: min(100%, 440px); margin: 0 auto; }
 body.case-page main .yap-launch-hero video { display: block; width: min(100%, 440px); height: auto; margin: 0 auto; }
 /* figure titles live on the page, above the figure */
-body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
+body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: var(--fs-base); font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
 body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
 
 /* iMessage tail: one drawn shape (no masking patch), fades to the newest bubble */
@@ -110,18 +111,18 @@ body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
 
 /* Iterations: the three Figma Make directions, captioned with what the shipped design kept */
 body.case-page main .yap-direction { margin-top: 16px; }
-body.case-page main .yap-direction img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); background: #fff; }
+body.case-page main .yap-direction img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: #fff; }
 body.case-page main .yap-direction figcaption b { font-weight: 500; color: var(--clr-text, #1c1d1c); }
 
 /* Bugs: the prompt I gave the agent, set as a plain note under each repro video */
-body.case-page main .yap-prompt { margin-top: 16px; padding: 24px 28px; border-radius: var(--r-lg, 20px); background: #f1f3f5; }
+body.case-page main .yap-prompt { margin-top: 16px; padding: 24px 28px; border-radius: var(--r-lg); background: #f1f3f5; }
 body.case-page main .yap-prompt .yap-prompt__tag { margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: .08em; color: #1c1d1c; }
-body.case-page main .yap-prompt .yap-prompt__body p { margin: 0 0 10px; max-width: none; font-size: 14px; line-height: 1.55; color: #3a3f45; }
+body.case-page main .yap-prompt .yap-prompt__body p { margin: 0 0 10px; max-width: none; font-size: var(--fs-base); line-height: 1.55; color: #3a3f45; }
 body.case-page main .yap-prompt .yap-prompt__body p:last-child { margin-bottom: 0; }
 body.case-page main .yap-prompt code { font: 12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 1px 5px; border-radius: 5px; background: #e4e7ea; color: #1c1d1c; }
 
 /* Design: Figma boards (component library, core screens) shown edge to edge */
-body.case-page main .yap-board img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-board img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 body.case-page main .yap-board + .yap-figtitle { margin-top: 32px; }
 
 /* Bugs: text and the agent prompt on the left, the repro video on the right */
@@ -137,13 +138,13 @@ body.case-page main .yap-launch-grid { display: flex; flex-direction: column; ga
 body.case-page main .yap-launch__row { display: grid; gap: var(--gap-media, 12px); }
 body.case-page main .yap-launch__row--top { grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr); }
 body.case-page main .yap-launch__row--bottom { grid-template-columns: minmax(0, 2.35fr) minmax(0, 1fr); }
-body.case-page main .yap-launch__cell { min-width: 0; border-radius: var(--r-lg, 20px); overflow: hidden; }
+body.case-page main .yap-launch__cell { min-width: 0; border-radius: var(--r-lg); overflow: hidden; }
 body.case-page main .yap-launch__cell img,
 body.case-page main .yap-launch__cell video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
 body.case-page main .yap-launch__row--top .yap-launch__cell { aspect-ratio: 16 / 9; }
 body.case-page main .yap-launch__row--bottom .yap-launch__cell { aspect-ratio: 4 / 3; }
 body.case-page main .yap-launch__row--bottom .yap-launch__cell:last-child { aspect-ratio: auto; }
-body.case-page main .yap-launch__date { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(16px, 2vw, 28px); border-radius: var(--r-lg, 20px); background: #d9dbde; }
+body.case-page main .yap-launch__date { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(16px, 2vw, 28px); border-radius: var(--r-lg); background: #d9dbde; }
 body.case-page main .yap-launch__date p { margin: 0; max-width: none; font-size: clamp(26px, 3.6vw, 52px); font-weight: 400; line-height: 1.02; letter-spacing: -0.035em; color: #1c1d1c; }
 @media (max-width: 760px) {
   body.case-page main .yap-launch__row--top, body.case-page main .yap-launch__row--bottom { grid-template-columns: 1fr; }
@@ -161,7 +162,7 @@ body.case-page main .yap-launch__row--top .yap-launch__cell--video { aspect-rati
 
 /* Iterations: tabbed figure, panels stacked in one cell so the height never jumps */
 body.case-page main .yap-it__tabs { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 16px; border-radius: 999px; background: rgba(236, 238, 241, .7); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05); }
-body.case-page main .yap-it__tab { border: 0; padding: 8px 16px; border-radius: 999px; background: none; font: inherit; font-size: 14px; color: #626b76; cursor: pointer; transition: background .2s, color .2s; }
+body.case-page main .yap-it__tab { border: 0; padding: 8px 16px; border-radius: 999px; background: none; font: inherit; font-size: var(--fs-base); color: #626b76; cursor: pointer; transition: background .2s, color .2s; }
 /* The selected tab is a design-system glass pill (css/glass.css); the others stay flat text */
 body.case-page main .yap-it__tab { position: relative; }
 body.case-page main .yap-it__tab.glass { background: var(--glass-bg), rgba(255, 255, 255, .55); color: #1c1d1c; }
@@ -169,14 +170,14 @@ body.case-page main .yap-it__tab:focus:not(:focus-visible) { outline: none; }
 body.case-page main .yap-it__panels { display: grid; }
 body.case-page main .yap-it__panel { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .25s ease; }
 body.case-page main .yap-it__panel.is-active { opacity: 1; visibility: visible; }
-body.case-page main .yap-it__panel > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg, 20px); background: #fff; }
-body.case-page main .yap-it__shipped { border-radius: var(--r-lg, 20px); }
-body.case-page main .yap-it__cap { margin: 14px 0 0; max-width: 60ch; font-size: 14px; line-height: 1.5; color: #626b76; }
+body.case-page main .yap-it__panel > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: #fff; }
+body.case-page main .yap-it__shipped { border-radius: var(--r-lg); }
+body.case-page main .yap-it__cap { margin: 14px 0 0; max-width: 60ch; font-size: var(--fs-base); line-height: 1.5; color: #626b76; }
 body.case-page main .yap-it__cap b { font-weight: 500; color: #1c1d1c; }
 @media (max-width: 560px) { body.case-page main .yap-it__tabs { display: flex; overflow-x: auto; } body.case-page main .yap-it__tab { white-space: nowrap; } }
 
 /* Prompt to the agent, as a terminal window */
-body.case-page main .yap-term { margin-top: 24px; border-radius: 14px; overflow: hidden; background: #16171a; box-shadow: 0 12px 32px -16px rgba(0,0,0,.45); }
+body.case-page main .yap-term { margin-top: 24px; border-radius: var(--r-md); overflow: hidden; background: #16171a; box-shadow: 0 12px 32px -16px rgba(0,0,0,.45); }
 body.case-page main .yap-term__bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #222326; }
 body.case-page main .yap-term__bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a3b3f; }
 body.case-page main .yap-term__bar span { margin-left: 8px; font: 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: #8b8d93; }
@@ -194,7 +195,7 @@ body.case-page main .yap-term .yap-term__body p.yap-term__cmd { color: #f2f3f5 !
 
 /* ── Component library figure (Figma "yap · Components", 71:9852) ──────────
    Built at Figma size (2520 wide) and zoomed to the figure by yap-case.js. */
-body.case-page main .ycl { background: #eff1f3; border-radius: var(--r-lg, 20px); overflow: hidden; }
+body.case-page main .ycl { background: #eff1f3; border-radius: var(--r-lg); overflow: hidden; }
 /* Cropped in: a 1960×1100 window on the sheet, so the outer panels run off every edge */
 body.case-page main .ycl { position: relative; aspect-ratio: 1960 / 1100; }
 .ycl__view { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -302,7 +303,7 @@ body.case-page main .ycl { position: relative; aspect-ratio: 1960 / 1100; }
 /* AI step: the three design calls under the pipeline figure */
 body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
 body.case-page main .yap-call h4 { margin: 0 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
-body.case-page main .yap-call p { margin: 0; font-size: 15px; line-height: 1.55; }
+body.case-page main .yap-call p { margin: 0; font-size: var(--fs-base); line-height: 1.55; }
 body.case-page main .yap-call .yap-call__num { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--clr-muted, #626b76); }
 body.case-page main .yap-call code { font-size: .9em; }
 body.case-page main .yap-calls + .yap-figtitle { margin-top: 56px; }
@@ -330,7 +331,7 @@ body.case-page main .yap-takeaways .ntf-takeaway-line { max-width: none; }
 @media (max-width: 759px) { body.case-page main .yap-takeaways { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
 
 /* Standard figure background: the dotted panel every diagram sits on */
-body.case-page main :is(.ycl, .yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg, 20px); }
+body.case-page main :is(.ycl, .yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); }
 
 /* Solution: the three steps as cards, each phone rising out of its card */
 body.case-page main .yap-card.yap-step { display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 5.8; padding: 7% 0; }
@@ -346,11 +347,11 @@ body.case-page main .nt-step > h3.yap-subhead { margin: 64px 0 0; font-size: cla
 body.case-page main .nt-step > h3.yap-subhead + .nt-media { margin-top: 20px; }
 body.case-page main .yap-board-pair { display: grid; grid-template-columns: minmax(0, 2.621fr) minmax(0, 1.396fr); gap: var(--gap-media, 12px); align-items: start; }
 body.case-page main .yap-board-pair__cell img { display: block; width: 100%; height: auto; }
-body.case-page main .yap-board-pair .yap-board-pair__label { margin: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--clr-text, #1c1d1c); }
+body.case-page main .yap-board-pair .yap-board-pair__label { margin: 12px 0 0; font-size: var(--fs-base); font-weight: 500; color: var(--clr-text, #1c1d1c); }
 body.case-page main .yap-board--inset { padding: clamp(16px, 3vw, 40px); }
 /* full-bleed Figma screenshots: the image is the whole 16:9 figure */
 body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cover; }
-body.case-page main .yap-board--inset img { border-radius: 10px; box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 16px 32px -18px rgba(28, 29, 28, .35); }
+body.case-page main .yap-board--inset img { border-radius: var(--r-md); box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 16px 32px -18px rgba(28, 29, 28, .35); }
 @media (max-width: 760px) { body.case-page main .yap-board-pair { grid-template-columns: minmax(0, 1fr); } }
 
 /* Join: five steps in the strip */
@@ -358,7 +359,7 @@ body.case-page main .yap-join .strip .mini.phone { width: 13.6cqw; }
 
 /* Testing: the virtual session beside the in-person video, at equal height */
 body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, 12px); align-items: start; }
-body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg); }
 body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: 16px 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-todo--tall { aspect-ratio: 1080 / 1920; padding: 16px; }
 body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
@@ -367,17 +368,17 @@ body.case-page main .yap-test-pair__video > video { position: absolute; inset: 0
 
 /* Reflection: the room and the projected screen, side by side at equal height */
 body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, 12px); }
-body.case-page main .yap-reflect-pair img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-reflect-pair img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
 @media (max-width: 760px) { body.case-page main .yap-reflect-pair { grid-template-columns: minmax(0, 1fr); } }
 /* Two paragraphs in a step heading read as two paragraphs */
 body.case-page main .nt-feature-heading p + p { margin-top: 12px; }
 
 /* Iterations: every direction is a 16:9 figure, with its notes below in body copy */
-body.case-page main .yap-it__img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-it__img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg); }
 body.case-page main .yap-it__panel > p { margin: 20px 0 0; }
 body.case-page main .yap-it__panel > p + p { margin-top: 10px; }
 body.case-page main .yap-it__link { color: var(--clr-text, #1c1d1c); text-decoration: underline; text-underline-offset: 3px; }
-body.case-page main .yap-it .fig.yap-it__shipped { aspect-ratio: 16 / 9 !important; height: auto; display: flex; align-items: center; justify-content: center; border-radius: var(--r-lg, 20px); }
+body.case-page main .yap-it .fig.yap-it__shipped { aspect-ratio: 16 / 9 !important; height: auto; display: flex; align-items: center; justify-content: center; border-radius: var(--r-lg); }
 body.case-page main .yap-it__shipped .flow { width: 100%; }
 body.case-page main .nt-section > h3.yap-subhead--section { margin: 56px 0 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.25; letter-spacing: -0.02em; }
 body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 24px; }
@@ -385,7 +386,7 @@ body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minm
 
 /* Design: every screen in one row inside the content column; drag, swipe, or scroll through */
 body.case-page main .yap-rail { position: relative; }
-body.case-page main .yap-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg, 20px); scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }
+body.case-page main .yap-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg); scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }
 body.case-page main .yap-rail__track::-webkit-scrollbar { display: none; }
 body.case-page main .yap-rail__track.is-dragging { cursor: grabbing; }
 body.case-page main .yap-rail__inner { position: relative; width: max-content; }
@@ -409,6 +410,28 @@ body.case-page main .yap-rail__btn:disabled { opacity: 0; pointer-events: none; 
 body.case-page main .yap-it__shipped .strip .mini.phone { width: 20.5cqw; }
 
 /* Feedback tweet in a dotted figure frame, like the forage/acuity Instagram embeds */
-body.case-page main .yap-tweet { display: block; padding: 24px 16px; border-radius: var(--r-lg, 20px); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .yap-tweet { display: block; padding: 24px 16px; border-radius: var(--r-lg); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
 body.case-page main .yap-tweet .twitter-tweet, body.case-page main .yap-tweet .twitter-tweet-rendered { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
 body.case-page main .yap-tweet blockquote.twitter-tweet { padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }
+
+/* Problem cards: contents scale with the card (sized off its height), so the
+   tiles, bubbles and memo keep the same proportions at every breakpoint. */
+.yap-card:is(.yap-call, .yap-text, .yap-memo) { container-type: size; }
+.yap-call .yap-call__tile { gap: 2.4cqh; border-radius: 3.7cqh; }
+.yap-call .yap-call__tile span { font-size: 9.3cqh; }
+.yap-call .yap-call__tile--k span, .yap-call .yap-call__tile--m span { font-size: 6.2cqh; }
+.yap-call .yap-call__tile em { font-size: 3.4cqh; }
+.yap-text .yap-bubble { font-size: 4.9cqh; padding-inline: .875em; border-radius: 1.2em; }
+.yap-text .yap-bubble::after { right: -.44em; width: 1.06em; height: 1.31em; }
+.yap-text .yap-bubble--1 { animation-name: yap-b1e; } .yap-text .yap-bubble--2 { animation-name: yap-b2e; } .yap-text .yap-bubble--3 { animation-name: yap-b3e; }
+@keyframes yap-b1e { 0%, 8% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(.75em); } 13%, 88% { max-height: 4em; opacity: 1; padding-block: .5em; margin-top: .25em; transform: none; } 96%, 100% { max-height: 4em; opacity: 0; padding-block: .5em; margin-top: .25em; } }
+@keyframes yap-b2e { 0%, 22% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(.75em); } 27%, 88% { max-height: 4em; opacity: 1; padding-block: .5em; margin-top: .25em; transform: none; } 96%, 100% { max-height: 4em; opacity: 0; padding-block: .5em; margin-top: .25em; } }
+@keyframes yap-b3e { 0%, 36% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(.75em); } 41%, 88% { max-height: 4em; opacity: 1; padding-block: .5em; margin-top: .25em; transform: none; } 96%, 100% { max-height: 4em; opacity: 0; padding-block: .5em; margin-top: .25em; } }
+body.case-page main .yap-memo video { width: min(80%, 64cqh); }
+@media (prefers-reduced-motion: reduce) { .yap-text .yap-bubble { animation: none; max-height: 4em; padding-block: .5em; margin-top: .25em; } }
+.yap-text .yap-text__stack { left: 50%; right: auto; width: 64cqh; transform: translateX(-50%); }
+/* Iterations: what each direction asked for, full width above the two takeaways */
+/* Direction tabs: prompt, what resonated, what didn't, side by side */
+body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 40px; }
+@media (max-width: 759px) { body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: minmax(0, 1fr); } }
+body.case-page main .yap-bug__still > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }

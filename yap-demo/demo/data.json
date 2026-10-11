@@ -1,0 +1,659 @@
+{
+ "currentUserId": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+ "users": {
+  "user-05f91a81-7583-4ee8-90e9-678e23da0ae0": {
+   "name": "Sooim",
+   "initials": "S",
+   "color": "#DFFFB8",
+   "avatarUrl": "/assets/sooim.jpg"
+  },
+  "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2": {
+   "name": "Lucy",
+   "initials": "L",
+   "color": "#DEC0F8",
+   "avatarUrl": "/demo/avatars/lucy.jpg"
+  },
+  "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0": {
+   "name": "Kimaya",
+   "initials": "K",
+   "color": "#B8D8FF",
+   "avatarUrl": "/demo/avatars/kimaya.jpg"
+  },
+  "user-f913d12c-f370-4c3b-b018-4d8d3c9a873e": {
+   "name": "Melody",
+   "initials": "M",
+   "color": "#FFDEB8",
+   "avatarUrl": "/demo/avatars/mel.jpg"
+  }
+ },
+ "chats": [
+  {
+   "id": "demo-chat-besties",
+   "name": "Besties",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+     "name": "Lucy",
+     "initials": "L",
+     "color": "#DEC0F8",
+     "avatarUrl": "/demo/avatars/lucy.jpg"
+    },
+    {
+     "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+     "name": "Kimaya",
+     "initials": "K",
+     "color": "#B8D8FF",
+     "avatarUrl": "/demo/avatars/kimaya.jpg"
+    },
+    {
+     "id": "user-f913d12c-f370-4c3b-b018-4d8d3c9a873e",
+     "name": "Melody",
+     "initials": "M",
+     "color": "#FFDEB8",
+     "avatarUrl": "/demo/avatars/mel.jpg"
+    }
+   ],
+   "unread": 3,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -4320000,
+   "preview": "Melody\u2019s birthday brunch",
+   "previewAuthorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+   "persistLocally": true,
+   "pinned": true
+  },
+  {
+   "id": "demo-chat-0",
+   "name": "",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-94ca8fe3-e9ac-43cf-9091-6c6546b8f438",
+     "name": "Amanda",
+     "initials": "A",
+     "color": "#FFDEB8",
+     "avatarUrl": "/demo/avatars/amanda.jpg"
+    },
+    {
+     "id": "user-5ff14450-9c16-4a51-80bc-f5c274576ac3",
+     "name": "Riya",
+     "initials": "R",
+     "color": "#DEC0F8",
+     "avatarUrl": "/demo/avatars/riya.jpg"
+    }
+   ],
+   "unread": 1,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -18000000,
+   "preview": "",
+   "previewAuthorId": null,
+   "persistLocally": true,
+   "pinned": false
+  },
+  {
+   "id": "demo-chat-1",
+   "name": "",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-5402787c-131d-4c5d-ab88-cd9d7952350b",
+     "name": "Chareese",
+     "initials": "C",
+     "color": "#FFDEB8",
+     "avatarUrl": "/demo/avatars/chareeselam.jpg"
+    }
+   ],
+   "unread": 0,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -72000000,
+   "preview": "",
+   "previewAuthorId": null,
+   "persistLocally": true,
+   "pinned": false
+  },
+  {
+   "id": "demo-chat-2",
+   "name": "",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-4d758ef4-ffcd-4b2d-9842-77076166bef5",
+     "name": "Cason",
+     "initials": "C",
+     "color": "#B8D8FF",
+     "avatarUrl": "/demo/avatars/cason.jpg"
+    },
+    {
+     "id": "user-14acdc7e-d2f7-405d-bf81-03f4b9b6162a",
+     "name": "Maika",
+     "initials": "M",
+     "color": "#DFFFB8",
+     "avatarUrl": "/demo/avatars/maika.jpg"
+    },
+    {
+     "id": "user-cd4742e1-4b2a-4338-a2a6-39eac567d1a4",
+     "name": "Sakib",
+     "initials": "S",
+     "color": "#FFDEB8",
+     "avatarUrl": "/demo/avatars/sakib.jpg"
+    }
+   ],
+   "unread": 2,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -180000000,
+   "preview": "",
+   "previewAuthorId": null,
+   "persistLocally": true,
+   "pinned": false
+  },
+  {
+   "id": "demo-chat-3",
+   "name": "",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-8bce5b3b-f324-49d7-aea2-dc4a37db4d99",
+     "name": "Michael",
+     "initials": "M",
+     "color": "#DEC0F8",
+     "avatarUrl": "/demo/avatars/michaelfrenc.jpg"
+    }
+   ],
+   "unread": 0,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -252000000,
+   "preview": "",
+   "previewAuthorId": null,
+   "persistLocally": true,
+   "pinned": false
+  },
+  {
+   "id": "demo-chat-4",
+   "name": "",
+   "emoji": null,
+   "members": [
+    {
+     "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "name": "Sooim",
+     "initials": "S",
+     "color": "#DFFFB8",
+     "avatarUrl": "/assets/sooim.jpg"
+    },
+    {
+     "id": "user-78cb8d4d-03d6-44af-9f8f-6797222ef179",
+     "name": "Kimaya",
+     "initials": "K",
+     "color": "#B8D8FF",
+     "avatarUrl": "/demo/avatars/kimaya.jpg"
+    },
+    {
+     "id": "user-e9efaae0-09a5-49f0-939d-11dfee598c07",
+     "name": "Sophia",
+     "initials": "S",
+     "color": "#B8D8FF",
+     "avatarUrl": null
+    }
+   ],
+   "unread": 0,
+   "active": true,
+   "visual": "default",
+   "avatarUrl": null,
+   "createdBy": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+   "currentUserRole": "owner",
+   "lastMessageAt": -345600000,
+   "preview": "",
+   "previewAuthorId": null,
+   "persistLocally": true,
+   "pinned": false
+  }
+ ],
+ "threads": {
+  "demo-chat-besties": [
+   {
+    "id": "demo-thread-0-0",
+    "label": "Studio crit",
+    "excerpt": "Okay so crit went so well! They loved the ring prototype, we just need to tighten the demo video before Friday.",
+    "transcript": "Okay so crit went so well! They loved the ring prototype, we just need to tighten the demo video before Friday.",
+    "rangeLabel": "0:00-0:07",
+    "parentMemoId": "demo-memo-0",
+    "parentMemoMessage": {
+     "voiceMessageId": "demo-memo-0",
+     "threadId": "demo-thread-0-0",
+     "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+     "author": {
+      "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "name": "Kimaya",
+      "initials": "K",
+      "color": "#B8D8FF",
+      "avatarUrl": "/demo/avatars/kimaya.jpg"
+     },
+     "audioUrl": "/demo/audio/demo-memo-0.m4a",
+     "audioPath": null,
+     "parentMemoId": "demo-memo-0",
+     "heardByCurrentUser": true,
+     "playedMs": 0,
+     "id": "memo-demo-thread-0-0",
+     "durationMs": 12970,
+     "label": "Full memo",
+     "transcript": "",
+     "excerpt": "",
+     "startMs": 0,
+     "endMs": 12970,
+     "sentAt": -93600000
+    },
+    "createdAt": -93600000,
+    "lastActivityAt": -93600000,
+    "unheardCount": 0,
+    "messages": [
+     {
+      "voiceMessageId": "demo-memo-0",
+      "threadId": "demo-thread-0-0",
+      "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "author": {
+       "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+       "name": "Kimaya",
+       "initials": "K",
+       "color": "#B8D8FF",
+       "avatarUrl": "/demo/avatars/kimaya.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-memo-0.m4a",
+      "audioPath": null,
+      "parentMemoId": "demo-memo-0",
+      "heardByCurrentUser": true,
+      "playedMs": 0,
+      "id": "demo-memo-0-seg-0",
+      "durationMs": 6720,
+      "label": "Sharing the studio crit",
+      "transcript": "Okay so crit went so well! They loved the ring prototype, we just need to tighten the demo video before Friday.",
+      "excerpt": "Okay so crit went so well! They loved the ring prototype, we just need to tighten the demo video before Friday.",
+      "startMs": 0,
+      "endMs": 6720,
+      "sentAt": -93600000
+     }
+    ]
+   },
+   {
+    "id": "demo-thread-0-1",
+    "label": "Birthday gift",
+    "excerpt": "Also, did we decide on a gift for Melody? I was thinking a film camera, the little point and shoot kind.",
+    "transcript": "Also, did we decide on a gift for Melody? I was thinking a film camera, the little point and shoot kind.",
+    "rangeLabel": "0:07-0:13",
+    "parentMemoId": "demo-memo-0",
+    "parentMemoMessage": {
+     "voiceMessageId": "demo-memo-0",
+     "threadId": "demo-thread-0-1",
+     "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+     "author": {
+      "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "name": "Kimaya",
+      "initials": "K",
+      "color": "#B8D8FF",
+      "avatarUrl": "/demo/avatars/kimaya.jpg"
+     },
+     "audioUrl": "/demo/audio/demo-memo-0.m4a",
+     "audioPath": null,
+     "parentMemoId": "demo-memo-0",
+     "heardByCurrentUser": true,
+     "playedMs": 0,
+     "id": "memo-demo-thread-0-1",
+     "durationMs": 12970,
+     "label": "Full memo",
+     "transcript": "",
+     "excerpt": "",
+     "startMs": 0,
+     "endMs": 12970,
+     "sentAt": -93599999
+    },
+    "createdAt": -93599999,
+    "lastActivityAt": -86400000,
+    "unheardCount": 0,
+    "messages": [
+     {
+      "voiceMessageId": "demo-memo-0",
+      "threadId": "demo-thread-0-1",
+      "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "author": {
+       "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+       "name": "Kimaya",
+       "initials": "K",
+       "color": "#B8D8FF",
+       "avatarUrl": "/demo/avatars/kimaya.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-memo-0.m4a",
+      "audioPath": null,
+      "parentMemoId": "demo-memo-0",
+      "heardByCurrentUser": true,
+      "playedMs": 0,
+      "id": "demo-memo-0-seg-1",
+      "durationMs": 6250,
+      "label": "Suggests a film camera",
+      "transcript": "Also, did we decide on a gift for Melody? I was thinking a film camera, the little point and shoot kind.",
+      "excerpt": "Also, did we decide on a gift for Melody? I was thinking a film camera, the little point and shoot kind.",
+      "startMs": 6720,
+      "endMs": 12970,
+      "sentAt": -93599999
+     },
+     {
+      "id": "demo-reply-0",
+      "voiceMessageId": "demo-reply-0",
+      "threadId": "demo-thread-0-1",
+      "authorId": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+      "author": {
+       "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+       "name": "Sooim",
+       "initials": "S",
+       "color": "#DFFFB8",
+       "avatarUrl": "/assets/sooim.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-reply-0.m4a",
+      "audioPath": null,
+      "durationMs": 3110,
+      "label": "Offers to find a film camera",
+      "transcript": "Film camera is perfect. I'll find one this week.",
+      "excerpt": "Film camera is perfect. I'll find one this week.",
+      "startMs": 0,
+      "endMs": 3110,
+      "sentAt": -86400000,
+      "parentMemoId": null,
+      "heardByCurrentUser": true,
+      "playedMs": 0
+     }
+    ]
+   },
+   {
+    "id": "demo-thread-1-0",
+    "label": "Weekend plans",
+    "excerpt": "Guys, what should we do this weekend? I'm free Saturday after two, and I really want to try that new spot in Williamsburg.",
+    "transcript": "Guys, what should we do this weekend? I'm free Saturday after two, and I really want to try that new spot in Williamsburg.",
+    "rangeLabel": "0:00-0:07",
+    "parentMemoId": "demo-memo-1",
+    "parentMemoMessage": {
+     "voiceMessageId": "demo-memo-1",
+     "threadId": "demo-thread-1-0",
+     "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+     "author": {
+      "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "name": "Lucy",
+      "initials": "L",
+      "color": "#DEC0F8",
+      "avatarUrl": "/demo/avatars/lucy.jpg"
+     },
+     "audioUrl": "/demo/audio/demo-memo-1.m4a",
+     "audioPath": null,
+     "parentMemoId": "demo-memo-1",
+     "heardByCurrentUser": false,
+     "playedMs": 0,
+     "id": "memo-demo-thread-1-0",
+     "durationMs": 19890,
+     "label": "Full memo",
+     "transcript": "",
+     "excerpt": "",
+     "startMs": 0,
+     "endMs": 19890,
+     "sentAt": -7200000
+    },
+    "createdAt": -7200000,
+    "lastActivityAt": -5400000,
+    "unheardCount": 2,
+    "messages": [
+     {
+      "voiceMessageId": "demo-memo-1",
+      "threadId": "demo-thread-1-0",
+      "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "author": {
+       "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+       "name": "Lucy",
+       "initials": "L",
+       "color": "#DEC0F8",
+       "avatarUrl": "/demo/avatars/lucy.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-memo-1.m4a",
+      "audioPath": null,
+      "parentMemoId": "demo-memo-1",
+      "heardByCurrentUser": false,
+      "playedMs": 0,
+      "id": "demo-memo-1-seg-0",
+      "durationMs": 6730,
+      "label": "Asking about weekend plans",
+      "transcript": "Guys, what should we do this weekend? I'm free Saturday after two, and I really want to try that new spot in Williamsburg.",
+      "excerpt": "Guys, what should we do this weekend? I'm free Saturday after two, and I really want to try that new spot in Williamsburg.",
+      "startMs": 0,
+      "endMs": 6730,
+      "sentAt": -7200000
+     },
+     {
+      "id": "demo-reply-1",
+      "voiceMessageId": "demo-reply-1",
+      "threadId": "demo-thread-1-0",
+      "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "author": {
+       "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+       "name": "Kimaya",
+       "initials": "K",
+       "color": "#B8D8FF",
+       "avatarUrl": "/demo/avatars/kimaya.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-reply-1.m4a",
+      "audioPath": null,
+      "durationMs": 4220,
+      "label": "Suggests dinner in Williamsburg",
+      "transcript": "Saturday works! I'm down for Williamsburg, let's get dinner after.",
+      "excerpt": "Saturday works! I'm down for Williamsburg, let's get dinner after.",
+      "startMs": 0,
+      "endMs": 4220,
+      "sentAt": -5400000,
+      "parentMemoId": null,
+      "heardByCurrentUser": false,
+      "playedMs": 0
+     }
+    ]
+   },
+   {
+    "id": "demo-thread-1-1",
+    "label": "Date outfit advice",
+    "excerpt": "Omg also, I think I might be going on a date tonight? I need outfit help. Black dress, or jeans and the white top?",
+    "transcript": "Omg also, I think I might be going on a date tonight? I need outfit help. Black dress, or jeans and the white top?",
+    "rangeLabel": "0:07-0:14",
+    "parentMemoId": "demo-memo-1",
+    "parentMemoMessage": {
+     "voiceMessageId": "demo-memo-1",
+     "threadId": "demo-thread-1-1",
+     "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+     "author": {
+      "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "name": "Lucy",
+      "initials": "L",
+      "color": "#DEC0F8",
+      "avatarUrl": "/demo/avatars/lucy.jpg"
+     },
+     "audioUrl": "/demo/audio/demo-memo-1.m4a",
+     "audioPath": null,
+     "parentMemoId": "demo-memo-1",
+     "heardByCurrentUser": false,
+     "playedMs": 0,
+     "id": "memo-demo-thread-1-1",
+     "durationMs": 19890,
+     "label": "Full memo",
+     "transcript": "",
+     "excerpt": "",
+     "startMs": 0,
+     "endMs": 19890,
+     "sentAt": -7199999
+    },
+    "createdAt": -7199999,
+    "lastActivityAt": -4320000,
+    "unheardCount": 2,
+    "messages": [
+     {
+      "voiceMessageId": "demo-memo-1",
+      "threadId": "demo-thread-1-1",
+      "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "author": {
+       "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+       "name": "Lucy",
+       "initials": "L",
+       "color": "#DEC0F8",
+       "avatarUrl": "/demo/avatars/lucy.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-memo-1.m4a",
+      "audioPath": null,
+      "parentMemoId": "demo-memo-1",
+      "heardByCurrentUser": false,
+      "playedMs": 0,
+      "id": "demo-memo-1-seg-1",
+      "durationMs": 7190,
+      "label": "Needs date outfit advice",
+      "transcript": "Omg also, I think I might be going on a date tonight? I need outfit help. Black dress, or jeans and the white top?",
+      "excerpt": "Omg also, I think I might be going on a date tonight? I need outfit help. Black dress, or jeans and the white top?",
+      "startMs": 6730,
+      "endMs": 13920,
+      "sentAt": -7199999
+     },
+     {
+      "id": "demo-reply-2",
+      "voiceMessageId": "demo-reply-2",
+      "threadId": "demo-thread-1-1",
+      "authorId": "user-f913d12c-f370-4c3b-b018-4d8d3c9a873e",
+      "author": {
+       "id": "user-f913d12c-f370-4c3b-b018-4d8d3c9a873e",
+       "name": "Melody",
+       "initials": "M",
+       "color": "#FFDEB8",
+       "avatarUrl": "/demo/avatars/mel.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-reply-2.m4a",
+      "audioPath": null,
+      "durationMs": 3460,
+      "label": "Votes for jeans and the white top",
+      "transcript": "Jeans and the white top, no question. Send a pic!",
+      "excerpt": "Jeans and the white top, no question. Send a pic!",
+      "startMs": 0,
+      "endMs": 3460,
+      "sentAt": -4320000,
+      "parentMemoId": null,
+      "heardByCurrentUser": false,
+      "playedMs": 0
+     }
+    ]
+   },
+   {
+    "id": "demo-thread-1-2",
+    "label": "Melody\u2019s birthday brunch",
+    "excerpt": "And we can't forget to plan Melody\u2019s birthday brunch. Let's book something this week before it's too late to get a table.",
+    "transcript": "And we can't forget to plan Melody\u2019s birthday brunch. Let's book something this week before it's too late to get a table.",
+    "rangeLabel": "0:14-0:20",
+    "parentMemoId": "demo-memo-1",
+    "parentMemoMessage": {
+     "voiceMessageId": "demo-memo-1",
+     "threadId": "demo-thread-1-2",
+     "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+     "author": {
+      "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "name": "Lucy",
+      "initials": "L",
+      "color": "#DEC0F8",
+      "avatarUrl": "/demo/avatars/lucy.jpg"
+     },
+     "audioUrl": "/demo/audio/demo-memo-1.m4a",
+     "audioPath": null,
+     "parentMemoId": "demo-memo-1",
+     "heardByCurrentUser": false,
+     "playedMs": 0,
+     "id": "memo-demo-thread-1-2",
+     "durationMs": 19890,
+     "label": "Full memo",
+     "transcript": "",
+     "excerpt": "",
+     "startMs": 0,
+     "endMs": 19890,
+     "sentAt": -7199998
+    },
+    "createdAt": -7199998,
+    "lastActivityAt": -7199998,
+    "unheardCount": 1,
+    "messages": [
+     {
+      "voiceMessageId": "demo-memo-1",
+      "threadId": "demo-thread-1-2",
+      "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "author": {
+       "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+       "name": "Lucy",
+       "initials": "L",
+       "color": "#DEC0F8",
+       "avatarUrl": "/demo/avatars/lucy.jpg"
+      },
+      "audioUrl": "/demo/audio/demo-memo-1.m4a",
+      "audioPath": null,
+      "parentMemoId": "demo-memo-1",
+      "heardByCurrentUser": false,
+      "playedMs": 0,
+      "id": "demo-memo-1-seg-2",
+      "durationMs": 5970,
+      "label": "Planning Melody\u2019s birthday brunch",
+      "transcript": "And we can't forget to plan Melody\u2019s birthday brunch. Let's book something this week before it's too late to get a table.",
+      "excerpt": "And we can't forget to plan Melody\u2019s birthday brunch. Let's book something this week before it's too late to get a table.",
+      "startMs": 13920,
+      "endMs": 19890,
+      "sentAt": -7199998
+     }
+    ]
+   }
+  ]
+ }
+}

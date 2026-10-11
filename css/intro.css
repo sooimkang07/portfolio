@@ -11,6 +11,12 @@
 .home .home-hero__media { background: #FAFCFD; }   /* the reel's own backdrop, so nothing grey shows before its first frame */
 .home .home-hero__video { object-fit: contain; }   /* tall windows: the whole 16:9 reel, centred */
 @media (min-aspect-ratio: 31/20) { .home .home-hero__video { object-fit: cover; } }   /* wide windows: edge to edge */
+/* Clicked, the same video becomes a full-window player (js/site.js), above the header and the chat widget. */
+body.home.is-showreel-open .home-hero { z-index: 10000; }
+.home .home-hero__media.is-player { position: fixed; inset: 0; background: #000; }
+.home .home-hero__media.is-player .home-hero__video { object-fit: contain; }   /* the whole frame, letterboxed */
+body.home.is-showreel-open .home-cursor { z-index: 10001; }
+.home .home-hero__media:focus-visible { outline: 2px solid rgb(0 122 255 / .6); outline-offset: -4px; }
 /* The boxed reel under the greeting strip (restore with .home-greeting in index.html):
 .home .home-hero { margin-inline: var(--gutter); }
 .home .home-hero__pin { position: relative; block-size: auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg); }
@@ -22,7 +28,7 @@ html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 
 .portfolio-intro { position: fixed; inset: 0; z-index: 100000; overflow: hidden; background: var(--clr-bg); color: var(--clr-text); }
 .portfolio-intro__text { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
 .portfolio-intro__line { display: block; font-size: clamp(32px, 6vw, 90px); font-weight: var(--h-fw); line-height: 1.12; letter-spacing: var(--h1-ls); white-space: nowrap; transform-origin: top left; } /* same em tracking as the strip, so the scaled text lands at its exact width */
-.intro-replay { font: inherit; font-size: 12px; color: var(--clr-text); padding: 10px 15px; border: 1px solid color-mix(in srgb, var(--clr-text) 19%, transparent); border-radius: var(--r-pill); background: var(--clr-bg); cursor: pointer; }
+.intro-replay { font: inherit; font-size: var(--fs-base); color: var(--clr-text); padding: 10px 15px; border: 1px solid color-mix(in srgb, var(--clr-text) 19%, transparent); border-radius: var(--r-pill); background: var(--clr-bg); cursor: pointer; }
 .intro-replay { position: fixed; z-index: 9999; left: var(--gutter); bottom: 24px; }
 @media (max-width: 700px) {
  .home-greeting { min-height: 32svh; padding-block: 100px 32px; }

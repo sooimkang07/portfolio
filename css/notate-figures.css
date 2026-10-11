@@ -7,14 +7,6 @@ body.notate-page .nt-decision p:not(.nt-kicker) { color: var(--nt-ink, var(--clr
 .nt-lead { color: var(--nt-ink, var(--clr-text)); font-weight: 500; font-size: 17px; line-height: 1.4; margin-bottom: 8px; }
 body.notate-page .nt-section .nt-step-label { font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--nt-muted, var(--clr-muted-strong)); margin-bottom: 10px; }
 
-/* Shared figure panel: dotted grid, rounded */
-.ntf-panel {
-	position: relative;
-	border-radius: 20px;
-	background: radial-gradient(circle, rgb(32 38 45 / .07) .6px, transparent .9px) 0 0 / 10px 10px, var(--clr-panel);
-	padding: clamp(16px, 3vw, 36px);
-	overflow: hidden;
-}
 .ntf-tag { font-size: var(--label-fs); font-weight: var(--label-fw); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--clr-muted); }
 
 /* Ladder: each fix creates the next problem */
@@ -28,7 +20,7 @@ body.notate-page .nt-section .nt-step-label { font-size: var(--label-fs); font-w
 		border-top: 1.5px dashed rgb(32 38 45 / .35);
 	}
 }
-.ntf-step { position: relative; background: #fff; border-radius: 12px; padding: 12px; box-shadow: 0 0 0 1px var(--clr-border), 0 12px 24px -18px rgb(32 38 45 / .25); }
+.ntf-step { position: relative; background: #fff; border-radius: var(--r-md); padding: 12px; box-shadow: 0 0 0 1px var(--clr-border), 0 12px 24px -18px rgb(32 38 45 / .25); }
 .ntf-step .ntf-tag { display: block; margin: 14px 4px 0; }
 .body-copy.ntf-text, .ntf-step p.ntf-text { font-size: 15px; line-height: 1.45; color: var(--clr-text); margin: 8px 4px 0; }
 .ntf-fail { display: inline-flex; gap: 6px; margin: 10px 4px 2px; font-size: 12px; color: #b4412f; }
@@ -52,37 +44,6 @@ body.notate-page .nt-section .nt-step-label { font-size: var(--label-fs); font-w
 .mb__notes { border-radius: 4px; background: #fffbea; padding: 5px; display: grid; gap: 4px; align-content: start; }
 .mb__notes .mb__line { background: #f0e6bd; }
 
-/* Anatomy: the screen on top, four labels below, joined by dashed lines */
-/* Callout figure: cards flank the screenshot; dashed elbows run from each card's icon to a pin */
-.ntc { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
-.ntc-shot { position: relative; }
-.ntc-shot img, body.notate-page .ntc-shot img { display: block; width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; border-radius: 12px; box-shadow: 0 0 0 1px var(--clr-border), 0 16px 32px -20px rgb(28 36 48 / .25); }
-.ntc-pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--clr-text); box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--clr-border); }
-.ntc-card { position: relative; background: #fff; border-radius: 12px; padding: 14px 16px; box-shadow: 0 0 0 1px var(--clr-border); }
-.ntc-card .ntf-tag { margin: 0 0 6px; color: var(--clr-muted); }
-body.notate-page main .nt-section .ntc-card p.ntc-text { margin: 0; font-size: 14px; line-height: 1.45; color: var(--clr-text); }
-.ntc-icon { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-bottom: 10px; border-radius: 50%; background: #fff; color: var(--clr-text); box-shadow: 0 0 0 1px var(--clr-border), 0 2px 6px rgb(28 36 48 / .08); }
-.ntc-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-@media (width < 900px) {
-	.ntc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.ntc-shot { grid-column: 1 / -1; order: -1; }
-}
-@media (width >= 900px) {
-	/* Cards in the outer columns; each icon sits on the card edge facing the screenshot, where its line starts */
-	.ntc { grid-template-columns: minmax(0, 1fr) minmax(0, 3.2fr) minmax(0, 1fr); grid-template-rows: repeat(2, auto); gap: 20px 32px; align-items: center; align-content: center; aspect-ratio: 16 / 9; }
-	.ntc-shot { grid-column: 2; grid-row: 1 / span 2; }
-	.ntc-card--left { grid-column: 1; }
-	.ntc-card--right { grid-column: 3; }
-	.ntc-card[data-to="element"], .ntc-card[data-to="folders"] { grid-row: 1; align-self: start; }
-	.ntc-card[data-to="note"], .ntc-card[data-to="panel"] { grid-row: 2; align-self: end; }
-	.ntc-icon { position: absolute; top: 50%; margin: 0; translate: 0 -50%; }
-	.ntc-card--left .ntc-icon { right: 0; translate: 50% -50%; }
-	.ntc-card--right .ntc-icon { left: 0; translate: -50% -50%; }
-}
-.ntf-lines { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: visible; }
-.ntf-lines > path { fill: none; stroke: rgb(32 38 45 / .4); stroke-width: 1.25; stroke-dasharray: 4 4; }
-.ntc-card, .ntc-pin { z-index: 2; }
-@media (width < 900px) { .ntf-lines { display: none; } }
 
 /* Figure text sizes (override the shared case body size) */
 body.case-page.notate-page main .nt-section .nt-feature-heading h3 { margin-bottom: 10px; }
@@ -93,7 +54,7 @@ body.notate-page main .nt-section p.ntf-tag { font-size: 11px; line-height: 1.4;
 
 /* Outcome stats */
 .ntf-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 32px; }
-.ntf-stat { background: #fff; border-radius: 20px; padding: 22px; box-shadow: 0 0 0 1px var(--clr-border); display: grid; gap: 6px; align-content: start; }
+.ntf-stat { background: #fff; border-radius: var(--r-lg); padding: 22px; box-shadow: 0 0 0 1px var(--clr-border); display: grid; gap: 6px; align-content: start; }
 .ntf-stat strong { font-size: clamp(36px, 4vw, 48px); line-height: 1; color: var(--clr-text); font-weight: 500; letter-spacing: -.03em; }
 .ntf-stat--accent strong { color: #c79a00; }
 .nt-section .ntf-stat p { font-size: 14px; line-height: 1.45; }
@@ -107,8 +68,3 @@ body.notate-page main .nt-section p.nt-step-label { font-size: var(--label-fs); 
 /* ── Research: each fix creates the next problem (1920×1080 illustration) ── */
 .ntl-fig .ntl-svg { display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1080; font-family: inherit; }
 
-/* ── Build: doc map (same diagram + on-page title as yap's "The spec the agents built from") ── */
-.yap-diagram svg { display: block; width: 100%; height: auto; }
-body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: 15px; font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
-body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
-body.case-page main .yap-diagram + .nt-reading { margin-top: 56px; }

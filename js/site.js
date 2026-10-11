@@ -313,14 +313,14 @@
     }
   }
 
-  /* ── Showreel: cursor, play overlay, corner toggle ───────── */
+  /* ── Showreel: plays through once (js/intro.js starts it) and rests on its last frame, the greeting.
+        A click opens the same video as a full-window player, so nothing reloads or has to seek a second copy. ── */
   const media = document.querySelector('[data-ref-showreel-video]')
   const bgVideo = media && media.querySelector('.home-hero__video')
   const toggle = media && media.querySelector('.home-hero__toggle')
   const ringBar = media && media.querySelector('.home-hero__ring-bar')
   const toggleIcon = media && media.querySelector('.home-hero__toggle-icon')
-  const showreel = document.querySelector('.home-showreel')
-  const showreelVideo = showreel && showreel.querySelector('.home-showreel__video')
+  const isPlayerOpen = () => document.body.classList.contains('is-showreel-open')
 
   const ICONS = {
     pause: '<svg viewBox="0 0 10 10" aria-hidden="true"><rect x="2.4" y="1.3" width="1.4" height="7.4"></rect><rect x="6.2" y="1.3" width="1.4" height="7.4"></rect></svg>',
@@ -341,46 +341,54 @@
   }
 
   function openShowreel() {
-    if (!showreel || !showreelVideo) return
+    if (!media || !bgVideo || isPlayerOpen()) return
     setNavOpen(false)
-    showreel.hidden = false
+    media.classList.add('is-player')
     document.body.classList.add('is-showreel-open')
     showCursor('is-close-cursor')
-    if (bgVideo) bgVideo.pause()
-    showreelVideo.currentTime = bgVideo ? bgVideo.currentTime : 0
-    showreelVideo.muted = false
-    showreelVideo.play().catch(() => {
-      showreelVideo.muted = true
-      showreelVideo.play().catch(() => {})
+    // Mid-way through its first run it carries on from here; resting on the greeting, it starts over
+    if (bgVideo.paused || bgVideo.ended) bgVideo.currentTime = 0
+    bgVideo.muted = false
+    bgVideo.play().catch(() => {
+      bgVideo.muted = true
+      bgVideo.play().catch(() => {})
     })
   }
 
   function closeShowreel() {
-    if (!showreel || !showreelVideo) return
-    showreel.hidden = true
+    if (!media || !bgVideo || !isPlayerOpen()) return
+    media.classList.remove('is-player')
     document.body.classList.remove('is-showreel-open')
-    showCursor(null)
-    showreelVideo.pause()
-    showreelVideo.muted = true
-    if (bgVideo) {
-      bgVideo.currentTime = showreelVideo.currentTime
-      bgVideo.play().catch(() => {})
-      setToggleState(bgVideo.paused)
-    }
+    showCursor(media.matches(':hover') ? 'is-hero-cursor' : null)
+    bgVideo.muted = true
+    bgVideo.pause()
+    // Land on the greeting: the reel's first frame is the same strip it ends on
+    bgVideo.currentTime = 0
+    setToggleState(true)
   }
 
   if (media && bgVideo) {
-    media.addEventListener('pointerenter', () => {
-      if (!document.body.classList.contains('is-showreel-open')) showCursor('is-hero-cursor')
+    media.addEventListener('pointerenter', () => showCursor(isPlayerOpen() ? 'is-close-cursor' : 'is-hero-cursor'))
+    media.addEventListener('pointermove', () => {
+      if (isPlayerOpen() && !document.body.classList.contains('is-close-cursor')) showCursor('is-close-cursor')
     })
     media.addEventListener('pointerleave', () => {
-      if (!document.body.classList.contains('is-showreel-open')) showCursor(null)
+      if (!isPlayerOpen()) showCursor(null)
     })
 
     media.addEventListener('click', e => {
       if (e.target.closest('.home-hero__toggle')) return
-      openShowreel()
+      if (isPlayerOpen()) closeShowreel()
+      else openShowreel()
     })
+    media.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && !isPlayerOpen()) {
+        e.preventDefault()
+        openShowreel()
+      }
+    })
+    // The player closes itself when the reel ends, landing back on the greeting
+    bgVideo.addEventListener('ended', closeShowreel)
 
     if (toggle) {
       toggle.addEventListener('click', e => {
@@ -396,16 +404,8 @@
     bgVideo.addEventListener('pause', () => setToggleState(true))
   }
 
-  if (showreel) {
-    showreel.addEventListener('click', () => closeShowreel())
-    showreel.addEventListener('pointerenter', () => showCursor('is-close-cursor'))
-    showreel.addEventListener('pointermove', () => {
-      if (document.body.classList.contains('is-showreel-open')) showCursor('is-close-cursor')
-    })
-  }
-
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && document.body.classList.contains('is-showreel-open')) {
+    if (e.key === 'Escape' && isPlayerOpen()) {
       e.preventDefault()
       closeShowreel()
     }
@@ -559,10 +559,11 @@
     })
   }
 
-  /* ── Keep hero video playing ─────────────────────────────── */
+  /* ── Start the hero reel when there was no intro (it plays through once) ── */
   window.addEventListener('load', () => {
     // While the intro is up it owns the start: it plays the reel when it lands on its first frame (js/intro.js).
-    if (document.querySelector('.portfolio-intro')) return
+    // With reduced motion the reel waits on its first frame, the greeting, until someone clicks it.
+    if (reduceMotion || document.querySelector('.portfolio-intro')) return
     document.querySelectorAll('.home-hero video').forEach(video => {
       video.play().catch(() => {})
     })

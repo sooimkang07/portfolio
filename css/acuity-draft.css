@@ -17,11 +17,11 @@ body.case-page main{--ac:#7F9BC9;--ac-soft:#C9D5EA;--ink-3:#C5CAD1;--dots:#EFF1F
 .ac-r--4{grid-template-columns:repeat(4,minmax(0,1fr))}
 body.case-page main .nt-step .nt-media{margin-top:32px}
 .ac-r__cell{min-width:0}
-.ac-r__card{position:relative;aspect-ratio:4/5;background:var(--dots);border-radius:var(--r-lg,20px);overflow:hidden;container-type:inline-size;display:flex;align-items:center;justify-content:center;color:#1c1d1c}
+.ac-r__card{position:relative;aspect-ratio:4/5;background:var(--dots);border-radius:var(--r-lg);overflow:hidden;container-type:inline-size;display:flex;align-items:center;justify-content:center;color:#1c1d1c}
 .ac-r--4 .ac-r__card{aspect-ratio:1/1}
-body.case-page main .ac-r .ac-r__name{margin:24px 0 4px;font-size:15px;font-weight:500;color:var(--clr-text,#1c1d1c)}
-body.case-page main .ac-r .ac-r__why{margin:0;font-size:14px;line-height:1.45;color:var(--clr-muted,#626b76);text-wrap:pretty;max-width:none}
-.ac-src{display:block;margin-top:6px;font-size:12px;color:#8a8f98}
+body.case-page main .ac-r .ac-r__name{margin:24px 0 4px;font-size: var(--fs-base);font-weight:500;color:var(--clr-text,#1c1d1c)}
+body.case-page main .ac-r .ac-r__why{margin:0;font-size: var(--fs-base);line-height:1.45;color:var(--clr-muted,#626b76);text-wrap:pretty;max-width:none}
+.ac-src{display:block;margin-top:6px;font-size: var(--fs-base);color:#8a8f98}
 
 /* Glass icons (why now, interviews) */
 .ac-glass{width:88%;height:auto;display:block;filter:drop-shadow(0 4cqw 6cqw rgba(28,29,28,.08))}
@@ -94,7 +94,7 @@ body.case-page main .ac-r p.ac-roi__lab{margin:2cqw 0 8cqw;font-size:4.6cqw;colo
 .ac-r__card>svg .ac-g-acc{stroke:var(--ac)}
 
 /* ── Phone strip in one dotted panel (yap style) ── */
-.ac-phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:clamp(28px,5vw,56px) clamp(16px,6vw,72px) clamp(24px,4vw,44px);background:var(--dots);border-radius:var(--r-lg,20px);container-type:inline-size}
+.ac-phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:clamp(28px,5vw,56px) clamp(16px,6vw,72px) clamp(24px,4vw,44px);background:var(--dots);border-radius:var(--r-lg);container-type:inline-size}
 .ac-phones--5{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:clamp(24px,4vw,44px) clamp(12px,3vw,32px) clamp(20px,3.4vw,36px)}
 .ac-phones__step{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
 .ac-phone{width:88%;aspect-ratio:403/874;border-radius:13%/6%;border:.7cqw solid #1c1d1c;background:#fff;overflow:hidden;box-shadow:0 2cqw 4cqw -1.6cqw rgba(28,29,28,.35)}
@@ -112,12 +112,12 @@ body.case-page main .ac-phones--5 .ac-phones__lab{font-size:1.8cqw}
 
 /* ── Take action: three 4:5 clip cards ── */
 .ac-take{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,12px)}
-.ac-take__cell{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg,20px);overflow:hidden;background:#E4E5E9}
+.ac-take__cell{position:relative;aspect-ratio:2/3;border-radius:var(--r-lg);overflow:hidden;background:#E4E5E9}
 body.case-page main .ac-take__cell video{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;object-fit:cover;border-radius:0}
 .ac-take__cell.ac-take__cell--ring video{transform:scale(1.04)}
 body.case-page main .ac-take__cell--wrist video{inset:auto;left:50%;top:50%;width:125%;height:80%;transform:translate(-50%,-50%) rotate(-90deg);object-position:center}
-.ac-take__cell--phone{background:#E4E5E9 url("../acuity-assets/acuity-core-bg.png") center/cover no-repeat}
-body.case-page main .ac-take__cell--phone video{inset:6% 0;height:88%;object-fit:contain;background:transparent;filter:brightness(1.035)}
+.ac-take__cell--phone{background:rgb(210,212,212)}
+body.case-page main .ac-take__cell--phone video{inset:4% 0;height:92%;object-fit:contain;background:transparent}
 .ac-take+.ac-r{margin-top:var(--gap-media,12px)!important}
 
 /* ── AI journey diagram ── */
@@ -129,7 +129,7 @@ body.case-page main .ac-take__cell--phone video{inset:6% 0;height:88%;object-fit
 
 /* ── Iteration photos: landscape + portrait at one height ── */
 .ac-iter{display:grid;grid-template-columns:3.16fr 1fr;gap:var(--gap-media,12px);margin-top:40px!important}
-.ac-iter .cs-cell{border-radius:var(--r-lg,20px);overflow:hidden}
+.ac-iter .cs-cell{border-radius:var(--r-lg);overflow:hidden}
 .ac-iter img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ── Responsive ── */
@@ -152,14 +152,14 @@ body.case-page main .ac-take__cell--phone video{inset:6% 0;height:88%;object-fit
   .ac-phones--5{grid-template-columns:repeat(3,minmax(0,1fr))}
   body.case-page main .ac-phones--5 .ac-phones__num span{width:6cqw;height:6cqw;font-size:3cqw}
   body.case-page main .ac-phones--5 .ac-phones__lab{font-size:3cqw}
-  .ac-journey{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-lg,20px)}
+  .ac-journey{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-lg)}
   .ac-journey__scroll{width:760px}
 }
 .cs-gallery.cs-n2.ac-wide .cs-cell{aspect-ratio:16/9}
 
 
 /* Feature rows: yap's 4:5 video panel; tall phone clips scaled to fit, label cropped */
-body.case-page main .ac-feat .dx-media{aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-lg,20px);background:linear-gradient(#DBE0DC,#D0D8DD)}
+body.case-page main .ac-feat .dx-media{aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-lg);background:linear-gradient(#DBE0DC,#D0D8DD)}
 body.case-page main .ac-feat .dx-media>video{position:absolute;left:4%;top:50%;width:92%;height:auto;max-width:none;transform:translateY(-49%);border-radius:0}
 
 /* Phone strips: yap's strip markup with framed screens */
@@ -187,25 +187,25 @@ body.case-page main .fig.ac-strip--3 .flow{position:absolute!important;inset:0;p
 @media (max-width:760px){body.case-page main .ac-strip--3 .strip .mini.phone{width:22cqw!important}body.case-page main .fig.ac-strip--3{aspect-ratio:4/3!important}}
 
 /* Prominent links: dark pill, as yap's Try button */
-body.case-page main a.ac-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:10px 18px;border-radius:999px;background:#1c1d1c;color:#fff!important;text-decoration:none;font-size:15px;font-weight:500;line-height:1.2;transition:background .2s,transform .2s}
+body.case-page main a.ac-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:10px 18px;border-radius:999px;background:#1c1d1c;color:#fff!important;text-decoration:none;font-size: var(--fs-base);font-weight:500;line-height:1.2;transition:background .2s,transform .2s}
 body.case-page main a.ac-btn:hover{background:#3a3b3a;transform:translateY(-1px)}
-body.case-page main .nt-meta a.ac-btn{font-size:14px;padding:8px 14px}
+body.case-page main .nt-meta a.ac-btn{font-size: var(--fs-base);padding:8px 14px}
 
 
 /* Setting: copy beside the Instagram post (yap feedback row), photos full width below */
 @media (min-width:960px){body.case-page main .ac-feedback{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}}
-body.case-page main .ac-ig{display:block;margin:0;padding:24px 16px;border-radius:var(--r-lg,20px);background:#EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px;}
+body.case-page main .ac-ig{display:block;margin:0;padding:24px 16px;border-radius:var(--r-lg);background:#EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px;}
 body.case-page main .ac-ig .instagram-media{width:100%!important;max-width:420px!important;min-width:260px!important;margin:0 auto!important;border-radius:14px!important;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)!important}
 body.case-page main .ac-ig iframe{border-radius:14px!important}
 body.case-page main .ac-feedback>.ac-setting{grid-column:1/-1}
-body.case-page main .ac-setting{display:grid;grid-template-columns:1.778fr .8fr;gap:var(--gap-media,12px);margin-top:40px}
-body.case-page main .ac-setting .cs-cell{border-radius:var(--r-lg,20px);overflow:hidden}
+body.case-page main .ac-setting{display:grid;grid-template-columns:.8fr 1.778fr;gap:var(--gap-media,12px);margin-top:40px}
+body.case-page main .ac-setting .cs-cell{border-radius:var(--r-lg);overflow:hidden}
 body.case-page main .ac-setting img{display:block;width:100%;height:auto}
 
 /* How it works · 03: clip cards with a caption under each */
 .ac-take__item{min-width:0}
-body.case-page main .ac-take .ac-take__name{margin:24px 0 4px;font-size:15px;font-weight:500;color:var(--clr-text,#1c1d1c)}
-body.case-page main .ac-take .ac-take__why{margin:0;font-size:14px;line-height:1.45;color:var(--clr-muted,#626b76);max-width:none;text-wrap:pretty}
+body.case-page main .ac-take .ac-take__name{margin:24px 0 4px;font-size: var(--fs-base);font-weight:500;color:var(--clr-text,#1c1d1c)}
+body.case-page main .ac-take .ac-take__why{margin:0;font-size: var(--fs-base);line-height:1.45;color:var(--clr-muted,#626b76);max-width:none;text-wrap:pretty}
 body.case-page main .ac-take__cell video.nt-video{background:transparent}
 .ac-take+.ac-r{margin-top:40px!important}
 @media (max-width:760px){.ac-take{grid-template-columns:1fr}.ac-take__cell--phone{aspect-ratio:4/5!important}}
@@ -214,6 +214,125 @@ body.case-page main .ac-take__cell video.nt-video{background:transparent}
 body.case-page main .ac-flow .dx-media{background:#DDE2E6}
 body.case-page main .ac-flow .dx-media>video{position:static;width:100%;height:100%;transform:none;object-fit:cover}
 .ac-take.ac-take--2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.ac-flowcard{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg,20px);overflow:hidden;background:#DDE2E6}
+.ac-flowcard{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:#DDE2E6}
 body.case-page main .ac-flowcard video{display:block;width:100%;height:100%;object-fit:cover;background:transparent}
 @media (max-width:760px){.ac-take.ac-take--2{grid-template-columns:1fr}}
+
+/* Card rows of 2 / 3 */
+.ac-take.ac-take--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Solution · meet the system */
+.ac-meet .ac-take__cell{background:var(--dots)}
+.ac-meet__ai{display:flex;align-items:center;justify-content:center}
+.ac-meet__ai .ac-glass{width:70%}
+.ac-meet__app{display:flex;align-items:center;justify-content:center}
+.ac-meet__app img{height:86%;width:auto;filter:drop-shadow(0 12px 18px rgba(28,29,28,.14))}
+body.case-page main .ac-meet+.nt-step{margin-top:72px}
+/* Text cards: competitors, mentor notes */
+.ac-comp{flex-direction:column;gap:2cqw;text-align:center;padding:8%}
+body.case-page main .ac-r p.ac-comp__who,body.case-page main .ac-r p.ac-comp__num{margin:0;font-size:5cqw;letter-spacing:.08em;text-transform:uppercase;color:#8a8f98}
+body.case-page main .ac-r p.ac-comp__verb{margin:0;font-size:15cqw;font-weight:500;letter-spacing:-.04em;line-height:1;color:#1c1d1c}
+body.case-page main .ac-r p.ac-comp__verb--sm{font-size:10cqw;line-height:1.05}
+@media (max-width:760px){.ac-take.ac-take--3{grid-template-columns:1fr}.ac-take__cell{aspect-ratio:4/5}}
+.ac-meet .ac-take__cell.ac-meet__ai{background:#DCE1E6 radial-gradient(#C9CFD5 .6px,transparent .9px) 0 0/10px 10px}
+
+/* ── Round 6 ─────────────────────────────────────────────── */
+/* Solution: yap step-card proportions */
+.ac-solcard{position:relative;aspect-ratio:4/5.8;border-radius:var(--r-lg);overflow:hidden;background:#E4E6E9}
+body.case-page main .ac-solcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
+.ac-solcard--phone{background:linear-gradient(#DDDFE3,#DEE0D6)}
+/* Vitals: the clips' own 458x272 proportions */
+.ac-vitalcard{position:relative;aspect-ratio:458/272;border-radius:var(--r-lg);overflow:hidden;background:#EFF1F3}
+body.case-page main .ac-vitalcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
+/* Gesture beside its phone result: columns sized by aspect so heights match */
+.ac-pair{display:grid;gap:var(--gap-media,12px);align-items:stretch}
+.ac-pair--phone{grid-template-columns:1.859fr .4845fr}
+.ac-pair--frame{grid-template-columns:1.859fr .8fr}
+.ac-pair__cell{border-radius:var(--r-lg);overflow:hidden;background:#E4E6E9}
+body.case-page main .ac-pair__cell video{display:block;width:100%;height:100%;object-fit:cover;background:transparent}
+.ac-pair--phone .ac-pair__cell--tall{background:rgb(206,208,208)}
+/* SVG diagrams on the dotted panel */
+.ac-svgfig svg{display:block;width:100%;height:auto}
+/* Persona */
+.ac-persona{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:var(--gap-media,12px)}
+.ac-persona__photo{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#E4E6E9;min-height:100%}
+.ac-persona__photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;aspect-ratio:4/5}
+.ac-persona__id{position:absolute;left:0;right:0;bottom:0;padding:56px 20px 18px;background:linear-gradient(transparent,rgba(20,22,24,.72));color:#fff}
+body.case-page main .ac-persona p{margin:0;max-width:none}
+body.case-page main .ac-persona .ac-persona__name{font-size:20px;font-weight:500;color:#fff}
+body.case-page main .ac-persona .ac-persona__role{font-size: var(--fs-base);color:rgba(255,255,255,.8)}
+body.case-page main .ac-persona .ac-persona__quote{margin-top:10px;font-size: var(--fs-base);color:#fff;font-style:italic}
+.ac-persona__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap-media,12px)}
+.ac-persona__col{background:var(--dots);border-radius:var(--r-lg);padding:22px 22px 18px}
+body.case-page main .ac-persona .ac-persona__lab{font-size: 12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8f98;margin-bottom:10px}
+body.case-page main .ac-persona ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+body.case-page main .ac-persona li{font-size: var(--fs-base);line-height:1.4;color:#1c1d1c;padding-left:14px;position:relative}
+body.case-page main .ac-persona li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:#9aa0a8}
+/* Persona journey (design scenario) */
+.ac-journey2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-media,12px);margin-top:var(--gap-media,12px)!important}
+.ac-journey2__step{background:#fff;border:1px solid #E1E4E8;border-radius:var(--r-md);padding:18px}
+body.case-page main .ac-journey2 p{margin:0;max-width:none}
+body.case-page main .ac-journey2 .ac-journey2__when{font-size: 12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8f98}
+body.case-page main .ac-journey2 .ac-journey2__what{margin:6px 0 6px;font-size:16px;font-weight:500;color:#1c1d1c}
+body.case-page main .ac-journey2 .ac-journey2__why{font-size: var(--fs-base);line-height:1.45;color:#626b76}
+/* Design decisions: need → decision → rationale → tradeoff */
+.ac-dd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-media,12px);margin-top:28px}
+.ac-dd__cell{background:#F4F5F7;border-radius:var(--r-md);padding:18px}
+body.case-page main .ac-dd p{margin:0;max-width:none}
+body.case-page main .ac-dd .ac-dd__lab{font-size: 12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8f98;margin-bottom:8px}
+body.case-page main .ac-dd .ac-dd__txt{font-size: var(--fs-base);line-height:1.5;color:#1c1d1c}
+body.case-page main .ac-decision .ac-dd+.nt-media{margin-top:var(--gap-media,12px)}
+/* Deterministic / AI / user control */
+.ac-ctrl{flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:9% 8%;aspect-ratio:auto!important;min-height:100%}
+.ac-ctrl--ai{background:#E8EEF8 radial-gradient(#D3DCEA .6px,transparent .9px) 0 0/10px 10px}
+body.case-page main .ac-r .ac-ctrl__lab{margin:0 0 5cqw;font-size:6.4cqw;font-weight:500;color:#1c1d1c}
+body.case-page main .ac-ctrl ul{margin:0;padding:0;list-style:none;display:grid;gap:3.4cqw}
+body.case-page main .ac-ctrl li{font-size:5.2cqw;line-height:1.35;color:#3d4146}
+.ac-r:has(.ac-ctrl) .ac-r__card{aspect-ratio:auto}
+/* Disclaimer line */
+body.case-page main .ac-note{display:block;font-size: var(--fs-base);color:#626b76}
+/* Responsive */
+@media (max-width:960px){.ac-dd{grid-template-columns:repeat(2,minmax(0,1fr))}.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .ac-persona{grid-template-columns:1fr}.ac-persona__grid{grid-template-columns:1fr 1fr}
+  .ac-pair--phone,.ac-pair--frame{grid-template-columns:1fr}
+  .ac-pair--phone .ac-pair__cell--tall,.ac-pair--frame .ac-pair__cell--tall{max-width:60%;justify-self:center}
+  .ac-svgfig{overflow-x:auto}.ac-svgfig svg{width:760px}
+  .ac-sol .ac-solcard{aspect-ratio:4/5}
+}
+@media (max-width:520px){.ac-dd,.ac-journey2,.ac-persona__grid{grid-template-columns:1fr}}
+
+/* ── Round 7: tightened layout ── */
+.ac-dd.ac-dd--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ac-gestcard{position:relative;aspect-ratio:16/9;border-radius:var(--r-lg,20px);overflow:hidden;background:#E4E6E9}
+body.case-page main .ac-gestcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
+.ac-gest{row-gap:32px}
+@media (max-width:760px){.ac-dd.ac-dd--3{grid-template-columns:1fr}}
+/* "You respond" clip: anchor to the top of the card so the fingers stay in frame */
+body.case-page main .ac-sol .ac-take__item:nth-child(2) .ac-solcard video{object-position:center top}
+/* User interviews: one 16:9 figure, three quotes */
+.fig.ac-quotes .cards{align-items:stretch;gap:1.8cqw}
+.fig.ac-quotes .flow{padding:4cqw}
+.fig.ac-quotes .quote{display:flex;flex-direction:column}
+.fig.ac-quotes .q-head{background:#E6E9EC;color:#626b76;font-size:1.35cqw;padding:1.2cqw 2.4cqw;min-height:6.2cqw;display:flex;align-items:center;line-height:1.3}
+.fig.ac-quotes .q-txt{flex:1;font-size:3cqw;line-height:1.3;letter-spacing:-.02em;color:#1c1d1c;padding:3cqw 2.4cqw 4.4cqw}
+/* Maya's journey as a timeline: one rail, a dot per moment, the action highlighted */
+.ac-journey2{position:relative;gap:0 28px;padding:28px 28px 26px;background:var(--dots);border-radius:var(--r-lg,20px)}
+.ac-journey2::before{content:"";position:absolute;left:28px;right:28px;top:52px;height:2px;background:#C9CED4;border-radius:2px}
+.ac-journey2__step{position:relative;background:none;border:0;border-radius:0;padding:44px 0 0}
+.ac-journey2__step::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #9AA0A8;box-sizing:border-box}
+.ac-journey2__step:last-child::before{background:#1c1d1c;border-color:#1c1d1c;box-shadow:0 0 0 5px rgba(28,29,28,.1)}
+body.case-page main .ac-journey2 .ac-journey2__when{position:absolute;top:-6px;left:0}
+@media (max-width:960px){.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}.ac-journey2::before{display:none}}
+@media (max-width:520px){
+  .ac-journey2{grid-template-columns:1fr;row-gap:24px;padding-left:44px}
+  .ac-journey2::before{display:block;left:34px;right:auto;top:34px;bottom:34px;width:2px;height:auto}
+  .ac-journey2__step{padding:22px 0 0}
+  .ac-journey2__step::before{left:-17px;top:4px}
+  body.case-page main .ac-journey2 .ac-journey2__when{top:0}
+}
+.ac-persona__col,.ac-persona__grid{min-width:0}
+body.case-page main .ac-persona li{overflow-wrap:break-word}
+@media (max-width:1100px){
+  .ac-persona{grid-template-columns:1fr}
+  .ac-persona__photo img{aspect-ratio:16/10;object-position:50% 18%}
+}

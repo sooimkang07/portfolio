@@ -35,13 +35,8 @@
       "name": "yap-demo",
       "runtimeExecutable": "python3",
       "runtimeArgs": [
-        "-m",
-        "http.server",
-        "8792",
-        "--bind",
-        "127.0.0.1",
-        "--directory",
-        "/Users/sooimkang/Developer/yap"
+        "/Users/sooimkang/Developer/yap/demo/serve.py",
+        "8792"
       ],
       "port": 8792
     },

@@ -172,7 +172,7 @@
 
 	var root = h("div", "ts-root");
 	root.innerHTML =
-		'<div class="ts-banner" role="button" tabindex="-1" aria-hidden="true">' +
+		'<div class="ts-banner glass" role="button" tabindex="-1" aria-hidden="true">' +
 			'<span class="ts-banner__avatar" style="background-image:url(' + AVATAR + ')"></span>' +
 			'<span class="ts-banner__name">' + NAME + '</span><span class="ts-banner__time">now</span>' +
 			'<span class="ts-banner__text"></span>' +
@@ -624,8 +624,11 @@
 		setInterval(tick, 15000);
 		renderAll();
 		if (AUTO_OPEN) { open(); return; }
-		// One gentle banner per session, only after the visitor has settled in.
-		if (!state.seenBanner && !state.msgs.length) {
+		// One gentle banner, ever: only on Home, only on the first visit that hasn't chatted yet.
+		var onHome = !!document.querySelector(".home-hero");
+		var bannerSeen = state.seenBanner;
+		try { bannerSeen = bannerSeen || localStorage.getItem("ts-banner-seen") === "1"; } catch (e) {}
+		if (onHome && !bannerSeen && !state.msgs.length) {
 			setTimeout(function () {
 				if (root.classList.contains("is-open")) return;
 				banner.querySelector(".ts-banner__text").textContent = OPENERS.join(" ");
@@ -633,6 +636,7 @@
 				banner.setAttribute("aria-hidden", "false");
 				state.seenBanner = true;
 				save();
+				try { localStorage.setItem("ts-banner-seen", "1"); } catch (e) {}
 				setTimeout(function () { banner.classList.remove("is-shown"); banner.setAttribute("aria-hidden", "true"); }, 7000);
 			}, 6000);
 		}

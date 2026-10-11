@@ -7,7 +7,7 @@ body.case-page main .dx-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr
 body.case-page main .dx-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 body.case-page main .dx-cell { margin: 0; }
 body.case-page main .dx-cell .dx-media { border-radius: var(--r-md); }
-body.case-page main .dx-cell figcaption { margin-top: 0.6rem; font-size: 0.8rem; line-height: 1.4; color: #1c1d1c; }
+body.case-page main .dx-cell figcaption { margin-top: 0.6rem; font-size: var(--fs-base); line-height: 1.4; color: #1c1d1c; }
 body.case-page main .dx-cell figcaption span { display: block; color: #8a939e; }
 .fig .dx-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .fig .mini, .fig .mid, .fig .img, .fig .gcell { position: relative; overflow: hidden; }

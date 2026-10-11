@@ -20,9 +20,9 @@
 	--fw-semi: 600;
 	--fw-bold: 650;
 
-	--fs-xs:   clamp(0.6875rem, 0.85vw, 0.75rem);
-	--fs-sm:   clamp(0.875rem, 1vw, 0.975rem);
-	--fs-base: clamp(0.975rem, 1.1vw, 1.025rem);
+	--fs-xs:   clamp(0.6875rem, 0.85vw, 0.75rem);  /* caps labels, TOC */
+	--fs-sm:   var(--fs-base);                       /* body copy: body size is its floor */
+	--fs-base: clamp(0.9375rem, 1.05vw, 1rem);      /* 15 → 16: body copy, captions, meta — the floor */
 	--fs-md:   clamp(1.025rem, 1.35vw, 1.1875rem);
 	--fs-lg:   clamp(1.35rem, 2vw, 1.7rem);
 	--fs-xl:   clamp(1.8rem, 3.4vw, 2.7rem);
@@ -59,10 +59,10 @@
 	--flow-gap: 0.75rem;
 
 	/* Radius */
-	--r-xs: 4px;    /* tags, bars */
-	--r-sm: 8px;    /* thumbs, small controls */
-	--r-md: 12px;   /* all media and cards */
-	--r-lg: 20px;   /* portraits, feature media, panels */
+	--r-xs: 3px;    /* tags, bars */
+	--r-sm: 6px;    /* thumbs, small controls */
+	--r-md: 10px;   /* inner media, small cards */
+	--r-lg: 14px;   /* figures, feature media, panels */
 	--r-pill: 999px;
 
 	/* Elevation (non-glass) */

@@ -1,9 +1,9 @@
 /* yap case study: the live demo inside the iPhone frame. Loads on tap, then scales the
    402x848 app to fit the frame's screen. */
 (() => {
-	const DEMO = /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
-		? 'http://127.0.0.1:8792/?demo=1'
-		: 'https://www.joinyap.chat/?demo=1'
+	// A demo-only copy of the app ships with the site (yap-demo/, built by yap's demo/build-embed.sh),
+	// so visitors land in a seeded chat instead of the live app's phone sign-in.
+	const DEMO = new URL('yap-demo/?demo=1', location.href).href
 
 	document.querySelectorAll('[data-yap-demo]').forEach(stage => {
 		const screen = stage.querySelector('.yap-demo__screen')
