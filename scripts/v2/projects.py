@@ -19,8 +19,8 @@ PROJECTS = [
         line="Notes pinned to the part of the page you noticed",
         featured_h2="Notes pinned to the exact part of the page you noticed.",
         proof="Built solo · In Chrome Web Store review",
-        media=dict(video="notate-assets/notate-portfolio-motion/annotate.mp4",
-                   poster="notate-assets/notate-portfolio-motion/annotate-poster.png"),
+        media=dict(video="notate-assets/core-flows/unused/annotate.mp4",
+                   poster="notate-assets/core-flows/unused/annotate-poster.png"),
         icon="project-app-icons/icon-notate.png",
     ),
     dict(
@@ -66,7 +66,7 @@ FEATURED = ["yap", "notate", "instagram"]
 
 REEL = [  # home showreel segments, in order
     ("yap", "YAP", "covers/reel/yap.mp4", "covers/reel/yap.jpg"),
-    ("notate", "NOTATE", "notate-assets/notate-portfolio-motion/annotate.mp4", "notate-assets/notate-portfolio-motion/annotate-poster.png"),
+    ("notate", "NOTATE", "notate-assets/core-flows/unused/annotate.mp4", "notate-assets/core-flows/unused/annotate-poster.png"),
     ("instagram", "INSTAGRAM", "covers/reel/instagram.mp4", "covers/reel/instagram.jpg"),
     ("smart-bundles", "SMART BUNDLES", "covers/reel/smart-bundles.mp4", "covers/reel/smart-bundles.jpg"),
     ("neuk", "NEUK", "covers/reel/neuk.mp4", "covers/reel/neuk.jpg"),

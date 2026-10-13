@@ -50,8 +50,9 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 
 ## Open to-dos (as of 2026-10-12)
 
-- **Acuity, design decision 01:** convert `acuity-bp.mov`, `acuity-hr.mov` and `acuity-sleep.mov` (they will be in `acuity-assets/design-decision*/`; Sooim is adding them) to transparent `.webm` and swap them into the `.ac-vstack` figure. Convert with:
+- **Acuity, design decision 01:** convert `acuity-bp.mov`, `acuity-hr.mov` and `acuity-sleep.mov` (Sooim is adding them; put them and the `.webm` files in `acuity-assets/design-decisions/`) to transparent `.webm` and swap them into the `.ac-vstack` figure. Convert with:
   `ffmpeg -i in.mov -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 0 -crf 30 -an out.webm`
-- **Acuity, research landscape:** replace the positioning-map dots with the competitor logos in `acuity-assets/logos/` (not in the repo yet; Sooim is adding them: Apple Watch, Oura, WHOOP, Telehealth, 911) and `bracelet.png` for Acuity.
+- **Acuity, research landscape:** replace the positioning-map dots with the competitor logos (put them in `acuity-assets/research/`; not in the repo yet; Sooim is adding them: Apple Watch, Oura, WHOOP, Telehealth, 911) and `bracelet.png` for Acuity.
 - **Acuity, pitch:** `acuity-assets/pitch/acuity-pitch.jpg` is referenced by the page. Confirm it is present once pushed.
+- **Forage:** `forage-assets/iterations/forage-prd.pdf` (the PRD linked in Iterations) is referenced but not in the repo. Add the file.
 - **Yap:** `yap-assets/build/yap-build-design.png` is referenced by the component-library figure. Add the file.

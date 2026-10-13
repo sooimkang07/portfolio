@@ -20,6 +20,14 @@
 	}), { threshold: 0.15, rootMargin: '0px 0px -5% 0px' })
 	rows.forEach(r => io.observe(r))
 
+	/* Items marked data-ar-auto take the media's own proportions once it loads, so nothing is cropped */
+	document.querySelectorAll('.ex-item[data-ar-auto]').forEach(it => {
+		const m = it.querySelector('img, video')
+		const set = () => { const w = m.naturalWidth || m.videoWidth, h = m.naturalHeight || m.videoHeight; if (w && h) it.style.setProperty('--ar', `${w} / ${h}`) }
+		m.addEventListener(m.tagName === 'IMG' ? 'load' : 'loadedmetadata', set)
+		if (m.complete || m.readyState >= 1) set()
+	})
+
 	rows.forEach(row => {
 		const rail = row.querySelector('.ex-row__rail')
 		const [prev, next] = row.querySelectorAll('.ex-row__btn')

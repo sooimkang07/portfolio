@@ -100,5 +100,5 @@ for parent in main.all(lambda n:True):
 body.c=[n for n in body.c if not (isinstance(n,N) and n.t=='script' and n.a.get('src') in ['js/work.js','js/case-layout.js'])]
 body.c+=frag('<script src="js/notate.js"></script><script src="js/instagram-editorial.js"></script>')
 p.write_text(r.html())
-shutil.copyfile('/Users/sooimkang/.codex/generated_images/01a0c7bb-c3ba-7363-ae33-5990fd145a26/exec-1b9aa94a-2b82-4135-ab08-09ce7c104016.png','instagram-assets/generated/competitive-analysis.png')
+shutil.copyfile('/Users/sooimkang/.codex/generated_images/01a0c7bb-c3ba-7363-ae33-5990fd145a26/exec-1b9aa94a-2b82-4135-ab08-09ce7c104016.png','instagram-assets/research/unused/generated-competitive-analysis.png')
 print('Updated page; original saved:',backup)

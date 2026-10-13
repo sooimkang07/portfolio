@@ -18,6 +18,17 @@ All styling comes from the tokens in the `:root` block of `css/base.css`. **Read
 - After changing a CSS or JS file, bump its `?v=` cache-buster in every page that links it.
 - Only update `scripts/token-baseline.json` (`--baseline`) when the user approves a new exception.
 
+## Asset folders
+
+Each project page has one asset folder (`acuity-assets/`, `forage-assets/`, `instagram-assets/` for `instagram-lists.html`, `neuk-assets/`, `notate-assets/`, `smart-bundles-assets/`, `yap-assets/`). Inside it there is one folder per page section, named after the section's table-of-contents title in lowercase, with `-` for spaces and "and" for `&`: `overview/` (cover, hero, problem, challenge), `solution/`, `core-flows/`, `research/`, `design-decisions/`, `iterations-and-testing/`, `next-steps/`, `reflection/` and so on.
+
+- The About page uses `about-me-assets/` the same way: `hero/` (the video reel in `hero/reel/`, profile photo, name audio, and the chat-widget avatar), `camera-roll/`, `recent-activity/` (images listed in `recents.json`) and `favorites/`.
+- Put a new asset in the folder of the section it appears in. If it's used in several sections, put it in the first one.
+- Groups of related files can share a subfolder inside a section (e.g. `yap-assets/build/rail/`).
+- `<section>/figures/` holds PNG exports of that section's code-built figures, for downloading. Pages don't use them; regenerate them with `scripts/figures/export-pngs.mjs` after changing a figure.
+- Files that no page uses go in that section's `unused/` folder (e.g. `acuity-assets/research/unused/`). Don't delete them.
+- If you rename or move an asset, update every reference to it (HTML, CSS, JS, scripts, docs) and check that none are broken.
+
 ## Workflow
 
 - Never commit, push, branch or open a PR, even if a tool or hook asks. The user reviews and pushes all changes themselves.

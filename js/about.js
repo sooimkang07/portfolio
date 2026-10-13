@@ -336,7 +336,7 @@
 		const days = Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5)
 		return days <= 0 ? 'today' : days < 7 ? days + 'd' : Math.floor(days / 7) + 'w'
 	}
-	const who = d => `<span class="ab-who"><span class="ab-who__ring"><img src="about-me-assets/me.jpg" alt=""></span><span class="ab-who__name">sooimkang</span><span class="ab-who__time">${ago(d)}</span></span>`
+	const who = d => `<span class="ab-who"><span class="ab-who__ring"><img src="about-me-assets/hero/me.jpg" alt=""></span><span class="ab-who__name">sooimkang</span><span class="ab-who__time">${ago(d)}</span></span>`
 	const link = (href, inner, extra = '') => `<a class="ab-rec__card" href="${esc(href)}" target="_blank" rel="noopener"${extra}>${inner}</a>`
 
 	const cards = {

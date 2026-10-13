@@ -10,7 +10,7 @@
     {id:'pink',type:'Colors',name:'#EC3F90',color:'#EC3F90',src:'solution/captures/forage-problem-color.webp',format:'HEX color code',tags:'pink, flowers'},
     {id:'lettering',type:'Images',name:'Everyday lettering',src:'solution/captures/forage-problem-text.webp',format:'PNG / JPG',tags:'lettering, street'},
     {id:'pour',type:'Motion',name:'Matcha pour',src:'solution/captures/forage-problem-motion.mp4',format:'MP4 + GIF preview',tags:'fluid, motion'},
-    {id:'city',type:'Images',name:'Color in the city',src:'hero/forage-hero-1.jpg',format:'PNG / JPG',tags:'city, composition'}
+    {id:'city',type:'Images',name:'Color in the city',src:'overview/forage-hero-1.jpg',format:'PNG / JPG',tags:'city, composition'}
   ];
   const initial={boards:[{id:'street',name:'Street observations',ids:['atrium','lettering']},{id:'identity',name:'Identity references',ids:['pink','type']},{id:'rhythm',name:'Rhythm & movement',ids:['pour']}],following:false,saved:[],settings:{image:'PNG',motion:'MP4',profile:'Private',boards:'Private',sharing:'Off'}};
   let state;try{state=JSON.parse(localStorage.getItem('forage-demo-v1'))||structuredClone(initial)}catch{state=structuredClone(initial)}

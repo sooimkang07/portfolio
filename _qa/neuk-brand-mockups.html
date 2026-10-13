@@ -144,22 +144,22 @@ const brands = {
 		type: [['Aa', "font-family:'Montserrat';font-weight:700", 'Montserrat', 'Display'], ['Aa', "font-family:'IBM Plex Sans';font-weight:500", 'IBM Plex Sans', 'Body']],
 		colors: ['#181716', '#6AB4EA', '#FFFFF2'],
 		det: [['line', '', 'Thin lines'], ['corner', 'mid', 'Medium round'], ['space', '', 'Airy']],
-		phone: `<img class="phone" src="${A}iterations/directions/phone-1.webp" alt="">`,
-		mood: `<img class="cover" src="${A}iterations/directions/mood-1.webp" alt="">`,
+		phone: `<img class="phone" src="${A}iterations-and-testing/directions/phone-1.webp" alt="">`,
+		mood: `<img class="cover" src="${A}iterations-and-testing/directions/mood-1.webp" alt="">`,
 	},
 	final: {
-		theme: 't-final', label: 'Final brand', mark: `<img class="wm" src="${A}brand/wordmark.webp" alt="">`, sub: 'nook + 아늑한, Korean for cozy', tag: '“Let’s neuk it”',
+		theme: 't-final', label: 'Final brand', mark: `<img class="wm" src="${A}branding/wordmark.webp" alt="">`, sub: 'nook + 아늑한, Korean for cozy', tag: '“Let’s neuk it”',
 		chips: ['Convenient', 'Social', 'Cozy', 'Cinematic'],
 		type: null,
 		colors: ['#181716', '#282625', '#2F4657', '#6AB4EA', '#FFFFF2'],
 		det: [['line', '', '1px lines'], ['corner', 'round', 'Rounded'], ['space', '', 'Glass buttons']],
-		phone: `<img class="phone framed" src="${A}screens/00-login.webp" alt="">`,
+		phone: `<img class="phone framed" src="${A}iterations-and-testing/00-login.webp" alt="">`,
 		mood: `<div class="collage"><img src="${A}core-flows/neuk-core-flow-3B.jpg" alt=""><img class="tall" src="${A}solution/rooms/lounge-neon.webp" alt="" ><img src="${A}core-flows/neuk-core-flow-4B.jpg" alt=""></div>`,
 	},
 }
 const typeBlock = b => b.type
 	? `<div class="aa-row">${b.type.map(([aa, st, n, u]) => `<div><div class="aa" style="${st}">${aa}</div><div class="aa-name">${n}</div><div class="aa-use">${u}</div></div>`).join('')}</div>`
-	: `<div><img src="${A}brand/type-confirmed.png" alt="" style="width:100%;max-width:420px;height:auto;background:#181716;padding:22px 26px;border-radius:14px"><div class="aa-name">Articulat CF</div><div class="aa-use">Regular, Medium, Demi Bold</div></div>`
+	: `<div><img src="${A}branding/type-confirmed.png" alt="" style="width:100%;max-width:420px;height:auto;background:#181716;padding:22px 26px;border-radius:14px"><div class="aa-name">Articulat CF</div><div class="aa-use">Regular, Medium, Demi Bold</div></div>`
 const colorBlock = b => `<div class="sw-row">${b.colors.map(c => `<div class="sw"><i style="background:${c}"></i><span>${c}</span></div>`).join('')}</div>`
 const detBlock = b => `<div class="det-row">${b.det.map(([k, v, t]) => `<div class="det"><b class="${k} ${v}">${k === 'space' ? '<i></i><i></i><i></i>' : ''}</b>${t}</div>`).join('')}</div>`
 const chips = b => `<div class="chips">${b.chips.map(c => `<span>${c}</span>`).join('')}</div>`

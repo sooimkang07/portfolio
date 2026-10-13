@@ -167,7 +167,7 @@ def build_home():
 		</section>
 
 		<section class="wrap section teaser" aria-labelledby="teaser-title">
-			<div class="teaser__photo" data-reveal><div class="media"><img src="about-me-assets/me.jpg" alt="Sooim Kang" loading="lazy" decoding="async"></div></div>
+			<div class="teaser__photo" data-reveal><div class="media"><img src="about-me-assets/hero/me.jpg" alt="Sooim Kang" loading="lazy" decoding="async"></div></div>
 			<div class="teaser__copy" data-reveal style="--i:1">
 				<p class="eyebrow">About</p>
 				<h2 class="h1" id="teaser-title">Journalism taught me to find the story. <span class="tone-2">Product design lets me build what happens next.</span></h2>

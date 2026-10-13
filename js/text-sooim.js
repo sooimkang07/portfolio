@@ -20,7 +20,7 @@
 	var AUTO_OPEN = script && script.getAttribute("data-open") === "true";
 	// Resolve assets relative to this script, so the chat works from any page depth.
 	var BASE = script && script.src ? script.src.replace(/js\/text-sooim\.js.*$/, "") : "";
-	var AVATAR = BASE + "about-me-assets/web/avatar.jpg"; // square of about-me-assets/me.jpg
+	var AVATAR = BASE + "about-me-assets/hero/avatar.jpg"; // square of about-me-assets/hero/me.jpg
 
 	// Inter, the chat's typeface (once per page).
 	if (!document.querySelector("link[data-ts-font]")) {

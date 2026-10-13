@@ -68,3 +68,7 @@ body.expl2-page {
 	.ex-row { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-4) var(--ease), transform var(--dur-4) var(--ease); }
 	.ex-row.is-in { opacity: 1; transform: none; }
 }
+
+/* A column of stacked media (IBFF: program, tickets, venues): together they fill one row height */
+.ex-stack { flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); scroll-snap-align: start; }
+.ex-stack > .ex-item { height: calc((var(--ex-h) - 2 * var(--s-3)) / 3); }

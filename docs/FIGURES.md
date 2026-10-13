@@ -37,7 +37,7 @@ Cards (`.node`) joined by curved connectors with small open circles at each end.
 
 ### Positioning map + comparison chart: "the landscape figure"
 - `.pmap`: two axes, uppercase axis labels, points. The concept point is `.pmap__pt.hi`, an ink pill. Points can use brand logos instead of dots.
-- `.cmp` (`--n` columns): rows of yes/partly/no dots (`.dot.y/.p/.n`). The last column is the concept, highlighted with `.cmp__hi` (set `grid-row: 1 / <rows+1>` inline so it spans every row).
+- `.cmp` (`--n` columns): rows of yes/partly/no dots (`.dot.y/.p/.n`). The last column is the concept, highlighted with `.cmp__hi`, a flat `--surface-2` panel with no shadow, the same as Smart Bundles. Set `grid-row: 1 / <rows+1>` inline so it spans every row. Competitor headers are muted; the concept header (`.cmp__h.hi`) is ink, medium weight.
 - Example: Acuity › Research landscape (both in one board).
 
 ### Annotated screen: "callouts"
@@ -60,3 +60,4 @@ Cards (`.node`) joined by curved connectors with small open circles at each end.
 2. If you changed a CSS or JS file, bump its `?v=` query in every page that links it (e.g. `figures.css?v=ds4-ts2-a3` → `-a4`) so browsers reload it.
 3. Look at it: serve the repo (`python3 -m http.server 5500`) and screenshot the figure at 1440px wide. Check text wrapping, overlaps, edge spacing and that connector circles show in full.
 4. Don't delete the old image or asset files a figure used without asking Sooim.
+5. Re-export the PNG copies: `node scripts/figures/export-pngs.mjs` (with the local server running) writes every code-built figure to `<project>-assets/<section>/figures/` at 2x.
