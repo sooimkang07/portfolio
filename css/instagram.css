@@ -210,3 +210,5 @@ body.case-page main .ig-feedback-figure { padding: 0; }
 .fig.igx-slide .igx-title .c-lab { margin-bottom: .35cqw; font-variant-numeric: tabular-nums; }
 .fig.igx-slide .igx-title .c-txt { font-size: 1.9cqw; font-weight: var(--fw-medium); letter-spacing: var(--h2-ls); line-height: var(--lh-tight); white-space: nowrap; }
 @media (max-width: 759px) { .fig.igx-slide .igx-title { padding: 2.4cqw 3.4cqw; border-radius: calc(var(--fig-r) * 2.4); } .fig.igx-slide .igx-title .c-lab { font-size: 2.6cqw; } .fig.igx-slide .igx-title .c-txt { font-size: 4.4cqw; } }
+
+.fig.igx-slide .card.igx-title { background: none; box-shadow: none; border: 0; }

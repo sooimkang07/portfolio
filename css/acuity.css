@@ -234,10 +234,31 @@ body.case-page main .fig .ac-pers__id p { margin: 0; color: var(--surface); }
 .fig .ac-pers__grid li::before { content: ""; position: absolute; left: 0; top: .7cqw; width: .55cqw; height: .55cqw; border-radius: 50%; background: var(--ac); }
 
 /* ── Decisions: the three signal cards stacked in one tall figure ── */
-.fig.ac-vstack { aspect-ratio: 1080 / 1350; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5cqw; padding: 5cqw; background: linear-gradient(color-mix(in srgb, var(--fig-bg) 60%, var(--fig-dot)), var(--fig-dot)); }
-body.case-page main .fig.ac-vstack video { display: block; width: 84%; height: auto; aspect-ratio: 458 / 272; border-radius: calc(var(--fig-r) * 4); box-shadow: var(--shadow-raise); background: var(--surface); }
+.fig.ac-vstack { aspect-ratio: 1080 / 1350; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5cqw; padding: 5cqw; background: var(--fig-bg) url("../assets/acuity/design-decisions/design-decision-1-bg.jpg") center / auto 112% no-repeat; }
+body.case-page main .fig.ac-vstack video { display: block; width: 84%; height: auto; aspect-ratio: 458 / 272; border-radius: 0; box-shadow: none; background: transparent; }
 body.case-page main .nt-section > :is(.nt-media, .nt-reading, .nt-step) + .ac-dec { margin-top: var(--s-10); }
 
 /* Persona journey: each point's text sits in its own card on the timeline */
 .ac-journey2__step{padding-top:var(--s-9)}
 .ac-journey2__card{height:100%;padding:var(--s-5);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow-raise)}
+
+/* Introductory context: equal columns fit the embedded post or artwork. */
+@media (min-width: 960px) {
+ body.case-page[data-case] main #overview > .ac-feedback { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+/* Four connected AI tools, arranged around the app prototype. */
+.ac-aistack .board__card{position:absolute;width:27%;height:44%}
+.ac-aistack__midjourney{left:4%;top:28%}
+.ac-aistack .ac-aistack__sora{right:4%;top:28%;height:auto}
+.ac-aistack__sora .board__body{aspect-ratio:226/150;flex:none}
+.ac-aistack .ac-aistack__chatgpt{left:35%;top:5%;width:30%;height:35%}
+.ac-aistack .ac-aistack__figma-make{left:41%;bottom:5%;width:18%;height:49%}
+.ac-aistack .board__body{padding:0;overflow:hidden}
+.ac-aistack .board__body>img{position:absolute;max-width:none;border-radius:0!important}
+.ac-aistack__midjourney .board__body>img{width:160%;height:auto;left:-20%;top:-9%;object-fit:contain}
+.ac-aistack__chatgpt .board__body>img{width:205%;height:auto;left:-69%;top:-12%;object-fit:contain}
+.ac-aistack__figma-make .board__body>img{width:auto;height:110%;left:-123%;top:-5%;object-fit:contain}
+/* Two film stills inside sora.png: 226×150 window at x=497, y=115. */
+.ac-aistack__sora .board__body>img{width:calc(100% * 1926 / 226);height:auto;left:calc(100% * -497 / 226);top:calc(100% * -115 / 150);object-fit:contain}
+.ac-aistack .board__body>video{width:100%;height:100%;object-fit:cover}

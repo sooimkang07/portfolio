@@ -706,3 +706,24 @@ body.case-page .flow__btn--volume.is-muted .icon-vol-on { display: none; }
 
 /* Phones: carousel arrows sit inside the edge instead of hanging past the gutter */
 @media (max-width: 700px) { .notate-page .nt-carousel__btn[data-dir] { translate: 0 0; } }
+
+/* Text beside media: shared Acuity core-experience dimensions on every project. */
+body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) {
+ display: grid;
+ grid-template-columns: minmax(0, 1fr);
+ gap: var(--sp-media);
+ align-items: start;
+}
+body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > * {
+ min-width: 0;
+ width: 100%;
+ max-width: none;
+}
+@media (min-width: 960px) {
+ body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(var(--s-6), 3vw, var(--s-8));
+ }
+ body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > :is(.nt-reading, .nt-media, .fg-capture__media) { margin: 0; }
+ body.case-page[data-case] main :is(.nt-decision-copy, .ig-decision-copy) { padding-right: 0; }
+}

@@ -23,7 +23,7 @@ spec = dict(
     edges=[('trig', 'sel', 'v'), ('sel', 'cap', 'v'), ('cap', 'cls'), ('cls', 'ext', 'v'), ('ext', 'tag', 'v'),
            ('tag', 'field'), ('field', 'types', 'v'), ('types', 'boards', 'v')],
     labels=[('01 · The ring', 'ring'), ('02 · Intelligence', 'ai'), ('03 · The library', 'lib')],
-    zone=dict(x=cols['ai'] - 30, y=140, w=W + 60, h=bot + 80 - 140, label='Proposed'),
+    zone=dict(x=cols['ai'] - 30, y=140, w=W + 60, h=bot + 80 - 140, label=None),
     note=dict(text='The ring and AI are proposed; the web prototype shows the library.', x=cols['ring'], y=bot + 50),
     aria=('One capture end to end. The ring: a double tap turns capture mode on with a haptic tick, you outline the subject in the air with motion sensors, a second gesture picks the type, and the micro camera captures it cropped to the outline. '
           'Intelligence, proposed: AI classifies the image, color, type, or motion, extracts what is reusable, a palette, a font through OCR, or a timing curve, then tags and groups it into categories and Findings. '

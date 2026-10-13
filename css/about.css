@@ -532,6 +532,9 @@ body.about-page .home-contact { margin-block-start: var(--ab-sec); padding-inlin
 	.ab-hero__text .ab-prose p:last-child { margin-block-end: 0; }
 	.ab-widgets { max-width: none; margin: 0; gap: var(--s-4); }
 }
+@media (min-width: 1360px) {
+	.ab-hero__pic.ab-reel { align-self: stretch; aspect-ratio: auto; height: 100%; }
+}
 .ab-hero .ab-h1 { text-wrap: pretty; }
 @media (min-width: 760px) {
 	.ab-hero__text { gap: 1rem; }

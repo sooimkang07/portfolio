@@ -61,7 +61,7 @@ def render(spec):
     colh = ''.join(f'<span class="ngraph__col" style="left:{cq(cols[c])};top:{cq(spec["label_top"])}">{t}</span>' for t, c in spec['labels'])
     z = spec.get('zone')
     zone = (f'<div class="ngraph__zone" style="left:{cq(z["x"])};top:{cq(z["y"])};width:{cq(z["w"])};height:{cq(z["h"])}">'
-            f'<span><em>AI</em>{z["label"]}</span></div>') if z else ''
+            + (f'<span><em>AI</em>{z["label"]}</span>' if z.get("label") else '') + '</div>') if z else ''
     nt = spec.get('note')
     note = (f'<span class="ngraph__col" style="left:{cq(nt["x"])};top:{cq(nt["y"])};text-transform:none;letter-spacing:0">{nt["text"]}</span>') if nt else ''
     return (f'<figure class="nt-media nt-process"><div class="fig ngraph" role="img" aria-label="{spec["aria"]}">'

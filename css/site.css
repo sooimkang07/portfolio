@@ -1857,3 +1857,10 @@ body.case-page main a:is(.yap-inline-link, .sb-fellowship-link) {
 }
 :is(body.case-page main, .ab-prose, .ex-head__intro, .work-index__intro) p:not(.nt-kicker, .nt-step-label) a:not([class]):hover,
 body.case-page main a:is(.yap-inline-link, .sb-fellowship-link):hover { text-decoration-color: currentColor; }
+
+/* Footer links share the primary strip's type. */
+body .portfolio-footer__nav .nav__menu-link,
+body .portfolio-footer__nav .nav__menu-link .flip,
+body .portfolio-footer__nav .nav__menu-title { font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--ink); }
+body .portfolio-footer__nav .nav__menu-link:hover .nav__menu-title,
+body .portfolio-footer__nav .nav__menu-link:focus-visible .nav__menu-title { color: var(--muted); }

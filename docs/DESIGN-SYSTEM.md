@@ -31,6 +31,10 @@ Every neutral is cool-toned (blue ≥ red), apart from pure white.
 
 **Accent colors** (brand chips, project accents like Smart Bundles green `#06886C` / `#1F5A4B` or Neuk `#181716`) belong to a project. Set them once on that page's selector, not scattered through rules.
 
+Acuity media gradients use `--acuity-media-top` (`#E2E8EB`) and `--acuity-media-bottom` (`#D6DBE0`), sampled from its phone recordings.
+
+Forage branding tiles use `--forage-brand-card` (`#F8F4FF`), requested by Sooim, against `--surface`.
+
 **Standard figure background:** `background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px;` (`.fig` in `css/figures.css` already applies it).
 
 ## Lines
@@ -48,7 +52,7 @@ Every neutral is cool-toned (blue ≥ red), apart from pure white.
 | `--shadow-raise` | Cards, chips, tiles, swatches |
 | `--shadow-float` | Devices, floating media, dark terminals |
 
-A 1px ring (`box-shadow: 0 0 0 1px var(--line)`) is a line, not elevation. Card boards (`.ig-cards`, `.sb-cards`, `.fg-cards`) use a 1px `--line` border and no shadow.
+A 1px ring (`box-shadow: 0 0 0 1px var(--line)`) is a line, not elevation. Card boards (`.fig.board`, `.ig-cards`) use a 1px `--line` border and no shadow.
 
 ## Radius
 
@@ -94,7 +98,7 @@ Case-study rhythm (in `css/case.css`): `--sp-section` (section gap), `--sp-block
 
 Shared figure components live in `css/figures.css` (sizes in `cqw`, so a figure scales like an image):
 
-- **Card board:** `.fig.board` > `.board__row` (`--cols`) > `.board__card` > `.board__title` (+ `<small>` subtitle) and `.board__body`. Dotted figure background, white cards, `--surface-2` title bar, 1px `--line` border. Older page-specific copies: `.ig-cards`, `.sb-cards`, `.fg-cards`.
+- **Card board:** `.fig.board` > `.board__row` (`--cols`) > `.board__card` > `.board__title` (+ `<small>` subtitle) and `.board__body`. Dotted figure background, white cards, `--surface-2` title bar, 1px `--line` border. Older page-specific copy: `.ig-cards`.
 - **Positioning map:** `.pmap` with `.pmap__ax.x/.y`, `.pmap__lab.t/.b/.l/.r` and `.pmap__pt` (`.hi` for the concept).
 - **Comparison chart:** `.cmp` (`--n` columns) with `.cmp__h`, `.cmp__r`, `.cmp__c` and `.dot.y/.p/.n`; the last column is the highlighted concept (`.cmp__hi`).
 - **Node graph:** `.node` cards (`.node__h`, `.node__row`, `<em>AI</em>` tag) joined by `svg.ngraph__wires` (viewBox 1920×1080), optional `.ngraph__zone` and `.ngraph__col` labels. Generate it with `scripts/figures/` (see `docs/FIGURES.md`); connectors sit on top of the cards.

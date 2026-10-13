@@ -35,3 +35,9 @@ document.querySelectorAll('[data-fg-live]').forEach(stage => {
   })
   new ResizeObserver(fit).observe(stage)
 })
+
+/* Give the activation gesture more time to read. */
+document.querySelectorAll('video[src*="/forage-double-tap.mp4"]').forEach(video => {
+  video.defaultPlaybackRate = 0.75
+  video.playbackRate = 0.75
+})

@@ -69,6 +69,6 @@ body.expl2-page {
 	.ex-row.is-in { opacity: 1; transform: none; }
 }
 
-/* A column of stacked media (IBFF: program, tickets, venues): together they fill one row height */
-.ex-stack { flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); scroll-snap-align: start; }
-.ex-stack > .ex-item { height: calc((var(--ex-h) - 2 * var(--s-3)) / 3); }
+/* A column of stacked media: together they fill one row height. --n is how many pieces (IBFF uses 3). */
+.ex-stack { --n: 3; flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); scroll-snap-align: start; }
+.ex-stack > .ex-item { height: calc((var(--ex-h) - (var(--n) - 1) * var(--s-3)) / var(--n)); }

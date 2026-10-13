@@ -135,12 +135,16 @@ body.case-page main .board__title small { font-size: inherit; font-weight: var(-
 .fig .pmap__pt.hi { padding: .6cqw 1.2cqw .6cqw .7cqw; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); font-weight: var(--fw-medium); box-shadow: var(--shadow-raise); }
 .fig .pmap__pt.hi i { width: 1.6cqw; height: 1.6cqw; background: var(--accent, var(--surface)); box-shadow: none; }
 .fig .pmap__pt.hi small { color: var(--line-strong); }
+body.case-page main .fig .pmap__pt img,
+body.case-page main .fig .pmap__pt .logo--mono { flex: none; width: 2.4cqw; height: 2.4cqw; object-fit: contain; border-radius: 0 !important; }
+body.case-page main .fig .pmap__pt .logo--mono { display: grid; place-items: center; border-radius: var(--fig-r-sm) !important; background: var(--surface); box-shadow: 0 0 0 1px var(--line); font-size: .7cqw; font-weight: var(--fw-semi); color: var(--muted); }
+body.case-page main .fig .pmap__pt.hi img { width: 2.8cqw; height: 2.8cqw; padding: .2cqw; border-radius: 50% !important; background: var(--surface); }
 
 /* Comparison chart: rows of yes / partly / no dots; the last column is the concept. */
-.fig .cmp { position: relative; flex: 1; display: grid; grid-template-columns: 1.7fr repeat(var(--n, 3), 1fr); grid-template-rows: 5.4cqw; grid-auto-rows: 1fr; }
-.fig .cmp__hi { grid-column: -2; grid-row: 1 / -1; background: var(--surface); border-radius: var(--fig-r); box-shadow: 0 0 0 1px var(--line), var(--shadow-raise); }
-.fig .cmp__h.hi { font-weight: var(--fw-semi); }
-.fig .cmp__h { grid-row: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3cqw; font-size: 1.05cqw; font-weight: var(--fw-medium); color: var(--ink); text-align: center; line-height: var(--lh-tight); }
+.fig .cmp { position: relative; flex: 1; display: grid; grid-template-columns: 1.7fr repeat(var(--n, 3), 1fr); grid-template-rows: 6.6cqw; grid-auto-rows: 1fr; }
+.fig .cmp__hi { grid-column: -2; grid-row: 1 / -1; background: var(--surface-2); border-radius: var(--fig-r); box-shadow: 0 0 0 1px var(--fig-bg); }
+.fig .cmp__h.hi { font-weight: var(--fw-medium); color: var(--ink); }
+.fig .cmp__h { grid-row: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3cqw; font-size: 1.05cqw; font-weight: var(--fw-regular); color: var(--muted); text-align: center; line-height: var(--lh-tight); }
 .fig .cmp__h small { font-size: .85cqw; font-weight: var(--fw-regular); color: var(--muted); }
 .fig .cmp__r { grid-column: 1; display: flex; align-items: center; padding-right: 1cqw; font-size: 1.25cqw; line-height: var(--lh-tight); color: var(--ink); box-shadow: 0 -1px 0 var(--line); }
 .fig .cmp__c { position: relative; display: grid; place-items: center; box-shadow: 0 -1px 0 var(--line); }

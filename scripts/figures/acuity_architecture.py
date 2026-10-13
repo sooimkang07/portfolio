@@ -20,7 +20,7 @@ spec = dict(
     edges=[('band', 'base'), ('band', 'sig'), ('ctx', 'base'), ('ctx', 'sig'), ('base', 'sig', 'v'), ('sig', 'lvl'), ('sig', 'sum'),
            ('lvl', 'alert'), ('sum', 'plan'), ('alert', 'you', 'v'), ('you', 'plan', 'v')],
     labels=[('01 · Input', 'in'), ('02 · Processing', 'proc'), ('03 · Interpretation', 'int'), ('04 · Experience', 'exp')],
-    zone=dict(x=cols['proc'] - 30, y=140 + OFF, w=cols['int'] + W + 30 - (cols['proc'] - 30), h=890, label='Where AI contributes'),
+    zone=dict(x=cols['proc'] - 30, y=140 + OFF, w=cols['int'] + W + 30 - (cols['proc'] - 30), h=890, label=None),
     note=dict(text='Nothing happens without you.', x=cols['exp'], y=1000 + OFF),
     aria='System architecture as a flow. Input: the bracelet senses blood pressure, heart rate and HRV, and sleep; your context adds health history from an EHR import and cuff calibration. Processing, with AI: a personal baseline from a 14-day calibration weighted by medical history, and signal analysis that correlates signals and detects sustained drift. Interpretation, with AI: one urgency level, Stable, Elevated, or Emergent, and a plain-language summary with one next step. Experience: a haptic alert, then you confirm with a pinch to open the plan, a hold to keep monitoring, or a wave to dismiss, leading to the care plan, a 24, 48, or 72-hour watch, and insights. Nothing happens without you.',
 )

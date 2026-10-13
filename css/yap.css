@@ -221,7 +221,7 @@ body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cov
 body.case-page main .yap-join .strip .mini.phone { width: 13.6cqw; }
 
 /* Testing: the virtual session beside the in-person video, at equal height */
-body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, var(--s-3)); align-items: start; }
+body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, var(--s-3)); align-items: start; }
 body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg); }
 body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: var(--s-4) 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
@@ -321,23 +321,28 @@ body.case-page main .yap-term.is-collapsed .yap-term__panel > .yap-term__body { 
 body.case-page main .yap-term__panel > .yap-term__body { transition: padding .35s cubic-bezier(.65, 0, .35, 1); }
 @media (prefers-reduced-motion: reduce) { body.case-page main :is(.yap-term__panel, .yap-term__panel > .yap-term__body) { transition: none; } }
 
-/* "One topic change, cut two ways": the pause between two topics, up close (1920×1080 .fig, sizes in cqw) */
-.fig.ycut { --ycut-new: #1b8cfb; --ycut-guess: #d23c2f; }
+/* "One topic change, cut two ways": the pause between two topics, up close (1920×1080 .fig, sizes in cqw).
+   Accent is yap's blue, already used on the page. The guess is a deeper step of that same blue. */
+.fig.ycut { --accent: #1b8cfb; }
 .fig.ycut .ycut__card { position: absolute; inset: 9% 5%; display: flex; overflow: hidden; border-radius: calc(var(--fig-r) * 3); background: var(--surface); box-shadow: var(--shadow-raise); }
 .fig.ycut .ycut__zone { position: relative; flex: 1; }
 .fig.ycut .ycut__zone--a { flex-grow: 1.45; background: var(--surface-2); }
-.fig.ycut .ycut__zone--b { background: color-mix(in srgb, var(--ycut-new) 7%, var(--surface)); }
+.fig.ycut .ycut__zone--b { background: color-mix(in srgb, var(--accent) 16%, var(--surface)); }
 .fig.ycut .ycut__gap { position: relative; z-index: 1; flex: none; width: 9%; }
 .fig.ycut .ycut__lab { position: absolute; top: 9%; left: 7%; margin: 0; font-size: 2.1cqw; font-weight: var(--fw-semi); line-height: var(--lh-tight); color: var(--ink); }
 .fig.ycut .ycut__wave { position: absolute; left: 7%; right: 7%; top: 27%; height: 46%; display: flex; align-items: center; justify-content: space-between; }
 .fig.ycut .ycut__wave i { width: .62cqw; height: var(--h); border-radius: var(--r-pill); background: var(--line-strong); }
-.fig.ycut .ycut__zone--b .ycut__wave i { background: var(--ycut-new); }
+.fig.ycut .ycut__zone--b .ycut__wave i { background: var(--accent); }
 /* the AI's timestamp: a dashed line that lands mid-word */
-.fig.ycut .ycut__guess { position: absolute; left: 82%; top: 6%; bottom: 6%; border-left: .22cqw dashed var(--ycut-guess); border-width: 0 0 0 .22cqw !important; }
+.fig.ycut .ycut__guess { position: absolute; left: 82%; top: 6%; bottom: 6%; border-left: .22cqw dashed color-mix(in srgb, var(--accent) 62%, var(--ink)); border-width: 0 0 0 .22cqw !important; }
 .fig.ycut .ycut__pill { position: absolute; transform: translateX(-50%); padding: .65cqw 1.5cqw; border-radius: var(--r-pill); font-size: 1.45cqw; font-weight: var(--fw-semi); line-height: var(--lh-none); white-space: nowrap; color: var(--surface); }
-.fig.ycut .ycut__pill--guess { left: 82%; bottom: 9%; background: var(--ycut-guess); }
+.fig.ycut .ycut__pill--guess { left: 82%; bottom: 9%; background: color-mix(in srgb, var(--accent) 62%, var(--ink)); }
 /* yap's cut sits in the silence between the two words */
 .fig.ycut .ycut__gap::before { content: ""; position: absolute; left: -6%; right: -6%; top: 50%; border-top: .2cqw dotted var(--line-strong); border-width: .2cqw 0 0 !important; }
 .fig.ycut .ycut__pause { position: absolute; left: 50%; top: 35%; transform: translateX(-50%); font-size: 1.35cqw; color: var(--muted); }
 .fig.ycut .ycut__cut { position: absolute; left: 50%; top: 42%; bottom: 6%; width: .22cqw; margin-left: -.11cqw; background: var(--ink); }
 .fig.ycut .ycut__pill--cut { left: 50%; top: 66%; background: var(--ink); }
+
+body.case-page main .yap-test-pair__placeholder { aspect-ratio: 720 / 1280; display: grid; place-items: center; background: var(--fig-bg); border-radius: var(--r-lg); color: var(--muted); font-size: var(--fs-base); }
+body.case-page main #testing .yap-term__body,
+body.case-page main #testing .yap-term .yap-term__body p { font-family: var(--ff-mono) !important; font-size: var(--fs-xs) !important; font-weight: var(--fw-regular) !important; line-height: var(--lh-base) !important; }

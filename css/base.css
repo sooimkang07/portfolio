@@ -8,6 +8,10 @@
 	   Use these tokens in all CSS. No raw hex, shadows, radii, font sizes, line heights,
 	   letter spacing or spacing px outside this block (scripts/check-tokens.py enforces it). */
 
+	--acuity-media-top: #E2E8EB; /* matches Acuity phone recording background */
+	--acuity-media-bottom: #D6DBE0;
+	--forage-brand-card: #F8F4FF; /* user-specified Forage branding tile fill */
+
 	/* Color: 8 neutrals */
 	--bg:          #FAFCFD;   /* page */
 	--surface:     #FFFFFF;   /* cards, panels, text on dark */

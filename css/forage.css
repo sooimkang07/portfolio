@@ -237,49 +237,30 @@ body[data-case="forage"] main .fg-gesture-pair .fg-square-image img{width:100%;h
 /* type */
 /* color chips, Pantone-style */
 
-/* ── Branding: card board (same panels as the Instagram page's competitive analysis) ── */
-body[data-case="forage"] main .fg-cards { display: flex; flex-direction: column; gap: 1cqw; padding: 1.4cqw; border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; container-type: inline-size; }
-.fg-cards__row { display: grid; grid-template-columns: var(--cols, minmax(0, 1fr)); gap: 1cqw; align-items: stretch; }
-.fg-card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--fig-r); overflow: hidden; }
-body[data-case="forage"] main .fg-card .fg-card__title { flex: none; max-width: none; margin: 0; padding: .9cqw 1.2cqw .8cqw; background: var(--surface-2); border-bottom: 1px solid var(--fig-bg); font-size: max(9px, 1cqw); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fg-card__body { flex: 1 1 auto; display: flex; min-height: 0; }
-.fg-card--photo .fg-card__body { padding: 1cqw; }
-body[data-case="forage"] main .fg-card__photo { display: block; width: 100%; height: auto; border-radius: var(--fig-r-sm) !important; }
-@media (max-width: 760px) {
-  body[data-case="forage"] main .fg-cards { gap: 3cqw; padding: 3cqw; }
-  .fg-cards__row { grid-template-columns: minmax(0, 1fr); gap: 3cqw; }
-  .fg-card { border-radius: calc(var(--fig-r) * 3); }
-  body[data-case="forage"] main .fg-card .fg-card__title { padding: 2.4cqw 3.2cqw 2.2cqw; font-size: max(12px, 3.4cqw); }
-  .fg-card--photo .fg-card__body { padding: 2.4cqw; }
-}
-/* Marketing assets: the four photos share one card, each row's widths follow the photos' proportions */
-.fg-assets { flex: 1; display: flex; flex-direction: column; gap: 1cqw; min-width: 0; }
-.fg-assets__row { display: grid; grid-template-columns: var(--cols); gap: 1cqw; }
-@media (max-width: 760px) { .fg-assets, .fg-assets__row { gap: 2.4cqw; } }
-/* Brand cards: compact bodies, one height per row so the cards wrap their content evenly */
-.fg-bk { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; padding: 2.4cqw; }
-.fg-cards__row--mark .fg-bk { height: 15cqw; }
-.fg-cards__row--guide .fg-bk { height: 17cqw; }
-body[data-case="forage"] main .fg-bk--logo img { display: block; width: auto; max-width: 70%; height: 6.4cqw; border-radius: 0 !important; }
-.fg-bk__tile { display: grid; place-items: center; height: 100%; aspect-ratio: 1; border-radius: 22%; background: var(--fig-bg); }
-body[data-case="forage"] main .fg-bk__tile img { display: block; width: 62%; height: auto; border-radius: 0 !important; }
-.fg-bk--type { display: grid; grid-template-columns: 1fr 1fr; gap: 2cqw; align-content: center; align-items: start; justify-content: stretch; }
-.fg-bk__aa { display: block; font-size: 6.4cqw; line-height: var(--lh-none); letter-spacing: var(--h2-ls); color: var(--ink); }
-body[data-case="forage"] main .fg-bk__name { margin: 1cqw 0 .4cqw; font-size: max(12px, 1.3cqw); color: var(--ink); }
-body[data-case="forage"] main .fg-bk__meta { margin: 0; font-size: max(9px, .85cqw); line-height: var(--lh-base); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
-.fg-bk--color { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8cqw; align-items: stretch; }
-.fg-bk__chip { display: flex; flex-direction: column; min-width: 0; border-radius: var(--fig-r); overflow: hidden; background: var(--surface); box-shadow:var(--shadow-raise); }
-.fg-bk__chip i { flex: 1; background: var(--c); }
-.fg-bk__chip b { display: block; padding: .7cqw .8cqw; font: 500 max(9px, .85cqw)/1.2 ui-monospace, Menlo, monospace; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-@media (max-width: 760px) {
-  .fg-cards__row--mark .fg-bk, .fg-cards__row--guide .fg-bk { height: auto; padding: 5cqw; }
-  .fg-cards__row--mark .fg-bk { height: 36cqw; }
-  body[data-case="forage"] main .fg-bk--logo img { height: 14cqw; }
-  .fg-bk__aa { font-size: 14cqw; }
-  .fg-cards__row--guide .fg-bk--color { height: 44cqw; gap: 2cqw; }
-  .fg-bk__chip { border-radius: calc(var(--fig-r) * 2); }
-  .fg-bk__chip b { padding: 2cqw; font-size: max(9px, 2.4cqw); }
-}
+/* Branding: 1920 × 1080 collage, scaled as one figure. */
+body[data-case="forage"] main .fig.fg-brand { aspect-ratio: 16 / 9; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1.4fr 2fr 2fr; gap: .6cqw; padding: .6cqw; background: var(--surface); }
+.fg-brand__tile { position: relative; min-width: 0; min-height: 0; overflow: hidden; border-radius: var(--fig-r); background: var(--forage-brand-card); }
+body[data-case="forage"] main .fg-brand__tile > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.fg-brand__marks { grid-column: 1 / 7; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6cqw; min-height: 0; }
+.fg-brand__icon { aspect-ratio: 1; height: 100%; width: auto; }
+.fg-brand__palette { grid-column: 7 / 13; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 1fr 1fr; gap: .6cqw; min-height: 0; }
+.fg-brand__swatch { grid-column: span 2; display: flex; align-items: end; padding: 1cqw; border-radius: var(--fig-r); background: var(--c); }
+.fg-brand__swatch:nth-last-child(-n + 2) { grid-column: span 3; }
+.fg-brand__swatch span { font-family: var(--ff-mono); font-size: 1.2cqw; font-weight: var(--fw-medium); line-height: var(--lh-tight); color: var(--ink); }
+.fg-brand__portrait { grid-column: 1 / 4; }
+.fg-brand__finishes { grid-column: 4 / 9; }
+.fg-brand__symbols { grid-column: 9 / 13; display: flex; align-items: center; justify-content: center; gap: 2cqw; padding: 2cqw; }
+body[data-case="forage"] main .fg-brand__symbols > img { position: static; width: 7cqw; height: 7cqw; object-fit: contain; }
+.fg-brand__types { grid-column: 1 / 7; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6cqw; min-width: 0; min-height: 0; }
+.fg-brand__type { display: flex; flex-direction: column; align-items: start; justify-content: center; gap: 1cqw; padding: 1.6cqw; color: var(--ink); }
+.fg-brand__aa { font-size: 6cqw; line-height: var(--lh-none); letter-spacing: var(--h2-ls); }
+.fg-brand__type > div { display: grid; gap: .6cqw; }
+.fg-brand__font { font-size: 2cqw; line-height: var(--lh-tight); }
+.fg-brand__alphabet { font-size: .85cqw; line-height: var(--lh-snug); white-space: nowrap; }
+.fg-brand__numerals { font-size: 1.2cqw; line-height: var(--lh-snug); }
+.fg-brand__type, .fg-brand__symbols { background: var(--surface); border: 1px solid var(--line); }
+.fg-brand__phone { grid-column: 7 / 9; }
+.fg-brand__laptop { grid-column: 9 / 13; }
 /* Deliverables: bare laptops, ink pill links (matches Acuity's .ac-btn). */
 body[data-case="forage"] main .fg-deliverable{background:none;box-shadow:none}
 body[data-case="forage"] main .fg-deliverable>a.fg-btn{display:inline-flex;align-items:center;margin-top:var(--s-4);padding:var(--s-2) var(--s-4);border-radius:var(--r-pill);background:var(--ink);color:var(--surface)!important;text-decoration:none;font-size:var(--fs-base);font-weight:var(--fw-medium);line-height:var(--lh-tight);transition:background var(--dur-2) var(--ease),transform var(--dur-2) var(--ease)}
@@ -293,3 +274,39 @@ body[data-case="forage"] main .fig.fg-prob .fg-prob__eyes { position: absolute; 
 body[data-case="forage"] main .fig.fg-prob .fg-prob__card .card { display: flex; flex-direction: column; height: 100%; padding: 1cqw; }
 body[data-case="forage"] main .fig.fg-prob .fg-prob__card .c-lab { margin-bottom: .8cqw; }
 body[data-case="forage"] main .fig.fg-prob .fg-prob__card img { flex: 1; min-height: 0; width: 100%; object-fit: cover; border-radius: var(--fig-r-sm) !important; }
+
+body[data-case="forage"] main .fg-landscape .fg-circle img:is([alt="Smart glasses"], [alt="Necklaces"]) { inset: 10%; width: 80%; height: 80%; }
+body[data-case="forage"] main .fg-deliverable { text-align: center; }
+body[data-case="forage"] main .fg-capture__media { min-width: 0; }
+body[data-case="forage"] main .fg-capture__media > figure:first-child { margin-top: 0; }
+@media (min-width: 960px) {
+ body[data-case="forage"] main .fg-capture { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap-media); align-items: start; }
+ body[data-case="forage"] main .fg-capture > .nt-reading { max-width: none; }
+ body[data-case="forage"] main .nt-step.fg-split > .nt-reading + .nt-media { margin-top: 0; }
+}
+
+
+/* Extraction: four visual before/after pairs on the shared card board. */
+.fig.fg-extract { --fg-sample: #99B0BF; }
+.fg-extract__labels { display: flex; justify-content: space-between; padding: .6cqw .2cqw; font-size: 1.1cqw; font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
+.fig.fg-extract .fg-extract__body { display: grid; grid-template-rows: 13cqw 5cqw minmax(0, 1fr) auto; gap: 1cqw; padding: 1.2cqw; }
+.fg-extract__raw { overflow: hidden; border-radius: var(--fig-r-sm); }
+body[data-case="forage"] main .fg-extract__raw img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.fg-extract__gesture { display: flex; align-items: center; justify-content: center; gap: 1cqw; font-size: 1.2cqw; line-height: var(--lh-tight); color: var(--muted); }
+.fg-extract__gesture svg { width: 1.5cqw; height: 2.5cqw; fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
+.fg-extract__result { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; gap: .7cqw; }
+body[data-case="forage"] main .fg-extract__result img { width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: var(--fig-r-sm); }
+.fg-extract__specimen { font-family: "Bodoni 72", Didot, serif; font-size: 8cqw; line-height: var(--lh-none); color: var(--ink); }
+.fg-extract__font { font-size: 1.2cqw; line-height: var(--lh-tight); text-align: center; color: var(--muted); }
+.fg-extract__swatch { width: 9cqw; aspect-ratio: 1; background: var(--fg-sample); border-radius: var(--fig-r); }
+.fg-extract__hex { font-family: var(--ff-mono); font-size: 1.3cqw; color: var(--ink); }
+body[data-case="forage"] main .fg-extract__result .fg-extract__motion { width: 9cqw; height: 8cqw; object-fit: cover; }
+.fg-extract__curve { width: 11cqw; height: 5cqw; fill: none; stroke: var(--ink); stroke-width: 2; }
+.fg-extract__curve .fg-extract__axis { stroke: var(--line-strong); stroke-width: 1; }
+.fg-extract__caption { display: grid; gap: .6cqw; padding-top: 1cqw; border-top: 1px solid var(--line); font-size: 1.3cqw; line-height: var(--lh-tight); color: var(--muted); text-align: center; }
+.fg-extract__caption strong { font-size: 1.5cqw; font-weight: var(--fw-medium); color: var(--ink); }
+
+/* Introductory context: equal columns fit the embedded post or artwork. */
+@media (min-width: 960px) {
+ body.case-page[data-case] main #overview-challenge > .fg-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}

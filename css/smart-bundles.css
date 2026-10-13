@@ -8,13 +8,10 @@
 body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 760px) { body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* ── Core flows: the bundle-cards clip sits under the Touchpoint 01 copy ── */
-body.case-page main .sb-inline-video { margin: var(--s-7) 0 0; }
-/* Touchpoint 01: copy starts level with the big video's top; the small clip sits on its bottom edge */
-body.case-page main #core-flows .nt-step:has(.sb-inline-video) { align-items: stretch; }
-body.case-page main #core-flows .nt-step:has(.sb-inline-video) > .nt-reading { display: flex; flex-direction: column; }
-body.case-page main #core-flows .nt-step:has(.sb-inline-video) .sb-inline-video { margin-top: auto; padding-top: var(--s-7); }
-body.case-page main .sb-inline-video .dx-media > video { height: auto; aspect-ratio: 1080 / 1350; object-fit: cover; }
+/* Touchpoint 01: the card carousel sits under the video, in that column, at that width */
+body.case-page main .sb-tp1 { display: flex; flex-direction: column; min-width: 0; }
+body.case-page main .sb-tp1 > .nt-media { width: 100%; max-width: none; margin-top: 0; }
+body.case-page main .sb-tp1 > .sb-deck-wrap { margin-top: var(--gap-media, var(--s-3)); }
 body.case-page main #core-flows .dx-media > video { height: auto; aspect-ratio: 1080 / 1350; }
 body.case-page main #core-flows > .nt-step + .nt-media { margin-top: var(--s-10); }
 body.case-page main #core-flows > .nt-media .dx-media > video { aspect-ratio: 16 / 9; }
@@ -97,9 +94,7 @@ body.case-page main .sb-deck { overflow: hidden; }
 body.case-page main .sb-deck__track { display: flex; gap: var(--s-3); transition: transform .7s cubic-bezier(.65, 0, .35, 1); }
 body.case-page main .sb-deck__track img { flex: 0 0 72%; width: 72%; height: auto; aspect-ratio: 850 / 805; border-radius: 0 !important; }
 @media (prefers-reduced-motion: reduce) { body.case-page main .sb-deck__track { transition: none; } }
-/* the carousel sits right under its text (like neuk's room cards), not pinned to the bottom */
-body.case-page main #core-flows .nt-step:has(.sb-deck) .sb-deck { margin-top: var(--s-7); padding-top: 0; }
-body.case-page main #core-flows .nt-step:has(.sb-deck) { align-items: start; }
+body.case-page main #core-flows .nt-step:has(.sb-deck) .sb-deck { margin-top: 0; padding-top: 0; }
 
 /* ── Design challenge: copy left, figure right (same layout as forage's FigBuild block) ── */
 body.case-page main .sb-split { display: grid; gap: var(--s-8); }
@@ -180,38 +175,6 @@ body.case-page main .fig.sbf-collage img { display: block; width: 100%; height: 
 .fig .sbs-dots { display: grid; grid-template-columns: repeat(8, 1fr); gap: .3cqw; }
 .fig .sbs-dots i { aspect-ratio: 1; border-radius: 50%; background: var(--surface); }
 
-/* ── Research: competitive analysis (positioning + features in one panel) ── */
-.fig .sbk-ax { position: absolute; background: var(--line-strong); }
-.fig .sbk-ax.x { left: 6%; right: 6%; top: 50%; height: 1px; }
-.fig .sbk-ax.y { top: 6%; bottom: 6%; left: 50%; width: 1px; }
-.fig .sbk-al { position: absolute; font-size: .95cqw; letter-spacing: var(--label-ls); color: var(--muted); white-space: nowrap; }
-.fig .sbk-al.t { top: 0; left: 50%; transform: translateX(-50%); }
-.fig .sbk-al.b { bottom: 0; left: 50%; transform: translateX(-50%); }
-.fig .sbk-al.l { left: 0; top: 50%; transform: translate(0, -150%); }
-.fig .sbk-al.r { right: 0; top: 50%; transform: translate(0, -150%); }
-.fig .sbk-corner { position: absolute; left: 50%; right: 3%; top: 4%; bottom: 50%; border-radius: var(--fig-r); background: radial-gradient(circle at 60% 50%, rgba(28, 31, 36, .10), rgba(28, 31, 36, 0) 70%); }
-.fig .sbk-pt { position: absolute; display: flex; align-items: center; gap: .6cqw; transform: translate(-50%, -50%); font-size: 1.05cqw; color: var(--muted); white-space: nowrap; }
-.fig .sbk-pt img, .fig .sbk-pt .logo--mono { width: 2cqw; height: 2cqw; border-radius: var(--fig-r-sm); object-fit: contain; }
-.fig .sbk-pt .logo--mono { display: grid; place-items: center; background: var(--surface); box-shadow: 0 0 0 1px var(--line); font-size: .8cqw; font-weight: var(--fw-semi); }
-.fig .sbk-pt.hi { padding: .7cqw 1.2cqw .7cqw .7cqw; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); font-size: 1.3cqw; font-weight: var(--fw-medium); box-shadow:var(--shadow-raise); }
-.fig .sbk-pt.hi img { width: 2.6cqw; height: 2.6cqw; border-radius: 50%; }
-.fig .sbk-tab { flex: 1; display: flex; flex-direction: column; padding: .6cqw .8cqw .4cqw; }
-.fig .sbk-grid { position: relative; flex: 1; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; grid-template-rows: 7cqw repeat(4, 1fr); }
-.fig .sbk-sb { grid-column: 4; grid-row: 1 / -1; background: var(--surface); border: 1px solid var(--line); border-radius: var(--fig-r); box-shadow:var(--shadow-raise); }
-.fig .sbk-h { grid-row: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8cqw; font-size: 1.05cqw; letter-spacing: var(--label-ls); color: var(--muted); text-align: center; position: relative; z-index: 1; }
-.fig .sbk-h.hi { grid-column: 4; color: var(--ink); font-weight: var(--fw-medium); }
-.fig .sbk-logos { display: flex; }
-.fig .sbk-logos > * { width: 2.2cqw; height: 2.2cqw; margin-left: -.5cqw; border-radius: 50%; object-fit: contain; background: var(--surface); box-shadow: 0 0 0 .15cqw var(--fig-bg); }
-.fig .sbk-logos > :first-child { margin-left: 0; }
-.fig .sbk-logos .logo--mono { display: grid; place-items: center; font-size: .75cqw; font-weight: var(--fw-semi); color: var(--muted); }
-.fig .sbk-h.hi .sbk-logos > * { width: 2.8cqw; height: 2.8cqw; box-shadow: none; }
-.fig .sbk-r { grid-column: 1; display: flex; align-items: center; font-size: 1.4cqw; line-height: var(--lh-tight); color: var(--ink); box-shadow: 0 -1px 0 var(--line); }
-.fig .sbk-c { grid-column: auto; display: grid; place-items: center; box-shadow: 0 -1px 0 var(--line); position: relative; z-index: 1; }
-.fig .sbk-c.hi { grid-column: 4; box-shadow: none; }
-.fig .sbk-legend { display: flex; gap: 1.6cqw; margin-top: 1.2cqw; font-size: 1.05cqw; color: var(--muted); }
-.fig .sbk-legend span { display: inline-flex; align-items: center; gap: .5cqw; }
-.fig .sbk-legend .dot { width: 1.2cqw; height: 1.2cqw; }
-
 /* ── Iterations: three directions, Smart Bundles selected ── */
 .fig .sbd { position: absolute; inset: 3.4cqw 4cqw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqw; }
 .fig .sbd-card { display: flex; flex-direction: column; padding: 2cqw 2.2cqw; background: var(--surface); border: 1px solid var(--line); border-radius: var(--fig-r); overflow: hidden; }
@@ -248,15 +211,6 @@ body.case-page main .fig.sbf-collage img { display: block; width: 100%; height: 
 body.case-page main .sb-next.sb-decisions { margin-top: var(--s-7); }
 body.case-page main .sb-decisions + .nt-reading { margin-top: var(--s-10); }
 
-/* ── Card boards (same panels as the Instagram page's competitive analysis) ── */
-.fig.sb-cards { display: flex; flex-direction: column; gap: 1cqw; padding: 1.4cqw; }
-.sb-cards__row { flex: 1; display: grid; grid-template-columns: var(--cols, minmax(0, 1fr)); gap: 1cqw; align-items: stretch; min-height: 0; }
-.sb-card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--fig-r); overflow: hidden; }
-body.case-page main .sb-card .sb-card__title { flex: none; max-width: none; margin: 0; padding: .9cqw 1.2cqw .8cqw; background: var(--surface-2); border-bottom: 1px solid var(--fig-bg); font-size: max(9px, 1cqw); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--label-ls); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  text-transform: uppercase;}
-.sb-card__body { position: relative; flex: 1 1 auto; display: flex; min-height: 0; padding: 1.8cqw; }
-.fig .sbk-map { position: relative; flex: 1; }
-.fig .sbk-corner { background: radial-gradient(circle at 60% 50%, rgba(28, 31, 36, .07), rgba(28, 31, 36, 0) 70%); }
-
 /* ── Solution: iPhone 16 Pro frame (Figma: iPhone 16 Mockup, Model=Pro, Color=Desert; 434 × 904) ── */
 .sb-iphone { position: relative; flex: none; height: 100%; aspect-ratio: 434 / 904; }
 .sb-iphone::before { content: ""; position: absolute; inset: 0 .46%; border-radius: 18.4% / 8.85%;
@@ -281,7 +235,10 @@ body.case-page main .sb-deck-wrap .sb-deck { --carousel-inset: 12px; }
 /* ── Overview meta: four equal columns, each with the same text width ── */
 body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--s-8); }
 @media (max-width: 760px) { body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s-6); } }
-.sb-card .sbk-sb { background: var(--surface-2); border: 0; box-shadow: 0 0 0 1px var(--fig-bg); }  /* same stroke as the shared .cmp__hi */
-
 /* ── Solution: the tagline video starts a new block after the cards' text ── */
 body.case-page main #solution > .sb-steps4 + .nt-media { margin-top: var(--sp-block, var(--s-10)); }
+
+/* Introductory context: equal columns fit the embedded post or artwork. */
+@media (min-width: 960px) {
+ body.case-page[data-case] main #overview-challenge > .sb-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
