@@ -4,14 +4,14 @@ import { execFileSync } from 'child_process';
 import crypto from 'crypto';
 const FR=ROOT+'.export-frames/'; fs.mkdirSync(FR,{recursive:true});
 // Exports every code-built figure on the project pages as a 2x PNG into
-// <project>-assets/<section>/figures/<name>.png. Run from the repo root while a local server
+// assets/<project>/<section>/figures/<name>.png. Run from the repo root while a local server
 // is up:  python3 -m http.server 5500  &  node scripts/figures/export-pngs.mjs
 // Needs playwright-core (npm i -D playwright-core) and ffmpeg (for video frames:
 // headless Chromium can't decode H.264, so each video is shown as a frame grabbed by ffmpeg).
 // Set CHROME=/path/to/chrome if Chromium isn't at the default path below.
 import path from 'path';
 const ROOT=process.cwd()+'/';
-const PAGES={acuity:'acuity-assets',forage:'forage-assets','instagram-lists':'instagram-assets',neuk:'neuk-assets',notate:'notate-assets','smart-bundles':'smart-bundles-assets',yap:'yap-assets'};
+const PAGES={acuity:'assets/acuity',forage:'assets/forage','instagram-lists':'assets/instagram',neuk:'assets/neuk',notate:'assets/notate','smart-bundles':'assets/smart-bundles',yap:'assets/yap'};
 const b = await chromium.launch({ executablePath: process.env.CHROME || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const log=[];
 for (const [pg,folder] of Object.entries(PAGES)) {

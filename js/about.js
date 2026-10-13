@@ -1,4 +1,4 @@
-/* About: NYC clock pill, the Recently row (from recents.json), and a Stories viewer for photos. */
+/* About: NYC clock pill, the Recently row (from data/recents.json), and a Stories viewer for photos. */
 (() => {
 	'use strict'
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -336,7 +336,7 @@
 		const days = Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5)
 		return days <= 0 ? 'today' : days < 7 ? days + 'd' : Math.floor(days / 7) + 'w'
 	}
-	const who = d => `<span class="ab-who"><span class="ab-who__ring"><img src="about-me-assets/hero/me.jpg" alt=""></span><span class="ab-who__name">sooimkang</span><span class="ab-who__time">${ago(d)}</span></span>`
+	const who = d => `<span class="ab-who"><span class="ab-who__ring"><img src="assets/about/hero/me.jpg" alt=""></span><span class="ab-who__name">sooimkang</span><span class="ab-who__time">${ago(d)}</span></span>`
 	const link = (href, inner, extra = '') => `<a class="ab-rec__card" href="${esc(href)}" target="_blank" rel="noopener"${extra}>${inner}</a>`
 
 	const cards = {
@@ -383,7 +383,7 @@
 		}
 	}
 
-	fetch('recents.json', { cache: 'no-cache' })
+	fetch('data/recents.json', { cache: 'no-cache' })
 		.then(r => (r.ok ? r.json() : Promise.reject(r.status)))
 		.then(data => {
 			const html = ['photos', 'eating', 'watching', 'listening', 'story'].map(k => cards[k](data[k])).join('')

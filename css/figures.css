@@ -107,7 +107,7 @@
 .fig.anno.reveal-ready:not(.is-in) .conn path.from-r{clip-path:inset(-3px -3px -3px 100%)}
 .fig.anno.reveal-ready:not(.is-in) .dot{scale:0}
 
-/* ══ Shared figure components (see DESIGN-SYSTEM.md) ══════════════════════
+/* ══ Shared figure components (see docs/DESIGN-SYSTEM.md) ══════════════════════
    All sizes in cqw of the 16:9 .fig, so a figure scales like an image. */
 
 /* Card board: white cards with a title bar on the dotted figure. */

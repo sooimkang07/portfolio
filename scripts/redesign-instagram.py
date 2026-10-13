@@ -59,7 +59,7 @@ for img in main.all(lambda n:n.t=='img'):
  src=img.a.get('src','')
  for key in ['system-mapping','system-fit','competitive-analysis','user-interviews']:
   if src.endswith('/'+key+'.jpg') or src.endswith('/'+key+'.png'):
-   img.a['src']='instagram-assets/generated/'+key+'.png';img.a['loading']='lazy'
+   img.a['src']='assets/instagram/generated/'+key+'.png';img.a['loading']='lazy'
 # Copy precedes its associated visual in all flow/reflection groups.
 for group in main.all(lambda n:n.has('case__flow-block'))+main.all(lambda n:n.has('case__col-group')):
  targets=[group] if group.has('case__flow-block') else [n for n in group.c if isinstance(n,N)]
@@ -77,10 +77,10 @@ quotes=[
 new=[]
 for i,item in enumerate([n for n in group.c if isinstance(n,N)]):
  text=[n for n in item.c if isinstance(n,N) and n.t in ['h3','p']]
- board=f'<div class="ig-findings" aria-label="User testing feedback for exploration {i+1}"><img class="ig-findings-board" src="instagram-assets/explorations/exploration-{i+1}.png" alt="Original exploration screens and participant feedback" loading="lazy"><div class="ig-findings-quotes">'
+ board=f'<div class="ig-findings" aria-label="User testing feedback for exploration {i+1}"><img class="ig-findings-board" src="assets/instagram/explorations/exploration-{i+1}.png" alt="Original exploration screens and participant feedback" loading="lazy"><div class="ig-findings-quotes">'
  for j,(name,quote,color) in enumerate(quotes[i]):
   board+=f'<blockquote class="ig-quote ig-quote-{j+1}" style="--note:{color};--delay:{j* -5}s"><cite>{name}</cite><p>{escape(quote)}</p></blockquote>'
- board+=f'</div><div class="ig-scene-controls"><button type="button" class="ig-motion-toggle" aria-label="Pause animation">Ⅱ</button><a href="instagram-assets/explorations/exploration-{i+1}.png" target="_blank" rel="noopener" aria-label="Open original exploration board">↗</a></div></div>'
+ board+=f'</div><div class="ig-scene-controls"><button type="button" class="ig-motion-toggle" aria-label="Pause animation">Ⅱ</button><a href="assets/instagram/explorations/exploration-{i+1}.png" target="_blank" rel="noopener" aria-label="Open original exploration board">↗</a></div></div>'
  new.append(N('article',{'class':'ig-exploration'},[N('div',{'class':'ig-exploration-copy'},text)]+frag(board)))
 group.a['class']='ig-explorations';group.c=new
 # Design decisions: two text/visual pairings, retain rationale verbatim.
@@ -100,5 +100,5 @@ for parent in main.all(lambda n:True):
 body.c=[n for n in body.c if not (isinstance(n,N) and n.t=='script' and n.a.get('src') in ['js/work.js','js/case-layout.js'])]
 body.c+=frag('<script src="js/notate.js"></script><script src="js/instagram-editorial.js"></script>')
 p.write_text(r.html())
-shutil.copyfile('/Users/sooimkang/.codex/generated_images/01a0c7bb-c3ba-7363-ae33-5990fd145a26/exec-1b9aa94a-2b82-4135-ab08-09ce7c104016.png','instagram-assets/research/unused/generated-competitive-analysis.png')
+shutil.copyfile('/Users/sooimkang/.codex/generated_images/01a0c7bb-c3ba-7363-ae33-5990fd145a26/exec-1b9aa94a-2b82-4135-ab08-09ce7c104016.png','assets/instagram/research/unused/generated-competitive-analysis.png')
 print('Updated page; original saved:',backup)

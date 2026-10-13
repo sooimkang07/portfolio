@@ -20,7 +20,7 @@
 	var AUTO_OPEN = script && script.getAttribute("data-open") === "true";
 	// Resolve assets relative to this script, so the chat works from any page depth.
 	var BASE = script && script.src ? script.src.replace(/js\/text-sooim\.js.*$/, "") : "";
-	var AVATAR = BASE + "about-me-assets/hero/avatar.jpg"; // square of about-me-assets/hero/me.jpg
+	var AVATAR = BASE + "assets/about/hero/avatar.jpg"; // square of assets/about/hero/me.jpg
 
 	// Inter, the chat's typeface (once per page).
 	if (!document.querySelector("link[data-ts-font]")) {
@@ -39,15 +39,15 @@
 	// A line in a reply that is only one of these paths (e.g. "sooimkang.com/yap")
 	// renders as a link preview bubble.
 	var LINKS = {
-		yap: { title: "yap — voice chats organized by topic", icon: "project-app-icons/icon-yap.png" },
-		notate: { title: "Notate — annotating the web without losing context", icon: "project-app-icons/icon-notate.png" },
-		"instagram-lists": { title: "Instagram Lists — a new control layer for Instagram", icon: "project-app-icons/icon-instagram.png" },
-		"smart-bundles": { title: "Smart Bundles — grocery shopping for what's actually eaten", icon: "project-app-icons/icon-amazon.png" },
-		neuk: { title: "neuk — designing coordination, not a booking app", icon: "project-app-icons/icon-neuk.png" },
-		acuity: { title: "Acuity — deciding when a health signal needs action", icon: "project-app-icons/icon-acuity.png" },
-		work: { title: "Work — Sooim Kang", icon: "favicon.ico" },
-		about: { title: "About — Sooim Kang", icon: "favicon.ico" },
-		"Sooim-Kang-Resume.pdf": { title: "Sooim Kang — Resume (PDF)", icon: "favicon.ico" }
+		yap: { title: "yap — voice chats organized by topic", icon: "assets/app-icons/icon-yap.png" },
+		notate: { title: "Notate — annotating the web without losing context", icon: "assets/app-icons/icon-notate.png" },
+		"instagram-lists": { title: "Instagram Lists — a new control layer for Instagram", icon: "assets/app-icons/icon-instagram.png" },
+		"smart-bundles": { title: "Smart Bundles — grocery shopping for what's actually eaten", icon: "assets/app-icons/icon-amazon.png" },
+		neuk: { title: "neuk — designing coordination, not a booking app", icon: "assets/app-icons/icon-neuk.png" },
+		acuity: { title: "Acuity — deciding when a health signal needs action", icon: "assets/app-icons/icon-acuity.png" },
+		work: { title: "Work — Sooim Kang", icon: "favicon/favicon.ico" },
+		about: { title: "About — Sooim Kang", icon: "favicon/favicon.ico" },
+		"Sooim-Kang-Resume.pdf": { title: "Sooim Kang — Resume (PDF)", icon: "favicon/favicon.ico" }
 	};
 
 	var OPENERS = ["Hey! It's Sooim 👋", "Ask me anything about my work, how I design, or what I'm up to. I'll text back!"];
@@ -65,7 +65,7 @@
 		{ label: "Reach you", text: "How can I reach you?" }
 	];
 
-	// Tapbacks use Apple emoji images (text-sooim-assets/emoji); "HA HA" is type, as on iOS.
+	// Tapbacks use Apple emoji images (assets/text-sooim/emoji); "HA HA" is type, as on iOS.
 	var TAPBACKS = {
 		heart: { label: "Heart", img: "heart" },
 		like: { label: "Like", img: "like" },
@@ -82,7 +82,7 @@
 
 	function glyph(k) {
 		var t = TAPBACKS[k];
-		var inner = t.img ? '<img src="' + BASE + "text-sooim-assets/emoji/" + t.img + '.png" alt="" draggable="false">' : t.html;
+		var inner = t.img ? '<img src="' + BASE + "assets/text-sooim/emoji/" + t.img + '.png" alt="" draggable="false">' : t.html;
 		return '<span class="ts-g ' + (t.cls || "") + '" data-k="' + k + '">' + inner + "</span>";
 	}
 

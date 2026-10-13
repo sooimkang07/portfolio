@@ -7,7 +7,7 @@
    ============================================================ */
 
 const ICON = 220, ICON_R = 50;
-const ICONS = '../project-app-icons/icon-';
+const ICONS = '../assets/app-icons/icon-';
 
 /* order matches the homepage's rotating logo tile */
 const PROJECTS = [

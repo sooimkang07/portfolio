@@ -1,6 +1,6 @@
 from pathlib import Path
 import re,html,base64
-P=Path(__file__).resolve().parents[1]; A=P/'smart-bundles-assets/figures'; A.mkdir(exist_ok=True)
+P=Path(__file__).resolve().parents[1]; A=P/'assets/smart-bundles/figures'; A.mkdir(exist_ok=True)
 def esc(t):return html.escape(str(t))
 def text(x,y,s,size=30,fill='#20262d',weight=400):
  return f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" font-weight="{weight}">{esc(s)}</text>'
@@ -63,7 +63,7 @@ save('metrics',s)
 s=base('A 24-hour sprint, explored in high fidelity','Meal-planning explorations → portion-controlled bundles → a feedback loop')
 order=list(range(2,25))+[1]+list(range(25,41))
 for j,n in enumerate(order):
- p=P/f'smart-bundles-assets/iterations/iteration-{n:02}.webp'; data=base64.b64encode(p.read_bytes()).decode();x=100+(j%14)*125+(125 if j>=28 else 0);y=225+(j//14)*275
+ p=P/f'assets/smart-bundles/iterations/iteration-{n:02}.webp'; data=base64.b64encode(p.read_bytes()).decode();x=100+(j%14)*125+(125 if j>=28 else 0);y=225+(j//14)*275
  # Exported render includes the node’s shadow bounds. Crop those presentation margins in SVG.
  bund=n==1 or n>=25;vw,vh=(602,1095) if bund else (478,950);cropx,cropy=(98,68) if bund else (38,13);cw,ch=(406,900) if bund else (402,874)
  s+=f'<svg x="{x}" y="{y}" width="106" height="235" viewBox="{cropx} {cropy} {cw} {ch}" preserveAspectRatio="xMidYMid meet"><image xlink:href="data:image/webp;base64,{data}" width="{vw}" height="{vh}"/></svg>'+text(x+42,y+258,str(j+1).zfill(2),16)
@@ -74,7 +74,7 @@ save('iterations',s)
 for i,name in enumerate(['home','bundle','cart','feedback','learning']):
  s=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="426" height="899" viewBox="0 0 426 899"><title>Smart Bundles — {name}</title><rect width="426" height="899" rx="72" fill="#26282b" stroke="#767b81" stroke-width="2"/><g transform="translate(12 12)"><defs><clipPath id="screen"><rect width="402" height="875" rx="60"/></clipPath></defs><g clip-path="url(#screen)">'
  for part,sy,yy,hh in [('top',172.5,0,500),('bottom',259.5,500,375)]:
-  data=base64.b64encode((P/f'smart-bundles-assets/solution/screens/{name}-{part}.webp').read_bytes()).decode()
+  data=base64.b64encode((P/f'assets/smart-bundles/solution/screens/{name}-{part}.webp').read_bytes()).decode()
   s+=f'<svg x="0" y="{yy}" width="402" height="{hh}" viewBox="439 {sy} 402 {hh}"><image xlink:href="data:image/webp;base64,{data}" width="1280" height="720"/></svg>'
  (A/f'solution-{name}.svg').write_text(s+'</g></g></svg>')
 print('Created research figures, iterations, and five framed solution screens.')

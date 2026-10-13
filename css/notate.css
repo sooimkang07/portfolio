@@ -1,5 +1,5 @@
 /* Notate case study: problem cards, figure backgrounds, design decisions, launch review.
-   Builds on yap-case.css; the layout reference is yap.html. */
+   Builds on yap.css; the layout reference is yap.html. */
 
 /* Text that follows a figure starts a new block */
 body.case-page main .nt-section > .nt-media + .nt-reading { margin-top: var(--sp-block); }
@@ -160,7 +160,7 @@ body.case-page main .nt-review__help svg { width: 20px; height: 20px; fill: none
 .fig.nt-anno .nt-anno__shot { position: absolute; left: 21%; top: 16.6%; width: 58%; height: auto; border-radius: var(--fig-r) !important; filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, .18)); }
 
 /* ── Core flows: each recording fills a laptop screen ── */
-/* Screen and notch measured on notate-assets/core-flows/unused/laptop-frame.png (2772×1693): display 2267×1468 at (253, 51), top corners r26;
+/* Screen and notch measured on assets/notate/core-flows/unused/laptop-frame.png (2772×1693): display 2267×1468 at (253, 51), top corners r26;
    notch 239×43 at x 1267. laptop-frame-web.webp is that frame at 2000px with the display blanked. */
 body.case-page main .nt-laptop .flow__device { position: relative; aspect-ratio: 2000 / 1222; container-type: inline-size; }
 body.case-page main .nt-laptop__frame { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0 !important; }
@@ -171,3 +171,6 @@ body.case-page main .nt-laptop__window { position: absolute; inset: 0; overflow:
 body.case-page main .nt-laptop :is(.flow__device-screen, video) { border-radius: 0 !important; }
 body.case-page main .nt-laptop .flow__device-screen { position: absolute; inset: 0; }
 body.case-page main .nt-laptop video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Element callout: the yap card shown selected, the way the extension outlines it (stroke + low-opacity fill in the note's color).
+   Box measured on the screenshot (card outline at 42,786 → 1062,1428 of 2880×1866); the notch keeps the sticky note on top. */
+.fig.nt-anno .nt-anno__sel { --sel: #d4c69e; position: absolute; left: 21.846%; top: 44.738%; width: 20.542%; height: 22.983%; border-radius: var(--fig-r-sm); background: color-mix(in srgb, #e6d29c 20%, transparent); box-shadow: inset 0 0 0 .07cqw var(--sel); clip-path: polygon(0 0, 100% 0, 100% 16%, 66.3% 16%, 66.3% 37.6%, 100% 37.6%, 100% 100%, 0 100%); pointer-events: none; }

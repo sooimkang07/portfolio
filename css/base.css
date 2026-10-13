@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
-	/* ══ DESIGN TOKENS: the one system for every page. Docs: DESIGN-SYSTEM.md ══
+	/* ══ DESIGN TOKENS: the one system for every page. Docs: docs/DESIGN-SYSTEM.md ══
 	   Use these tokens in all CSS. No raw hex, shadows, radii, font sizes, line heights,
 	   letter spacing or spacing px outside this block (scripts/check-tokens.py enforces it). */
 

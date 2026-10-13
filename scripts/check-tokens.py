@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Design-token check for the portfolio. See DESIGN-SYSTEM.md.
+"""Design-token check for the portfolio. See docs/DESIGN-SYSTEM.md.
 
 Flags references to tokens that don't exist (e.g. retired names like --clr-text) and
 raw values that should come from the tokens in css/base.css:
@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = ROOT / 'scripts' / 'token-baseline.json'
-# Self-contained subsystems with their own tokens; documented in DESIGN-SYSTEM.md.
+# Self-contained subsystems with their own tokens; documented in docs/DESIGN-SYSTEM.md.
 SUBSYSTEMS = {'css/glass.css', 'css/text-sooim.css'}
 
 def live_css():
@@ -89,7 +89,7 @@ def defined_props():
 
 def unknown_tokens(path):
     text = re.sub(r'/\*.*?\*/', '', (ROOT / path).read_text(errors='ignore'), flags=re.S)
-    return [('unknown token (not defined; see DESIGN-SYSTEM.md)', 'var', m) for m in re.findall(r'var\(\s*(--[\w-]+)', text) if m not in defined_props()]
+    return [('unknown token (not defined; see docs/DESIGN-SYSTEM.md)', 'var', m) for m in re.findall(r'var\(\s*(--[\w-]+)', text) if m not in defined_props()]
 
 def key(path, f): return f'{path} | {f[0]} | {f[1]}: {f[2]}'
 
@@ -115,7 +115,7 @@ def main(argv):
         if not rel.endswith('.css') or rel in SUBSYSTEMS: return 0
         new = check([rel])
         if new:
-            print('Off-system styles (see DESIGN-SYSTEM.md). Use the tokens in css/base.css:', file=sys.stderr)
+            print('Off-system styles (see docs/DESIGN-SYSTEM.md). Use the tokens in css/base.css:', file=sys.stderr)
             for k, n in new[:25]: print(f'  {k}' + (f'  ×{n}' if n > 1 else ''), file=sys.stderr)
             return 2
         return 0

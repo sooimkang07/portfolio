@@ -32,7 +32,7 @@ def head(title, description, extra_css=(), case=None):
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{escape(title)}</title>
 	<meta name="description" content="{escape(description)}">
-	<link rel="icon" href="favicon.ico">
+	<link rel="icon" href="favicon/favicon.ico">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="css/v2/tokens.css?v={V}">
@@ -167,7 +167,7 @@ def build_home():
 		</section>
 
 		<section class="wrap section teaser" aria-labelledby="teaser-title">
-			<div class="teaser__photo" data-reveal><div class="media"><img src="about-me-assets/hero/me.jpg" alt="Sooim Kang" loading="lazy" decoding="async"></div></div>
+			<div class="teaser__photo" data-reveal><div class="media"><img src="assets/about/hero/me.jpg" alt="Sooim Kang" loading="lazy" decoding="async"></div></div>
 			<div class="teaser__copy" data-reveal style="--i:1">
 				<p class="eyebrow">About</p>
 				<h2 class="h1" id="teaser-title">Journalism taught me to find the story. <span class="tone-2">Product design lets me build what happens next.</span></h2>
@@ -265,7 +265,7 @@ def next_project(slug):
 		</a>"""
 
 
-NT = "notate-assets"
+NT = "assets/notate"
 NTM = f"{NT}/notate-portfolio-motion"
 
 
@@ -364,7 +364,7 @@ def build_notate():
 		</header>
 
 		<figure class="wrap case-cover" data-reveal>
-			<div class="media" style="view-transition-name: cover-notate"><video src="{NT}/n-notate-logo.mp4" poster="covers/notate-cover.png" muted loop playsinline preload="auto" data-autoplay aria-label="Notate logo animation"></video></div>
+			<div class="media" style="view-transition-name: cover-notate"><video src="{NT}/n-notate-logo.mp4" poster="assets/covers/notate-cover.png" muted loop playsinline preload="auto" data-autoplay aria-label="Notate logo animation"></video></div>
 		</figure>
 
 		<div class="wrap case-body">{toc(chapters)}

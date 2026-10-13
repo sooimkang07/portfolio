@@ -2,7 +2,7 @@
 description: Portfolio rules: design system, figures, and how Sooim works
 alwaysApply: true
 ---
-Before any edit, read and follow @AGENTS.md, @DESIGN-SYSTEM.md, @docs/WORKING-WITH-SOOIM.md and @docs/FIGURES.md.
+Before any edit, read and follow @AGENTS.md, @docs/DESIGN-SYSTEM.md, @docs/WORKING-WITH-SOOIM.md and @docs/FIGURES.md.
 
 Never commit, push, branch or open a PR. Edit locally only, then list just the files you changed.
 After CSS edits run `python3 scripts/check-tokens.py` (must report 0 off-system values) and bump the `?v=` of any changed CSS/JS.

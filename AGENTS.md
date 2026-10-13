@@ -2,13 +2,13 @@
 
 **Every agent (Claude Code, Cursor, Codex, …) reads these before editing:**
 1. This file: rules and visual preferences.
-2. `DESIGN-SYSTEM.md`: the tokens and components every style must use.
+2. `docs/DESIGN-SYSTEM.md`: the tokens and components every style must use.
 3. `docs/WORKING-WITH-SOOIM.md`: how to read Sooim's instructions (vocabulary), taste, verification, open to-dos.
 4. `docs/FIGURES.md`: how to build or regenerate any figure. Generated figures live in `scripts/figures/`.
 
 ## Design system (required for every edit)
 
-All styling comes from the tokens in the `:root` block of `css/base.css`. **Read `DESIGN-SYSTEM.md` before writing CSS.**
+All styling comes from the tokens in the `:root` block of `css/base.css`. **Read `docs/DESIGN-SYSTEM.md` before writing CSS.**
 
 - Don't write raw grey hex, shadows, radii, font sizes, line heights, letter spacing, font weights or margin/padding/gap px values. Use the tokens (`--ink`, `--muted`, `--line`, `--shadow-raise`, `--r-md`, `--fs-base`, `--lh-base`, `--s-4` …).
 - Text has two colors: `--ink` (headings, emphasis) and `--muted` (body copy, labels, meta).
@@ -18,15 +18,24 @@ All styling comes from the tokens in the `:root` block of `css/base.css`. **Read
 - After changing a CSS or JS file, bump its `?v=` cache-buster in every page that links it.
 - Only update `scripts/token-baseline.json` (`--baseline`) when the user approves a new exception.
 
+## Folder layout
+
+- Pages (`index.html`, `work.html`, `about.html`, `explorations.html`, `password.html` and the project pages) stay at the top level so their URLs (`sooimkang.com/yap`) keep working. `CNAME`, `AGENTS.md`, `CLAUDE.md` and `Sooim-Kang-Resume.pdf` stay there too.
+- `assets/<page>/`: every image, video and figure export, one folder per page (`assets/acuity/`, `assets/about/`, `assets/explorations/` …), plus `assets/covers/` (work-index covers), `assets/app-icons/` and `assets/text-sooim/` (chat widget emoji).
+- `css/<page>.css` and `js/<page>.js`: per-page styles and scripts, named after the page with no suffix; shared files (`base.css`, `case.css`, `figures.css`, `case.js` …) sit beside them.
+- `favicon/`: the favicon and app icons. `data/`: `recents.json` and the Supabase SQL. `docs/`: `DESIGN-SYSTEM.md`, `FIGURES.md`, `WORKING-WITH-SOOIM.md`. `scripts/`: the token check and figure generators.
+- Sub-sites keep their own folders: `reel/`, `yap-demo/`, `forage-demo/`, `text-sooim-api/`.
+- Name new folders with the shortest plain word that fits (`data`, `favicon`), lowercase, `-` between words.
+
 ## Asset folders
 
-Each project page has one asset folder (`acuity-assets/`, `forage-assets/`, `instagram-assets/` for `instagram-lists.html`, `neuk-assets/`, `notate-assets/`, `smart-bundles-assets/`, `yap-assets/`). Inside it there is one folder per page section, named after the section's table-of-contents title in lowercase, with `-` for spaces and "and" for `&`: `overview/` (cover, hero, problem, challenge), `solution/`, `core-flows/`, `research/`, `design-decisions/`, `iterations-and-testing/`, `next-steps/`, `reflection/` and so on.
+Each project page has one asset folder (`assets/acuity/`, `assets/forage/`, `assets/instagram/` for `instagram-lists.html`, `assets/neuk/`, `assets/notate/`, `assets/smart-bundles/`, `assets/yap/`). Inside it there is one folder per page section, named after the section's table-of-contents title in lowercase, with `-` for spaces and "and" for `&`: `overview/` (cover, hero, problem, challenge), `solution/`, `core-flows/`, `research/`, `design-decisions/`, `iterations-and-testing/`, `next-steps/`, `reflection/` and so on.
 
-- The About page uses `about-me-assets/` the same way: `hero/` (the video reel in `hero/reel/`, profile photo, name audio, and the chat-widget avatar), `camera-roll/`, `recent-activity/` (images listed in `recents.json`) and `favorites/`.
+- The About page uses `assets/about/` the same way: `hero/` (the video reel in `hero/reel/`, profile photo, name audio, and the chat-widget avatar), `camera-roll/`, `recent-activity/` (images listed in `data/recents.json`) and `favorites/`.
 - Put a new asset in the folder of the section it appears in. If it's used in several sections, put it in the first one.
-- Groups of related files can share a subfolder inside a section (e.g. `yap-assets/build/rail/`).
-- `<section>/figures/` holds PNG exports of that section's code-built figures, for downloading. Pages don't use them; regenerate them with `scripts/figures/export-pngs.mjs` after changing a figure.
-- Files that no page uses go in that section's `unused/` folder (e.g. `acuity-assets/research/unused/`). Don't delete them.
+- Groups of related files can share a subfolder inside a section (e.g. `assets/yap/build/rail/`).
+- `<section>/figures/` holds PNG exports of that section's code-built figures, for downloading. **Every time you create or change a generated figure, export it as a 2x PNG into its section's `figures/` folder** (`scripts/figures/export-pngs.mjs`, or a screenshot of just that figure). Pages don't use these PNGs.
+- Files that no page uses go in that section's `unused/` folder (e.g. `assets/acuity/research/unused/`). Don't delete them.
 - If you rename or move an asset, update every reference to it (HTML, CSS, JS, scripts, docs) and check that none are broken.
 
 ## Workflow
@@ -38,7 +47,7 @@ Each project page has one asset folder (`acuity-assets/`, `forage-assets/`, `ins
 
 When editing this portfolio, follow the existing design system and the user's established feedback. These notes were recovered from the portfolio-specific Claude history and confirmed against the current Yap page on October 7, 2026.
 
-- Use `yap.html` and `css/yap-case.css` as the primary case-study layout reference. Read the relevant component before implementing a similar one. Reuse its spacing, typography, backgrounds, radii, shadows, and responsive behavior.
+- Use `yap.html` and `css/yap.css` as the primary case-study layout reference. Read the relevant component before implementing a similar one. Reuse its spacing, typography, backgrounds, radii, shadows, and responsive behavior.
 - Use cool grays and restrained accents. Avoid warm palettes, purple text/outlines, decorative colored cards, glowing number badges, or a new visual language for each project.
 - Give real product visuals space. Use original screens in appropriate device frames. Avoid tiny screenshots surrounded by excessive padding. Use logos or actual visual assets when they communicate better than generic shapes.
 - Keep copy sharp and concrete. Explain what the product does before how it works. Figures should communicate visually, with minimal embedded copy; don't default to text-heavy presentation slides.

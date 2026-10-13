@@ -288,3 +288,8 @@ body[data-case="forage"] main .fg-lap__scr>img{object-position:top left}
 /* Why a ring: larger circles, tighter columns. */
 body[data-case="forage"] main .fg-landscape{padding-inline:3%;column-gap:1.5cqw}
 body[data-case="forage"] main .fg-landscape .fg-circle{width:100%}
+/* Problem: what a designer notices, around the moment of noticing (1920×1080 .fig, sizes in cqw) */
+body[data-case="forage"] main .fig.fg-prob .fg-prob__eyes { position: absolute; object-fit: cover; border-radius: calc(var(--fig-r) * 1.5) !important; box-shadow: var(--shadow-float); }
+body[data-case="forage"] main .fig.fg-prob .fg-prob__card .card { display: flex; flex-direction: column; height: 100%; padding: 1cqw; }
+body[data-case="forage"] main .fig.fg-prob .fg-prob__card .c-lab { margin-bottom: .8cqw; }
+body[data-case="forage"] main .fig.fg-prob .fg-prob__card img { flex: 1; min-height: 0; width: 100%; object-fit: cover; border-radius: var(--fig-r-sm) !important; }

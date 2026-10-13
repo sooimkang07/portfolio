@@ -1,6 +1,6 @@
 # Working with Sooim on this portfolio
 
-This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, visual instructions that reference parts of the pages by what they look like. This file explains how to read those instructions and what "done" looks like. Read it together with `AGENTS.md`, `DESIGN-SYSTEM.md` and `docs/FIGURES.md`.
+This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, visual instructions that reference parts of the pages by what they look like. This file explains how to read those instructions and what "done" looks like. Read it together with `AGENTS.md`, `docs/DESIGN-SYSTEM.md` and `docs/FIGURES.md`.
 
 ## Workflow rules (non-negotiable)
 
@@ -15,7 +15,7 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 | Sooim says | It means |
 |---|---|
 | "nt-meta" | The project meta block under the hero (Role / Team / Timeline… `dl`). Things "under nt-meta" go right after it. |
-| "the Try the prototype button" / "Acuity button style" | A dark ink pill link. Acuity's version is `a.ac-btn` (`css/acuity-draft.css`); Forage's copy is `a.fg-btn`. Use `--ink` background, `--surface` text, `--r-pill`, `--fs-base` medium, padding `--s-2 --s-4`, and no "↗". |
+| "the Try the prototype button" / "Acuity button style" | A dark ink pill link. Acuity's version is `a.ac-btn` (`css/acuity.css`); Forage's copy is `a.fg-btn`. Use `--ink` background, `--surface` text, `--r-pill`, `--fs-base` medium, padding `--s-2 --s-4`, and no "↗". |
 | "kicker" / "step label" | `.nt-kicker` (small caps label above an H2) / `.nt-step-label` (small label above an H3). |
 | "standard figure background" / "dotted background" | `--fig-bg` + `--fig-dot` dot grid (`.fig`, or `.yap-board--inset` around an image). |
 | "like the SYSTEM ARCHITECTURE figure in Acuity" | The node graph. Regenerate it with `scripts/figures/` (see `docs/FIGURES.md`). |
@@ -50,9 +50,9 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 
 ## Open to-dos (as of 2026-10-12)
 
-- **Acuity, design decision 01:** convert `acuity-bp.mov`, `acuity-hr.mov` and `acuity-sleep.mov` (Sooim is adding them; put them and the `.webm` files in `acuity-assets/design-decisions/`) to transparent `.webm` and swap them into the `.ac-vstack` figure. Convert with:
+- **Acuity, design decision 01:** convert `acuity-bp.mov`, `acuity-hr.mov` and `acuity-sleep.mov` (Sooim is adding them; put them and the `.webm` files in `assets/acuity/design-decisions/`) to transparent `.webm` and swap them into the `.ac-vstack` figure. Convert with:
   `ffmpeg -i in.mov -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 0 -crf 30 -an out.webm`
-- **Acuity, research landscape:** replace the positioning-map dots with the competitor logos (put them in `acuity-assets/research/`; not in the repo yet; Sooim is adding them: Apple Watch, Oura, WHOOP, Telehealth, 911) and `bracelet.png` for Acuity.
-- **Acuity, pitch:** `acuity-assets/pitch/acuity-pitch.jpg` is referenced by the page. Confirm it is present once pushed.
-- **Forage:** `forage-assets/iterations/forage-prd.pdf` (the PRD linked in Iterations) is referenced but not in the repo. Add the file.
-- **Yap:** `yap-assets/build/yap-build-design.png` is referenced by the component-library figure. Add the file.
+- **Acuity, research landscape:** replace the positioning-map dots with the competitor logos (put them in `assets/acuity/research/`; not in the repo yet; Sooim is adding them: Apple Watch, Oura, WHOOP, Telehealth, 911) and `bracelet.png` for Acuity.
+- **Acuity, pitch:** `assets/acuity/pitch/acuity-pitch.jpg` is referenced by the page. Confirm it is present once pushed.
+- **Forage:** `assets/forage/iterations/forage-prd.pdf` (the PRD linked in Iterations) is referenced but not in the repo. Add the file.
+- **Yap:** `assets/yap/build/yap-build-design.png` is referenced by the component-library figure. Add the file.
