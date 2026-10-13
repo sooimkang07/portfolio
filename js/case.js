@@ -33,6 +33,17 @@
 
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)')
 
+
+	// Side-by-side media that keep their own proportions: each cell's width follows its media's
+	// aspect ratio, so both share one height (figure[data-fit-row] > .cs-cell, CSS reads --ar).
+	document.querySelectorAll('[data-fit-row] .cs-cell').forEach(cell => {
+		const m = cell.querySelector('img, video')
+		if (!m) return
+		const set = (w, h) => { if (w && h) cell.style.setProperty('--ar', (w / h).toFixed(4)) }
+		if (m.tagName === 'IMG') { if (m.complete) set(m.naturalWidth, m.naturalHeight); else m.addEventListener('load', () => set(m.naturalWidth, m.naturalHeight)) }
+		else { if (m.readyState >= 1) set(m.videoWidth, m.videoHeight); else m.addEventListener('loadedmetadata', () => set(m.videoWidth, m.videoHeight)) }
+	})
+
 	/* ── 1. Video playback ─────────────────────────────────── */
 	function realVideo(device) {
 		const v = device.querySelector('video')
@@ -41,7 +52,8 @@
 
 	/* Every case-study video gets the same glass pause + replay pair, top-right.
 	   Videos whose markup already carries controls are left alone; videos with native
-	   controls (long talks with sound) and the stepped Notate onboarding keep theirs. */
+	   controls (long talks with sound) and the stepped Notate onboarding keep theirs.
+   Add data-no-controls to a figure to show its videos without any buttons. */
 	const CONTROLS = '<div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>'
 	const hasControls = v => {
 		for (let a = v.parentElement, i = 0; a && i < 4; a = a.parentElement, i++) {
@@ -50,7 +62,7 @@
 		return false
 	}
 	document.querySelectorAll('body.case-page main video').forEach(v => {
-		if (v.hasAttribute('controls') || v.closest('.nt-onboarding') || hasControls(v)) return
+		if (v.hasAttribute('controls') || v.closest('.nt-onboarding, [data-no-controls]') || hasControls(v)) return
 		const host = v.parentElement
 		if (host.querySelectorAll('video').length > 1) return
 		host.classList.add('vc-host')

@@ -1,22 +1,22 @@
 /* yap case study: problem animations, opportunity, live demo, diagrams, launch. */
 
-body.case-page main .yap-overview-img { margin-top: 32px; }
+body.case-page main .yap-overview-img { margin-top: var(--s-7); }
 body.case-page main .yap-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 
 /* ── Problem: three ways people yap today ─────────────────────── */
-.yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, 12px); }
+.yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
 .yap-problem__cell { min-width: 0; }
-.yap-card { position: relative; aspect-ratio: 4 / 5; background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); overflow: hidden; }
-.yap-problem__name { margin: 28px 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
-.yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: 1.55; text-wrap: pretty; }
+.yap-card { position: relative; aspect-ratio: 4 / 5; background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); overflow: hidden; }
+.yap-problem__name { margin: var(--s-7) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
+.yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); text-wrap: pretty; }
 
 /* Calling: FaceTime tiles waiting for people who aren't free yet */
-.yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: 8px; border-radius: 12px; will-change: transform; }
-.yap-call__tile span { display: grid; place-items: center; width: 42%; aspect-ratio: 1; border-radius: 50%; background: #f7f7f7; font-size: clamp(14px, 2.4vw, 30px); color: #1c1d1c; }
-.yap-call__tile em { font-style: normal; font-size: 11px; color: #8a8f98; }
-.yap-call__tile--l { left: 13%; top: 8%; width: 64%; aspect-ratio: 1; background: #d9d9d9; animation: yap-float-l 7s ease-in-out infinite; }
-.yap-call__tile--k { left: 56%; top: 49%; width: 32%; aspect-ratio: 1; background: #c6c6c6; animation: yap-float-k 6s ease-in-out infinite; }
-.yap-call__tile--m { left: 25%; top: 66%; width: 32%; aspect-ratio: 1; background: #e0e0e0; animation: yap-float-m 8s ease-in-out infinite; }
+.yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: var(--s-2); border-radius: var(--r-md); will-change: transform; }
+.yap-call__tile span { display: grid; place-items: center; width: 42%; aspect-ratio: 1; border-radius: 50%; background: var(--surface-2); font-size: clamp(14px, 2.4vw, 30px); color: var(--ink); }
+.yap-call__tile em { font-style: normal; font-size: var(--fs-xs); color: var(--muted); }
+.yap-call__tile--l { left: 13%; top: 8%; width: 64%; aspect-ratio: 1; background: var(--line); animation: yap-float-l 7s ease-in-out infinite; }
+.yap-call__tile--k { left: 56%; top: 49%; width: 32%; aspect-ratio: 1; background: var(--fig-dot); animation: yap-float-k 6s ease-in-out infinite; }
+.yap-call__tile--m { left: 25%; top: 66%; width: 32%; aspect-ratio: 1; background: var(--line); animation: yap-float-m 8s ease-in-out infinite; }
 .yap-call__tile--k span, .yap-call__tile--m span { width: 46%; font-size: clamp(11px, 1.6vw, 20px); }
 @keyframes yap-float-l { 0%, 100% { transform: translate(0, 0) scale(1); } 35% { transform: translate(-4%, 3%) scale(.94); } 70% { transform: translate(3%, -2%) scale(1.03); } }
 @keyframes yap-float-k { 0%, 100% { transform: translate(0, 0) scale(1); } 40% { transform: translate(-10%, -8%) scale(1.1); } 75% { transform: translate(6%, 4%) scale(.92); } }
@@ -24,11 +24,11 @@ body.case-page main .yap-overview-img img { display: block; width: 100%; height:
 
 /* Texting: iMessage bubbles, sent one after another */
 .yap-text__stack { position: absolute; left: 10%; right: 10%; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; }
-.yap-bubble { position: relative; margin: 0; max-height: 0; opacity: 0; padding: 0 14px; border-radius: 19px; background: #1b8cfb; color: #fff; font-size: clamp(12px, 1.3vw, 16px); line-height: 1.35; white-space: nowrap; transform-origin: 100% 100%; overflow: visible; animation: 8s cubic-bezier(.34, 1.4, .64, 1) infinite; }
+.yap-bubble { position: relative; margin: 0; max-height: 0; opacity: 0; padding: 0 var(--s-4); border-radius: var(--r-lg); background: #1b8cfb; color: var(--surface); font-size: clamp(12px, 1.3vw, 16px); line-height: var(--lh-snug); white-space: nowrap; transform-origin: 100% 100%; overflow: visible; animation: 8s cubic-bezier(.34, 1.4, .64, 1) infinite; }
 .yap-bubble--1 { animation-name: yap-b1; } .yap-bubble--2 { animation-name: yap-b2; } .yap-bubble--3 { animation-name: yap-b3; }
-@keyframes yap-b1 { 0%, 8% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 13%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
-@keyframes yap-b2 { 0%, 22% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 27%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
-@keyframes yap-b3 { 0%, 36% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 41%, 88% { max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: 8px; margin-top: 4px; } }
+@keyframes yap-b1 { 0%, 8% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 13%, 88% { max-height: 60px; opacity: 1; padding-block: var(--s-2); margin-top: var(--s-1); transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: var(--s-2); margin-top: var(--s-1); } }
+@keyframes yap-b2 { 0%, 22% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 27%, 88% { max-height: 60px; opacity: 1; padding-block: var(--s-2); margin-top: var(--s-1); transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: var(--s-2); margin-top: var(--s-1); } }
+@keyframes yap-b3 { 0%, 36% { max-height: 0; opacity: 0; padding-block: 0; margin-top: 0; transform: scale(.4) translateY(12px); } 41%, 88% { max-height: 60px; opacity: 1; padding-block: var(--s-2); margin-top: var(--s-1); transform: none; } 96%, 100% { max-height: 60px; opacity: 0; padding-block: var(--s-2); margin-top: var(--s-1); } }
 
 /* Voice memo: the real recording, cropped to the bubble */
 .yap-memo { display: grid; place-items: center; }
@@ -43,22 +43,22 @@ body.case-page main .yap-overview-img img { display: block; width: 100%; height:
 }
 @media (prefers-reduced-motion: reduce) {
   .yap-call__tile { animation: none; }
-  .yap-bubble { animation: none; max-height: 60px; opacity: 1; padding-block: 8px; margin-top: 4px; }
+  .yap-bubble { animation: none; max-height: 60px; opacity: 1; padding-block: var(--s-2); margin-top: var(--s-1); }
 }
 
 /* ── Opportunity ───────────────────────────────────────────────── */
-body.case-page main .yap-hmw { margin-top: 56px; padding: 40px 0 8px; border-top: 1px solid var(--clr-border, #e6e8ea); }
-body.case-page main .yap-hmw__q { margin: 12px 0 0; max-width: 28ch; font-size: clamp(24px, 2.6vw, 36px); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; color: var(--clr-text, #1c1d1c); }
+body.case-page main .yap-hmw { margin-top: var(--s-10); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
+body.case-page main .yap-hmw__q { margin: var(--s-3) 0 0; max-width: 28ch; font-size:var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h1-ls); color: var(--ink); }
 
 /* ── Live demo in the iPhone frame (same 1080×1350 stage as the feature videos) ── */
-.yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg); overflow: hidden; background: #f4f1ee; }
+.yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg); overflow: hidden; background: var(--fig-bg); }
 .yap-demo__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
-.yap-demo__screen { position: absolute; left: 26.093%; top: 9.711%; width: 47.722%; height: 80.563%; overflow: hidden; border-radius: 14.36% / 6.8%; background: #fff; }
-.yap-demo__screen iframe { position: absolute; left: 0; top: calc(var(--yap-demo-top, 54px) * var(--yap-demo-scale, 1)); width: 402px; height: calc(848px - var(--yap-demo-top, 54px)); border: 0; transform-origin: 0 0; border-radius: 0 !important; }
+.yap-demo__screen { position: absolute; left: 26.093%; top: 9.711%; width: 47.722%; height: 80.563%; overflow: hidden; border-radius: 14.36% / 6.8%; background: var(--surface); }
+.yap-demo__screen iframe { position: absolute; left: 0; top: calc(54px * var(--yap-demo-scale, 1)); width: 402px; height: calc(848px - 54px); border: 0; transform-origin: 0 0; border-radius: 0 !important; }
 /* The iframe gets no safe-area inset, so it starts below the Dynamic Island; this strip stands in for the status bar. */
-.yap-demo__screen:has(iframe) { background: #fefdfc; }
+.yap-demo__screen:has(iframe) { background: var(--surface); }
 .yap-demo__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; filter: saturate(.9); }
-.yap-demo__start { align-self: flex-start; margin-top: 28px; padding: 12px 20px; border: 0; border-radius: 999px; background: #1c1d1c; color: #fff; font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .45); }
+.yap-demo__start { align-self: flex-start; margin-top: var(--s-7); padding: var(--s-3) var(--s-5); border: 0; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); font: inherit; font-size: var(--fs-base); cursor: pointer; white-space: nowrap; box-shadow:var(--shadow-float); }
 .yap-demo__start:disabled { visibility: hidden; }
 .yap-demo-intro { display: flex; flex-direction: column; }
 /* Side by side: the button sits at the bottom of the text column, level with the phone's bottom edge. */
@@ -70,33 +70,28 @@ body.case-page main .yap-hmw__q { margin: 12px 0 0; max-width: 28ch; font-size: 
 
 /* ── Diagrams and placeholders ─────────────────────────────────── */
 .yap-diagram svg { display: block; width: 100%; height: auto; }
-.yap-diagram + .yap-diagram, .yap-diagram + figure { margin-top: 16px; }
-.yap-todo { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; aspect-ratio: 16 / 9; padding: 24px; border-radius: var(--r-lg); background: #f1f3f5 radial-gradient(#DADAD5 1px, transparent 1px) 0 0 / 10px 10px; text-align: center; font-size: var(--fs-base); color: #626b76; }
-.yap-todo__tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: #1c1d1c; }
+.yap-diagram + .yap-diagram, .yap-diagram + figure { margin-top: var(--s-4); }
 
 /* ── Launch ────────────────────────────────────────────────────── */
-.yap-launch-hero img { display: block; width: 100%; height: auto; }
 .yap-launch-grid .cs-cell > video.nt-video { height: 100%; object-fit: cover; }
-.yap-tweet { display: flex; justify-content: center; padding: 32px 16px; border-radius: var(--r-lg); background: #f1f3f5; }
+.yap-tweet { display: flex; justify-content: center; padding: var(--s-7) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg); }
 .yap-tweet .twitter-tweet { margin: 0 !important; }
-.yap-tweet blockquote.twitter-tweet { max-width: 480px; padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }
-body.case-page main .yap-text .yap-bubble.yap-bubble { color: #fff; }
+.yap-tweet blockquote.twitter-tweet { max-width: 480px; padding: var(--s-5) var(--s-6); border-radius: var(--r-lg); background: var(--surface); font-size: var(--fs-base); }
+body.case-page main .yap-text .yap-bubble.yap-bubble { color: var(--surface); }
 
 /* problem captions: override the case-study paragraph defaults, no orphans */
 /* problem captions match the solution principles: bold heading + standard body copy */
-body.case-page main .yap-problem .yap-problem__name { margin: 28px 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
-body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: 1.55; text-wrap: pretty; }
+body.case-page main .yap-problem .yap-problem__name { margin: var(--s-7) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
+body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); text-wrap: pretty; }
 /* tweet sits on the page, no figure panel */
 body.case-page main .yap-tweet { display: block; padding: 0; background: none; border-radius: 0; }
 body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
 @media (min-width: 960px) { body.case-page main .yap-feedback { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
 /* the embed adds its own top margin; line the copy up with the tweet card */
-body.case-page main .yap-feedback .twitter-tweet, body.case-page main .yap-feedback .twitter-tweet-rendered { margin-top: 0 !important; }
+body.case-page main .yap-feedback .twitter-tweet { margin-top: 0 !important; }
 body.case-page main .yap-memo video { width: 80%; height: auto; margin: 0 auto; }
-body.case-page main .yap-launch-hero img { width: min(100%, 440px); margin: 0 auto; }
-body.case-page main .yap-launch-hero video { display: block; width: min(100%, 440px); height: auto; margin: 0 auto; }
 /* figure titles live on the page, above the figure */
-body.case-page main .yap-figtitle { margin: 40px 0 12px; font-size: var(--fs-base); font-weight: 500; color: var(--clr-text, #1c1d1c); max-width: none; }
+body.case-page main .yap-figtitle { margin: var(--s-8) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--ink); max-width: none; }
 body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
 
 /* iMessage tail: one drawn shape (no masking patch), fades to the newest bubble */
@@ -110,32 +105,23 @@ body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { .yap-bubble::after { animation: none; } .yap-bubble--3::after { opacity: 1; } }
 
 /* Iterations: the three Figma Make directions, captioned with what the shipped design kept */
-body.case-page main .yap-direction { margin-top: 16px; }
-body.case-page main .yap-direction img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: #fff; }
-body.case-page main .yap-direction figcaption b { font-weight: 500; color: var(--clr-text, #1c1d1c); }
 
 /* Bugs: the prompt I gave the agent, set as a plain note under each repro video */
-body.case-page main .yap-prompt { margin-top: 16px; padding: 24px 28px; border-radius: var(--r-lg); background: #f1f3f5; }
-body.case-page main .yap-prompt .yap-prompt__tag { margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: .08em; color: #1c1d1c; }
-body.case-page main .yap-prompt .yap-prompt__body p { margin: 0 0 10px; max-width: none; font-size: var(--fs-base); line-height: 1.55; color: #3a3f45; }
-body.case-page main .yap-prompt .yap-prompt__body p:last-child { margin-bottom: 0; }
-body.case-page main .yap-prompt code { font: 12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 1px 5px; border-radius: 5px; background: #e4e7ea; color: #1c1d1c; }
 
 /* Design: Figma boards (component library, core screens) shown edge to edge */
 body.case-page main .yap-board img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
-body.case-page main .yap-board + .yap-figtitle { margin-top: 32px; }
+body.case-page main .yap-board + .yap-figtitle { margin-top: var(--s-7); }
 
 /* Bugs: text and the agent prompt on the left, the repro video on the right */
 @media (min-width: 960px) {
-  body.case-page main .yap-bug { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  body.case-page main .yap-bug { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-9); align-items: start; }
   body.case-page main .yap-bug .yap-bug__video { margin-top: 0; }
 }
 body.case-page main .yap-bug .yap-bug__text .nt-reading { max-width: none; }
-body.case-page main .yap-bug .yap-prompt { margin-top: 24px; }
 
 /* Launch: date card + the room on top, sticker cutting + the station below */
-body.case-page main .yap-launch-grid { display: flex; flex-direction: column; gap: var(--gap-media, 12px); }
-body.case-page main .yap-launch__row { display: grid; gap: var(--gap-media, 12px); }
+body.case-page main .yap-launch-grid { display: flex; flex-direction: column; gap: var(--gap-media, var(--s-3)); }
+body.case-page main .yap-launch__row { display: grid; gap: var(--gap-media, var(--s-3)); }
 body.case-page main .yap-launch__row--top { grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr); }
 body.case-page main .yap-launch__row--bottom { grid-template-columns: minmax(0, 2.35fr) minmax(0, 1fr); }
 body.case-page main .yap-launch__cell { min-width: 0; border-radius: var(--r-lg); overflow: hidden; }
@@ -144,48 +130,43 @@ body.case-page main .yap-launch__cell video { display: block; width: 100%; heigh
 body.case-page main .yap-launch__row--top .yap-launch__cell { aspect-ratio: 16 / 9; }
 body.case-page main .yap-launch__row--bottom .yap-launch__cell { aspect-ratio: 4 / 3; }
 body.case-page main .yap-launch__row--bottom .yap-launch__cell:last-child { aspect-ratio: auto; }
-body.case-page main .yap-launch__date { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(16px, 2vw, 28px); border-radius: var(--r-lg); background: #d9dbde; }
-body.case-page main .yap-launch__date p { margin: 0; max-width: none; font-size: clamp(26px, 3.6vw, 52px); font-weight: 400; line-height: 1.02; letter-spacing: -0.035em; color: #1c1d1c; }
 @media (max-width: 760px) {
   body.case-page main .yap-launch__row--top, body.case-page main .yap-launch__row--bottom { grid-template-columns: 1fr; }
-  body.case-page main .yap-launch__date { gap: 24px; }
-}
+  }
 
 /* Two hero photos side by side, directly under the cover video, same width as the cover */
-body.case-page .case-cover:has(+ .yap-hero-pair) { margin-bottom: var(--gap-media, 12px); }
-body.case-page .yap-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, 12px); margin: 0 var(--case-g) clamp(56px, 7vw, 104px); }
-body.case-page .yap-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); }
+body.case-page .case-cover:has(+ .yap-hero-pair) { margin-bottom: var(--gap-media, var(--s-3)); }
+body.case-page .yap-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin: 0 var(--case-g) clamp(var(--s-10), 7vw, var(--s-11)); }
+body.case-page .yap-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
 @media (max-width: 760px) { body.case-page .yap-hero-pair { grid-template-columns: 1fr; } }
 /* The Demo Day video takes the date card's slot; it fills the row height beside the room photo */
 body.case-page main .yap-launch__row--top .yap-launch__cell--video { aspect-ratio: auto; }
 @media (max-width: 760px) { body.case-page main .yap-launch__row--top .yap-launch__cell--video { aspect-ratio: 4 / 5; } }
 
 /* Iterations: tabbed figure, panels stacked in one cell so the height never jumps */
-body.case-page main .yap-it__tabs { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 16px; border-radius: 999px; background: rgba(236, 238, 241, .7); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05); }
-body.case-page main .yap-it__tab { border: 0; padding: 8px 16px; border-radius: 999px; background: none; font: inherit; font-size: var(--fs-base); color: #626b76; cursor: pointer; transition: background .2s, color .2s; }
+body.case-page main .yap-it__tabs { display: inline-flex; gap: var(--s-1); padding: var(--s-1); margin-bottom: var(--s-4); border-radius: var(--r-pill); background: rgba(236, 238, 241, .7); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05); }
+body.case-page main .yap-it__tab { border: 0; padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: none; font: inherit; font-size: var(--fs-base); color: var(--muted); cursor: pointer; transition: background .2s, color .2s; }
 /* The selected tab is a design-system glass pill (css/glass.css); the others stay flat text */
 body.case-page main .yap-it__tab { position: relative; }
-body.case-page main .yap-it__tab.glass { background: var(--glass-bg), rgba(255, 255, 255, .55); color: #1c1d1c; }
+body.case-page main .yap-it__tab.glass { background: var(--glass-bg), rgba(255, 255, 255, .55); color: var(--ink); }
 body.case-page main .yap-it__tab:focus:not(:focus-visible) { outline: none; }
 body.case-page main .yap-it__panels { display: grid; }
 body.case-page main .yap-it__panel { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .25s ease; }
 body.case-page main .yap-it__panel.is-active { opacity: 1; visibility: visible; }
-body.case-page main .yap-it__panel > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: #fff; }
+body.case-page main .yap-it__panel > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: var(--surface); }
 body.case-page main .yap-it__shipped { border-radius: var(--r-lg); }
-body.case-page main .yap-it__cap { margin: 14px 0 0; max-width: 60ch; font-size: var(--fs-base); line-height: 1.5; color: #626b76; }
-body.case-page main .yap-it__cap b { font-weight: 500; color: #1c1d1c; }
 @media (max-width: 560px) { body.case-page main .yap-it__tabs { display: flex; overflow-x: auto; } body.case-page main .yap-it__tab { white-space: nowrap; } }
 
 /* Prompt to the agent, as a terminal window */
-body.case-page main .yap-term { margin-top: 24px; border-radius: var(--r-md); overflow: hidden; background: #16171a; box-shadow: 0 12px 32px -16px rgba(0,0,0,.45); }
-body.case-page main .yap-term__bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #222326; }
+body.case-page main .yap-term { margin-top: var(--s-6); border-radius: var(--r-md); overflow: hidden; background: #16171a; box-shadow:var(--shadow-float); }
+body.case-page main .yap-term__bar { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-3) var(--s-4); background: #222326; }
 body.case-page main .yap-term__bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a3b3f; }
-body.case-page main .yap-term__bar span { margin-left: 8px; font: 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: #8b8d93; }
-body.case-page main .yap-term__body { padding: 18px 20px 20px; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: #c9ccd2; }
-body.case-page main .yap-term__body p { margin: 0 0 8px; max-width: none; font: inherit; color: inherit; }
+body.case-page main .yap-term__bar span { margin-left: var(--s-2); font: 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: #8b8d93; }
+body.case-page main .yap-term__body { padding: var(--s-5) var(--s-5) var(--s-5); font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: #c9ccd2; }
+body.case-page main .yap-term__body p { margin: 0 0 var(--s-2); max-width: none; font: inherit; color: inherit; }
 body.case-page main .yap-term__body p:last-child { margin-bottom: 0; }
 body.case-page main .yap-term__cmd { color: #f2f3f5 !important; }
-body.case-page main .yap-term__ps { color: #8b939c; margin-right: 10px; }
+body.case-page main .yap-term__ps { color: #8b939c; margin-right: var(--s-3); }
 body.case-page main .yap-term code { font: inherit; padding: 0; background: none; color: #9cc8ff; }
 body.case-page main .yap-term__caret { display: inline-block; width: 8px; height: 15px; vertical-align: -3px; background: #c9ccd2; animation: yap-caret 1.1s steps(1) infinite; }
 @keyframes yap-caret { 50% { opacity: 0; } }
@@ -193,195 +174,75 @@ body.case-page main .yap-term__caret { display: inline-block; width: 8px; height
 body.case-page main .yap-term .yap-term__body p { color: #c9ccd2 !important; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace !important; letter-spacing: 0; }
 body.case-page main .yap-term .yap-term__body p.yap-term__cmd { color: #f2f3f5 !important; }
 
-/* ── Component library figure (Figma "yap · Components", 71:9852) ──────────
-   Built at Figma size (2520 wide) and zoomed to the figure by yap-case.js. */
-body.case-page main .ycl { background: #eff1f3; border-radius: var(--r-lg); overflow: hidden; }
-/* Cropped in: a 1960×1100 window on the sheet, so the outer panels run off every edge */
-body.case-page main .ycl { position: relative; aspect-ratio: 1960 / 1100; }
-.ycl__view { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.ycl__view .ycl__stage { flex: none; }
-.ycl__stage { width: 2520px; padding: 48px 0; display: flex; flex-direction: column; align-items: center; gap: 28px; font-family: 'Inter', system-ui, sans-serif; color: #111; line-height: normal; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
-.ycl__stage img { display: block; max-width: none; border-radius: 0 !important; }
-.ycl__row { display: flex; gap: 28px; }
-.ycl__row--end { align-items: flex-end; }
-.ycl__row--center { align-items: center; }
-.ycl__row--start { align-items: flex-start; }
-
-.ycl-panel { background: #fff; border: 1px solid #e6e8eb; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
-.ycl-panel__title { margin: 0; padding: 18px 24px 16px; background: #f7f8fa; border-bottom: 1px solid #edeef1; font-size: 22px; font-weight: 600; line-height: normal; letter-spacing: 0; color: #000; }
-.ycl-panel__body { padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
-.ycl-frame { border: 1px dashed #9747ff; border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; }
-.ycl-frame--set { flex-direction: row; align-items: center; gap: 24px; padding: 28px; }
-.ycl-frame--set:has(.ycl-tag) { gap: 20px; }
-.ycl-frame--cards { gap: 28px; }
-.ycl-frame--topics { flex-direction: row; gap: 32px; }
-.ycl-frame--stack, .ycl-frame--status { gap: 20px; }
-.ycl-frame--status { gap: 16px; }
-
-/* Glass: white fill with a top sheen, hairline white rim, soft lift */
-.ycl-glass { position: relative; flex: none; width: var(--s); height: var(--s); border: 1px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-	background-image: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.1) 55%, rgba(255,255,255,.3) 100%), linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7));
-	box-shadow: inset 0 .5px 0 rgba(255,255,255,.9); filter: drop-shadow(0 6px 9px rgba(20,23,36,.08)) drop-shadow(0 1px 1px rgba(20,23,36,.06)); }
-.ycl-glass--sm { border-width: .741px; filter: drop-shadow(0 4.444px 6.667px rgba(20,23,36,.08)) drop-shadow(0 .741px .741px rgba(20,23,36,.06)); }
-.ycl-glass--xs { border-width: .63px; filter: drop-shadow(0 3.778px 5.667px rgba(20,23,36,.08)) drop-shadow(0 .63px .63px rgba(20,23,36,.06)); }
-.ycl-pill { position: relative; display: inline-flex; align-items: center; white-space: nowrap; border: 1px solid #fff; border-radius: 999px;
-	background-image: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.1) 55%, rgba(255,255,255,.3) 100%), linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7));
-	box-shadow: inset 0 .5px 0 rgba(255,255,255,.9); filter: drop-shadow(0 6px 9px rgba(20,23,36,.08)) drop-shadow(0 1px 1px rgba(20,23,36,.06)); }
-.ycl-title-pill { gap: 6px; padding: 8px 12px 8px 15px; font-size: 17px; font-weight: 600; }
-
-.ycl-tag { --tint: 255,255,255; --tint-a: .7; padding: 8px 16px; border: 1px solid #fff; border-radius: 999px; font-size: 16px; font-weight: 600; white-space: nowrap;
-	background-image: linear-gradient(180deg, rgba(255,255,255,.6) 0%, rgba(255,255,255,.1) 60%, rgba(255,255,255,.25) 100%), linear-gradient(rgba(var(--tint),var(--tint-a)), rgba(var(--tint),var(--tint-a)));
-	box-shadow: 0 6px 18px rgba(var(--tint),.45), 0 1px 2px rgba(20,23,36,.05); }
-.ycl-tag--name { box-shadow: none; filter: drop-shadow(0 6px 9px rgba(20,23,36,.08)) drop-shadow(0 1px 1px rgba(20,23,36,.05)); }
-.ycl-tag--lucy { --tint: 222,192,248; --tint-a: .75; }
-.ycl-tag--kimaya { --tint: 184,216,255; --tint-a: .75; }
-.ycl-tag--melody { --tint: 255,222,184; --tint-a: .75; }
-.ycl-tag--sooim { --tint: 223,255,184; --tint-a: .75; }
-
-/* Segment track: one bar per speaker */
-.ycl-track { width: 100%; display: flex; flex-direction: column; gap: 8px; }
-.ycl-track--topic { width: 322px; }
-.ycl-track--solo { width: 330px; }
-.ycl-track__segments { display: flex; gap: 6px; }
-.ycl-track__seg { position: relative; flex: 1 0 0; height: 4px; border-radius: 2px; background: #d9dbe0; overflow: hidden; }
-.ycl-track__seg--first { flex: 0 0 178px; }
-.ycl-track__progress { position: absolute; left: 0; top: 0; width: 125px; height: 4px; background: #c9b3f2; }
-.ycl-track__ticks { display: flex; justify-content: space-between; font-size: 13px; color: #8a8a8e; white-space: nowrap; }
-.ycl__stage img.ycl-avatar { width: 20px; height: 20px; object-fit: cover; border-radius: 10px !important; flex: none; }
-
-.ycl-topic { width: 354px; padding: 16px 16px 14px; display: flex; flex-direction: column; align-items: center; gap: 14px; background: rgba(255,255,255,.92); border: 1px solid rgba(30,35,45,.11); border-radius: 24px; filter: drop-shadow(0 2px 10px rgba(0,0,0,.05)); }
-.ycl-topic__header { display: flex; align-items: center; gap: 12px; }
-.ycl-topic__title { width: 188px; font-size: 17px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ycl-topic__time { width: 58px; font-size: 13px; color: #8a8a8e; text-align: right; }
-.ycl-topic__people { display: flex; }
-.ycl-topic__people .ycl-avatar:first-child { margin-right: -6px; }
-.ycl-topic__replies { display: flex; flex-direction: column; gap: 12px; }
-.ycl-topic__replies .ycl-reply { width: 322px; }
-
-.ycl-reply { width: 316px; padding: 14px; display: flex; flex-direction: column; gap: 14px; background: #fff; border: 1px solid rgba(30,35,45,.14); border-radius: 20px; }
-.ycl-reply__header { display: flex; align-items: center; gap: 10px; }
-.ycl-reply__label { width: 146px; font-size: 15px; font-weight: 500; color: #1c1c1e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ycl-reply__time { font-size: 13px; color: #8a8a8e; white-space: nowrap; }
-
-.ycl-chat-header { position: relative; width: 402px; height: 124px; }
-.ycl-chat-header__back, .ycl-chat-header__more { position: absolute; top: 12px; }
-.ycl-chat-header__back { left: 16px; }
-.ycl-chat-header__more { left: 344px; }
-.ycl-pips { position: absolute; left: 169px; top: 6px; width: 64px; height: 60px; }
-.ycl-pips img { position: absolute; }
-.ycl-pips__bg { left: 0; top: 0; }
-.ycl-pips__lucy { left: 7.21px; top: 6.67px; }
-.ycl-pips__kimaya { left: 33.6px; top: 23.88px; }
-.ycl-pips__melody { left: 17.26px; top: 37.54px; }
-.ycl-chat-header__title { position: absolute; left: 91px; top: 60px; }
-.ycl-chat-footer { display: flex; align-items: center; gap: 28px; padding: 12px 16px; }
-.ycl-chat-footer__balance { width: 54px; height: 54px; }
-
-.ycl-status { gap: 8px; padding: 10px 18px; font-size: 15px; font-weight: 500; color: #3a3a3c; }
-.ycl-status--working { color: #3b82f6; }
-.ycl-ready { width: 362px; padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 16px; background: rgba(255,255,255,.9); border-radius: 20px; filter: drop-shadow(0 6px 9px rgba(77,89,128,.08)); }
-.ycl-ready__row { display: flex; align-items: center; }
-.ycl-ready__title { width: 270px; font-size: 17px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ycl-ready__time { width: 56px; font-size: 14px; font-weight: 500; color: #8a8a8e; text-align: right; }
-.ycl-ready__bar { width: 326px; height: 10px; border-radius: 5px; background: linear-gradient(to right, #b8d8ff, #e3eeff); }
-
-/* Chat card: a white disc of stacked faces; one face fills it for a 1:1 */
-.ycl-card { position: relative; flex: none; width: 170px; height: 208px; }
-.ycl-card__art { position: absolute; left: -24px; top: -16px; }
-.ycl-card__photo { position: absolute; }
-.ycl-card__name { position: absolute; left: 0; top: 184px; width: 170px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px; font-weight: 500; white-space: nowrap; }
-.ycl-swatches { width: 420px; display: flex; flex-wrap: wrap; gap: 12px; }
-.ycl-swatches span { width: 60px; height: 60px; border-radius: 30px; border: 1px solid #e4e6ea; }
-/* case.css zeroes every border in main; the library's rims and frames need theirs back */
-.ycl .ycl-panel { border-width: 1px !important; }
-.ycl .ycl-panel__title { border-width: 0 0 1px !important; }
-.ycl .ycl-frame { border-width: 1px !important; }
-.ycl .ycl-glass, .ycl .ycl-pill, .ycl .ycl-tag, .ycl .ycl-topic, .ycl .ycl-reply, .ycl .ycl-swatches span { border-width: 1px !important; }
-.ycl .ycl-glass--sm { border-width: .741px !important; }
-.ycl .ycl-glass--xs { border-width: .63px !important; }
-
 /* AI step: the three design calls under the pipeline figure */
-body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
-body.case-page main .yap-call h4 { margin: 0 0 10px; font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--clr-text, #1c1d1c); }
-body.case-page main .yap-call p { margin: 0; font-size: var(--fs-base); line-height: 1.55; }
-body.case-page main .yap-call .yap-call__num { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--clr-muted, #626b76); }
+body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7); margin-top: var(--s-8); }
+body.case-page main .yap-call h4 { margin: 0 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
+body.case-page main .yap-call p { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); }
+body.case-page main .yap-call .yap-call__num { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: var(--label-ls); color: var(--muted); }
 body.case-page main .yap-call code { font-size: .9em; }
-body.case-page main .yap-calls + .yap-figtitle { margin-top: 56px; }
-@media (max-width: 759px) { body.case-page main .yap-calls { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-10); }
+@media (max-width: 759px) { body.case-page main .yap-calls { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); } }
 
 /* Live demo: reads as something to use, not another recording */
-.yap-demo__tap { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 0; border: 0; background: rgba(28, 29, 28, .08); cursor: pointer; transition: background .25s ease; }
-.yap-demo__tap:hover { background: rgba(28, 29, 28, .16); }
+.yap-demo__tap { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 0; border: 0; background: rgba(28, 31, 36, .08); cursor: pointer; transition: background .25s ease; }
+.yap-demo__tap:hover { background: rgba(28, 31, 36, .16); }
 .yap-demo__tap:disabled { display: none; }
-.yap-demo__tap-pill { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px 12px 16px; border-radius: 999px; background: #1c1d1c; color: #fff; font: inherit; font-size: 15px; font-weight: 500; white-space: nowrap; box-shadow: 0 12px 28px -10px rgba(0, 0, 0, .5); transition: transform .25s cubic-bezier(.3, 1.4, .6, 1); }
+.yap-demo__tap-pill { position: relative; display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-3) var(--s-5) var(--s-3) var(--s-4); border-radius: var(--r-pill); background: var(--ink); color: var(--surface); font: inherit; font-size: var(--fs-base); font-weight: var(--fw-medium); white-space: nowrap; box-shadow:var(--shadow-float); transition: transform .25s cubic-bezier(.3, 1.4, .6, 1); }
 .yap-demo__tap-pill svg { width: 18px; height: 18px; }
-.yap-demo__tap-pill::before { content: ""; position: absolute; inset: -6px; border-radius: inherit; border: 2px solid rgba(28, 29, 28, .35); animation: yap-demo-ping 1.8s ease-out infinite; }
+.yap-demo__tap-pill::before { content: ""; position: absolute; inset: -6px; border-radius: inherit; border: 2px solid rgba(28, 31, 36, .35); animation: yap-demo-ping 1.8s ease-out infinite; }
 .yap-demo__tap:hover .yap-demo__tap-pill { transform: scale(1.05); }
 @keyframes yap-demo-ping { from { transform: scale(.94); opacity: 1; } to { transform: scale(1.18); opacity: 0; } }
-.yap-demo__badge { position: absolute; left: 20px; top: 20px; z-index: 3; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, .85); color: #1c1d1c; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 4px 14px -6px rgba(0, 0, 0, .25); }
-.yap-demo__badge i { width: 8px; height: 8px; border-radius: 50%; background: #e5484d; box-shadow: 0 0 0 0 rgba(229, 72, 77, .5); animation: yap-demo-live 1.6s ease-out infinite; }
-@keyframes yap-demo-live { to { box-shadow: 0 0 0 8px rgba(229, 72, 77, 0); } }
 .yap-demo { cursor: default; }
-@media (prefers-reduced-motion: reduce) { .yap-demo__tap-pill::before, .yap-demo__badge i { animation: none; } }
-body.case-page main .yap-calls--principles { margin: 48px 0 88px; }
+@media (prefers-reduced-motion: reduce) { .yap-demo__tap-pill::before { animation: none; } }
+body.case-page main .yap-calls--principles { margin: var(--s-9) 0 var(--s-11); }
 
 /* Reflection: two takeaways, the people side and the model side */
-body.case-page main .yap-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; max-width: none; align-items: start; }
+body.case-page main .yap-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-9); max-width: none; align-items: start; }
 body.case-page main .yap-takeaways .ntf-takeaway-line { max-width: none; }
-@media (max-width: 759px) { body.case-page main .yap-takeaways { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+@media (max-width: 759px) { body.case-page main .yap-takeaways { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); } }
 
 /* Standard figure background: the dotted panel every diagram sits on */
-body.case-page main :is(.ycl, .yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); }
+body.case-page main :is(.yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); }
 
 /* Solution: the three steps as cards, each phone rising out of its card */
 body.case-page main .yap-card.yap-step { display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 5.8; padding: 7% 0; }
-body.case-page main .yap-step img { display: block; width: auto; height: 100%; max-width: 88%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 28px rgba(28, 29, 28, .16)); }
+body.case-page main .yap-step img { display: block; width: auto; height: 100%; max-width: 88%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 28px rgba(28, 31, 36, .16)); }
 @media (max-width: 760px) { body.case-page main .yap-card.yap-step { aspect-ratio: 4 / 5.2; } }
 
 /* Iterations: each direction on the figure background */
-body.case-page main .yap-it__frame { padding: clamp(16px, 3vw, 40px); }
-body.case-page main .yap-it__frame img { display: block; width: 100%; height: auto; border-radius: 0 !important; background: none; }
 
 /* Design: sub-steps as subheads; onboarding and core screens side by side at equal height */
-body.case-page main .nt-step > h3.yap-subhead { margin: 64px 0 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.25; letter-spacing: -0.02em; }
-body.case-page main .nt-step > h3.yap-subhead + .nt-media { margin-top: 20px; }
-body.case-page main .yap-board-pair { display: grid; grid-template-columns: minmax(0, 2.621fr) minmax(0, 1.396fr); gap: var(--gap-media, 12px); align-items: start; }
-body.case-page main .yap-board-pair__cell img { display: block; width: 100%; height: auto; }
-body.case-page main .yap-board-pair .yap-board-pair__label { margin: 12px 0 0; font-size: var(--fs-base); font-weight: 500; color: var(--clr-text, #1c1d1c); }
-body.case-page main .yap-board--inset { padding: clamp(16px, 3vw, 40px); }
+body.case-page main .nt-step > h3.yap-subhead { margin: var(--s-10) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
+body.case-page main .nt-step > h3.yap-subhead + .nt-media { margin-top: var(--s-5); }
 /* full-bleed Figma screenshots: the image is the whole 16:9 figure */
 body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cover; }
-body.case-page main .yap-board--inset img { border-radius: var(--r-md); box-shadow: 0 0 0 1px rgba(28, 29, 28, .06), 0 16px 32px -18px rgba(28, 29, 28, .35); }
-@media (max-width: 760px) { body.case-page main .yap-board-pair { grid-template-columns: minmax(0, 1fr); } }
 
 /* Join: five steps in the strip */
 body.case-page main .yap-join .strip .mini.phone { width: 13.6cqw; }
 
 /* Testing: the virtual session beside the in-person video, at equal height */
-body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, 12px); align-items: start; }
+body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, var(--s-3)); align-items: start; }
 body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg); }
-body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: 16px 0 0; text-align: center; max-width: none; }
-body.case-page main .yap-todo--tall { aspect-ratio: 1080 / 1920; padding: 16px; }
+body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: var(--s-4) 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
 body.case-page main .yap-test-pair__video > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell--video { width: min(100%, 320px); } }
 
 /* Reflection: the room and the projected screen, side by side at equal height */
-body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, 12px); }
+body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, var(--s-3)); }
 body.case-page main .yap-reflect-pair img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
 @media (max-width: 760px) { body.case-page main .yap-reflect-pair { grid-template-columns: minmax(0, 1fr); } }
 /* Two paragraphs in a step heading read as two paragraphs */
-body.case-page main .nt-feature-heading p + p { margin-top: 12px; }
+body.case-page main .nt-feature-heading p + p { margin-top: var(--s-3); }
 
 /* Iterations: every direction is a 16:9 figure, with its notes below in body copy */
 body.case-page main .yap-it__img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg); }
-body.case-page main .yap-it__panel > p { margin: 20px 0 0; }
-body.case-page main .yap-it__panel > p + p { margin-top: 10px; }
-body.case-page main .yap-it__link { color: var(--clr-text, #1c1d1c); text-decoration: underline; text-underline-offset: 3px; }
+body.case-page main .yap-it__panel > p { margin: var(--s-5) 0 0; }
+body.case-page main .yap-it__panel > p + p { margin-top: var(--s-3); }
 body.case-page main .yap-it .fig.yap-it__shipped { aspect-ratio: 16 / 9 !important; height: auto; display: flex; align-items: center; justify-content: center; border-radius: var(--r-lg); }
 body.case-page main .yap-it__shipped .flow { width: 100%; }
-body.case-page main .nt-section > h3.yap-subhead--section { margin: 56px 0 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.25; letter-spacing: -0.02em; }
-body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 24px; }
+body.case-page main .nt-section > h3.yap-subhead--section { margin: var(--s-10) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
+body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-9); margin-top: var(--s-6); }
 @media (max-width: 759px) { body.case-page main .yap-calls--findings { grid-template-columns: minmax(0, 1fr); } }
 
 /* Design: every screen in one row inside the content column; drag, swipe, or scroll through */
@@ -391,16 +252,23 @@ body.case-page main .yap-rail__track::-webkit-scrollbar { display: none; }
 body.case-page main .yap-rail__track.is-dragging { cursor: grabbing; }
 body.case-page main .yap-rail__inner { position: relative; width: max-content; }
 body.case-page main .yap-rail__inner img { display: block; height: clamp(380px, 38vw, 540px); width: auto; max-width: none; border-radius: 0 !important; user-select: none; -webkit-user-drag: none; }
-body.case-page main .yap-rail__tag { position: absolute; top: 14px; padding: 5px 12px; border-radius: 999px; background: #fff; font-size: 13px; font-weight: 500; color: #1c1d1c; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+/* Screen rail: every phone screen in one scrolling row on the figure background, each with a numbered caps label.
+   One component on Yap and Neuk: .yap-rail.screen-rail > … > .screen-rail__item (img + .screen-rail__label). */
+body.case-page main .screen-rail .yap-rail__track { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .screen-rail .yap-rail__inner { display: flex; align-items: flex-start; gap: clamp(var(--s-3), 1.2vw, var(--s-4)); padding: clamp(var(--s-7), 3.4vw, var(--s-9)) clamp(var(--s-6), 3.4vw, var(--s-9)) clamp(var(--s-5), 2.4vw, var(--s-7)); }
+body.case-page main .screen-rail__item { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; }
+body.case-page main .screen-rail .yap-rail__inner .screen-rail__item img { height: clamp(300px, 30vw, 440px); width: auto; border-radius: 12.4% / 5.7% !important; box-shadow: var(--shadow-float); }
+body.case-page main .screen-rail__label { margin-top: clamp(var(--s-4), 1.6vw, var(--s-6)); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); color: var(--ink); white-space: nowrap; }
+body.case-page main .screen-rail__label span { margin-right: .6em; color: var(--muted); }
 
 /* Iterations: what testing showed, set under each figure in two (or four) short notes */
-body.case-page main .yap-it__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; margin-top: 24px; }
+body.case-page main .yap-it__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); margin-top: var(--s-6); }
 body.case-page main .yap-it__notes--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 body.case-page main .yap-it__notes p { margin: 0; }
-body.case-page main .yap-it__notes .yap-it__tag { margin: 0 0 6px; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-muted, #626b76); }
+body.case-page main .yap-it__notes .yap-it__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 @media (max-width: 559px) { body.case-page main .yap-it__notes, body.case-page main .yap-it__notes--four { grid-template-columns: minmax(0, 1fr); } }
 /* Carousel arrows: the About slideshow's glass buttons, centered on the figure's edges */
-body.case-page main .yap-rail__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--clr-text, #1c1d1c); cursor: pointer; transition: all 0.4s var(--glass-ease), --glass-angle-1 0.5s var(--glass-ease), opacity .2s ease; }
+body.case-page main .yap-rail__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: all 0.4s var(--glass-ease), --glass-angle-1 0.5s var(--glass-ease), opacity .2s ease; }
 body.case-page main .yap-rail__btn svg { width: 1.25rem; height: 1.25rem; display: block; fill: currentColor; }
 body.case-page main .yap-rail__btn--prev { left: -1.5rem; }
 body.case-page main .yap-rail__btn--next { right: -1.5rem; }
@@ -410,9 +278,9 @@ body.case-page main .yap-rail__btn:disabled { opacity: 0; pointer-events: none; 
 body.case-page main .yap-it__shipped .strip .mini.phone { width: 20.5cqw; }
 
 /* Feedback tweet in a dotted figure frame, like the forage/acuity Instagram embeds */
-body.case-page main .yap-tweet { display: block; padding: 24px 16px; border-radius: var(--r-lg); background: #EFF1F3 radial-gradient(#D6D9DC .6px, transparent .9px) 0 0 / 10px 10px; }
-body.case-page main .yap-tweet .twitter-tweet, body.case-page main .yap-tweet .twitter-tweet-rendered { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
-body.case-page main .yap-tweet blockquote.twitter-tweet { padding: 20px 24px; border-radius: 14px; background: #fff; font-size: 16px; }
+body.case-page main .yap-tweet { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .yap-tweet .twitter-tweet { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
+body.case-page main .yap-tweet blockquote.twitter-tweet { padding: var(--s-5) var(--s-6); border-radius: var(--r-lg); background: var(--surface); font-size: var(--fs-base); }
 
 /* Problem cards: contents scale with the card (sized off its height), so the
    tiles, bubbles and memo keep the same proportions at every breakpoint. */
@@ -432,6 +300,23 @@ body.case-page main .yap-memo video { width: min(80%, 64cqh); }
 .yap-text .yap-text__stack { left: 50%; right: auto; width: 64cqh; transform: translateX(-50%); }
 /* Iterations: what each direction asked for, full width above the two takeaways */
 /* Direction tabs: prompt, what resonated, what didn't, side by side */
-body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 40px; }
+body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); }
 @media (max-width: 759px) { body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: minmax(0, 1fr); } }
 body.case-page main .yap-bug__still > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
+
+/* ── Prompt windows: traffic lights collapse and expand (js/yap-term.js) ── */
+body.case-page main .yap-term__bar { cursor: pointer; user-select: none; }
+body.case-page main .yap-term__lights { display: flex; gap: var(--s-2); margin-left: 0; }
+body.case-page main .yap-term__light { position: relative; width: 11px; height: 11px; padding: 0; border: 0; border-radius: 50%; background: #3a3b3f; cursor: pointer; transition: background-color .15s; }
+body.case-page main .yap-term__light::before { content: ""; position: absolute; inset: -5px; }   /* larger hit area */
+body.case-page main .yap-term__bar:hover .yap-term__light--close, body.case-page main .yap-term__light--close:focus-visible { background: #ff5f57; }
+body.case-page main .yap-term__bar:hover .yap-term__light--min, body.case-page main .yap-term__light--min:focus-visible { background: #febc2e; }
+body.case-page main .yap-term__bar:hover .yap-term__light--max, body.case-page main .yap-term__light--max:focus-visible { background: #28c840; }
+body.case-page main .yap-term__light:focus-visible { outline: 2px solid #8b8d93; outline-offset: 2px; }
+body.case-page main .yap-term__title { margin-left: var(--s-2); font: 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: #8b8d93; }
+body.case-page main .yap-term__panel { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .35s cubic-bezier(.65, 0, .35, 1); }
+body.case-page main .yap-term__panel > .yap-term__body { min-height: 0; overflow: hidden; }
+body.case-page main .yap-term.is-collapsed .yap-term__panel { grid-template-rows: 0fr; }
+body.case-page main .yap-term.is-collapsed .yap-term__panel > .yap-term__body { padding-top: 0; padding-bottom: 0; }
+body.case-page main .yap-term__panel > .yap-term__body { transition: padding .35s cubic-bezier(.65, 0, .35, 1); }
+@media (prefers-reduced-motion: reduce) { body.case-page main :is(.yap-term__panel, .yap-term__panel > .yap-term__body) { transition: none; } }

@@ -13,7 +13,9 @@
 			i = n
 			const card = track.children[n]
 			const align = n === 0 ? 0 : n === count - 1 ? 1 : .5
-			const x = card.offsetLeft - track.children[0].offsetLeft - (root.clientWidth - card.offsetWidth) * align  // relative to the first card, whatever the offset parent is
+			// --carousel-inset keeps the first and last cards that far from the edges (0 = flush)
+			const inset = parseFloat(getComputedStyle(root).getPropertyValue('--carousel-inset')) || 0
+			const x = card.offsetLeft - track.children[0].offsetLeft - inset - (root.clientWidth - 2 * inset - card.offsetWidth) * align  // relative to the first card, whatever the offset parent is
 			if (!animate) track.style.transition = 'none'
 			track.style.transform = `translateX(${-x}px)`
 			if (!animate) { track.offsetWidth; track.style.transition = '' }

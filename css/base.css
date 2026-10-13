@@ -4,71 +4,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
-	/* One cool-grey palette for every page */
-	--clr-accent: #1c2430;
-	--clr-bg:     #FAFCFD;
-	--clr-border: #e6e8ea;
-	--clr-text:   #1c1d1c;
-	--clr-muted:  #626b76;   /* AA on --clr-bg, even at label size */
-	--clr-muted-strong: var(--clr-muted);
-	--clr-panel:  #f1f3f5;
-	--clr-panel-hover: #e7eaee;
+	/* ══ DESIGN TOKENS: the one system for every page. Docs: DESIGN-SYSTEM.md ══
+	   Use these tokens in all CSS. No raw hex, shadows, radii, font sizes, line heights,
+	   letter spacing or spacing px outside this block (scripts/check-tokens.py enforces it). */
 
+	/* Color: 8 neutrals */
+	--bg:          #FAFCFD;   /* page */
+	--surface:     #FFFFFF;   /* cards, panels, text on dark */
+	--surface-2:   #F7F8FA;   /* card title bars, subtle fills */
+	--fig-bg:      #EFF1F3;   /* figure / media background */
+	--line:        #E6E8EB;   /* structure: borders, rules, dividers */
+	--line-strong: #A2A6AA;   /* figure marks: axes, connectors, arrows, quote rules */
+	--muted:       #626B76;   /* body copy, labels, TOC links, meta */
+	--ink:         #1C1F24;   /* headings, emphasis, nav, figure ink, dark fills */
+	--fig-dot:     #D6D9DC;   /* the figure background's dot grid only */
+
+	/* Lines */
+	--line-strong-w: 1.5px;
+	--dash: 5 4;              /* SVG stroke-dasharray for connectors */
+
+	/* Elevation: 2 levels */
+	--shadow-raise: 0 1px 2px rgb(28 31 36 / .05), 0 6px 18px -8px rgb(28 31 36 / .14);   /* cards, chips, tiles */
+	--shadow-float: 0 18px 32px -18px rgb(28 31 36 / .45);                                   /* devices, floating media */
+
+	/* Radius */
+	--r-sm: 4px;    /* tags, thumbs, small controls */
+	--r-md: 6px;    /* inner media, small cards */
+	--r-lg: 10px;   /* figures, feature media, panels */
+	--r-pill: 999px;
+	--fig-r-sm: .3cqw;   /* small elements inside a .fig */
+	--fig-r: .6cqw;      /* cards inside a .fig */
+
+	/* Type */
 	--ff: 'Instrument Sans', system-ui, sans-serif;
+	--ff-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 	--fw-regular: 400;
 	--fw-medium: 500;
 	--fw-semi: 600;
-	--fw-bold: 650;
-
-	--fs-xs:   clamp(0.6875rem, 0.85vw, 0.75rem);  /* caps labels, TOC */
-	--fs-sm:   var(--fs-base);                       /* body copy: body size is its floor */
-	--fs-base: clamp(0.9375rem, 1.05vw, 1rem);      /* 15 → 16: body copy, captions, meta — the floor */
-	--fs-md:   clamp(1.025rem, 1.35vw, 1.1875rem);
-	--fs-lg:   clamp(1.35rem, 2vw, 1.7rem);
-	--fs-xl:   clamp(1.8rem, 3.4vw, 2.7rem);
-
-	--lh-base: 1.55;
-	--lh-small: 1.25;
-	--lh-tight: 1.2;
-	--ls-base: 0;
-	--ls-tight: 0.04em;
-
-	/* Headings: every H1 matches About's H1; H2 and H3 match About's H2 */
-	--h-fw: 500;
+	--fs-xs:   clamp(0.6875rem, 0.85vw, 0.75rem);  /* 11 → 12: labels, captions, meta, small UI */
+	--fs-base: clamp(0.875rem, 0.98vw, 0.9375rem); /* 14 → 15: body copy */
+	--fs-md:   clamp(1.025rem, 1.35vw, 1.1875rem); /* 16 → 19: H3, lead */
+	--fs-lg:   clamp(1.35rem, 2vw, 1.7rem);        /* 22 → 27: subheads, big statements */
 	--h1-fs: clamp(1.875rem, 2.8vw, 2.625rem);
+	--h2-fs: clamp(1.5rem, 2.1vw, 1.875rem);
+	--lh-none: 1;
+	--lh-tight: 1.2;
+	--lh-snug: 1.4;
+	--lh-base: 1.55;
 	--h1-lh: 1.1;
 	--h1-ls: -0.035em;
-	--h2-fs: clamp(1.5rem, 2.1vw, 1.875rem);
-	--h2-lh: 1.18;
 	--h2-ls: -0.025em;
+	--label-ls: 0.06em;  /* caps labels: --fs-xs, --fw-medium, uppercase. The only positive tracking */
 
-	/* Caps label: the only uppercase style */
-	--label-fs: 0.75rem;
-	--label-fw: 500;
-	--label-ls: 0.06em;
-	--label-lh: 1.3;
+	/* Spacing: 4px scale */
+	--s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
+	--s-7: 32px; --s-8: 40px; --s-9: 48px; --s-10: 64px; --s-11: 96px;
 
-	--sp-sm: 0.75rem;
-	--sp-md: 1.25rem;
-	--sp-lg: 2rem;
-	--sp-xl: 3.5rem;
-
+	/* Layout */
 	--nav-h: 3.25rem;
 	--gutter: clamp(1rem, 2.5vw, 1.5rem);
-	--toc-col: minmax(13.5rem, 16vw);
-	--flow-gap: 0.75rem;
-
-	/* Radius */
-	--r-xs: 3px;    /* tags, bars */
-	--r-sm: 6px;    /* thumbs, small controls */
-	--r-md: 10px;   /* inner media, small cards */
-	--r-lg: 14px;   /* figures, feature media, panels */
-	--r-pill: 999px;
-
-	/* Elevation (non-glass) */
-	--shadow-1: 0 0 0 .5px rgb(0 0 0 / .06), 0 1px 2px rgb(0 0 0 / .06);
-	--shadow-2: 0 8px 24px -12px rgb(28 29 28 / .22);
-	--shadow-3: 0 18px 32px -18px rgb(28 29 28 / .45);
 
 	/* Motion */
 	--ease:        cubic-bezier(0.22, 1, 0.36, 1);   /* default: hovers, flips, reveals */
@@ -78,8 +72,6 @@
 	--dur-2: 250ms;  /* background, small transforms */
 	--dur-3: 420ms;  /* fliptrack, media zoom */
 	--dur-4: 900ms;  /* nav, page-level */
-	--t-fast: var(--dur-1);
-	--t-slow: 480ms;
 	--zoom: 1.03;    /* media hover zoom */
 }
 
@@ -90,10 +82,10 @@
 		font-family: var(--ff);
 		font-size: var(--fs-base);
 		font-weight: var(--fw-regular);
-		background: var(--clr-bg);
-		color: var(--clr-text);
+		background: var(--bg);
+		color: var(--ink);
 		line-height: var(--lh-base);
-		letter-spacing: var(--ls-base);
+		letter-spacing: 0;
 		min-block-size: 100vh;
 	}
 	img { display: block; max-inline-size: 100%; }
@@ -103,20 +95,6 @@
 	button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
 }
 
-h1 { font-size: var(--h1-fs); font-weight: var(--h-fw); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); }
-h2, h3, h4 { font-size: var(--h2-fs); font-weight: var(--h-fw); line-height: var(--h2-lh); letter-spacing: var(--h2-ls); }
+h1 { font-size: var(--h1-fs); font-weight: var(--fw-medium); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); }
+h2, h3, h4 { font-size: var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
 
-img.footer__icon,
-.footer__icon {
-	display: inline !important;
-	width: 12px !important;
-	height: 12px !important;
-	max-width: 12px !important;
-	max-height: 12px !important;
-	inline-size: 12px !important;
-	block-size: 12px !important;
-	max-inline-size: 12px !important;
-	object-fit: contain;
-	vertical-align: -1px;
-	margin-inline: 0.15em;
-}

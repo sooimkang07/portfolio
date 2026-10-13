@@ -45,14 +45,6 @@ document.querySelectorAll('[data-yap-tabs]').forEach(root => {
 	tabs.forEach((t, i) => t.addEventListener('click', () => show(i)))
 })
 
-/* Component library: laid out at Figma size, zoomed so a 1960-wide window fills the figure. */
-document.querySelectorAll('[data-ycl]').forEach(fig => {
-	const stage = fig.querySelector('.ycl__stage')
-	const fit = () => { stage.style.zoom = fig.clientWidth / 1960 }
-	new ResizeObserver(fit).observe(fig)
-	fit()
-})
-
 /* Screen carousel: scrolls within the content column and can be dragged with a mouse. */
 document.querySelectorAll('[data-yap-rail]').forEach(fig => {
 	const track = fig.querySelector('.yap-rail__track')

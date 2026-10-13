@@ -7,7 +7,7 @@
 	margin: 0;
 	overflow: hidden;
 	pointer-events: none;
-	background: var(--clr-panel);
+	background: var(--fig-bg);
 	will-change: top, left, width, height, border-radius;
 }
 .project-morph__media {
