@@ -11,7 +11,7 @@ body.home.notate-page {background: var(--bg); color: var(--ink); }
 .nt-main { padding-top: 132px; }
 .nt-reading { width: min(640px, calc(100% - 48px)); margin-inline: auto; }
 .nt-process { width: min(880px, calc(100% - 48px)); margin-inline: auto; }
-.nt-back { display: inline-block; font-size: var(--fs-xs); color: var(--muted); margin-bottom: var(--s-9); }
+.nt-back { display: inline-block; margin-bottom: var(--s-9); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 .nt-kicker { font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); margin-bottom: var(--s-5); }
 .nt-kicker span { color: var(--muted); margin-inline: var(--s-3); }
 .nt-hero h1 { margin-bottom: var(--s-6); }
@@ -344,8 +344,11 @@ body.case-page .nt-toc { top: 104px; }
 body.case-page .nt-toc > .nt-back {
 	display: block;
 	margin: 0 0 var(--s-6);
-	font-size: var(--fs-base);
-	font-weight: var(--fw-regular);
+	font-size: var(--fs-xs);
+	font-weight: var(--fw-medium);
+	line-height: var(--lh-snug);
+	letter-spacing: var(--label-ls);
+	text-transform: uppercase;
 	color: var(--muted);
 }
 body.case-page .nt-toc > .nt-back:hover { color: var(--ink); }

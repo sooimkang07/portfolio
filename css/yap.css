@@ -86,7 +86,10 @@ body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: var(-
 /* tweet sits on the page, no figure panel */
 body.case-page main .yap-tweet { display: block; padding: 0; background: none; border-radius: 0; }
 body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
-@media (min-width: 960px) { body.case-page main .yap-feedback { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+/* Feedback: equal columns, so the tweet figure fits the embed the way Acuity's setting fits the post. */
+@media (min-width: 960px) {
+  body.case-page[data-case] main #launch .yap-feedback { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
 /* the embed adds its own top margin; line the copy up with the tweet card */
 body.case-page main .yap-feedback .twitter-tweet { margin-top: 0 !important; }
 body.case-page main .yap-memo video { width: 80%; height: auto; margin: 0 auto; }

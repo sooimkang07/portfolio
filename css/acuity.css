@@ -182,12 +182,9 @@ body.case-page main .ac-ctrl li{font-size:5.2cqw;line-height: var(--lh-snug);col
 /* Disclaimer line */
 body.case-page main .ac-note{display:block;font-size: var(--fs-base);color:var(--muted)}
 /* Responsive */
-@media (max-width:960px){.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){
           .ac-sol .ac-solcard{aspect-ratio:4/5}
 }
-@media (max-width:520px){.ac-journey2 {grid-template-columns:1fr}}
-
 /* ── Round 7: tightened layout ── */
 .ac-gestcard{position:relative;aspect-ratio:16/9;border-radius:var(--r-lg,var(--r-lg));overflow:hidden;background:var(--line)}
 body.case-page main .ac-gestcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
@@ -202,14 +199,6 @@ body.case-page main .ac-sol .ac-take__item:nth-child(2) .ac-solcard video{object
 .ac-journey2__step::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);box-sizing:border-box}
 .ac-journey2__step:last-child::before{background:var(--ink);border-color:var(--ink);box-shadow:0 0 0 5px rgba(28, 31, 36,.1)}
 body.case-page main .ac-journey2 .ac-journey2__when{position:absolute;top:-6px;left:0}
-@media (max-width:960px){.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s-7)}.ac-journey2::before{display:none}}
-@media (max-width:520px){
-  .ac-journey2{grid-template-columns:1fr;row-gap:var(--s-6);padding-left:var(--s-9)}
-  .ac-journey2::before{display:block;left:34px;right:auto;top:34px;bottom:34px;width:2px;height:auto}
-  .ac-journey2__step{padding:var(--s-6) 0 0}
-  .ac-journey2__step::before{left:-17px;top:4px}
-  body.case-page main .ac-journey2 .ac-journey2__when{top:0}
-}
 
 /* ── Research: three interviews (white figure cards, a tinted circle with each icon) ── */
 .fig .ac-int { position: absolute; top: 14%; width: 27cqw; height: 25cqw; padding: 2.4cqw; display: flex; flex-direction: column; gap: 1.4cqw; }
@@ -239,8 +228,21 @@ body.case-page main .fig.ac-vstack video { display: block; width: 84%; height: a
 body.case-page main .nt-section > :is(.nt-media, .nt-reading, .nt-step) + .ac-dec { margin-top: var(--s-10); }
 
 /* Persona journey: each point's text sits in its own card on the timeline */
-.ac-journey2__step{padding-top:var(--s-9)}
-.ac-journey2__card{height:100%;padding:var(--s-5);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow-raise)}
+.ac-journey2__step{display:flex;flex-direction:column;padding-top:var(--s-9)}
+.ac-journey2__card{flex:1 1 auto;height:auto;padding:var(--s-5);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow-raise)}
+body.case-page main .ac-journey2 .ac-journey2__why{overflow-wrap:break-word}
+
+/* Four columns only while each card can hold a full word. Narrower: dates sit with the cards, not on a rail. */
+.nt-step:has(> .ac-journey2){container-type:inline-size;container-name:acjourney}
+@container acjourney (max-width:700px){
+	.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s-7);padding-left:var(--s-7)}
+	.ac-journey2::before,.ac-journey2__step::before{display:none}
+	.ac-journey2__step{padding-top:0}
+	body.case-page main .ac-journey2 .ac-journey2__when{position:static;margin-bottom:var(--s-3)}
+}
+@container acjourney (max-width:440px){
+	.ac-journey2{grid-template-columns:1fr;row-gap:var(--s-6)}
+}
 
 /* Introductory context: equal columns fit the embedded post or artwork. */
 @media (min-width: 960px) {

@@ -11,6 +11,7 @@ body.case-page main .fg-split > .nt-reading { max-width: none; }
 /* Challenge */
 body.case-page main .fg-prompt { margin: var(--s-5) 0 0; padding: 0 0 0 var(--s-5); border-left: 2px solid #B99EEB; font-size: var(--fs-base); line-height: var(--lh-base); color: var(--ink); }
 body.case-page main .fg-facts { display: grid; gap: var(--s-4); margin: var(--s-7) 0 0; padding: 0; list-style: none; }
+body.case-page main .fg-facts + p { margin-top: var(--s-6); }
 body.case-page main .fg-facts li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--line); font-size: var(--fs-base); line-height: var(--lh-snug); }
 body.case-page main .fg-facts b { font-weight: var(--fw-medium); color: var(--ink); }
 body.case-page main .fg-facts span { color: var(--muted); }
@@ -286,25 +287,22 @@ body[data-case="forage"] main .fg-capture__media > figure:first-child { margin-t
 }
 
 
-/* Extraction: four visual before/after pairs on the shared card board. */
-.fig.fg-extract { --fg-sample: #99B0BF; }
-.fg-extract__labels { display: flex; justify-content: space-between; padding: .6cqw .2cqw; font-size: 1.1cqw; font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
-.fig.fg-extract .fg-extract__body { display: grid; grid-template-rows: 13cqw 5cqw minmax(0, 1fr) auto; gap: 1cqw; padding: 1.2cqw; }
-.fg-extract__raw { overflow: hidden; border-radius: var(--fig-r-sm); }
+/* Extraction: capture above, reusable asset below, on the shared card board. */
+.fig.fg-extract { --fg-sample: #99B0BF; justify-content: center; }
+.fig.fg-extract .fg-extract__body { display: grid; grid-template-rows: minmax(0, 1fr) 2.4cqw minmax(0, 1.15fr); gap: .8cqw; padding: 1cqw; }
+.fg-extract__raw { overflow: hidden; border-radius: var(--fig-r-sm); min-height: 0; }
 body[data-case="forage"] main .fg-extract__raw img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.fg-extract__gesture { display: flex; align-items: center; justify-content: center; gap: 1cqw; font-size: 1.2cqw; line-height: var(--lh-tight); color: var(--muted); }
-.fg-extract__gesture svg { width: 1.5cqw; height: 2.5cqw; fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
-.fg-extract__result { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; gap: .7cqw; }
+.fg-extract__arrow { display: flex; align-items: center; justify-content: center; }
+.fg-extract__arrow svg { width: 1.4cqw; height: 2.2cqw; fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
+.fg-extract__result { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; gap: .6cqw; }
 body[data-case="forage"] main .fg-extract__result img { width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: var(--fig-r-sm); }
-.fg-extract__specimen { font-family: "Bodoni 72", Didot, serif; font-size: 8cqw; line-height: var(--lh-none); color: var(--ink); }
-.fg-extract__font { font-size: 1.2cqw; line-height: var(--lh-tight); text-align: center; color: var(--muted); }
-.fg-extract__swatch { width: 9cqw; aspect-ratio: 1; background: var(--fg-sample); border-radius: var(--fig-r); }
-.fg-extract__hex { font-family: var(--ff-mono); font-size: 1.3cqw; color: var(--ink); }
-body[data-case="forage"] main .fg-extract__result .fg-extract__motion { width: 9cqw; height: 8cqw; object-fit: cover; }
-.fg-extract__curve { width: 11cqw; height: 5cqw; fill: none; stroke: var(--ink); stroke-width: 2; }
-.fg-extract__curve .fg-extract__axis { stroke: var(--line-strong); stroke-width: 1; }
-.fg-extract__caption { display: grid; gap: .6cqw; padding-top: 1cqw; border-top: 1px solid var(--line); font-size: 1.3cqw; line-height: var(--lh-tight); color: var(--muted); text-align: center; }
-.fg-extract__caption strong { font-size: 1.5cqw; font-weight: var(--fw-medium); color: var(--ink); }
+.fg-extract__specimen { font-family: "Bodoni 72", Didot, serif; font-size: 6.4cqw; line-height: var(--lh-none); color: var(--ink); }
+.fg-extract__font { font-size: 1.15cqw; line-height: var(--lh-tight); text-align: center; color: var(--muted); }
+.fg-extract__swatch { width: 8cqw; aspect-ratio: 1; background: var(--fg-sample); border-radius: var(--fig-r); }
+.fg-extract__hex { font-family: var(--ff-mono); font-size: 1.25cqw; color: var(--ink); }
+body[data-case="forage"] main .fg-extract__result .fg-extract__motion { width: 68%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; flex: none; }
+.fg-extract__curve { width: 58%; height: auto; aspect-ratio: 160 / 90; fill: none; stroke: var(--ink); stroke-width: 4; }
+.fg-extract__curve .fg-extract__axis { stroke: var(--line-strong); stroke-width: 2; }
 
 /* Introductory context: equal columns fit the embedded post or artwork. */
 @media (min-width: 960px) {
