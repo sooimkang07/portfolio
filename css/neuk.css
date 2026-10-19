@@ -4,13 +4,11 @@
 /* Every neuk phone is the framed iPhone 16 Pro export (903×1867) */
 body.case-page main .fig .phone.shot { aspect-ratio: 903 / 1867; }
 
-/* ── Solution: the title video, then yap's step cards, four across ── */
-body.case-page main .nk-solution-video + .yap-steps { margin-top: var(--gap-media, var(--s-3)); }
-body.case-page main .yap-problem.nk-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* ── Solution: the title video, then four phones across the body ── */
+body.case-page main .nk-solution-video + .yap-phones { margin-top: var(--gap-media, var(--s-3)); }
 body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-7); }
 @media (max-width: 760px) {
-	body.case-page main .yap-problem.nk-four, body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	body.case-page main .nk-four .yap-card.yap-step { aspect-ratio: 4 / 5.8; }
+	body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Core flows 3 and 4: text beside the recording (like flows 1 and 2), more media below */
@@ -106,7 +104,7 @@ body.case-page main .nkb .nkpc__who > img { width: 200px; height: 200px; border-
 .nkpc__fit { grid-column: 2 / span 2; flex-direction: row; align-items: center; gap: var(--s-8); }
 .nkpc__fit .nkq__label { margin: 0; flex: none; }
 .nkpc__chips { flex: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-4) var(--s-7); }
-.nkpc__chips span { font-size: var(--fs-md); font-weight: var(--fw-medium); line-height: var(--lh-snug); color: var(--ink); }
+.nkpc__chips span { font-size: var(--fs-lg); font-weight: var(--fw-regular); line-height: var(--lh-snug); color: var(--ink); }
 
 /* Design directions and the final brand: one identity board each (name, type, color, details, screen, moodboard) */
 .nkd { position: absolute; inset: 56px; display: grid; grid-template-columns: 520px 420px minmax(0, 1fr); grid-template-rows: 230px 170px minmax(0, 1fr); gap: var(--s-7); }
@@ -172,15 +170,9 @@ body.case-page main .nkb .nkd__collage img.is-tall { grid-column: 2; grid-row: 1
 
 
 /* Next steps: one "How might we…" over the three open questions, each with the visual it starts from */
-body.case-page main .nt-section > .nk-hmw-label { margin: var(--s-9) 0 0; }
-body.case-page main .nk-hmw-label + .nk-next { margin-top: var(--s-5); }
 body.case-page main .yap-card.nk-inset { display: grid; place-items: center; }
 body.case-page main .nk-inset > img { display: block; width: 84%; height: auto; border-radius: var(--r-md) !important; box-shadow:var(--shadow-float); }
 .nkd__spec:has(.nkd__aa[style*="Homemade"]) .nkd__aa { font-size: 64px; line-height: var(--lh-base); }
-body.case-page main .nk-next .yap-card { aspect-ratio: 1 / 1; }
-body.case-page main .nk-next .yap-card.yap-step { padding: 6% 0; }
-body.case-page main .nk-next .nk-inset > img { width: 88%; }
-@media (max-width: 760px) { body.case-page main .nk-next .yap-card { aspect-ratio: 4 / 3.4; } }
 /* Room sizes use the shared problem-card typography without a figure panel. */
 body.case-page main .nk-rooms-section{margin-top:var(--s-10)}
 body.case-page main .nk-rooms-section .yap-subhead{margin-top:0}
@@ -223,3 +215,32 @@ body[data-case="neuk"] main .nk-brand__phone > img { padding: .6cqw; }
 .nk-sys .board__row { flex: none; }
 .nk-sys .board__body { display: block; padding: 1cqw 1.2cqw; }
 .nk-sys .board__body > svg { display: block; width: 100%; height: auto; }
+
+/* Keep each solution screen with its explanation at every width. */
+body.case-page main .nk-solution-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-7); margin-top: var(--sp-media); }
+body.case-page main .nk-solution-step { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+body.case-page main .nk-solution-step > img { width: 100%; height: auto; border-radius: 0; }
+@media (max-width: 760px) {
+  body.case-page main .nk-solution-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Venue photos make each competitive map point recognizable. */
+body[data-case="neuk"] main .nk-land .pmap__pt { flex-direction: column; gap: .4cqw; text-align: center; }
+body[data-case="neuk"] main .nk-land .pmap__pt img,
+body[data-case="neuk"] main .nk-land .pmap__pt.hi img { width: 7cqw; height: 7cqw; object-fit: cover; padding: 0; border-radius: var(--fig-r) !important; background: var(--surface); }
+body[data-case="neuk"] main .nk-land .pmap__pt.hi { padding: .4cqw; border-radius: var(--fig-r); }
+body[data-case="neuk"] main .nk-land .pmap__pt:not(.hi) { padding: .4cqw; border-radius: var(--fig-r); background: var(--fig-bg); }
+
+/* Image above each comparison-column title. */
+body[data-case="neuk"] main .cmp { grid-template-rows: 10cqw; }
+body[data-case="neuk"] main .cmp__h > img.cmp-photo { display: block; flex: none; width: 4cqw; height: 4cqw; object-fit: cover; border-radius: var(--fig-r) !important; }
+
+/* Testing attributions use the shared caps-label tokens. */
+body[data-case="neuk"] main #iterations .yap-call .yap-call__num { font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; margin-bottom: var(--s-3); }
+/* Match Smart Bundles design-decision rows. */
+body.case-page main .nk-next-step { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--sp-block); }
+body.case-page main .nk-next-step > .nt-media { margin-top: 0; }
+body.case-page main .nk-next-placeholder { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--fig-bg); border: 1px solid var(--line); border-radius: var(--r-lg); color: var(--muted); font-size: var(--fs-base); }
+@media (max-width: 760px) {
+ body.case-page main .nk-next-step { grid-template-columns: minmax(0, 1fr); }
+}

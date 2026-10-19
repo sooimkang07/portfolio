@@ -1,7 +1,7 @@
 /* NOTATE figures: problem ladder, anatomy callouts, outcome stats, takeaway.
    Sits on top of the existing Notate page styles. */
 
-body.notate-page .nt-section p:not(.nt-kicker):not(:where(.fig p)) { color: var(--muted); }
+body.notate-page .nt-section p:not(.nt-kicker):not(.media-caption__title):not(:where(.fig p)) { color: var(--muted); }
 /* Body copy is muted (--c-body); statements, figure titles, names, inline links and UI mocks keep the ink color */
 body.notate-page .nt-section :is(p.yap-hmw__q, p.ig-hmw__q, p.yap-figtitle, p.fg-bk__name, .sbw-zone.in p, p.nt-review__meta, p.nt-review__help, p a) { color: var(--ink); }
 .nt-hero h1 .nt-tone { color: var(--line-strong); }

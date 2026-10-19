@@ -287,8 +287,8 @@ const PlaybackController = {
     }
 
     // Pick up where you left off: start at the first reply you haven't heard yet.
-    const firstUnheard = sequence.findIndex(message => message.authorId !== getCurrentUserId() && !message.heardByCurrentUser);
-    await this._playThreadIndex(thread, sequence, Math.max(0, firstUnheard), rowEl);
+    // A card's Play control replays the complete topic, including your own memo.
+    await this._playThreadIndex(thread, sequence, 0, rowEl);
   },
 
   async playThreadAt(thread, index, rowEl) {
@@ -1004,7 +1004,11 @@ function _threadPlaybackSequence(thread) {
 
 async function resolvePlayableSource(item) {
   if (item?.audioBlob) {
-    if (!item.audioUrl || !String(item.audioUrl).startsWith('blob:')) {
+    if (!item._playbackBlobUrl) {
+      item._playbackBlobUrl = URL.createObjectURL(item.audioBlob);
+    }
+    item.audioUrl = item._playbackBlobUrl;
+    if (!item.audioUrl) {
       item.audioUrl = URL.createObjectURL(item.audioBlob);
       item.audioSignedAt = null;
     }
@@ -1073,7 +1077,7 @@ async function synthesizeReplyAudio(item) {
 }
 
 function _isPlayable(item) {
-  return !!(item && (item.audioUrl || item.audioPath || (item.authorId !== getCurrentUserId() && item.transcript)));
+  return !!(item && (item.audioBlob || item.audioUrl || item.audioPath || (item.authorId !== getCurrentUserId() && item.transcript)));
 }
 
 function _formatClockTime(sentAt) {
@@ -1133,22 +1137,14 @@ function _segmentProgressFillCss(accent) {
   return accessibleAccent(raw || '#B8D8FF');
 }
 
-/**
- * A speaker's color, deepened until it reads on light UI: at least 3:1 against
- * the light gray track as well as white (WCAG 2.2, 1.4.11 non-text contrast).
- * Keeps the hue, so Lucy stays lavender and Kimaya stays blue.
- */
+/** Playback colors requested for the three speaker hues. */
 function accessibleAccent(color) {
   const { r, g, b } = _authorAccentToRgbTuple(color);
-  let [h, s, l] = _rgbToHsl(r, g, b);
-  s = Math.min(0.72, Math.max(0.42, s));
-  const lum = (R, G, B) => [R, G, B].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; })
-    .reduce((acc, v, i) => acc + v * [0.2126, 0.7152, 0.0722][i], 0);
-  for (l = Math.min(l, 0.62); l > 0.12; l -= 0.01) {
-    const [R, G, B] = _hslToRgb(h, s, l);
-    if ((0.77 + 0.05) / (lum(R, G, B) + 0.05) >= 3) return `rgb(${R}, ${G}, ${B})`;
-  }
-  return 'rgb(79, 87, 99)';
+  const [h] = _rgbToHsl(r, g, b);
+  if (h >= 0.18 && h < 0.46) return '#83E3B6';
+  if (h >= 0.46 && h < 0.68) return '#83B6E3';
+  if (h >= 0.68 && h < 0.9) return '#B683E3';
+  return color;
 }
 
 function _rgbToHsl(r, g, b) {

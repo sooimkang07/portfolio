@@ -174,3 +174,28 @@
 		})
 	}
 })()
+
+// Shared body links reuse the TOC flip track, including wrapped reference labels.
+;(() => {
+ const init = () => {
+  const links = document.querySelectorAll('body.case-page main p a[href], body.case-page main .nt-reading li a[href]')
+  const resize = new ResizeObserver(entries => entries.forEach(({ target }) => {
+   const label = target.querySelector('.body-link__label')
+   if (label) target.style.setProperty('--body-link-height', `${label.getBoundingClientRect().height}px`)
+  }))
+  links.forEach(link => {
+   if (link.classList.contains('body-link') || link.querySelector('img, svg') || link.matches('[role="button"], .ac-btn, .fg-btn')) return
+   const label = link.textContent.trim().replace(/\s*↗\s*$/, '')
+   if (!label) return
+   link.classList.add('body-link')
+   const flip = document.createElement('span'); flip.className = 'flip'
+   const track = document.createElement('span'); track.className = 'flip__track'
+   const first = document.createElement('span'); first.className = 'body-link__label'; first.textContent = `${label} ↗`
+   const second = first.cloneNode(true); second.setAttribute('aria-hidden', 'true')
+   track.append(first, second); flip.append(track); link.replaceChildren(flip)
+   resize.observe(link)
+  })
+ }
+ if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true })
+ else init()
+})()

@@ -7,8 +7,6 @@ body.case-page main .yap-overview-img img { display: block; width: 100%; height:
 .yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
 .yap-problem__cell { min-width: 0; }
 .yap-card { position: relative; aspect-ratio: 4 / 5; background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); overflow: hidden; }
-.yap-problem__name { margin: var(--s-7) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
-.yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); text-wrap: pretty; }
 
 /* Calling: FaceTime tiles waiting for people who aren't free yet */
 .yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: var(--s-2); border-radius: var(--r-md); will-change: transform; }
@@ -54,7 +52,7 @@ body.case-page main .yap-hmw__q { margin: var(--s-3) 0 0; max-width: 28ch; font-
 .yap-demo { position: relative; aspect-ratio: 1080 / 1350; border-radius: var(--r-lg); overflow: hidden; background: var(--fig-bg); }
 .yap-demo__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; }
 .yap-demo__screen { position: absolute; left: 26.093%; top: 9.711%; width: 47.722%; height: 80.563%; overflow: hidden; border-radius: 14.36% / 6.8%; background: var(--surface); }
-.yap-demo__screen iframe { position: absolute; left: 0; top: calc(54px * var(--yap-demo-scale, 1)); width: 402px; height: calc(848px - 54px); border: 0; transform-origin: 0 0; border-radius: 0 !important; }
+.yap-demo__screen iframe { position: absolute; left: 0; top: 0; width: 402px; height: 848px; border: 0; transform-origin: 0 0; border-radius: 0 !important; }
 /* The iframe gets no safe-area inset, so it starts below the Dynamic Island; this strip stands in for the status bar. */
 .yap-demo__screen:has(iframe) { background: var(--surface); }
 .yap-demo__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 !important; filter: saturate(.9); }
@@ -81,8 +79,6 @@ body.case-page main .yap-text .yap-bubble.yap-bubble { color: var(--surface); }
 
 /* problem captions: override the case-study paragraph defaults, no orphans */
 /* problem captions match the solution principles: bold heading + standard body copy */
-body.case-page main .yap-problem .yap-problem__name { margin: var(--s-7) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
-body.case-page main .yap-problem .yap-problem__why { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); text-wrap: pretty; }
 /* tweet sits on the page, no figure panel */
 body.case-page main .yap-tweet { display: block; padding: 0; background: none; border-radius: 0; }
 body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
@@ -179,8 +175,6 @@ body.case-page main .yap-term .yap-term__body p.yap-term__cmd { color: #f2f3f5 !
 
 /* AI step: the three design calls under the pipeline figure */
 body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7); margin-top: var(--s-8); }
-body.case-page main .yap-call h4 { margin: 0 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); color: var(--ink); }
-body.case-page main .yap-call p { margin: 0; font-size: var(--fs-base); line-height: var(--lh-base); }
 body.case-page main .yap-call .yap-call__num { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: var(--label-ls); color: var(--muted); }
 body.case-page main .yap-call code { font-size: .9em; }
 body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-10); }
@@ -206,6 +200,16 @@ body.case-page main .yap-takeaways .ntf-takeaway-line { max-width: none; }
 
 /* Standard figure background: the dotted panel every diagram sits on */
 body.case-page main :is(.yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); }
+
+/* Solution phones across the body, with the standard media gap and no figure frame */
+body.case-page main .yap-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin-top: var(--sp-media); }
+body.case-page main .yap-phones--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.case-page main .yap-phones img { display: block; width: 100%; height: auto; border-radius: 0; }
+body.case-page main .yap-phones .sb-iphone { width: 100%; height: auto; }
+@media (max-width: 760px) {
+	body.case-page main .yap-phones { grid-template-columns: minmax(0, 1fr); }
+	body.case-page main .yap-phones--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 /* Solution: the three steps as cards, each phone rising out of its card */
 body.case-page main .yap-card.yap-step { display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 5.8; padding: 7% 0; }
@@ -324,9 +328,9 @@ body.case-page main .yap-term.is-collapsed .yap-term__panel > .yap-term__body { 
 body.case-page main .yap-term__panel > .yap-term__body { transition: padding .35s cubic-bezier(.65, 0, .35, 1); }
 @media (prefers-reduced-motion: reduce) { body.case-page main :is(.yap-term__panel, .yap-term__panel > .yap-term__body) { transition: none; } }
 
-/* "One topic change, cut two ways": the pause between two topics, up close (1920×1080 .fig, sizes in cqw).
+/* "One topic change, cut two ways": the pause between two topics, up close (1920×720 .fig, sizes in cqw).
    Accent is yap's blue, already used on the page. The guess is a deeper step of that same blue. */
-.fig.ycut { --accent: #1b8cfb; }
+.fig.ycut { --accent: #1b8cfb; aspect-ratio: 8 / 3; }
 .fig.ycut .ycut__card { position: absolute; inset: 9% 5%; display: flex; overflow: hidden; border-radius: calc(var(--fig-r) * 3); background: var(--surface); box-shadow: var(--shadow-raise); }
 .fig.ycut .ycut__zone { position: relative; flex: 1; }
 .fig.ycut .ycut__zone--a { flex-grow: 1.45; background: var(--surface-2); }

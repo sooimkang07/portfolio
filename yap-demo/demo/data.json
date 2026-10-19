@@ -653,6 +653,119 @@
       "sentAt": -7199998
      }
     ]
+   },
+   {
+    "id": "demo-thread-movie-night",
+    "label": "Movie night next Friday",
+    "excerpt": "Let us have movie night next Friday. We can pick something together.",
+    "transcript": "Let us have movie night next Friday. We can pick something together.",
+    "rangeLabel": "0:00-0:05",
+    "parentMemoId": "demo-memo-movie-night",
+    "parentMemoMessage": {
+     "id": "memo-demo-thread-movie-night",
+     "voiceMessageId": "demo-movie-sooim",
+     "threadId": "demo-thread-movie-night",
+     "authorId": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+     "author": {
+      "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+      "name": "Sooim",
+      "initials": "S",
+      "color": "#DFFFB8",
+      "avatarUrl": "/assets/sooim.jpg"
+     },
+     "audioUrl": "/demo/audio/movie-night-sooim.m4a",
+     "audioPath": null,
+     "durationMs": 5000,
+     "label": "Full memo",
+     "transcript": "Let us have movie night next Friday. We can pick something together.",
+     "excerpt": "Let us have movie night next Friday. We can pick something together.",
+     "startMs": 0,
+     "endMs": 5000,
+     "sentAt": -1800000,
+     "parentMemoId": "demo-memo-movie-night",
+     "heardByCurrentUser": true,
+     "playedMs": 0
+    },
+    "createdAt": -1800000,
+    "lastActivityAt": -1800000,
+    "unheardCount": 2,
+    "messages": [
+     {
+      "id": "demo-movie-sooim",
+      "voiceMessageId": "demo-movie-sooim",
+      "threadId": "demo-thread-movie-night",
+      "authorId": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+      "author": {
+       "id": "user-05f91a81-7583-4ee8-90e9-678e23da0ae0",
+       "name": "Sooim",
+       "initials": "S",
+       "color": "#DFFFB8",
+       "avatarUrl": "/assets/sooim.jpg"
+      },
+      "audioUrl": "/demo/audio/movie-night-sooim.m4a",
+      "audioPath": null,
+      "durationMs": 5000,
+      "label": "Movie night next Friday",
+      "transcript": "Let us have movie night next Friday. We can pick something together.",
+      "excerpt": "Let us have movie night next Friday. We can pick something together.",
+      "startMs": 0,
+      "endMs": 5000,
+      "sentAt": -1800000,
+      "parentMemoId": "demo-memo-movie-night",
+      "heardByCurrentUser": true,
+      "playedMs": 0
+     },
+     {
+      "id": "demo-movie-lucy",
+      "voiceMessageId": "demo-movie-lucy",
+      "threadId": "demo-thread-movie-night",
+      "authorId": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+      "author": {
+       "id": "user-9d9c60ec-890d-4cb3-aad0-cb3c55b924b2",
+       "name": "Lucy",
+       "initials": "L",
+       "color": "#DEC0F8",
+       "avatarUrl": "/demo/avatars/lucy.jpg"
+      },
+      "audioUrl": "/demo/audio/movie-night-lucy.m4a",
+      "audioPath": null,
+      "durationMs": 4000,
+      "label": "Down for movie night",
+      "transcript": "I am down for movie night. Friday works for me.",
+      "excerpt": "I am down for movie night. Friday works for me.",
+      "startMs": 0,
+      "endMs": 4000,
+      "sentAt": -1800000,
+      "parentMemoId": null,
+      "heardByCurrentUser": false,
+      "playedMs": 0
+     },
+     {
+      "id": "demo-movie-kimaya",
+      "voiceMessageId": "demo-movie-kimaya",
+      "threadId": "demo-thread-movie-night",
+      "authorId": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+      "author": {
+       "id": "user-93ff8ea5-2868-4430-a2a3-fecff5ff7fd0",
+       "name": "Kimaya",
+       "initials": "K",
+       "color": "#B8D8FF",
+       "avatarUrl": "/demo/avatars/kimaya.jpg"
+      },
+      "audioUrl": "/demo/audio/movie-night-kimaya.m4a",
+      "audioPath": null,
+      "durationMs": 4000,
+      "label": "Wants a rom-com too",
+      "transcript": "I want a rom com too. Let us watch one together.",
+      "excerpt": "I want a rom com too. Let us watch one together.",
+      "startMs": 0,
+      "endMs": 4000,
+      "sentAt": -1800000,
+      "parentMemoId": null,
+      "heardByCurrentUser": false,
+      "playedMs": 0
+     }
+    ]
    }
   ]
  }

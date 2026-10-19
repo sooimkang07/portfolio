@@ -3,7 +3,7 @@
 (() => {
 	// A demo-only copy of the app ships with the site (yap-demo/, built by yap's demo/build-embed.sh),
 	// so visitors land in a seeded chat instead of the live app's phone sign-in.
-	const DEMO = new URL('yap-demo/?demo=1', location.href).href
+	const DEMO = new URL('yap-demo/index.html?demo=1&embed=1&v=10', location.href).href
 
 	document.querySelectorAll('[data-yap-demo]').forEach(stage => {
 		const screen = stage.querySelector('.yap-demo__screen')

@@ -25,11 +25,7 @@
   --bg-gradient: linear-gradient(148deg, #fefeff 0%, #fffcfa 40%, #fbfcff 80%, #fefeff 100%);
   --bg-image: url('https://www.figma.com/api/mcp/asset/8d3d4be8-b608-4198-80ab-f4b09edd4bda');
   /* Stronger pastel field so white cards and pills read clearly against it */
-  --screen-background:
-    radial-gradient(circle at top, rgba(255, 222, 186, 0.5), transparent 48%),
-    radial-gradient(circle at bottom left, rgba(178, 210, 255, 0.46), transparent 52%),
-    radial-gradient(circle at 92% 62%, rgba(226, 208, 255, 0.32), transparent 40%),
-    linear-gradient(160deg, #fbf7f3 0%, #f5f1fa 50%, #eef3fc 100%);
+  --screen-background: linear-gradient(180deg, #fff1e1 0%, #fcfbf9 42%, #e4eefd 100%);
   --glass-bg:    rgba(255, 255, 255, 0.68);
   --glass-border: rgba(255, 255, 255, 0.88);
   --surface:     rgba(255, 255, 255, 0.92);
@@ -1541,7 +1537,7 @@ button {
   min-width: 0.75rem;
   height: 0.75rem;
   border-radius: var(--r-full);
-  background: #b7d4ff;
+  background: #83B6E3;
   box-shadow: 0 0.125rem 0.375rem rgba(150, 183, 230, 0.22);
   display: inline-block;
   padding: 0;
@@ -3579,7 +3575,7 @@ html, body {
   min-width: 0.75rem;
   height: 0.75rem;
   padding: 0;
-  background: #b7d4ff;
+  background: #83B6E3;
 }
 
 .chat-header {
@@ -10170,7 +10166,7 @@ select,
 .topic-card.expanded .topic-row__play { grid-column: 1; grid-row: 1; }
 .topic-card.expanded .topic-row__meta { grid-column: 2; grid-row: 1; padding-top: 0.125rem; }
 .topic-card.expanded .topic-row__title-wrap { grid-column: 1 / -1; grid-row: 2; }
-.topic-card.expanded .topic-row__title { font-weight: 600; letter-spacing: normal; }
+.topic-card.expanded .topic-row__title { font-weight: 700; letter-spacing: -0.03em; }
 .topic-card.expanded .topic-row__trackline {
   grid-template-columns: 1fr 1fr;
   row-gap: 0.625rem;
@@ -10521,4 +10517,43 @@ html body :is(.np-avatar__label, .floating-avatar__label) {
 .np-dot[data-state="playing"] { width: 1.5rem; transform: none; background: var(--np-dot-color, #4F5763); box-shadow: none; animation: none; }
 .np-dot[data-state="played"] { background: #4F5763; box-shadow: none; }
 /* Unread dot on All Chats: iOS-style blue that reads at 4:1 on white (was a pale #B7D4FF, ~1.4:1). */
-.chat-badge { background: #0A7AFF !important; }
+.chat-badge { background: #83B6E3 !important; }
+
+/* Larger initial for Sophia’s photo-free profile in the All Chats cluster. */
+.chat-card .chat-art-besties__avatar.avatar-fallback[data-avatar-name="Sophia"] > span { transform: scale(2.2); font-weight: 500; }
+
+/* Keep the Add circle unchanged while making its plus easier to see. */
+.group-details-person--add .group-details-person__avatar svg { transform: scale(1.5); }
+
+/* Keep empty-chat member floats clustered between the header and mic. */
+#screen-chat .chat-empty .floating-avatars-container { inset: 18% 12%; width: auto; height: auto; }
+#screen-chat .chat-empty .floating-avatar--dynamic { animation-name: besties-float-photo-dynamic-centered; width: calc(var(--floating-avatar-width) * .8); height: auto; }
+
+/* The photo keeps its square geometry even when the name pill takes space. */
+#screen-chat .chat-empty .floating-avatar--dynamic .floating-avatar__photo { width: 100%; height: auto; aspect-ratio: 1; flex: none; border-radius: 50%; }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(1) { width: calc(var(--floating-avatar-width) * .9); }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(2) { width: calc(var(--floating-avatar-width) * .75); }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(3) { width: calc(var(--floating-avatar-width) * .65); }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(4) { width: calc(var(--floating-avatar-width) * .7); }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(5) { width: calc(var(--floating-avatar-width) * .6); }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(6) { width: calc(var(--floating-avatar-width) * .55); }
+
+/* Independent small orbits stay within each reserved avatar row. */
+#screen-chat .chat-empty .floating-avatar--dynamic { animation-name: empty-member-orbit-a; }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(3n+2) { animation-name: empty-member-orbit-b; }
+#screen-chat .chat-empty .floating-avatar--dynamic:nth-child(3n) { animation-name: empty-member-orbit-c; }
+@keyframes empty-member-orbit-a {
+  0%, 100% { transform: translate(-50%, -50%) translate(.75rem, 0); }
+  33% { transform: translate(-50%, -50%) translate(0, -.2rem); }
+  66% { transform: translate(-50%, -50%) translate(-.75rem, .2rem); }
+}
+@keyframes empty-member-orbit-b {
+  0%, 100% { transform: translate(-50%, -50%) translate(-.75rem, .2rem); }
+  33% { transform: translate(-50%, -50%) translate(.65rem, .1rem); }
+  66% { transform: translate(-50%, -50%) translate(0, -.2rem); }
+}
+@keyframes empty-member-orbit-c {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, -.2rem); }
+  33% { transform: translate(-50%, -50%) translate(-.65rem, 0); }
+  66% { transform: translate(-50%, -50%) translate(.8rem, .2rem); }
+}

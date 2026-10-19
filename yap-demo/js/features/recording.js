@@ -260,6 +260,7 @@ class RecordingManager {
     this.chunks = [];
     this.mediaRecorder.ondataavailable = e => {
       if (e.data && e.data.size > 0) this.chunks.push(e.data);
+      if (window.YAP_DEMO_BUILD) this._transcribeDemoAudio();
     };
     this.mediaRecorder.start(100); // collect every 100ms
     this._startSpeechRecognition();
@@ -483,6 +484,32 @@ class RecordingManager {
     };
   }
 
+  async _transcribeDemoAudio() {
+    const elapsed = Date.now() - this.startTime;
+    if (this.phase !== 'recording' || elapsed < 3000 || this._liveBusy || Date.now() - (this._liveAt || 0) < 4000) return;
+    this._liveBusy = true;
+    this._liveAt = Date.now();
+    const started = this.startTime;
+    try {
+      const blob = new Blob(this.chunks, {type: this.mimeType || 'audio/webm'});
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+      let binary = '';
+      for (const byte of bytes) binary += String.fromCharCode(byte);
+      const response = await fetch(YAP_PROCESS_AUDIO_ENDPOINT, {
+        method: 'POST', headers: {'Content-Type': 'application/json', 'X-Yap-Duration-Ms': String(elapsed)},
+        body: JSON.stringify({mimeType: blob.type, audioBase64: btoa(binary)}),
+      });
+      if (!response.ok) throw new Error('Live transcription unavailable');
+      const result = await response.json();
+      if (this.phase === 'recording' && this.startTime === started && result.transcript) {
+        this.finalTranscript = result.transcript;
+        this._renderTranscript(result.transcript);
+      }
+    } catch (error) {
+      console.warn('[yap] Live audio transcription:', error.message);
+    } finally { this._liveBusy = false; }
+  }
+
   _startSpeechRecognition() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
@@ -655,7 +682,7 @@ class RecordingManager {
     if (this.transcriptEl.classList.contains('is-placeholder')) return;
     const raw = this._transcriptRaw;
     if (!raw) {
-      this.transcriptEl.textContent = APP_COPY.listening;
+      this.transcriptEl.textContent = ''; 
       this.transcriptEl.classList.add('is-placeholder');
       return;
     }
@@ -675,7 +702,7 @@ class RecordingManager {
     if (isListening) {
       this._disconnectTranscriptResizeObserver();
       this._transcriptRaw = '';
-      this.transcriptEl.textContent = APP_COPY.listening;
+      this.transcriptEl.textContent = ''; 
       this.transcriptEl.classList.add('is-placeholder');
       return;
     }

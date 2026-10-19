@@ -46,15 +46,27 @@ const Pipeline = {
       transcript = processed.transcript || '';
       transcriptWords = processed.words || null;
       segments = Array.isArray(processed.segments) ? processed.segments : [];
+      // Clamp cuts to the recorded memo and use one boundary between adjacent clips.
+      segments = segments.map((segment, index, all) => {
+        const start = index === 0 ? 0 : Math.max(0, Math.min(durationMs, Number(segment.start_ms) || 0));
+        const next = all[index + 1];
+        const end = next ? Math.min(durationMs, Number(next.start_ms) || Number(segment.end_ms) || durationMs) : durationMs;
+        return {...segment, start_ms: start, end_ms: Math.max(start, end)};
+      }).filter(segment => segment.end_ms > segment.start_ms);
+
+      segments = this._groupRelatedSegments(segments, durationMs);
+
       if (!segments.length && String(transcript || processed.transcript || '').trim()) {
         const t = String(processed.transcript || transcript || '').trim();
         console.warn('[yAp] process-audio returned no segments; using transcript-based fallback');
         segments = this._fallbackSegments(durationMs, t);
       } else if (!segments.length) {
+        if (window.YAP_DEMO_BUILD) throw new Error('No speech topics were detected. Please try recording again.');
         segments = this._fallbackSegments(durationMs, '');
       }
       _pEmit('yap:pipeline:transcribed', { transcript });
     } catch (error) {
+      if (window.YAP_DEMO_BUILD) throw new Error('Could not transcribe and organize this recording. ' + error.message);
       console.warn('[yAp] Audio processing failed — saving memo with fallback threading:', error);
       transcript = '';
       transcriptWords = null;
@@ -292,6 +304,27 @@ const Pipeline = {
     }
   },
 
+  _groupRelatedSegments(segments, durationMs) {
+    const grouped = [];
+    for (const segment of segments) {
+      const previous = grouped[grouped.length - 1];
+      const sameThread = previous?.assigned_thread_id && previous.assigned_thread_id === segment.assigned_thread_id;
+      const sameLabel = previous && String(previous.label).toLowerCase() === String(segment.label).toLowerCase();
+      const explicitShift = /^(?:oh\s+)?(?:also|anyway|by the way|another topic|speaking of|switching|next topic|as for)\b/i.test(String(segment.transcript || '').trim());
+      const words = value => new Set((String(value || '').toLowerCase().match(/[a-z]+/g) || []).filter(word => word.length > 3 && !['that', 'this', 'with', 'have', 'just', 'really', 'think', 'would', 'could', 'should', 'about', 'there', 'going', 'want', 'they', 'them', 'your', 'what', 'when', 'because'].includes(word)).map(word => word.replace(/(?:ing|s)$/, '')));
+      const earlier = words(previous?.transcript);
+      const later = words(segment.transcript);
+      const shared = [...later].filter(word => earlier.has(word)).length;
+      const relatedContinuation = previous && !previous.assigned_thread_id && !segment.assigned_thread_id && !explicitShift && shared >= 2 && shared / Math.max(1, Math.min(earlier.size, later.size)) >= 0.3;
+      if (previous && (sameThread || sameLabel || relatedContinuation)) {
+        previous.end_ms = segment.end_ms;
+        previous.transcript = [previous.transcript, segment.transcript].filter(Boolean).join(' ');
+        previous.excerpt = previous.transcript;
+      } else grouped.push({...segment});
+    }
+    return grouped;
+  },
+
   _threadContext() {
     const lastHeardThreadId = AppState?.playback?.lastHeardChatId === AppState?.activeChat?.id
       ? AppState.playback.lastHeardThreadId
@@ -300,7 +333,7 @@ const Pipeline = {
     return Store.getThreads().map(thread => ({
       id: thread.id,
       label: thread.label,
-      excerpt: thread.excerpt || thread.transcript || '',
+      excerpt: (thread.excerpt || thread.transcript || '').slice(0, 180),
       rangeLabel: thread.rangeLabel || '',
       unheardCount: thread.unheardCount || 0,
       lastHeardAt: thread.lastHeardAt || null,
@@ -310,12 +343,12 @@ const Pipeline = {
         id: AppState.playback.lastHeardMessageId || null,
         author: AppState.playback.lastHeardAuthor || '',
         label: AppState.playback.lastHeardLabel || '',
-        transcript: AppState.playback.lastHeardTranscript || '',
+        transcript: (AppState.playback.lastHeardTranscript || '').slice(0, 180),
         heardAt: AppState.playback.lastHeardAt || null,
       } : null,
-      recentMessages: thread.messages.slice(-4).map(message => ({
+      recentMessages: thread.messages.slice(-2).map(message => ({
         author: message.author?.name || '',
-        transcript: message.transcript || '',
+        transcript: (message.transcript || '').slice(0, 180),
         label: message.label || '',
         heardByCurrentUser: !!message.heardByCurrentUser,
       })),
@@ -461,7 +494,7 @@ const Pipeline = {
           transcript: thread.transcript,
           messages: thread.messages.slice(-5).map(message => ({
             author: message.author?.name || '',
-            transcript: message.transcript || '',
+            transcript: (message.transcript || '').slice(0, 180),
             label: message.label || '',
           })),
         },

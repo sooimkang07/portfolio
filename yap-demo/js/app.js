@@ -351,7 +351,6 @@ function cacheDOM() {
   DOM.btnDiscardRecording = document.getElementById('btn-discard-recording');
   DOM.btnStop           = document.getElementById('btn-stop');
   DOM.btnDiscard        = document.getElementById('btn-discard');
-  DOM.btnRerecord       = document.getElementById('btn-rerecord');
   DOM.btnSend           = document.getElementById('btn-send');
   DOM.recordingBackdrop = document.querySelector('#recording-overlay .recording-backdrop');
 
@@ -469,7 +468,7 @@ function updateViewportMetrics() {
 
   AppState.viewportBaseHeight = Math.max(nextBaseHeight || 0, appHeight || viewportHeight || 0);
 
-  document.documentElement.style.setProperty('--app-height', `${appHeight}px`);
+  document.documentElement.style.setProperty('--app-height', `${Math.max(0, appHeight - (new URLSearchParams(location.search).has('embed') ? 54 : 0))}px`);
   document.documentElement.style.setProperty('--layout-height', `${AppState.viewportBaseHeight || appHeight || viewportHeight}px`);
   document.documentElement.style.setProperty('--keyboard-inset', `${keyboardInset}px`);
   document.documentElement.style.setProperty('--visual-viewport-bottom-inset', `${viewportBottomInset}px`);
@@ -2325,7 +2324,7 @@ function buildAvatarContent(member, fallbackSeed = 'Y') {
 
 function buildMemberAvatarMarkup(member, extraClass = '') {
   return `
-    <div class="${buildAvatarClass(extraClass, member)}" style="${buildAvatarStyle(member)}">
+    <div class="${buildAvatarClass(extraClass, member)}" data-avatar-name="${escapeHtml(member.name || '')}" style="${buildAvatarStyle(member)}">
       ${buildAvatarContent(member)}
     </div>
   `;
@@ -2553,11 +2552,7 @@ function renderActiveChatShell(chat) {
   if (DOM.floatingAvatarPrimary) DOM.floatingAvatarPrimary.style.display = 'none';
   if (DOM.floatingAvatarSecondary) DOM.floatingAvatarSecondary.style.display = 'none';
 
-  if (otherMembers.length > 1) {
-    // Header already renders overlapping pip avatars (chat-art-besties--pips).
-    // Body floats used the same polar math as two people → 0° and 360° (identical), so only one showed.
-    DOM.chatEmpty?.querySelector('.floating-avatars-container')?.remove();
-  } else if (featuredMembers.length > 0) {
+  if (featuredMembers.length > 0) {
     let existingContainer = DOM.chatEmpty?.querySelector('.floating-avatars-container');
     if (!existingContainer) {
       existingContainer = document.createElement('div');
@@ -2572,15 +2567,14 @@ function renderActiveChatShell(chat) {
         avatarEl.className = 'floating-avatar floating-avatar--dynamic';
         avatarEl.id = `floating-avatar-${index}`;
         avatarEl.style.zIndex = 1000 - index;
-        if (count > 1) {
-          const angle = (index / count) * 360;
-          const radius = 100;
-          const x = Math.cos(angle * Math.PI / 180) * radius;
-          const y = Math.sin(angle * Math.PI / 180) * radius;
-          avatarEl.style.transform = `translate(${x}px, ${y}px)`;
-        } else {
-          avatarEl.style.removeProperty('transform');
-        }
+        const positions = count === 1 ? [[50, 50]] : count === 2 ? [[38, 30], [62, 72]] : count === 3 ? [[36, 18], [64, 50], [40, 82]] : null;
+        const rows = Math.ceil(count / 2);
+        const [x, y] = positions ? positions[index] : [index % 2 ? 68 : 32, ((Math.floor(index / 2) + 0.5) / rows) * 100];
+        avatarEl.style.left = `${x}%`;
+        avatarEl.style.top = `${y}%`;
+        avatarEl.style.animationDelay = `${index * -1.3}s`;
+        avatarEl.style.animationDuration = `${6 + index * .7}s`;
+        avatarEl.style.animationDirection = index % 2 ? 'reverse' : 'normal';
 
         const labelEl = document.createElement('div');
       labelEl.className = 'floating-avatar__label';
@@ -2595,6 +2589,31 @@ function renderActiveChatShell(chat) {
 
       renderFloatingProfile(avatarEl, labelEl, photoEl, member, '');
     });
+    const layoutFloats = () => {
+      const avatars = [...existingContainer.children];
+      const columns = avatars.length > 3 ? 2 : 1;
+      const rows = Math.ceil(avatars.length / columns);
+      const cellHeight = existingContainer.clientHeight / rows;
+      const cellWidth = existingContainer.clientWidth / columns;
+      const sizeRatios = [1, .85, .72, .9, .78, .65];
+      avatars.forEach((avatar, index) => {
+        const label = avatar.querySelector('.floating-avatar__label');
+        // Measure the CSS width first; its clamp value may not resolve through getPropertyValue.
+        avatar.style.removeProperty('width');
+        const naturalWidth = avatar.offsetWidth;
+        const labelHeight = label.offsetHeight;
+        const room = Math.min(cellWidth - 32, cellHeight - labelHeight - 16);
+        const width = Math.max(1, Math.min(naturalWidth, room) * sizeRatios[index % sizeRatios.length]);
+        avatar.style.width = `${width}px`;
+        avatar.style.left = columns === 1 ? `${[42, 58, 44][index % 3]}%` : `${(index % columns + .5) / columns * 100}%`;
+        avatar.style.top = `${(Math.floor(index / columns) + .5) / rows * 100}%`;
+      });
+    };
+    existingContainer._floatObserver?.disconnect();
+    existingContainer._floatObserver = new ResizeObserver(layoutFloats);
+    existingContainer._floatObserver.observe(existingContainer);
+    layoutFloats();
+
   }
 }
 
@@ -3505,7 +3524,7 @@ function _buildNowPlayingSegmentedRingLayers(thread) {
     const rawColor = _npRingGradientSafeColor(
       item?.author?.color || pickUserColor(item?.author?.name || item?.authorId || '')
     );
-    const playedColor = `color-mix(in srgb, ${rawColor} 72%, white 28%)`;
+    const playedColor = accessibleAccent(rawColor);
 
     let p = 0;
     if (sync) {
@@ -3915,7 +3934,7 @@ async function startRecording() {
     videoEl: DOM.waveformVideo,
     canvasEl: DOM.waveformCanvas,
     timerEl:  DOM.recTimer,
-    transcriptEl: null, // voice-first: no live transcript while recording
+    transcriptEl: DOM.recLiveTranscript,
   });
   AppState.recording.manager = mgr;
 
@@ -4022,46 +4041,6 @@ async function sendRecording() {
       }
       scrollChatToLatest();
     }
-  } else {
-    // For memos: show optimistic message immediately before analysis modal opens
-    const threadId = `thread-${seedMessageId}-0`;
-    const currentAuthor = getUserById(authorId) || getCurrentUser();
-    console.log('[yap] Creating optimistic memo:', { threadId, chatId, seedMessageId });
-    if (!Store.getThread(threadId)) {
-      Store.addThread({
-        id: threadId,
-        chatId,
-        label: 'Voice memo',
-        excerpt: 'Analyzing…',
-        createdAt: Date.now(),
-        lastActivityAt: Date.now(),
-        messages: [],
-      });
-      console.log('[yap] Thread added. Current threads:', Store.getThreads().length);
-    }
-    Store.addMessage(threadId, {
-      id: `${seedMessageId}-seg-0`,
-      voiceMessageId: seedMessageId,
-      threadId,
-      authorId,
-      author: currentAuthor,
-      audioUrl,
-      audioBlob: blob,
-      durationMs,
-      label: 'Voice memo',
-      transcript: 'Analyzing…',
-      excerpt: 'Analyzing…',
-      startMs: 0,
-      endMs: durationMs,
-      sentAt: Date.now(),
-      parentMemoId: seedMessageId,
-      heardByCurrentUser: true,
-      optimistic: true,
-      status: 'sending',
-    });
-    console.log('[yap] Message added. Rendering topics...');
-    renderTopics();
-    scrollChatToLatest();
   }
 
   // Brief handoff from recording sheet, then full-screen topic analysis while the pipeline runs.
@@ -4126,21 +4105,6 @@ function discardRecording() {
   closeRecordingOverlay();
 }
 
-async function rerecordRecording() {
-  cancelPendingSendRecordingTimer();
-  const mgr = AppState.recording.manager;
-  if (mgr) {
-    try { mgr.discard(); } catch {}
-  }
-  AppState.recording.manager = null;
-  AppState.recording.phase = 'idle';
-  try {
-    await startRecording();
-  } catch (error) {
-    console.warn('[yap] re-record failed:', error);
-    closeRecordingOverlay();
-  }
-}
 
 function cancelRecording() {
   cancelPendingSendRecordingTimer();
@@ -4559,7 +4523,7 @@ async function renderCreateGroupPicker() {
   DOM.createChatContacts.hidden = false;
   DOM.createChatContacts.innerHTML = rows || manualRow
     ? `${sectionLabel}<div class="create-chat-picker__contact-card">${manualRow}${rows}</div>`
-    : `<div class="create-chat-picker__empty">${exactPhone ? 'Tap Add to invite that number by SMS.' : (query ? 'No matches yet.' : 'No other people on yap yet. Invite someone by phone.')}</div>`;
+    : (exactPhone || query ? `<div class="create-chat-picker__empty">${exactPhone ? 'Tap Add to invite that number by SMS.' : 'No matches yet.'}</div>` : '');
 }
 
 async function addPendingGroupMember() {
@@ -4759,7 +4723,10 @@ async function refreshChats({ force = false } = {}) {
 
   const refreshPromise = (async () => {
     if (!AppState.supabaseOk) {
-      AppState.chats = sortChatsForDisplay(AppState.pendingChats || []);
+      const chats = window.YAP_DEMO_BUILD
+        ? [...new Map([...(AppState.chats || []), ...(AppState.pendingChats || [])].map(chat => [chat.id, chat])).values()]
+        : (AppState.pendingChats || []);
+      AppState.chats = sortChatsForDisplay(chats);
       return AppState.chats;
     }
 
@@ -6321,9 +6288,6 @@ function wireEvents() {
   DOM.btnDiscardRecording?.addEventListener('click', cancelRecording);
   DOM.btnStop.addEventListener('click', stopRecording);
   DOM.btnDiscard.addEventListener('click', discardRecording);
-  DOM.btnRerecord?.addEventListener('click', () => {
-    rerecordRecording().catch(error => console.warn('[yap] re-record click failed:', error));
-  });
 
   DOM.btnPlay.addEventListener('click', () => {
     const mgr = AppState.recording.manager;
@@ -6461,7 +6425,7 @@ async function boot() {
 
   // Local demo for case-study captures: localhost + ?demo=1 only (demo/ is not deployed).
   if (isLocalDemoRequested()) {
-    await loadLocalScript(new URL('demo/demo.js', document.baseURI).href);
+    if (!window.startYapLocalDemo) await loadLocalScript(new URL('demo/demo.js', document.baseURI).href);
     await window.startYapLocalDemo();
     return;
   }

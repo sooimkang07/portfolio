@@ -224,7 +224,7 @@ const AnalysisModal = {
     }
     if (stage === 'transcribed' || stage === 'transcribing') {
       DOM.analysisLabel.textContent = 'Transcribing';
-      DOM.analysisTitle.textContent = 'Turning your voice into words';
+      DOM.analysisTitle.textContent = 'Finding the topics in your yap';
     }
   },
 

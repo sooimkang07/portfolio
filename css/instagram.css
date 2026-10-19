@@ -25,8 +25,6 @@ body.case-page main #core-flows .dx-media { aspect-ratio: 4 / 5; }
 body.case-page main .ig-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
 body.case-page main .ig-problems__cell { min-width: 0; }
 body.case-page main #problem .dx-media { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
-body.case-page main .ig-problems .ig-problems__name { margin: var(--s-7) 0 var(--s-1); font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--ink); }
-body.case-page main .ig-problems .ig-problems__why { margin: 0; font-size: var(--fs-base); line-height: var(--lh-snug); color: var(--muted); text-wrap: pretty; }
 @media (max-width: 760px) { body.case-page main .ig-problems { grid-template-columns: 1fr; } }
 /* problem recordings sit on the figure background */
 body.case-page main .dx-media.ig-problem { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
@@ -52,14 +50,12 @@ body.case-page main .ig-impact-video { margin-top: var(--s-7); }
 body.case-page main .ig-impact-video .dx-media { border-radius: var(--r-lg); }
 body.case-page main .ig-impact-video video { display: block; width: 100%; height: auto; }
 body.case-page main .ig-next.ig-impact-list { margin-top: var(--s-7); gap: var(--s-7) clamp(var(--s-6), 3vw, var(--s-8)); }
-body.case-page main .ig-next.ig-impact-list li { padding: 0; border-radius: 0; background: none; }
+body.case-page main .ig-next.ig-impact-list li { gap: 0; padding: 0; border-radius: 0; background: none; }
 body.case-page main .ig-impact-list + .nt-step { margin-top: var(--s-10); }
 
 /* ── Next steps: three numbered cards ──────────────────────────── */
 body.case-page main .ig-next { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
 body.case-page main .ig-next li { display: flex; flex-direction: column; gap: var(--s-2); padding: clamp(var(--s-5), 2.4vw, var(--s-7)); border-radius: var(--r-lg); background: var(--fig-bg); }
-body.case-page main .ig-next .ig-next__title { margin: 0; font-size: clamp(17px, 1.4vw, 19px); font-weight: var(--fw-medium); letter-spacing: var(--h2-ls); color: var(--ink); }
-body.case-page main .ig-next .ig-next__body { margin: 0; font-size: var(--fs-base); line-height: var(--lh-snug); color: var(--muted); text-wrap: pretty; }
 
 /* ── Reflection quotes on the figure background ────────────────── */
 
@@ -78,8 +74,6 @@ body.case-page main .ig-ex__notes { display: grid; grid-template-columns: repeat
 body.case-page main .ig-ex__notes p { margin: 0; }
 body.case-page main .ig-ex__notes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--s-7); }
 body.case-page main .ig-ex__notes--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); }
-body.case-page main .ig-ex__list { margin: 0; padding-left: 1.1em; }
-body.case-page main .ig-ex__list li + li { margin-top: var(--s-1); }
 @media (max-width: 760px) { body.case-page main :is(.ig-ex__notes--4, .ig-ex__notes--3, .ig-ex__notes--2) { grid-template-columns: 1fr; } }
 body.case-page main .ig-ex__notes .ig-ex__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 @media (max-width: 559px) { body.case-page main .ig-ex__tabs { display: flex; overflow-x: auto; } body.case-page main .ig-ex__tab { white-space: nowrap; } body.case-page main .ig-ex__notes { grid-template-columns: minmax(0, 1fr); } }
@@ -140,15 +134,16 @@ body.case-page main .ig-figimg .ig-image-figure { padding: 0; }
 body.case-page main .ig-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin-top: var(--s-10); }
 body.case-page main .ig-comparison__item { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
 body.case-page main .ig-comparison__item .nt-reading { padding-right: var(--s-5); }
-body.case-page main .ig-comparison__item .nt-media { align-self: end; margin-top: var(--s-6); }
+body.case-page main .ig-comparison__item .nt-media { align-self: start; margin-top: 0; }
+body.case-page main .ig-comparison__item .nt-reading { margin-top: var(--s-6); }
 body.case-page main .ig-comparison__media { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 7%; background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
 body.case-page main .ig-comparison__media > video { position: absolute; inset: 7%; width: 86%; height: 86%; object-fit: contain; border: 0 !important; border-radius: 0; }
-body.case-page main .ig-comparison__item:first-child .ig-comparison__media > video { inset: 7% auto; width: auto; height: 86%; border: 3px solid var(--line-strong) !important; border-radius: 20% / 9.25% !important; }
+body.case-page main .ig-comparison__item:first-child .ig-comparison__media > video { inset: 7% auto; width: auto; height: 86%; border: 3px solid var(--line-strong) !important; border-radius: 20% / 9.25% !important; filter: grayscale(1); }
 body.case-page main .ig-comparison__after > video { display: block; width: 100%; height: auto; }
 body.case-page main .ig-comparison + .nt-step { margin-top: var(--s-10); }
-body.case-page main .ig-decision-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-8); align-items: start; }
 body.case-page main .ig-decision-split > .nt-media { margin: 0; }
-body.case-page main .ig-privacy-figure { aspect-ratio: 4 / 5.8; display: flex; align-items: center; justify-content: center; padding: 7% 0; }
+/* Privacy figure fills the media column of the shared 2fr/3fr split, at the Smart Bundles core-flow video ratio. */
+body.case-page main .ig-privacy-figure { aspect-ratio: 1080 / 1350; width: 100%; display: flex; align-items: center; justify-content: center; padding: 7% 0; background: url("../assets/instagram/next-steps/instagram-next-steps-bg.jpg") center / cover no-repeat; }
 body.case-page main .ig-privacy-figure img { display: block; height: 100%; width: auto; max-width: 88%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 28px rgba(28, 31, 36,.16)); }
 body.case-page main .ig-reflection-photo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); align-items: start; }
 body.case-page main .ig-reflection-photo img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
@@ -157,7 +152,6 @@ body.case-page[data-case="instagram"] main .yap-takeaways .ntf-takeaway-line { m
 @media (max-width: 759px) {
   body.case-page main .ig-comparison, body.case-page main .ig-decision-split { grid-template-columns: minmax(0,1fr); gap: var(--s-7); }
   body.case-page main .ig-comparison__item .nt-reading { padding-right: 0; }
-  body.case-page main .ig-privacy-figure { aspect-ratio: 4 / 5.2; }
   body.case-page[data-case="instagram"] main .yap-takeaways { grid-template-columns: minmax(0,1fr); gap: var(--s-7); }
 }
 
@@ -199,7 +193,6 @@ body.case-page main .igx__dots span.is-on { width: 18px; background: var(--ink);
 /* Next steps: two open questions, side by side as plain text */
 body.case-page main .ig-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6) var(--s-8); margin-top: var(--s-8); }
 body.case-page main .ig-questions .dx-step { max-width: none; }
-body.case-page main .ig-questions h3 { margin: 0 0 var(--s-3); }
 @media (max-width: 759px) { body.case-page main .ig-questions { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); } }
 
 /* Feedback figure: the 1920×1080 artwork runs nearly edge to edge, so give it the same breathing room as the other figures */

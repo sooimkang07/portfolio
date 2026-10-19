@@ -124,3 +124,11 @@ These are recorded in `scripts/token-baseline.json` so the check ignores them:
 - **Image cut-out shadows:** `filter: drop-shadow(...)` on transparent PNG devices. `box-shadow` tokens can't be used in `filter`.
 
 Not yet tokenized (follow-ups): about 430 inline `style=""` attributes in the HTML (mostly figure positioning, plus some colors), chromatic accent hex values in page CSS, and `font:` shorthands in a few components.
+
+## Shared media captions
+
+Use `.media-caption__title` and `.media-caption__body` for titles and descriptions beneath media, solution steps, research cards, and compact next-step columns across all project pages. Defined once in `css/case.css`, these retain the original Yap problem-caption scale: base-size semibold ink titles with snug line height, base-size regular muted descriptions with body line height, and a 12px title-to-body gap via `--s-3`. Direct captions begin 32px below media via `--s-7`; caption grids apply that gap at the row instead. Keep section headings and figure-internal typography separate.
+
+## Body hyperlinks
+
+Body-copy anchors on case-study pages are enhanced by `js/case.js` with `.body-link`, an underline, a trailing ↗, and the existing `.flip` / `.flip__track` motion. The duplicate label is hidden from assistive technology. Wrapped labels retain their full height. CTA buttons remain separate. Styles live in `css/case.css`; reuse this component rather than adding project-specific link styling.

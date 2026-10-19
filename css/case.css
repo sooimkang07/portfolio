@@ -376,7 +376,7 @@ body.case-page .nt-toc .flip__track > * { font-weight: var(--fw-medium); }
 }
 
 /* ── Type ────────────────────────────────────────────────────── */
-body.case-page main :is(.nt-kicker, .case__eyebrow, .nt-decision h3, .sb-label) {
+body.case-page main :is(.nt-kicker, .nt-meta dt, .case__eyebrow, .nt-decision h3, .sb-label) {
 	display: block;
 	margin: 0 0 var(--s-3);
 	font-size: var(--fs-xs);
@@ -450,13 +450,6 @@ body.case-page main .nt-meta {
 	border-top: 0 !important;
 	font-size: var(--fs-base);
 	line-height: var(--lh-snug);
-}
-body.case-page main .nt-meta dt {
-	margin-bottom: var(--s-2);
-	font-size: var(--fs-xs);
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--muted);
 }
 body.case-page main .nt-meta dd { font-size: var(--fs-base); color: var(--ink); }
 @media (max-width: 700px) {
@@ -730,3 +723,19 @@ body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .
  body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > :is(.nt-reading, .nt-media, .fg-capture__media) { margin: 0; }
  body.case-page[data-case] main :is(.nt-decision-copy, .ig-decision-copy) { padding-right: 0; }
 }
+
+/* Shared captions: the original Yap problem name/body scale, used across cases. */
+body.case-page main .media-caption__title { margin: var(--s-7) 0 var(--s-3); font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); letter-spacing: normal; color: var(--ink); }
+body.case-page main .media-caption__body { margin: 0; font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); letter-spacing: normal; color: var(--muted); text-wrap: pretty; max-width: none; }
+body.case-page main :is(.yap-calls, .sb-next, .ig-questions, .ig-impact-list) .media-caption__title { margin-top: 0; }
+body.case-page main .yap-calls { margin-top: var(--s-7); }
+body.case-page main .ig-impact-list li { gap: 0; }
+body.case-page main .fg-solutions .fg-solution-image { margin-bottom: 0; }
+body.case-page main .nk-solution-step { gap: 0; }
+body.case-page main .yap-phones .yap-call { margin-top: 0; }
+
+/* Body hyperlinks share the TOC's flip motion and retain visible link affordance. */
+body.case-page main a.body-link { display: inline-block; max-width: 100%; vertical-align: bottom; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; color: var(--ink); font-size: inherit; font-weight: inherit; line-height: inherit; text-decoration: none; }
+body.case-page main a.body-link .flip { display: block; block-size: var(--body-link-height, 1.4em); line-height: inherit; }
+body.case-page main a.body-link .flip__track > .body-link__label { block-size: auto; min-block-size: 1.4em; white-space: normal; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: .18em; }
+body.case-page main a.body-link:is(:hover, :focus-visible) .body-link__label { text-decoration-color: currentColor; }

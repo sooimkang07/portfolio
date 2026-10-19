@@ -5,9 +5,9 @@ window.startYapLocalDemo = async function startYapLocalDemo() {
   // Resolve demo files from the app's own folder, so the demo also runs from a subfolder (the portfolio embed).
   const BASE = new URL('./', document.baseURI);
   const local = p => (typeof p === 'string' && p.startsWith('/') ? new URL(p.slice(1), BASE).href : p);
-  const data = await (await fetch(local('/demo/data.json'), { cache: 'no-store' })).json();
+  const embedded = document.getElementById('yap-demo-data');
+  const data = embedded ? JSON.parse(embedded.textContent) : await (await fetch(local('/demo/data.json'), { cache: 'no-store' })).json();
   (function fix(o) { if (!o || typeof o !== 'object') return; for (const k of Object.keys(o)) { if ((k === 'avatarUrl' || k === 'audioUrl') && typeof o[k] === 'string') o[k] = local(o[k]); else fix(o[k]); } })(data);
-  installDemoTranscript(data);
   const now = Date.now();
   const at = v => now + Number(v || 0);
   // absolute URLs: the app treats bare paths as Supabase storage keys
@@ -55,53 +55,3 @@ window.startYapLocalDemo = async function startYapLocalDemo() {
   }
 };
 
-// Scripted words are only installed by the localhost demo entry point. The mic
-// still supplies real audio levels; no sample transcription enters the live app.
-function installDemoTranscript(data) {
-  const renderAudio = RecordingManager.prototype._renderVideoReactive;
-  RecordingManager.prototype._startSpeechRecognition = function () {
-    this.transcriptEl = DOM.recLiveTranscript;
-    this._renderTranscript('');
-    const thread = Store.getThread(AppState.replyTargetThreadId);
-    const example = thread?.messages?.find(message => !message.parentMemoId && message.authorId !== data.currentUserId);
-    const transcript = example?.transcript || data.threads['demo-chat-besties']
-      .filter(topic => topic.parentMemoId === 'demo-memo-1')
-      .map(topic => topic.transcript).join(' ');
-    this._demoWords = (window.__demoTranscript || transcript).split(/\s+/);
-    this._demoWordCount = 0;
-    // The capture browser's fake mic is a quiet beep, so drive the wave with a speech-like
-    // envelope instead (syllables ~4/s, phrase swells, brief breaths). Pushed on a fast
-    // interval so it always lands after the app's own (silent) mic reading.
-    clearInterval(this._demoLevelTimer);
-    const bridge = window.__yapVoiceVisualizerBridge;
-    if (bridge && !bridge.__demoWrapped) {
-      const set = bridge.setAnalysis.bind(bridge);
-      bridge.setAnalysis = a => { if (a && a.__demo) set(a); };
-      bridge.__demoWrapped = true;
-    }
-    const started = Date.now();
-    this._demoLevelTimer = setInterval(() => {
-      if (this.phase && this.phase !== 'recording' && Date.now() - started > 1500) { clearInterval(this._demoLevelTimer); return; }
-      const t = (Date.now() - started) / 1000;
-      const phrase = 0.62 + 0.38 * Math.sin(t * 1.7 + 0.4);
-      const breath = Math.sin(t * 0.9) > 0.93 ? 0.35 : 1;
-      const syllable = 0.5 + 0.5 * Math.abs(Math.sin(t * 12.6 + Math.sin(t * 3.1) * 2));
-      const level = Math.min(1, 0.3 + phrase * syllable * breath * 0.7);
-      window.__yapVoiceVisualizerBridge?.setAnalysis?.({
-        __demo: true, amplitude: level, envelope: level, speaking: Math.min(1, level * 1.35),
-        bass: level * 0.9, mid: level * (0.7 + 0.3 * Math.sin(t * 5.3)), high: level * 0.5,
-        attack: level * 0.8, decay: Math.max(0, 0.24 - level),
-      });
-    }, 8);
-  };
-  RecordingManager.prototype._renderVideoReactive = function (levels) {
-    renderAudio.call(this, levels);
-    if (!this._demoWords) return;
-
-    const count = Math.min(this._demoWords.length, Math.floor((Date.now() - this.startTime) / (window.__demoWordMs || 270)));
-    if (count !== this._demoWordCount) {
-      this._demoWordCount = count;
-      this._renderTranscript(this._demoWords.slice(0, count).join(' '));
-    }
-  };
-}

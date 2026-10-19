@@ -13,7 +13,9 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 // Server endpoint for production-safe audio processing.
 // OpenAI credentials now stay server-side in Vercel environment variables.
-const YAP_PROCESS_AUDIO_ENDPOINT = '/api/process-audio';
+const YAP_PROCESS_AUDIO_ENDPOINT = window.YAP_DEMO_BUILD && ['localhost', '127.0.0.1'].includes(location.hostname)
+  ? 'http://localhost:3003/api/process-audio'
+  : '/api/process-audio';
 const YAP_GENERATE_REPLIES_ENDPOINT = '/api/generate-replies';
 const YAP_SYNTHESIZE_REPLY_ENDPOINT = '/api/synthesize-reply';
 const YAP_SEND_INVITES_ENDPOINT = '/api/send-invites';

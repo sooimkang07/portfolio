@@ -72,7 +72,10 @@ function getThreadsCacheKey(chatId, userId = getCurrentUserId()) {
   return userId && chatId ? `${APP_THREADS_CACHE_PREFIX}.${userId}.${chatId}` : '';
 }
 
+const demoPageCache = new Map();
+
 function readCachedJson(key, fallback = null) {
+  if (window.YAP_DEMO_BUILD) return demoPageCache.get(key) ?? fallback;
   if (!key) return fallback;
   try {
     const raw = localStorage.getItem(key);
@@ -83,6 +86,7 @@ function readCachedJson(key, fallback = null) {
 }
 
 function writeCachedJson(key, value) {
+  if (window.YAP_DEMO_BUILD) { demoPageCache.set(key, value); return; }
   if (!key) return;
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -90,6 +94,7 @@ function writeCachedJson(key, value) {
 }
 
 function removeCachedJson(key) {
+  if (window.YAP_DEMO_BUILD) { demoPageCache.delete(key); return; }
   if (!key) return;
   try {
     localStorage.removeItem(key);

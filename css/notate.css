@@ -174,3 +174,4 @@ body.case-page main .nt-laptop video { display: block; width: 100%; height: 100%
 /* Element callout: the yap card shown selected, the way the extension outlines it (stroke + low-opacity fill in the note's color).
    Box measured on the screenshot (card outline at 42,786 → 1062,1428 of 2880×1866); the notch keeps the sticky note on top. */
 .fig.nt-anno .nt-anno__sel { --sel: #d4c69e; position: absolute; left: 21.846%; top: 44.738%; width: 20.542%; height: 22.983%; border-radius: var(--fig-r-sm); background: color-mix(in srgb, #e6d29c 20%, transparent); box-shadow: inset 0 0 0 .07cqw var(--sel); clip-path: polygon(0 0, 100% 0, 100% 16%, 66.3% 16%, 66.3% 37.6%, 100% 37.6%, 100% 100%, 0 100%); pointer-events: none; }
+body.case-page main .nt-reading p + p:not(.nt-step-label):not(.nt-kicker) { margin-top: var(--s-4); }

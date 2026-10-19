@@ -4,9 +4,7 @@
 /* ── Overview: three stat cards (yap-problem cells) ─────────────── */
 /* sized off the card's width or height, whichever is tighter, so the stat fits stacked (landscape) cards too */
 
-/* ── Solution: four phones in the real iPhone frame ─────────────── */
-body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-@media (max-width: 760px) { body.case-page main .yap-problem.sb-steps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* ── Solution: tagline video, then four phones across the body ── */
 
 /* Touchpoint 01: the card carousel sits under the video, in that column, at that width */
 body.case-page main .sb-tp1 { display: flex; flex-direction: column; min-width: 0; }
@@ -67,7 +65,6 @@ body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: var(--
 body.case-page main .sb-next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6) var(--s-8); margin-top: var(--s-8); }
 body.case-page main .sb-next p { margin: 0; }
 body.case-page main .sb-next .yap-it__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
-body.case-page main .sb-next h3 { margin: 0 0 var(--s-2); font-size: var(--fs-md); }
 @media (max-width: 759px) { body.case-page main .sb-next { grid-template-columns: minmax(0, 1fr); } }
 
 /* Reflection link */
@@ -198,7 +195,7 @@ body.case-page main .fig.sbf-collage img { display: block; width: 100%; height: 
 .fig .sbd-card.sel dl > div { border-top-color: #3a4048; }
 
 /* ── Iterations: the 40 screens, grouped by direction ── */
-.fig .sbg { position: absolute; inset: 7cqw 4cqw 3.4cqw; display: grid; grid-template-columns: 5fr 3fr 6fr; gap: 1.6cqw; }
+.fig .sbg { position: absolute; inset: 5.2cqw 4cqw; display: grid; grid-template-columns: 5fr 3fr 6fr; gap: 1.6cqw; }
 .fig .sbg-col { display: flex; flex-direction: column; padding: 1.4cqw; border-radius: var(--fig-r); }
 .fig .sbg-col.sel { background: var(--surface); border: 1px solid var(--line); box-shadow:var(--shadow-raise); }
 .fig .sbg-lab { display: flex; align-items: baseline; gap: .7cqw; margin-bottom: 1.2cqw; font-size: 1.3cqw; font-weight: var(--fw-medium); color: var(--ink); }
@@ -235,10 +232,59 @@ body.case-page main .sb-deck-wrap .sb-deck { --carousel-inset: 12px; }
 /* ── Overview meta: four equal columns, each with the same text width ── */
 body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--s-8); }
 @media (max-width: 760px) { body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s-6); } }
-/* ── Solution: the tagline video starts a new block after the cards' text ── */
-body.case-page main #solution > .sb-steps4 + .nt-media { margin-top: var(--sp-block, var(--s-10)); }
+/* Solution phone headings sit a block below the frame, in the shared call style */
 
 /* Introductory context: equal columns fit the embedded post or artwork. */
 @media (min-width: 960px) {
  body.case-page[data-case] main #overview-challenge > .sb-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
+
+/* Solution captures are clipped to the product screen inside the shared phone. */
+body.case-page main .sb-screen--discover > img { position: absolute; width: 211.765%; max-width: none; height: 122.505%; left: -56.078%; top: -11.252%; }
+body.case-page main .sb-screen--check-in > img { position: absolute; width: 117.413%; max-width: none; height: 102.155%; left: -10.323%; top: -1.631%; }
+body.case-page main .sb-decision { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--sp-block); }
+body.case-page main .sb-decision > .nt-media { margin-top: 0; }
+@media (max-width: 760px) {
+ body.case-page main .sb-decision { grid-template-columns: minmax(0, 1fr); }
+}
+/* Retain the clean status and navigation bars around the reference captures. */
+body.case-page main :is(.sb-screen--discover, .sb-screen--check-in)::before,
+body.case-page main .sb-screen--check-in::after { content: ""; position: absolute; left: 0; width: 100%; z-index: 1; pointer-events: none; background-size: 100% auto; background-repeat: no-repeat; }
+body.case-page main .sb-screen--discover::before { top: 0; height: 10.8%; background-image: url('../assets/smart-bundles/solution/screens/frame-home.webp'); }
+body.case-page main .sb-screen--check-in::before { top: 0; height: 10.8%; background-image: url('../assets/smart-bundles/solution/screens/frame-feedback.webp'); }
+body.case-page main .sb-screen--check-in::after { bottom: 0; height: 8.9%; background-image: url('../assets/smart-bundles/solution/screens/frame-feedback.webp'); background-position: bottom; }
+body[data-case="smart-bundles"] main .pmap__pt:not(.hi) { padding: .6cqw 1.2cqw .6cqw .7cqw; border-radius: var(--r-pill); background: var(--fig-bg); }
+
+/* A photographic purchase-to-kitchen journey, with native portfolio type. */
+body.case-page main .fig.sb-scene { background: none; border-radius: var(--r-lg); }
+body.case-page main .sb-scene__photo { position: absolute; inset: 0; overflow: hidden; }
+body.case-page main .sb-scene__photo > img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+body.case-page main .sb-scene__headings { position: absolute; inset: 2cqw 4cqw auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12cqw; }
+body.case-page main .sb-scene__headings > .card { padding: 1.3cqw 1.5cqw; }
+body.case-page main .sb-scene__headings h3 { margin: 0; font-size: 1.9cqw; font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); color: var(--ink); }
+body.case-page main .sb-scene__headings p { margin: .6cqw 0 0; font-size: 1.4cqw; line-height: var(--lh-snug); color: var(--muted); }
+body.case-page main .sb-scene__journey { position: absolute; inset: auto 4cqw 4cqw; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2cqw; padding: 0; }
+body.case-page main .sb-scene__journey::before { content: ""; position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed var(--line-strong); }
+body.case-page main .sb-scene__stop { position: relative; padding: 3cqw 1.5cqw 1.3cqw; display: flex; flex-direction: column; align-items: center; text-align: center; }
+body.case-page main .sb-scene__stop > span { position: absolute; top: -2cqw; left: calc(50% - 2cqw); display: grid; place-items: center; width: 4cqw; height: 4cqw; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); }
+body.case-page main .sb-scene__stop svg { width: 2cqw; height: 2cqw; color: var(--ink); }
+body.case-page main .sb-scene__stop .c-lab { margin: .5cqw 0 0; text-transform: uppercase; font-weight: var(--fw-medium); }
+body.case-page main .sb-scene__stop > p:last-child { margin: .2cqw 0 0; font-size: 1.2cqw; line-height: var(--lh-snug); color: var(--muted); }
+
+/* Image above each comparison-column title. */
+body[data-case="smart-bundles"] main .cmp { grid-template-rows: 10cqw; }
+body[data-case="smart-bundles"] main .cmp__h > img.cmp-photo { display: block; flex: none; width: 4cqw; height: 4cqw; object-fit: cover; border-radius: var(--fig-r) !important; }
+body[data-case="smart-bundles"] main .cmp-photo--meal-kits { object-view-box: inset(28% 14% 34% 55%); }
+body[data-case="smart-bundles"] main .cmp-photo--grocery { object-view-box: inset(10% 50% 12% 5%); }
+body[data-case="smart-bundles"] main .cmp-photo--bundles { object-view-box: inset(4% 4% 65% 4%); }
+
+body.case-page main .sb-scene-figure { border-radius: var(--r-lg); }
+
+/* Directional scrims protect the text while keeping the product imagery clear. */
+body.case-page main .sb-scene__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, color-mix(in srgb, var(--ink) 72%, transparent), color-mix(in srgb, var(--ink) 38%, transparent) 22%, transparent 48%, color-mix(in srgb, var(--ink) 30%, transparent) 65%, color-mix(in srgb, var(--ink) 88%, transparent)); }
+body.case-page main .sb-scene__headings h3 { color: var(--surface); }
+body.case-page main .sb-scene__headings p,
+body.case-page main .sb-scene__stop .c-lab,
+body.case-page main .sb-scene__stop > p:last-child { color: var(--surface); }
+body.case-page main .sb-scene__journey::before { border-color: var(--surface); }
+body.case-page main .sb-decision > .nt-media > img { display: block; width: 100%; height: auto; }
