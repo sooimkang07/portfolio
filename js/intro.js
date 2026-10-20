@@ -16,8 +16,19 @@
   const k = (getComputedStyle(reel).objectFit === 'contain' ? Math.min : Math.max)(r.width / FILM.w, r.height / FILM.h);
   return {k, x: r.left + (r.width - FILM.w * k) / 2, y: r.top + (r.height - FILM.h * k) / 2};
  };
+ // Resolves once the lines' web font can draw, or after `cap` ms so a slow or blocked font can't hold the page.
+ const fontReady = cap => new Promise(done => {
+  if (!document.fonts) return done();
+  const t0 = performance.now();
+  setTimeout(done, cap);
+  const poll = () => document.fonts.load("500 1em 'Instrument Sans'", 'Hi, I’m Sooim').then(faces => {
+   if (faces.length) done();
+   else if (performance.now() - t0 < cap) setTimeout(poll, 50);   // its @font-face isn't registered yet
+  }, done);
+  poll();
+ });
  let active = false;
- function run() {
+ async function run() {
   if (active || reduced.matches) return;
   active = true;
   if (reel) {
@@ -66,6 +77,13 @@
   window.addEventListener('resize', finish);
   reduced.addEventListener('change', finish);
   const animate = (el, frames, options) => { const a = el.animate(frames, {fill:'both', ...options}); animations.push(a); return a; };
+  // The lines land on the reel's own type, so on a first visit they wait (hidden, at most 1.5s) for its web font:
+  // measured in the fallback font, they'd land at the wrong size and double up over the reel.
+  const text = overlay.firstElementChild;
+  text.style.visibility = 'hidden';
+  await fontReady(1500);
+  if (ended) return;
+  text.style.visibility = '';
   timers.push(setTimeout(() => loadingName.classList.add('is-sweep-in'), 900));
   const lines = [...overlay.querySelectorAll('.portfolio-intro__line')];
   const entrances = lines.map((line, i) => animate(line, [
