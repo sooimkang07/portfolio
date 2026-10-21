@@ -34,7 +34,7 @@
 	})
 })()
 
-/* Iterations: one view at a time (Direction 1 · 2 · 3 · Shipped). */
+/* Iterations: one view at a time (Direction 1 · 2 · 3). */
 document.querySelectorAll('[data-yap-tabs]').forEach(root => {
 	const tabs = [...root.querySelectorAll('[data-yap-tab]')]
 	const panels = [...root.querySelectorAll('[data-yap-panel]')]

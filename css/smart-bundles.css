@@ -43,9 +43,11 @@ body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: var(--
 .fig .sbp-cmp b { display: block; height: 1cqw; border-radius: var(--r-pill); background: var(--surface); }
 .fig .sbp-cmp b.o { background: var(--muted); }
 .fig .sbp-cmp em { font-style: normal; color: var(--surface); font-weight: var(--fw-medium); }
-.fig .sbp-needs { display: flex; align-items: center; gap: .6cqw; flex-wrap: wrap; margin-top: 1.6cqw; }
-.fig .sbp-needs em { font-style: normal; font-size: 1.05cqw; letter-spacing: var(--label-ls); color: var(--line-strong); margin-right: .3cqw; }
-.fig .sbp-needs span { font-size: 1.05cqw; padding: .35cqw .9cqw; border-radius: var(--r-pill); border: 1px solid var(--muted); color: var(--line); }
+.fig .sbp-needs { margin-top: 1.6cqw; }
+.fig .sbp-needs em { display: block; margin-bottom: .8cqw; font-style: normal; font-size: 1.05cqw; letter-spacing: var(--label-ls); color: var(--line-strong); }
+.fig .sbp-needs ul { display: flex; flex-direction: column; gap: .5cqw; margin: 0; padding: 0; list-style: none; }
+.fig .sbp-needs li { position: relative; margin: 0; padding-left: 1.2cqw; font-size: 1.05cqw; line-height: var(--lh-snug); color: var(--line); }
+.fig .sbp-needs li::before { content: ""; position: absolute; left: 0; top: .5em; width: .45cqw; height: .45cqw; border-radius: 50%; background: var(--line-strong); }
 
 /* Journey */
 
@@ -64,7 +66,7 @@ body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: var(--
 /* Next steps: three notes */
 body.case-page main .sb-next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6) var(--s-8); margin-top: var(--s-8); }
 body.case-page main .sb-next p { margin: 0; }
-body.case-page main .sb-next .yap-it__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
+body.case-page main .sb-next .yap-it__tag { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 @media (max-width: 759px) { body.case-page main .sb-next { grid-template-columns: minmax(0, 1fr); } }
 
 /* Reflection link */

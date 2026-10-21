@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <script>window.YAP_DEMO_BUILD = true;
+    if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('yap-embed');
     if (new URLSearchParams(location.search).has('embed')) document.addEventListener('DOMContentLoaded', () => {
       const app = document.getElementById('app');
       app.style.top = '54px';
@@ -796,7 +797,7 @@
   <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png?v=1747267400">
   <meta name="theme-color" content="#f6f8ff">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/styles.css?v=orbits10-unread1">
+  <link rel="stylesheet" href="css/styles.css?v=orbits10-unread1-embed1">
   <link rel="stylesheet" href="components/voice-visualizer/voice-visualizer.css">
 </head>
 
@@ -1500,13 +1501,13 @@
   </div>
 </div>
 
-<script defer src="js/core/config.js?v=local-api3"></script>
+<script defer src="js/core/config.js?v=demo-api1"></script>
 <script defer src="js/core/utils.js"></script>
 <script defer src="js/core/data.js?v=memory2"></script>
 <script defer src="js/features/presence.js"></script>
 <script defer src="js/features/recording-indicator.js"></script>
 <script defer src="js/features/recording.js?v=live-audio3"></script>
-<script defer src="js/features/pipeline.js?v=group6"></script>
+<script defer src="js/features/pipeline.js?v=group6-err1"></script>
 <script defer src="js/features/analysis-demo.js?v=2"></script>
 <script defer src="js/features/chat.js?v=playback3"></script>
 <script defer src="demo/demo.js?v=live3"></script>

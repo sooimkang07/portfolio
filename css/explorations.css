@@ -31,22 +31,21 @@ body.expl2-page {
 .ex-row:not(.is-scrollable) .ex-row__nav { visibility: hidden; }
 @media (hover: none) { .ex-row__nav { display: none; } }
 
-/* Rail: horizontal overflow, snap to each piece, no visible scrollbar */
+/* Rail: horizontal overflow, free scrolling (no snap points), no visible scrollbar */
 .ex-row__rail {
 	display: flex; gap: var(--s-3);
 	overflow-x: auto; overscroll-behavior-x: contain;
-	scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter);
 	padding-inline: var(--gutter);
 	scrollbar-width: none;
 	cursor: grab;
 }
 .ex-row__rail::-webkit-scrollbar { display: none; }
-.ex-row__rail.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.ex-row__rail.is-dragging { cursor: grabbing; user-select: none; }
 .ex-row__rail.is-dragging * { pointer-events: none; }
 .ex-row__rail:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
 /* Items */
-.ex-item { flex: none; height: var(--ex-h); aspect-ratio: var(--ar, 16 / 9); margin: 0; overflow: hidden; border-radius: var(--r-md); background: var(--fig-bg); scroll-snap-align: start; }
+.ex-item { flex: none; height: var(--ex-h); aspect-ratio: var(--ar, 16 / 9); margin: 0; overflow: hidden; border-radius: var(--r-md); background: var(--fig-bg); }
 .ex-item > :is(img, video, iframe) { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
 
 /* Browser mock: chrome bar + screen, sized like the Figma frame (1400 × 837) */
@@ -70,5 +69,5 @@ body.expl2-page {
 }
 
 /* A column of stacked media: together they fill one row height. --n is how many pieces (IBFF uses 3). */
-.ex-stack { --n: 3; flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); scroll-snap-align: start; }
+.ex-stack { --n: 3; flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); }
 .ex-stack > .ex-item { height: calc((var(--ex-h) - (var(--n) - 1) * var(--s-3)) / var(--n)); }

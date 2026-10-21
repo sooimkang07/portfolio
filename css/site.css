@@ -1840,6 +1840,18 @@ body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1.5fr) min
 	}
 }
 
+/* ── Nav contrast: js/site.js adds .is-on-dark to a nav piece sitting
+   over dark media or fills; text and burger dots switch to light ── */
+body.home .nav__logo:not(.glass) { transition: color var(--dur-2) var(--ease); }
+body.home .nav__logo.is-on-dark,
+body.home .nav__strip-link.is-on-dark,
+body.home .nav__menu.is-on-dark .nav__menu-link { color: var(--surface); }
+body.home .nav__burger.is-on-dark span { background: var(--surface); }
+body.home .nav__strip-link.is-on-dark:hover,
+body.home .nav__strip-link.is-on-dark:focus-visible,
+body.home .nav__menu.is-on-dark .nav__menu-link:hover,
+body.home .nav__menu.is-on-dark .nav__menu-link:focus-visible { color: var(--line-strong); }
+
 /* ── Page fade: incoming page rises a short way into place ── */
 @keyframes page-enter { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 /* Nav stays put (a transformed ancestor would unpin it); everything else rises. */

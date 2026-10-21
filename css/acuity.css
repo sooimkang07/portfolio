@@ -190,10 +190,10 @@ body.case-page main .ac-sol .ac-take__item:nth-child(2) .ac-solcard video{object
 /* User interviews: one 16:9 figure, three quotes */
 /* Maya's journey as a timeline: one rail, a dot per moment, the action highlighted */
 .ac-journey2{position:relative;gap:0 var(--s-7);padding:var(--s-7) var(--s-7) var(--s-6);background:var(--dots);border-radius:var(--r-lg,var(--r-lg))}
-.ac-journey2::before{content:"";position:absolute;left:28px;right:28px;top:52px;height:2px;background:#C9CED4;border-radius:var(--r-sm)}
+.ac-journey2::before{content:"";position:absolute;left:28px;right:28px;top:52px;height:var(--line-strong-w);background:var(--line-strong);border-radius:var(--r-sm)}
 .ac-journey2__step{position:relative;background:none;border:0;border-radius:0;padding:var(--s-9) 0 0}
 .ac-journey2__step::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);box-sizing:border-box}
-.ac-journey2__step:last-child::before{background:var(--ink);border-color:var(--ink);box-shadow:0 0 0 5px rgba(28, 31, 36,.1)}
+.ac-journey2__step:last-child::before{background:var(--ink);border-color:var(--ink);box-shadow:0 0 0 var(--s-1) var(--line)}
 body.case-page main .ac-journey2 .ac-journey2__when{position:absolute;top:-6px;left:0}
 
 /* ── Research: three interviews (white figure cards, a tinted circle with each icon) ── */
@@ -269,3 +269,37 @@ body[data-case="acuity"] main .ac-cmp-photos img { width: 1.9cqw; height: 3cqw; 
 body[data-case="acuity"] main .cmp__h.hi .ac-cmp-photos img { width: 3.5cqw; height: 3.5cqw; }
 body.case-page main a.ac-src { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: .18em; transition: text-decoration-color var(--dur-1) var(--ease); }
 body.case-page main a.ac-src:is(:hover, :focus-visible) { text-decoration-color: currentColor; }
+
+/* ── Persona + journey: card-board cards (.fig.board): white card, --surface-2
+   title bar, 1px --line border, no shadow ── */
+.fig .ac-pers__grid .card,
+.fig .ac-pers__photo { display: flex; flex-direction: column; padding: 0; overflow: hidden; border-width: 1px !important; box-shadow: none; }
+body.case-page main .fig :is(.ac-pers__grid .card, .ac-pers__photo) > .c-lab { flex: none; margin: 0; padding: .9cqw 1.2cqw .8cqw; background: var(--surface-2); border-bottom: 1px solid var(--line); border-width: 0 0 1px !important; font-size: 1cqw; font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; line-height: var(--lh-tight); color: var(--ink); }
+.fig .ac-pers__grid ul { padding: 1.4cqw; }
+.fig .ac-pers__grid li::before { background: var(--line-strong); }
+body.case-page main .fig .ac-pers__photo img { position: static; flex: 1 1 auto; min-height: 0; width: auto; height: auto; margin: 1.4cqw 1.4cqw 0; object-fit: cover; object-position: center 30%; border-radius: var(--fig-r-sm) !important; }
+.fig .ac-pers__id { position: static; padding: 1.4cqw; background: none; }
+body.case-page main .fig .ac-pers__id p { color: var(--ink); }
+body.case-page main .fig .ac-pers__id .ac-pers__role { color: var(--muted); }
+body.case-page main .fig .ac-pers__id .ac-pers__quote { margin-top: 1.2cqw !important; padding-top: 1.2cqw; border-top: 1px solid var(--line); border-width: 1px 0 0 !important; font-style: normal; }
+body.case-page main .ac-journey2__card { padding: 0; overflow: hidden; border: 1px solid var(--line); border-width: 1px !important; box-shadow: none; }
+body.case-page main .ac-journey2 .ac-journey2__what { margin: 0; padding: var(--s-3) var(--s-4); background: var(--surface-2); border-bottom: 1px solid var(--line); border-width: 0 0 1px !important; font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; line-height: var(--lh-tight); color: var(--ink); }
+body.case-page main .ac-journey2 .ac-journey2__why { padding: var(--s-4); line-height: var(--lh-base); }
+/* Timeline type and spacing scale with the figure (cqw), like the persona above it */
+body.case-page main .ac-journey2 { container-type: inline-size; column-gap: 1.6cqw; }
+body.case-page main .ac-journey2 .ac-journey2__when { font-size: max(var(--fs-xs), 1.05cqw); font-weight: var(--fw-medium); line-height: var(--lh-snug); }
+body.case-page main .ac-journey2 .ac-journey2__what { padding: .9cqw 1.2cqw .8cqw; font-size: max(var(--fs-xs), 1cqw); }
+body.case-page main .ac-journey2 .ac-journey2__why { padding: 1.4cqw 1.2cqw; font-size: max(var(--fs-xs), 1.2cqw); line-height: var(--lh-snug); }
+/* Stat cards: one type scale for every chart (cqw of the card). Text stays
+   --ink / --muted; the accent marks data (bars, dots, people, the funded node). */
+.ac-r__card { --ac-val: 5.2cqw; --ac-lab: 4.4cqw; --ac-hero: 14cqw; }
+.ac-vbar b, .ac-hrow b, .ac-node b, .ac-roi__stats b { font-size: var(--ac-val); font-weight: var(--fw-medium); letter-spacing: var(--h2-ls); line-height: var(--lh-tight); color: var(--ink); }
+.ac-vbar span, .ac-hrow span, .ac-meter__row span, .ac-node span, .ac-roi__stats span { font-size: var(--ac-lab); line-height: var(--lh-snug); color: var(--muted); }
+body.case-page main .ac-r p.ac-roi__lab { font-size: var(--ac-lab); color: var(--muted); }
+.ac-meter__row b, .ac-meter__row.is-hi b { font-size: calc(var(--ac-val) * 1.6); letter-spacing: var(--h2-ls); color: var(--ink); }
+body.case-page main .ac-r p.ac-big, body.case-page main .ac-r .ac-waffle-wrap p.ac-big { font-size: var(--ac-hero); letter-spacing: var(--h1-ls); color: var(--ink); }
+.ac-node, .ac-roi__stats span { border-radius: calc(var(--fig-r) * 3); box-shadow: var(--shadow-raise); }
+.ac-node.is-hi span { color: var(--surface); }
+.ac-chain > i { color: var(--line-strong); }
+.ac-node.is-hi b { color: var(--surface); }
+body.case-page main .ac-r .ac-roi p.ac-big { font-size: var(--ac-hero); letter-spacing: var(--h1-ls); color: var(--ink); }

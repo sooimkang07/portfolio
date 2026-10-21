@@ -61,12 +61,16 @@ const Pipeline = {
         console.warn('[yAp] process-audio returned no segments; using transcript-based fallback');
         segments = this._fallbackSegments(durationMs, t);
       } else if (!segments.length) {
-        if (window.YAP_DEMO_BUILD) throw new Error('No speech topics were detected. Please try recording again.');
+        if (window.YAP_DEMO_BUILD) throw new Error('No speech heard. Try recording again.');
         segments = this._fallbackSegments(durationMs, '');
       }
       _pEmit('yap:pipeline:transcribed', { transcript });
     } catch (error) {
-      if (window.YAP_DEMO_BUILD) throw new Error('Could not transcribe and organize this recording. ' + error.message);
+      if (window.YAP_DEMO_BUILD) {
+        // Keep the technical reason in the console; the sheet's one-line strip gets plain copy.
+        console.warn('[yAp] Audio processing failed:', error);
+        throw new Error(error.message.startsWith('No speech') ? error.message : 'Couldn’t reach the AI. Tap Retry.');
+      }
       console.warn('[yAp] Audio processing failed — saving memo with fallback threading:', error);
       transcript = '';
       transcriptWords = null;

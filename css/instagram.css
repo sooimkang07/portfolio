@@ -70,12 +70,12 @@ body.case-page main .ig-ex__tab.glass { background: var(--glass-bg), rgba(255, 2
 body.case-page main .ig-ex__tab:focus:not(:focus-visible) { outline: none; }
 body.case-page main .ig-ex__panel { display: none; }
 body.case-page main .ig-ex__panel.is-active { display: block; }
-body.case-page main .ig-ex__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); margin-top: var(--s-6); }
-body.case-page main .ig-ex__notes p { margin: 0; }
-body.case-page main .ig-ex__notes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--s-7); }
-body.case-page main .ig-ex__notes--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); }
+body.case-page main .ig-ex__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); margin-top: var(--s-7); }
+body.case-page main .ig-ex__notes p { margin: 0; font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); color: var(--muted); text-wrap: pretty; }
+body.case-page main .ig-ex__notes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.case-page main .ig-ex__notes--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 760px) { body.case-page main :is(.ig-ex__notes--4, .ig-ex__notes--3, .ig-ex__notes--2) { grid-template-columns: 1fr; } }
-body.case-page main .ig-ex__notes .ig-ex__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
+body.case-page main .ig-ex__notes .ig-ex__tag { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 @media (max-width: 559px) { body.case-page main .ig-ex__tabs { display: flex; overflow-x: auto; } body.case-page main .ig-ex__tab { white-space: nowrap; } body.case-page main .ig-ex__notes { grid-template-columns: minmax(0, 1fr); } }
 
 body.case-page main .ig-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }

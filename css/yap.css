@@ -174,8 +174,8 @@ body.case-page main .yap-term .yap-term__body p { color: #c9ccd2 !important; fon
 body.case-page main .yap-term .yap-term__body p.yap-term__cmd { color: #f2f3f5 !important; }
 
 /* AI step: the three design calls under the pipeline figure */
-body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7); margin-top: var(--s-8); }
-body.case-page main .yap-call .yap-call__num { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-semi); letter-spacing: var(--label-ls); color: var(--muted); }
+body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); margin-top: var(--s-7); }
+body.case-page main .yap-call .yap-call__num { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 body.case-page main .yap-call code { font-size: .9em; }
 body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-10); }
 @media (max-width: 759px) { body.case-page main .yap-calls { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); } }
@@ -249,7 +249,7 @@ body.case-page main .yap-it__panel > p + p { margin-top: var(--s-3); }
 body.case-page main .yap-it .fig.yap-it__shipped { aspect-ratio: 16 / 9 !important; height: auto; display: flex; align-items: center; justify-content: center; border-radius: var(--r-lg); }
 body.case-page main .yap-it__shipped .flow { width: 100%; }
 body.case-page main .nt-section > h3.yap-subhead--section { margin: var(--s-10) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
-body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-9); margin-top: var(--s-6); }
+body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 759px) { body.case-page main .yap-calls--findings { grid-template-columns: minmax(0, 1fr); } }
 
 /* Design: every screen in one row inside the content column; drag, swipe, or scroll through */
@@ -269,10 +269,12 @@ body.case-page main .screen-rail__label { margin-top: clamp(var(--s-4), 1.6vw, v
 body.case-page main .screen-rail__label span { margin-right: .6em; color: var(--muted); }
 
 /* Iterations: what testing showed, set under each figure in two (or four) short notes */
-body.case-page main .yap-it__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); margin-top: var(--s-6); }
+body.case-page main .yap-it__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); margin-top: var(--s-7); }
 body.case-page main .yap-it__notes--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-body.case-page main .yap-it__notes p { margin: 0; }
-body.case-page main .yap-it__notes .yap-it__tag { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
+body.case-page main .yap-it__notes p { margin: 0; font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); color: var(--muted); text-wrap: pretty; }
+body.case-page main .yap-it__notes .yap-it__tag { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
+/* The final-build takeaway, under each direction's What worked */
+body.case-page main .yap-it__notes .yap-it__final { margin-top: var(--s-3); }
 @media (max-width: 559px) { body.case-page main .yap-it__notes, body.case-page main .yap-it__notes--four { grid-template-columns: minmax(0, 1fr); } }
 /* Carousel arrows: the About slideshow's glass buttons, centered on the figure's edges */
 body.case-page main .yap-rail__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: all 0.4s var(--glass-ease), --glass-angle-1 0.5s var(--glass-ease), opacity .2s ease; }
@@ -307,7 +309,7 @@ body.case-page main .yap-memo video { width: min(80%, 64cqh); }
 .yap-text .yap-text__stack { left: 50%; right: auto; width: 64cqh; transform: translateX(-50%); }
 /* Iterations: what each direction asked for, full width above the two takeaways */
 /* Direction tabs: prompt, what resonated, what didn't, side by side */
-body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--s-8); }
+body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 759px) { body.case-page main .yap-it__notes:has(> .yap-it__brief) { grid-template-columns: minmax(0, 1fr); } }
 body.case-page main .yap-bug__still > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 

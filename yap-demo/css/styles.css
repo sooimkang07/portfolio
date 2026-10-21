@@ -10557,3 +10557,33 @@ html body :is(.np-avatar__label, .floating-avatar__label) {
   33% { transform: translate(-50%, -50%) translate(-.65rem, 0); }
   66% { transform: translate(-50%, -50%) translate(.8rem, .2rem); }
 }
+
+/* ── Portfolio embed (?embed): the app starts 54px down, below the phone
+   frame's status bar. While a sheet is open, dim that strip the way each
+   backdrop dims the app, and raise both sheets to just under it. ── */
+html.yap-embed {
+  --recording-sheet-top: var(--recording-sheet-inset);
+  --analysis-sheet-top: var(--recording-sheet-inset);
+}
+
+html.yap-embed body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto;
+  height: 54px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+html.yap-embed body:has(#recording-overlay.visible)::before {
+  opacity: 1;
+  background: rgba(118, 118, 118, 0.28);
+  backdrop-filter: brightness(0.86);
+  -webkit-backdrop-filter: brightness(0.86);
+}
+
+html.yap-embed body:has(#analysis-overlay.visible)::before {
+  opacity: 1;
+  background: rgba(18, 20, 27, 0.3);
+}

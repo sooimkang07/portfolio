@@ -6,7 +6,7 @@ body.case-page main .fig .phone.shot { aspect-ratio: 903 / 1867; }
 
 /* ── Solution: the title video, then four phones across the body ── */
 body.case-page main .nk-solution-video + .yap-phones { margin-top: var(--gap-media, var(--s-3)); }
-body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-7); }
+body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 760px) {
 	body.case-page main .yap-calls.nk-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -87,27 +87,32 @@ body[data-case="neuk"] main .fig.nk-land .cmp { grid-template-columns: 2.1fr rep
 .nksc__dots span.is-on i { background: #2f4657; }
 .nksc__dots b { font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--muted); }
 
-/* Personas: one standard persona chart per tab */
-.nkpc { position: absolute; inset: 56px; display: grid; grid-template-columns: 560px minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 150px; gap: var(--s-7); }
-.nkpc__who { grid-row: 1 / span 3; padding: var(--s-9); }
+/* Personas and identity boards are built like the card board (.fig.board): white
+   cards, a --surface-2 title bar, 1px --line borders. Colored identity and dark
+   cards keep their own surface. */
+.nkpc { position: absolute; inset: var(--s-7); display: grid; grid-template-columns: 560px minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) auto; gap: var(--s-5); }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) { padding: 0; }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) > .nkq__label { margin: 0; padding: var(--s-4) var(--s-6); background: var(--surface-2); border-bottom: 1px solid var(--line); font-size: var(--fs-md); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--label-ls); color: var(--ink); }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) > .nkq__label { align-self: stretch; border-width: 0 0 1px !important; }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) > :not(.nkq__label) { margin-inline: var(--s-6); }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) > .nkq__label + * { margin-top: var(--s-6); }
+.nkb :is(.nkpc, .nkd) .nkq:not(.nkd__id, .is-night) > :last-child { margin-bottom: var(--s-6); }
+.nkpc__who { grid-row: 1 / span 3; }
 body.case-page main .nkb .nkpc__who > img { width: 200px; height: 200px; border-radius: 40px !important; object-fit: cover; }
-.nkpc__name { margin-top: var(--s-7); font-size: 50px; font-weight: var(--fw-semi); line-height: var(--lh-none); letter-spacing: var(--h2-ls); }
-.nkpc__role { margin-top: var(--s-3); font-size: var(--fs-lg); color: var(--muted); }
+.nkpc__name { margin-top: var(--s-7); font-size: var(--h1-fs); font-weight: var(--fw-semi); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); color: var(--ink); }
+.nkpc__role { margin-top: var(--s-3); font-size: var(--fs-lg); line-height: var(--lh-snug); color: var(--muted); }
 .nkpc__based { display: flex; align-items: center; gap: var(--s-3); margin-top: var(--s-6); font-size: var(--fs-md); }
 .nkpc__basedlab { margin-right: var(--s-1); color: var(--muted); }
-.nkpc__based span:not(.nkpc__basedlab) { padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: var(--fig-bg); font-weight: var(--fw-semi); }
-.nkb .nkpc__quote { margin-top: auto; padding-top: var(--s-7); border-top: 1px solid var(--fig-bg); font-size: var(--fs-lg); font-weight: var(--fw-medium); line-height: var(--lh-snug); color: var(--ink); }
+.nkpc__based span:not(.nkpc__basedlab) { padding: var(--s-1) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--surface-2); font-weight: var(--fw-medium); color: var(--ink); }
+.nkb .nkpc__quote { margin-top: auto; padding-top: var(--s-6); border-top: 1px solid var(--line); font-size: var(--fs-lg); font-weight: var(--fw-regular); line-height: var(--lh-snug); color: var(--ink); }
 .nkb .nkpc__quote { border-width: 1px 0 0 !important; }
-.nkpc__cell ul { display: flex; flex-direction: column; gap: var(--s-5); }
+.nkpc__cell ul { display: flex; flex-direction: column; gap: var(--s-4); }
 .nkb .nkpc__cell li { position: relative; padding-left: var(--s-6); font-size: var(--fs-lg); line-height: var(--lh-snug); color: var(--ink); }
-.nkpc__cell li::before { content: ""; position: absolute; left: 0; top: .55em; width: 10px; height: 10px; border-radius: 50%; background: #6ab4ea; }
-.nkpc__fit { grid-column: 2 / span 2; flex-direction: row; align-items: center; gap: var(--s-8); }
-.nkpc__fit .nkq__label { margin: 0; flex: none; }
-.nkpc__chips { flex: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-4) var(--s-7); }
-.nkpc__chips span { font-size: var(--fs-lg); font-weight: var(--fw-regular); line-height: var(--lh-snug); color: var(--ink); }
+.nkpc__cell li::before { content: ""; position: absolute; left: 0; top: .55em; width: var(--s-2); height: var(--s-2); border-radius: 50%; background: var(--line-strong); }
+.nkpc__fit { grid-column: 2 / span 2; }
 
 /* Design directions and the final brand: one identity board each (name, type, color, details, screen, moodboard) */
-.nkd { position: absolute; inset: 56px; display: grid; grid-template-columns: 520px 420px minmax(0, 1fr); grid-template-rows: 230px 170px minmax(0, 1fr); gap: var(--s-7); }
+.nkd { position: absolute; inset: var(--s-7); display: grid; grid-template-columns: 520px 420px minmax(0, 1fr); grid-template-rows: 230px 180px minmax(0, 1fr); gap: var(--s-5); }
 .nkd--brand { grid-template-rows: 210px 250px minmax(0, 1fr); }
 .nkd__id { grid-column: 1; grid-row: 1 / span 2; }
 .nkd__typo { grid-column: 1; grid-row: 3; }
@@ -127,13 +132,13 @@ body.case-page main .nkb .nkd__wordmark { width: 340px; height: auto; margin-top
 .nkd__sub { margin-top: var(--s-5); font-size: var(--fs-lg); font-weight: var(--fw-semi); }
 .nkd__line { margin-top: var(--s-2); font-size: var(--fs-lg); opacity: .72; }
 .nkd__chips { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: auto; }
-.nkd__chips span { padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: rgba(0, 0, 0, .08); font-size: var(--fs-md); font-weight: var(--fw-semi); }
+.nkd__chips span { padding: var(--s-1) var(--s-4); border-radius: var(--r-pill); background: rgba(0, 0, 0, .08); font-size: var(--fs-md); font-weight: var(--fw-medium); }
 .is-night .nkd__chips span { background: rgba(255, 255, 242, .12); }
 .nkd__likes { margin-top: var(--s-4); font-size: var(--fs-md); opacity: .7; }
 .nkd__type { flex: 1; display: flex; gap: var(--s-7); align-items: center; }
-.nkd__aa { font-size: 128px; line-height: var(--lh-none); color: var(--ink); }
+.nkd__aa { font-size: 92px; line-height: var(--lh-none); color: var(--ink); }
 .nkd__type:has(.nkd__spec:nth-child(3)) { gap: var(--s-6); }
-.nkd__type:has(.nkd__spec:nth-child(3)) .nkd__aa { font-size: 92px; }
+.nkd__type:has(.nkd__spec:nth-child(3)) .nkd__aa { font-size: 64px; }
 .nkd__font { margin-top: var(--s-3); font-size: var(--fs-md); font-weight: var(--fw-semi); }
 .nkd__use { margin-top: 2px; font-size: var(--fs-base); color: var(--muted); }
 .is-night .nkd__use { color: rgba(255, 255, 242, .55); }
@@ -172,7 +177,7 @@ body.case-page main .nkb .nkd__collage img.is-tall { grid-column: 2; grid-row: 1
 /* Next steps: one "How might we…" over the three open questions, each with the visual it starts from */
 body.case-page main .yap-card.nk-inset { display: grid; place-items: center; }
 body.case-page main .nk-inset > img { display: block; width: 84%; height: auto; border-radius: var(--r-md) !important; box-shadow:var(--shadow-float); }
-.nkd__spec:has(.nkd__aa[style*="Homemade"]) .nkd__aa { font-size: 64px; line-height: var(--lh-base); }
+.nkd__spec:has(.nkd__aa[style*="Homemade"]) .nkd__aa { line-height: var(--lh-base); }
 /* Room sizes use the shared problem-card typography without a figure panel. */
 body.case-page main .nk-rooms-section{margin-top:var(--s-10)}
 body.case-page main .nk-rooms-section .yap-subhead{margin-top:0}
@@ -236,7 +241,6 @@ body[data-case="neuk"] main .cmp { grid-template-rows: 10cqw; }
 body[data-case="neuk"] main .cmp__h > img.cmp-photo { display: block; flex: none; width: 4cqw; height: 4cqw; object-fit: cover; border-radius: var(--fig-r) !important; }
 
 /* Testing attributions use the shared caps-label tokens. */
-body[data-case="neuk"] main #iterations .yap-call .yap-call__num { font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; margin-bottom: var(--s-3); }
 /* Match Smart Bundles design-decision rows. */
 body.case-page main .nk-next-step { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--sp-block); }
 body.case-page main .nk-next-step > .nt-media { margin-top: 0; }
@@ -244,3 +248,21 @@ body.case-page main .nk-next-placeholder { display: grid; place-items: center; a
 @media (max-width: 760px) {
  body.case-page main .nk-next-step { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Identity card: same inset as the other cards */
+.nkb .nkd .nkd__id { padding: var(--s-7); }
+/* Phones and screen captures keep the card's side padding instead of running edge to edge */
+body.case-page main .nkb .nkd .nkq > :is(.nkd__phone, .nkd__framed, .nkd__ui) { width: calc(100% - var(--s-6) * 2); max-width: none; }
+body.case-page main .nkb .nkd .nkd__app.nkq > .nkq__label + .nkd__phone { margin-block: auto; }
+
+/* Direction boards: a taller identity card with room between its parts, and a
+   shorter typography card. Four rows: the identity card spans the first three
+   (color, details, and the top of the moodboard row); typography takes the fourth. */
+.nkd:not(.nkd--brand) { grid-template-rows: 230px 180px 166px minmax(0, 1fr); }
+.nkd:not(.nkd--brand) .nkd__id { grid-row: 1 / span 3; }
+.nkd:not(.nkd--brand) .nkd__typo { grid-row: 4; }
+.nkd:not(.nkd--brand) .nkd__app { grid-row: 1 / span 4; }
+.nkd:not(.nkd--brand) .nkd__mood { grid-row: 3 / span 2; }
+.nkd:not(.nkd--brand) .nkd__sub { margin-top: var(--s-8); }
+.nkd:not(.nkd--brand) .nkd__line { margin-top: var(--s-3); }
+.nkd:not(.nkd--brand) .nkd__likes { margin-top: var(--s-5); }

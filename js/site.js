@@ -108,6 +108,95 @@
     syncNavGlass()
   }
 
+  /* ── Nav contrast: each nav piece samples what sits behind it and
+     takes .is-on-dark (light text) over dark media or fills ── */
+  if (header) {
+    const thumbs = new WeakMap()
+    const probe = document.createElement('canvas')
+    probe.width = probe.height = 24
+    const pctx = probe.getContext('2d', { willReadFrequently: true })
+    const lum = (r, g, b) => {
+      const c = v => (v /= 255) <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
+      return 0.2126 * c(r) + 0.7152 * c(g) + 0.0722 * c(b)
+    }
+    let hitVideo = false
+
+    /* Luminance of a media element at a viewport point (24px thumbnail, object-fit: cover) */
+    function mediaLum(m, x, y) {
+      const w = m.naturalWidth || m.videoWidth, h = m.naturalHeight || m.videoHeight
+      if (!w || !h) return null
+      let data = thumbs.get(m)
+      if (m.tagName === 'VIDEO') hitVideo = true
+      if (!data || m.tagName === 'VIDEO' || data.src !== m.currentSrc) {
+        try {
+          pctx.clearRect(0, 0, 24, 24)
+          pctx.drawImage(m, 0, 0, 24, 24)
+          data = { src: m.currentSrc, px: pctx.getImageData(0, 0, 24, 24).data }
+          thumbs.set(m, data)
+        } catch (_) { return null }
+      }
+      const r = m.getBoundingClientRect()
+      const s = Math.max(r.width / w, r.height / h)
+      const u = (x - r.left - (r.width - w * s) / 2) / (w * s)
+      const v = (y - r.top - (r.height - h * s) / 2) / (h * s)
+      const i = (Math.min(23, Math.max(0, Math.floor(v * 24))) * 24 + Math.min(23, Math.max(0, Math.floor(u * 24)))) * 4
+      if (data.px[i + 3] < 128) return null
+      return lum(data.px[i], data.px[i + 1], data.px[i + 2])
+    }
+
+    /* Luminance of whatever paints at a viewport point, under the nav */
+    function lumAt(x, y) {
+      const el = document.elementsFromPoint(x, y).find(n => !header.contains(n))
+      if (!el) return null
+      /* Media can be pointer-events: none, so also look inside the hit element */
+      const inside = [...el.querySelectorAll('img, video')].reverse().find(m => {
+        const r = m.getBoundingClientRect()
+        return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom
+      })
+      for (let n = inside || el; n && n !== document.documentElement; n = n.parentElement) {
+        if (n.matches('img, video')) {
+          const l = mediaLum(n, x, y)
+          if (l !== null) return l
+        }
+        if (n.tagName === 'IFRAME') return 0
+        const bg = getComputedStyle(n).backgroundColor.match(/[\d.]+/g)
+        if (bg && (bg[3] === undefined || +bg[3] > 0.5)) return lum(+bg[0], +bg[1], +bg[2])
+      }
+      return null
+    }
+
+    /* White text beats --ink below ~0.2 relative luminance */
+    function onDark(el) {
+      const r = el.getBoundingClientRect()
+      if (!r.width || !r.height) return false
+      const ls = []
+      for (const fx of [0.2, 0.5, 0.8]) for (const fy of [0.3, 0.7]) {
+        const l = lumAt(r.left + r.width * fx, r.top + r.height * fy)
+        if (l !== null) ls.push(l)
+      }
+      return ls.length > 0 && ls.reduce((a, b) => a + b, 0) / ls.length < 0.2
+    }
+
+    const pieces = () => [header.querySelector('.nav__logo'), burger, ...header.querySelectorAll('.nav__strip-link'), menu].filter(Boolean)
+    let queued = false
+    function syncNavContrast() {
+      queued = false
+      hitVideo = false
+      pieces().forEach(p => p.classList.toggle('is-on-dark', onDark(p)))
+    }
+    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(syncNavContrast) } }
+    addEventListener('scroll', queue, { passive: true })
+    addEventListener('resize', queue)
+    addEventListener('load', queue)
+    document.addEventListener('load', queue, true)
+    new MutationObserver(queue).observe(header, { attributes: true, attributeFilter: ['class'] })
+    /* The menu and burger only have their final size once they finish animating in */
+    header.addEventListener('transitionend', queue)
+    /* Video frames change under a still nav */
+    setInterval(() => { if (hitVideo && !document.hidden) queue() }, 500)
+    queue()
+  }
+
   if (header) {
     syncNavTop()
 
