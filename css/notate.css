@@ -117,12 +117,13 @@ body.case-page main .nt-section > .nt-media + .nt-reading { margin-top: var(--sp
 @keyframes ntp-bm-1 { 0%, 66.50% { max-height: 0; opacity: 0; background: var(--line); } 70.50% { max-height: 9cqw; opacity: 1; background: var(--line); } 76.50%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
 .ntp-bookmarks .ntp-row:nth-child(1) { animation-name: ntp-bm-1; }
 
-/* ── Core flows · onboarding: text beside the welcome page, half and half ── */
-body.case-page main .nt-onboard { display: grid; gap: var(--s-6); }
-body.case-page main .nt-onboard > * { width: 100%; max-width: none; margin: 0; }
-@media (min-width: 960px) {
-  body.case-page main .nt-onboard { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(var(--s-6), 3vw, var(--s-8)); align-items: center; }
-}
+/* ── Core flows · onboarding: a screen recording of the setup walkthrough (scripts/notate/record-onboarding.cjs) ── */
+/* framed like the overview's browser figure (.nt-browser): --r-md corners, --shadow-raise */
+body.case-page main .nt-demo { aspect-ratio: 16 / 10; border-radius: var(--r-md); box-shadow: var(--shadow-raise); }
+/* Core flows rhythm, as on Yap: --sp-media from text to media, --gap-media between the recording and the setup carousel */
+body.case-page main .nt-feature .nt-media { margin-top: var(--sp-media); }
+body.case-page main .nt-feature + .nt-carousel { margin-top: var(--gap-media); }
+body.case-page main .nt-carousel__rail .nt-media { margin-top: 0; } /* slides sit flush in the carousel; the carousel carries the gap */
 
 /* ── Launch: the store listing beside the first review ──────────── */
 body.case-page main .nt-launch-pair { display: grid; gap: var(--gap-media, var(--s-3)); margin-top: var(--sp-media, var(--s-7)); }

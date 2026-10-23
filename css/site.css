@@ -427,9 +427,10 @@ body.home .nav__menu.is-open {
 		pointer-events: auto;
 		overflow: auto;
 		isolation: isolate;
-			background: var(--glass-bg);
-		backdrop-filter: var(--glass-blur);
-		-webkit-backdrop-filter: var(--glass-blur);
+		/* Phones: a stronger frost than the stock glass, so the page behind never competes with the links */
+		background: var(--glass-bg), color-mix(in srgb, var(--bg) 82%, transparent);
+		backdrop-filter: blur(28px) saturate(160%);
+		-webkit-backdrop-filter: blur(28px) saturate(160%);
 		border: 0;
 		border-radius: 0;
 		box-shadow: none;
@@ -1298,7 +1299,7 @@ body.home .nav__strip {
 .home-work__card-title {
 	display: block;
 	margin: 0;
-	font-size: var(--fs-lg);
+	font-size: var(--fs-md);
 	font-weight: var(--fw-medium);
 	line-height: var(--lh-tight);
 	letter-spacing: var(--h2-ls);

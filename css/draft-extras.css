@@ -12,3 +12,8 @@ body.case-page main .nt-step + .nt-step { margin-top: var(--s-10); }
 body.case-page main .nt-section > :is(.nt-reading, figure) + .nt-step { margin-top: var(--s-10); }
 body.case-page main .dx-step h3 { margin-top: 0; }
 /* Grouped grid: one lead cell + a nested group (e.g. Instagram edit flows) */
+
+/* Phones: videos never sit side by side; each takes its own row */
+@media (max-width: 600px) {
+ body.case-page main .dx-grid--2:has(video) { grid-template-columns: minmax(0, 1fr); }
+}

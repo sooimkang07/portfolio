@@ -204,7 +204,7 @@ body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
 .notate-page .nt-store-card__cta { grid-column: 1 / -1; padding: var(--s-3) var(--s-4); border-radius: var(--r-pill); background: #0b57d0; color: var(--surface); font-size: var(--fs-base); font-weight: var(--fw-medium); text-align: center; white-space: nowrap; }
 @media (max-width: 760px) {
   .notate-page .nt-hero-head { grid-template-columns: minmax(0, 1fr); }
-  .notate-page .nt-store-card { max-width: 20rem; }
+  .notate-page .nt-store-card { max-width: none; }   /* phones: the card and its Add to Chrome button span the column */
 }
 
 /* Launch: the listing as it appears in Chrome Web Store search */
@@ -275,9 +275,10 @@ body.case-page {
 	body.case-page {
 		--case-top: 68px;
 		--sp-section: var(--s-10);
-		--sp-block: var(--s-8);
-		--sp-media: var(--s-6);
-		--gap-media: var(--s-2);
+		/* Phones get the desktop rhythm between blocks and media, a step roomier than before */
+		--sp-block: var(--s-9);
+		--sp-media: var(--s-7);
+		--gap-media: var(--s-3);
 	}
 }
 
@@ -739,3 +740,12 @@ body.case-page main a.body-link { display: inline-block; max-width: 100%; vertic
 body.case-page main a.body-link .flip { display: block; block-size: var(--body-link-height, 1.4em); line-height: inherit; }
 body.case-page main a.body-link .flip__track > .body-link__label { block-size: auto; min-block-size: 1.4em; white-space: normal; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: .18em; }
 body.case-page main a.body-link:is(:hover, :focus-visible) .body-link__label { text-decoration-color: currentColor; }
+
+/* ── Phones and tablets: the TOC strip without the back link; it tucks away while scrolling down
+      and returns on scroll up (js/case.js) ── */
+@media (max-width: 1199px) {
+ body.case-page .nt-toc > .nt-back { display: none; }
+ body.case-page .nt-rail { transition: transform var(--dur-3) var(--ease); will-change: transform; }
+ body.case-page .nt-rail.is-tucked { transform: translateY(calc(-100% - var(--s-10))); }
+}
+@media (max-width: 1199px) and (prefers-reduced-motion: reduce) { body.case-page .nt-rail { transition: none; } }

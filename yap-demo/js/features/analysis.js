@@ -25,6 +25,10 @@ const ANALYSIS_COPY = {
   ready: 'Topics ready',
 };
 
+// While the sheet works, the status pill cycles through these (the animated dots follow).
+const ANALYSIS_STATUS_ROTATION = ['Unraveling the plot', 'Sorting the voice dump', 'Recapping the rant'];
+const ANALYSIS_STATUS_ROTATION_MS = 2200;
+
 const ANALYSIS_PIPELINE_STATUS = {
   started: ANALYSIS_COPY.uploading,
   transcribed: ANALYSIS_COPY.transcribing,
@@ -174,6 +178,21 @@ const AnalysisModal = {
   /** Cached `#analysis-prism-*` path elements; cleared on `close`. */
   _prismPathCache: null,
 
+  _startStatusRotation() {
+    this._stopStatusRotation();
+    let i = 0;
+    this._setAnalysisStatusStrip(ANALYSIS_STATUS_ROTATION[0], true);
+    this._statusInterval = setInterval(() => {
+      i = (i + 1) % ANALYSIS_STATUS_ROTATION.length;
+      this._setAnalysisStatusStrip(ANALYSIS_STATUS_ROTATION[i], true);
+    }, ANALYSIS_STATUS_ROTATION_MS);
+  },
+
+  _stopStatusRotation() {
+    if (this._statusInterval) clearInterval(this._statusInterval);
+    this._statusInterval = null;
+  },
+
   _setAnalysisStatusStrip(text, showDots = true) {
     const line = DOM.analysisStatusLine;
     const wrap = DOM.analysisStatusCopy;
@@ -196,7 +215,7 @@ const AnalysisModal = {
     }
     DOM.analysisLabel.textContent = ANALYSIS_COPY.idleLabel;
     DOM.analysisTitle.textContent = ANALYSIS_COPY.idleTitle;
-    this._setAnalysisStatusStrip(ANALYSIS_COPY.idleStatus, true);
+    this._startStatusRotation();
     this._resetVisualFieldCss();
     this._vizMotionTimeMs = 0;
     this._vizLastNow = 0;
@@ -217,7 +236,12 @@ const AnalysisModal = {
 
   setPipelineStage(stage) {
     const status = ANALYSIS_PIPELINE_STATUS[stage] || ANALYSIS_COPY.idleStatus;
-    this._setAnalysisStatusStrip(status, stage !== 'done');
+    if (stage === 'done') {
+      this._stopStatusRotation();
+      this._setAnalysisStatusStrip(status, false);
+    } else if (!this._statusInterval) {
+      this._startStatusRotation();
+    }
     if (stage === 'organizing' || stage === 'segments') {
       DOM.analysisLabel.textContent = 'Organizing';
       DOM.analysisTitle.textContent = 'Finding the topics in your yap';

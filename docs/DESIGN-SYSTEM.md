@@ -132,3 +132,12 @@ Use `.media-caption__title` and `.media-caption__body` for titles and descriptio
 ## Body hyperlinks
 
 Body-copy anchors on case-study pages are enhanced by `js/case.js` with `.body-link`, an underline, a trailing ↗, and the existing `.flip` / `.flip__track` motion. The duplicate label is hidden from assistive technology. Wrapped labels retain their full height. CTA buttons remain separate. Styles live in `css/case.css`; reuse this component rather than adding project-specific link styling.
+
+## Phones and tablets (responsive rules)
+
+- **Home hero (Koto's showreel scroll):** on landscape windows ≥900px the reel is pinned for one screen of scroll; `js/site.js` sets `--hero-p` (0→1) and `css/intro.css` closes its `clip-path` from the bottom while the intro copy rises one `--s-10` gap below it. Phones and portrait tablets show the 16:9 reel whole, full width under the nav (a portrait crop would cut the film's type).
+- **Case-study TOC:** below 1200px the TOC is a sticky strip with no back link. It slides away while scrolling down and returns on any scroll up (`js/case.js`, `.nt-rail.is-tucked`).
+- **Rhythm:** phones use the desktop `--sp-block` / `--sp-media` / `--gap-media` values; only `--sp-section` steps down.
+- **Videos never sit side by side on phones** (≤600px): `.dx-grid--2:has(video)` and Instagram's `.ig-split` stack one per row.
+- **Multi-panel boards on phones** (≤600px): a `.fig.board` row with two cards stacks them; each card keeps its desktop proportions and is drawn with `zoom: 2`, so its `cqw` type comes out twice as large. Four-up rows go 2 × 2. Size zoomed cards in `cqw`, never `%` (percentages don't scale with zoom). Board titles wrap instead of overflowing.
+- **Glass tab controls** (`.yap-it__tabs`, `.ig-ex__tabs`) hug their labels, never stretch to the full width, and scroll without a visible scrollbar if they ever overflow.

@@ -55,6 +55,9 @@ const Pipeline = {
       }).filter(segment => segment.end_ms > segment.start_ms);
 
       segments = this._groupRelatedSegments(segments, durationMs);
+      // Move each cut to the quietest moment between the surrounding words, measured on the
+      // recording itself, so no clip starts or ends partway through a word (an "um" or "and" too).
+      segments = await this._snapCutsToSilence(blob, segments, transcriptWords);
 
       if (!segments.length && String(transcript || processed.transcript || '').trim()) {
         const t = String(processed.transcript || transcript || '').trim();
@@ -306,6 +309,70 @@ const Pipeline = {
       console.warn('[yAp] process-audio: raw upload failed, retrying JSON:', err?.message || err);
       return postJson();
     }
+  },
+
+  async _snapCutsToSilence(blob, segments, words) {
+    if (!Array.isArray(segments) || segments.length < 2 || !blob?.size) return segments;
+    let samples;
+    let rate;
+    try {
+      const Ctx = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+      const audio = await new Ctx(1, 2, 44100).decodeAudioData(await blob.arrayBuffer());
+      rate = audio.sampleRate;
+      samples = new Float32Array(audio.length);
+      for (let c = 0; c < audio.numberOfChannels; c += 1) {
+        const data = audio.getChannelData(c);
+        for (let i = 0; i < audio.length; i += 1) samples[i] += data[i] / audio.numberOfChannels;
+      }
+    } catch (error) {
+      console.warn('[yAp] cut snapping skipped (could not decode audio):', error);
+      return segments;
+    }
+
+    // Loudness of a 40ms window centered on `ms`.
+    const half = Math.round(rate * 0.02);
+    const loudness = ms => {
+      const mid = Math.round((ms / 1000) * rate);
+      let sum = 0;
+      let n = 0;
+      for (let i = Math.max(0, mid - half); i < Math.min(samples.length, mid + half); i += 1) {
+        sum += samples[i] * samples[i];
+        n += 1;
+      }
+      return n ? sum / n : Infinity;
+    };
+
+    const all = (Array.isArray(words) ? words : []).filter(w => Number.isFinite(w?.start_ms) && Number.isFinite(w?.end_ms));
+    const total = (samples.length / rate) * 1000;
+    const out = segments.map(segment => ({ ...segment }));
+
+    for (let k = 1; k < out.length; k += 1) {
+      const cut = out[k].start_ms;
+      // Search between the last word of the previous topic and the first word of this one
+      // (the API starts each topic on its opening "also"/"and"); without word timings, ±300ms.
+      const before = all.filter(w => w.end_ms <= cut + 40).pop();
+      const after = all.find(w => w.start_ms >= cut - 40);
+      let lo = before ? before.end_ms - 30 : cut - 300;
+      let hi = after ? after.start_ms + 30 : cut + 300;
+      lo = Math.max(lo, out[k - 1].start_ms + 150);
+      hi = Math.min(hi, (out[k].end_ms || total) - 150, total);
+      if (!(hi > lo)) continue;
+
+      let best = cut;
+      let quietest = Infinity;
+      for (let t = lo; t <= hi; t += 10) {
+        // Prefer gaps between words; a point inside a word (e.g. a stretched "um") only wins where it's silent.
+        const inside = all.find(w => t > w.start_ms + 30 && t < w.end_ms - 30);
+        const level = loudness(t) * (inside ? 4 : 1);
+        if (level < quietest) {
+          quietest = level;
+          best = t;
+        }
+      }
+      out[k - 1].end_ms = Math.round(best);
+      out[k].start_ms = Math.round(best);
+    }
+    return out;
   },
 
   _groupRelatedSegments(segments, durationMs) {

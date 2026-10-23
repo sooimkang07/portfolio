@@ -5,12 +5,29 @@
 .home-greeting__strip > [data-line="1"] { text-align: left; }
 .home-greeting__strip > [data-line="2"] { text-align: right; }
 
-/* The showreel fills the window and opens on the loader's last frame (js/intro.js). */
-.home .home-hero__pin-spacer { block-size: auto; }
-.home .home-hero__pin { position: relative; block-size: 100vh; block-size: 100svh; }
+/* The showreel opens on the loader's last frame (js/intro.js).
+   Wide windows (Koto's showreel scroll): the reel fills the window, pinned for one screen of scroll while
+   js/site.js sets --hero-p (0 → 1). The clip closes from the bottom with the intro copy rising right under it,
+   insets and corners growing to the card gutter and radius; then the strip scrolls away with the page. */
 .home .home-hero__media { background: var(--bg); }   /* the reel's own backdrop, so nothing grey shows before its first frame */
-.home .home-hero__video { object-fit: contain; }   /* tall windows: the whole 16:9 reel, centred */
+.home .home-hero__video { object-fit: contain; }
+@media (width >= 900px) and (orientation: landscape) {
+ .home .home-hero__pin-spacer { block-size: 200vh; block-size: 200svh; }
+ .home .home-hero__pin { position: sticky; inset-block-start: 0; block-size: 100vh; block-size: 100svh; }
+ .home .home-hero__media:not(.is-player) {
+  --hero-p: 0;
+  clip-path: inset(calc(var(--hero-p) * var(--s-2)) calc(var(--hero-p) * var(--s-2)) calc(var(--hero-p) * 76.6%) round calc(var(--hero-p) * var(--r-lg)));
+ }
+}
 @media (min-aspect-ratio: 31/20) { .home .home-hero__video { object-fit: cover; } }   /* wide windows: edge to edge */
+/* Phones and portrait tablets: the film is 16:9 with type in it, so it shows whole, full width under the nav,
+   like Koto's mobile media (a portrait crop would cut its words). */
+@media not ((width >= 900px) and (orientation: landscape)) {
+ .home .home-hero { padding: calc(var(--nav-h) + var(--s-6)) var(--gutter) 0; }
+ .home .home-hero__pin-spacer { block-size: auto; }
+ .home .home-hero__pin { position: relative; block-size: auto; aspect-ratio: 16 / 9; border-radius: var(--r-lg); }
+ .home .home-hero__video { object-fit: cover; }
+}
 /* Clicked, the same video becomes a full-window player (js/site.js), above the header and the chat widget. */
 body.home.is-showreel-open .home-hero { z-index: 10000; }
 .home .home-hero__media.is-player { position: fixed; inset: 0; background: #000; }
@@ -36,7 +53,7 @@ html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 
  .home-greeting__strip > span { flex: none; text-align: center !important; }
  .home-greeting__strip > [data-line="0"] { order: -1; }
  /* .home .home-hero__pin { aspect-ratio: 4 / 3; }   boxed reel, with the greeting strip */
- .home .home-intro { grid-template-columns: 1fr; row-gap: var(--s-6); padding-block: var(--s-6); }
+ .home .home-intro { grid-template-columns: 1fr; row-gap: var(--s-6); min-height: 0; padding-block: var(--s-9) var(--s-11); }
  .home .home-intro__copy { grid-column: 1; grid-row: 1; max-inline-size: none; font-size: var(--fs-lg); }
  .portfolio-intro__line { font-size: clamp(25px, 7vw, 46px); }
 }
@@ -102,3 +119,13 @@ html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 
 .ab-name__t { transition: color 300ms ease; }
 
 @keyframes ab-wave { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+/* Wide windows: the intro rides one gap below the reel's closing edge, starting 76.6% of a screen
+   up into the pin's runway (after the base .home-intro margin, so it wins) */
+@media (width >= 900px) and (orientation: landscape) {
+ .home .home-intro { margin-block-start: calc(-76.6vh + var(--s-10)); margin-block-start: calc(-76.6svh + var(--s-10)); }
+}
+/* Reduced motion: no pin or clip, the reel and intro simply stack */
+@media (prefers-reduced-motion: reduce) {
+ .home .home-hero__pin-spacer { block-size: auto; }
+ .home .home-intro { margin-block-start: 0; }
+}

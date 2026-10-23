@@ -2822,6 +2822,8 @@ html, body {
 
 #app {
   max-width: var(--app-shell-width);
+  /* pinned to both edges so the auto margins center the phone-width app in a wide window */
+  right: 0;
   margin: 0 auto;
   border-radius: var(--radius-shell);
   box-shadow: 0 1.5rem 5rem rgba(82, 75, 113, 0.18);
@@ -10560,10 +10562,11 @@ html body :is(.np-avatar__label, .floating-avatar__label) {
 
 /* ── Portfolio embed (?embed): the app starts 54px down, below the phone
    frame's status bar. While a sheet is open, dim that strip the way each
-   backdrop dims the app, and raise both sheets to just under it. ── */
+   backdrop dims the app. Both sheets start where the Figma frames put them:
+   122px down the 874px screen, i.e. 68px into the app. ── */
 html.yap-embed {
-  --recording-sheet-top: var(--recording-sheet-inset);
-  --analysis-sheet-top: var(--recording-sheet-inset);
+  --recording-sheet-top: 68px;
+  --analysis-sheet-top: 68px;
 }
 
 html.yap-embed body::before {
@@ -10587,3 +10590,26 @@ html.yap-embed body:has(#analysis-overlay.visible)::before {
   opacity: 1;
   background: rgba(18, 20, 27, 0.3);
 }
+
+/* After stopping: discard, play/pause, send. No re-record button. */
+#btn-rerecord { display: none !important; }
+
+/* Recording and analysis sheets share one top edge. */
+:root { --analysis-sheet-top: var(--recording-sheet-top); }
+
+/* Browser mode: on a wide screen, render the app at iPhone Pro Max size (440px), with the
+   root scaled to match (17px x 440/402), so it keeps phone proportions; centered. */
+@media (min-width: 481px) {
+  html:not(.yap-embed) { font-size: 18.5px; }
+  html:not(.yap-embed) #app { max-width: 440px; }
+}
+
+/* Sheets never show a scrollbar. */
+#recording-overlay .recording-sheet,
+#analysis-overlay .recording-sheet { scrollbar-width: none; }
+#recording-overlay .recording-sheet::-webkit-scrollbar,
+#analysis-overlay .recording-sheet::-webkit-scrollbar { display: none; }
+
+/* The discard X matches the send arrow's stroke: 1.5 units of its 15x18 icon at 3x = 4.5px; the X draws at ~1.57x, so 2.86 units. */
+#btn-discard svg path,
+#btn-discard-recording svg path { stroke-width: 2.86; }

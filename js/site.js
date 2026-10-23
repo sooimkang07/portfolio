@@ -574,7 +574,17 @@
     introLines = [...introCopy.querySelectorAll('.home-intro__line-inner')]
   }
 
+  // Koto's showreel scroll: over one screen of scroll the pinned reel's clip closes from the bottom (css/intro.css)
+  const kotoHero = window.matchMedia('(width >= 900px) and (orientation: landscape)')
+  function syncHeroClip() {
+    if (!media || !pinSpacer) return
+    if (!kotoHero.matches || reduceMotion) { media.style.removeProperty('--hero-p'); return }
+    const p = Math.min(1, Math.max(0, -pinSpacer.getBoundingClientRect().top / window.innerHeight))
+    media.style.setProperty('--hero-p', p.toFixed(4))
+  }
+
   function syncHeroIntroScroll() {
+    syncHeroClip()
     if (!desktopHero.matches || reduceMotion) {
       if (titleWrap) {
         titleWrap.style.opacity = ''

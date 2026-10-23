@@ -178,7 +178,7 @@
 // Shared body links reuse the TOC flip track, including wrapped reference labels.
 ;(() => {
  const init = () => {
-  const links = document.querySelectorAll('body.case-page main p a[href], body.case-page main .nt-reading li a[href]')
+  const links = document.querySelectorAll('body.case-page main p a[href], body.case-page main .nt-reading li a[href], body.case-page main .nt-meta dd a[href]')
   const resize = new ResizeObserver(entries => entries.forEach(({ target }) => {
    const label = target.querySelector('.body-link__label')
    if (label) target.style.setProperty('--body-link-height', `${label.getBoundingClientRect().height}px`)
@@ -198,4 +198,29 @@
  }
  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true })
  else init()
+})()
+
+// Phones and tablets: once the TOC strip is stuck under the nav, it slides away while scrolling down
+// and slides back on any scroll up (css/case.css .nt-rail.is-tucked).
+;(() => {
+ const rail = document.querySelector('body.case-page .nt-rail')
+ if (!rail) return
+ const strip = matchMedia('(max-width: 1199px)')
+ let lastY = scrollY, travel = 0, ticking = false, holdUntil = 0
+ const update = () => {
+  ticking = false
+  const y = scrollY, dy = y - lastY
+  lastY = y
+  if (!strip.matches) { rail.classList.remove('is-tucked'); return }
+  const stuck = rail.getBoundingClientRect().top <= parseFloat(getComputedStyle(rail).top) + 1
+  // a few pixels of travel in one direction before it reacts, so small jitters don't flicker it
+  travel = (dy > 0) === (travel > 0) ? travel + dy : dy
+  if (!stuck || y < 80 || performance.now() < holdUntil) rail.classList.remove('is-tucked')
+  else if (travel > 12) rail.classList.add('is-tucked')
+  else if (travel < -12) rail.classList.remove('is-tucked')
+ }
+ addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update) } }, { passive: true })
+ strip.addEventListener('change', update)
+ // A TOC tap scrolls down to its section: keep the strip visible for that jump
+ rail.addEventListener('click', () => { rail.classList.remove('is-tucked'); travel = 0; holdUntil = performance.now() + 1200 })
 })()

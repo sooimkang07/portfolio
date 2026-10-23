@@ -154,7 +154,7 @@ body.case-page main .yap-it__panel { grid-area: 1 / 1; opacity: 0; visibility: h
 body.case-page main .yap-it__panel.is-active { opacity: 1; visibility: visible; }
 body.case-page main .yap-it__panel > img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: var(--surface); }
 body.case-page main .yap-it__shipped { border-radius: var(--r-lg); }
-@media (max-width: 560px) { body.case-page main .yap-it__tabs { display: flex; overflow-x: auto; } body.case-page main .yap-it__tab { white-space: nowrap; } }
+@media (max-width: 560px) { body.case-page main .yap-it__tabs { display: inline-flex; max-inline-size: 100%; overflow-x: auto; scrollbar-width: none; } body.case-page main .yap-it__tabs::-webkit-scrollbar { display: none; } body.case-page main .yap-it__tab { white-space: nowrap; } }
 
 /* Prompt to the agent, as a terminal window */
 body.case-page main .yap-term { margin-top: var(--s-6); border-radius: var(--r-md); overflow: hidden; background: #16171a; box-shadow:var(--shadow-float); }
@@ -279,8 +279,8 @@ body.case-page main .yap-it__notes .yap-it__final { margin-top: var(--s-3); }
 /* Carousel arrows: the About slideshow's glass buttons, centered on the figure's edges */
 body.case-page main .yap-rail__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: all 0.4s var(--glass-ease), --glass-angle-1 0.5s var(--glass-ease), opacity .2s ease; }
 body.case-page main .yap-rail__btn svg { width: 1.25rem; height: 1.25rem; display: block; fill: currentColor; }
-body.case-page main .yap-rail__btn--prev { left: -1.5rem; }
-body.case-page main .yap-rail__btn--next { right: -1.5rem; }
+body.case-page main .yap-rail__btn--prev { left: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
+body.case-page main .yap-rail__btn--next { right: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
 body.case-page main .yap-rail__btn:disabled { opacity: 0; pointer-events: none; }
 @media (max-width: 759px) { body.case-page main .yap-rail__btn--prev { left: -.75rem; } body.case-page main .yap-rail__btn--next { right: -.75rem; } }
 /* Shipped tab: larger phones, still inside the 16:9 frame with their labels */

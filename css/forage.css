@@ -263,8 +263,6 @@ body[data-case="forage"] main .fg-brand__symbols > img { position: static; width
 .fg-brand__laptop { grid-column: 9 / 13; }
 /* Deliverables: bare laptops, ink pill links (matches Acuity's .ac-btn). */
 body[data-case="forage"] main .fg-deliverable{background:none;box-shadow:none}
-body[data-case="forage"] main .fg-deliverable>a.fg-btn{display:inline-flex;align-items:center;margin-top:var(--s-4);padding:var(--s-2) var(--s-4);border-radius:var(--r-pill);background:var(--ink);color:var(--surface)!important;text-decoration:none;font-size:var(--fs-base);font-weight:var(--fw-medium);line-height:var(--lh-tight);transition:background var(--dur-2) var(--ease),transform var(--dur-2) var(--ease)}
-body[data-case="forage"] main .fg-deliverable>a.fg-btn:hover{background:color-mix(in srgb,var(--ink) 85%,var(--surface));transform:translateY(-1px)}
 body[data-case="forage"] main .fg-lap__scr>img{object-position:top left}
 /* Why a ring: larger circles, tighter columns. */
 body[data-case="forage"] main .fg-landscape{padding-inline:3%;column-gap:1.5cqw}
@@ -314,3 +312,7 @@ body[data-case="forage"] main .fg-capture__media > .fg-lap { grid-column: 1 / -1
 /* Digital-platform walkthroughs follow their copy at full width. */
 body[data-case="forage"] main #digital-platform .fg-split { display: flex; flex-direction: column; gap: var(--sp-media); }
 body[data-case="forage"] main #digital-platform .fg-split > .nt-media { width: 100%; }
+/* Deliverable links: the shared body link (underline, ↗, flip track from js/case.js), centered under each laptop */
+body[data-case="forage"] main .fg-deliverable__link{margin:var(--s-4) 0 0;text-align:center}
+/* Phones: the wearable landscape wraps to three per row so each label fits under its circle */
+@media(max-width:600px){body[data-case="forage"] main .fg-landscape{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:var(--s-5)}}

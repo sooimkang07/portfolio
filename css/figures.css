@@ -171,3 +171,19 @@ body.case-page main .fig .pmap__pt.hi img { width: 2.8cqw; height: 2.8cqw; paddi
 body.case-page main .fig .ngraph__zone { position: absolute; background: color-mix(in srgb, var(--accent, var(--line-strong)) 10%, transparent); border: 1px dashed var(--line-strong); border-width: 1px !important; border-radius: var(--fig-r); }
 .fig .ngraph__zone span { position: absolute; left: 1cqw; bottom: .8cqw; display: inline-flex; align-items: center; gap: .5cqw; font-size: .95cqw; color: var(--muted); }
 .fig .ngraph__zone span em { padding: .2cqw .6cqw; border-radius: var(--r-pill); background: var(--accent, var(--ink)); color: var(--surface); font-size: .8cqw; font-style: normal; font-weight: var(--fw-medium); letter-spacing: var(--label-ls); }
+
+/* ── Phones: multi-panel boards ─────────────────────────────────
+   Each panel gets its own row at twice the scale. A card keeps its desktop
+   proportions (half the figure wide, one row tall) and zoom: 2 draws it at full
+   width, so its cqw type and marks come out twice as large. Four-up rows go 2 × 2. */
+@media (max-width: 600px) {
+ body.case-page main .fig.board:has(> .board__row > :nth-child(2)) { aspect-ratio: auto; }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)) { display: flex; flex-direction: column; gap: .5cqw; }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)) > .board__card { flex: none; width: 48.6cqw; height: 53.45cqw; zoom: 2; }   /* cqw scales with zoom; % would not */
+ body.case-page main .fig.board > .board__row:has(> :nth-child(4)) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1cqw; }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(4)) > .board__card { width: 24.05cqw; height: 53.45cqw; zoom: 2; }
+ /* Zoomed cards: titles drawn at the caps-label size (half of it, times zoom 2) */
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)) > .board__card > .board__title { font-size: calc(var(--fs-xs) / 2); }
+ /* Titles wrap rather than run past a narrow card */
+ body.case-page main .board__title { white-space: normal; }
+}

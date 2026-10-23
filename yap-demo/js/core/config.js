@@ -13,13 +13,10 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 // Server endpoint for production-safe audio processing.
 // OpenAI credentials now stay server-side in Vercel environment variables.
-// The portfolio's demo copy is static (GitHub Pages), so it calls the deployed app's API.
-const YAP_DEMO_API = window.YAP_DEMO_BUILD && !['localhost', '127.0.0.1'].includes(location.hostname)
-  ? 'https://yap-murex.vercel.app'
-  : '';
-const YAP_PROCESS_AUDIO_ENDPOINT = window.YAP_DEMO_BUILD && ['localhost', '127.0.0.1'].includes(location.hostname)
-  ? 'http://localhost:3003/api/process-audio'
-  : YAP_DEMO_API + '/api/process-audio';
+// The portfolio's demo copy is static (GitHub Pages), so it calls a separate demo-only API project
+// (yap-demo-api on Vercel), never the real yap app. Same address on the live site and in local preview.
+const YAP_DEMO_API = window.YAP_DEMO_BUILD ? 'https://yap-demo-api.vercel.app' : '';
+const YAP_PROCESS_AUDIO_ENDPOINT = YAP_DEMO_API + '/api/process-audio';
 const YAP_GENERATE_REPLIES_ENDPOINT = '/api/generate-replies';
 const YAP_SYNTHESIZE_REPLY_ENDPOINT = YAP_DEMO_API + '/api/synthesize-reply';
 const YAP_SEND_INVITES_ENDPOINT = '/api/send-invites';

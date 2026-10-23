@@ -266,3 +266,6 @@ body.case-page main .nkb .nkd .nkd__app.nkq > .nkq__label + .nkd__phone { margin
 .nkd:not(.nkd--brand) .nkd__sub { margin-top: var(--s-8); }
 .nkd:not(.nkd--brand) .nkd__line { margin-top: var(--s-3); }
 .nkd:not(.nkd--brand) .nkd__likes { margin-top: var(--s-5); }
+/* Room cards: the incoming image sits exactly over the current one while it dissolves in */
+body.case-page main .nk-rooms .yap-problem__cell{position:relative}
+body.case-page main .nk-rooms .yap-problem__cell>img.nk-room-fade{position:absolute;inset:0 0 auto;pointer-events:none}

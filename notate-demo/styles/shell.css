@@ -1,0 +1,96 @@
+/* The demo window: a quiet Chrome stand-in around the extension's real welcome page and side panel.
+   Built on the portfolio tokens (../css/base.css). Sized for a 1280×800 viewport; the case study scales it. */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; min-block-size: 0; overflow: hidden; background: var(--surface); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: var(--fs-xs); line-height: var(--lh-tight); }
+
+.chrome { flex: none; position: relative; z-index: 3; background: var(--surface); border-bottom: 1px solid var(--line); }
+.tabs { display: flex; align-items: flex-end; gap: var(--s-2); height: 38px; padding: 0 var(--s-3); background: var(--fig-bg); }
+.dots { display: flex; gap: var(--s-2); align-self: center; margin-right: var(--s-3); }
+.dots i { width: 12px; height: 12px; border-radius: 50%; background: var(--fig-dot); }
+.tab { display: flex; align-items: center; gap: var(--s-2); width: 230px; height: 31px; padding: 0 var(--s-3); border-radius: var(--r-lg) var(--r-lg) 0 0; color: var(--muted); text-align: left; white-space: nowrap; overflow: hidden; }
+.tab img { width: 16px; height: 16px; border-radius: var(--r-sm); flex: none; }
+.tab:hover { background: var(--surface-2); }
+.tab.is-active { background: var(--surface); color: var(--ink); }
+.tab[hidden] { display: none; }
+.tab-plus { align-self: center; margin-left: var(--s-1); color: var(--muted); font-size: var(--fs-md); }
+
+.toolbar { position: relative; display: flex; align-items: center; gap: var(--s-3); height: 44px; padding: 0 var(--s-3); }
+.nav { color: var(--muted); font-size: var(--fs-base); letter-spacing: 2px; }
+.address { flex: 1; min-width: 0; height: 32px; padding: 0 var(--s-4); border-radius: var(--r-pill); background: var(--fig-bg); color: var(--muted); line-height: 32px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.actions { display: flex; align-items: center; gap: var(--s-1); }
+.action { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--muted); }
+button.action:hover, button.action[aria-expanded="true"] { background: var(--fig-bg); }
+.action svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.action:last-child svg { fill: currentColor; stroke: none; }
+.action.pinned img { width: 20px; height: 20px; border-radius: var(--r-sm); }
+.action[hidden] { display: none; }
+/* the control to press next gets a soft pulse (Chrome's blue) */
+.is-hint { animation: hint 1.6s ease-in-out infinite; }
+@keyframes hint { 50% { box-shadow: 0 0 0 5px #0b57d033; } }
+@media (prefers-reduced-motion: reduce) { .is-hint { animation: none; box-shadow: 0 0 0 3px #0b57d033; } }
+
+.menu { position: absolute; top: 40px; right: 46px; width: 300px; padding: var(--s-3) var(--s-2); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-float); }
+.menu[hidden] { display: none; }
+.menu-title { margin: 0 0 var(--s-2); padding: 0 var(--s-3); color: var(--muted); }
+.menu-row { display: flex; align-items: center; gap: var(--s-1); padding: 0 var(--s-1); }
+.menu-open { flex: 1; display: flex; align-items: center; gap: var(--s-3); height: 36px; padding: 0 var(--s-2); border-radius: var(--r-md); font-size: var(--fs-base); text-align: left; }
+.menu-open img { width: 20px; height: 20px; border-radius: var(--r-sm); }
+.menu-open:hover, .menu-pin:hover { background: var(--fig-bg); }
+.menu-pin { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--muted); }
+.menu-pin svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.menu-pin[aria-pressed="true"] { color: #0b57d0; }
+.menu-pin[aria-pressed="true"] svg { fill: currentColor; }
+.menu-more { width: 20px; color: var(--muted); text-align: center; }
+.menu-hint { margin: var(--s-3) 0 0; padding: var(--s-2) var(--s-3) 0; border-top: 1px solid var(--line); color: var(--muted); line-height: var(--lh-snug); }
+
+.window { flex: 1; min-height: 0; display: flex; }
+.page { flex: 1; min-width: 0; position: relative; }
+.page iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--surface); }
+.page iframe[hidden] { display: none; }
+.sidepanel { flex: none; display: flex; flex-direction: column; width: 360px; border-left: 1px solid var(--line); background: var(--surface); animation: panel-in var(--dur-2) var(--ease); }
+.sidepanel[hidden] { display: none; }
+@keyframes panel-in { from { margin-right: -360px; } }
+@media (prefers-reduced-motion: reduce) { .sidepanel { animation: none; } }
+.sidepanel-head { flex: none; display: flex; align-items: center; gap: var(--s-2); height: 44px; padding: 0 var(--s-3) 0 var(--s-4); font-size: var(--fs-base); }
+.sidepanel-head img { width: 18px; height: 18px; border-radius: var(--r-sm); }
+.sidepanel-head button { margin-left: auto; width: 28px; height: 28px; border-radius: 50%; color: var(--muted); font-size: var(--fs-md); }
+.sidepanel-head button:hover { background: var(--fig-bg); }
+.sidepanel iframe { flex: 1; min-height: 0; width: 100%; border: 0; }
+
+/* Store tab: the real listing capture, with a hit area on its Add to Chrome button (measured on the image) */
+.store { position: absolute; inset: 0; overflow: hidden; container-type: inline-size; background: var(--surface); }
+.store[hidden] { display: none; }
+.store img { width: 100%; height: auto; }
+.store-add { position: absolute; left: 77.05cqw; top: 9.34cqw; width: 10.1cqw; height: 2.67cqw; border-radius: var(--r-pill); }
+.store-add:hover { background: #ffffff26; }
+
+/* Chrome's install confirmation, under the toolbar */
+.install { position: absolute; left: 50%; top: 88px; z-index: 4; width: 380px; padding: var(--s-5); translate: -50% 0; border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-float); }
+.install[hidden] { display: none; }
+.install-head { display: flex; align-items: center; gap: var(--s-3); }
+.install-head img { width: 32px; height: 32px; border-radius: var(--r-md); }
+.install-head p { margin: 0; font-size: var(--fs-md); font-weight: var(--fw-medium); }
+.install-can { margin: var(--s-4) 0 var(--s-1); color: var(--muted); }
+.install-perm { margin: 0; font-size: var(--fs-base); }
+.install-actions { display: flex; justify-content: flex-end; gap: var(--s-2); margin-top: var(--s-5); }
+.install-actions button { padding: var(--s-2) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-pill); color: #0b57d0; font-size: var(--fs-base); font-weight: var(--fw-medium); }
+.install-actions .install-add { border-color: #0b57d0; background: #0b57d0; color: var(--surface); }
+
+/* "Added" bubble from the Extensions icon */
+.added { position: absolute; right: 44px; top: 88px; z-index: 4; display: flex; gap: var(--s-3); width: 300px; padding: var(--s-4); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-float); animation: added-in var(--dur-2) var(--ease); }
+.added[hidden] { display: none; }
+.added img { width: 28px; height: 28px; border-radius: var(--r-md); flex: none; }
+.added p { margin: 0 0 var(--s-1); font-size: var(--fs-base); font-weight: var(--fw-medium); }
+.added span { color: var(--muted); line-height: var(--lh-snug); }
+@keyframes added-in { from { opacity: 0; translate: 0 calc(var(--s-2) * -1); } }
+
+/* Recording cursor and click ring (?record) */
+.rec-cursor { position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; filter: drop-shadow(0 1px 1px #0003); }
+.rec-cursor[hidden], .rec-cursor .rec-pencil, .rec-cursor[data-mode="pencil"] .rec-arrow { display: none; }
+.rec-cursor[data-mode="pencil"] .rec-pencil { display: block; }
+/* sized for the 1920×1200 recording, which shows at about 40% in the case study */
+.rec-cursor .rec-arrow { width: 37px; height: 44px; }
+.rec-cursor .rec-pencil { width: 44px; height: 44px; }
+.rec-click { position: fixed; z-index: 49; width: 52px; height: 52px; margin: -26px 0 0 -26px; border: 2px solid #1c1f2466; border-radius: 50%; pointer-events: none; opacity: 0; }
+.rec-click.is-on { animation: rec-click var(--dur-3) var(--ease); }
+@keyframes rec-click { from { opacity: 1; scale: .5; } to { opacity: 0; scale: 1.4; } }
