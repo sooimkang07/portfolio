@@ -207,7 +207,7 @@ body.case-page main .yap-phones--4 { grid-template-columns: repeat(4, minmax(0, 
 body.case-page main .yap-phones img { display: block; width: 100%; height: auto; border-radius: 0; }
 body.case-page main .yap-phones .sb-iphone { width: 100%; height: auto; }
 @media (max-width: 760px) {
-	body.case-page main .yap-phones { grid-template-columns: minmax(0, 1fr); }
+	/* Phones: yap's three solution phones stay side by side; their captions (.yap-calls) stack below */
 	body.case-page main .yap-phones--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -233,7 +233,7 @@ body.case-page main .yap-test-pair img { display: block; width: 100%; height: au
 body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: var(--s-4) 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
 body.case-page main .yap-test-pair__video > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell--video { width: min(100%, 320px); } }
+@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell--video { width: 100%; } }
 
 /* Reflection: the room and the projected screen, side by side at equal height */
 body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, var(--s-3)); }

@@ -129,3 +129,14 @@ html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 
  .home .home-hero__pin-spacer { block-size: auto; }
  .home .home-intro { margin-block-start: 0; }
 }
+
+/* Phones and portrait tablets: the case studies' glass play/pause on the reel, top right */
+.home .home-hero__controls { display: none; }
+@media not ((width >= 900px) and (orientation: landscape)) {
+ .home .home-hero__controls { position: absolute; inset-block-start: var(--s-3); inset-inline-end: var(--s-3); z-index: 3; display: flex; }
+ .home .home-hero__media.is-player .home-hero__controls { display: none; }
+}
+.home .home-hero__controls .flow__btn { display: grid; place-items: center; inline-size: var(--s-7); block-size: var(--s-7); padding: 0; border: 0; border-radius: 50%; color: var(--ink); cursor: pointer; }
+.home .home-hero__controls .flow__btn svg { inline-size: 13px; block-size: 13px; }
+.home .home-hero__controls .icon-pause, .home .home-hero__controls .is-playing .icon-play { display: none; }
+.home .home-hero__controls .is-playing .icon-pause { display: block; }

@@ -275,10 +275,9 @@ body.case-page {
 	body.case-page {
 		--case-top: 68px;
 		--sp-section: var(--s-10);
-		/* Phones get the desktop rhythm between blocks and media, a step roomier than before */
-		--sp-block: var(--s-9);
-		--sp-media: var(--s-7);
-		--gap-media: var(--s-3);
+		--sp-block: var(--s-8);
+		--sp-media: var(--s-6);
+		--gap-media: var(--s-2);
 	}
 }
 
@@ -662,7 +661,7 @@ body.case-page .dx-media .flow__btn--pause.is-playing .icon-play { display: none
  body.case-page .nt-toc ol { min-width: 0; width: calc(100% + var(--case-g)); overflow-x: auto; padding-right: var(--case-g); scrollbar-width: none; }
  body.case-page .nt-toc li { flex: 0 0 auto; }
 }
-@media (max-width: 759px) { body.case-page { --sp-section: var(--s-11); } }
+@media (max-width: 759px) { body.case-page { --sp-section: calc(var(--s-11) + var(--s-7)); } }   /* phones: 128px between sections */
 
 /* ── Notate: research → decision traceability ─────────────────── */
 /* Three workarounds, each named by what it loses, lined up under the research figure */

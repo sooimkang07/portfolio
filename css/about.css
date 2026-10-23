@@ -469,7 +469,7 @@ body.about-page .home-contact { margin-block-start: var(--ab-sec); padding-inlin
 /* Hero: text left, feed right */
 .ab-hero__pic { order: 2; }
 .ab-hero__pic.ab-reel { justify-self: end; }
-@media (max-width: 759px) { .ab-hero__pic.ab-reel { justify-self: center; } }
+@media (max-width: 759px) { .ab-hero__pic.ab-reel { justify-self: stretch; width: 100%; max-height: none; } }   /* phones: the feed spans the body column */
 
 /* Feed UI in TikTok Sans */
 .ab-reel, .ab-reel * { font-family: "TikTok Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }

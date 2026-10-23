@@ -18,25 +18,6 @@
       '</span></span>'
   })
 
-  /* ── Live clock (LOCAL TIME) ──────────────────────────────── */
-  function updateClock() {
-    const now = new Date()
-    const time = now.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true,
-      timeZone: 'America/New_York'
-    })
-    const label = `${time} LOCAL TIME`
-    document.querySelectorAll('.js-clock').forEach(el => {
-      el.textContent = label
-      if (el.tagName === 'TIME') el.dateTime = now.toISOString()
-    })
-  }
-
-  updateClock()
-  setInterval(updateClock, 1000)
-
   /* ── Header bar: top strip, scroll collapse, click open ───── */
   const header = document.querySelector('[data-ref-header-bar]')
   const hit = header && header.querySelector('.nav__hit')
@@ -313,6 +294,21 @@
     video.play().catch(() => {})
   }
 
+  // Stacked cards (<1200, phones and tablets): every cover plays while it's on screen, like Koto's mobile list.
+  // Without this only the active card starts, and iOS shows an empty box for a video that never played.
+  if ('IntersectionObserver' in window) {
+    const stacked = window.matchMedia('(width < 1200px)')
+    const coverIO = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+      if (!stacked.matches) return
+      if (isIntersecting) target.play().catch(() => {})
+      else target.pause()
+    }), { threshold: 0.2 })
+    cards.forEach(card => {
+      const video = card.querySelector('.home-work__media video')
+      if (video) coverIO.observe(video)
+    })
+  }
+
   function clearIndexPin() {
     if (!workIndex) return
     workIndex.classList.remove('is-pinned', 'is-docked')
@@ -488,6 +484,25 @@
       })
     }
 
+    // Phones: glass play/pause on the reel. Plays in place (no full-window player); after the run ends it starts over.
+    const heroBtn = media.querySelector('.home-hero__controls .flow__btn')
+    if (heroBtn) {
+      const syncHeroBtn = () => {
+        const playing = !bgVideo.paused && !bgVideo.ended
+        heroBtn.classList.toggle('is-playing', playing)
+        heroBtn.setAttribute('aria-label', playing ? 'Pause the showreel' : 'Play the showreel')
+      }
+      ;['play', 'pause', 'ended'].forEach(type => bgVideo.addEventListener(type, syncHeroBtn))
+      heroBtn.addEventListener('click', e => {
+        e.stopPropagation()
+        if (bgVideo.paused || bgVideo.ended) {
+          if (bgVideo.ended) bgVideo.currentTime = 0
+          bgVideo.play().catch(() => {})
+        } else bgVideo.pause()
+      })
+      syncHeroBtn()
+    }
+
     bgVideo.addEventListener('timeupdate', updateRing)
     bgVideo.addEventListener('play', () => setToggleState(false))
     bgVideo.addEventListener('pause', () => setToggleState(true))
@@ -585,7 +600,7 @@
 
   function syncHeroIntroScroll() {
     syncHeroClip()
-    if (!desktopHero.matches || reduceMotion) {
+    if (reduceMotion) {
       if (titleWrap) {
         titleWrap.style.opacity = ''
         titleWrap.style.transform = ''
@@ -596,7 +611,7 @@
       return
     }
 
-    if (pinSpacer && titleWrap) {
+    if (desktopHero.matches && pinSpacer && titleWrap) {
       const rect = pinSpacer.getBoundingClientRect()
       const range = Math.max(1, pinSpacer.offsetHeight - window.innerHeight)
       const scrolled = Math.min(range, Math.max(0, -rect.top))
@@ -606,19 +621,21 @@
       titleWrap.style.transform = `translate3d(0, ${titleOut * -28}%, 0)`
     }
 
+    // Koto's intro reveal, on every screen size: each line rises out of its mask as its top scrolls from
+    // 66% to 52% of the window height, scrubbed by scroll (reverses on the way back) with a strong ease-out.
     if (introLines.length) {
-      const start = window.innerHeight * 0.95
-      const end = window.innerHeight * 0.42
+      const start = window.innerHeight * 0.664
+      const end = window.innerHeight * 0.522
 
       introLines.forEach(line => {
         const row = line.closest('.home-intro__line') || line
         const top = row.getBoundingClientRect().top
         const t = Math.min(1, Math.max(0, (start - top) / Math.max(1, start - end)))
-        const eased = t * t * (3 - 2 * t)
-        line.style.transform = `translate3d(0, ${(1 - eased) * 110}%, 0)`
+        line.style.transform = `translate3d(0, ${Math.pow(1 - t, 3.5) * 110}%, 0)`
       })
     }
   }
+
 
   let pinTick = false
   function onScrollFrame() {

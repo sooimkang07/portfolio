@@ -11,6 +11,7 @@
 	display: flex;
 	align-items: flex-end;
 	justify-content: flex-end;
+	inline-size: 100%;   /* width comes from the column; otherwise min-height + aspect-ratio derive a width wider than a phone */
 	aspect-ratio: 922 / 168;
 	min-height: 104px;
 	padding: clamp(var(--s-5), 2.4vw, var(--s-7));
@@ -41,7 +42,8 @@
 /* ── Work page ────────────────────────────────────────────── */
 body.work-page { background: var(--bg); color: var(--ink); }
 .work-index {
-	padding: clamp(var(--s-11), 14vw, 176px) var(--gutter) clamp(var(--s-11), 10vw, 140px);
+	/* Top matches Explorations (.ex): nav height + the same clamp, so both titles sit at the same height */
+	padding: calc(var(--nav-h) + clamp(2.5rem, 6vw, 5rem)) var(--gutter) clamp(var(--s-11), 10vw, 140px);
 }
 .work-index__head {
 	display: grid;
@@ -50,16 +52,6 @@ body.work-page { background: var(--bg); color: var(--ink); }
 	gap: var(--s-4) var(--s-7);
 	margin-bottom: clamp(var(--s-8), 6vw, var(--s-10));
 }
-.work-index__kicker {
-	grid-column: 1 / -1;
-	font-family: var(--ff);
-	font-size: var(--fs-xs);
-	font-weight: var(--fw-medium);
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--muted);
-}
-.work-index__kicker span { color: var(--ink); }
 .work-index__title {
 	color: var(--ink); /* type: base.css h1 */
 }
@@ -110,7 +102,7 @@ body.work-page { background: var(--bg); color: var(--ink); }
 
 .work-card__body {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
 	gap: var(--s-4);
 	align-items: start;
 	padding-top: var(--s-4);
@@ -133,7 +125,9 @@ body.work-page { background: var(--bg); color: var(--ink); }
 }
 .work-card__tags li + li::before { content: "·"; margin-inline: 0.45em; }
 .work-card__title {
-	color: var(--ink); /* type: base.css h2 */
+	font-size: var(--fs-md);   /* card titles are H3-level: --fs-md, not the page H2 */
+	letter-spacing: 0;
+	color: var(--ink);
 }
 .work-card__title a { color: inherit; }
 .work-card__line {
@@ -141,14 +135,6 @@ body.work-page { background: var(--bg); color: var(--ink); }
 	font-size: var(--fs-base);
 	line-height: var(--lh-snug);
 	color: var(--ink);
-}
-.work-card__year {
-	font-family: var(--ff);
-	font-size: var(--fs-xs);
-	font-weight: var(--fw-medium);
-	letter-spacing: var(--label-ls);
-	color: var(--muted);
-	padding-top: 3px;
 }
 
 /* Entrance: cards rise in, staggered, as they enter */
@@ -163,8 +149,8 @@ body.work-page { background: var(--bg); color: var(--ink); }
 @media (max-width: 900px) {
 	.work-index__head { grid-template-columns: 1fr; }
 	.work-index__intro { justify-self: start; }
-	.work-card__body { grid-template-columns: minmax(0, 1fr) auto; }
-	.work-card__tags { grid-column: 1 / -1; grid-row: 2; }
+	/* Tags (status · year) sit above the title and line */
+	.work-card__body { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); }
 }
 @media (max-width: 640px) {
 	.work-grid { grid-template-columns: 1fr; }
