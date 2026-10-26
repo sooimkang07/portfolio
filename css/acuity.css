@@ -269,6 +269,8 @@ body[data-case="acuity"] main .ac-cmp-photos img { width: 1.9cqw; height: 3cqw; 
 body[data-case="acuity"] main .cmp__h.hi .ac-cmp-photos img { width: 3.5cqw; height: 3.5cqw; }
 body.case-page main a.ac-src { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: .18em; transition: text-decoration-color var(--dur-1) var(--ease); }
 body.case-page main a.ac-src:is(:hover, :focus-visible) { text-decoration-color: currentColor; }
+/* sources sit on their own line under the caption body */
+body.case-page main a.ac-src.body-link { display: block; inline-size: fit-content; margin-top: var(--s-2); }
 
 /* ── Persona + journey: card-board cards (.fig.board): white card, --surface-2
    title bar, 1px --line border, no shadow ── */

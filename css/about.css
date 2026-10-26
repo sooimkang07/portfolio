@@ -546,14 +546,14 @@ body.about-page .home-contact { margin-block-start: var(--ab-sec); padding-inlin
 	.ab-hero { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; min-height: 0; align-items: start; }
 	.ab-hero__text { padding-inline: 0; align-self: auto; display: flex; flex-direction: column; justify-content: flex-start; gap: 1.25rem; }
 	.ab-hero__text > * { margin-block: 0; }
+	/* Stacked under the widgets: the feed takes the widget row's width and left edge */
 	.ab-hero__pic.ab-reel {
-		order: 2; justify-self: center; align-self: start; position: relative; top: auto;
-		width: min(100%, 22rem, calc((100svh - var(--ab-nav, 68px) - 3rem) * 9 / 16)); max-height: none;
+		order: 2; justify-self: start; align-self: start; position: relative; top: auto;
+		width: min(100%, 32rem); max-height: none;
 	}
 	.ab-widgets { max-width: 32rem; margin: 0.25rem 0 0; }
 }
 @media (max-width: 480px) {
-	.ab-hero__pic.ab-reel { width: min(100%, calc((100svh - var(--ab-nav, 68px) - 2rem) * 9 / 16)); }
 	.ab-widgets { gap: var(--s-3); }
 	.ab-hero__top { flex-wrap: wrap; }
 }

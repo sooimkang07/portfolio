@@ -241,13 +241,6 @@ body[data-case="neuk"] main .cmp { grid-template-rows: 10cqw; }
 body[data-case="neuk"] main .cmp__h > img.cmp-photo { display: block; flex: none; width: 4cqw; height: 4cqw; object-fit: cover; border-radius: var(--fig-r) !important; }
 
 /* Testing attributions use the shared caps-label tokens. */
-/* Match Smart Bundles design-decision rows. */
-body.case-page main .nk-next-step { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--sp-block); }
-body.case-page main .nk-next-step > .nt-media { margin-top: 0; }
-body.case-page main .nk-next-placeholder { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--fig-bg); border: 1px solid var(--line); border-radius: var(--r-lg); color: var(--muted); font-size: var(--fs-base); }
-@media (max-width: 760px) {
- body.case-page main .nk-next-step { grid-template-columns: minmax(0, 1fr); }
-}
 
 /* Identity card: same inset as the other cards */
 .nkb .nkd .nkd__id { padding: var(--s-7); }

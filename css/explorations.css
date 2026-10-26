@@ -20,7 +20,7 @@ body.expl2-page {
 .ex-row { position: relative; }
 .ex-row + .ex-row { margin-block-start: clamp(var(--s-11), 12vw, 10rem); }   /* a step more air between projects */
 .ex-row__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem var(--s-5); padding-inline: var(--gutter); margin-block-end: var(--s-5); }
-.ex-row__title { margin: 0; color: var(--ink); } /* type: base.css h2 */
+.ex-row__title { margin: 0; font-size: var(--fs-md); letter-spacing: 0; color: var(--ink); }   /* same as the Work page card titles (.work-card__title) */
 .ex-row__meta, .ex-row__link { margin: 0; font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); line-height: var(--lh-snug); text-transform: uppercase; color: var(--muted); }
 .ex-row__link { color: var(--ink); transition: color var(--dur-1) linear; }
 .ex-row__link:hover, .ex-row__link:focus-visible { color: var(--muted); }

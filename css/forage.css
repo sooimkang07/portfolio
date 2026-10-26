@@ -316,3 +316,25 @@ body[data-case="forage"] main #digital-platform .fg-split > .nt-media { width: 1
 body[data-case="forage"] main .fg-deliverable__link{margin:var(--s-4) 0 0;text-align:center}
 /* Phones: the wearable landscape wraps to three per row so each label fits under its circle */
 @media(max-width:600px){body[data-case="forage"] main .fg-landscape{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:var(--s-5)}}
+
+/* Solution: the grid already sits one --sp-media below the copy; its images add no second gap */
+body.case-page main .fg-solutions .fg-solution-image { margin-top: 0; }
+
+/* Laptop stage: the pink laptop on the room photo, in a 16:9 media box */
+body[data-case="forage"] main .fg-stage { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--r-lg); background: var(--fig-bg) url(../assets/forage/core-experience/laptop-bg-web.jpg) center / cover no-repeat; }
+body[data-case="forage"] main .fg-stage > .fg-lap { width: 80%; }
+body[data-case="forage"] main .fg-deliverable .fg-stage .flow__controls { display: none; }
+
+/* Capture steps: standard copy block, then gesture + Field recording side by side at 16:9 */
+body[data-case="forage"] main .fg-capture.fg-pair-step { display: block; }
+body[data-case="forage"] main .fg-pair-step .fg-capture__media { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap-media); margin-top: var(--sp-media); }
+body[data-case="forage"] main .fg-pair-step .fg-capture__media > figure { margin: 0; grid-column: auto; }
+body[data-case="forage"] main .fg-pair-step .fg-video .flow__device { aspect-ratio: 16 / 9; }
+@media (max-width: 600px) { body[data-case="forage"] main .fg-pair-step .fg-capture__media { grid-template-columns: minmax(0, 1fr); } }
+
+/* Media nested in a grid row: the row carries the --sp-media gap, its items add none */
+body.case-page main :is(.fg-solutions, .fg-deliverables, .fg-capture__media) .nt-media { margin-top: 0; }
+body.case-page[data-case="forage"] main .nt-step.fg-pair-step > .fg-capture__media { margin-top: var(--sp-media); }
+
+/* Submission: links stacked under the body copy */
+body[data-case="forage"] main .fg-linklist { display: grid; gap: var(--s-2); margin: var(--s-6) 0 0; padding: 0; list-style: none; font-size: var(--fs-base); line-height: var(--lh-base); }
