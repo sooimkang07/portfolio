@@ -9,16 +9,16 @@
 /* Touchpoint 01: the card carousel sits under the video, in that column, at that width */
 body.case-page main .sb-tp1 { display: flex; flex-direction: column; min-width: 0; }
 body.case-page main .sb-tp1 > .nt-media { width: 100%; max-width: none; margin-top: 0; }
-body.case-page main .sb-tp1 > .sb-deck-wrap { margin-top: var(--gap-media, var(--s-3)); }
+body.case-page main .sb-tp1 > .sb-deck-wrap { margin-top: var(--gap-media); }
 body.case-page main #core-flows .dx-media > video { height: auto; aspect-ratio: 1080 / 1350; }
-body.case-page main #core-flows > .nt-step + .nt-media { margin-top: var(--s-10); }
+body.case-page main #core-flows > .nt-step + .nt-media { margin-top: var(--s-3); }
 body.case-page main #core-flows > .nt-media .dx-media > video { aspect-ratio: 16 / 9; }
 
 /* ── Spacing between stacked blocks inside a section ───────────── */
-body.case-page main .nt-section > .nt-media + .nt-media { margin-top: var(--gap-media, var(--s-3)); }
+body.case-page main .nt-section > .nt-media + .nt-media { margin-top: var(--gap-media); }
 body.case-page main .nt-section > .nt-media + .nt-reading,
-body.case-page main .nt-section > .yap-hmw + .nt-reading { margin-top: var(--s-10); }
-body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: var(--s-10); }
+body.case-page main .nt-section > .yap-hmw + .nt-reading { margin-top: var(--s-3); }
+body.case-page main .nt-section > .nt-reading + .nt-reading { margin-top: var(--s-3); }
 
 /* ── Figure kit additions (all sizes in cqw of the 16:9 panel) ──── */
 .fig .sbf-tag { position: absolute; left: 4cqw; top: 3.4cqw; font-size: 1.05cqw; letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
@@ -107,7 +107,7 @@ body.case-page main .sb-facts { display: grid; gap: var(--s-4); margin: var(--s-
 body.case-page main .sb-facts li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--line); font-size: var(--fs-base); line-height: var(--lh-snug); }
 body.case-page main .sb-facts b { font-weight: var(--fw-medium); color: var(--ink); }
 body.case-page main .sb-facts span { color: var(--muted); }
-body.case-page main .sb-challenge-fig { overflow: hidden; border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .sb-challenge-fig { overflow: hidden; border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); }
 body.case-page main .sb-challenge-fig img { display: block; width: 100%; height: auto; }
 body.case-page main .sb-label-gap { margin-top: var(--s-8); }
 
@@ -229,7 +229,7 @@ body.case-page main .sb-iphone__screen img { display: block; width: 100%; height
 body.case-page main .sb-deck-wrap { margin-top: var(--s-7); padding: var(--s-8) 0; border-radius: var(--r-lg); background: #06886C; overflow: hidden; }
 body.case-page main #core-flows .nt-step:has(.sb-deck) .sb-deck-wrap .sb-deck { margin-top: 0; }
 /* first and last cards stop one gap (the track gap) from the edges; read by js/card-carousel.js */
-body.case-page main .sb-deck-wrap .sb-deck { --carousel-inset: 12px; }
+body.case-page main .sb-deck-wrap .sb-deck { --carousel-inset: var(--s-3); }
 
 /* ── Overview meta: four equal columns, each with the same text width ── */
 body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--s-8); }
@@ -244,7 +244,7 @@ body[data-case="smart-bundles"] .nt-meta { grid-template-columns: repeat(4, minm
 /* Solution captures are clipped to the product screen inside the shared phone. */
 body.case-page main .sb-screen--discover > img { position: absolute; width: 211.765%; max-width: none; height: 122.505%; left: -56.078%; top: -11.252%; }
 body.case-page main .sb-screen--check-in > img { position: absolute; width: 117.413%; max-width: none; height: 102.155%; left: -10.323%; top: -1.631%; }
-body.case-page main .sb-decision { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--sp-block); }
+body.case-page main .sb-decision { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--sp-media); align-items: start; margin-top: var(--s-3); }
 body.case-page main .sb-decision > .nt-media { margin-top: 0; }
 @media (max-width: 760px) {
  body.case-page main .sb-decision { grid-template-columns: minmax(0, 1fr); }
@@ -274,7 +274,7 @@ body.case-page main .sb-scene__stop .c-lab { margin: .5cqw 0 0; text-transform: 
 body.case-page main .sb-scene__stop > p:last-child { margin: .2cqw 0 0; font-size: 1.2cqw; line-height: var(--lh-snug); color: var(--muted); }
 
 /* Image above each comparison-column title. */
-body[data-case="smart-bundles"] main .cmp { grid-template-rows: 10cqw; }
+body[data-case="smart-bundles"] main .cmp { grid-template-rows: minmax(10cqw, auto); }
 body[data-case="smart-bundles"] main .cmp__h > img.cmp-photo { display: block; flex: none; width: 4cqw; height: 4cqw; object-fit: cover; border-radius: var(--fig-r) !important; }
 body[data-case="smart-bundles"] main .cmp-photo--meal-kits { object-view-box: inset(28% 14% 34% 55%); }
 body[data-case="smart-bundles"] main .cmp-photo--grocery { object-view-box: inset(10% 50% 12% 5%); }

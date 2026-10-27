@@ -10,6 +10,9 @@
 
 	--acuity-media-top: #E2E8EB; /* matches Acuity phone recording background */
 	--acuity-media-bottom: #D6DBE0;
+	--yap-media-top: #E5EEFB;     /* yap Core features video backdrop, sampled: blue → neutral → warm */
+	--yap-media-mid: #EFEFF1;
+	--yap-media-bottom: #FDF0E3;
 	--forage-brand-card: #F8F4FF; /* user-specified Forage branding tile fill */
 
 	/* Color: 8 neutrals */
@@ -22,6 +25,7 @@
 	--muted:       #626B76;   /* body copy, labels, TOC links, meta */
 	--ink:         #1C1F24;   /* headings, emphasis, nav, figure ink, dark fills */
 	--fig-dot:     #D6D9DC;   /* the figure background's dot grid only */
+	--fig-dots: radial-gradient(var(--fig-dot) .35px, transparent .6px) 0 0 / 4.5px 4.5px;   /* the one dot grid: background: var(--fig-bg) var(--fig-dots) */
 
 	/* Lines */
 	--line-strong-w: 1.5px;
@@ -77,6 +81,16 @@
 	--dur-3: 420ms;  /* fliptrack, media zoom */
 	--dur-4: 900ms;  /* nav, page-level */
 	--zoom: 1.03;    /* media hover zoom */
+}
+
+/* The dot grid follows the viewport, never the figure's canvas or width. */
+@media (min-width: 701px) {
+ :root { --fig-dots: radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+}
+
+/* Phones: media is about half as wide, so the radii step down to keep corners proportionally the same */
+@media (max-width: 600px) {
+	:root { --r-lg: 6px; --r-md: var(--r-sm); }
 }
 
 @layer reset {

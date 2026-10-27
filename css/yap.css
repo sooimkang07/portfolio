@@ -4,9 +4,9 @@ body.case-page main .yap-overview-img { margin-top: var(--s-7); }
 body.case-page main .yap-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 
 /* ── Problem: three ways people yap today ─────────────────────── */
-.yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
+.yap-problem { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media); }
 .yap-problem__cell { min-width: 0; }
-.yap-card { position: relative; aspect-ratio: 4 / 5; background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); overflow: hidden; }
+.yap-card { position: relative; aspect-ratio: 4 / 5; background: var(--fig-bg) var(--fig-dots); border-radius: var(--r-lg); overflow: hidden; }
 
 /* Calling: FaceTime tiles waiting for people who aren't free yet */
 .yap-call__tile { position: absolute; display: grid; place-items: center; align-content: center; gap: var(--s-2); border-radius: var(--r-md); will-change: transform; }
@@ -45,7 +45,7 @@ body.case-page main .yap-overview-img img { display: block; width: 100%; height:
 }
 
 /* ── Opportunity ───────────────────────────────────────────────── */
-body.case-page main .yap-hmw { margin-top: var(--s-10); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
+body.case-page main .yap-hmw { margin-top: var(--s-3); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
 body.case-page main .yap-hmw__q { margin: var(--s-3) 0 0; max-width: 28ch; font-size:var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h1-ls); color: var(--ink); }
 
 /* ── Live demo in the iPhone frame (same 1080×1350 stage as the feature videos) ── */
@@ -67,6 +67,7 @@ body.case-page main .yap-hmw__q { margin: var(--s-3) 0 0; max-width: 28ch; font-
 .yap-demo__frame { position: absolute; left: 24.676%; top: 8.889%; width: 50.676%; height: 82.222%; pointer-events: none; border-radius: 0 !important; }
 
 /* ── Diagrams and placeholders ─────────────────────────────────── */
+.yap-diagram { background: var(--fig-bg) var(--fig-dots); border-radius: var(--r-lg); overflow: hidden; }   /* the shared dot grid, not one drawn inside the SVG */
 .yap-diagram svg { display: block; width: 100%; height: auto; }
 .yap-diagram + .yap-diagram, .yap-diagram + figure { margin-top: var(--s-4); }
 
@@ -90,7 +91,7 @@ body.case-page main .yap-tweet .twitter-tweet { margin: 0 !important; }
 body.case-page main .yap-feedback .twitter-tweet { margin-top: 0 !important; }
 body.case-page main .yap-memo video { width: 80%; height: auto; margin: 0 auto; }
 /* figure titles live on the page, above the figure */
-body.case-page main .yap-figtitle { margin: var(--s-8) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--ink); max-width: none; }
+body.case-page main .yap-figtitle { margin: var(--s-3) 0 var(--s-3); font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--ink); max-width: none; }
 body.case-page main .yap-figtitle + .yap-diagram { margin-top: 0; }
 
 /* iMessage tail: one drawn shape (no masking patch), fades to the newest bubble */
@@ -119,8 +120,8 @@ body.case-page main .yap-board + .yap-figtitle { margin-top: var(--s-7); }
 body.case-page main .yap-bug .yap-bug__text .nt-reading { max-width: none; }
 
 /* Launch: date card + the room on top, sticker cutting + the station below */
-body.case-page main .yap-launch-grid { display: flex; flex-direction: column; gap: var(--gap-media, var(--s-3)); }
-body.case-page main .yap-launch__row { display: grid; gap: var(--gap-media, var(--s-3)); }
+body.case-page main .yap-launch-grid { display: flex; flex-direction: column; gap: var(--gap-media); }
+body.case-page main .yap-launch__row { display: grid; gap: var(--gap-media); }
 body.case-page main .yap-launch__row--top { grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr); }
 body.case-page main .yap-launch__row--bottom { grid-template-columns: minmax(0, 2.35fr) minmax(0, 1fr); }
 body.case-page main .yap-launch__cell { min-width: 0; border-radius: var(--r-lg); overflow: hidden; }
@@ -134,8 +135,8 @@ body.case-page main .yap-launch__row--bottom .yap-launch__cell:last-child { aspe
   }
 
 /* Two hero photos side by side, directly under the cover video, same width as the cover */
-body.case-page .case-cover:has(+ .yap-hero-pair) { margin-bottom: var(--gap-media, var(--s-3)); }
-body.case-page .yap-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin: 0 var(--case-g) clamp(var(--s-10), 7vw, var(--s-11)); }
+body.case-page .case-cover:has(+ .yap-hero-pair) { margin-bottom: var(--gap-media); }
+body.case-page .yap-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11)); }
 body.case-page .yap-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
 @media (max-width: 760px) { body.case-page .yap-hero-pair { grid-template-columns: 1fr; } }
 /* The Demo Day video takes the date card's slot; it fills the row height beside the room photo */
@@ -177,7 +178,7 @@ body.case-page main .yap-term .yap-term__body p.yap-term__cmd { color: #f2f3f5 !
 body.case-page main .yap-calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); margin-top: var(--s-7); }
 body.case-page main .yap-call .yap-call__num { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 body.case-page main .yap-call code { font-size: .9em; }
-body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-10); }
+body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-3); }
 @media (max-width: 759px) { body.case-page main .yap-calls { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); } }
 
 /* Live demo: reads as something to use, not another recording */
@@ -191,7 +192,7 @@ body.case-page main .yap-calls + .yap-figtitle { margin-top: var(--s-10); }
 @keyframes yap-demo-ping { from { transform: scale(.94); opacity: 1; } to { transform: scale(1.18); opacity: 0; } }
 .yap-demo { cursor: default; }
 @media (prefers-reduced-motion: reduce) { .yap-demo__tap-pill::before { animation: none; } }
-body.case-page main .yap-calls--principles { margin: var(--s-9) 0 var(--s-11); }
+body.case-page main .yap-calls--principles { margin: var(--s-3) 0 0; }
 
 /* Reflection: two takeaways, the people side and the model side */
 body.case-page main .yap-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-9); max-width: none; align-items: start; }
@@ -199,10 +200,10 @@ body.case-page main .yap-takeaways .ntf-takeaway-line { max-width: none; }
 @media (max-width: 759px) { body.case-page main .yap-takeaways { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); } }
 
 /* Standard figure background: the dotted panel every diagram sits on */
-body.case-page main :is(.yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; border-radius: var(--r-lg); }
+body.case-page main :is(.yap-board--inset, .yap-it__frame, .yap-board-pair__cell img, .yap-card.yap-step) { background: var(--fig-bg) var(--fig-dots); border-radius: var(--r-lg); }
 
 /* Solution phones across the body, with the standard media gap and no figure frame */
-body.case-page main .yap-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin-top: var(--sp-media); }
+body.case-page main .yap-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media); margin-top: var(--sp-media); }
 body.case-page main .yap-phones--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 body.case-page main .yap-phones img { display: block; width: 100%; height: auto; border-radius: 0; }
 body.case-page main .yap-phones .sb-iphone { width: 100%; height: auto; }
@@ -219,8 +220,8 @@ body.case-page main .yap-step img { display: block; width: auto; height: 100%; m
 /* Iterations: each direction on the figure background */
 
 /* Design: sub-steps as subheads; onboarding and core screens side by side at equal height */
-body.case-page main .nt-step > h3.yap-subhead { margin: var(--s-10) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
-body.case-page main .nt-step > h3.yap-subhead + .nt-media { margin-top: var(--s-5); }
+body.case-page main .nt-step > h3.yap-subhead { margin: var(--s-3) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
+body.case-page main .nt-step > h3.yap-subhead + .nt-media { margin-top: var(--sp-media); }
 /* full-bleed Figma screenshots: the image is the whole 16:9 figure */
 body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cover; }
 
@@ -228,15 +229,15 @@ body.case-page main .yap-board--full img { aspect-ratio: 16 / 9; object-fit: cov
 body.case-page main .yap-join .strip .mini.phone { width: 13.6cqw; }
 
 /* Testing: the virtual session beside the in-person video, at equal height */
-body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media, var(--s-3)); align-items: start; }
+body.case-page main .yap-test-pair { display: grid; grid-template-columns: minmax(0, .5625fr) minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media); align-items: start; }
 body.case-page main .yap-test-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2540 / 1920; object-fit: cover; border-radius: var(--r-lg); }
 body.case-page main .yap-test-pair__cell > p.nt-kicker { margin: var(--s-4) 0 0; text-align: center; max-width: none; }
 body.case-page main .yap-test-pair__video { aspect-ratio: 720 / 1280; }
 body.case-page main .yap-test-pair__video > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); } body.case-page main .yap-test-pair__cell--video { width: 100%; } }
+@media (max-width: 760px) { body.case-page main .yap-test-pair { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-7); } body.case-page main .yap-test-pair__cell > p.nt-kicker { margin-top: var(--s-2); }   /* each label hugs its own video; the space goes between pairs */ body.case-page main .yap-test-pair__cell--video { width: 100%; } }
 
 /* Reflection: the room and the projected screen, side by side at equal height */
-body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media, var(--s-3)); }
+body.case-page main .yap-reflect-pair { display: grid; grid-template-columns: minmax(0, 1.7778fr) minmax(0, .75fr); gap: var(--gap-media); }
 body.case-page main .yap-reflect-pair img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
 @media (max-width: 760px) { body.case-page main .yap-reflect-pair { grid-template-columns: minmax(0, 1fr); } }
 /* Two paragraphs in a step heading read as two paragraphs */
@@ -248,7 +249,7 @@ body.case-page main .yap-it__panel > p { margin: var(--s-5) 0 0; }
 body.case-page main .yap-it__panel > p + p { margin-top: var(--s-3); }
 body.case-page main .yap-it .fig.yap-it__shipped { aspect-ratio: 16 / 9 !important; height: auto; display: flex; align-items: center; justify-content: center; border-radius: var(--r-lg); }
 body.case-page main .yap-it__shipped .flow { width: 100%; }
-body.case-page main .nt-section > h3.yap-subhead--section { margin: var(--s-10) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
+body.case-page main .nt-section > h3.yap-subhead--section { margin: var(--s-3) 0 0; font-size:var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
 body.case-page main .yap-calls--findings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 759px) { body.case-page main .yap-calls--findings { grid-template-columns: minmax(0, 1fr); } }
 
@@ -261,7 +262,7 @@ body.case-page main .yap-rail__inner { position: relative; width: max-content; }
 body.case-page main .yap-rail__inner img { display: block; height: clamp(380px, 38vw, 540px); width: auto; max-width: none; border-radius: 0 !important; user-select: none; -webkit-user-drag: none; }
 /* Screen rail: every phone screen in one scrolling row on the figure background, each with a numbered caps label.
    One component on Yap and Neuk: .yap-rail.screen-rail > … > .screen-rail__item (img + .screen-rail__label). */
-body.case-page main .screen-rail .yap-rail__track { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .screen-rail .yap-rail__track { background: var(--fig-bg) var(--fig-dots); }
 body.case-page main .screen-rail .yap-rail__inner { display: flex; align-items: flex-start; gap: clamp(var(--s-3), 1.2vw, var(--s-4)); padding: clamp(var(--s-7), 3.4vw, var(--s-9)) clamp(var(--s-6), 3.4vw, var(--s-9)) clamp(var(--s-5), 2.4vw, var(--s-7)); }
 body.case-page main .screen-rail__item { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; }
 body.case-page main .screen-rail .yap-rail__inner .screen-rail__item img { height: clamp(300px, 30vw, 440px); width: auto; border-radius: 12.4% / 5.7% !important; box-shadow: var(--shadow-float); }
@@ -279,15 +280,15 @@ body.case-page main .yap-it__notes .yap-it__final { margin-top: var(--s-3); }
 /* Carousel arrows: the About slideshow's glass buttons, centered on the figure's edges */
 body.case-page main .yap-rail__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: all 0.4s var(--glass-ease), --glass-angle-1 0.5s var(--glass-ease), opacity .2s ease; }
 body.case-page main .yap-rail__btn svg { width: 1.25rem; height: 1.25rem; display: block; fill: currentColor; }
-body.case-page main .yap-rail__btn--prev { left: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
-body.case-page main .yap-rail__btn--next { right: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
+body.case-page main .yap-rail__btn--prev { left: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
+body.case-page main .yap-rail__btn--next { right: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
 body.case-page main .yap-rail__btn:disabled { opacity: 0; pointer-events: none; }
 @media (max-width: 759px) { body.case-page main .yap-rail__btn--prev { left: -.75rem; } body.case-page main .yap-rail__btn--next { right: -.75rem; } }
 /* Shipped tab: larger phones, still inside the 16:9 frame with their labels */
 body.case-page main .yap-it__shipped .strip .mini.phone { width: 20.5cqw; }
 
 /* Feedback tweet in a dotted figure frame, like the forage/acuity Instagram embeds */
-body.case-page main .yap-tweet { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .yap-tweet { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); }
 body.case-page main .yap-tweet .twitter-tweet { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; }
 body.case-page main .yap-tweet blockquote.twitter-tweet { padding: var(--s-5) var(--s-6); border-radius: var(--r-lg); background: var(--surface); font-size: var(--fs-base); }
 
@@ -352,6 +353,19 @@ body.case-page main .yap-term__panel > .yap-term__body { transition: padding .35
 .fig.ycut .ycut__cut { position: absolute; left: 50%; top: 42%; bottom: 6%; width: .22cqw; margin-left: -.11cqw; background: var(--ink); }
 .fig.ycut .ycut__pill--cut { left: 50%; top: 66%; background: var(--ink); }
 
-body.case-page main .yap-test-pair__placeholder { aspect-ratio: 720 / 1280; display: grid; place-items: center; background: var(--fig-bg); border-radius: var(--r-lg); color: var(--muted); font-size: var(--fs-base); }
 body.case-page main #testing .yap-term__body,
 body.case-page main #testing .yap-term .yap-term__body p { font-family: var(--ff-mono) !important; font-size: var(--fs-xs) !important; font-weight: var(--fw-regular) !important; line-height: var(--lh-base) !important; }
+
+/* Solution: the three screens framed on the Core features videos' backdrop (blue → neutral → warm) */
+body.case-page main .phones-fig--yap { background: linear-gradient(180deg, var(--yap-media-top) 0%, var(--yap-media-mid) 45%, var(--yap-media-bottom) 100%); }
+
+/* Testing: the SMS screenshot cropped to the video's 9:16 frame, from the top (messages, not the keyboard) */
+body.case-page main .yap-test-pair__shot { display: block; width: 100%; height: auto; aspect-ratio: 720 / 1280; object-fit: cover; object-position: top; border-radius: var(--r-lg); }
+
+/* The SMS capture keeps every pixel of its original portrait screenshot. */
+html body.case-page main .yap-test-pair img.yap-test-pair__shot { aspect-ratio: 720 / 1280; height: auto; object-fit: cover; }
+/* The Supabase diagram's AI output uses its existing lavender accent. */
+.yap-diagram { --accent: #9b80d8; }
+.yap-diagram .ai-pill rect { fill: var(--accent); }
+
+body.case-page main .yap-test-pair :is(img, .yap-test-pair__video) { border-radius: var(--r-lg); overflow: hidden; }

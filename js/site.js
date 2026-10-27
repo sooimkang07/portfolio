@@ -81,7 +81,7 @@
   function syncNavGlass() {
     const floating = !header.classList.contains('is-at-top')
     const open = header.classList.contains('is-nav-open')
-    if (logo) logo.classList.toggle('glass', floating && !open)
+    if (logo) logo.classList.toggle('is-compact', floating)
     if (burger) burger.classList.toggle('glass', floating || open)
   }
   if (header) {
@@ -102,21 +102,30 @@
     }
     let hitVideo = false
 
+    /* Only what's actually painted counts: skip layers hidden by opacity / visibility */
+    const visible = n => !n.checkVisibility || n.checkVisibility({ opacityProperty: true, visibilityProperty: true })
+    let frame = new Map()   // one 24px read per video or image per pass, not one per sample point
+
     /* Luminance of a media element at a viewport point (24px thumbnail, object-fit: cover) */
     function mediaLum(m, x, y) {
       const w = m.naturalWidth || m.videoWidth, h = m.naturalHeight || m.videoHeight
       if (!w || !h) return null
-      let data = thumbs.get(m)
       if (m.tagName === 'VIDEO') hitVideo = true
-      if (!data || m.tagName === 'VIDEO' || data.src !== m.currentSrc) {
-        try {
-          pctx.clearRect(0, 0, 24, 24)
-          pctx.drawImage(m, 0, 0, 24, 24)
-          data = { src: m.currentSrc, px: pctx.getImageData(0, 0, 24, 24).data }
-          thumbs.set(m, data)
-        } catch (_) { return null }
+      let data = frame.get(m)
+      if (!data) {
+        data = m.tagName === 'VIDEO' ? null : thumbs.get(m)
+        if (!data || data.src !== m.currentSrc) {
+          try {
+            pctx.clearRect(0, 0, 24, 24)
+            pctx.drawImage(m, 0, 0, 24, 24)
+            data = { src: m.currentSrc, px: pctx.getImageData(0, 0, 24, 24).data }
+            if (m.tagName !== 'VIDEO') thumbs.set(m, data)
+          } catch (_) { return null }
+        }
+        data.rect = m.getBoundingClientRect()
+        frame.set(m, data)
       }
-      const r = m.getBoundingClientRect()
+      const r = data.rect
       const s = Math.max(r.width / w, r.height / h)
       const u = (x - r.left - (r.width - w * s) / 2) / (w * s)
       const v = (y - r.top - (r.height - h * s) / 2) / (h * s)
@@ -127,10 +136,11 @@
 
     /* Luminance of whatever paints at a viewport point, under the nav */
     function lumAt(x, y) {
-      const el = document.elementsFromPoint(x, y).find(n => !header.contains(n))
+      const el = document.elementsFromPoint(x, y).find(n => !header.contains(n) && visible(n))
       if (!el) return null
       /* Media can be pointer-events: none, so also look inside the hit element */
       const inside = [...el.querySelectorAll('img, video')].reverse().find(m => {
+        if (!visible(m)) return false
         const r = m.getBoundingClientRect()
         return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom
       })
@@ -146,26 +156,53 @@
       return null
     }
 
-    /* White text beats --ink below ~0.2 relative luminance */
-    function onDark(el) {
+    /* Average luminance under one nav piece (null if nothing sampled) */
+    function lumUnder(el) {
       const r = el.getBoundingClientRect()
-      if (!r.width || !r.height) return false
+      if (!r.width || !r.height) return null
       const ls = []
       for (const fx of [0.2, 0.5, 0.8]) for (const fy of [0.3, 0.7]) {
         const l = lumAt(r.left + r.width * fx, r.top + r.height * fy)
         if (l !== null) ls.push(l)
       }
-      return ls.length > 0 && ls.reduce((a, b) => a + b, 0) / ls.length < 0.2
+      return ls.length ? ls.reduce((a, b) => a + b, 0) / ls.length : null
     }
 
-    const pieces = () => [header.querySelector('.nav__logo'), burger, ...header.querySelectorAll('.nav__strip-link'), menu].filter(Boolean)
-    let queued = false
+    const pieces = () => [header.querySelector('.nav__logo'), burger, ...header.querySelectorAll('.nav__strip-link'), menu].filter(p => p && visible(p))
+    let queued = false, last = 0, trailing = 0
     function syncNavContrast() {
       queued = false
+      last = performance.now()
       hitVideo = false
-      pieces().forEach(p => p.classList.toggle('is-on-dark', onDark(p)))
+      frame = new Map()
+      // Menu open: everything sits on the frosted panel, so the text is always ink
+      if (document.body.classList.contains('is-nav-open')) {
+        header.classList.remove('is-nav-dark')
+        header.querySelectorAll('.is-on-dark').forEach(p => p.classList.remove('is-on-dark'))
+        return
+      }
+      // One decision for the whole nav, so every piece turns at the same moment. Hysteresis: it goes
+      // light below 0.17 and back to ink only above 0.24, so a playing video can't flick it back and forth.
+      const ls = pieces().map(lumUnder).filter(l => l !== null)
+      if (!ls.length) return
+      const dark = ls.reduce((a, b) => a + b, 0) / ls.length   // what the nav as a whole sits on
+      const wasDark = header.classList.contains('is-nav-dark')
+      const next = wasDark ? dark < 0.24 : dark < 0.17
+      if (next === wasDark && header.querySelector('.is-on-dark') !== null === next) return
+      // Flip every piece in the same frame: their own transitions (glass, staggered strip) would stagger it
+      header.classList.add('is-nav-flip')
+      header.classList.toggle('is-nav-dark', next)
+      pieces().forEach(p => p.classList.toggle('is-on-dark', next))
+      requestAnimationFrame(() => requestAnimationFrame(() => header.classList.remove('is-nav-flip')))
     }
-    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(syncNavContrast) } }
+    /* At most one pass every 120ms while scrolling, plus one when it settles */
+    const queue = () => {
+      clearTimeout(trailing)
+      trailing = setTimeout(() => requestAnimationFrame(syncNavContrast), 140)
+      if (queued || performance.now() - last < 120) return
+      queued = true
+      requestAnimationFrame(syncNavContrast)
+    }
     addEventListener('scroll', queue, { passive: true })
     addEventListener('resize', queue)
     addEventListener('load', queue)
@@ -382,9 +419,15 @@
 
   if (cursor && !reduceMotion) {
     cursor.hidden = false
+    // Composited: one transform per frame, no layout (left/top made it trail the pointer)
+    let cx = 0, cy = 0, cursorTick = false
+    const moveCursor = () => {
+      cursorTick = false
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`
+    }
     document.addEventListener('pointermove', e => {
-      cursor.style.insetInlineStart = `${e.clientX}px`
-      cursor.style.insetBlockStart = `${e.clientY}px`
+      cx = e.clientX; cy = e.clientY
+      if (!cursorTick) { cursorTick = true; requestAnimationFrame(moveCursor) }
     }, { passive: true })
   }
 
@@ -398,7 +441,7 @@
     }
   }
 
-  /* ── Showreel: plays through once (js/intro.js starts it) and rests on its last frame, the greeting.
+  /* ── Showreel: loops behind the HTML greeting (js/intro.js starts it after the loader).
         A click opens the same video as a full-window player, so nothing reloads or has to seek a second copy. ── */
   const media = document.querySelector('[data-ref-showreel-video]')
   const bgVideo = media && media.querySelector('.home-hero__video')
@@ -431,8 +474,8 @@
     media.classList.add('is-player')
     document.body.classList.add('is-showreel-open')
     showCursor('is-close-cursor')
-    // Mid-way through its first run it carries on from here; resting on the greeting, it starts over
-    if (bgVideo.paused || bgVideo.ended) bgVideo.currentTime = 0
+    // The full-window player is the whole film, from the start
+    bgVideo.currentTime = 0
     bgVideo.muted = false
     bgVideo.play().catch(() => {
       bgVideo.muted = true
@@ -446,15 +489,31 @@
     document.body.classList.remove('is-showreel-open')
     showCursor(media.matches(':hover') ? 'is-hero-cursor' : null)
     bgVideo.muted = true
-    bgVideo.pause()
-    // Land on the greeting: the reel's first frame is the same strip it ends on
-    bgVideo.currentTime = 0
-    setToggleState(true)
+    document.body.classList.remove('is-cursor-native')
+    // Back to the background loop, behind the HTML greeting
+    bgVideo.currentTime = REEL_START
+    if (!reduceMotion) bgVideo.play().catch(() => {})
+    setToggleState(bgVideo.paused)
+  }
+
+  /* Background loop: the whole film. It has no greeting of its own (the HTML greeting sits over it) and its last
+     frames settle back on its first (yap's empty studio), so it loops without a seam. */
+  const REEL_START = 0
+  if (bgVideo) {
+    const keepInLoop = () => {
+      if (isPlayerOpen()) return
+      if (bgVideo.currentTime >= bgVideo.duration || bgVideo.currentTime < REEL_START - 0.05) bgVideo.currentTime = REEL_START
+    }
+    if ('requestVideoFrameCallback' in bgVideo) {
+      const onFrame = () => { keepInLoop(); bgVideo.requestVideoFrameCallback(onFrame) }
+      bgVideo.requestVideoFrameCallback(onFrame)
+    } else bgVideo.addEventListener('timeupdate', keepInLoop)
   }
 
   if (media && bgVideo) {
     media.addEventListener('pointerenter', () => showCursor(isPlayerOpen() ? 'is-close-cursor' : 'is-hero-cursor'))
-    media.addEventListener('pointermove', () => {
+    media.addEventListener('pointermove', e => {
+      if (e.target.closest('.home-hero__controls')) return
       if (isPlayerOpen() && !document.body.classList.contains('is-close-cursor')) showCursor('is-close-cursor')
     })
     media.addEventListener('pointerleave', () => {
@@ -473,7 +532,10 @@
       }
     })
     // The player closes itself when the reel ends, landing back on the greeting
-    bgVideo.addEventListener('ended', closeShowreel)
+    bgVideo.addEventListener('ended', () => {
+      if (isPlayerOpen()) closeShowreel()
+      else { bgVideo.currentTime = REEL_START; bgVideo.play().catch(() => {}) }
+    })
 
     if (toggle) {
       toggle.addEventListener('click', e => {
@@ -493,6 +555,16 @@
         heroBtn.setAttribute('aria-label', playing ? 'Pause the showreel' : 'Play the showreel')
       }
       ;['play', 'pause', 'ended'].forEach(type => bgVideo.addEventListener(type, syncHeroBtn))
+      const heroReplay = media.querySelector('.home-hero__controls .flow__btn--replay')
+      heroReplay?.addEventListener('click', e => {
+        e.stopPropagation()
+        bgVideo.currentTime = 0
+        bgVideo.play().catch(() => {})
+      })
+      // Over the buttons, the Close cursor steps aside so they read as buttons
+      const heroControls = media.querySelector('.home-hero__controls')
+      heroControls?.addEventListener('pointerenter', () => document.body.classList.add('is-cursor-native'))
+      heroControls?.addEventListener('pointerleave', () => document.body.classList.remove('is-cursor-native'))
       heroBtn.addEventListener('click', e => {
         e.stopPropagation()
         if (bgVideo.paused || bgVideo.ended) {
@@ -525,10 +597,7 @@
   })
 
   /* ── Scroll: nav top + hero title out + intro lines flip in ─ */
-  const pinSpacer = document.querySelector('.home-hero__pin-spacer')
-  const titleWrap = document.querySelector('[data-ref-showreel-title-container]')
   const introCopy = document.querySelector('[data-ref-intro-copy]')
-  const desktopHero = window.matchMedia('(width >= 900px)')
   let introLines = []
 
   function buildIntroLines() {
@@ -575,11 +644,12 @@
     if (current.length) groups.push(current)
 
     const frag = document.createDocumentFragment()
-    groups.forEach(group => {
+    groups.forEach((group, i) => {
       const line = document.createElement('span')
       line.className = 'home-intro__line'
       const inner = document.createElement('span')
       inner.className = 'home-intro__line-inner'
+      inner.style.setProperty('--intro-line', i)
       inner.textContent = group.map(w => w.textContent).join(' ')
       line.appendChild(inner)
       frag.appendChild(line)
@@ -589,49 +659,27 @@
     introLines = [...introCopy.querySelectorAll('.home-intro__line-inner')]
   }
 
-  // Koto's showreel scroll: over one screen of scroll the pinned reel's clip closes from the bottom (css/intro.css)
-  const kotoHero = window.matchMedia('(width >= 900px) and (orientation: landscape)')
-  function syncHeroClip() {
-    if (!media || !pinSpacer) return
-    if (!kotoHero.matches || reduceMotion) { media.style.removeProperty('--hero-p'); return }
-    const p = Math.min(1, Math.max(0, -pinSpacer.getBoundingClientRect().top / window.innerHeight))
-    media.style.setProperty('--hero-p', p.toFixed(4))
-  }
-
   function syncHeroIntroScroll() {
-    syncHeroClip()
     if (reduceMotion) {
-      if (titleWrap) {
-        titleWrap.style.opacity = ''
-        titleWrap.style.transform = ''
-      }
       introLines.forEach(line => {
         line.style.transform = 'translate3d(0, 0, 0)'
       })
       return
     }
 
-    if (desktopHero.matches && pinSpacer && titleWrap) {
-      const rect = pinSpacer.getBoundingClientRect()
-      const range = Math.max(1, pinSpacer.offsetHeight - window.innerHeight)
-      const scrolled = Math.min(range, Math.max(0, -rect.top))
-      const progress = scrolled / range
-      const titleOut = Math.min(1, progress * 1.35)
-      titleWrap.style.opacity = String(0.72 * (1 - titleOut))
-      titleWrap.style.transform = `translate3d(0, ${titleOut * -28}%, 0)`
+
+    // Expand the mask without changing layout or the video's crop on every scroll frame.
+    const hero = document.querySelector('.home-hero')
+    const greeting = document.querySelector('.home-greeting')
+    if (hero && greeting) {
+      const progress = Math.min(1, Math.max(0, (window.matchMedia('(max-width: 700px)').matches ? (window.scrollY > 0 ? 1 : 0) : window.scrollY / Math.max(1, greeting.offsetHeight * .9))))
+      hero.style.setProperty('--reel-expand', progress)
     }
-
-    // Koto's intro reveal, on every screen size: each line rises out of its mask as its top scrolls from
-    // 66% to 52% of the window height, scrubbed by scroll (reverses on the way back) with a strong ease-out.
     if (introLines.length) {
-      const start = window.innerHeight * 0.664
-      const end = window.innerHeight * 0.522
-
-      introLines.forEach(line => {
-        const row = line.closest('.home-intro__line') || line
-        const top = row.getBoundingClientRect().top
-        const t = Math.min(1, Math.max(0, (start - top) / Math.max(1, start - end)))
-        line.style.transform = `translate3d(0, ${Math.pow(1 - t, 3.5) * 110}%, 0)`
+      // Each line has its own scroll threshold, reversing in order on the way back.
+      const top = introCopy.getBoundingClientRect().top
+      introLines.forEach((line, i) => {
+        line.classList.toggle('is-revealed', top < window.innerHeight * (.98 - i * .075))
       })
     }
   }
@@ -651,7 +699,10 @@
   }, { passive: true })
 
   let resizeTick = false
+  let introWidth = window.innerWidth
   window.addEventListener('resize', () => {
+    if (window.innerWidth === introWidth) { syncHeroIntroScroll(); return }
+    introWidth = window.innerWidth
     if (resizeTick) return
     resizeTick = true
     requestAnimationFrame(() => {

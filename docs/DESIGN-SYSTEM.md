@@ -31,11 +31,11 @@ Every neutral is cool-toned (blue ≥ red), apart from pure white.
 
 **Accent colors** (brand chips, project accents like Smart Bundles green `#06886C` / `#1F5A4B` or Neuk `#181716`) belong to a project. Set them once on that page's selector, not scattered through rules.
 
-Acuity media gradients use `--acuity-media-top` (`#E2E8EB`) and `--acuity-media-bottom` (`#D6DBE0`), sampled from its phone recordings.
+Acuity media gradients use `--acuity-media-top` (`#E2E8EB`) and `--acuity-media-bottom` (`#D6DBE0`), sampled from its phone recordings. Yap's framed Solution figure uses `--yap-media-top` / `--yap-media-mid` / `--yap-media-bottom`, sampled from its Core features video backdrop.
 
 Forage branding tiles use `--forage-brand-card` (`#F8F4FF`), requested by Sooim, against `--surface`.
 
-**Standard figure background:** `background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px;` (`.fig` in `css/figures.css` already applies it).
+**Standard figure background:** `background: var(--fig-bg) var(--fig-dots);` (`.fig` in `css/figures.css` already applies it). The `--fig-dots` token uses a 10px grid with .6px dots above 700px, and a 4.5px grid with .35px dots at ≤700px. These are fixed CSS pixels: figure dimensions do not affect dot size.
 
 ## Lines
 
@@ -86,9 +86,11 @@ Inside a `.fig`, sizes are in `cqw` so they scale with the figure. That's intend
 
 ## Spacing: 4px scale
 
+The complete variable inventory, usage rules, breakpoints, and retired-name mapping are in [SPACING.md](SPACING.md).
+
 `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--s-5` 20 · `--s-6` 24 · `--s-7` 32 · `--s-8` 40 · `--s-9` 48 · `--s-10` 64 · `--s-11` 96
 
-Case-study rhythm (in `css/case.css`): `--sp-section` (section gap), `--sp-block` (48px between blocks), `--sp-media` (32px, text → media), `--gap-media` (12px between media). Use those for page layout, and `--s-*` everywhere else. Negative margins: `calc(var(--s-3) * -1)`.
+Case-study rhythm (in `css/case.css`): `--sp-section` (section gap), `--s-3` (12px for related text) and `--sp-media` (24px desktop / 16px phones between explanations and media), `--gap-media` (12px between media). Use those for page layout, and `--s-*` everywhere else. Negative margins: `calc(var(--s-3) * -1)`.
 
 ## Motion and layout
 
@@ -127,7 +129,7 @@ Not yet tokenized (follow-ups): about 430 inline `style=""` attributes in the HT
 
 ## Shared media captions
 
-Use `.media-caption__title` and `.media-caption__body` for titles and descriptions beneath media, solution steps, research cards, and compact next-step columns across all project pages. Defined once in `css/case.css`, these retain the original Yap problem-caption scale: base-size semibold ink titles with snug line height, base-size regular muted descriptions with body line height, and a 12px title-to-body gap via `--s-3`. Direct captions begin 32px below media via `--s-7`; caption grids apply that gap at the row instead. Keep section headings and figure-internal typography separate.
+Use `.media-caption__title` and `.media-caption__body` for media titles and descriptions. Typography remains the original Yap caption style: base-size semibold ink titles and regular muted descriptions. Page captions now follow the shared block gap: 12px at every width. Internal canvas labels inside `.fig` retain their own geometry.
 
 ## Body hyperlinks
 
@@ -135,9 +137,29 @@ Body-copy anchors on case-study pages are enhanced by `js/case.js` with `.body-l
 
 ## Phones and tablets (responsive rules)
 
-- **Home hero (Koto's showreel scroll):** on landscape windows ≥900px the reel is pinned for one screen of scroll; `js/site.js` sets `--hero-p` (0→1) and `css/intro.css` closes its `clip-path` from the bottom while the intro copy rises one `--s-10` gap below it. Phones and portrait tablets show the 16:9 reel whole, full width under the nav (a portrait crop would cut the film's type).
+- **Home hero:** the loader lands on a separate greeting above the showreel. Desktop keeps role / name / location in one row; phones stack them with the name first. The reel starts inside the page gutters with `--r-lg` corners; a scroll-driven inset mask expands it to the viewport edges. Desktop keeps 16:9, while phones use a tall cover crop that fills the first viewport beneath the greeting. The intro begins below the first phone viewport and reveals line by line over scroll, with greater end padding. Clicking the reel opens the existing uncropped full-window player. The silent loop follows the loaded film duration.
 - **Case-study TOC:** below 1200px the TOC is a sticky strip with no back link. It slides away while scrolling down and returns on any scroll up (`js/case.js`, `.nt-rail.is-tucked`).
-- **Rhythm:** phones keep the tighter in-section gaps (`--sp-block` 40, `--sp-media` 24, `--gap-media` 8) and get a larger gap between sections (`--sp-section` 128px).
+- **Rhythm:** phones use the tighter in-section gap (`--s-3` 12px, `--sp-media` 16px, `--gap-media` 8px) and a larger section gap (`--sp-section` 96px).
 - **Videos never sit side by side on phones** (≤600px): `.dx-grid--2:has(video)` and Instagram's `.ig-split` stack one per row.
 - **Multi-panel boards on phones** (≤600px): a `.fig.board` row with two cards stacks them; each card keeps its desktop proportions and is drawn with `zoom: 2`, so its `cqw` type comes out twice as large. Four-up rows go 2 × 2. Size zoomed cards in `cqw`, never `%` (percentages don't scale with zoom). Board titles wrap instead of overflowing.
 - **Glass tab controls** (`.yap-it__tabs`, `.ig-ex__tabs`) hug their labels, never stretch to the full width, and scroll without a visible scrollbar if they ever overflow.
+
+
+## Unified project-page flow (Oct 27, 2026)
+
+All seven case studies use contextual spacing rather than one gap everywhere:
+
+| Relationship | Desktop/tablet (>700px) | Phone (≤700px) |
+|---|---|---|
+| Heading/label → description; related paragraphs | `--s-3` (12px) | `--s-3` (12px) |
+| Figure → its caption | `--s-3` (12px) | `--s-3` (12px) |
+| Caption title → caption body | `--s-2` (8px) | `--s-2` (8px) |
+| Explanation → its figure | `--sp-media`: `--s-6` (24px) | `--sp-media`: `--s-4` (16px) |
+| New subsection / completed group → next idea | `--s-9` (48px) | `--s-7` (32px) |
+| Full chapter | `--sp-section` (96–128px) | `--sp-section`: `--s-11` (96px) |
+
+The following block owns its start margin; end margins are zero. Grids/flex containers own their gaps and clear child margins so spacing does not add twice. Labels remain attached to their heading. Separate reading groups, steps, decisions, and standalone figure subheadings mark new ideas. On phones, stacked media-and-caption groups use 32px between groups, distinct from their internal caption spacing. Figure internals, mock UI, nav and horizontal gutters are independent. See `docs/SPACING-AUDIT.md` for measured results.
+
+Neuk Check In and Start Watching place regular text above a two-column media pair with 4:5 frames, matching the original phone recording. Check In’s room-entry video sits full width below that pair with its original proportions. At ≤700px the pair stacks. Consecutive views use the 12px content/caption gap. Hero metadata always starts at `--s-7` (32px). The home index no longer has a negative start margin: its video stage is offset by half a viewport to preserve the intro’s 288px end padding and the early sticky relationship.
+
+Wrapped captions (`.yap-call`, `.yap-calls`, `.case-caption`) attach to media at 12px. Use `.case-media-group` for wrappers that group media, so text→group and group→figure use the same contextual rules as figures. Split layout containers own their gap and clear child margins; never add a media start margin on top of a grid/flex gap. Mobile collections of separate caption/copy groups use 32px row gaps.

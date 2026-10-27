@@ -71,3 +71,4 @@ body.expl2-page {
 /* A column of stacked media: together they fill one row height. --n is how many pieces (IBFF uses 3). */
 .ex-stack { --n: 3; flex: none; display: flex; flex-direction: column; gap: var(--s-3); height: var(--ex-h); }
 .ex-stack > .ex-item { height: calc((var(--ex-h) - (var(--n) - 1) * var(--s-3)) / var(--n)); }
+

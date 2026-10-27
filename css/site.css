@@ -131,9 +131,9 @@ body.home .nav__logo {
 	z-index: 4;
 	display: inline-flex;
 	align-items: center;
-	min-block-size: 2.25rem;
-	padding-block: 0.3rem;
-	padding-inline: 0.75rem;
+	block-size: 2.5rem;   /* the burger's height */
+	padding-block: 0;
+	padding-inline: var(--s-4);
 	font-size: var(--fs-xs);
 	font-weight: var(--fw-medium);
 	color: var(--ink);
@@ -1255,7 +1255,7 @@ body.home .nav__strip {
 	flex-direction: column;
 	gap: var(--s-3);
 	scroll-margin-block-start: calc(var(--nav-h) + var(--s-3));
-	border-radius: var(--r-lg);
+	border-radius: var(--r-md);   /* same as the Work page cards */
 	transition: opacity var(--dur-1) linear;
 
 	@media (width >= 1200px) {
@@ -1271,7 +1271,7 @@ body.home .nav__strip {
 	display: block;
 	position: relative;
 	overflow: hidden;
-	border-radius: var(--r-lg);
+	border-radius: var(--r-md);   /* same as the Work page cards */
 	aspect-ratio: 16 / 9;
 
 	&:focus-visible {
@@ -1301,6 +1301,14 @@ body.home .nav__strip {
 
 /* Stacked cards (<1200) carry the Work page card text (css/work-index.css); the desktop index shows it instead */
 .home-work__card > .work-card__body { padding-top: 0; }
+/* Home, stacked: the status · year tags share the title's line, at the right edge; the one-liner runs below */
+@media (width < 1200px) {
+	.home-work__card > .work-card__body { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: var(--s-4); row-gap: var(--s-1); }
+	.home-work__card > .work-card__body > .work-card__copy { display: contents; }
+	.home-work__card > .work-card__body > .work-card__tags { grid-column: 2; grid-row: 1; }
+	.home-work__card > .work-card__body .work-card__title { grid-column: 1; grid-row: 1; }
+	.home-work__card > .work-card__body .work-card__line { grid-column: 1 / -1; margin-top: 0; }
+}
 @media (width >= 1200px) { .home-work__card > .work-card__body { display: none; } }
 
 .home-work__caption {
@@ -1473,6 +1481,7 @@ body.home .home-cursor {
 	opacity: 0;
 	transform: translate(-50%, -50%);
 	transition: opacity var(--dur-1) var(--ease);
+	will-change: transform;
 	max-inline-size: 16rem;
 
 	.home-cursor__play,
@@ -1562,6 +1571,13 @@ body.home.is-showreel-open {
 	overflow: hidden;
 }
 
+/* Over the playing full-window reel, a frosted fill instead of a live blur: re-blurring a moving
+   1440p video under the pointer every frame is what made the Close cursor lag */
+body.home.is-showreel-open .home-cursor {
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	background: color-mix(in srgb, var(--surface) 82%, transparent);
+}
 body.home.is-showreel-open .home-cursor {
 	opacity: 1;
 	z-index: 260;
@@ -1712,8 +1728,8 @@ body.home .nav__menu .nav__menu-link:focus-visible {
 /* Shared portfolio footer */
 body.home .footer.portfolio-footer {
  display: grid; grid-template-columns: minmax(0, 1fr) minmax(160px, 240px);
- gap: var(--s-9) var(--s-10); align-items: start; margin-top: var(--s-11);
- padding: clamp(var(--s-10), 10vw, 144px) var(--gutter) var(--s-6);
+ gap: var(--s-9) var(--s-10); align-items: start; margin-top: 0;
+ padding: calc(var(--s-11) * 2) var(--gutter) var(--s-11);
  border-top: 0; background: var(--bg);
 }
 .portfolio-footer__invite h2 { margin: 0 0 var(--s-7); text-transform: none; } /* type: base.css h2 */
@@ -1726,28 +1742,20 @@ body.home .footer.portfolio-footer {
 .portfolio-footer__bio strong { font-size: var(--fs-md); font-weight: var(--fw-medium); }
 .portfolio-footer__bio p { font-size: var(--fs-base); line-height: var(--lh-base); margin: var(--s-3) 0 0; }
 .portfolio-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4) var(--s-5); font-size: var(--fs-base); }
-.portfolio-footer__bottom { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-4); align-items: center; border-top: 0; padding-top: var(--s-6); font-size: var(--fs-base); }
-.portfolio-footer__bottom p { margin: 0; }
 @media (max-width: 640px) {
  body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
  .portfolio-footer__portrait { width: 160px; }
  .portfolio-footer__nav { max-width: 320px; }
 }
-/* Keep footer actions clear of the floating message launcher. */
-.portfolio-footer__bottom { padding-right: var(--s-11); }
-@media (max-width: 640px) {
- .portfolio-footer__bottom { padding-right: 0; padding-bottom: var(--s-10); }
-}
 
 /* Portrait and navigation lead; invitation follows. */
-body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1.5fr) minmax(200px, 1fr); grid-template-areas: "invite portrait" "bio links" "bottom bottom"; }
+body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1.5fr) minmax(200px, 1fr); grid-template-areas: "invite portrait" "bio links"; }
 .portfolio-footer__portrait { grid-area: portrait; justify-self: end; width: 240px; max-width: 100%; }
 .portfolio-footer__invite { grid-area: invite; }
 .portfolio-footer__bio { grid-area: bio; }
 .portfolio-footer__nav { grid-area: links; grid-template-rows: repeat(3, auto); grid-auto-flow: column; font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); text-transform: uppercase; }
-.portfolio-footer__bottom { grid-area: bottom; }
 @media (max-width: 759px) {
- body.home .footer.portfolio-footer { grid-template-columns: minmax(0,1fr); grid-template-areas: "portrait" "links" "invite" "bio" "bottom"; }
+ body.home .footer.portfolio-footer { grid-template-columns: minmax(0,1fr); grid-template-areas: "portrait" "links" "invite" "bio"; }
  .portfolio-footer__portrait { width: 160px; }
  .portfolio-footer__portrait, .portfolio-footer__nav { justify-self: start; }
 }
@@ -1801,6 +1809,8 @@ body.home .footer.portfolio-footer { grid-template-columns: minmax(0, 1.5fr) min
 /* ── Nav contrast: js/site.js adds .is-on-dark to a nav piece sitting
    over dark media or fills; text and burger dots switch to light ── */
 body.home .nav__logo:not(.glass) { transition: color var(--dur-2) var(--ease); }
+/* While the nav flips light/dark (js/site.js), its pieces skip their own transitions so all change together */
+body.home .nav.is-nav-flip :is(.nav__logo, .nav__burger, .nav__burger span, .nav__strip-link, .nav__menu-link) { transition: none !important; }
 body.home .nav__logo.is-on-dark,
 body.home .nav__strip-link.is-on-dark,
 body.home .nav__menu.is-on-dark .nav__menu-link { color: var(--surface); }
@@ -1846,3 +1856,33 @@ body .portfolio-footer__nav .nav__menu-link .flip,
 body .portfolio-footer__nav .nav__menu-title { font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--ink); }
 body .portfolio-footer__nav .nav__menu-link:hover .nav__menu-title,
 body .portfolio-footer__nav .nav__menu-link:focus-visible .nav__menu-title { color: var(--muted); }
+
+/* Phones: nav text one step up, logo and menu links at body size */
+@media (width < 770px) {
+	body.home .nav__logo,
+	body.home.is-nav-open .nav__menu .nav__menu-link .flip,
+	body.home.is-nav-open .nav__menu .nav__menu-title { font-size: var(--fs-base); }
+}
+/* Home on phones: no status · year tags on the cards */
+@media (width < 760px) { .home-work__card > .work-card__body > .work-card__tags { display: none; } }
+
+/* Footer: the nav column is exactly as tall as the bio beside it (items spread over that height) */
+@media (width >= 760px) {
+	.portfolio-footer__nav { align-self: stretch; justify-content: space-between; gap: 0; }
+	.portfolio-footer__nav .nav__menu-link { padding-block: 0; line-height: var(--lh-tight); }
+	.portfolio-footer__nav .portfolio-footer__social { margin-top: 0; }
+}
+
+/* Keep menu labels aligned in both collapsed and expanded nav states. */
+body.home .nav__menu .nav__menu-title { padding-inline: 0; }
+
+/* Name and monogram are separate layers; the glass enters like the burger. */
+body.home .nav .nav__logo { display: inline-flex; justify-content: flex-start; align-items: center; inline-size: max-content; block-size: var(--s-8); padding: 0; border-radius: 0; transition: color var(--dur-2) var(--ease); }
+body.home .nav .nav__logo-name { position: relative; font-family: var(--ff); font-size: var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-none); letter-spacing: var(--h1-ls); text-transform: none; transform-origin: left center; transition: opacity var(--dur-3) var(--ease), transform var(--dur-4) var(--ease-inout); }
+body.home .nav .nav__logo-mark.glass { position: absolute; inset-inline-start: 0; inset-block-start: 0; display: grid; place-items: center; inline-size: var(--s-8); block-size: var(--s-8); border-radius: 50%; font-family: var(--ff); font-size: var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-none); letter-spacing: var(--h1-ls); opacity: 0; visibility: hidden; transform: scale(.45); transform-origin: center; transition: opacity var(--dur-4) var(--ease) var(--dur-2), visibility var(--dur-4) var(--dur-2), transform var(--dur-4) var(--ease) var(--dur-2); }
+body.home .nav .nav__logo.is-compact { inline-size: var(--s-8); }
+body.home .nav .nav__logo.is-compact .nav__logo-name { opacity: 0; transform: scaleX(.2); pointer-events: none; }
+body.home .nav .nav__logo.is-compact .nav__logo-mark { opacity: 1; visibility: visible; transform: scale(1); }
+.home-work__heading { font-size: var(--h1-fs); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); text-transform: none; font-weight: var(--fw-medium); padding-block-end: var(--s-7); }
+@media (width >= 1200px) { .home-work__heading { padding-block-end: 0; } }
+@media (prefers-reduced-motion: reduce) { body.home .nav .nav__logo-name, body.home .nav .nav__logo-mark { transition: none; } }

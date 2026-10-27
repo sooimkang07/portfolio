@@ -130,11 +130,12 @@ body.work-page { background: var(--bg); color: var(--ink); }
 	color: var(--ink);
 }
 .work-card__title a { color: inherit; }
-.work-card__line {
+.work-card__line {   /* the project pages' body copy */
 	margin-top: var(--s-1);
 	font-size: var(--fs-base);
-	line-height: var(--lh-snug);
-	color: var(--ink);
+	font-weight: var(--fw-regular);
+	line-height: var(--lh-base);
+	color: var(--muted);
 }
 
 /* Entrance: cards rise in, staggered, as they enter */

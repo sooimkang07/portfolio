@@ -502,3 +502,27 @@
 	n.addEventListener('pointerleave', () => { if (!n.classList.contains('is-peek')) close() })
 	n.addEventListener('focus', open); n.addEventListener('blur', close)
 })()
+
+// "Leave a comment!" hint: offset past the reel's right edge, centred on it. Without room in the margin
+// (phones, narrow tablets) it sits under the reel instead, arrow pointing up (css/about.css .is-below).
+;(() => {
+	const note = document.querySelector('.ab-reel-note')
+	const reel = document.querySelector('.ab-hero__pic.ab-reel')
+	const hero = note && note.closest('.ab-hero')
+	if (!note || !reel || !hero) return
+	const place = () => {
+		note.classList.remove('is-below')
+		note.style.left = note.style.top = ''
+		if (matchMedia('(max-width: 759px)').matches) return
+		const h = hero.getBoundingClientRect(), r = reel.getBoundingClientRect()
+		const left = r.right - h.left + 24
+		const fits = r.right + 24 + note.offsetWidth <= document.documentElement.clientWidth - 8
+		if (!fits) { note.classList.add('is-below'); return }
+		note.style.left = `${left}px`
+		note.style.top = `${r.top - h.top + r.height / 2}px`
+	}
+	new ResizeObserver(place).observe(reel)
+	addEventListener('resize', place)
+	document.fonts?.ready.then(place)
+	place()
+})()

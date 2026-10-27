@@ -591,3 +591,32 @@ body.about-page .home-contact { margin-block-start: var(--ab-sec); padding-inlin
 /* Extend the blurred art beyond every edge; global image max-width must not cap it. */
 .ab-w--spotify { background: #3a2a3f; }
 .ab-sp__bg { max-width: none; max-inline-size: none; }
+
+/* ── "Leave a comment!" hint beside the reel ─────────────────────
+   Hand lettering (Figma Hand if installed, else Gaegu), offset past the
+   reel's right edge into the margin, vertically centred on it (js/about.js sets
+   its top / left). Phones: under the reel, the arrow pointing up at it. */
+.ab-hero { position: relative; }
+.ab-reel-note {
+	position: absolute; inset-block-start: 50%; inset-inline-start: 100%; z-index: 2;   /* js/about.js sets top / left from the reel */
+	display: flex; align-items: center; gap: var(--s-2); margin: 0; translate: 0 -50%;
+	font-family: "Figma Hand", "Gaegu", var(--ff); font-size: calc(var(--fs-lg) * .9); line-height: var(--lh-tight);
+	color: var(--muted); white-space: nowrap; pointer-events: none;
+	transform: rotate(-4deg);
+}
+.ab-reel-note__arrow { flex: none; inline-size: var(--s-10); block-size: auto; }
+.ab-reel-note[hidden] { display: none; }
+@media (max-width: 759px) {
+	.ab-hero__pic.ab-reel { order: 3; }
+	.ab-reel-note { position: static; order: 2; flex-direction: column-reverse; justify-self: center; gap: var(--s-1); translate: none; transform: rotate(-3deg); margin-block-end: calc(var(--s-6) * -1); }
+	.ab-reel-note__arrow { rotate: -90deg; inline-size: var(--s-9); }
+}
+.ab-hero:has(.ab-reel-note.is-below) .ab-hero__pic.ab-reel { order: 3; }
+.ab-reel-note.is-below { position: static; order: 2; flex-direction: column-reverse; justify-self: start; width: min(100%, 32rem); gap: var(--s-1); translate: none; transform: rotate(-3deg); margin-block-end: calc(var(--s-6) * -1); }
+.ab-reel-note.is-below .ab-reel-note__arrow { rotate: -90deg; inline-size: var(--s-9); }
+
+/* Keep the closing phrase together without changing paragraph wording. */
+.about-page main p { text-wrap: pretty; }
+
+@media (max-width: 759px) { .ab-reel-note { gap: var(--s-3); } }
+.ab-reel-note.is-below { gap: var(--s-3); }

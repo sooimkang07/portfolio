@@ -88,12 +88,12 @@
 
 	// ---- Local answers (used when no endpoint is set, or as offline fallback)
 	var LOCAL = [
-		{ k: /yap/i, a: "yap is my lead project right now. It's a voice-first group chat where AI splits each voice memo into topics, so friends can reply to just the part they care about.\n\nThe bet: people love talking, they just hate listening to a 4-minute memo to find the one thing meant for them.\n\nsooimkang.com/yap" },
+		{ k: /yap/i, a: "yap was my graduate capstone and is my lead project right now. It's a voice-first group chat where AI splits each voice memo into topics, so friends can reply to just the part they care about.\n\nThe bet: people love talking, they just hate listening to a 4-minute memo to find the one thing meant for them.\n\nsooimkang.com/yap" },
 		{ k: /working on|what's new|up to\b/i, a: "Finishing my MFA at Parsons and shipping yap, a voice chat app where AI sorts your voice memos into topics.\n\nsooimkang.com/yap" },
 		{ k: /notate/i, a: "Notate is a Chrome extension I designed AND built. It lets you annotate the web without losing context. It's live on the Chrome Web Store now 🎉\n\nsooimkang.com/notate" },
-		{ k: /insta|lists/i, a: "Instagram Lists was my capstone. More than half the feed is AI-recommended now, so I designed a control layer that lets you choose whose posts you actually see. The hard part was fitting it into a system billions of people already know.\n\nsooimkang.com/instagram-lists" },
+		{ k: /insta|lists/i, a: "Instagram Lists was a solo design concept in 2025. More than half the feed is AI-recommended now, so I designed a control layer that lets you choose whose posts you actually see. The hard part was fitting it into a system billions of people already know.\n\nsooimkang.com/instagram-lists" },
 		{ k: /bundle|amazon|grocery/i, a: "Smart Bundles was a fast design challenge for Amazon Fresh: grocery shopping built around what people actually eat, not what they plan to. The interesting part is the pivot midway.\n\nsooimkang.com/smart-bundles" },
-		{ k: /neuk/i, a: "neuk is a service design project. I realized the problem wasn't booking a space, it was coordinating people, so I designed for that instead.\n\nsooimkang.com/neuk" },
+		{ k: /neuk/i, a: "neuk is a service design project from 2025. I realized the problem wasn't booking a space, it was coordinating people, so I designed for that instead.\n\nsooimkang.com/neuk" },
 		{ k: /acuity|health/i, a: "Acuity was a 24-hour challenge: an AI health app that decides when a signal actually needs action vs. when it's just noise. I designed the app.\n\nsooimkang.com/acuity" },
 		{ k: /forage/i, a: "Forage was a 72-hour FigBuild project with three friends. I owned the AI product architecture, the working prototype, and the demo animations." },
 		{ k: /first|start|look at|which project|best/i, a: "Start with yap if you have 2 minutes. It shows how I design AI-native communication and actually ship it.\n\nsooimkang.com/yap\n\nIf you care about designing inside huge existing systems, Instagram Lists next." },

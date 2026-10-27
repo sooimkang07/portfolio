@@ -1,5 +1,5 @@
 /* Acuity case study: yap-style figures (dotted panels, phone strips, journey diagram). */
-body.case-page main .nt-step + .nt-step{margin-top:var(--s-10)}
+body.case-page main .nt-step + .nt-step{margin-top:var(--s-3)}
 body.case-page main .dx-step p + p{margin-top:var(--s-3)}
 body.case-page main .dx-media>video{display:block;width:100%;height:auto}
 .ntf-takeaway.ac-hmw{margin-top:0}
@@ -10,12 +10,12 @@ body.case-page main .cs-gallery.ac-pitch .cs-cell{flex:var(--ar,1) 1 0;min-width
 .cs-gallery.ac-pitch .cs-cell>video{width:100%;height:100%;object-fit:contain}
 
 /* Tokens: deck periwinkle + state colors */
-body.case-page main{--ac:#7F9BC9;--accent:var(--ac);--dots:var(--fig-bg) radial-gradient(var(--fig-dot) .6px,transparent .9px) 0 0/10px 10px;
+body.case-page main{--ac:#7F9BC9;--accent:var(--ac);--dots:var(--fig-bg) var(--fig-dots);
 --st-emergent:#C26A4E}
 
 /* ── Card row: graphic in a dotted panel, name + caption under it ── */
-.ac-r{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,var(--s-3))}
-body.case-page main .nt-step .nt-media{margin-top:var(--s-7)}
+.ac-r{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media)}
+body.case-page main .nt-step .nt-media{margin-top:var(--sp-media)}
 .ac-r__cell{min-width:0}
 .ac-r__card{position:relative;aspect-ratio:4/5;background:var(--dots);border-radius:var(--r-lg);overflow:hidden;container-type:inline-size;display:flex;align-items:center;justify-content:center;color:var(--ink)}
 .ac-src{display:block;margin-top:var(--s-2);font-size: var(--fs-base);color:var(--muted)}
@@ -88,8 +88,8 @@ body.case-page main .ac-r p.ac-roi__lab{margin:2cqw 0 8cqw;font-size:4.6cqw;colo
 /* ── Phone strip in one dotted panel (yap style) ── */
 
 /* ── Take action: three 4:5 clip cards ── */
-.ac-take{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,var(--s-3))}
-.ac-take+.ac-r{margin-top:var(--gap-media,var(--s-3))!important}
+.ac-take{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media)}
+.ac-take+.ac-r{margin-top:var(--gap-media)!important}
 
 /* ── AI journey diagram ── */
 
@@ -126,11 +126,11 @@ body.case-page main a.ac-btn.ac-btn--ghost:hover{background:var(--surface-2)}
 
 /* Setting: copy beside the Instagram post (yap feedback row), photos full width below */
 @media (min-width:960px){body.case-page main .ac-feedback{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}}
-body.case-page main .ac-ig{display:block;margin:0;padding:var(--s-6) var(--s-4);border-radius:var(--r-lg);background:var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px;}
+body.case-page main .ac-ig{display:block;margin:0;padding:var(--s-6) var(--s-4);border-radius:var(--r-lg);background:var(--fig-bg) var(--fig-dots);}
 body.case-page main .ac-ig .instagram-media{width:100%!important;max-width:420px!important;min-width:260px!important;margin:0 auto!important;border-radius:var(--r-lg)!important;background:var(--surface);box-shadow:var(--shadow-raise)}
 body.case-page main .ac-ig iframe{border-radius:var(--r-lg)!important}
 body.case-page main .ac-feedback>.ac-setting{grid-column:1/-1}
-body.case-page main .ac-setting{display:grid;grid-template-columns:.8fr 1.778fr;gap:var(--gap-media,var(--s-3));margin-top:var(--s-8)}
+body.case-page main .ac-setting{display:grid;grid-template-columns:.8fr 1.778fr;gap:var(--gap-media);margin-top:var(--s-8)}
 body.case-page main .ac-setting .cs-cell{border-radius:var(--r-lg);overflow:hidden}
 body.case-page main .ac-setting img{display:block;width:100%;height:auto}
 
@@ -161,7 +161,7 @@ body.case-page main .ac-solcard video{position:absolute;inset:0;width:100%;heigh
 /* SVG diagrams on the dotted panel */
 /* Persona */
 /* Persona journey (design scenario) */
-.ac-journey2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-media,var(--s-3));margin-top:var(--gap-media,var(--s-3))!important}
+.ac-journey2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--gap-media)!important}
 .ac-journey2__step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5)}
 body.case-page main .ac-journey2 p{margin:0;max-width:none}
 body.case-page main .ac-journey2 .ac-journey2__when{font-size: var(--fs-xs);letter-spacing: var(--label-ls);text-transform:uppercase;color:var(--muted)}
@@ -220,25 +220,13 @@ body.case-page main .fig .ac-pers__id p { margin: 0; color: var(--surface); }
 
 /* ── Decisions: the three signal cards stacked in one tall figure ── */
 .fig.ac-vstack { aspect-ratio: 1080 / 1350; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5cqw; padding: 5cqw; background: var(--fig-bg) url("../assets/acuity/design-decisions/design-decision-1-bg.jpg") center / auto 112% no-repeat; }
-body.case-page main .fig.ac-vstack video { display: block; width: 84%; height: auto; aspect-ratio: 458 / 272; border-radius: 0; box-shadow: none; background: transparent; }
-body.case-page main .nt-section > :is(.nt-media, .nt-reading, .nt-step) + .ac-dec { margin-top: var(--s-10); }
+body.case-page main .fig.ac-vstack video { display: block; width: auto; max-width: 100%; height: calc((100% - 3cqw) / 3); aspect-ratio: 458 / 272;   /* three share the figure's height, so none is cut off */ border-radius: 0; box-shadow: none; background: transparent; }
+body.case-page main .nt-section > :is(.nt-media, .nt-reading, .nt-step) + .ac-dec { margin-top: var(--s-3); }
 
 /* Persona journey: each point's text sits in its own card on the timeline */
 .ac-journey2__step{display:flex;flex-direction:column;padding-top:var(--s-9)}
 .ac-journey2__card{flex:1 1 auto;height:auto;padding:var(--s-5);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow-raise)}
 body.case-page main .ac-journey2 .ac-journey2__why{overflow-wrap:break-word}
-
-/* Four columns only while each card can hold a full word. Narrower: dates sit with the cards, not on a rail. */
-.nt-step:has(> .ac-journey2){container-type:inline-size;container-name:acjourney}
-@container acjourney (max-width:700px){
-	.ac-journey2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s-7);padding-left:var(--s-7)}
-	.ac-journey2::before,.ac-journey2__step::before{display:none}
-	.ac-journey2__step{padding-top:0}
-	body.case-page main .ac-journey2 .ac-journey2__when{position:static;margin-bottom:var(--s-3)}
-}
-@container acjourney (max-width:440px){
-	.ac-journey2{grid-template-columns:1fr;row-gap:var(--s-6)}
-}
 
 /* Introductory context: equal columns fit the embedded post or artwork. */
 @media (min-width: 960px) {
@@ -263,7 +251,7 @@ body.case-page main .ac-journey2 .ac-journey2__why{overflow-wrap:break-word}
 
 /* Competitor pills and image-led comparison headings. */
 body[data-case="acuity"] main .pmap__pt:not(.hi) { padding: .6cqw 1.2cqw .6cqw .7cqw; border-radius: var(--r-pill); background: var(--fig-bg); }
-body[data-case="acuity"] main .cmp { grid-template-rows: 10cqw; }
+body[data-case="acuity"] main .cmp { grid-template-rows: minmax(10cqw, auto); }
 body[data-case="acuity"] main .ac-cmp-photos { display: flex; align-items: center; justify-content: center; gap: .2cqw; height: 3.5cqw; }
 body[data-case="acuity"] main .ac-cmp-photos img { width: 1.9cqw; height: 3cqw; object-fit: contain; border-radius: 0 !important; }
 body[data-case="acuity"] main .cmp__h.hi .ac-cmp-photos img { width: 3.5cqw; height: 3.5cqw; }
@@ -305,3 +293,15 @@ body.case-page main .ac-r p.ac-big, body.case-page main .ac-r .ac-waffle-wrap p.
 .ac-chain > i { color: var(--line-strong); }
 .ac-node.is-hi b { color: var(--surface); }
 body.case-page main .ac-r .ac-roi p.ac-big { font-size: var(--ac-hero); letter-spacing: var(--h1-ls); color: var(--ink); }
+
+/* The timeline keeps its four columns at every width; on narrow screens it scales down like a figure */
+.nt-step:has(> .ac-journey2){container-type:inline-size;container-name:acjourney}
+@container acjourney (max-width:700px){
+	.ac-journey2{column-gap:1.6cqw;padding:4cqw 3cqw 3.4cqw}
+	.ac-journey2::before{left:3cqw;right:3cqw;top:7.4cqw}
+	.ac-journey2__step{padding-top:6.6cqw}
+	.ac-journey2__step::before{top:2.6cqw;width:2.4cqw;height:2.4cqw;border-width:1.5px}
+	body.case-page main .ac-journey2 .ac-journey2__when{top:-.4cqw;font-size:2.2cqw}
+	body.case-page main .ac-journey2 .ac-journey2__what{padding:1.4cqw 1.6cqw;font-size:2.2cqw}
+	body.case-page main .ac-journey2 .ac-journey2__why{padding:1.6cqw;font-size:2.4cqw;overflow-wrap:anywhere;hyphens:auto}
+}

@@ -163,10 +163,10 @@ body:is(.page--project, .bundles-page, .notate-page) :is(
 
 /* ── Page structure (Problem → Solution → First run → Launch) ── */
 /* Each loop step: full-width walkthrough, then its decision beside a detail clip. */
-.notate-page .nt-step + .nt-step { margin-top: clamp(var(--s-10), 8vw, var(--s-11)); }
+.notate-page .nt-step + .nt-step { margin-top: var(--s-3); }
 
 /* Carousels (First run clips, Launch cards): one slide at a time */
-.notate-page .nt-carousel { margin-top: var(--sp-media, var(--s-7)); }
+.notate-page .nt-carousel { margin-top: var(--sp-media); }
 /* Arrows straddle the visuals' side edges, half on and half off, vertically centered */
 .notate-page .nt-carousel__stage { position: relative; }
 .notate-page .nt-carousel__btn { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border-radius: 50%; color: var(--ink); transform: translateY(-50%); transition: opacity var(--dur-2, 200ms) ease; }
@@ -175,7 +175,7 @@ body:is(.page--project, .bundles-page, .notate-page) :is(
 .notate-page .nt-carousel__btn svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
 .notate-page .nt-carousel__btn:disabled { opacity: 0; pointer-events: none; }
 .notate-page .nt-carousel:not(.is-scrollable) .nt-carousel__btn { display: none; }
-.notate-page .nt-carousel__rail { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--gap-media, var(--s-3)); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.notate-page .nt-carousel__rail { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--gap-media); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .notate-page .nt-carousel__rail::-webkit-scrollbar { display: none; }
 .notate-page .nt-carousel__rail:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .notate-page .nt-carousel__rail > li { flex: 0 0 min(78%, 560px); scroll-snap-align: start; }
@@ -192,7 +192,7 @@ body.case-page.notate-page .nt-onboarding .flow__controls { display: none; }
 
 
 /* Hero: title left, the extension as it appears in the store right */
-.notate-page .nt-hero-head { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: var(--s-6) var(--s-8); align-items: start; }
+.notate-page .nt-hero-head { display: grid; grid-template-columns: minmax(0, 1fr) calc(var(--s-10) * 4); gap: var(--s-6) var(--s-8); align-items: start; }
 body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
 .notate-page .nt-store-card { margin: 0; }
 .notate-page .nt-store-card a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--s-5) var(--s-4); padding: var(--s-5); border-radius: var(--r-md); background: var(--fig-bg); color: inherit; text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
@@ -202,13 +202,13 @@ body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
 .notate-page .nt-store-card__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: var(--fs-base); font-weight: var(--fw-medium); line-height: var(--lh-tight); }
 .notate-page .nt-store-card__name small { font-size: var(--fs-xs); font-weight: var(--fw-regular); color: var(--muted); }
 .notate-page .nt-store-card__cta { grid-column: 1 / -1; padding: var(--s-3) var(--s-4); border-radius: var(--r-pill); background: #0b57d0; color: var(--surface); font-size: var(--fs-base); font-weight: var(--fw-medium); text-align: center; white-space: nowrap; }
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .notate-page .nt-hero-head { grid-template-columns: minmax(0, 1fr); }
   .notate-page .nt-store-card { max-width: none; }   /* phones: the card and its Add to Chrome button span the column */
 }
 
 /* Launch: the listing as it appears in Chrome Web Store search */
-.notate-page .nt-listing-fig { margin: var(--sp-media, var(--s-7)) 0 0; }
+.notate-page .nt-listing-fig { margin: var(--sp-media) 0 0; }
 .notate-page .nt-listing { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto; gap: var(--s-6); align-items: start; padding: var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg); color: var(--ink); text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
 .notate-page .nt-listing:hover { background: var(--line); }
 .notate-page .nt-listing:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
@@ -228,7 +228,7 @@ body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
 /* Reflection: results in the same ruled, labeled grid as the overview meta */
 
 /* Launch: the live listing in a browser window (same frame as IBFF in Explorations) */
-.notate-page .nt-browser-fig { margin-top: var(--sp-media, var(--s-7)); }
+.notate-page .nt-browser-fig { margin-top: var(--sp-media); }
 .notate-page .nt-hero .nt-browser-fig { margin-top: var(--s-8); }
 .notate-page .nt-browser { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--r-md); background: var(--surface); box-shadow:var(--shadow-raise); color: inherit; text-decoration: none; }
 .notate-page .nt-browser:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
@@ -255,16 +255,14 @@ body.case-page {
 
 	/* Type scale */
 
-	/* Layout */
-	--case-g: var(--gutter);                         /* page gutter = nav edges */
-	--case-top: 76px;                                /* cover offset below nav */
+	/* Layout: inline gutters use --gutter directly. */
+	--case-top: calc(var(--nav-h) + var(--s-6)); /* 76px: cover offset below nav */
 	--col: 760px;                                    /* the one centered column */
 	--rail-w: 150px;
 
 	/* Rhythm */
-	--sp-section: clamp(var(--s-11), 9vw, 128px);
-	--sp-block: var(--s-9);
-	--sp-media: var(--s-7);
+	--sp-section: clamp(var(--s-11), 9vw, calc(var(--s-11) + var(--s-7)));
+	--sp-media: var(--s-6);
 	--gap-media: var(--s-3);
 
 	background: var(--bg);
@@ -273,17 +271,16 @@ body.case-page {
 }
 @media (max-width: 700px) {
 	body.case-page {
-		--case-top: 68px;
-		--sp-section: var(--s-10);
-		--sp-block: var(--s-8);
-		--sp-media: var(--s-6);
+		--case-top: calc(var(--nav-h) + var(--s-4));
+		--sp-section: var(--s-11);
+		--sp-media: var(--s-4);
 		--gap-media: var(--s-2);
 	}
 }
 
 /* ── Frame ───────────────────────────────────────────────────── */
 body.case-page .nt-main { padding-top: var(--case-top); padding-bottom: var(--sp-section); }
-body.case-page .nt-story { padding-inline: var(--case-g); }
+body.case-page .nt-story { padding-inline: var(--gutter); }
 body.case-page :is(
 	.nt-reading, .nt-process, .nt-hero,
 	.nt-chapters > .nt-hero, .nt-chapters > .nt-section,
@@ -306,7 +303,7 @@ body.case-page .nt-section:last-child { padding-bottom: 0; }
 /* ── Cover (edge to edge of the story's inline padding) ─────── */
 body.case-page .case-cover {
 	position: relative;
-	margin: 0 var(--case-g) clamp(var(--s-10), 7vw, var(--s-11));
+	margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11));
 	/* Always the full width between the gutters at the covers' native 16:9,
 	   so the video is never cropped. Mirrors coverRect() in js/morph.js. */
 	width: auto;
@@ -338,7 +335,7 @@ body.case-page .case-cover .case-cover__media {
 
 /* ── Rail + TOC ──────────────────────────────────────────────── */
 @media (min-width: 1200px) {
-	body.case-page .nt-rail { left: var(--case-g); width: var(--rail-w); }
+	body.case-page .nt-rail { left: var(--gutter); width: var(--rail-w); }
 }
 body.case-page .nt-toc { top: 104px; }
 body.case-page .nt-toc > .nt-back {
@@ -368,7 +365,7 @@ body.case-page .nt-toc li a:hover,
 body.case-page .nt-toc a[aria-current] { color: var(--ink); font-weight: var(--fw-regular); }
 body.case-page .nt-toc .flip__track > * { font-weight: var(--fw-medium); }
 @media (max-width: 1199px) {
-	body.case-page .nt-rail { top: 64px; margin: 0 calc(-1 * var(--case-g)) var(--s-8); width: auto; padding-inline: var(--case-g); }
+	body.case-page .nt-rail { top: 64px; margin: 0 calc(-1 * var(--gutter)) var(--s-8); width: auto; padding-inline: var(--gutter); }
 	body.case-page .nt-toc li + li { margin-top: 0; }
 	body.case-page .nt-toc li a { padding-block: var(--s-4); }
 	body.case-page .nt-toc > .nt-back { width: max-content; margin: var(--s-2) auto 0; font-size: var(--fs-xs); }
@@ -408,7 +405,7 @@ body.case-page main :is(
 	margin: 0 0 var(--s-2);
 	color: var(--ink);
 }
-body.case-page main .case__subhead { margin-top: var(--s-8); }
+body.case-page main .case__subhead { margin-top: var(--s-3); }
 body.case-page main :is(.case__flow-block, .case__insight-block, .case__col-group > div, .case__compare-card, .case__decision-block) > .case__subhead:first-child { margin-top: 0; }
 
 /* Body copy: one size and measure everywhere, at zero specificity so figure
@@ -481,7 +478,7 @@ body.case-page main :is(.case__insight-block, .nt-problems > div) { padding: 0; 
 body.case-page main :is(.case__insight-block, .nt-problems > div, .case__decision-block, .case__col-group > div, .case__compare-card) p { font-size: var(--fs-base); }
 
 /* Blocks inside a section: flows, features, decisions */
-body.case-page main :is(.case__flow-block, .nt-feature, .ig-decision, .nt-decision) { margin-top: var(--sp-block); }
+body.case-page main :is(.case__flow-block, .nt-feature, .ig-decision, .nt-decision) { margin-top: var(--s-3); }
 body.case-page main :is(.case__flow-block, .nt-feature) > :is(.case__copy, .nt-feature-heading) + * { margin-top: var(--s-5); }
 body.case-page main .nt-feature-heading { display: block; }
 @media (max-width: 700px) {
@@ -586,41 +583,14 @@ body.case-page .ig-scene-controls button:hover { background: rgb(255 255 255 / 0
 body.case-page {
 	--case-m: 22.207vw;
 	--col: calc(100vw - 2 * var(--case-m));
-	--pair-gap: 0.784vw;
-	--pair-copy-pad: 2.09vw;
 }
 @media (max-width: 991px) {
-	body.case-page { --case-m: 18.333vw; --pair-gap: 5.867vw; --pair-copy-pad: 0px; }
+	body.case-page { --case-m: 18.333vw; }
 }
 @media (max-width: 767px) {
-	body.case-page { --case-m: var(--case-g); --pair-gap: 1.467vw; }
-}
-@media (max-width: 479px) {
-	body.case-page { --pair-gap: 5.333vw; }
+	body.case-page { --case-m: var(--gutter); }
 }
 
-/* Text + media side by side: two equal columns. */
-body.case-page main :is(.nt-decision, .ig-decision) {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-	gap: var(--pair-gap);
-	align-items: start;
-}
-body.case-page main :is(.nt-decision-copy, .ig-decision-copy) { padding-right: var(--pair-copy-pad); }
-body.case-page main :is(.nt-decision, .ig-decision) > :is(.nt-media, .case__media-block) { margin: 0; }
-
-/* 768–991: stacked, as in the reference. */
-@media (min-width: 768px) and (max-width: 991px) {
-	body.case-page main :is(.nt-decision, .ig-decision) { grid-template-columns: minmax(0, 1fr); }
-	}
-/* 480–767: back to two columns; nested text pairs stack so they stay readable. */
-@media (min-width: 480px) and (max-width: 767px) {
-	body.case-page main :is(.nt-decision, .ig-decision) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-	}
-/* ≤479: stacked. */
-@media (max-width: 479px) {
-	body.case-page main :is(.nt-decision, .ig-decision) { grid-template-columns: minmax(0, 1fr); }
-	}
 
 /* One recording beside its explanation; multiple-media figures retain their layout. */
 @media (min-width: 960px) {
@@ -658,10 +628,10 @@ body.case-page .dx-media .flow__btn--pause.is-playing .icon-play { display: none
 @media (max-width: 1199px) {
  body.case-page .nt-toc { overflow: visible; }
  body.case-page .nt-toc > .nt-back { margin: var(--s-3) 0 0; }
- body.case-page .nt-toc ol { min-width: 0; width: calc(100% + var(--case-g)); overflow-x: auto; padding-right: var(--case-g); scrollbar-width: none; }
+ body.case-page .nt-toc ol { min-width: 0; width: calc(100% + var(--gutter)); overflow-x: auto; padding-right: var(--gutter); scrollbar-width: none; }
  body.case-page .nt-toc li { flex: 0 0 auto; }
 }
-@media (max-width: 759px) { body.case-page { --sp-section: calc(var(--s-11) + var(--s-7)); } }   /* phones: 128px between sections */
+/* Section spacing follows the shared breakpoint above: 64px phones, 96–128px larger screens. */
 
 /* ── Notate: research → decision traceability ─────────────────── */
 /* Three workarounds, each named by what it loses, lined up under the research figure */
@@ -685,8 +655,8 @@ body.case-page main .sbw { display: block; width: 100%; height: auto; aspect-rat
 body.case-page main :is(.nt-media, .nt-process, .nk-board) + :is(.nt-media, .nt-process, .nk-board) { margin-top: var(--gap-media); }
 
 /* ── Hero pair + overview media (shared) ─────────────────────── */
-body.case-page .case-cover:has(+ .case-hero-pair) { margin-bottom: var(--gap-media, var(--s-3)); }
-body.case-page .case-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin: 0 var(--case-g) clamp(var(--s-10), 7vw, var(--s-11)); }
+body.case-page .case-cover:has(+ .case-hero-pair) { margin-bottom: var(--gap-media); }
+body.case-page .case-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11)); }
 body.case-page .case-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
 @media (max-width: 760px) { body.case-page .case-hero-pair { grid-template-columns: 1fr; } }
 body.case-page main .case-overview-media { margin: var(--s-7) 0; }
@@ -725,13 +695,13 @@ body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .
 }
 
 /* Shared captions: the original Yap problem name/body scale, used across cases. */
-body.case-page main .media-caption__title { margin: var(--s-7) 0 var(--s-3); font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); letter-spacing: normal; color: var(--ink); }
+body.case-page main .media-caption__title { margin: var(--s-3) 0 var(--s-3);   /* the same gap above (from the media) and below (to the body) */ font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); letter-spacing: normal; color: var(--ink); }
 body.case-page main .media-caption__body { margin: 0; font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); letter-spacing: normal; color: var(--muted); text-wrap: pretty; max-width: none; }
 body.case-page main :is(.yap-calls, .sb-next, .ig-questions, .ig-impact-list) .media-caption__title { margin-top: 0; }
+@media (max-width: 759px) { body.case-page main .media-caption__title { margin-block: var(--s-2); } body.case-page main :is(.yap-calls, .sb-next, .ig-questions, .ig-impact-list) .media-caption__title { margin-top: 0; } }
 body.case-page main .yap-calls { margin-top: var(--s-7); }
 body.case-page main .ig-impact-list li { gap: 0; }
 body.case-page main .fg-solutions .fg-solution-image { margin-bottom: 0; }
-body.case-page main .nk-solution-step { gap: 0; }
 body.case-page main .yap-phones .yap-call { margin-top: 0; }
 
 /* Body hyperlinks share the TOC's flip motion and retain visible link affordance. */
@@ -748,3 +718,96 @@ body.case-page main a.body-link:is(:hover, :focus-visible) .body-link__label { t
  body.case-page .nt-rail.is-tucked { transform: translateY(calc(-100% - var(--s-10))); }
 }
 @media (max-width: 1199px) and (prefers-reduced-motion: reduce) { body.case-page .nt-rail { transition: none; } }
+
+/* Phones: the stacked hero photos take their height from the 16:9 ratio alone (Safari resolved
+   height: 100% inside the grid row past the image and clipped the last one), and sit closer to the TOC */
+@media (max-width: 760px) {
+	html body.case-page :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) img { height: auto; }
+}
+@media (max-width: 1199px) { html body.case-page :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) { margin-bottom: var(--s-7); } }   /* above the TOC strip: one tight gap */
+
+/* Media inside a text-beside-media grid: the grid gap is the only space (no stacked margin on top) */
+body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > :is(figure, .nt-media, .nt-process) { margin-block-start: 0; }
+
+/* ── Solution phones framed in one 16:9 figure (1920 × 1080); the page sets the backdrop.
+      Phones keep their size relationship at every width, so they stay side by side on phones too. ── */
+body.case-page main .phones-fig { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; margin-top: var(--sp-media); border-radius: var(--r-lg); overflow: hidden; container-type: inline-size; }
+body.case-page main .phones-fig > .yap-phones { display: flex; justify-content: center; align-items: center; gap: 3cqw; height: 46cqw; margin: 0; }
+body.case-page main .phones-fig > .yap-phones--4 { height: 40cqw; gap: 2.4cqw; }
+body.case-page main .phones-fig > .yap-phones > img { flex: none; width: auto; height: 100%; border-radius: 0; }
+body.case-page main .phones-fig + .yap-calls { margin-top: var(--sp-media); }
+
+/* The page-colored band above the sticky TOC strip only paints once it's stuck under the nav;
+   before that it covered the bottom of the last hero photo */
+@media (max-width: 1199px) { body.case-page .nt-rail:not(.is-stuck)::before { display: none; } }
+
+/* Content hierarchy. The following block owns vertical space; grid/flex containers
+   own their gaps. Figure internals and full section breaks retain their geometry. */
+html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step, .nt-feature-heading, .yap-hmw) > * { margin-block: 0 !important; }
+html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step, .nt-feature-heading, .yap-hmw) > * + * { margin-block-start: var(--s-3) !important; }
+
+/* An explanation and its visual form one group, with more breathing room than text. */
+html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid, .yap-phones, .fg-solutions, .yap-calls, .ig-comparison) { margin-block-start: var(--sp-media) !important; }
+html body.case-page[data-case] main .yap-hmw { padding-block: 0; border-top: 0; }
+html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision) { gap: var(--sp-media); }
+html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision) > * { margin-block: 0 !important; }
+
+/* Captions stay attached to their own figure; title/body are tighter still. */
+html body.case-page[data-case] main :is(.media-caption__title, .media-caption__body) { margin-block: 0 !important; }
+html body.case-page[data-case] main * + .media-caption__title { margin-block-start: var(--s-3) !important; }
+html body.case-page[data-case] main .media-caption__title + .media-caption__body { margin-block-start: var(--s-2) !important; }
+html body.case-page[data-case] main :is(.dx-cell, .yap-test-pair__cell) > .nt-step-label,
+html body.case-page[data-case] main .yap-test-pair__cell > .nt-kicker { margin-block: var(--s-3) 0 !important; }
+
+/* Flow containers must not add child margins on top of their gap. */
+html body.case-page[data-case] main :is(.yap-demo-intro, .sb-next) { gap: var(--s-3); }
+html body.case-page[data-case] main :is(.yap-demo-intro, .sb-next) > * { margin-block: 0 !important; }
+html body.case-page[data-case] main .nt-step.fg-capture.fg-pair-step { display: flex; flex-direction: column; gap: var(--sp-media); }
+
+/* New ideas: steps, decisions, separate reading groups, and standalone subheadings.
+   The opening group has no extra leading margin. */
+html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw) { margin-block-start: var(--s-9) !important; }
+html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-9) !important; }
+html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-9) !important; }
+@media (max-width: 700px) {
+ html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw) { margin-block-start: var(--s-7) !important; }
+ html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-7) !important; }
+ html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-7) !important; }
+ html body.case-page[data-case] main :is(.media-caption__title, .nt-step-label, .nt-kicker) + .media-caption__body { margin-block-start: var(--s-2) !important; }
+ html body.case-page[data-case] main :is(.yap-problem, .dx-grid, .yap-test-pair, .ig-split, .yap-takeaways) { row-gap: var(--s-7); }
+}
+
+/* Hero metadata is a distinct block, including inside an nt-reading header. */
+html body.case-page[data-case] main .nt-meta { margin-block-start: var(--s-7) !important; }
+
+/* Consecutive views of one idea stay together at the caption/content gap. */
+html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading) > :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid) + :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid) { margin-block-start: var(--s-3) !important; }
+
+/* Some cards wrap their title/body together after the media. Space that wrapper,
+   rather than its first heading, so it follows the same caption rhythm. */
+html body.case-page[data-case] main :is(figure, .nt-media, .dx-media) + :is(.yap-call, .media-caption) { margin-block-start: var(--s-3) !important; }
+html body.case-page[data-case] main :is(.yap-call, .media-caption) > .media-caption__title:first-child { margin-block-start: 0 !important; }
+
+
+
+/* Wrapper audit: grid/flex gap is the sole spacing owner inside split layouts.
+   Match child component specificity so text→media margins cannot add again. */
+html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision, .ig-questions) > :is(div, figure, .nt-reading, .nt-media, .dx-step, .nt-step, .fg-lap) { margin-block: 0 !important; }
+
+/* Grouped captions and framed devices use the same 12px attachment gap. */
+html body.case-page[data-case] main :is(figure, .nt-media, .dx-media, .sb-iphone) + :is(.yap-calls, .yap-call, .case-caption) { margin-block-start: var(--s-3) !important; }
+html body.case-page[data-case] main :is(figure, .nt-media) + :is(.case-media-group, .yap-phones) { margin-block-start: var(--s-3) !important; }
+html body.case-page[data-case] main .case-media-group + :is(figure, .nt-media) { margin-block-start: var(--s-3) !important; }
+html body.case-page[data-case] main .ntf-tag + .ntf-takeaway-line { margin-block-start: var(--s-3); }
+
+@media (max-width: 700px) {
+ html body.case-page[data-case] main :is(.yap-calls, .sb-next) { row-gap: var(--s-7); }
+ html body.case-page[data-case] main .case-media-group { row-gap: var(--s-3); }
+}
+/* These two layouts deliberately show one image row followed by grouped captions.
+   Keep the first caption attached; separate subsequent caption groups by 32px. */
+@media (max-width: 600px) {
+ html body.case-page[data-case] main .nk-rooms { row-gap: 0; }
+ html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:nth-child(n+2) > .media-caption__title,
+ html body.case-page[data-case] main .fg-solutions > article:nth-child(n+2) > .yap-call { margin-block-start: var(--s-7) !important; }
+}

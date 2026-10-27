@@ -1,8 +1,8 @@
 /* Instagram Lists case study: overview, opportunity, annotated phone, system collage, system fit, impact, reflection. */
 
 /* ── Hero: two photos under the cover video (same as yap) ─────── */
-body.case-page .case-cover:has(+ .ig-hero-pair) { margin-bottom: var(--gap-media, var(--s-3)); }
-body.case-page .ig-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin: 0 var(--case-g) clamp(var(--s-10), 7vw, var(--s-11)); }
+body.case-page .case-cover:has(+ .ig-hero-pair) { margin-bottom: var(--gap-media); }
+body.case-page .ig-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11)); }
 body.case-page .ig-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
 @media (max-width: 760px) { body.case-page .ig-hero-pair { grid-template-columns: 1fr; } }
 
@@ -10,7 +10,7 @@ body.case-page main .ig-overview-img { margin-top: var(--s-7); }
 body.case-page main .ig-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 
 /* ── Opportunity ───────────────────────────────────────────────── */
-body.case-page main .ig-hmw { margin-top: var(--s-10); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
+body.case-page main .ig-hmw { margin-top: var(--s-3); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
 body.case-page main .ig-hmw__q { margin: var(--s-3) 0 0; max-width: 30ch; font-size:var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h1-ls); color: var(--ink); text-wrap: balance; }
 
 /* ── Core flow 04: lead video + 2×2 grid ───────────────────────── */
@@ -22,12 +22,12 @@ body.case-page main .ig-split > .dx-cell > .dx-media > video { position: absolut
 /* reserve the video frame before metadata loads: flows are 4:5, problems 1:1 */
 body.case-page main #core-flows .dx-media { aspect-ratio: 4 / 5; }
 /* Problem: two cards side by side, like yap's problem row */
-body.case-page main .ig-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
+body.case-page main .ig-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); }
 body.case-page main .ig-problems__cell { min-width: 0; }
 body.case-page main #problem .dx-media { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
 @media (max-width: 760px) { body.case-page main .ig-problems { grid-template-columns: 1fr; } }
 /* problem recordings sit on the figure background */
-body.case-page main .dx-media.ig-problem { background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .dx-media.ig-problem { background: var(--fig-bg) var(--fig-dots); }
 /* the recordings are the top of a phone, cut off at the bottom: anchor it to the box's bottom edge and round only the top corners to the recording's outline so its white corners drop away */
 body.case-page main .dx-media.ig-problem > video { position: absolute; top: auto; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; height: 90%; aspect-ratio: 1040 / 1488; object-fit: cover; background: transparent; border-radius: 0 !important; }
 /* clip each recording to the outer edge of its own phone outline (traced from the frames), so the white corners drop away without cutting the outline */
@@ -51,10 +51,10 @@ body.case-page main .ig-impact-video .dx-media { border-radius: var(--r-lg); }
 body.case-page main .ig-impact-video video { display: block; width: 100%; height: auto; }
 body.case-page main .ig-next.ig-impact-list { margin-top: var(--s-7); gap: var(--s-7) clamp(var(--s-6), 3vw, var(--s-8)); }
 body.case-page main .ig-next.ig-impact-list li { gap: 0; padding: 0; border-radius: 0; background: none; }
-body.case-page main .ig-impact-list + .nt-step { margin-top: var(--s-10); }
+body.case-page main .ig-impact-list + .nt-step { margin-top: var(--s-3); }
 
 /* ── Next steps: three numbered cards ──────────────────────────── */
-body.case-page main .ig-next { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); }
+body.case-page main .ig-next { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media); }
 body.case-page main .ig-next li { display: flex; flex-direction: column; gap: var(--s-2); padding: clamp(var(--s-5), 2.4vw, var(--s-7)); border-radius: var(--r-lg); background: var(--fig-bg); }
 
 /* ── Reflection quotes on the figure background ────────────────── */
@@ -78,7 +78,7 @@ body.case-page main .ig-ex__notes--2 { grid-template-columns: repeat(2, minmax(0
 body.case-page main .ig-ex__notes .ig-ex__tag { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
 @media (max-width: 559px) { body.case-page main .ig-ex__tabs { display: inline-flex; max-inline-size: 100%; overflow-x: auto; scrollbar-width: none; } body.case-page main .ig-ex__tabs::-webkit-scrollbar { display: none; } body.case-page main .ig-ex__tab { white-space: nowrap; } body.case-page main .ig-ex__notes { grid-template-columns: minmax(0, 1fr); } }
 
-body.case-page main .ig-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }
+body.case-page main .ig-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }
 body.case-page main .ig-rail__track::-webkit-scrollbar { display: none; }
 body.case-page main .ig-rail__track.is-dragging { cursor: grabbing; }
 
@@ -117,7 +117,7 @@ body.case-page main .ig-msc li { margin: 0; padding: .55cqw .8cqw; border-radius
 	.fig.ig-cards { gap: 3cqw; padding: 3cqw; }
 	.ig-cards__row { grid-template-columns: minmax(0, 1fr); gap: 3cqw; }
 	.ig-card { border-radius: calc(var(--fig-r) * 3); }
-	body.case-page main .ig-card .ig-card__title { padding: 2.4cqw 3.2cqw 2.2cqw; font-size: max(12px, 3.4cqw); }
+	body.case-page main .ig-card .ig-card__title { padding: 2.2cqw 3cqw 2cqw; font-size: max(9px, 2.6cqw); }
 	.ig-card__body { padding: 2.4cqw; }
 	body.case-page main .ig-card__frame { padding: 2cqw; }
 	.ig-msc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4cqw; }
@@ -131,21 +131,21 @@ body.case-page main .ig-msc li { margin: 0; padding: .55cqw .8cqw; border-radius
 body.case-page main .ig-image-figure { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 3%; }
 body.case-page main .ig-image-figure img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: 0 !important; }
 body.case-page main .ig-figimg .ig-image-figure { padding: 0; }
-body.case-page main .ig-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); margin-top: var(--s-10); }
+body.case-page main .ig-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin-top: var(--s-10); }
 body.case-page main .ig-comparison__item { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
 body.case-page main .ig-comparison__item .nt-reading { padding-right: var(--s-5); }
 body.case-page main .ig-comparison__item .nt-media { align-self: start; margin-top: 0; }
 body.case-page main .ig-comparison__item .nt-reading { margin-top: var(--s-6); }
-body.case-page main .ig-comparison__media { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 7%; background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .ig-comparison__media { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 7%; background: var(--fig-bg) var(--fig-dots); }
 body.case-page main .ig-comparison__media > video { position: absolute; inset: 7%; width: 86%; height: 86%; object-fit: contain; border: 0 !important; border-radius: 0; }
 body.case-page main .ig-comparison__item:first-child .ig-comparison__media > video { inset: 7% auto; width: auto; height: 86%; border: 3px solid var(--line-strong) !important; border-radius: 20% / 9.25% !important; filter: grayscale(1); }
 body.case-page main .ig-comparison__after > video { display: block; width: 100%; height: auto; }
-body.case-page main .ig-comparison + .nt-step { margin-top: var(--s-10); }
+body.case-page main .ig-comparison + .nt-step { margin-top: var(--s-3); }
 body.case-page main .ig-decision-split > .nt-media { margin: 0; }
 /* Privacy figure fills the media column of the shared 2fr/3fr split, at the Smart Bundles core-flow video ratio. */
 body.case-page main .ig-privacy-figure { aspect-ratio: 1080 / 1350; width: 100%; display: flex; align-items: center; justify-content: center; padding: 7% 0; background: url("../assets/instagram/next-steps/instagram-next-steps-bg.jpg") center / cover no-repeat; }
 body.case-page main .ig-privacy-figure img { display: block; height: 100%; width: auto; max-width: 88%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 28px rgba(28, 31, 36,.16)); }
-body.case-page main .ig-reflection-photo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media, var(--s-3)); align-items: start; }
+body.case-page main .ig-reflection-photo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); align-items: start; }
 body.case-page main .ig-reflection-photo img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 body.case-page[data-case="instagram"] main .yap-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-9); max-width: none; align-items: start; }
 body.case-page[data-case="instagram"] main .yap-takeaways .ntf-takeaway-line { max-width: none; }
@@ -159,7 +159,7 @@ body.case-page[data-case="instagram"] main .yap-takeaways .ntf-takeaway-line { m
 
 /* ── Explorations: one annotated 16:9 slide per concept (standard .fig.anno cards + connectors) ── */
 body.case-page main .igx__stage { position: relative; }
-body.case-page main .igx__track { display: flex; gap: var(--gap-media, var(--s-3)); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; border-radius: var(--r-lg); }
+body.case-page main .igx__track { display: flex; gap: var(--gap-media); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; border-radius: var(--r-lg); }
 body.case-page main .igx__track::-webkit-scrollbar { display: none; }
 .fig.igx-slide { flex: 0 0 100%; scroll-snap-align: start; }
 .fig.igx-slide .igx-phone { position: absolute; top: 10%; height: 80%; width: auto; border-radius: 0 !important; z-index: 0; filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, .14)); }
@@ -171,8 +171,8 @@ body.case-page main .igx__track::-webkit-scrollbar { display: none; }
 .fig.igx-slide .igx-by { margin-top: .6cqw; font-size: 1.05cqw; color: var(--muted); }
 body.case-page main .igx__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: opacity .2s ease; }
 body.case-page main .igx__btn svg { width: 1.25rem; height: 1.25rem; display: block; fill: currentColor; }
-body.case-page main .igx__btn--prev { left: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
-body.case-page main .igx__btn--next { right: max(-1.5rem, calc(var(--case-g) * -1)); }   /* never past the page gutter */
+body.case-page main .igx__btn--prev { left: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
+body.case-page main .igx__btn--next { right: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
 body.case-page main .igx__btn:disabled { opacity: 0; pointer-events: none; }
 body.case-page main .igx__dots { display: flex; justify-content: center; gap: var(--s-2); margin-top: var(--s-4); }
 body.case-page main .igx__dots span { width: 6px; height: 6px; border-radius: var(--r-sm); background: var(--line); transition: width .2s, background .2s; }
@@ -180,7 +180,7 @@ body.case-page main .igx__dots span.is-on { width: 18px; background: var(--ink);
 @media (max-width: 759px) {
 	body.case-page main .igx__btn--prev { left: -.75rem; } body.case-page main .igx__btn--next { right: -.75rem; }
 	/* stacked on phones: screens first, then the two notes, no connectors */
-	.fig.igx-slide { aspect-ratio: auto; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 3cqw; padding: 12cqw 5cqw 5cqw; }
+	.fig.igx-slide { aspect-ratio: auto; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 3cqw; padding: 16cqw 5cqw 5cqw; }
 	.fig.igx-slide .conn, .fig.igx-slide .dot { display: none; }
 	.fig.igx-slide .igx-phone { position: static; height: auto; width: 42%; }
 	.fig.igx-slide .igx-tag { left: 5cqw !important; top: 4cqw !important; }
@@ -202,7 +202,7 @@ body.case-page main .ig-feedback-figure { padding: 0; }
 .fig.igx-slide .igx-title { padding: 1.1cqw 1.6cqw 1.2cqw; }
 .fig.igx-slide .igx-title .c-lab { margin-bottom: .35cqw; font-variant-numeric: tabular-nums; }
 .fig.igx-slide .igx-title .c-txt { font-size: 1.9cqw; font-weight: var(--fw-medium); letter-spacing: var(--h2-ls); line-height: var(--lh-tight); white-space: nowrap; }
-@media (max-width: 759px) { .fig.igx-slide .igx-title { padding: 2.4cqw 3.4cqw; border-radius: calc(var(--fig-r) * 2.4); } .fig.igx-slide .igx-title .c-lab { font-size: 2.6cqw; } .fig.igx-slide .igx-title .c-txt { font-size: 4.4cqw; } }
+@media (max-width: 759px) { .fig.igx-slide .igx-title { padding: 2.4cqw 3.4cqw; border-radius: calc(var(--fig-r) * 2.4); } .fig.igx-slide .igx-title .c-lab { font-size: 2.6cqw; } .fig.igx-slide .igx-title .c-txt { font-size: 3.6cqw; } }
 
 .fig.igx-slide .card.igx-title { background: none; box-shadow: none; border: 0; }
 
@@ -211,4 +211,25 @@ body.case-page main .ig-feedback-figure { padding: 0; }
  body.case-page main .ig-split { grid-template-columns: minmax(0, 1fr); }
  body.case-page main #core-flows .ig-split > .dx-cell > .dx-media { flex: none; aspect-ratio: auto; }
  body.case-page main .ig-split > .dx-cell > .dx-media > video { position: static; inline-size: 100%; block-size: auto; }
+}
+
+/* Phones: the annotated Home screen becomes the phone, then its three notes as readable cards below
+   (side by side, the tiny scaled notes collided with the phone on iOS) */
+@media (max-width: 600px) {
+ body.case-page main .fig.ig-anno { aspect-ratio: auto; display: flex; flex-direction: column; align-items: center; gap: var(--s-3); padding: var(--s-6) var(--s-4); }
+ body.case-page main .fig.ig-anno :is(.conn, .dot) { display: none; }
+ body.case-page main .fig.ig-anno .ig-anno__phone { position: static; width: 62%; }
+ body.case-page main .fig.ig-anno .abs { position: static !important; transform: none !important; width: 100% !important; }
+ body.case-page main .fig.ig-anno .card { padding: var(--s-3) var(--s-4); border-radius: var(--r-md); }
+ body.case-page main .fig.ig-anno .c-lab { margin-bottom: var(--s-1); font-size: var(--fs-xs); letter-spacing: var(--label-ls); }
+ body.case-page main .fig.ig-anno .c-txt { font-size: var(--fs-base); line-height: var(--lh-snug); }
+}
+
+/* Phones: the system-fit board keeps its three cards side by side, scaled down like the desktop figure */
+@media (max-width: 760px) {
+	.fig.ig-cards.ig-cards--fit { gap: 1.4cqw; padding: 1.8cqw; }
+	.ig-cards--fit .ig-cards__row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4cqw; }
+	body.case-page main .ig-cards--fit .ig-card .ig-card__title { padding: 1.2cqw 1.6cqw 1.1cqw; font-size: max(7px, 1.9cqw); white-space: normal; }
+	.ig-cards--fit .ig-card__body { padding: 1.2cqw; }
+	body.case-page main .ig-cards--fit .ig-card__frame { padding: 1cqw; }
 }

@@ -2,7 +2,7 @@
    Builds on yap.css; the layout reference is yap.html. */
 
 /* Text that follows a figure starts a new block */
-body.case-page main .nt-section > .nt-media + .nt-reading { margin-top: var(--sp-block); }
+body.case-page main .nt-section > .nt-media + .nt-reading { margin-top: var(--s-3); }
 
 /* ── Problem: three workarounds, each on a yap card ─────────────── */
 /* The stage keeps a 4:5 drawing inside the card, so the same art fits the 4:3 card on phones. */
@@ -126,7 +126,7 @@ body.case-page main .nt-feature + .nt-carousel { margin-top: var(--gap-media); }
 body.case-page main .nt-carousel__rail .nt-media { margin-top: 0; } /* slides sit flush in the carousel; the carousel carries the gap */
 
 /* ── Launch: the store listing beside the first review ──────────── */
-body.case-page main .nt-launch-pair { display: grid; gap: var(--gap-media, var(--s-3)); margin-top: var(--sp-media, var(--s-7)); }
+body.case-page main .nt-launch-pair { display: grid; gap: var(--gap-media); margin-top: var(--sp-media); }
 body.case-page main .nt-launch-pair > figure { margin: 0; min-width: 0; }
 body.case-page main .nt-launch-pair .nt-listing { grid-template-columns: minmax(0, 1fr); gap: var(--s-4); height: 100%; }
 body.case-page main .nt-launch-pair .nt-listing__status { padding: 0; }
@@ -172,4 +172,4 @@ body.case-page main .nt-laptop__window { position: absolute; inset: 0; overflow:
 body.case-page main .nt-laptop :is(.flow__device-screen, video) { border-radius: 0 !important; }
 body.case-page main .nt-laptop .flow__device-screen { position: absolute; inset: 0; }
 body.case-page main .nt-laptop video { display: block; width: 100%; height: 100%; object-fit: cover; }
-body.case-page main .nt-reading p + p:not(.nt-step-label):not(.nt-kicker) { margin-top: var(--s-4); }
+body.case-page main .nt-reading p + p:not(.nt-step-label):not(.nt-kicker) { margin-top: var(--s-3); }

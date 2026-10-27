@@ -2,20 +2,12 @@
  'use strict';
  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
  const reel = document.querySelector('.home-hero__video');
+ // The loader lands on the greeting above the reel.
  const strip = document.querySelector('.home-greeting__strip');
- if (!reel && !strip) return;
+ const REEL_START = 0;   // the film opens on yap's empty studio (no greeting of its own), so the loop is the whole film
+ if (!strip) return;
  const preview = new URLSearchParams(location.search).get('intro') === '1';
- // The showreel opens on the loader's last frame: the same three lines in one row. Where each line's text
- // starts in the film's own pixels (1920 × 1080, set at 56px), so the loader can land on it exactly.
- const FILM = {w:1920, h:1080, size:56, mid:539.95, x:[783.68, 120, 1358.29]};
- const NAME = '<span class="ab-name__t">Sooim</span><span class="ab-name__spk" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L11.5 6v12l-4.3-3.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path class="ab-say__w1" d="M15 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ab-say__w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>';
  const playReel = () => { if (reel) reel.play().catch(() => {}); };
- // Where the reel's picture sits on screen: edge to edge on wide windows (cover), whole on tall ones (contain).
- const reelFrame = () => {
-  const r = reel.getBoundingClientRect();
-  const k = (getComputedStyle(reel).objectFit === 'contain' ? Math.min : Math.max)(r.width / FILM.w, r.height / FILM.h);
-  return {k, x: r.left + (r.width - FILM.w * k) / 2, y: r.top + (r.height - FILM.h * k) / 2};
- };
  // Resolves once the lines' web font can draw, or after `cap` ms so a slow or blocked font can't hold the page.
  const fontReady = cap => new Promise(done => {
   if (!document.fonts) return done();
@@ -36,7 +28,7 @@
    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
    window.scrollTo(0, 0);
    reel.pause();
-   if (reel.currentTime) reel.currentTime = 0;
+   reel.currentTime = REEL_START;
   }
   const overlay = document.createElement('div');
   overlay.className = 'portfolio-intro';
@@ -44,7 +36,7 @@
   overlay.innerHTML = '<div class="portfolio-intro__text" aria-hidden="true"><span class="portfolio-intro__line">Hi, I’m Sooim</span><span class="portfolio-intro__line">Product designer</span><span class="portfolio-intro__line">Based in New York</span></div>';
   const loadingName = document.createElement('span');
   loadingName.className = 'ab-name glass';
-  loadingName.innerHTML = strip ? strip.querySelector('.ab-name').innerHTML : NAME;
+  loadingName.innerHTML = strip.querySelector('.ab-name').innerHTML;
   const firstLine = overlay.querySelector('.portfolio-intro__line');
   firstLine.replaceChildren(document.createTextNode('Hi, I’m '), loadingName);
   document.body.append(overlay);
@@ -77,7 +69,7 @@
   window.addEventListener('resize', finish);
   reduced.addEventListener('change', finish);
   const animate = (el, frames, options) => { const a = el.animate(frames, {fill:'both', ...options}); animations.push(a); return a; };
-  // The lines land on the reel's own type, so on a first visit they wait (hidden, at most 1.5s) for its web font:
+  // The lines land on the greeting's type, so on a first visit they wait (hidden, at most 1.5s) for its web font:
   // measured in the fallback font, they'd land at the wrong size and double up over the reel.
   const text = overlay.firstElementChild;
   text.style.visibility = 'hidden';
@@ -95,44 +87,22 @@
    // The entrances end on the lines' own styles, so drop them: a leftover blur(0) filter keeps the text soft.
    entrances.forEach(a => a.cancel());
    const textRect = el => { const r = document.createRange(); r.selectNodeContents(el); return r.getBoundingClientRect(); };
-   const film = reel && reelFrame();
-   const landed = [];
    lines.forEach((line, i) => {
     const box = line.getBoundingClientRect();
-    let scale, x, y;
-    if (film) {
-     // …on the reel's first frame, where the film draws the same line
-     const from = textRect(line.firstChild), mid = (from.top + from.bottom) / 2;
-     scale = FILM.size * film.k / parseFloat(getComputedStyle(line).fontSize);
-     x = film.x + FILM.x[i] * film.k - box.left - scale * (from.left - box.left);
-     y = film.y + FILM.mid * film.k - box.top - scale * (mid - box.top);
-    } else {
-     // …or on the greeting strip
-     const target = strip.querySelector(`[data-line="${i}"]`), from = textRect(line), to = textRect(target);
-     scale = parseFloat(getComputedStyle(target).fontSize) / parseFloat(getComputedStyle(line).fontSize);
-     x = to.left - box.left - scale * (from.left - box.left);
-     y = to.top - box.top - scale * (from.top - box.top);
-    }
+    const target = strip.querySelector(`[data-line="${i}"]`), from = textRect(line), to = textRect(target);
+    const scale = parseFloat(getComputedStyle(target).fontSize) / parseFloat(getComputedStyle(line).fontSize);
+    const x = to.left - box.left - scale * (from.left - box.left);
+    const y = to.top - box.top - scale * (from.top - box.top);
     const end = `translate(${x}px,${y}px) scale(${scale})`;
-    landed.push([line, animate(line, [{transform:'translate(0,0) scale(1)'}, {transform:end}], {duration:1100, easing:'cubic-bezier(.76,0,.24,1)'}), end]);
+    animate(line, [{transform:'translate(0,0) scale(1)'}, {transform:end}], {duration:1100, easing:'cubic-bezier(.76,0,.24,1)'});
    });
-   if (film) {
-    // Landed: hold the lines still as plain transforms, so they're drawn sharp at their final size.
-    timers.push(setTimeout(() => landed.forEach(([line, move, end]) => { line.style.transform = end; move.cancel(); }), 1100));
-    // The reel's frame has the same lines, so the backdrop holds until they land, then lifts,
-    // then the lines let go over identical ones and the reel takes over.
-    animate(overlay, [{backgroundColor:'#FAFCFD'}, {backgroundColor:'rgba(250,252,253,0)'}], {delay:1100, duration:300, easing:'ease-in-out'});
-    lines.forEach(line => animate(line, [{opacity:1}, {opacity:0}], {delay:1400, duration:200}));
-    timers.push(setTimeout(finish, 1620));
-   } else {
-    animate(overlay, [{backgroundColor:'#FAFCFD'}, {backgroundColor:'rgba(250,252,253,0)'}], {duration:1100});
-    timers.push(setTimeout(finish, 1120));
-   }
+   animate(overlay, [{backgroundColor:'#FAFCFD'}, {backgroundColor:'rgba(250,252,253,0)'}], {duration:1100});
+   timers.push(setTimeout(finish, 1120));
   }, 2200));
   timers.push(setTimeout(finish, 4500));
  }
  if (!location.hash && !reduced.matches) run();
- else if (!reduced.matches) playReel();   // reduced motion: the reel waits on its first frame (the greeting) until clicked
+ else if (!reduced.matches) playReel();   // reduced motion: the reel waits on its first frame until clicked
  document.documentElement.classList.remove('is-intro-pending');
  if (preview) {
   const replay = document.createElement('button');
@@ -162,23 +132,16 @@
 })()
 
 
-;(() => {
- const greeting = document.querySelector('.home-greeting');
- const intro = document.querySelector('.home-intro');
- if (!greeting || !intro) return;
- const sync = () => { intro.style.minHeight = `${greeting.getBoundingClientRect().height}px`; };
- new ResizeObserver(sync).observe(greeting);
- sync();
-})();
-
-// Pin the Recent Work index as soon as the first project's video reaches the middle of the window.
+// Settle the Selected Work copy into the viewport while the first video's top is still halfway down.
 ;(() => {
  const shell = document.querySelector('.home-work__index-shell');
  const media = document.querySelector('.home-work__card .home-work__media');
- if (!shell || !media) return;
+ const stage = document.querySelector('.home-work__stage');
+ if (!shell || !media || !stage) return;
  const desktop = matchMedia('(width >= 1200px)');
  const sync = () => {
-  shell.style.marginBlockStart = desktop.matches ? `${-Math.max(0, (innerHeight - media.offsetHeight) / 2)}px` : '';
+  shell.style.marginBlockStart = '';
+  stage.style.paddingBlockStart = desktop.matches ? `${innerHeight * .5}px` : '';
  };
  new ResizeObserver(sync).observe(media);
  addEventListener('resize', sync);

@@ -74,4 +74,42 @@
 			addEventListener('pointerup', up)
 		})
 	})
+
+	/* Phones: each row's height is set so its widest column (an item, or a stack read as one shape)
+	   spans the screen width at its own proportions; nothing is cropped and the rest scroll beside it */
+	const phone = matchMedia('(width < 760px)')
+	const ratio = el => { const a = getComputedStyle(el).aspectRatio.split('/').map(parseFloat); return a.length === 2 && a[1] ? a[0] / a[1] : a[0] || 16 / 9 }
+	// a browser-window item's screen keeps the media's own ratio; the title bar sits on top of it
+	const browserOf = col => col.matches('.ex-item') && col.querySelector('.ex-browser')
+	const screenRatio = br => { const m = br.querySelector('.ex-browser__screen > :is(img, video)'); const w = m && (m.naturalWidth || m.videoWidth), h = m && (m.naturalHeight || m.videoHeight); return w && h ? w / h : 0 }
+	const fitRows = () => rows.forEach(row => {
+		const rail = row.querySelector('.ex-row__rail')
+		const browsers = [...rail.children].filter(browserOf)
+		if (!phone.matches) { rail.style.removeProperty('--ex-h'); browsers.forEach(col => col.style.removeProperty('aspect-ratio')); return }
+		const cs = getComputedStyle(rail)
+		const avail = rail.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
+		const gap = parseFloat(cs.columnGap) || 0
+		const stackGaps = Math.max(0, ...[...rail.querySelectorAll(':scope > .ex-stack')].map(st => (st.children.length - 1) * gap))
+		// the tallest row height at which every column still fits the screen width
+		let h = Infinity
+		;[...rail.children].forEach(col => {
+			const br = browserOf(col), sr = br && screenRatio(br)
+			if (sr) h = Math.min(h, avail / sr + br.querySelector('.ex-browser__bar').offsetHeight)
+			else if (col.classList.contains('ex-stack')) {
+				// height of a stack at width 1 = sum of each item's 1/ratio, plus its gaps
+				const items = [...col.querySelectorAll(':scope > .ex-item')]
+				h = Math.min(h, avail * items.reduce((t, it) => t + 1 / ratio(it), 0) + stackGaps)
+			} else h = Math.min(h, avail / ratio(col))
+		})
+		if (!isFinite(h)) return
+		h = Math.floor(h)
+		rail.style.setProperty('--ex-h', `${h}px`)
+		browsers.forEach(col => {
+			const br = browserOf(col), sr = screenRatio(br)
+			if (sr) col.style.aspectRatio = `${((h - br.querySelector('.ex-browser__bar').offsetHeight) * sr).toFixed(1)} / ${h}`
+		})
+	})
+	fitRows()
+	addEventListener('resize', fitRows, { passive: true })
+	document.querySelectorAll('.ex-item[data-ar-auto] img, .ex-item[data-ar-auto] video, .ex-browser__screen > img, .ex-browser__screen > video').forEach(m => m.addEventListener(m.tagName === 'IMG' ? 'load' : 'loadedmetadata', fitRows))
 })()

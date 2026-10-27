@@ -1,0 +1,5168 @@
+[
+  {
+    "name": "yap",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--yap",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "demo",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading yap-demo-intro",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-it",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-test-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-launch-grid",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video yap-feedback",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video yap-feedback",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "notate",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-carousel nt-carousel--single nt-store-carousel is-scrollable",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-launch-pair",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "instagram-lists",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-problems",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "explorations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-ex",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "system-thinking",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-comparison",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step ig-decision-split",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "outcome",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step ig-decision-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "neuk",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process nk-solution-video",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--neuk",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles nk-four",
+            "margin": "12px"
+          },
+          {
+            "cls": "nk-rooms-section",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "acuity",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video ac-feedback",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ac-take ac-take--3 ac-sol",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "pitch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-pitch",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-wide",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video ac-feedback",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "smart-bundles",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "sb-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-phones yap-phones--4",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading sb-next",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "forage",
+    "width": 390,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-stacked",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "fg-solutions",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-experience",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "digital-platform",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-figure",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-wide-image",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "submission",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "yap",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--yap",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "demo",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading yap-demo-intro",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-it",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-test-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-launch-grid",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video yap-feedback",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video yap-feedback",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "notate",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-carousel nt-carousel--single nt-store-carousel is-scrollable",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-launch-pair",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "instagram-lists",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-problems",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "explorations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-ex",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "system-thinking",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-comparison",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step ig-decision-split",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "outcome",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step ig-decision-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "neuk",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process nk-solution-video",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--neuk",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles nk-four",
+            "margin": "12px"
+          },
+          {
+            "cls": "nk-rooms-section",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "acuity",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video ac-feedback",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ac-take ac-take--3 ac-sol",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "pitch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-pitch",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-wide",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video ac-feedback",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "smart-bundles",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "sb-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-phones yap-phones--4",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading sb-next",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "forage",
+    "width": 768,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-stacked",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "fg-solutions",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-experience",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "digital-platform",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-figure",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-wide-image",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "submission",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "yap",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--yap",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "demo",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading yap-demo-intro",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-it",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-test-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step yap-bug",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-launch-grid",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video yap-feedback",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step yap-bug",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video yap-feedback",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "notate",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-problem",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-carousel nt-carousel--single nt-store-carousel is-scrollable",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-figtitle",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process yap-diagram",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "launch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-process nt-launch-pair",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "instagram-lists",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-problems",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "explorations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ig-ex",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "system-thinking",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "ig-comparison",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step ig-decision-split",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "outcome",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-step",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step ig-decision-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-reading dx-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "neuk",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process nk-solution-video",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media phones-fig phones-fig--neuk",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-calls yap-calls--principles nk-four",
+            "margin": "12px"
+          },
+          {
+            "cls": "nk-rooms-section",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step nk-flow",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step nk-flow",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "acuity",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video ac-feedback",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media ac-take ac-take--3 ac-sol",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "features",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading ac-dec",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "pitch",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-pitch",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media cs-gallery cs-n2 ac-wide",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video ac-feedback",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "smart-bundles",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "sb-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "yap-phones yap-phones--4",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-flows",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "iterations",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "design-decisions",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          },
+          {
+            "cls": "sb-decision",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "next-steps",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading sb-next",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      },
+      {
+        "cls": "sb-decision",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  },
+  {
+    "name": "forage",
+    "width": 1440,
+    "overflow": false,
+    "sections": [
+      {
+        "id": "overview-challenge",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-split",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "overview-problem",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "fg-stacked",
+            "margin": "0px"
+          },
+          {
+            "cls": "yap-hmw",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "fg-solutions",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "core-experience",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split case-single-video",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-capture fg-pair-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "digital-platform",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-figure",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step fg-split",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "system-design",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media nt-process",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          },
+          {
+            "cls": "nt-step",
+            "margin": "24px"
+          }
+        ]
+      },
+      {
+        "id": "branding",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media fg-wide-image",
+            "margin": "12px"
+          }
+        ]
+      },
+      {
+        "id": "submission",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "margin": "0px",
+        "children": [
+          {
+            "cls": "nt-reading",
+            "margin": "0px"
+          },
+          {
+            "cls": "nt-media yap-reflect-pair",
+            "margin": "12px"
+          },
+          {
+            "cls": "nt-reading",
+            "margin": "12px"
+          }
+        ]
+      }
+    ],
+    "subsections": [
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split case-single-video",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-capture fg-pair-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step fg-split",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      },
+      {
+        "cls": "nt-step",
+        "margin": "24px"
+      }
+    ],
+    "logo": "50%"
+  }
+]

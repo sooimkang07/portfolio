@@ -22,7 +22,7 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 | "cards like Instagram" / "card board" | `.fig.board` white cards with title bars, 1px line, no shadow, uppercase titles. |
 | "landscape" / "positioning map" | `.pmap` + `.cmp` (see `docs/FIGURES.md`). |
 | "glass buttons" / "glass controls" | The frosted pause/replay buttons `case.js` adds to videos. "Remove the controls" = `data-no-controls`. |
-| "the gap" | Usually `--gap-media` (12px between media) or the gap between items in a figure. "Decrease the gap" = the next smaller step, not zero. |
+| "the gap" | Horizontal media neighbors use `--gap-media` (12px above 700px / 8px on phones); consecutive stacked views use `--s-3` (12px). See `docs/SPACING.md` for context. "Decrease the gap" = the next smaller step, not zero. |
 | "drop shadow" | `box-shadow` (`--shadow-raise` / `--shadow-float`) or a `filter: drop-shadow` on PNG devices. |
 | "fill" | The background color of the element. |
 | "the stroke" / "outline" | The 1px `--line` border or ring. |

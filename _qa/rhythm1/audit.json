@@ -1,0 +1,114 @@
+[
+  {
+    "name": "yap",
+    "width": 1440,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "notate",
+    "width": 1440,
+    "overflow": false,
+    "sections": 7,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "instagram-lists",
+    "width": 1440,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "neuk",
+    "width": 1440,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "acuity",
+    "width": 1440,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "smart-bundles",
+    "width": 1440,
+    "overflow": false,
+    "sections": 10,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "forage",
+    "width": 1440,
+    "overflow": false,
+    "sections": 11,
+    "exceptions": [],
+    "spacing": "32px"
+  },
+  {
+    "name": "yap",
+    "width": 375,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "notate",
+    "width": 375,
+    "overflow": false,
+    "sections": 7,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "instagram-lists",
+    "width": 375,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "neuk",
+    "width": 375,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "acuity",
+    "width": 375,
+    "overflow": false,
+    "sections": 9,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "smart-bundles",
+    "width": 375,
+    "overflow": false,
+    "sections": 10,
+    "exceptions": [],
+    "spacing": "24px"
+  },
+  {
+    "name": "forage",
+    "width": 375,
+    "overflow": false,
+    "sections": 11,
+    "exceptions": [],
+    "spacing": "24px"
+  }
+]

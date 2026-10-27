@@ -15,7 +15,7 @@ body.case-page main .fg-facts + p { margin-top: var(--s-6); }
 body.case-page main .fg-facts li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--line); font-size: var(--fs-base); line-height: var(--lh-snug); }
 body.case-page main .fg-facts b { font-weight: var(--fw-medium); color: var(--ink); }
 body.case-page main .fg-facts span { color: var(--muted); }
-body.case-page main .fg-insta { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+body.case-page main .fg-insta { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); }
 body.case-page main .fg-insta .instagram-media { width: 100% !important; max-width: 420px !important; min-width: 260px !important; margin: 0 auto !important; border-radius: var(--r-lg) !important; background: var(--surface); box-shadow:var(--shadow-raise); }
 body.case-page main .fg-insta blockquote.instagram-media { padding: var(--s-6); font-size: var(--fs-base); }
 body.case-page main .fg-insta iframe { border-radius: var(--r-lg) !important; }
@@ -46,10 +46,10 @@ body.case-page main .fg-insta iframe { border-radius: var(--r-lg) !important; }
 
 /* Ecosystem revision: shared case-study spacing and cool-gray figure surfaces. */
 body[data-case="forage"] main .fg-prompt{border-left-color:var(--line-strong)}
-body[data-case="forage"] main :is(.fg-figure,.fg-landscape,.fg-stack-figure,.fg-brandbook){background:var(--fig-bg) radial-gradient(var(--fig-dot) .6px,transparent .9px) 0 0/10px 10px;border-radius:var(--r-lg)}
+body[data-case="forage"] main :is(.fg-figure,.fg-landscape,.fg-stack-figure,.fg-brandbook){background:var(--fig-bg) var(--fig-dots);border-radius:var(--r-lg)}
 body[data-case="forage"] main .fg-figure{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding:3%;overflow:hidden}
 body[data-case="forage"] main .fg-figure img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0}
-body[data-case="forage"] main .fg-solutions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,var(--s-3));margin-top:var(--s-7)}
+body[data-case="forage"] main .fg-solutions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--s-7)}
 body[data-case="forage"] main .fg-solutions article{min-width:0}
 body[data-case="forage"] main .fg-solutions p{padding-right:var(--s-3)}
 body[data-case="forage"] main .fg-solution-image{margin:0;overflow:hidden;border-radius:var(--r-lg);aspect-ratio:4/5}
@@ -68,28 +68,28 @@ body[data-case="forage"] main .fg-landscape{display:grid;grid-template-columns:r
 body[data-case="forage"] main .fg-landscape>div{display:flex;flex-direction:column;align-items:center;gap:var(--s-6);text-align:center;min-width:0}
 body[data-case="forage"] main .fg-landscape img{width:100%;height:clamp(60px,10vw,180px);object-fit:contain;border-radius:0}
 body[data-case="forage"] main .fg-landscape span{font-size:clamp(11px,1.1vw,17px);color:var(--muted)}
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-media,var(--s-3));align-items:end;margin-top:var(--s-6)}
+body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-media);align-items:end;margin-top:var(--s-6)}
 body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair) figure{margin:0;min-width:0}
 body[data-case="forage"] main .fg-render-pair img{width:100%;height:100%;object-fit:contain;display:block}
 body[data-case="forage"] main .fg-render-photo{aspect-ratio:4/3;background:var(--fig-bg);overflow:hidden;border-radius:var(--r-lg)}
 body[data-case="forage"] main .fg-render-image{aspect-ratio:4/3;background:var(--fig-bg);border-radius:var(--r-lg)}
 body[data-case="forage"] main :is(.fg-wide-image,.fg-square-image) img{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-wide-image{margin-top:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main .fg-wide-image{margin-top:var(--gap-media)}
 body[data-case="forage"] main .fg-carousel{overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--line);margin:0;background:var(--surface)}
 .fg-browser-bar{display:flex;gap:var(--s-1);align-items:center;height:30px;padding:0 var(--s-3);background:var(--fig-bg);color:var(--muted);font-size:10px}
 .fg-browser-bar i{width:7px;height:7px;border-radius:50%;background:var(--fig-dot)}.fg-browser-bar span{margin:auto}
 body[data-case="forage"] main .fg-carousel__slides img{width:100%;height:auto;display:block;border-radius:0}
 .fg-carousel button{border:1px solid var(--line);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--ink)}.fg-carousel button:disabled{opacity:.35;cursor:default}
-body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,var(--s-3));margin-top:var(--s-7)}
+body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--s-7)}
 .fg-deliverable{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;color:inherit;background:var(--surface-2)}
 body[data-case="forage"] main .fg-deliverable>img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:0;display:block}.fg-deliverable>span{display:block;padding:var(--s-4);font-size: var(--fs-base)}
 @media(max-width:959px){body[data-case="forage"] main .fg-persona-notes{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){body[data-case="forage"] main .fg-solutions{grid-template-columns:1fr;gap:var(--s-7)}body[data-case="forage"] main .fg-solution-image{aspect-ratio:4/5;max-height:480px}body[data-case="forage"] main :is(.fg-support,.fg-render-pair,.fg-gesture-pair,.fg-deliverables){grid-template-columns:1fr;gap:var(--s-6)}body[data-case="forage"] main .fg-landscape{aspect-ratio:auto;grid-template-columns:repeat(3,1fr);padding:var(--s-7) var(--s-4);gap:var(--s-7) var(--s-4)}body[data-case="forage"] main .fg-landscape img{height:80px}body[data-case="forage"] main .fg-landscape>div{gap:var(--s-3)}}
 
 /* Align Forage with the shared case-study figures and media rhythm. */
-body[data-case="forage"] main :is(.fg-split,.fg-support,.fg-persona-notes,.fg-landscape,.fg-stack-figure,.fg-brandbook,.fg-capture-stills){column-gap:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main :is(.fg-split,.fg-support,.fg-persona-notes,.fg-landscape,.fg-stack-figure,.fg-brandbook,.fg-capture-stills){column-gap:var(--gap-media)}
 body[data-case="forage"] main .fg-stacked{display:block}
-body[data-case="forage"] main .fg-stacked>.nt-media{margin-top:var(--gap-media,var(--s-3));width:100%}
+body[data-case="forage"] main .fg-stacked>.nt-media{margin-top:var(--gap-media);width:100%}
 body[data-case="forage"] main .fg-figure{padding:0}
 body[data-case="forage"] main .fg-figure img{object-fit:cover}
 body[data-case="forage"] main #core-experience>.fg-split:first-of-type .flow__device{aspect-ratio:1}
@@ -116,11 +116,11 @@ body[data-case="forage"] main .fg-carousel__slides{position:relative;aspect-rati
 .fg-carousel__slides [data-fg-slide].is-active{opacity:1}
 .fg-carousel [data-fg-pause]{width:auto;height:auto;border-radius:var(--r-sm);padding:var(--s-2) var(--s-3);font:inherit;font-size: var(--fs-base);background:var(--fig-bg)}
 @media(prefers-reduced-motion:reduce){.fg-carousel__slides [data-fg-slide]{transition:none}}
-@media(max-width:600px){body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){grid-template-columns:1fr;row-gap:var(--gap-media,var(--s-2))}}
+@media(max-width:600px){body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){grid-template-columns:1fr;row-gap:var(--gap-media)}}
 
 /* ── Cleanup pass: shared tokens, controls top-right, no strokes on inserted images ── */
 body[data-case="forage"] main .fg-split{column-gap:var(--s-9)}
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair,.fg-solutions,.fg-deliverables,.fg-capture){column-gap:var(--gap-media,var(--s-3));row-gap:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair,.fg-solutions,.fg-deliverables,.fg-capture){column-gap:var(--gap-media);row-gap:var(--gap-media)}
 body[data-case="forage"] main figure img{border:0;outline:0}
 body[data-case="forage"] main :is(.fg-deliverable,.fg-carousel){border:0}
 
@@ -131,7 +131,7 @@ body[data-case="forage"] main .fg-square .flow__device{aspect-ratio:1}
 body[data-case="forage"] main .fg-split>.fg-square{margin-top:0}
 
 /* Capture steps: copy, then the gesture, then its asset in the Field */
-body[data-case="forage"] main .fg-capture{display:flex;flex-direction:column;gap:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main .fg-capture{display:flex;flex-direction:column;gap:var(--gap-media)}
 body[data-case="forage"] main .fg-capture>.nt-reading{margin-bottom:var(--s-3)}
 body[data-case="forage"] main .fg-capture .fg-output{margin:var(--s-3) 0 0}
 body[data-case="forage"] main .nt-step>.nt-reading+.fg-video{margin-top:var(--s-6)}
@@ -151,7 +151,7 @@ body[data-case="forage"] main .fg-gesture-pair{grid-template-columns:1080fr 1920
 body[data-case="forage"] main .fg-gesture-pair .fg-square-image{aspect-ratio:1}
 body[data-case="forage"] main .fg-gesture-pair .fg-square-image img{width:100%;height:100%;object-fit:cover}
 body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{height:100%;aspect-ratio:auto}
-body[data-case="forage"] main .fg-dotted{padding:4% 5%;border-radius:var(--r-lg);background:var(--fig-bg) radial-gradient(var(--fig-dot) .6px,transparent .9px) 0 0/10px 10px}
+body[data-case="forage"] main .fg-dotted{padding:4% 5%;border-radius:var(--r-lg);background:var(--fig-bg) var(--fig-dots)}
 body[data-case="forage"] main .fg-dotted img{border-radius:0!important}
 body[data-case="forage"] main .fg-carousel{position:relative}
 body[data-case="forage"] main .fg-carousel .flow__controls{top:calc(2.25rem + 12px)}
@@ -182,7 +182,7 @@ body[data-case="forage"] main .fg-live iframe{position:absolute;left:0;top:0;wid
 body[data-case="forage"] main .fg-live__poster{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0!important}
 
 /* Submission: three laptops */
-body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media,var(--s-3));margin-top:var(--sp-media,var(--s-7))}
+body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--sp-media)}
 body[data-case="forage"] main .fg-deliverable{background:none;border-radius:0;box-shadow:var(--shadow-raise);overflow:visible}
 body[data-case="forage"] main .fg-deliverable>a{display:block;margin-top:var(--s-4);font-size: var(--fs-base);color:var(--ink);text-decoration:none}
 body[data-case="forage"] main .fg-deliverable .flow__controls{display:none}
@@ -195,14 +195,14 @@ body[data-case="forage"] main .fg-deliverable .flow__controls{display:none}
 body[data-case="forage"] main .fg-landscape .fg-circle{width:76%;margin-inline:auto;box-shadow:var(--shadow-raise)}
 
 /* Iterations: rendering 1 + 2 share a row at equal height; 3 fills the frame */
-body[data-case="forage"] main .fg-render-pair{display:grid;grid-template-columns:.75042fr 1.77778fr;align-items:start;gap:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main .fg-render-pair{display:grid;grid-template-columns:.75042fr 1.77778fr;align-items:start;gap:var(--gap-media)}
 body[data-case="forage"] main .fg-render-pair>figure{height:auto!important;margin:0;background:none;border-radius:var(--r-lg);overflow:hidden}
 body[data-case="forage"] main .fg-render-photo{aspect-ratio:1332/1775!important}
 body[data-case="forage"] main .fg-render-image{aspect-ratio:16/9!important}
 body[data-case="forage"] main .fg-render-pair img{width:100%;height:100%;object-fit:cover;border-radius:0!important}
-body[data-case="forage"] main .fg-wide-image.fg-dotted{padding:0;background:none;margin-top:var(--gap-media,var(--s-3));border-radius:var(--r-lg);overflow:hidden}
+body[data-case="forage"] main .fg-wide-image.fg-dotted{padding:0;background:none;margin-top:var(--gap-media);border-radius:var(--r-lg);overflow:hidden}
 body[data-case="forage"] main .fg-wide-image.fg-dotted img{display:block;width:100%;height:auto}
-body[data-case="forage"] main .fg-gesture-pair{display:grid;grid-template-columns:1fr 1.77778fr;align-items:start;gap:var(--gap-media,var(--s-3))}
+body[data-case="forage"] main .fg-gesture-pair{display:grid;grid-template-columns:1fr 1.77778fr;align-items:start;gap:var(--gap-media)}
 body[data-case="forage"] main .fg-gesture-pair>figure{margin:0}
 body[data-case="forage"] main .fg-gesture-pair .fg-square-image{aspect-ratio:1;overflow:hidden;border-radius:var(--r-lg)}
 body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{aspect-ratio:16/9;height:auto}
@@ -213,15 +213,15 @@ body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{aspect-ra
 
 /* Spacing rhythm (shared tokens): copy → media, media → media, step → step */
 body[data-case="forage"] main .nt-section>.nt-reading+:is(figure,div):not(.nt-reading),
-body[data-case="forage"] main .nt-step>.nt-reading+:is(figure,div){margin-top:var(--sp-media,var(--s-7))}
-body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap)+:is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap){margin-top:var(--gap-media,var(--s-3))}
-body[data-case="forage"] main .nt-section>*+.nt-step,body[data-case="forage"] main .nt-step+.nt-step{margin-top:var(--sp-block,var(--s-10))}
+body[data-case="forage"] main .nt-step>.nt-reading+:is(figure,div){margin-top:var(--sp-media)}
+body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap)+:is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap){margin-top:var(--gap-media)}
+body[data-case="forage"] main .nt-section>*+.nt-step,body[data-case="forage"] main .nt-step+.nt-step{margin-top:var(--s-3)}
 body[data-case="forage"] main .fg-capture{gap:0}
 body[data-case="forage"] main .fg-capture>.nt-reading{margin-bottom:0}
-body[data-case="forage"] main .fg-capture>figure+figure{margin-top:var(--gap-media,var(--s-3))}
-body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair)+.nt-reading{margin-top:var(--sp-media,var(--s-7))}
+body[data-case="forage"] main .fg-capture>figure+figure{margin-top:var(--gap-media)}
+body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair)+.nt-reading{margin-top:var(--sp-media)}
 body[data-case="forage"] main :is(.fg-brand__name,.fg-brand__use){white-space:nowrap}
-body[data-case="forage"] main .fg-wide-image.fg-dotted{background:var(--fig-bg) radial-gradient(var(--fig-dot) .6px,transparent .9px) 0 0/10px 10px}
+body[data-case="forage"] main .fg-wide-image.fg-dotted{background:var(--fig-bg) var(--fig-dots)}
 /* Paired media: same top, same height, full column width */
 body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair)>figure{margin:0!important;align-self:start}
 body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{width:100%;height:auto!important;aspect-ratio:16/9!important}
@@ -314,16 +314,11 @@ body[data-case="forage"] main #digital-platform .fg-split { display: flex; flex-
 body[data-case="forage"] main #digital-platform .fg-split > .nt-media { width: 100%; }
 /* Deliverable links: the shared body link (underline, ↗, flip track from js/case.js), centered under each laptop */
 body[data-case="forage"] main .fg-deliverable__link{margin:var(--s-4) 0 0;text-align:center}
-/* Phones: the wearable landscape wraps to three per row so each label fits under its circle */
-@media(max-width:600px){body[data-case="forage"] main .fg-landscape{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:var(--s-5)}}
 
 /* Solution: the grid already sits one --sp-media below the copy; its images add no second gap */
 body.case-page main .fg-solutions .fg-solution-image { margin-top: 0; }
 
 /* Laptop stage: the pink laptop on the room photo, in a 16:9 media box */
-body[data-case="forage"] main .fg-stage { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--r-lg); background: var(--fig-bg) url(../assets/forage/core-experience/laptop-bg-web.jpg) center / cover no-repeat; }
-body[data-case="forage"] main .fg-stage > .fg-lap { width: 80%; }
-body[data-case="forage"] main .fg-deliverable .fg-stage .flow__controls { display: none; }
 
 /* Capture steps: standard copy block, then gesture + Field recording side by side at 16:9 */
 body[data-case="forage"] main .fg-capture.fg-pair-step { display: block; }
@@ -338,3 +333,26 @@ body.case-page[data-case="forage"] main .nt-step.fg-pair-step > .fg-capture__med
 
 /* Submission: links stacked under the body copy */
 body[data-case="forage"] main .fg-linklist { display: grid; gap: var(--s-2); margin: var(--s-6) 0 0; padding: 0; list-style: none; font-size: var(--fs-base); line-height: var(--lh-base); }
+body[data-case="forage"] main .fg-stacked > .nt-reading + .nt-media{margin-top:var(--sp-media)}   /* text → media is the standard gap, not the between-media one */
+
+/* Phones: the wearable landscape stays one row and simply scales down */
+@media(max-width:600px){body[data-case="forage"] main .fg-landscape .slab{font-size:1.3cqw}}
+/* Phones: the three solution images stay side by side; their captions stack below in order */
+@media(max-width:600px){
+ body[data-case="forage"] main .fg-solutions{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap-media);row-gap:0}
+ body[data-case="forage"] main .fg-solutions article{display:contents}
+ body[data-case="forage"] main .fg-solutions article:nth-child(1)>figure{grid-column:1;grid-row:1}
+ body[data-case="forage"] main .fg-solutions article:nth-child(2)>figure{grid-column:2;grid-row:1}
+ body[data-case="forage"] main .fg-solutions article:nth-child(3)>figure{grid-column:3;grid-row:1}
+ body[data-case="forage"] main .fg-solutions .fg-solution-image{max-height:none}
+ body[data-case="forage"] main .fg-solutions .yap-call{grid-column:1/-1;margin-top:var(--s-6)}
+ body[data-case="forage"] main .fg-solutions article:nth-child(1)>.yap-call{grid-row:2}
+ body[data-case="forage"] main .fg-solutions article:nth-child(2)>.yap-call{grid-row:3}
+ body[data-case="forage"] main .fg-solutions article:nth-child(3)>.yap-call{grid-row:4}
+}
+
+/* Equal-height capture pairs: 16:9 footage beside the 1464×887 laptop frame.
+   Columns follow their native ratios instead of stretching or cropping the laptop. */
+@media (min-width: 601px) {
+ body[data-case="forage"] main .fg-pair-step .fg-capture__media { grid-template-columns: minmax(0, 14192fr) minmax(0, 13176fr); align-items: start; }
+}

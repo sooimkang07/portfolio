@@ -1,6 +1,6 @@
 /* Figure kit (from Figure Specs): dotted panel, cards, dashed connectors. */
 .fig{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:var(--r-lg);overflow:hidden;container-type:inline-size;
- background:var(--fig-bg) radial-gradient(var(--fig-dot) .6px,transparent .9px) 0 0/10px 10px;color:var(--ink);font-family:inherit;line-height: var(--lh-snug)}
+ background:var(--fig-bg) var(--fig-dots);color:var(--ink);font-family:inherit;line-height: var(--lh-snug)}
 .fig.dark{background:#161616 radial-gradient(#2A2A2A .6px,transparent .9px) 0 0/10px 10px;color:var(--fig-bg)}
 .fig .abs {position:absolute}
 .fig .conn{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--line-strong);stroke-width:1.2;stroke-dasharray:5 4;overflow:visible}
@@ -87,7 +87,7 @@
 .fig:has(.flow .phone.shot) .flow{position:static}
 
 /* One card gap across the site: every group of cards inside a figure uses the media gap token */
-.fig .cards, .fig .strip {gap:var(--gap-media,var(--s-3))}
+.fig .cards, .fig .strip {gap:var(--gap-media)}
 
 /* ── Annotated screens: one style on every project page ───────────────────
    A card per callout (label + line, soft shadow, no stroke) with a dot on its edge,
@@ -121,7 +121,7 @@ body.case-page main .board__title small { font-size: inherit; font-weight: var(-
 
 /* Positioning map: two axes, labelled points, one highlighted. */
 .fig .pmap { position: relative; flex: 1; }
-.fig .pmap__ax { position: absolute; background: var(--line-strong); }
+.fig .pmap__ax { position: absolute; background: var(--line); }   /* the comparison table's line gray */
 .fig .pmap__ax.x { left: 4%; right: 4%; top: 50%; height: 1px; }
 .fig .pmap__ax.y { top: 7%; bottom: 7%; left: 50%; width: 1px; }
 .fig .pmap__lab { position: absolute; font-size: .95cqw; letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); white-space: nowrap; }
@@ -141,7 +141,7 @@ body.case-page main .fig .pmap__pt .logo--mono { display: grid; place-items: cen
 body.case-page main .fig .pmap__pt.hi img { width: 2.8cqw; height: 2.8cqw; padding: .2cqw; border-radius: 50% !important; background: var(--surface); }
 
 /* Comparison chart: rows of yes / partly / no dots; the last column is the concept. */
-.fig .cmp { position: relative; flex: 1; display: grid; grid-template-columns: 1.7fr repeat(var(--n, 3), 1fr); grid-template-rows: 6.6cqw; grid-auto-rows: 1fr; }
+.fig .cmp { position: relative; flex: 1; display: grid; grid-template-columns: 1.7fr repeat(var(--n, 3), 1fr); grid-template-rows: minmax(6.6cqw, auto); grid-auto-rows: 1fr; }   /* the header grows to fit photo headers */
 .fig .cmp__hi { grid-column: -2; grid-row: 1 / -1; background: var(--surface-2); border-radius: var(--fig-r); box-shadow: 0 0 0 1px var(--fig-bg); }
 .fig .cmp__h.hi { font-weight: var(--fw-medium); color: var(--ink); }
 .fig .cmp__h { grid-row: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3cqw; font-size: 1.05cqw; font-weight: var(--fw-regular); color: var(--muted); text-align: center; line-height: var(--lh-tight); }
@@ -177,13 +177,11 @@ body.case-page main .fig .ngraph__zone { position: absolute; background: color-m
    proportions (half the figure wide, one row tall) and zoom: 2 draws it at full
    width, so its cqw type and marks come out twice as large. Four-up rows go 2 × 2. */
 @media (max-width: 600px) {
- body.case-page main .fig.board:has(> .board__row > :nth-child(2)) { aspect-ratio: auto; }
- body.case-page main .fig.board > .board__row:has(> :nth-child(2)) { display: flex; flex-direction: column; gap: .5cqw; }
- body.case-page main .fig.board > .board__row:has(> :nth-child(2)) > .board__card { flex: none; width: 48.6cqw; height: 53.45cqw; zoom: 2; }   /* cqw scales with zoom; % would not */
- body.case-page main .fig.board > .board__row:has(> :nth-child(4)) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1cqw; }
- body.case-page main .fig.board > .board__row:has(> :nth-child(4)) > .board__card { width: 24.05cqw; height: 53.45cqw; zoom: 2; }
+ body.case-page main .fig.board:has(> .board__row > :nth-child(2)):not(:has(> .board__row > :nth-child(3))) { aspect-ratio: auto; }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)):not(:has(> :nth-child(3))) { display: flex; flex-direction: column; gap: .5cqw; }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)):not(:has(> :nth-child(3))) > .board__card { flex: none; width: 48.6cqw; height: 53.45cqw; zoom: 2; }   /* cqw scales with zoom; % would not */
  /* Zoomed cards: titles drawn at the caps-label size (half of it, times zoom 2) */
- body.case-page main .fig.board > .board__row:has(> :nth-child(2)) > .board__card > .board__title { font-size: calc(var(--fs-xs) / 2); }
+ body.case-page main .fig.board > .board__row:has(> :nth-child(2)):not(:has(> :nth-child(3))) > .board__card > .board__title { font-size: calc(var(--fs-xs) / 2); }
  /* Titles wrap rather than run past a narrow card */
  body.case-page main .board__title { white-space: normal; }
 }

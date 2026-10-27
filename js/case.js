@@ -211,8 +211,9 @@
   ticking = false
   const y = scrollY, dy = y - lastY
   lastY = y
-  if (!strip.matches) { rail.classList.remove('is-tucked'); return }
+  if (!strip.matches) { rail.classList.remove('is-tucked', 'is-stuck'); return }
   const stuck = rail.getBoundingClientRect().top <= parseFloat(getComputedStyle(rail).top) + 1
+  rail.classList.toggle('is-stuck', strip.matches && stuck)   // the band above it only paints while stuck (css/case.css)
   // a few pixels of travel in one direction before it reacts, so small jitters don't flicker it
   travel = (dy > 0) === (travel > 0) ? travel + dy : dy
   if (!stuck || y < 80 || performance.now() < holdUntil) rail.classList.remove('is-tucked')
@@ -221,6 +222,7 @@
  }
  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update) } }, { passive: true })
  strip.addEventListener('change', update)
+ update()
  // A TOC tap scrolls down to its section: keep the strip visible for that jump
  rail.addEventListener('click', () => { rail.classList.remove('is-tucked'); travel = 0; holdUntil = performance.now() + 1200 })
 })()
