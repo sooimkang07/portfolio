@@ -290,3 +290,9 @@ body.case-page main .sb-scene__stop .c-lab,
 body.case-page main .sb-scene__stop > p:last-child { color: var(--surface); }
 body.case-page main .sb-scene__journey::before { border-color: var(--surface); }
 body.case-page main .sb-decision > .nt-media > img { display: block; width: 100%; height: auto; }
+
+body.case-page main .phones-fig--bundles { background: var(--fig-bg) url("../assets/smart-bundles/solution/smart-bundles-solution-bg.jpg") center / cover; }
+body.case-page main .sb-solution-phones { display: flex; align-items: center; justify-content: center; gap: 2.4cqw; height: 40cqw; }
+body.case-page main .sb-solution-phones .sb-iphone { height: 100%; width: auto; }
+body.case-page main .sb-solution-captions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-media); }
+@media (max-width: 700px) { body.case-page main .sb-solution-captions { grid-template-columns: 1fr; row-gap: var(--s-8); } }

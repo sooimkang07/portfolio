@@ -192,7 +192,7 @@ body.case-page.notate-page .nt-onboarding .flow__controls { display: none; }
 
 
 /* Hero: title left, the extension as it appears in the store right */
-.notate-page .nt-hero-head { display: grid; grid-template-columns: minmax(0, 1fr) calc(var(--s-10) * 4); gap: var(--s-6) var(--s-8); align-items: start; }
+.notate-page .nt-hero-head { display: block; }
 body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
 .notate-page .nt-store-card { margin: 0; }
 .notate-page .nt-store-card a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--s-5) var(--s-4); padding: var(--s-5); border-radius: var(--r-md); background: var(--fig-bg); color: inherit; text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
@@ -810,4 +810,25 @@ html body.case-page[data-case] main .ntf-tag + .ntf-takeaway-line { margin-block
  html body.case-page[data-case] main .nk-rooms { row-gap: 0; }
  html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:nth-child(n+2) > .media-caption__title,
  html body.case-page[data-case] main .fg-solutions > article:nth-child(n+2) > .yap-call { margin-block-start: var(--s-7) !important; }
+}
+
+@media (max-width: 700px) {
+ body.case-page { --sp-media: var(--s-6); --sp-section: calc(var(--s-11) + var(--s-6)); }
+ html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw),
+ html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-8) !important; }
+ html body.case-page[data-case] main :is(.ig-problems, .ac-take, .ac-r, .ac-gest, .ig-split, .yap-calls, .yap-takeaways) { row-gap: var(--s-8); }
+ html body.case-page[data-case] main :is(img, video, .dx-media, .ac-solcard, .ac-r__card, .ac-gestcard) + :is(.media-caption__title, .yap-call, .case-caption),
+ html body.case-page[data-case] main :is(figure, .nt-media, .dx-media, .phones-fig) + :is(.yap-call, .yap-calls, .media-caption, .case-caption),
+ html body.case-page[data-case] main .ig-comparison__item > .case-caption { margin-block-start: var(--s-7) !important; }
+ html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:first-child > .media-caption__title { margin-block-start: var(--s-7) !important; }
+ html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:nth-child(n+2) > .media-caption__title { margin-block-start: var(--s-8) !important; }
+ html body.case-page[data-case] main .media-caption__title + .media-caption__body { margin-block-start: var(--s-3) !important; }
+}
+@media (max-width: 700px) {
+ html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-8) !important; }
+ html body.case-page[data-case] main .ig-comparison.case-media-group { row-gap: var(--s-7); }
+ html body.case-page[data-case] main .ig-comparison .ig-comparison__item > .case-caption { margin-block: 0 !important; }
+}
+@media (max-width: 600px) {
+ html body.case-page[data-case] main .fg-solutions > article:nth-child(n+2) > .yap-call { margin-block-start: var(--s-8) !important; }
 }

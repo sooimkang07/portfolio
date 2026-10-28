@@ -1,0 +1,887 @@
+[
+  {
+    "name": "index",
+    "width": 390,
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 52,
+      "w": 390,
+      "h": 405,
+      "mt": "52px",
+      "pt": "96px",
+      "pb": "96px",
+      "gap": "normal",
+      "cols": "358px"
+    },
+    "logoName": "none",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": {
+      "t": 0.271,
+      "paused": false,
+      "loop": true
+    }
+  },
+  {
+    "name": "about",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [
+      {
+        "cls": "ab-hero__pic ab-reel",
+        "x": 16,
+        "y": 985.1001586914062,
+        "w": 358,
+        "h": 636.4374389648438,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-h1",
+        "x": 16,
+        "y": 128.19387817382812,
+        "w": 358,
+        "h": 165.796875,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-actions ab-actions--top",
+        "x": 16,
+        "y": 337.9907531738281,
+        "w": 358,
+        "h": 40,
+        "mt": "24px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "6.4px",
+        "cols": "none"
+      }
+    ],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "yap",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "dx-grid dx-grid--2",
+        "x": 16,
+        "y": 4549.93798828125,
+        "w": 358,
+        "h": 907,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "358px"
+      },
+      {
+        "cls": "nt-media yap-test-pair",
+        "x": 16,
+        "y": 12995.984375,
+        "w": 358,
+        "h": 182.5,
+        "mt": "24px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "8px",
+        "cols": "78.5781px 78.5938px 184.828px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "notate",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-hero-head",
+        "x": 16,
+        "y": 807.7094116210938,
+        "w": 358,
+        "h": 296.99993896484375,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "minmax(0px, 1fr)"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "instagram-lists",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "ig-comparison case-media-group",
+        "x": 16,
+        "y": 15340.7001953125,
+        "w": 358,
+        "h": 688.796875,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px 8px",
+        "cols": "175px 175px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "neuk",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 9615.2783203125,
+        "rowStart": 9615.2783203125,
+        "highlight": {
+          "x": 295.640625,
+          "y": 9562.8251953125,
+          "w": 51.484375,
+          "h": 304.484375,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 33.15625,
+          "y": 9562.8251953125,
+          "w": 313.96875,
+          "h": 304.5,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "54.0391px 25.7344px 25.7344px 25.7344px 25.7422px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "acuity",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 15079.046875,
+        "rowStart": 15079.046875,
+        "highlight": {
+          "x": 280.3125,
+          "y": 15030.078125,
+          "w": 66.8125,
+          "h": 304.5,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 33.15625,
+          "y": 15030.078125,
+          "w": 313.96875,
+          "h": 304.5,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "56.7812px 33.3984px 33.3984px 33.4062px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "smart-bundles",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-media phones-fig phones-fig--bundles",
+        "x": 16,
+        "y": 3689.577880859375,
+        "w": 358,
+        "h": 201.375,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "358px"
+      }
+    ],
+    "tables": [
+      {
+        "headerBottom": 10043.703125,
+        "rowStart": 10043.703125,
+        "highlight": {
+          "x": 280.3125,
+          "y": 9991.25,
+          "w": 66.8125,
+          "h": 304.5,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 33.15625,
+          "y": 9991.25,
+          "w": 313.96875,
+          "h": 304.5,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "56.7812px 33.3984px 33.3984px 33.4062px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "forage",
+    "width": 390,
+    "overflow": false,
+    "hero": null,
+    "logoName": "none",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "index",
+    "width": 768,
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 52,
+      "w": 768,
+      "h": 532,
+      "mt": "52px",
+      "pt": "192px",
+      "pb": "192px",
+      "gap": "normal",
+      "cols": "729.625px"
+    },
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": {
+      "t": 0.3445,
+      "paused": false,
+      "loop": true
+    }
+  },
+  {
+    "name": "about",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [
+      {
+        "cls": "ab-hero__pic ab-reel",
+        "x": 140.796875,
+        "y": 841.9075317382812,
+        "w": 486.40625,
+        "h": 864.7188110351562,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-h1",
+        "x": 140.796875,
+        "y": 88.26692199707031,
+        "w": 486.40625,
+        "h": 132.796875,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-actions ab-actions--top",
+        "x": 140.796875,
+        "y": 245.0637969970703,
+        "w": 486.40625,
+        "h": 40.00001525878906,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "6.4px",
+        "cols": "none"
+      }
+    ],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "yap",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "dx-grid dx-grid--2",
+        "x": 140.796875,
+        "y": 3411.12548828125,
+        "w": 486.390625,
+        "h": 296.5,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "237.188px 237.203px"
+      },
+      {
+        "cls": "nt-media yap-test-pair",
+        "x": 140.796875,
+        "y": 11890.5791015625,
+        "w": 486.390625,
+        "h": 231.65625,
+        "mt": "24px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "106.25px 106.25px 249.891px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "notate",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-hero-head",
+        "x": 140.796875,
+        "y": 819.6871337890625,
+        "w": 486.390625,
+        "h": 198,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "minmax(0px, 1fr)"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "instagram-lists",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "ig-comparison case-media-group",
+        "x": 140.796875,
+        "y": 7575.90771484375,
+        "w": 486.390625,
+        "h": 578.984375,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "237.188px 237.203px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "neuk",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 7782.9501953125,
+        "rowStart": 7782.9501953125,
+        "highlight": {
+          "x": 571.015625,
+          "y": 7747.8408203125,
+          "w": 37.90625,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 377.75,
+          "y": 7747.8408203125,
+          "w": 231.171875,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "79.5781px 37.8906px 37.9062px 37.8906px 37.9062px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "acuity",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 9031.765625,
+        "rowStart": 9031.765625,
+        "highlight": {
+          "x": 561.96875,
+          "y": 8998.984375,
+          "w": 46.96875,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 388.1875,
+          "y": 8998.984375,
+          "w": 220.75,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "79.8438px 46.9688px 46.9688px 46.9688px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "smart-bundles",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-media phones-fig phones-fig--bundles",
+        "x": 140.796875,
+        "y": 3622.172119140625,
+        "w": 486.390625,
+        "h": 273.59375,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "486.391px"
+      }
+    ],
+    "tables": [
+      {
+        "headerBottom": 10101.515625,
+        "rowStart": 10101.515625,
+        "highlight": {
+          "x": 561.96875,
+          "y": 10066.40625,
+          "w": 46.96875,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 388.1875,
+          "y": 10066.40625,
+          "w": 220.75,
+          "h": 206.578125,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "79.8438px 46.9688px 46.9688px 46.9688px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "forage",
+    "width": 768,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "index",
+    "width": 1440,
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 52,
+      "w": 1440,
+      "h": 532,
+      "mt": "52px",
+      "pt": "192px",
+      "pb": "192px",
+      "gap": "normal",
+      "cols": "1392px"
+    },
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": {
+      "t": 0.3361,
+      "paused": false,
+      "loop": true
+    }
+  },
+  {
+    "name": "about",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [
+      {
+        "cls": "ab-hero__pic ab-reel",
+        "x": 728.234375,
+        "y": 88.19390869140625,
+        "w": 392,
+        "h": 797.96875,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-h1",
+        "x": 319.765625,
+        "y": 88.19390869140625,
+        "w": 358.078125,
+        "h": 266.4375,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      },
+      {
+        "cls": "ab-actions ab-actions--top",
+        "x": 319.765625,
+        "y": 378.63140869140625,
+        "w": 358.078125,
+        "h": 40,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "6.4px",
+        "cols": "none"
+      }
+    ],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "yap",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "dx-grid dx-grid--2",
+        "x": 319.78125,
+        "y": 4503.45263671875,
+        "w": 800.4375,
+        "h": 492.765625,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "394.219px 394.219px"
+      },
+      {
+        "cls": "nt-media yap-test-pair",
+        "x": 319.78125,
+        "y": 14194.171875,
+        "w": 800.4375,
+        "h": 345.984375,
+        "mt": "24px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "178.406px 178.422px 419.594px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "notate",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-hero-head",
+        "x": 319.78125,
+        "y": 1355.3917236328125,
+        "w": 800.4375,
+        "h": 221.71875,
+        "mt": "0px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "none"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "instagram-lists",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "ig-comparison case-media-group",
+        "x": 319.78125,
+        "y": 10265.9189453125,
+        "w": 800.4375,
+        "h": 705,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "12px",
+        "cols": "394.219px 394.219px"
+      }
+    ],
+    "tables": [],
+    "reel": null
+  },
+  {
+    "name": "neuk",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 9716.109375,
+        "rowStart": 9716.109375,
+        "highlight": {
+          "x": 1026.234375,
+          "y": 9658.6875,
+          "w": 62.171875,
+          "h": 344.234375,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 709.171875,
+          "y": 9658.6875,
+          "w": 379.234375,
+          "h": 344.25,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "130.547px 62.1719px 62.1719px 62.1719px 62.1719px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "acuity",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [
+      {
+        "headerBottom": 9682.234375,
+        "rowStart": 9682.234375,
+        "highlight": {
+          "x": 1011.34375,
+          "y": 9628.609375,
+          "w": 77.0625,
+          "h": 344.25,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 726.25,
+          "y": 9628.609375,
+          "w": 362.15625,
+          "h": 344.25,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "130.984px 77.0625px 77.0469px 77.0625px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "smart-bundles",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [
+      {
+        "cls": "nt-media phones-fig phones-fig--bundles",
+        "x": 319.78125,
+        "y": 4573.85986328125,
+        "w": 800.4375,
+        "h": 450.234375,
+        "mt": "12px",
+        "pt": "0px",
+        "pb": "0px",
+        "gap": "normal",
+        "cols": "800.438px"
+      }
+    ],
+    "tables": [
+      {
+        "headerBottom": 11378.6875,
+        "rowStart": 11378.6875,
+        "highlight": {
+          "x": 1011.34375,
+          "y": 11321.265625,
+          "w": 77.0625,
+          "h": 344.25,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "none"
+        },
+        "table": {
+          "x": 726.25,
+          "y": 11321.265625,
+          "w": 362.15625,
+          "h": 344.25,
+          "mt": "0px",
+          "pt": "0px",
+          "pb": "0px",
+          "gap": "normal",
+          "cols": "130.984px 77.0625px 77.0469px 77.0625px"
+        }
+      }
+    ],
+    "reel": null
+  },
+  {
+    "name": "forage",
+    "width": 1440,
+    "overflow": false,
+    "hero": null,
+    "logoName": "block",
+    "about": [],
+    "pairs": [],
+    "tables": [],
+    "reel": null
+  }
+]

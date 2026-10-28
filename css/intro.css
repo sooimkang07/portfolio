@@ -1,5 +1,5 @@
 /* The loader settles onto a separate greeting above the uncropped showreel. */
-.home-greeting { display: grid; place-items: center; min-block-size: calc(var(--nav-h) + var(--s-11) * 5); padding: calc(var(--s-11) * 2) var(--gutter) calc(var(--s-11) * 2 + var(--s-9)); }
+.home-greeting { display: grid; place-items: center; min-block-size: calc(var(--nav-h) + var(--s-11) * 5); margin-block-start: var(--nav-h); padding: calc(var(--s-11) * 2) var(--gutter); }
 .home-greeting__strip { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); width: 100%; align-items: center; gap: var(--s-6); margin: 0; font-size: calc(var(--h1-fs) * 1.4); font-weight: var(--fw-medium); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); text-align: center; color: var(--ink); }
 .home-greeting__strip > span { display: block; white-space: nowrap; }
 .home-greeting__strip > [data-line="1"], .home-greeting__strip > [data-line="2"] { font-size: var(--fs-lg); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
@@ -26,8 +26,8 @@ html.is-intro-pending::after { content: ""; position: fixed; inset: 0; z-index: 
 .intro-replay { position: fixed; z-index: 9999; left: var(--gutter); bottom: 24px; }
 @media (max-width: 700px) {
  .home { --greeting-height: max(45svh, calc(var(--nav-h) + var(--s-11) * 3 + var(--s-8))); }
- .home-greeting { min-block-size: 0; block-size: var(--greeting-height); padding-block: var(--s-11) calc(var(--s-11) + var(--s-7)); }
- .home .home-hero__pin { aspect-ratio: auto; block-size: calc(100svh - var(--greeting-height)); }
+ .home-greeting { min-block-size: 0; block-size: var(--greeting-height); padding-block: var(--s-11); }
+ .home .home-hero__pin { aspect-ratio: auto; block-size: calc(100svh - var(--nav-h) - var(--greeting-height)); }
  .home-greeting__strip { grid-template-columns: 1fr; justify-items: center; gap: var(--s-1); }
  .home-greeting__strip > span { text-align: center !important; }
  .home-greeting__strip > [data-line="0"] { order: -1; margin-block-end: var(--s-3); }

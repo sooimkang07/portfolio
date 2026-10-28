@@ -1886,3 +1886,10 @@ body.home .nav .nav__logo.is-compact .nav__logo-mark { opacity: 1; visibility: v
 .home-work__heading { font-size: var(--h1-fs); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); text-transform: none; font-weight: var(--fw-medium); padding-block-end: var(--s-7); }
 @media (width >= 1200px) { .home-work__heading { padding-block-end: 0; } }
 @media (prefers-reduced-motion: reduce) { body.home .nav .nav__logo-name, body.home .nav .nav__logo-mark { transition: none; } }
+
+@media (max-width: 700px) {
+ body.home .nav .nav__logo { inline-size: var(--s-8); }
+ body.home .nav .nav__logo-name { display: none; }
+ body.home .nav .nav__logo-mark.glass { opacity: 1; visibility: visible; transform: none; transition: none; }
+ body.home .footer.portfolio-footer { padding-block-start: var(--s-11); }
+}

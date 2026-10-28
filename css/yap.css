@@ -369,3 +369,8 @@ html body.case-page main .yap-test-pair img.yap-test-pair__shot { aspect-ratio: 
 .yap-diagram .ai-pill rect { fill: var(--accent); }
 
 body.case-page main .yap-test-pair :is(img, .yap-test-pair__video) { border-radius: var(--r-lg); overflow: hidden; }
+
+@media (max-width: 760px) {
+ html body.case-page[data-case] main .yap-test-pair { grid-template-columns: minmax(0, .5625fr) minmax(0, .5625fr) minmax(0, 1.3229fr); gap: var(--gap-media); }
+}
+html body.case-page[data-case] main #features .yap-catch-up .dx-grid { gap: var(--s-3); }

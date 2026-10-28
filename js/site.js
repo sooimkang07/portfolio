@@ -500,6 +500,10 @@
      frames settle back on its first (yap's empty studio), so it loops without a seam. */
   const REEL_START = 0
   if (bgVideo) {
+    bgVideo.muted = true
+    bgVideo.loop = true
+    bgVideo.play().catch(() => {})
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && !isPlayerOpen()) bgVideo.play().catch(() => {}) })
     const keepInLoop = () => {
       if (isPlayerOpen()) return
       if (bgVideo.currentTime >= bgVideo.duration || bgVideo.currentTime < REEL_START - 0.05) bgVideo.currentTime = REEL_START

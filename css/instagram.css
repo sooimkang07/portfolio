@@ -10,7 +10,7 @@ body.case-page main .ig-overview-img { margin-top: var(--s-7); }
 body.case-page main .ig-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
 
 /* ── Opportunity ───────────────────────────────────────────────── */
-body.case-page main .ig-hmw { margin-top: var(--s-3); padding: var(--s-8) 0 var(--s-2); border-top: 1px solid var(--line); }
+body.case-page main .ig-hmw { margin-top: var(--s-3); padding: 0; border-top: 0; }
 body.case-page main .ig-hmw__q { margin: var(--s-3) 0 0; max-width: 30ch; font-size:var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h1-ls); color: var(--ink); text-wrap: balance; }
 
 /* ── Core flow 04: lead video + 2×2 grid ───────────────────────── */
@@ -232,4 +232,13 @@ body.case-page main .ig-feedback-figure { padding: 0; }
 	body.case-page main .ig-cards--fit .ig-card .ig-card__title { padding: 1.2cqw 1.6cqw 1.1cqw; font-size: max(7px, 1.9cqw); white-space: normal; }
 	.ig-cards--fit .ig-card__body { padding: 1.2cqw; }
 	body.case-page main .ig-cards--fit .ig-card__frame { padding: 1cqw; }
+}
+
+@media (max-width: 759px) {
+ html body.case-page main .ig-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--gap-media); align-items: start; }
+ html body.case-page main .ig-comparison__item { display: contents; }
+ html body.case-page main .ig-comparison__item > figure { grid-row: 1; }
+ html body.case-page main .ig-comparison__item > .case-caption { grid-column: 1 / -1; margin: 0 !important; }
+ html body.case-page main .ig-privacy-figure { aspect-ratio: 1080 / 2194; }
+ html body.case-page main .ig-privacy-figure > img { width: 100%; height: auto; object-fit: contain; }
 }

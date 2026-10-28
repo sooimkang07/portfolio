@@ -27,8 +27,8 @@
    // The intro ends on the reel's first frame, so start at the top of the page with the reel at its start.
    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
    window.scrollTo(0, 0);
-   reel.pause();
-   reel.currentTime = REEL_START;
+   reel.loop = true;
+   playReel();
   }
   const overlay = document.createElement('div');
   overlay.className = 'portfolio-intro';

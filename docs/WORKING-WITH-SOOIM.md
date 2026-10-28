@@ -56,3 +56,5 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 - **Acuity, pitch:** `assets/acuity/pitch/acuity-pitch.jpg` is referenced by the page. Confirm it is present once pushed.
 - **Forage:** `assets/forage/iterations/forage-prd.pdf` (the PRD linked in Iterations) is referenced but not in the repo. Add the file.
 - **Yap:** `assets/yap/build/yap-build-design.png` is referenced by the component-library figure. Add the file.
+
+Mobile rhythm update (Oct 27): explanation→media 24px, media→caption 32px, caption title→body 12px, subsection/card groups 40px, full sections 120px. Consecutive views remain 12px. Shared rules are in case.css and documented in SPACING.md.

@@ -305,3 +305,16 @@ body.case-page main .ac-r .ac-roi p.ac-big { font-size: var(--ac-hero); letter-s
 	body.case-page main .ac-journey2 .ac-journey2__what{padding:1.4cqw 1.6cqw;font-size:2.2cqw}
 	body.case-page main .ac-journey2 .ac-journey2__why{padding:1.6cqw;font-size:2.4cqw;overflow-wrap:anywhere;hyphens:auto}
 }
+
+body[data-case="acuity"] main .pmap__pt.hi { background: var(--acuity-position); color: var(--ink); }
+body[data-case="acuity"] main .pmap__pt { min-height: 3.6cqw; padding: .6cqw 1cqw; }
+body[data-case="acuity"] main .ac-aistack .ac-aistack__figma-make { left: 38%; width: 24%; }
+body[data-case="acuity"] main .ac-aistack__figma-make .board__title { white-space: normal; }
+@media (max-width: 700px) {
+ body[data-case="acuity"] main .fig.ac-vstack { aspect-ratio: auto; padding-block: 7cqw; }
+ body[data-case="acuity"] main .fig.ac-vstack video { flex: none; width: 100%; height: auto; aspect-ratio: 458 / 272; object-fit: contain; }
+}
+@media (max-width: 700px) {
+ body[data-case="acuity"] main .nt-media:has(video[src*="states.mp4"]) .dx-media { aspect-ratio: 4 / 5; }
+ body[data-case="acuity"] main video[src*="states.mp4"] { object-fit: contain; }
+}
