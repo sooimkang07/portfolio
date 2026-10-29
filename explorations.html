@@ -1,36 +1,1049 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <script src="js/preview-gate.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorations · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=mobile42" />
-  <link rel="stylesheet" href="css/glass.css?v=2-ds2">
-  <link rel="stylesheet" href="css/site.css?v=mobile42" />
-  <link rel="icon" href="favicon/favicon.ico?v=2" sizes="any">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2">
-	<link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2">
-	<link rel="apple-touch-icon" href="favicon/touch.png?v=2">
-  <link rel="stylesheet" href="css/explorations.css?v=ds4-ts2-x2-ama1-nosnap-rsp10" />
-  <meta name="robots" content="noindex">
-	<!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=ds9" /> -->
-	<script src="js/page-fade.js?v=1"></script>
-</head>
-<body id="top" class="home expl2-page">
+  <head>
+    <script src="js/preview-gate.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorations · Sooim Kang</title>
+    <link rel="stylesheet" href="css/base.css?v=spacing103" />
+    <link rel="stylesheet" href="css/glass.css?v=clean45" />
+    <link rel="stylesheet" href="css/site.css?v=burger87" />
+    <link rel="icon" href="favicon/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2" />
+    <link rel="apple-touch-icon" href="favicon/touch.png?v=2" />
+    <link rel="stylesheet" href="css/explorations.css?v=spacing96" />
+    <meta name="robots" content="noindex" />
+    <!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=spacing57" /> -->
+    <script src="js/page-fade.js?v=1"></script>
+  </head>
+  <body id="top" class="home expl2-page">
+    <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
+      <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
+      <div class="nav__bar">
+        <button
+          type="button"
+          class="nav__hit"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          tabindex="-1"
+        ></button>
+        <a href="/" class="nav__logo" aria-label="Sooim Kang — home">
+          <span class="nav__logo-name" aria-hidden="true">Sooim Kang</span>
+          <span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span>
+        </a>
+        <span class="nav__mark" aria-hidden="true">
+          <span class="nav__mark-dot">•</span>
+          <span class="nav__mark-dash">—</span>
+        </span>
+        <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
+          <a href="work" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Work</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+              </span>
+            </span>
+          </a>
+          <a href="explorations" class="nav__menu-link is-active">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Explorations</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
+              </span>
+            </span>
+          </a>
+          <a href="about" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">About</span>
+                <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+              </span>
+            </span>
+          </a>
+          <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Resume</span>
+                <span class="nav__menu-title" aria-hidden="true">Download</span>
+              </span>
+            </span>
+          </a>
+        </nav>
+      </div>
+      <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
+        <a href="work" class="nav__strip-link">Work</a>
+        <a href="explorations" class="nav__strip-link is-active">Explorations</a>
+        <a href="about" class="nav__strip-link">About</a>
+        <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">
+          Resume
+        </a>
+      </nav>
+    </header>
 
-  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-    <div class="nav__bar">
-      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-      <a href="/" class="nav__logo" aria-label="Sooim Kang — home"><span class="nav__logo-name" aria-hidden="true">Sooim Kang</span><span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span></a>
-      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span><span></span>
-      </button>
-      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="work" class="nav__menu-link">
+    <main class="ex">
+      <header class="ex-head">
+        <h1 class="ex-head__title">Explorations</h1>
+        <p class="ex-head__intro">
+          Vibe-coded experiments, brand and campaign work, and websites designed and coded by hand.
+        </p>
+      </header>
+      <section class="ex-row" id="ibff" aria-labelledby="ibff-title">
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="ibff-title">IBFF</h2>
+          <p class="ex-row__meta">2026 · Festival Design · Concept</p>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll IBFF left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll IBFF right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="ex-row__rail" tabindex="0" role="group" aria-label="IBFF media">
+          <figure class="ex-item ex-item--browser">
+            <div class="ex-browser">
+              <div class="ex-browser__bar" aria-hidden="true">
+                <span class="ex-browser__dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span class="ex-browser__url">ibff</span>
+              </div>
+              <div class="ex-browser__screen">
+                <video
+                  data-src="assets/explorations/ibff/ibff-hero.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                ></video>
+              </div>
+            </div>
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <video
+              data-src="assets/explorations/ibff/ibff-menu.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <div class="ex-stack">
+            <figure class="ex-item" style="--ar: 1280 / 720" data-ar-auto>
+              <video
+                data-src="assets/explorations/ibff/ibff-program.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+            </figure>
+            <figure class="ex-item" style="--ar: 1280 / 720" data-ar-auto>
+              <video
+                data-src="assets/explorations/ibff/ibff-tickets.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+            </figure>
+            <figure class="ex-item" style="--ar: 1280 / 720" data-ar-auto>
+              <video
+                data-src="assets/explorations/ibff/ibff-venues.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+            </figure>
+          </div>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <video
+              data-src="assets/explorations/ibff/ibff-logo.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <figure class="ex-item" style="--ar: 1080 / 1920" data-ar-auto>
+            <video
+              data-src="assets/explorations/ibff/ibff-ib-story.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <figure class="ex-item" style="--ar: 1514 / 850" data-ar-auto>
+            <img
+              src="assets/explorations/ibff/ibff-card.png"
+              alt="IBFF card"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 477 / 848" data-ar-auto>
+            <img
+              src="assets/explorations/ibff/ibff-story.png"
+              alt="IBFF story"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <video
+              data-src="assets/explorations/ibff/ibff-friends-lovers-right-wrong.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <figure class="ex-item" style="--ar: 1080 / 1920" data-ar-auto>
+            <video
+              data-src="assets/explorations/ibff/ibff-in-between-story.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+        </div>
+      </section>
+      <section
+        class="ex-row"
+        id="digital-expression-fellowship"
+        aria-labelledby="digital-expression-fellowship-title"
+      >
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="digital-expression-fellowship-title">
+            Digital Expression Fellowship
+          </h2>
+          <p class="ex-row__meta">2026 · Fellowship Winner</p>
+          <a
+            class="ex-row__link"
+            href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>View project ↗</span>
+                <span aria-hidden="true">View project ↗</span>
+              </span>
+            </span>
+          </a>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll Digital Expression Fellowship left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll Digital Expression Fellowship right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div
+          class="ex-row__rail"
+          tabindex="0"
+          role="group"
+          aria-label="Digital Expression Fellowship media"
+        >
+          <figure class="ex-item" style="--ar: 1152 / 2160" data-ar-auto>
+            <video
+              data-src="assets/explorations/fellowship/fellowship-video.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <figure class="ex-item" style="--ar: 1080 / 1920" data-ar-auto>
+            <video
+              data-src="assets/explorations/fellowship/fellowship-installation.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              aria-hidden="true"
+            ></video>
+          </figure>
+          <figure class="ex-item" style="--ar: 661 / 881" data-ar-auto>
+            <img
+              src="assets/explorations/fellowship/fellowship-candid.jpg"
+              alt="Sooim at the Digital Expression Fellowship exhibition"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1068 / 1600" data-ar-auto>
+            <img
+              src="assets/explorations/fellowship/fellows-1600.jpg"
+              alt="The Digital Expression Fellowship cohort in front of the Parsons wall"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <section class="ex-row" id="build-a-bubu" aria-labelledby="build-a-bubu-title">
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="build-a-bubu-title">Build-a-Bubu</h2>
+          <p class="ex-row__meta">2026 · Vibe Coding</p>
+          <a
+            class="ex-row__link"
+            href="https://build-a-bubu.vercel.app/avatar"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>Build-a-Bubu ↗</span>
+                <span aria-hidden="true">Build-a-Bubu ↗</span>
+              </span>
+            </span>
+          </a>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll Build-a-Bubu left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll Build-a-Bubu right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="ex-row__rail" tabindex="0" role="group" aria-label="Build-a-Bubu media">
+          <figure class="ex-item ex-item--browser">
+            <div class="ex-browser">
+              <div class="ex-browser__bar" aria-hidden="true">
+                <span class="ex-browser__dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span class="ex-browser__url">build-a-bubu.vercel.app</span>
+              </div>
+              <div class="ex-browser__screen">
+                <video
+                  data-src="assets/explorations/labubu/build-a-bubu-cover.mp4"
+                  poster="assets/explorations/labubu/build-a-bubu-cover.jpg"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-label="Build-a-Bubu desktop website walkthrough"
+                ></video>
+              </div>
+            </div>
+          </figure>
+          <figure data-phone="bubu" class="ex-item ex-item--phone" style="--ar: 562 / 1189">
+            <img
+              class="ex-phone__frame"
+              src="assets/yap/demo/yap-iphone-frame.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <div class="ex-phone__screen">
+              <div class="ex-phone__status" aria-hidden="true">
+                <span class="ex-phone__time">9:31
+                  <img class="ex-phone__icon ex-phone__icon--silent" src="assets/explorations/frames/status/silent.png" alt="" />
+                </span>
+                <span class="ex-phone__signals">
+                  <img class="ex-phone__icon ex-phone__icon--cellular" src="assets/explorations/frames/status/cellular.png" alt="" />
+                  <img class="ex-phone__icon ex-phone__icon--wifi" src="assets/explorations/frames/status/wifi.png" alt="" />
+                  <span class="ex-phone__battery">
+                    <img class="ex-phone__icon" src="assets/explorations/frames/status/battery.png" alt="" />
+                  </span>
+                </span>
+              </div>
+              <iframe
+                data-src="https://build-a-bubu.vercel.app/avatar"
+                title="Build-a-Bubu on iPhone 16 Pro"
+                loading="lazy"
+                tabindex="-1"
+              ></iframe>
+              <div class="ex-phone__browser" aria-hidden="true">
+                <span class="ex-phone__back glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 4 7 12l8 8" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__address glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 8h14M5 15h14" />
+                  </svg >
+                  <span>build-a-bubu.vercel.app</span
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 5a8 8 0 1 0 2 10M14 1l5 4-5 4" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__tabs glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 7V3h12v13h-4M4 8h12v13H4z" />
+                  </svg >
+                </span>
+              </div>
+            </div>
+            <span class="ex-phone__island" aria-hidden="true"></span>
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <img
+              src="assets/explorations/labubu/bubu.png"
+              alt="Bubu"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <section class="ex-row" id="hand-coded-sites" aria-labelledby="hand-coded-sites-title">
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="hand-coded-sites-title">Hand-Coded Sites</h2>
+          <p class="ex-row__meta">2026 · Hand-coded sites</p>
+          <a
+            class="ex-row__link"
+            href="https://sooimkang07.github.io/links/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>Nothing Good Happens After Midnight ↗</span>
+                <span aria-hidden="true">Nothing Good Happens After Midnight ↗</span>
+              </span>
+            </span>
+          </a>
+          <a
+            class="ex-row__link"
+            href="https://sooimkang07.github.io/binding/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>Windows of Style ↗</span>
+                <span aria-hidden="true">Windows of Style ↗</span>
+              </span>
+            </span>
+          </a>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll Hand-Coded Sites left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll Hand-Coded Sites right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="ex-row__rail" tabindex="0" role="group" aria-label="Hand-Coded Sites media">
+          <figure class="ex-item ex-item--browser">
+            <div class="ex-browser">
+              <div class="ex-browser__bar" aria-hidden="true">
+                <span class="ex-browser__dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span class="ex-browser__url">sooimkang07.github.io/links</span>
+              </div>
+              <div class="ex-browser__screen">
+                <iframe
+                  data-src="https://sooimkang07.github.io/links/"
+                  title="Nothing Good Happens After Midnight desktop website"
+                  loading="lazy"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+            </div>
+          </figure>
+          <figure data-phone="midnight" class="ex-item ex-item--phone" style="--ar: 562 / 1189">
+            <img
+              class="ex-phone__frame"
+              src="assets/yap/demo/yap-iphone-frame.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <div class="ex-phone__screen">
+              <div class="ex-phone__status" aria-hidden="true">
+                <span class="ex-phone__time">9:31
+                  <img class="ex-phone__icon ex-phone__icon--silent" src="assets/explorations/frames/status/silent.png" alt="" />
+                </span>
+                <span class="ex-phone__signals">
+                  <img class="ex-phone__icon ex-phone__icon--cellular" src="assets/explorations/frames/status/cellular.png" alt="" />
+                  <img class="ex-phone__icon ex-phone__icon--wifi" src="assets/explorations/frames/status/wifi.png" alt="" />
+                  <span class="ex-phone__battery">
+                    <img class="ex-phone__icon" src="assets/explorations/frames/status/battery.png" alt="" />
+                  </span>
+                </span>
+              </div>
+              <iframe
+                data-src="https://sooimkang07.github.io/links/"
+                title="Nothing Good Happens After Midnight on iPhone 16 Pro"
+                loading="lazy"
+                tabindex="-1"
+              ></iframe>
+              <div class="ex-phone__browser" aria-hidden="true">
+                <span class="ex-phone__back glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 4 7 12l8 8" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__address glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 8h14M5 15h14" />
+                  </svg >
+                  <span>sooimkang07.github.io</span
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 5a8 8 0 1 0 2 10M14 1l5 4-5 4" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__tabs glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 7V3h12v13h-4M4 8h12v13H4z" />
+                  </svg >
+                </span>
+              </div>
+            </div>
+            <span class="ex-phone__island" aria-hidden="true"></span>
+          </figure>
+          <figure class="ex-item ex-item--browser">
+            <div class="ex-browser">
+              <div class="ex-browser__bar" aria-hidden="true">
+                <span class="ex-browser__dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span class="ex-browser__url">sooimkang07.github.io/binding</span>
+              </div>
+              <div class="ex-browser__screen">
+                <iframe
+                  data-src="https://sooimkang07.github.io/binding/"
+                  title="Windows of Style desktop website"
+                  loading="lazy"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+            </div>
+          </figure>
+          <figure data-phone="windows" class="ex-item ex-item--phone" style="--ar: 562 / 1189">
+            <img
+              class="ex-phone__frame"
+              src="assets/yap/demo/yap-iphone-frame.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <div class="ex-phone__screen">
+              <div class="ex-phone__status" aria-hidden="true">
+                <span class="ex-phone__time">9:32
+                  <img class="ex-phone__icon ex-phone__icon--silent" src="assets/explorations/frames/status/silent.png" alt="" />
+                </span>
+                <span class="ex-phone__signals">
+                  <img class="ex-phone__icon ex-phone__icon--cellular" src="assets/explorations/frames/status/cellular.png" alt="" />
+                  <img class="ex-phone__icon ex-phone__icon--wifi" src="assets/explorations/frames/status/wifi.png" alt="" />
+                  <span class="ex-phone__battery">
+                    <img class="ex-phone__icon" src="assets/explorations/frames/status/battery.png" alt="" />
+                  </span>
+                </span>
+              </div>
+              <iframe
+                data-src="https://sooimkang07.github.io/binding/"
+                title="Windows of Style on iPhone 16 Pro"
+                loading="lazy"
+                tabindex="-1"
+              ></iframe>
+              <div class="ex-phone__browser" aria-hidden="true">
+                <span class="ex-phone__back glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 4 7 12l8 8" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__address glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 8h14M5 15h14" />
+                  </svg >
+                  <span>sooimkang07.github.io</span
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 5a8 8 0 1 0 2 10M14 1l5 4-5 4" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__tabs glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 7V3h12v13h-4M4 8h12v13H4z" />
+                  </svg >
+                </span>
+              </div>
+            </div>
+            <span class="ex-phone__island" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </section>
+      <!-- Hidden for now: uncomment to restore.
+    <section class="ex-row" id="kc-mag" aria-labelledby="kc-mag-title">
+      <header class="ex-row__head">
+        <h2 class="ex-row__title" id="kc-mag-title">KC MAG</h2>
+        <p class="ex-row__meta">In progress</p>
+        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll KC MAG left"><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/>
+        </svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll KC MAG right"><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/>
+        </svg></button></div>
+      </header>
+      <div class="ex-row__rail" tabindex="0" role="group" aria-label="KC MAG media">
+        <figure class="ex-item ex-item--placeholder" style="--ar: 16 / 9    "><span>KC MAG</span></figure>
+      </div>
+    </section>
+    -->
+      <section class="ex-row" id="ama" aria-labelledby="ama-title">
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="ama-title">AMA</h2>
+          <p class="ex-row__meta">2023 · Web Design</p>
+          <a
+            class="ex-row__link"
+            href="https://www.ama-digital.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>AMA-Digital ↗</span>
+                <span aria-hidden="true">AMA-Digital ↗</span>
+              </span>
+            </span>
+          </a>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll AMA left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll AMA right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="ex-row__rail" tabindex="0" role="group" aria-label="AMA media">
+          <figure class="ex-item ex-item--browser">
+            <div class="ex-browser">
+              <div class="ex-browser__bar" aria-hidden="true">
+                <span class="ex-browser__dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span class="ex-browser__url">www.ama-digital.com</span>
+              </div>
+              <div class="ex-browser__screen">
+                <iframe
+                  data-src="https://www.ama-digital.com/"
+                  title="AMA Digital desktop website"
+                  loading="lazy"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+            </div>
+          </figure>
+          <figure data-phone="ama" class="ex-item ex-item--phone" style="--ar: 562 / 1189">
+            <img
+              class="ex-phone__frame"
+              src="assets/yap/demo/yap-iphone-frame.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <div class="ex-phone__screen">
+              <div class="ex-phone__status" aria-hidden="true">
+                <span class="ex-phone__time">9:31
+                  <img class="ex-phone__icon ex-phone__icon--silent" src="assets/explorations/frames/status/silent.png" alt="" />
+                </span>
+                <span class="ex-phone__signals">
+                  <img class="ex-phone__icon ex-phone__icon--cellular" src="assets/explorations/frames/status/cellular.png" alt="" />
+                  <img class="ex-phone__icon ex-phone__icon--wifi" src="assets/explorations/frames/status/wifi.png" alt="" />
+                  <span class="ex-phone__battery">
+                    <img class="ex-phone__icon" src="assets/explorations/frames/status/battery.png" alt="" />
+                  </span>
+                </span>
+              </div>
+              <iframe
+                data-src="https://www.ama-digital.com/"
+                title="AMA Digital on iPhone 16 Pro"
+                loading="lazy"
+                tabindex="-1"
+              ></iframe>
+              <div class="ex-phone__browser" aria-hidden="true">
+                <span class="ex-phone__back glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 4 7 12l8 8" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__address glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 8h14M5 15h14" />
+                  </svg >
+                  <span>ama-digital.com</span
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 5a8 8 0 1 0 2 10M14 1l5 4-5 4" />
+                  </svg>
+                </span
+                >
+                <span class="ex-phone__tabs glass"
+                  >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 7V3h12v13h-4M4 8h12v13H4z" />
+                  </svg >
+                </span>
+              </div>
+            </div>
+            <span class="ex-phone__island" aria-hidden="true"></span>
+          </figure>
+          <div class="ex-stack" style="--n: 2">
+            <figure class="ex-item" style="--ar: 1920 / 1200" data-ar-auto>
+              <video
+                data-src="assets/explorations/ama/ab-testing.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+            </figure>
+            <figure class="ex-item" style="--ar: 1920 / 1200" data-ar-auto>
+              <video
+                data-src="assets/explorations/ama/general-channel-analytics.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+            </figure>
+          </div>
+          <figure class="ex-item" style="--ar: 718 / 1104" data-ar-auto>
+            <img
+              src="assets/explorations/ama/ama-merch-design-web.jpg"
+              alt="AMA × Jellysmack merch design with a contour-line pattern"
+              width="718"
+              height="1104"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <img
+              src="assets/explorations/ama/ama-hoodie.jpg"
+              alt="AMA hoodie"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <img
+              src="assets/explorations/ama/ama-marketing.png"
+              alt="AMA marketing"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <img
+              src="assets/explorations/ama/ama-logos-sketches.jpg"
+              alt="AMA logo sketches"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 1920 / 1080" data-ar-auto>
+            <img
+              src="assets/explorations/ama/ama-final-logo.jpg"
+              alt="AMA final logo"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <!-- Hidden for now: uncomment to restore.
+    <section class="ex-row" id="ds" aria-labelledby="ds-title">
+      <header class="ex-row__head">
+        <h2 class="ex-row__title" id="ds-title">DS</h2>
+        <p class="ex-row__meta">In progress</p>
+        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll DS left"><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/>
+        </svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll DS right"><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/>
+        </svg></button></div>
+      </header>
+      <div class="ex-row__rail" tabindex="0" role="group" aria-label="DS media">
+        <figure class="ex-item ex-item--placeholder" style="--ar: 16 / 9    "><span>DS</span></figure>
+      </div>
+    </section>
+    -->
+      <section class="ex-row" id="sam" aria-labelledby="sam-title">
+        <header class="ex-row__head">
+          <h2 class="ex-row__title" id="sam-title">
+            Student Affairs Marketing, Northwestern University (NU)
+          </h2>
+          <p class="ex-row__meta">2019-22 · Marketing Campaigns</p>
+          <a
+            class="ex-row__link"
+            href="https://www.northwestern.edu/studentaffairs/marketing/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flip">
+              <span class="flip__track">
+                <span>NU SAM ↗</span>
+                <span aria-hidden="true">NU SAM ↗</span>
+              </span>
+            </span>
+          </a>
+          <div class="ex-row__nav">
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="-1"
+              aria-label="Scroll SAM left"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+              </svg>
+            </button>
+            <button
+              class="ex-row__btn glass"
+              type="button"
+              data-dir="1"
+              aria-label="Scroll SAM right"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="ex-row__rail" tabindex="0" role="group" aria-label="SAM media">
+          <figure class="ex-item" style="--ar: 2000 / 1061">
+            <img
+              src="assets/explorations/sam/smart-dillo.jpg"
+              alt="Smart Dillo"
+              width="2000"
+              height="1061"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 16 / 9">
+            <img
+              src="assets/explorations/sam/acr-area-posters-stickers.jpg"
+              alt="ACR area posters and mirror stickers"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 16 / 9">
+            <img
+              src="assets/explorations/sam/acr-hallway-installations.jpg"
+              alt="ACR hallway installations"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 9 / 16">
+            <img
+              src="assets/explorations/sam/area-banner-poster.jpg"
+              alt="Area banner poster"
+              width="1080"
+              height="1920"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 16 / 9">
+            <img
+              src="assets/explorations/sam/area-banners.jpg"
+              alt="Area banners on campus lamp posts"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="ex-item" style="--ar: 16 / 9">
+            <img
+              src="assets/explorations/sam/ra-recruitment.jpg"
+              alt="RA recruitment materials"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer portfolio-footer">
+      <div class="portfolio-footer__invite">
+        <h2>
+          Let’s make
+          <br />
+          something
+          <br />
+          worth using.
+        </h2>
+      </div>
+      <div class="portfolio-footer__portrait">
+        <img
+          src="assets/about/hero/me.jpg"
+          alt="Sooim Kang"
+          loading="lazy"
+          width="1080"
+          height="1080"
+        />
+        <a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello">
+          <span class="ab-fav__app-pill">SAY HELLO</span>
+          <span class="ab-fav__app-dot" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="portfolio-footer__bio">
+        <strong>Sooim Kang</strong>
+        <p>
+          Product designer &amp; builder
+          <br />
+          Based in New York City
+          <br />
+          The New School · Parsons School of Design
+          <br />
+          Northwestern University · Medill School of Journalism
+        </p>
+      </div>
+      <nav class="portfolio-footer__nav" aria-label="Footer">
+        <a class="nav__menu-link" href="work">
           <span class="flip">
             <span class="flip__track">
               <span class="nav__menu-title">Work</span>
@@ -38,15 +1051,7 @@
             </span>
           </span>
         </a>
-        <a href="explorations" class="nav__menu-link is-active">
-          <span class="flip">
-            <span class="flip__track">
-              <span class="nav__menu-title">Explorations</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-            </span>
-          </span>
-        </a>
-        <a href="about" class="nav__menu-link">
+        <a class="nav__menu-link" href="about">
           <span class="flip">
             <span class="flip__track">
               <span class="nav__menu-title">About</span>
@@ -54,154 +1059,60 @@
             </span>
           </span>
         </a>
-        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+        <a class="nav__menu-link" href="explorations">
           <span class="flip">
             <span class="flip__track">
-              <span class="nav__menu-title">Resume</span>
-              <span class="nav__menu-title" aria-hidden="true">Download</span>
+              <span class="nav__menu-title">Explorations</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
             </span>
           </span>
         </a>
+        <div class="portfolio-footer__social">
+          <a
+            class="ab-icon glass"
+            href="Sooim-Kang-Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            aria-label="Resume (PDF)"
+            title="Resume"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://linkedin.com/in/sooimkang/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="8.3" cy="8.4" r="1.2" fill="currentColor" />
+              <path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://github.com/sooimkang07"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" />
+            </svg>
+          </a>
+        </div>
       </nav>
-    </div>
-    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="work" class="nav__strip-link">Work</a>
-      <a href="explorations" class="nav__strip-link is-active">Explorations</a>
-      <a href="about" class="nav__strip-link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
+    </footer>
 
-    <main class="ex">
-    <header class="ex-head">
-      <h1 class="ex-head__title">Explorations</h1>
-      <p class="ex-head__intro">Things I vibe-coded with AI, brand and campaign work, and websites I designed and coded by hand.</p>
-    </header>
-    <section class="ex-row" id="ibff" aria-labelledby="ibff-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="ibff-title">IBFF</h2>
-        <p class="ex-row__meta">2026 · Festival Design · Concept</p>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll IBFF left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll IBFF right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="IBFF media">
-        <figure class="ex-item ex-item--browser"><div class="ex-browser"><div class="ex-browser__bar" aria-hidden="true"><span class="ex-browser__dots"><i></i><i></i><i></i></span><span class="ex-browser__url">ibff</span></div><div class="ex-browser__screen"><video data-src="assets/explorations/ibff/ibff-hero.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></div></div></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-menu.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <div class="ex-stack"><figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-program.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure><figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-tickets.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure><figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-venues.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure></div>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-logo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <figure class="ex-item" style="--ar: 9 / 16" data-ar-auto><video data-src="assets/explorations/ibff/ibff-ib-story.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><img src="assets/explorations/ibff/ibff-card.png" alt="IBFF card" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 9 / 16" data-ar-auto><img src="assets/explorations/ibff/ibff-story.png" alt="IBFF story" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><video data-src="assets/explorations/ibff/ibff-friends-lovers-right-wrong.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <figure class="ex-item" style="--ar: 9 / 16" data-ar-auto><video data-src="assets/explorations/ibff/ibff-in-between-story.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-      </div>
-    </section>
-    <section class="ex-row" id="digital-expression-fellowship" aria-labelledby="digital-expression-fellowship-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="digital-expression-fellowship-title">Digital Expression Fellowship</h2>
-        <p class="ex-row__meta">2026 · Fellowship Winner</p>
-        <a class="ex-row__link" href="https://drive.google.com/drive/folders/1D61lkpVbPyxrFXdmLOwU1BHQO0-giYFb?usp=sharing" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>View project ↗</span><span aria-hidden="true">View project ↗</span></span></span></a>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll Digital Expression Fellowship left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll Digital Expression Fellowship right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="Digital Expression Fellowship media">
-        <figure class="ex-item" style="--ar: 1152 / 2160" data-ar-auto><video data-src="assets/explorations/fellowship/fellowship-video.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <figure class="ex-item" style="--ar: 1080 / 1920" data-ar-auto><video data-src="assets/explorations/fellowship/fellowship-installation.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure>
-        <figure class="ex-item" style="--ar: 661 / 881" data-ar-auto><img src="assets/explorations/fellowship/fellowship-candid.jpg" alt="Sooim at the Digital Expression Fellowship exhibition" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 1068 / 1600" data-ar-auto><img src="assets/explorations/fellowship/fellows-1600.jpg" alt="The Digital Expression Fellowship cohort in front of the Parsons wall" loading="lazy" decoding="async"></figure>
-      </div>
-    </section>
-    <section class="ex-row" id="build-a-bubu" aria-labelledby="build-a-bubu-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="build-a-bubu-title">Build-a-Bubu</h2>
-        <p class="ex-row__meta">2026 · Vibe Coding</p>
-        <a class="ex-row__link" href="https://build-a-bubu.vercel.app/avatar" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>Build-a-Bubu ↗</span><span aria-hidden="true">Build-a-Bubu ↗</span></span></span></a>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll Build-a-Bubu left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll Build-a-Bubu right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="Build-a-Bubu media">
-        <figure class="ex-item ex-item--browser"><div class="ex-browser"><div class="ex-browser__bar" aria-hidden="true"><span class="ex-browser__dots"><i></i><i></i><i></i></span><span class="ex-browser__url">build-a-bubu.vercel.app</span></div><div class="ex-browser__screen"><video data-src="assets/explorations/labubu/build-a-bubu-cover.mp4" poster="assets/explorations/labubu/build-a-bubu-cover.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div></div></figure>
-        <figure class="ex-item" style="--ar: 1 / 1" data-ar-auto><img src="assets/explorations/labubu/bubu.png" alt="Bubu" loading="lazy" decoding="async"></figure>
-      </div>
-    </section>
-    <section class="ex-row" id="hand-coded-sites" aria-labelledby="hand-coded-sites-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="hand-coded-sites-title">Hand-Coded Sites</h2>
-        <p class="ex-row__meta">2026 · Hand-coded sites</p>
-        <a class="ex-row__link" href="https://sooimkang07.github.io/links/" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>Nothing Good Happens After Midnight ↗</span><span aria-hidden="true">Nothing Good Happens After Midnight ↗</span></span></span></a>
-        <a class="ex-row__link" href="https://sooimkang07.github.io/binding/" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>Windows of Style ↗</span><span aria-hidden="true">Windows of Style ↗</span></span></span></a>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll Hand-Coded Sites left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll Hand-Coded Sites right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="Hand-Coded Sites media">
-        <figure class="ex-item ex-item--browser"><div class="ex-browser"><div class="ex-browser__bar" aria-hidden="true"><span class="ex-browser__dots"><i></i><i></i><i></i></span><span class="ex-browser__url">sooimkang07.github.io/links</span></div><div class="ex-browser__screen"><iframe data-src="https://sooimkang07.github.io/links/" title="Nothing Good Happens After Midnight website" loading="lazy" tabindex="-1"></iframe></div></div></figure>
-        <figure class="ex-item ex-item--browser"><div class="ex-browser"><div class="ex-browser__bar" aria-hidden="true"><span class="ex-browser__dots"><i></i><i></i><i></i></span><span class="ex-browser__url">sooimkang07.github.io/binding</span></div><div class="ex-browser__screen"><video data-src="assets/explorations/hand-coded/windows-of-style-cover.mp4" poster="assets/explorations/hand-coded/windows-of-style-cover.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div></div></figure>
-      </div>
-    </section>
-    <!-- Hidden for now: uncomment to restore.
-    <section class="ex-row" id="kc-mag" aria-labelledby="kc-mag-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="kc-mag-title">KC MAG</h2>
-        <p class="ex-row__meta">In progress</p>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll KC MAG left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll KC MAG right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="KC MAG media">
-        <figure class="ex-item ex-item--placeholder" style="--ar: 16 / 9"><span>KC MAG</span></figure>
-      </div>
-    </section>
-    -->
-    <section class="ex-row" id="ama" aria-labelledby="ama-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="ama-title">AMA</h2>
-        <p class="ex-row__meta">2023 · Web Design</p>
-        <a class="ex-row__link" href="https://www.ama-digital.com/" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>AMA-Digital ↗</span><span aria-hidden="true">AMA-Digital ↗</span></span></span></a>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll AMA left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll AMA right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="AMA media">
-        <figure class="ex-item ex-item--browser"><div class="ex-browser"><div class="ex-browser__bar" aria-hidden="true"><span class="ex-browser__dots"><i></i><i></i><i></i></span><span class="ex-browser__url">ama-digital.com</span></div><div class="ex-browser__screen"><iframe data-src="https://www.ama-digital.com/" title="AMA website" loading="lazy" tabindex="-1"></iframe></div></div></figure>
-        <div class="ex-stack" style="--n:2"><figure class="ex-item" style="--ar: 16 / 10" data-ar-auto><video data-src="assets/explorations/ama/ab-testing.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure><figure class="ex-item" style="--ar: 16 / 10" data-ar-auto><video data-src="assets/explorations/ama/general-channel-analytics.mp4" muted loop playsinline preload="none" aria-hidden="true"></video></figure></div>
-        <figure class="ex-item" style="--ar: 718 / 1104" data-ar-auto><img src="assets/explorations/ama/ama-merch-design-web.jpg" alt="AMA × Jellysmack merch design with a contour-line pattern" width="718" height="1104" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><img src="assets/explorations/ama/ama-hoodie.jpg" alt="AMA hoodie" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><img src="assets/explorations/ama/ama-marketing.png" alt="AMA marketing" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><img src="assets/explorations/ama/ama-logos-sketches.jpg" alt="AMA logo sketches" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9" data-ar-auto><img src="assets/explorations/ama/ama-final-logo.jpg" alt="AMA final logo" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-      </div>
-    </section>
-    <!-- Hidden for now: uncomment to restore.
-    <section class="ex-row" id="ds" aria-labelledby="ds-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="ds-title">DS</h2>
-        <p class="ex-row__meta">In progress</p>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll DS left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll DS right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="DS media">
-        <figure class="ex-item ex-item--placeholder" style="--ar: 16 / 9"><span>DS</span></figure>
-      </div>
-    </section>
-    -->
-    <section class="ex-row" id="sam" aria-labelledby="sam-title">
-      <header class="ex-row__head">
-        <h2 class="ex-row__title" id="sam-title">Student Affairs Marketing, Northwestern University (NU)</h2>
-        <p class="ex-row__meta">2019-22 · Marketing Campaigns</p>
-        <a class="ex-row__link" href="https://www.northwestern.edu/studentaffairs/marketing/" target="_blank" rel="noopener"><span class="flip"><span class="flip__track"><span>NU SAM ↗</span><span aria-hidden="true">NU SAM ↗</span></span></span></a>
-        <div class="ex-row__nav"><button class="ex-row__btn glass" type="button" data-dir="-1" aria-label="Scroll SAM left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z"/></svg></button><button class="ex-row__btn glass" type="button" data-dir="1" aria-label="Scroll SAM right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5 8.9 8.9-8.9 8.9z"/></svg></button></div>
-      </header>
-      <div class="ex-row__rail" tabindex="0" role="group" aria-label="SAM media">
-        <figure class="ex-item" style="--ar: 2000 / 1061"><img src="assets/explorations/sam/smart-dillo.jpg" alt="Smart Dillo" width="2000" height="1061" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9"><img src="assets/explorations/sam/acr-area-posters-stickers.jpg" alt="ACR area posters and mirror stickers" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9"><img src="assets/explorations/sam/acr-hallway-installations.jpg" alt="ACR hallway installations" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 9 / 16"><img src="assets/explorations/sam/area-banner-poster.jpg" alt="Area banner poster" width="1080" height="1920" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9"><img src="assets/explorations/sam/area-banners.jpg" alt="Area banners on campus lamp posts" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-        <figure class="ex-item" style="--ar: 16 / 9"><img src="assets/explorations/sam/ra-recruitment.jpg" alt="RA recruitment materials" width="1920" height="1080" loading="lazy" decoding="async"></figure>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer portfolio-footer">
- <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
- <div class="portfolio-footer__portrait"><img src="assets/about/hero/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
- <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>Based in New York City<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism</p></div>
- <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
-</footer>
-
-  <script src="js/site.js?v=mobile42"></script>
-  <script src="js/explorations.js?v=3-rsp11" defer></script>
-	<!-- Chatbot off for now: <script src="js/text-sooim.js?v=ds4-facts1" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
-</body>
+    <script src="js/site.js?v=burger87"></script>
+    <script src="js/explorations.js?v=mobile80" defer></script>
+    <!-- Chatbot off for now: <script src="js/text-sooim.js?v=breakpoints46" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
+  </body>
 </html>

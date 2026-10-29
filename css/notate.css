@@ -2,174 +2,1397 @@
    Builds on yap.css; the layout reference is yap.html. */
 
 /* Text that follows a figure starts a new block */
-body.case-page main .nt-section > .nt-media + .nt-reading { margin-top: var(--s-3); }
 
 /* ── Problem: three workarounds, each on a yap card ─────────────── */
 /* The stage keeps a 4:5 drawing inside the card, so the same art fits the 4:3 card on phones. */
-.ntp { container-type: size; }
-.ntp-stage { position: absolute; inset: 0; margin: auto; width: min(100cqw, 80cqh); height: min(125cqw, 100cqh); container-type: size; font-family: inherit; color: var(--ink); }
-.ntp-stage * { box-sizing: border-box; }
-.ntp-win { position: absolute; left: 8cqw; width: 84cqw; background: var(--surface); border-radius: calc(var(--fig-r) * 3); overflow: hidden; box-shadow:0 0 0 1px rgb(28 31 36 / .06), var(--shadow-raise); }
-.ntp-urlbar { display: flex; align-items: center; gap: 2cqw; height: 9cqw; padding: 0 3cqw; border-bottom: 1px solid var(--fig-bg); }
-.ntp-urlbar i { display: block; width: 2.2cqw; height: 2.2cqw; border-radius: 50%; background: var(--line); flex: none; }
-.ntp-urlbar b { display: block; flex: 1; height: 4.6cqw; border-radius: var(--r-pill); background: var(--fig-bg); }
-.ntp-lines { display: grid; gap: 2.6cqw; padding: 5cqw; }
-.ntp-tabs .ntp-lines { gap: 3.2cqw; padding: 6cqw 5cqw; }
-.ntp-tabs .ntp-lines i:nth-child(n+2) { height: 2.6cqw; }
-.ntp-lines i { display: block; height: 2.4cqw; border-radius: var(--fig-r); background: var(--fig-bg); }
-.ntp-lines i:first-child { width: 58%; height: 4.4cqw; background: var(--line); }
-.ntp-lines i:nth-child(3) { width: 86%; } .ntp-lines i:nth-child(4) { width: 72%; }
-.ntp-fav { display: block; flex: none; width: 3.6cqw; height: 3.6cqw; border-radius: var(--fig-r); background: var(--fav, var(--line-strong)); }
+.ntp {
+  container-type: size;
+}
+.ntp-stage {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  inline-size: min(100cqw, 80cqh);
+  block-size: min(125cqw, 100cqh);
+  container-type: size;
+  font-family: inherit;
+  color: var(--ink);
+  & * {
+    box-sizing: border-box;
+  }
+}
+.ntp-win {
+  position: absolute;
+  inset-inline-start: 8cqw;
+  inline-size: 84cqw;
+  background: var(--surface);
+  border-radius: calc(var(--fig-r) * 3);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 0.0625rem rgb(28 31 36 / 0.06),
+    var(--shadow-raise);
+}
+.ntp-urlbar {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+  block-size: 9cqw;
+  padding-block: 0;
+  padding-inline: 3cqw;
+  border-block-end: 0.0625rem solid var(--fig-bg);
+  & i {
+    display: block;
+    inline-size: 2.2cqw;
+    block-size: 2.2cqw;
+    border-radius: 50%;
+    background: var(--line);
+    flex: none;
+  }
+  & b {
+    display: block;
+    flex: 1;
+    block-size: 4.6cqw;
+    border-radius: var(--r-pill);
+    background: var(--fig-bg);
+  }
+}
+.ntp-lines {
+  display: grid;
+  gap: 2.6cqw;
+  padding: 5cqw;
+}
+.ntp-tabs {
+  & .ntp-lines {
+    gap: 3.2cqw;
+    padding-block: 6cqw;
+    padding-inline: 5cqw;
+    & i:nth-child(n + 2) {
+      block-size: 2.6cqw;
+    }
+  }
+}
+.ntp-lines {
+  & i {
+    display: block;
+    block-size: 2.4cqw;
+    border-radius: var(--fig-r);
+    background: var(--fig-bg);
+  }
+  & i:first-child {
+    inline-size: 58%;
+    block-size: 4.4cqw;
+    background: var(--line);
+  }
+  & i:nth-child(3) {
+    inline-size: 86%;
+  }
+  & i:nth-child(4) {
+    inline-size: 72%;
+  }
+}
+.ntp-fav {
+  display: block;
+  flex: none;
+  inline-size: 3.6cqw;
+  block-size: 3.6cqw;
+  border-radius: var(--fig-r);
+  background: var(--fav, var(--line-strong));
+}
 /* the tab you meant to keep starts out marked, then blends in as the others open */
-.ntp-fav--key { background: #ECDDB5; animation: ntp-key 10s ease-in-out infinite; }
-@keyframes ntp-key { 0%, 12% { background: #ECDDB5; } 55%, 86% { background: var(--line-strong); } 92%, 100% { background: #ECDDB5; } }
+.ntp-fav--key {
+  background: #ecddb5;
+  animation: ntp-key 10s ease-in-out infinite;
+}
+@keyframes ntp-key {
+  0%,
+  12% {
+    background: #ecddb5;
+  }
+  55%,
+  86% {
+    background: var(--line-strong);
+  }
+  92%,
+  100% {
+    background: #ecddb5;
+  }
+}
 
 /* Keeping tabs open: tabs keep opening until the one you meant to keep is just a favicon */
-.ntp-tabs .ntp-win { top: 25cqw; height: 75cqw; }
-.ntp-strip { display: flex; height: 11cqw; padding: 2cqw 2cqw 0; background: var(--line); }
-.ntp-tab { position: relative; display: flex; align-items: center; gap: 1.4cqw; flex: 1 1 0; min-width: 0; max-width: 30cqw; height: 9cqw; padding-inline: 1.6cqw; border-radius: calc(var(--fig-r) * 2) calc(var(--fig-r) * 2) 0 0; font-size: 3.3cqw; line-height: var(--lh-none); white-space: nowrap; overflow: hidden; background: transparent; animation: 10s ease-in-out infinite; }
-.ntp-tab b { min-width: 0; overflow: hidden; text-overflow: clip; font-weight: var(--fw-regular); }
-.ntp-tab:first-child { flex-basis: 30cqw; background: var(--surface); animation-name: ntp-tab-0; }
-.ntp-tab:not(:first-child) { flex-basis: 0; padding-inline: 0; opacity: 0; }
+.ntp-tabs {
+  & .ntp-win {
+    inset-block-start: 25cqw;
+    block-size: 75cqw;
+  }
+}
+.ntp-strip {
+  display: flex;
+  block-size: 11cqw;
+  padding-block: 2cqw 0;
+  padding-inline: 2cqw;
+  background: var(--line);
+}
+.ntp-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.4cqw;
+  flex: 1 1 0;
+  min-inline-size: 0;
+  max-inline-size: 30cqw;
+  block-size: 9cqw;
+  padding-inline: 1.6cqw;
+  border-radius: calc(var(--fig-r) * 2) calc(var(--fig-r) * 2) 0 0;
+  font-size: 3.3cqw;
+  line-height: var(--lh-none);
+  white-space: nowrap;
+  overflow: hidden;
+  background: transparent;
+  animation: 10s ease-in-out infinite;
+  & b {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: clip;
+    font-weight: var(--fw-regular);
+  }
+}
+.ntp-tab:first-child {
+  flex-basis: 30cqw;
+  background: var(--surface);
+  animation-name: ntp-tab-0;
+}
+.ntp-tab:not(:first-child) {
+  flex-basis: 0;
+  padding-inline: 0;
+  opacity: 0;
+}
 
 /* Bookmarking: saved pages pile up as titles, with nothing about why */
-.ntp-bookmarks .ntp-win { top: 19cqw; height: 87cqw; border-radius: calc(var(--fig-r) * 3); }
-.ntp-menuhead { display: flex; align-items: center; gap: 2cqw; height: 12cqw; padding: 0 4cqw; border-bottom: 1px solid var(--fig-bg); font-size: 3.6cqw; font-weight: var(--fw-medium); color: var(--ink); }
-.ntp-menuhead svg { width: 4.2cqw; height: 4.2cqw; flex: none; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linejoin: round; }
-.ntp-list { display: flex; flex-direction: column; padding: 1.5cqw 0; }
-.ntp-row { display: flex; align-items: center; gap: 2.4cqw; max-height: 0; height: 9cqw; padding: 0 4cqw; overflow: hidden; font-size: 3.4cqw; white-space: nowrap; opacity: 0; animation: 10s ease-out infinite; }
-.ntp-row b { font-weight: var(--fw-regular); overflow: hidden; text-overflow: ellipsis; }
+.ntp-bookmarks {
+  & .ntp-win {
+    inset-block-start: 19cqw;
+    block-size: 87cqw;
+    border-radius: calc(var(--fig-r) * 3);
+  }
+}
+.ntp-menuhead {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+  block-size: 12cqw;
+  padding-block: 0;
+  padding-inline: 4cqw;
+  border-block-end: 0.0625rem solid var(--fig-bg);
+  font-size: 3.6cqw;
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  & svg {
+    inline-size: 4.2cqw;
+    block-size: 4.2cqw;
+    flex: none;
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+}
+.ntp-list {
+  display: flex;
+  flex-direction: column;
+  padding-block: 1.5cqw;
+  padding-inline: 0;
+}
+.ntp-row {
+  display: flex;
+  align-items: center;
+  gap: 2.4cqw;
+  max-block-size: 0;
+  block-size: 9cqw;
+  padding-block: 0;
+  padding-inline: 4cqw;
+  overflow: hidden;
+  font-size: 3.4cqw;
+  white-space: nowrap;
+  opacity: 0;
+  animation: 10s ease-out infinite;
+  & b {
+    font-weight: var(--fw-regular);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 /* Screenshotting: the capture lands on the desktop, and the page it came from is gone */
-.ntp-shots .ntp-win { top: 12cqw; height: 60cqw; }
-.ntp-view { position: relative; height: 51cqw; }
-.ntp-page, .ntp-newtab { position: absolute; inset: 0; animation: 10s ease-in-out infinite; }
-.ntp-page { animation-name: ntp-page; }
-.ntp-page .ntp-lines { position: absolute; left: 41cqw; top: 12cqw; width: 39cqw; padding: 0; }
-.ntp-page .ntp-lines i:first-child { width: 100%; height: 2.4cqw; background: var(--fig-bg); }
-.ntp-head { position: absolute; left: 5cqw; top: 4.5cqw; width: 42cqw; height: 4.4cqw; border-radius: var(--fig-r); background: var(--line); }
-.ntp-img, .ntp-thumb { background: var(--fig-dot) linear-gradient(160deg, transparent 52%, var(--line-strong) 52%); }
-.ntp-img { position: absolute; left: 5cqw; top: 14cqw; width: 33cqw; height: 24cqw; border-radius: var(--fig-r); }
-.ntp-newtab { display: grid; place-items: center; opacity: 0; animation-name: ntp-newtab; }
-.ntp-newtab b { display: block; width: 46cqw; height: 6cqw; border-radius: var(--r-pill); background: var(--fig-bg); box-shadow: 0 0 0 1px var(--line); }
-.ntp-crop { position: absolute; left: 11.5cqw; top: 33.5cqw; width: 36cqw; height: 27cqw; border: 1.5px dashed var(--muted); transform-origin: 0 0; opacity: 0; animation: ntp-crop 10s ease-in-out infinite; }
-.ntp-flash { position: absolute; inset: 0; background: var(--surface); opacity: 0; animation: ntp-flash 10s linear infinite; }
-.ntp-desk { position: absolute; left: 8cqw; right: 8cqw; top: 84cqw; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3.2cqw; }
-.ntp-file { display: grid; justify-items: center; gap: 1.6cqw; font-size: 2.5cqw; line-height: var(--lh-tight); color: var(--muted); white-space: nowrap; }
-.ntp-file i { display: block; width: 100%; aspect-ratio: 36 / 27; border: 1cqw solid var(--surface); border-radius: var(--fig-r); background: var(--shot, var(--line)); box-shadow:var(--shadow-float); }
-.ntp-file:nth-child(2) i { --shot: var(--line); } .ntp-file:nth-child(3) i { --shot: #c9ced4; }
-.ntp-file--new { opacity: 0; animation: ntp-label 10s ease-in-out infinite; }
-.ntp-thumb { position: absolute; left: 11.5cqw; top: 33.5cqw; width: 36cqw; height: 27cqw; border: 1cqw solid var(--surface); border-radius: var(--fig-r); transform-origin: 0 0; opacity: 0; box-shadow:var(--shadow-float); animation: ntp-thumb 10s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes ntp-crop { 0%, 8% { opacity: 1; transform: scale(0); } 18%, 20% { opacity: 1; transform: scale(1); } 21%, 100% { opacity: 0; transform: scale(1); } }
-@keyframes ntp-flash { 0%, 20% { opacity: 0; } 21% { opacity: .85; } 26%, 100% { opacity: 0; } }
-@keyframes ntp-thumb { 0%, 21% { opacity: 0; transform: none; } 22%, 27% { opacity: 1; transform: none; } 38%, 86% { opacity: 1; transform: translate(61.9cqw, 50.5cqw) scale(.5167); } 91%, 100% { opacity: 0; transform: translate(61.9cqw, 50.5cqw) scale(.5167); } }
-@keyframes ntp-label { 0%, 37% { opacity: 0; } 40%, 86% { opacity: 1; } 91%, 100% { opacity: 0; } }
-@keyframes ntp-page { 0%, 48% { opacity: 1; } 54%, 88% { opacity: 0; } 94%, 100% { opacity: 1; } }
-@keyframes ntp-newtab { 0%, 48% { opacity: 0; } 54%, 88% { opacity: 1; } 94%, 100% { opacity: 0; } }
-.ntp-file--new i { visibility: hidden; }
+.ntp-shots {
+  & .ntp-win {
+    inset-block-start: 12cqw;
+    block-size: 60cqw;
+  }
+}
+.ntp-view {
+  position: relative;
+  block-size: 51cqw;
+}
+.ntp-page,
+.ntp-newtab {
+  position: absolute;
+  inset: 0;
+  animation: 10s ease-in-out infinite;
+}
+.ntp-page {
+  animation-name: ntp-page;
+  & .ntp-lines {
+    position: absolute;
+    inset-inline-start: 41cqw;
+    inset-block-start: 12cqw;
+    inline-size: 39cqw;
+    padding: 0;
+    & i:first-child {
+      inline-size: 100%;
+      block-size: 2.4cqw;
+      background: var(--fig-bg);
+    }
+  }
+}
+.ntp-head {
+  position: absolute;
+  inset-inline-start: 5cqw;
+  inset-block-start: 4.5cqw;
+  inline-size: 42cqw;
+  block-size: 4.4cqw;
+  border-radius: var(--fig-r);
+  background: var(--line);
+}
+.ntp-img,
+.ntp-thumb {
+  background: var(--fig-dot) linear-gradient(160deg, transparent 52%, var(--line-strong) 52%);
+}
+.ntp-img {
+  position: absolute;
+  inset-inline-start: 5cqw;
+  inset-block-start: 14cqw;
+  inline-size: 33cqw;
+  block-size: 24cqw;
+  border-radius: var(--fig-r);
+}
+.ntp-newtab {
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  animation-name: ntp-newtab;
+  & b {
+    display: block;
+    inline-size: 46cqw;
+    block-size: 6cqw;
+    border-radius: var(--r-pill);
+    background: var(--fig-bg);
+    box-shadow: 0 0 0 0.0625rem var(--line);
+  }
+}
+.ntp-crop {
+  position: absolute;
+  inset-inline-start: 11.5cqw;
+  inset-block-start: 33.5cqw;
+  inline-size: 36cqw;
+  block-size: 27cqw;
+  border: 0.09375rem dashed var(--muted);
+  transform-origin: 0 0;
+  opacity: 0;
+  animation: ntp-crop 10s ease-in-out infinite;
+}
+.ntp-flash {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  opacity: 0;
+  animation: ntp-flash 10s linear infinite;
+}
+.ntp-desk {
+  position: absolute;
+  inset-inline-start: 8cqw;
+  inset-inline-end: 8cqw;
+  inset-block-start: 84cqw;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3.2cqw;
+}
+.ntp-file {
+  display: grid;
+  justify-items: center;
+  gap: 1.6cqw;
+  font-size: 2.5cqw;
+  line-height: var(--lh-tight);
+  color: var(--muted);
+  white-space: nowrap;
+  & i {
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 36 / 27;
+    border: 1cqw solid var(--surface);
+    border-radius: var(--fig-r);
+    background: var(--shot, var(--line));
+    box-shadow: var(--shadow-float);
+  }
+}
+.ntp-file:nth-child(2) {
+  & i {
+    --shot: var(--line);
+  }
+}
+.ntp-file:nth-child(3) {
+  & i {
+    --shot: #c9ced4;
+  }
+}
+.ntp-file--new {
+  opacity: 0;
+  animation: ntp-label 10s ease-in-out infinite;
+}
+.ntp-thumb {
+  position: absolute;
+  inset-inline-start: 11.5cqw;
+  inset-block-start: 33.5cqw;
+  inline-size: 36cqw;
+  block-size: 27cqw;
+  border: 1cqw solid var(--surface);
+  border-radius: var(--fig-r);
+  transform-origin: 0 0;
+  opacity: 0;
+  box-shadow: var(--shadow-float);
+  animation: ntp-thumb 10s cubic-bezier(0.5, 0, 0.2, 1) infinite;
+}
+@keyframes ntp-crop {
+  0%,
+  8% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  18%,
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  21%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes ntp-flash {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 0.85;
+  }
+  26%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ntp-thumb {
+  0%,
+  21% {
+    opacity: 0;
+    transform: none;
+  }
+  22%,
+  27% {
+    opacity: 1;
+    transform: none;
+  }
+  38%,
+  86% {
+    opacity: 1;
+    transform: translate(61.9cqw, 50.5cqw) scale(0.5167);
+  }
+  91%,
+  100% {
+    opacity: 0;
+    transform: translate(61.9cqw, 50.5cqw) scale(0.5167);
+  }
+}
+@keyframes ntp-label {
+  0%,
+  37% {
+    opacity: 0;
+  }
+  40%,
+  86% {
+    opacity: 1;
+  }
+  91%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ntp-page {
+  0%,
+  48% {
+    opacity: 1;
+  }
+  54%,
+  88% {
+    opacity: 0;
+  }
+  94%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ntp-newtab {
+  0%,
+  48% {
+    opacity: 0;
+  }
+  54%,
+  88% {
+    opacity: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+.ntp-file--new {
+  & i {
+    visibility: hidden;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .ntp-tab, .ntp-fav--key, .ntp-row, .ntp-page, .ntp-newtab, .ntp-crop, .ntp-flash, .ntp-thumb, .ntp-file--new { animation: none; }
-  .ntp-tab:not(:first-child) { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; }
-  .ntp-tab:first-child { background: transparent; }
-  .ntp-tab:last-child { background: var(--surface); }
-  .ntp-row { max-height: 9cqw; opacity: 1; }
-  .ntp-file--new { opacity: 1; }
-  .ntp-file--new i { visibility: visible; }
+  .ntp-tab,
+  .ntp-fav--key,
+  .ntp-row,
+  .ntp-page,
+  .ntp-newtab,
+  .ntp-crop,
+  .ntp-flash,
+  .ntp-thumb,
+  .ntp-file--new {
+    animation: none;
+  }
+  .ntp-tab:not(:first-child) {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+  }
+  .ntp-tab:first-child {
+    background: transparent;
+  }
+  .ntp-tab:last-child {
+    background: var(--surface);
+  }
+  .ntp-row {
+    max-block-size: 9cqw;
+    opacity: 1;
+  }
+  .ntp-file--new {
+    opacity: 1;
+    & i {
+      visibility: visible;
+    }
+  }
 }
-@keyframes ntp-tab-1 { 0%, 9.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 12.50%, 14.50% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 15.70%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(2) { animation-name: ntp-tab-1; }
-@keyframes ntp-tab-2 { 0%, 14.50% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 18.00%, 20.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 21.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(3) { animation-name: ntp-tab-2; }
-@keyframes ntp-tab-3 { 0%, 20.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 23.50%, 25.50% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 26.70%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(4) { animation-name: ntp-tab-3; }
-@keyframes ntp-tab-4 { 0%, 25.50% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 29.00%, 31.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 32.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(5) { animation-name: ntp-tab-4; }
-@keyframes ntp-tab-5 { 0%, 31.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 34.50%, 36.50% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 37.70%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(6) { animation-name: ntp-tab-5; }
-@keyframes ntp-tab-6 { 0%, 36.50% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 40.00%, 42.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 43.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(7) { animation-name: ntp-tab-6; }
-@keyframes ntp-tab-7 { 0%, 42.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 45.50%, 47.50% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 48.70%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(8) { animation-name: ntp-tab-7; }
-@keyframes ntp-tab-8 { 0%, 47.50% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 51.00%, 53.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 54.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(9) { animation-name: ntp-tab-8; }
-@keyframes ntp-tab-9 { 0%, 53.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 56.50%, 58.50% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 59.70%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(10) { animation-name: ntp-tab-9; }
-@keyframes ntp-tab-10 { 0%, 58.50% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 62.00%, 64.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 65.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(11) { animation-name: ntp-tab-10; }
-@keyframes ntp-tab-11 { 0%, 64.00% { flex-basis: 0; padding-inline: 0; opacity: 0; background: var(--surface); } 67.50%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: var(--surface); } 85.20%, 84.00% { flex-basis: 30cqw; padding-inline: 1.6cqw; opacity: 1; background: transparent; } 89.00%, 100% { flex-basis: 0; padding-inline: 0; opacity: 0; background: transparent; } }
-.ntp-tabs .ntp-tab:nth-child(12) { animation-name: ntp-tab-11; }
-@keyframes ntp-tab-0 { 0%, 9.00% { background: var(--surface); } 10.20%, 89.00% { background: transparent; } 90.20%, 100% { background: var(--surface); } }
-@keyframes ntp-bm-8 { 0%, 7.00% { max-height: 0; opacity: 0; background: var(--line); } 11.00% { max-height: 9cqw; opacity: 1; background: var(--line); } 17.00%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(8) { animation-name: ntp-bm-8; }
-@keyframes ntp-bm-7 { 0%, 15.50% { max-height: 0; opacity: 0; background: var(--line); } 19.50% { max-height: 9cqw; opacity: 1; background: var(--line); } 25.50%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(7) { animation-name: ntp-bm-7; }
-@keyframes ntp-bm-6 { 0%, 24.00% { max-height: 0; opacity: 0; background: var(--line); } 28.00% { max-height: 9cqw; opacity: 1; background: var(--line); } 34.00%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(6) { animation-name: ntp-bm-6; }
-@keyframes ntp-bm-5 { 0%, 32.50% { max-height: 0; opacity: 0; background: var(--line); } 36.50% { max-height: 9cqw; opacity: 1; background: var(--line); } 42.50%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(5) { animation-name: ntp-bm-5; }
-@keyframes ntp-bm-4 { 0%, 41.00% { max-height: 0; opacity: 0; background: var(--line); } 45.00% { max-height: 9cqw; opacity: 1; background: var(--line); } 51.00%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(4) { animation-name: ntp-bm-4; }
-@keyframes ntp-bm-3 { 0%, 49.50% { max-height: 0; opacity: 0; background: var(--line); } 53.50% { max-height: 9cqw; opacity: 1; background: var(--line); } 59.50%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(3) { animation-name: ntp-bm-3; }
-@keyframes ntp-bm-2 { 0%, 58.00% { max-height: 0; opacity: 0; background: var(--line); } 62.00% { max-height: 9cqw; opacity: 1; background: var(--line); } 68.00%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(2) { animation-name: ntp-bm-2; }
-@keyframes ntp-bm-1 { 0%, 66.50% { max-height: 0; opacity: 0; background: var(--line); } 70.50% { max-height: 9cqw; opacity: 1; background: var(--line); } 76.50%, 84.00% { max-height: 9cqw; opacity: 1; background: transparent; } 89.00%, 100% { max-height: 9cqw; opacity: 0; background: transparent; } }
-.ntp-bookmarks .ntp-row:nth-child(1) { animation-name: ntp-bm-1; }
+@keyframes ntp-tab-1 {
+  0%,
+  9.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  12.50%,
+  14.50% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  15.70%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(2) {
+    animation-name: ntp-tab-1;
+  }
+}
+@keyframes ntp-tab-2 {
+  0%,
+  14.50% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  18.00%,
+  20.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  21.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(3) {
+    animation-name: ntp-tab-2;
+  }
+}
+@keyframes ntp-tab-3 {
+  0%,
+  20.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  23.50%,
+  25.50% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  26.70%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(4) {
+    animation-name: ntp-tab-3;
+  }
+}
+@keyframes ntp-tab-4 {
+  0%,
+  25.50% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  29.00%,
+  31.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  32.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(5) {
+    animation-name: ntp-tab-4;
+  }
+}
+@keyframes ntp-tab-5 {
+  0%,
+  31.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  34.50%,
+  36.50% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  37.70%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(6) {
+    animation-name: ntp-tab-5;
+  }
+}
+@keyframes ntp-tab-6 {
+  0%,
+  36.50% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  40.00%,
+  42.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  43.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(7) {
+    animation-name: ntp-tab-6;
+  }
+}
+@keyframes ntp-tab-7 {
+  0%,
+  42.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  45.50%,
+  47.50% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  48.70%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(8) {
+    animation-name: ntp-tab-7;
+  }
+}
+@keyframes ntp-tab-8 {
+  0%,
+  47.50% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  51.00%,
+  53.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  54.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(9) {
+    animation-name: ntp-tab-8;
+  }
+}
+@keyframes ntp-tab-9 {
+  0%,
+  53.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  56.50%,
+  58.50% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  59.70%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(10) {
+    animation-name: ntp-tab-9;
+  }
+}
+@keyframes ntp-tab-10 {
+  0%,
+  58.50% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  62.00%,
+  64.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  65.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(11) {
+    animation-name: ntp-tab-10;
+  }
+}
+@keyframes ntp-tab-11 {
+  0%,
+  64.00% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: var(--surface);
+  }
+  67.50%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: var(--surface);
+  }
+  85.20%,
+  84.00% {
+    flex-basis: 30cqw;
+    padding-inline: 1.6cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    flex-basis: 0;
+    padding-inline: 0;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-tabs {
+  & .ntp-tab:nth-child(12) {
+    animation-name: ntp-tab-11;
+  }
+}
+@keyframes ntp-tab-0 {
+  0%,
+  9.00% {
+    background: var(--surface);
+  }
+  10.20%,
+  89.00% {
+    background: transparent;
+  }
+  90.20%,
+  100% {
+    background: var(--surface);
+  }
+}
+@keyframes ntp-bm-8 {
+  0%,
+  7.00% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  11.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  17.00%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(8) {
+    animation-name: ntp-bm-8;
+  }
+}
+@keyframes ntp-bm-7 {
+  0%,
+  15.50% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  19.50% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  25.50%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(7) {
+    animation-name: ntp-bm-7;
+  }
+}
+@keyframes ntp-bm-6 {
+  0%,
+  24.00% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  28.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  34.00%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(6) {
+    animation-name: ntp-bm-6;
+  }
+}
+@keyframes ntp-bm-5 {
+  0%,
+  32.50% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  36.50% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  42.50%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(5) {
+    animation-name: ntp-bm-5;
+  }
+}
+@keyframes ntp-bm-4 {
+  0%,
+  41.00% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  45.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  51.00%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(4) {
+    animation-name: ntp-bm-4;
+  }
+}
+@keyframes ntp-bm-3 {
+  0%,
+  49.50% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  53.50% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  59.50%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(3) {
+    animation-name: ntp-bm-3;
+  }
+}
+@keyframes ntp-bm-2 {
+  0%,
+  58.00% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  62.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  68.00%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(2) {
+    animation-name: ntp-bm-2;
+  }
+}
+@keyframes ntp-bm-1 {
+  0%,
+  66.50% {
+    max-block-size: 0;
+    opacity: 0;
+    background: var(--line);
+  }
+  70.50% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: var(--line);
+  }
+  76.50%,
+  84.00% {
+    max-block-size: 9cqw;
+    opacity: 1;
+    background: transparent;
+  }
+  89.00%,
+  100% {
+    max-block-size: 9cqw;
+    opacity: 0;
+    background: transparent;
+  }
+}
+.ntp-bookmarks {
+  & .ntp-row:nth-child(1) {
+    animation-name: ntp-bm-1;
+  }
+}
 
 /* ── Core flows · onboarding: a screen recording of the setup walkthrough (scripts/notate/record-onboarding.cjs) ── */
 /* framed like the overview's browser figure (.nt-browser): --r-md corners, --shadow-raise */
-body.case-page main .nt-demo { aspect-ratio: 16 / 10; border-radius: var(--r-md); box-shadow: var(--shadow-raise); }
-/* Core flows rhythm, as on Yap: --sp-media from text to media, --gap-media between the recording and the setup carousel */
-body.case-page main .nt-feature .nt-media { margin-top: var(--sp-media); }
-body.case-page main .nt-feature + .nt-carousel { margin-top: var(--gap-media); }
-body.case-page main .nt-carousel__rail .nt-media { margin-top: 0; } /* slides sit flush in the carousel; the carousel carries the gap */
+body.case-page {
+  & main {
+    & .nt-demo {
+      aspect-ratio: 16 / 10;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-raise);
+    }
+    /* Core flows rhythm, as on Yap: --s-6 from text to media, --s-3 between the recording and the setup carousel */ /* slides sit flush in the carousel; the carousel carries the gap */
 
-/* ── Launch: the store listing beside the first review ──────────── */
-body.case-page main .nt-launch-pair { display: grid; gap: var(--gap-media); margin-top: var(--sp-media); }
-body.case-page main .nt-launch-pair > figure { margin: 0; min-width: 0; }
-body.case-page main .nt-launch-pair .nt-listing { grid-template-columns: minmax(0, 1fr); gap: var(--s-4); height: 100%; }
-body.case-page main .nt-launch-pair .nt-listing__status { padding: 0; }
-/* a shorter cover crops the promo tile's empty yellow, not the logo */
-body.case-page main .nt-launch-pair .nt-listing__cover { aspect-ratio: 440 / 170; }
+    /* ── Launch: the store listing beside the first review ──────────── */
+    & .nt-launch-pair {
+      display: grid;
+      gap: var(--space-1);
+      & > figure {
+        margin: 0;
+        min-inline-size: 0;
+      }
+      & .nt-listing {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--s-4);
+        block-size: 100%;
+      }
+      & .nt-listing__status {
+        padding: 0;
+      }
+      /* a shorter cover crops the promo tile's empty yellow, not the logo */
+      & .nt-listing__cover {
+        aspect-ratio: 440 / 170;
+      }
+    }
+  }
+}
 /* Side by side, the review sets the row height: the cover fills what the listing has left */
-@media (min-width: 960px) {
-  body.case-page main .nt-launch-pair .nt-listing { display: flex; flex-direction: column; align-items: stretch; }
-  body.case-page main .nt-launch-pair .nt-listing__cover { flex: 1 1 0; min-height: 56px; aspect-ratio: auto; background: #fff8dc; }
-  body.case-page main .nt-launch-pair .nt-listing__cover img { object-fit: contain; } /* the whole tile, on its own yellow */
+@media (width >= 960px) {
+  body.case-page {
+    & main {
+      & .nt-launch-pair {
+        & .nt-listing {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        & .nt-listing__cover {
+          flex: 1 1 0;
+          min-block-size: 3.5rem;
+          aspect-ratio: auto;
+          background: #fff8dc;
+          & img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  } /* the whole tile, on its own yellow */
 }
-body.case-page main .nt-launch-pair .nt-listing__body { gap: var(--s-2); padding-top: 2px; }
+body.case-page {
+  & main {
+    & .nt-launch-pair {
+      & .nt-listing__body {
+        gap: var(--s-2);
+        padding-block-start: 0.125rem;
+      }
+    }
+  }
+}
 /* side by side: the review sets the row height (its block padding matches its inline padding); the listing fills it */
-@media (min-width: 960px) {
-  body.case-page main .nt-launch-pair { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
-  body.case-page main .nt-launch-pair > .nt-listing-fig { align-self: stretch; }
+@media (width >= 960px) {
+  body.case-page {
+    & main {
+      & .nt-launch-pair {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        & > .nt-listing-fig {
+          align-self: stretch;
+        }
+      }
+    }
+  }
 }
-body.case-page main .nt-review__card { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-content: center; gap: 0 var(--s-4); height: 100%; padding: var(--s-6); border-radius: var(--r-lg); background: var(--fig-bg); }
-body.case-page main .nt-review__avatar { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #d3e3fd; color: #0b3d91; font-size: var(--fs-md); font-weight: var(--fw-medium); }
-body.case-page main .nt-review__body { min-width: 0; }
-body.case-page main .nt-review__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) var(--s-3); margin: 0; max-width: none; font-size: var(--fs-base); line-height: var(--lh-snug); color: var(--ink); }
-body.case-page main .nt-review__meta b { font-weight: var(--fw-medium); }
-body.case-page main .nt-review__stars { display: inline-flex; gap: 2px; }
-body.case-page main .nt-review__stars svg { width: 17px; height: 17px; fill: var(--ink); }
-body.case-page main .nt-review__meta time { font-size: var(--fs-base); color: var(--muted); }
-body.case-page main .nt-review__text { margin: var(--s-2) 0 0; max-width: none; font-size: var(--fs-base); line-height: var(--lh-base); color: var(--ink); }
-body.case-page main .nt-review__help { display: flex; align-items: center; gap: var(--s-5); margin: var(--s-4) 0 0; max-width: none; font-size: var(--fs-base); color: var(--muted); }
-body.case-page main .nt-review__help svg { width: 20px; height: 20px; fill: none; stroke: #444746; stroke-width: 1.6; stroke-linejoin: round; }
-@media (max-width: 559px) { body.case-page main .nt-review__card { grid-template-columns: 40px minmax(0, 1fr); gap: 0 var(--s-3); padding: var(--s-5); } body.case-page main .nt-review__avatar { width: 40px; height: 40px; font-size: var(--fs-base); } }
+body.case-page {
+  & main {
+    & .nt-review__card {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      align-content: center;
+      gap: 0 var(--s-4);
+      block-size: 100%;
+      padding: var(--s-6);
+      border-radius: var(--r-lg);
+      background: var(--fig-bg);
+    }
+    & .nt-review__avatar {
+      display: grid;
+      place-items: center;
+      inline-size: 3rem;
+      block-size: 3rem;
+      border-radius: 50%;
+      background: #d3e3fd;
+      color: #0b3d91;
+      font-size: var(--fs-md);
+      font-weight: var(--fw-medium);
+    }
+    & .nt-review__body {
+      min-inline-size: 0;
+    }
+    & .nt-review__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--s-1) var(--space-0);
+      margin: 0;
+      max-inline-size: none;
+      font-size: var(--fs-base);
+      line-height: var(--lh-snug);
+      color: var(--ink);
+      & b {
+        font-weight: var(--fw-medium);
+      }
+    }
+    & .nt-review__stars {
+      display: inline-flex;
+      gap: 0.125rem;
+      & svg {
+        inline-size: 1.0625rem;
+        block-size: 1.0625rem;
+        fill: var(--ink);
+      }
+    }
+    & .nt-review__meta {
+      & time {
+        font-size: var(--fs-base);
+        color: var(--muted);
+      }
+    }
+    & .nt-review__text {
+      margin-block: var(--s-2) 0;
+      margin-inline: 0;
+      max-inline-size: none;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+      color: var(--ink);
+    }
+    & .nt-review__help {
+      display: flex;
+      align-items: center;
+      gap: var(--s-5);
+      margin-block: var(--s-4) 0;
+      margin-inline: 0;
+      max-inline-size: none;
+      font-size: var(--fs-base);
+      color: var(--muted);
+      & svg {
+        inline-size: 1.25rem;
+        block-size: 1.25rem;
+        fill: none;
+        stroke: #444746;
+        stroke-width: 1.6;
+        stroke-linejoin: round;
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body.case-page {
+    & main {
+      & .nt-review__card {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+        gap: 0 var(--space-0);
+        padding: var(--s-5);
+      }
+      & .nt-review__avatar {
+        inline-size: 2.5rem;
+        block-size: 2.5rem;
+        font-size: var(--fs-base);
+      }
+    }
+  }
+}
 
 /* Design decisions: the annotated screenshot (1440×933, the laptop clips' 1.54:1), framed like the Instagram phone */
-.fig.nt-anno .nt-anno__shot { position: absolute; left: 21%; top: 16.6%; width: 58%; height: auto; border-radius: var(--fig-r) !important; filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, .18)); }
+.fig.nt-anno {
+  & .nt-anno__shot {
+    position: absolute;
+    inset-inline-start: 21%;
+    inset-block-start: 16.6%;
+    inline-size: 58%;
+    block-size: auto;
+    border-radius: var(--fig-r) !important;
+    filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, 0.18));
+  }
+}
 
 /* ── Core flows: each recording fills a laptop screen ── */
 /* Screen and notch measured on assets/notate/core-flows/unused/laptop-frame.png (2772×1693): display 2267×1468 at (253, 51), top corners r26;
    notch 239×43 at x 1267. laptop-frame-web.webp is that frame at 2000px with the display blanked. */
-body.case-page main .nt-laptop .flow__device { position: relative; aspect-ratio: 2000 / 1222; container-type: inline-size; }
-body.case-page main .nt-laptop__frame { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0 !important; }
-body.case-page main .nt-laptop__screen { position: absolute; left: 9.127%; top: 3.012%; width: 81.782%; height: 86.71%; overflow: hidden; border-radius: 1.147% 1.147% 0 0 / 1.771% 1.771% 0 0; background: linear-gradient(160deg, var(--fig-bg), var(--line)); }
-body.case-page main .nt-laptop__notch { position: absolute; z-index: 5; left: 44.73%; top: 0; width: 10.54%; height: 2.93%; background: #000; border-radius: 0 0 5% 5% / 0 0 28% 28%; }
-/* the recordings are rendered at the display's 1.54:1 (the -laptop clips, 1920×1244), so the window fills the screen uncropped */
-body.case-page main .nt-laptop__window { position: absolute; inset: 0; overflow: hidden; }
-body.case-page main .nt-laptop :is(.flow__device-screen, video) { border-radius: 0 !important; }
-body.case-page main .nt-laptop .flow__device-screen { position: absolute; inset: 0; }
-body.case-page main .nt-laptop video { display: block; width: 100%; height: 100%; object-fit: cover; }
-body.case-page main .nt-reading p + p:not(.nt-step-label):not(.nt-kicker) { margin-top: var(--s-3); }
+body.case-page {
+  & main {
+    & .nt-laptop {
+      & .flow__device {
+        position: relative;
+        aspect-ratio: 2000 / 1222;
+        container-type: inline-size;
+      }
+    }
+    & .nt-laptop__frame {
+      position: absolute;
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      border-radius: 0 !important;
+    }
+    & .nt-laptop__screen {
+      position: absolute;
+      inset-inline-start: 9.127%;
+      inset-block-start: 3.012%;
+      inline-size: 81.782%;
+      block-size: 86.71%;
+      overflow: hidden;
+      border-radius: 1.147% 1.147% 0 0 / 1.771% 1.771% 0 0;
+      background: linear-gradient(160deg, var(--fig-bg), var(--line));
+    }
+    & .nt-laptop__notch {
+      position: absolute;
+      z-index: 5;
+      inset-inline-start: 44.73%;
+      inset-block-start: 0;
+      inline-size: 10.54%;
+      block-size: 2.93%;
+      background: #000;
+      border-radius: 0 0 5% 5% / 0 0 28% 28%;
+    }
+    /* the recordings are rendered at the display's 1.54:1 (the -laptop clips, 1920×1244), so the window fills the screen uncropped */
+    & .nt-laptop__window {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    & .nt-laptop {
+      & :is(.flow__device-screen, video) {
+        border-radius: 0 !important;
+      }
+      & .flow__device-screen {
+        position: absolute;
+        inset: 0;
+      }
+      & video {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media (width >= 760px) {
+  body.case-page main .case-media-stack:has(.nt-onboarding) {
+    gap: var(--space-1);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "compact": 480,
+  "phone": 600,
+  "tablet": 760,
+  "split": 960,
+  "desktop": 1200,
+  "wide": 1360
+}

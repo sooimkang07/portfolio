@@ -22,7 +22,7 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 | "cards like Instagram" / "card board" | `.fig.board` white cards with title bars, 1px line, no shadow, uppercase titles. |
 | "landscape" / "positioning map" | `.pmap` + `.cmp` (see `docs/FIGURES.md`). |
 | "glass buttons" / "glass controls" | The frosted pause/replay buttons `case.js` adds to videos. "Remove the controls" = `data-no-controls`. |
-| "the gap" | Horizontal media neighbors use `--gap-media` (12px above 700px / 8px on phones); consecutive stacked views use `--s-3` (12px). See `docs/SPACING.md` for context. "Decrease the gap" = the next smaller step, not zero. |
+| "the gap" | Horizontal media neighbors use `--s-3` (12px at every width); consecutive stacked views use `--s-3` (12px). See `docs/SPACING.md` for context. "Decrease the gap" = the next smaller step, not zero. |
 | "drop shadow" | `box-shadow` (`--shadow-raise` / `--shadow-float`) or a `filter: drop-shadow` on PNG devices. |
 | "fill" | The background color of the element. |
 | "the stroke" / "outline" | The 1px `--line` border or ring. |
@@ -57,4 +57,4 @@ This is for any AI agent (Claude Code, Cursor, Codex, …). Sooim gives short, v
 - **Forage:** `assets/forage/iterations/forage-prd.pdf` (the PRD linked in Iterations) is referenced but not in the repo. Add the file.
 - **Yap:** `assets/yap/build/yap-build-design.png` is referenced by the component-library figure. Add the file.
 
-Mobile rhythm update (Oct 27): explanation→media 24px, media→caption 32px, caption title→body 12px, subsection/card groups 40px, full sections 120px. Consecutive views remain 12px. Shared rules are in case.css and documented in SPACING.md.
+Relational rhythm update (Oct 28): project narrative uses parent-owned flex gaps: `--space-1` within subsections, `--space-2` between subsections/complete groups, and `--space-3` between full chapters at all widths. See SPACING.md.

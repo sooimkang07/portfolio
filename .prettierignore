@@ -1,0 +1,8 @@
+unused/
+_docs/
+_restore/
+Claude outputs/
+assets/
+favicon/
+**/node_modules/
+text-sooim-api/

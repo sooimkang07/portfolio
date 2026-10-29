@@ -24,7 +24,7 @@
   const burger = header && header.querySelector('.nav__burger')
   const menu = header && header.querySelector('#nav-menu')
   const backdrop = header && header.querySelector('[data-ref-header-backdrop]')
-  const navDesktop = window.matchMedia('(width >= 770px)')
+  const navDesktop = window.matchMedia('(width >= 760px)')
   const SCROLL_COLLAPSE = 64
   const NAV_TRANSITION_MS = 900
   let navCloseTimer = 0
@@ -78,15 +78,17 @@
 
   /* Logo + burger wear the shared .glass once the nav floats over content */
   const logo = header && header.querySelector('.nav__logo')
+  const mobileNav = window.matchMedia('(width < 760px)')
   function syncNavGlass() {
     const floating = !header.classList.contains('is-at-top')
     const open = header.classList.contains('is-nav-open')
     if (logo) logo.classList.toggle('is-compact', floating)
-    if (burger) burger.classList.toggle('glass', floating || open)
+    if (burger) burger.classList.toggle('glass', mobileNav.matches || floating || open)
   }
   if (header) {
     new MutationObserver(syncNavGlass).observe(header, { attributes: true, attributeFilter: ['class'] })
     syncNavGlass()
+    mobileNav.addEventListener('change', syncNavGlass)
   }
 
   /* ── Nav contrast: each nav piece samples what sits behind it and
@@ -415,7 +417,7 @@
   /* ── Custom cursor ────────────────────────────────────────── */
   const cursor = document.querySelector('.home-cursor')
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const desktop = window.matchMedia('(width >= 900px)')
+  const desktop = window.matchMedia('(width >= 960px)')
 
   if (cursor && !reduceMotion) {
     cursor.hidden = false
@@ -676,8 +678,8 @@
     const hero = document.querySelector('.home-hero')
     const greeting = document.querySelector('.home-greeting')
     if (hero && greeting) {
-      const progress = Math.min(1, Math.max(0, (window.matchMedia('(max-width: 700px)').matches ? (window.scrollY > 0 ? 1 : 0) : window.scrollY / Math.max(1, greeting.offsetHeight * .9))))
-      hero.style.setProperty('--reel-expand', progress)
+      const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(1, greeting.offsetHeight * .65)))
+      hero.style.setProperty('--reel-expand', progress * progress * (3 - 2 * progress))
     }
     if (introLines.length) {
       // Each line has its own scroll threshold, reversing in order on the way back.

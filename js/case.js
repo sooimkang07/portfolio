@@ -7,9 +7,10 @@
 	'use strict'
 
 	// Pair text with a single video, excluding galleries and mixed-media figures.
- document.querySelectorAll('.nt-step, .nt-section').forEach(section => {
+ document.querySelectorAll('.nt-step:not(.nt-subsection), .nt-content').forEach(section => {
   const children = [...section.children];
-  const copy = children.find(el => el.matches('.nt-reading'));
+  const copy = children.find(el => el.matches('.nt-reading') ||
+   (el.matches('header, section') && [...el.children].some(child => child.matches('h2, h3, h4'))));
   const media = children.find(el => el.matches('figure.nt-media'));
   if (children.length === 2 && copy && media &&
       media.querySelectorAll('video').length === 1 &&
@@ -178,7 +179,7 @@
 // Shared body links reuse the TOC flip track, including wrapped reference labels.
 ;(() => {
  const init = () => {
-  const links = document.querySelectorAll('body.case-page main p a[href], body.case-page main .nt-reading li a[href], body.case-page main .nt-meta dd a[href]')
+  const links = document.querySelectorAll('body.case-page main p a[href], body.case-page main .nt-reading li a[href], body.case-page main .nt-meta dd a[href], body.case-page main .fg-linklist a[href]')
   const resize = new ResizeObserver(entries => entries.forEach(({ target }) => {
    const label = target.querySelector('.body-link__label')
    if (label) target.style.setProperty('--body-link-height', `${label.getBoundingClientRect().height}px`)
@@ -205,7 +206,7 @@
 ;(() => {
  const rail = document.querySelector('body.case-page .nt-rail')
  if (!rail) return
- const strip = matchMedia('(max-width: 1199px)')
+ const strip = matchMedia('(width < 1200px)')
  let lastY = scrollY, travel = 0, ticking = false, holdUntil = 0
  const update = () => {
   ticking = false

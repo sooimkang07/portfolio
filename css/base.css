@@ -1,120 +1,180 @@
 /* BASE — tokens, reset, type */
 /* Cascade order: reset < legacy (old page sheets) < everything unlayered */
 @layer reset, legacy;
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
 
 :root {
- --neuk-position: #69B4EA;
- --acuity-position: #B5C5DD;
-	/* ══ DESIGN TOKENS: the one system for every page. Docs: docs/DESIGN-SYSTEM.md ══
+  --neuk-position: #161618;
+  --acuity-position: #b5c5dd;
+  /* ══ DESIGN TOKENS: the one system for every page. Docs: docs/DESIGN-SYSTEM.md ══
 	   Use these tokens in all CSS. No raw hex, shadows, radii, font sizes, line heights,
 	   letter spacing or spacing px outside this block (scripts/check-tokens.py enforces it). */
 
-	--acuity-media-top: #E2E8EB; /* matches Acuity phone recording background */
-	--acuity-media-bottom: #D6DBE0;
-	--yap-media-top: #E5EEFB;     /* yap Core features video backdrop, sampled: blue → neutral → warm */
-	--yap-media-mid: #EFEFF1;
-	--yap-media-bottom: #FDF0E3;
-	--forage-brand-card: #F8F4FF; /* user-specified Forage branding tile fill */
+  --acuity-media-top: #e2e8eb; /* matches Acuity phone recording background */
+  --acuity-media-bottom: #d6dbe0;
+  --yap-media-top: #e5eefb; /* yap Core features video backdrop, sampled: blue → neutral → warm */
+  --yap-media-mid: #efeff1;
+  --yap-media-bottom: #fdf0e3;
+  --forage-brand-card: #f8f4ff; /* user-specified Forage branding tile fill */
 
-	/* Color: 8 neutrals */
-	--bg:          #FAFCFD;   /* page */
-	--surface:     #FFFFFF;   /* cards, panels, text on dark */
-	--surface-2:   #F7F8FA;   /* card title bars, subtle fills */
-	--fig-bg:      #EFF1F3;   /* figure / media background */
-	--line:        #E6E8EB;   /* structure: borders, rules, dividers */
-	--line-strong: #A2A6AA;   /* figure marks: axes, connectors, arrows, quote rules */
-	--muted:       #626B76;   /* body copy, labels, TOC links, meta */
-	--ink:         #1C1F24;   /* headings, emphasis, nav, figure ink, dark fills */
-	--fig-dot:     #D6D9DC;   /* the figure background's dot grid only */
-	--fig-dots: radial-gradient(var(--fig-dot) .35px, transparent .6px) 0 0 / 4.5px 4.5px;   /* the one dot grid: background: var(--fig-bg) var(--fig-dots) */
+  /* Color: 8 neutrals */
+  --bg: #fafcfd; /* page */
+  --surface: #ffffff; /* cards, panels, text on dark */
+  --surface-2: #f7f8fa; /* card title bars, subtle fills */
+  --fig-bg: #eff1f3; /* figure / media background */
+  --line: #e6e8eb; /* structure: borders, rules, dividers */
+  --line-strong: #a2a6aa; /* figure marks: axes, connectors, arrows, quote rules */
+  --muted: #626b76; /* body copy, labels, TOC links, meta */
+  --ink: #1c1f24; /* headings, emphasis, nav, figure ink, dark fills */
+  --fig-dot: #d6d9dc; /* the figure background's dot grid only */
+  --fig-dots: radial-gradient(var(--fig-dot) 0.021875rem, transparent 0.0375rem) 0 0 / 0.28125rem
+    0.28125rem; /* the one dot grid: background: var(--fig-bg) var(--fig-dots) */
 
-	/* Lines */
-	--line-strong-w: 1.5px;
-	--dash: 5 4;              /* SVG stroke-dasharray for connectors */
+  /* Lines */
+  --line-strong-w: 0.09375rem;
+  --dash: 5 4; /* SVG stroke-dasharray for connectors */
 
-	/* Elevation: 2 levels */
-	--shadow-raise: 0 1px 2px rgb(28 31 36 / .05), 0 6px 18px -8px rgb(28 31 36 / .14);   /* cards, chips, tiles */
-	--shadow-float: 0 18px 32px -18px rgb(28 31 36 / .45);                                   /* devices, floating media */
+  /* Elevation: 2 levels */
+  --shadow-raise:
+    0 0.0625rem 0.125rem rgb(28 31 36 / 0.05), 0 0.375rem 1.125rem -0.5rem rgb(28 31 36 / 0.14); /* cards, chips, tiles */
+  --shadow-float: 0 1.125rem 2rem -1.125rem rgb(28 31 36 / 0.45); /* devices, floating media */
 
-	/* Radius */
-	--r-sm: 4px;    /* tags, thumbs, small controls */
-	--r-md: 6px;    /* inner media, small cards */
-	--r-lg: 10px;   /* figures, feature media, panels */
-	--r-pill: 999px;
-	--fig-r-sm: .3cqw;   /* small elements inside a .fig */
-	--fig-r: .6cqw;      /* cards inside a .fig */
+  /* Radius */
+  --r-sm: 0.25rem; /* tags, thumbs, small controls */
+  --r-md: 0.375rem; /* inner media, small cards */
+  --r-lg: 0.625rem; /* figures, feature media, panels */
+  --r-pill: 62.4375rem;
+  --fig-r-sm: 0.3cqw; /* small elements inside a .fig */
+  --fig-r: 0.6cqw; /* cards inside a .fig */
 
-	/* Type */
-	--ff: 'Instrument Sans', system-ui, sans-serif;
-	--ff-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-	--fw-regular: 400;
-	--fw-medium: 500;
-	--fw-semi: 600;
-	--fs-xs:   clamp(0.6875rem, 0.85vw, 0.75rem);  /* 11 → 12: labels, captions, meta, small UI */
-	--fs-base: clamp(0.875rem, 0.98vw, 0.9375rem); /* 14 → 15: body copy */
-	--fs-md:   clamp(1.025rem, 1.35vw, 1.1875rem); /* 16 → 19: H3, lead */
-	--fs-lg:   clamp(1.35rem, 2vw, 1.7rem);        /* 22 → 27: subheads, big statements */
-	--h1-fs: clamp(1.875rem, 2.8vw, 2.625rem);
-	--h2-fs: clamp(1.5rem, 2.1vw, 1.875rem);
-	--lh-none: 1;
-	--lh-tight: 1.2;
-	--lh-snug: 1.4;
-	--lh-base: 1.55;
-	--h1-lh: 1.1;
-	--h1-ls: -0.035em;
-	--h2-ls: -0.025em;
-	--label-ls: 0.06em;  /* caps labels: --fs-xs, --fw-medium, uppercase. The only positive tracking */
+  /* Type */
+  --ff: "Instrument Sans", system-ui, sans-serif;
+  --ff-inter: "Inter", system-ui, sans-serif;
+  --ff-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi: 600;
+  --fs-xs: clamp(0.6875rem, 0.85vw, 0.75rem); /* 11 → 12: labels, captions, meta, small UI */
+  --fs-base: clamp(0.875rem, 0.98vw, 0.9375rem); /* 14 → 15: body copy */
+  --fs-md: clamp(1.025rem, 1.35vw, 1.1875rem); /* 16 → 19: H3, lead */
+  --fs-lg: clamp(1.35rem, 2vw, 1.7rem); /* 22 → 27: subheads, big statements */
+  --h1-fs: clamp(1.875rem, 2.8vw, 2.625rem);
+  --h2-fs: clamp(1.5rem, 2.1vw, 1.875rem);
+  --lh-none: 1;
+  --lh-tight: 1.2;
+  --lh-snug: 1.4;
+  --lh-base: 1.55;
+  --h1-lh: 1.1;
+  --h1-ls: -0.035em;
+  --h2-ls: -0.025em;
+  --label-ls: 0.06em; /* caps labels: --fs-xs, --fw-medium, uppercase. The only positive tracking */
 
-	/* Spacing: 4px scale */
-	--s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
-	--s-7: 32px; --s-8: 40px; --s-9: 48px; --s-10: 64px; --s-11: 96px;
+  /* Narrative rhythm: within a subsection, between subsections, between chapters. */
+  --space-0: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 3rem;
+  --space-3: 6rem;
 
-	/* Layout */
-	--nav-h: 3.25rem;
-	--gutter: clamp(1rem, 2.5vw, 1.5rem);
+  /* Component spacing: controls, padding and device/layout geometry. */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-4: 1rem;
+  --s-5: 1.25rem;
+  --s-6: 1.5rem;
+  --s-7: 2rem;
+  --s-8: 2.5rem;
+  --s-9: 3rem;
+  --s-10: 4rem;
+  --s-11: 6rem;
 
-	/* Motion */
-	--ease:        cubic-bezier(0.22, 1, 0.36, 1);   /* default: hovers, flips, reveals */
-	--ease-inout:  cubic-bezier(0.65, 0, 0.35, 1);   /* nav, sheens, page-level moves */
-	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-	--dur-1: 150ms;  /* color, opacity */
-	--dur-2: 250ms;  /* background, small transforms */
-	--dur-3: 420ms;  /* fliptrack, media zoom */
-	--dur-4: 900ms;  /* nav, page-level */
-	--zoom: 1.03;    /* media hover zoom */
+  /* Layout */
+  --nav-h: 3.25rem;
+  --gutter: clamp(1rem, 2.5vw, 1.5rem);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1); /* default: hovers, flips, reveals */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1); /* nav, sheens, page-level moves */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 150ms; /* color, opacity */
+  --dur-2: 250ms; /* background, small transforms */
+  --dur-3: 420ms; /* fliptrack, media zoom */
+  --dur-4: 900ms; /* nav, page-level */
+  --zoom: 1.03; /* media hover zoom */
 }
 
 /* The dot grid follows the viewport, never the figure's canvas or width. */
-@media (min-width: 701px) {
- :root { --fig-dots: radial-gradient(var(--fig-dot) .6px, transparent .9px) 0 0 / 10px 10px; }
+@media (width >= 760px) {
+  :root {
+    --fig-dots: radial-gradient(var(--fig-dot) 0.0375rem, transparent 0.05625rem) 0 0 / 0.625rem
+      0.625rem;
+  }
 }
 
 /* Phones: media is about half as wide, so the radii step down to keep corners proportionally the same */
-@media (max-width: 600px) {
-	:root { --r-lg: 6px; --r-md: var(--r-sm); }
+@media (width < 600px) {
+  :root {
+    --r-lg: 0.375rem;
+    --r-md: var(--r-sm);
+  }
 }
 
 @layer reset {
-	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-	html { font-size: 100%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-	body {
-		font-family: var(--ff);
-		font-size: var(--fs-base);
-		font-weight: var(--fw-regular);
-		background: var(--bg);
-		color: var(--ink);
-		line-height: var(--lh-base);
-		letter-spacing: 0;
-		min-block-size: 100vh;
-	}
-	img { display: block; max-inline-size: 100%; }
-	video { display: block; }
-	a { color: inherit; text-decoration: none; }
-	ul { list-style: none; }
-	button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--ff);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-regular);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: var(--lh-base);
+    letter-spacing: 0;
+    min-block-size: 100vh;
+  }
+  img {
+    display: block;
+    max-inline-size: 100%;
+  }
+  video {
+    display: block;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+  button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
 }
 
-h1 { font-size: var(--h1-fs); font-weight: var(--fw-medium); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); }
-h2, h3, h4 { font-size: var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h2-ls); }
-
+h1 {
+  font-size: var(--h1-fs);
+  font-weight: var(--fw-medium);
+  line-height: var(--h1-lh);
+  letter-spacing: var(--h1-ls);
+}
+h2,
+h3,
+h4 {
+  font-size: var(--h2-fs);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--h2-ls);
+}

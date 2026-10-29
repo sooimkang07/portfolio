@@ -4,7 +4,7 @@ Read this before you make or edit any figure on a case-study page. It covers wha
 
 ## The ground rules
 
-1. **Every diagram is a `.fig`.** It's a 16:9 container (1920×1080 design canvas) with the *standard figure background*. That's the light grey `--fig-bg` with the dot grid in `--fig-dot`, and `--r-lg` corners. `.fig` in `css/figures.css` already applies all of this. Never draw your own background. The shared `--fig-dots` token changes only at the 700px viewport breakpoint: 10px grid/.6px dots above it, 4.5px grid/.35px dots below it. Do not scale it with figure dimensions or cqw.
+1. **Every diagram is a `.fig`.** It's a 16:9 container (1920×1080 design canvas) with the *standard figure background*. That's the light grey `--fig-bg` with the dot grid in `--fig-dot`, and `--r-lg` corners. `.fig` in `css/figures.css` already applies all of this. Never draw your own background. The shared `--fig-dots` token changes only at the 760px viewport breakpoint: 10px grid/.6px dots at and above it, 4.5px grid/.35px dots below it. Do not scale it with figure dimensions or cqw.
 2. **Sizes inside a figure are in `cqw`.** 1cqw = 1% of the figure width, so 1920px of design = 100cqw and **px ÷ 19.2 = cqw**. The figure then scales like an image. Don't use px or page type tokens inside a figure.
 3. **Build figures in HTML/CSS from the shared components below, not as images or hand-drawn SVG.** The old figures drawn as inline `<svg>` with `<rect>`/`<text>` and purple "AI" boxes are the retired style. Replace them; don't copy them.
 4. **Exception:** when Sooim supplies a finished image for a figure (e.g. `assets/yap/build/yap-build-design.png`), insert that image instead of rebuilding it. To keep the dotted background behind it, use `<figure class="nt-media yap-board yap-board--inset"><img …></figure>`.
@@ -62,3 +62,7 @@ Cards (`.node`) joined by curved connectors with small open circles at each end.
 3. Look at it: serve the repo (`python3 -m http.server 5500`) and screenshot the figure at 1440px wide. Check text wrapping, overlaps, edge spacing and that connector circles show in full.
 4. Don't delete the old image or asset files a figure used without asking Sooim.
 5. Always export the PNG copy (required for every new or changed figure): `node scripts/figures/export-pngs.mjs` (with the local server running) writes every code-built figure to `assets/<project>/<section>/figures/` at 2x.
+
+## Source formatting after regeneration
+
+After a generator edits root-page HTML, run `node scripts/maintenance/format-pages.cjs` to preserve multiline structure and logical inline-style properties. Formatting alone preserves cache versions; use `--version=<new-version>` when intentionally bumping linked CSS/JS. Run the source and token checks before exporting.

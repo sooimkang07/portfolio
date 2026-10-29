@@ -35,7 +35,7 @@ Acuity media gradients use `--acuity-media-top` (`#E2E8EB`) and `--acuity-media-
 
 Forage branding tiles use `--forage-brand-card` (`#F8F4FF`), requested by Sooim, against `--surface`.
 
-**Standard figure background:** `background: var(--fig-bg) var(--fig-dots);` (`.fig` in `css/figures.css` already applies it). The `--fig-dots` token uses a 10px grid with .6px dots above 700px, and a 4.5px grid with .35px dots at ≤700px. These are fixed CSS pixels: figure dimensions do not affect dot size.
+**Standard figure background:** `background: var(--fig-bg) var(--fig-dots);` (`.fig` in `css/figures.css` already applies it). The `--fig-dots` token uses a 10px grid with .6px dots at 760px and above, and a 4.5px grid with .35px dots below 760px. These sizes are fixed relative to the root font at each viewport mode; figure dimensions do not affect dot size.
 
 ## Lines
 
@@ -82,15 +82,17 @@ A 1px ring (`box-shadow: 0 0 0 1px var(--line)`) is a line, not elevation. Card 
 - **Caps label:** `--fs-xs`, `--fw-medium`, `--label-ls`, `--lh-snug`, uppercase. It's the only uppercase style.
 - **Families:** `--ff` (Instrument Sans) and `--ff-mono` (code and terminal).
 
+Explorations phone status times use `--ff-inter` (Inter), as requested; the rest of the site retains `--ff`.
+
 Inside a `.fig`, sizes are in `cqw` so they scale with the figure. That's intended: figure-internal text doesn't use the page scale.
 
 ## Spacing: 4px scale
 
 The complete variable inventory, usage rules, breakpoints, and retired-name mapping are in [SPACING.md](SPACING.md).
 
-`--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--s-5` 20 · `--s-6` 24 · `--s-7` 32 · `--s-8` 40 · `--s-9` 48 · `--s-10` 64 · `--s-11` 96
+`--s-1` 4 · `--s-2` 8 · `--s-4` 16 · `--s-5` 20 · `--s-6` 24 · `--s-7` 32 · `--s-8` 40 · `--s-9` 48 · `--s-10` 64 · `--s-11` 96
 
-Case-study rhythm (in `css/case.css`): `--sp-section` (section gap), `--s-3` (12px for related text) and `--sp-media` (24px desktop / 16px phones between explanations and media), `--gap-media` (12px between media). Use those for page layout, and `--s-*` everywhere else. Negative margins: `calc(var(--s-3) * -1)`.
+Case-study rhythm: `--space-0` (.5rem at every width) for compact related groups, `--space-1` (1rem) within a subsection, `--space-2` (3rem) between subsections or complete content groups, and `--space-3` (6rem) between chapters. `--s-3` is retired in favor of `--space-0`. See [SPACING.md](SPACING.md).
 
 ## Motion and layout
 
@@ -129,7 +131,7 @@ Not yet tokenized (follow-ups): about 430 inline `style=""` attributes in the HT
 
 ## Shared media captions
 
-Use `.media-caption__title` and `.media-caption__body` for media titles and descriptions. Typography remains the original Yap caption style: base-size semibold ink titles and regular muted descriptions. Page captions now follow the shared block gap: 12px at every width. Internal canvas labels inside `.fig` retain their own geometry.
+Use `.media-caption__title` and `.media-caption__body` for media titles and descriptions. Typography remains the original Yap caption style: base-size semibold ink titles and regular muted descriptions. Caption text spacing uses `--space-1` at every viewport. Internal canvas labels inside `.fig` retain their own geometry.
 
 ## Body hyperlinks
 
@@ -139,29 +141,30 @@ Body-copy anchors on case-study pages are enhanced by `js/case.js` with `.body-l
 
 - **Home hero:** the loader lands on a separate greeting above the showreel. Desktop keeps role / name / location in one row; phones stack them with the name first. The reel starts inside the page gutters with `--r-lg` corners; a scroll-driven inset mask expands it to the viewport edges. Desktop keeps 16:9, while phones use a tall cover crop that fills the first viewport beneath the greeting. The intro begins below the first phone viewport and reveals line by line over scroll, with greater end padding. Clicking the reel opens the existing uncropped full-window player. The silent loop follows the loaded film duration.
 - **Case-study TOC:** below 1200px the TOC is a sticky strip with no back link. It slides away while scrolling down and returns on any scroll up (`js/case.js`, `.nt-rail.is-tucked`).
-- **Rhythm:** phones use the tighter in-section gap (`--s-3` 12px, `--sp-media` 16px, `--gap-media` 8px) and a larger section gap (`--sp-section` 96px).
-- **Videos never sit side by side on phones** (≤600px): `.dx-grid--2:has(video)` and Instagram's `.ig-split` stack one per row.
-- **Multi-panel boards on phones** (≤600px): a `.fig.board` row with two cards stacks them; each card keeps its desktop proportions and is drawn with `zoom: 2`, so its `cqw` type comes out twice as large. Four-up rows go 2 × 2. Size zoomed cards in `cqw`, never `%` (percentages don't scale with zoom). Board titles wrap instead of overflowing.
+- **Rhythm:** 1.5rem within subsections, 3rem between subsections, and 6rem between chapters at every width. See `SPACING.md`.
+- **Media layouts on phones:** shared video grids generally stack at 600px. Yap’s testing triptych and Instagram’s before/after visuals intentionally remain side by side.
+- **Multi-panel boards on phones** (<600px): a `.fig.board` row with two cards stacks them; each card keeps its desktop proportions and is drawn with `zoom: 2`, so its `cqw` type comes out twice as large. Four-up rows go 2 × 2. Size zoomed cards in `cqw`, never `%` (percentages don't scale with zoom). Board titles wrap instead of overflowing.
 - **Glass tab controls** (`.yap-it__tabs`, `.ig-ex__tabs`) hug their labels, never stretch to the full width, and scroll without a visible scrollbar if they ever overflow.
 
 
-## Unified project-page flow (Oct 27, 2026)
+## Project-page flow
 
-All seven case studies use contextual spacing rather than one gap everywhere:
+[SPACING.md](SPACING.md) is the authoritative responsive spacing table. The chapter stack, chapters and explicit `nt-subsection` elements are flex columns owning their gaps. Their children have zero block margins; retained media grids own their internal gaps. Avoid copying a second table into component or page documentation.
 
-| Relationship | Desktop/tablet (>700px) | Phone (≤700px) |
-|---|---|---|
-| Heading/label → description; related paragraphs | `--s-3` (12px) | `--s-3` (12px) |
-| Figure → its caption | `--s-3` (12px) | `--s-3` (12px) |
-| Caption title → caption body | `--s-2` (8px) | `--s-2` (8px) |
-| Explanation → its figure | `--sp-media`: `--s-6` (24px) | `--sp-media`: `--s-4` (16px) |
-| New subsection / completed group → next idea | `--s-9` (48px) | `--s-7` (32px) |
-| Full chapter | `--sp-section` (96–128px) | `--sp-section`: `--s-11` (96px) |
+Competitive positioning highlights requested by Sooim use `--neuk-position` (`#161618`) and `--acuity-position` (`#B5C5DD`), defined in base.css. These fills apply to the project’s positioning marker only.
 
-The following block owns its start margin; end margins are zero. Grids/flex containers own their gaps and clear child margins so spacing does not add twice. Labels remain attached to their heading. Separate reading groups, steps, decisions, and standalone figure subheadings mark new ideas. On phones, stacked media-and-caption groups use 32px between groups, distinct from their internal caption spacing. Figure internals, mock UI, nav and horizontal gutters are independent. See `docs/SPACING-AUDIT.md` for measured results.
+## Semantic page structure
 
-Neuk Check In and Start Watching place regular text above a two-column media pair with 4:5 frames, matching the original phone recording. Check In’s room-entry video sits full width below that pair with its original proportions. At ≤700px the pair stacks. Consecutive views use the 12px content/caption gap. Hero metadata always starts at `--s-7` (32px). The home index no longer has a negative start margin: its video stage is offset by half a viewport to preserve the intro’s 288px end padding and the early sticky relationship.
+Project chapters use section/header, titled subsections use section, and visual explanations use figure/figcaption. Ordinary copy sits directly in its section; retain a separate copy group only for an actual layout column or interaction. Shared spacing targets these relationships in case.css. See [MARKUP.md](MARKUP.md).
 
-Wrapped captions (`.yap-call`, `.yap-calls`, `.case-caption`) attach to media at 12px. Use `.case-media-group` for wrappers that group media, so text→group and group→figure use the same contextual rules as figures. Split layout containers own their gap and clear child margins; never add a media start margin on top of a grid/flex gap. Mobile collections of separate caption/copy groups use 32px row gaps.
+## Cascade ownership
 
-Competitive positioning highlights requested by Sooim use `--neuk-position` (`#69B4EA`) and `--acuity-position` (`#B5C5DD`), defined in base.css. These fills apply to the project’s positioning marker only.
+Shared narrative spacing belongs in `css/case.css`; project styles own component internals. Use normal cascade order and modest selector specificity. Remove an obsolete declaration instead of appending an overriding patch. Do not use `!important` for narrative spacing or layout, or increase selector specificity to win a conflict. Reserve exceptions for a documented external constraint, such as a third-party embed with inline styles. Respect browser accessibility preferences, including reduced motion and forced colors.
+
+## Relative units and native nesting
+
+Live CSS uses relative lengths and logical dimensions. The numeric pixel equivalents in this reference assume the standard 16px root; tokens scale with the reader’s root font setting. Figure canvases retain `cqw` proportions. Precise device ratios, filter stops, SVG coordinates and animation timings are not rounded. Print page geometry keeps print units. Rules use native nesting without a runtime compiler. See [CODE-CLEANUP.md](CODE-CLEANUP.md).
+
+## Viewport breakpoints
+
+Use the six shared thresholds and exact query convention in [BREAKPOINTS.md](BREAKPOINTS.md). The source inventory is `data/breakpoints.json`; the validator checks CSS and JavaScript together.

@@ -1,0 +1,126 @@
+/* Shared helpers for the case-study drafts: real media in panels, image grids. */
+body.case-page {
+  & main {
+    & .dx-media {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--fig-bg);
+      & > img,
+      & > video {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+    & .dx-grid {
+      display: grid;
+      gap: var(--space-0);
+    }
+    & .dx-grid--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-1);
+      &.ig-split,
+      .ig-split & {
+        gap: var(--space-0);
+        @media (width >= 760px) {
+          gap: var(--space-1);
+        }
+      }
+    }
+    & .dx-cell {
+      margin: 0;
+      & .dx-media {
+        border-radius: var(--r-md);
+      }
+      & figcaption {
+        font-size: var(--fs-base);
+        line-height: var(--lh-snug);
+        color: var(--ink);
+        & span {
+          display: block;
+          color: var(--muted);
+        }
+      }
+    }
+  }
+}
+.fig {
+  & .mini,
+  & .mid,
+  & .img {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+/* Grouped grid: one lead cell + a nested group (e.g. Instagram edit flows) */
+
+/* Phones: videos never sit side by side; each takes its own row */
+@media (width < 600px) {
+  body.case-page {
+    & main {
+      & .dx-grid--2:has(video) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
+}
+
+/* Case-study media galleries: large, full-width images and clips (acuity, forage). */
+.cs-gallery {
+  display: grid;
+  gap: var(--space-0);
+}
+.cs-gallery.cs-n1 {
+  grid-template-columns: 1fr;
+}
+.cs-gallery.cs-n2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cs-cell {
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--fig-bg);
+  & > img,
+  & > video {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+}
+.cs-gallery.cs-n1 {
+  & .cs-cell {
+    & > img,
+    & > video {
+      block-size: auto;
+    }
+  }
+}
+.cs-gallery.cs-n2 {
+  & .cs-cell {
+    aspect-ratio: 4/3;
+  }
+}
+@media (width < 760px) {
+  .cs-gallery.cs-n2 {
+    grid-template-columns: 1fr;
+  }
+}
+.cs-gallery {
+  & .cs-cell {
+    & > video.nt-video {
+      block-size: 100%;
+      background: transparent;
+    }
+  }
+}
+.cs-gallery.cs-n1 {
+  & .cs-cell {
+    & > video.nt-video {
+      block-size: auto;
+    }
+  }
+}

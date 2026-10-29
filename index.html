@@ -1,317 +1,673 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<script src="js/preview-gate.js"></script>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="robots" content="noindex">
-	<title>Sooim Kang · Product Designer</title>
-	<link rel="stylesheet" href="css/base.css?v=mobile42">
-	<link rel="stylesheet" href="css/glass.css?v=2-ds2">
-	<link rel="stylesheet" href="css/site.css?v=mobile42">
-	<link rel="stylesheet" href="css/morph.css?v=2-ds2" />
-	<link rel="stylesheet" href="css/work-index.css?v=ds4-ts2-rsp10" />
-	<link rel="icon" href="favicon/favicon.ico?v=2" sizes="any">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2">
-	<link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2">
-	<link rel="apple-touch-icon" href="favicon/touch.png?v=2">
-	<!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=ds9" /> -->
-	<link rel="stylesheet" href="css/intro.css?v=mobile42">
-	<script src="js/intro.js?v=mobile42" defer></script>
-	<script>/* Cover the page until the deferred intro mounts, so home never flashes first. */if(!location.hash&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-intro-pending");setTimeout(function(){document.documentElement.classList.remove("is-intro-pending")},3000)}</script>
-	<script src="js/page-fade.js?v=1"></script>
-</head>
-<body id="top" class="home">
+  <head>
+    <script src="js/preview-gate.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Sooim Kang · Product Designer</title>
+    <link rel="stylesheet" href="css/base.css?v=spacing103" />
+    <link rel="stylesheet" href="css/glass.css?v=clean45" />
+    <link rel="stylesheet" href="css/site.css?v=burger87" />
+    <link rel="stylesheet" href="css/morph.css?v=polish52" />
+    <link rel="stylesheet" href="css/work-index.css?v=spacing96" />
+    <link rel="icon" href="favicon/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2" />
+    <link rel="apple-touch-icon" href="favicon/touch.png?v=2" />
+    <!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=spacing57" /> -->
+    <link rel="stylesheet" href="css/intro.css?v=intro89" />
+    <script src="js/intro.js?v=return63" defer></script>
+    <script>
+      /* Internal returns skip the intro; a refresh always plays it again. */
+      const navigation = performance.getEntriesByType("navigation")[0];
+      const internalReturn = document.referrer &&
+        new URL(document.referrer).origin === location.origin;
+      document.documentElement.dataset.skipIntro = String(
+        navigation?.type !== "reload" && Boolean(internalReturn)
+      );
+      /* Cover the page only when the deferred intro will play. */
+      if (
+        document.documentElement.dataset.skipIntro !== "true" &&
+        !location.hash &&
+        !matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        document.documentElement.classList.add("is-intro-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("is-intro-pending");
+        }, 3000);
+      }
+    </script>
+    <script src="js/page-fade.js?v=1"></script>
+  </head>
+  <body id="top" class="home">
+    <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
+      <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
+      <div class="nav__bar">
+        <button
+          type="button"
+          class="nav__hit"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          tabindex="-1"
+        ></button>
+        <a href="/" class="nav__logo" aria-label="Sooim Kang — home">
+          <span class="nav__logo-name" aria-hidden="true">Sooim Kang</span>
+          <span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span>
+        </a>
+        <span class="nav__mark" aria-hidden="true">
+          <span class="nav__mark-dot">•</span>
+          <span class="nav__mark-dash">—</span>
+        </span>
+        <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
+          <a href="work" class="nav__menu-link" data-page-transition>
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Work</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+              </span>
+            </span>
+          </a>
+          <a href="explorations" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Explorations</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
+              </span>
+            </span>
+          </a>
+          <a href="about" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">About</span>
+                <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+              </span>
+            </span>
+          </a>
+          <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Resume</span>
+                <span class="nav__menu-title" aria-hidden="true">Download</span>
+              </span>
+            </span>
+          </a>
+        </nav>
+      </div>
+      <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
+        <a href="work" class="nav__strip-link" data-page-transition>Work</a>
+        <a href="explorations" class="nav__strip-link">Explorations</a>
+        <a href="about" class="nav__strip-link">About</a>
+        <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">
+          Resume
+        </a>
+      </nav>
+    </header>
 
-	<header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-		<div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-		<div class="nav__bar">
-			<button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-			<a href="/" class="nav__logo" aria-label="Sooim Kang — home"><span class="nav__logo-name" aria-hidden="true">Sooim Kang</span><span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span></a>
-			<span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-			<button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-				<span></span><span></span><span></span><span></span>
-			</button>
-			<nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-				<a href="work" class="nav__menu-link" data-page-transition>
-					<span class="flip">
-						<span class="flip__track">
-							<span class="nav__menu-title">Work</span>
-							<span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
-						</span>
-					</span>
-				</a>
-				<a href="explorations" class="nav__menu-link">
-					<span class="flip">
-						<span class="flip__track">
-							<span class="nav__menu-title">Explorations</span>
-							<span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-						</span>
-					</span>
-				</a>
-				<a href="about" class="nav__menu-link">
-					<span class="flip">
-						<span class="flip__track">
-							<span class="nav__menu-title">About</span>
-							<span class="nav__menu-title" aria-hidden="true">Get to know me</span>
-						</span>
-					</span>
-				</a>
-				<a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
-					<span class="flip">
-						<span class="flip__track">
-							<span class="nav__menu-title">Resume</span>
-							<span class="nav__menu-title" aria-hidden="true">Download</span>
-						</span>
-					</span>
-				</a>
-			</nav>
-		</div>
-		<nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-			<a href="work" class="nav__strip-link" data-page-transition>Work</a>
-			<a href="explorations" class="nav__strip-link">Explorations</a>
-			<a href="about" class="nav__strip-link">About</a>
-			<a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-		</nav>
-	</header>
+    <main>
+      <!-- The loader lands on the greeting above the showreel. -->
+      <section class="home-greeting" aria-label="Introduction">
+        <h1 class="home-greeting__strip">
+          <span data-line="1">Product designer</span>
+          <span data-line="0">
+            Hi, I’m
+            <button
+              class="ab-name glass"
+              type="button"
+              data-say
+              aria-label="Sooim, play how to say my name"
+              aria-pressed="false"
+            >
+              <span class="ab-name__t">Sooim</span>
+              <span class="ab-name__spk" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9.5h3.2L11.5 6v12l-4.3-3.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                  <path class="ab-say__w1" d="M15 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <path class="ab-say__w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <audio data-say-audio src="assets/about/hero/Sooim.m4a" preload="none"></audio>
+          </span>
+          <span data-line="2">Based in New York</span>
+        </h1>
+      </section>
+      <section class="home-hero" aria-label="Showreel">
+        <div class="home-hero__pin-spacer pin-spacer pin-spacer-showreel-scroll">
+          <div class="home-hero__pin">
+            <div
+              class="home-hero__media"
+              data-ref-showreel-video
+              role="button"
+              tabindex="0"
+              aria-label="Play the showreel"
+            >
+              <!-- The loader starts the silent background loop; clicking opens the full film. -->
+              <video
+                class="home-hero__video"
+                autoplay
+                loop
+                poster="assets/covers/reel/showreel-loop-start.jpg?v=22"
+                muted
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              >
+                <!-- 2560×1440 for large and high-density screens, 1920×1080 otherwise (picked once, at load) -->
+                <source
+                  src="assets/covers/reel/showreel-loop-1440.mp4?v=22"
+                  type="video/mp4"
+                  media="(min-resolution: 1.5dppx) and (min-width: 1000px), (min-width: 2000px)"
+                />
+                <source src="assets/covers/reel/showreel-loop.mp4?v=22" type="video/mp4" />
+              </video>
+              <!-- Glass pause + replay in the full-window player, top right like the case-study videos (js/site.js?v=burger87 css/intro.css?v=intro89 -->
+              <div class="home-hero__controls">
+                <button
+                  class="glass flow__btn flow__btn--pause"
+                  type="button"
+                  aria-label="Play the showreel"
+                >
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" >
+                    <rect x="5" y="4" width="4" height="16" rx="1">
+                    </rect>
+                    <rect x="15" y="4" width="4" height="16" rx="1">
+                    </rect>
+                  </svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <polygon points="5,3 19,12 5,21">
+                    </polygon>
+                  </svg>
+                </button>
+                <button
+                  class="glass flow__btn flow__btn--replay"
+                  type="button"
+                  aria-label="Replay the showreel"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" >
+                    <polyline points="1 4 1 10 7 10">
+                    </polyline>
+                    <path d="M3.51 15a9 9 0 1 0 .49-4.5">
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<main>
+      <section class="home-intro" data-ref-showreel-intro aria-label="About">
+        <p class="home-intro__copy" data-ref-intro-copy>
+          I design and build digital products that make complex interactions feel intuitive. My work
+          explores AI, communication, and the tools shaping how people create and connect.
+        </p>
+      </section>
 
-		<!-- The loader lands on the greeting above the showreel. -->
-		<section class="home-greeting" aria-label="Introduction">
-            <h1 class="home-greeting__strip"><span data-line="1">Product designer</span><span data-line="0">Hi, I’m <button class="ab-name glass" type="button" data-say aria-label="Sooim, play how to say my name" aria-pressed="false"><span class="ab-name__t">Sooim</span><span class="ab-name__spk" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L11.5 6v12l-4.3-3.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path class="ab-say__w1" d="M15 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ab-say__w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button><audio data-say-audio src="assets/about/hero/Sooim.m4a" preload="none"></audio></span><span data-line="2">Based in New York</span></h1>
+      <section class="home-work" id="section-our-work" aria-label="Work">
+        <div class="home-work__index-shell">
+          <div class="home-work__index">
+            <h2 class="home-work__heading">Selected Work</h2>
+
+            <div class="home-work__meta">
+              <header>
+                <div class="home-work__titles" aria-live="polite">
+                  <a href="yap" class="home-work__title is-active" data-work-title="0">yap</a>
+                  <a href="notate" class="home-work__title" data-work-title="1">Notate</a>
+                  <a href="instagram-lists" class="home-work__title" data-work-title="2">
+                    Instagram Lists
+                  </a>
+                  <a href="neuk" class="home-work__title" data-work-title="3">neuk</a>
+                </div>
+                <div class="home-work__descriptions" data-ref-featured-project-description>
+                  <p class="home-work__desc is-active" data-work-desc="0">
+                    yap is a shipped voice messaging app that uses AI to turn long recordings into
+                    topics friends can listen and reply to individually, making it easier to catch
+                    up without losing the natural flow of&nbsp;conversation.
+                  </p>
+                  <p class="home-work__desc" data-work-desc="1">
+                    Notate is a published Chrome extension that attaches notes to HTML elements on
+                    live webpages, keeping ideas connected to their sources and organized across the
+                    web so users can revisit their ideas in&nbsp;context.
+                  </p>
+                  <p class="home-work__desc" data-work-desc="2">
+                    Instagram Lists is a feature concept that lets users group followed accounts
+                    into custom lists and browse by social context, giving people control over whose
+                    content they see while recommendations adapt within each&nbsp;list.
+                  </p>
+                  <p class="home-work__desc" data-work-desc="3">
+                    neuk is a service concept for booking private screening rooms where friends can
+                    watch together outside the home, connecting room discovery, reservations,
+                    contactless entry, and playback controls in one mobile&nbsp;experience.
+                  </p>
+                </div>
+              </header>
+
+              <div class="home-work__footers" data-ref-featured-project-footer>
+                <a href="yap" class="home-work__footer is-active" data-work-footer="0">
+                  <img
+                    class="home-work__footer-logo"
+                    src="assets/app-icons/icon-yap.png"
+                    alt=""
+                    width="44"
+                    height="44"
+                    aria-hidden="true"
+                  />
+                  <div class="home-work__footer-copy">
+                    <p class="home-work__footer-line">yap</p>
+                    <p class="home-work__footer-meta">Shipped · 2026</p>
+                  </div>
+                </a>
+                <a href="notate" class="home-work__footer" data-work-footer="1">
+                  <img
+                    class="home-work__footer-logo"
+                    src="assets/app-icons/icon-notate.png"
+                    alt=""
+                    width="44"
+                    height="44"
+                    aria-hidden="true"
+                  />
+                  <div class="home-work__footer-copy">
+                    <p class="home-work__footer-line">Notate</p>
+                    <p class="home-work__footer-meta">Shipped · 2026</p>
+                  </div>
+                </a>
+                <a href="instagram-lists" class="home-work__footer" data-work-footer="2">
+                  <img
+                    class="home-work__footer-logo"
+                    src="assets/app-icons/icon-instagram.png"
+                    alt=""
+                    width="44"
+                    height="44"
+                    aria-hidden="true"
+                  />
+                  <div class="home-work__footer-copy">
+                    <p class="home-work__footer-line">Instagram</p>
+                    <p class="home-work__footer-meta">Concept · 2025</p>
+                  </div>
+                </a>
+                <a href="neuk" class="home-work__footer" data-work-footer="3">
+                  <img
+                    class="home-work__footer-logo"
+                    src="assets/app-icons/icon-neuk.png"
+                    alt=""
+                    width="44"
+                    height="44"
+                    aria-hidden="true"
+                  />
+                  <div class="home-work__footer-copy">
+                    <p class="home-work__footer-line">neuk</p>
+                    <p class="home-work__footer-meta">Concept · 2025</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-work__stage">
+          <article
+            class="home-work__card is-active"
+            id="work-yap"
+            data-work-index="0"
+            data-href="yap"
+            data-project-morph="yap"
+            data-name="yap"
+            data-line="Voice messages organized into topics friends can easily reply to."
+          >
+            <a
+              href="yap"
+              class="home-work__media"
+              data-ref-featured-project-media-landscape="yap"
+              aria-label="yap"
+            >
+              <video
+                src="assets/covers/yap-cover.mp4"
+                poster="assets/covers/yap-cover.jpg"
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </a>
+            <div class="work-card__body">
+              <ul class="work-card__tags" aria-label="Status and year">
+                <li>Shipped</li>
+                <li>2026</li>
+              </ul>
+              <div class="work-card__copy">
+                <h2 class="work-card__title"><a href="yap">yap</a></h2>
+                <p class="work-card__line">
+                  Turn long voice messages into topics friends can listen and reply&nbsp;to.
+                </p>
+              </div>
+            </div>
+            <div class="home-work__caption">
+              <h3>yap</h3>
+              <p>Voice messages organized into topics friends can easily reply to.</p>
+              <p>Shipped · 2026</p>
+            </div>
+          </article>
+
+          <article
+            class="home-work__card"
+            id="work-notate"
+            data-work-index="1"
+            data-href="notate"
+            data-project-morph="notate"
+            data-name="Notate"
+            data-line="Annotate the web and revisit your thinking in context."
+          >
+            <a
+              href="notate"
+              class="home-work__media"
+              data-ref-featured-project-media-landscape="notate"
+              aria-label="Notate"
+            >
+              <video
+                src="assets/covers/notate-cover.mp4"
+                poster="assets/covers/notate-cover.jpg"
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Notate project cover"
+              ></video>
+            </a>
+            <div class="work-card__body">
+              <ul class="work-card__tags" aria-label="Status and year">
+                <li>Shipped</li>
+                <li>2026</li>
+              </ul>
+              <div class="work-card__copy">
+                <h2 class="work-card__title"><a href="notate">Notate</a></h2>
+                <p class="work-card__line">
+                  Annotate the web and revisit your thinking in&nbsp;context.
+                </p>
+              </div>
+            </div>
+            <div class="home-work__caption">
+              <h3>Notate</h3>
+              <p>Annotate the web and revisit your thinking in context.</p>
+              <p>Shipped · 2026</p>
+            </div>
+          </article>
+
+          <article
+            class="home-work__card"
+            id="work-instagram"
+            data-work-index="2"
+            data-href="instagram-lists"
+            data-project-morph="instagram"
+            data-name="Instagram Lists"
+            data-line="Choose whose posts you browse with custom lists."
+          >
+            <a
+              href="instagram-lists"
+              class="home-work__media"
+              data-ref-featured-project-media-landscape="instagram"
+              aria-label="Instagram Lists"
+            >
+              <video
+                src="assets/covers/instagram-cover.mp4"
+                poster="assets/covers/instagram-cover.jpg"
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </a>
+            <div class="work-card__body">
+              <ul class="work-card__tags" aria-label="Status and year">
+                <li>Concept</li>
+                <li>2025</li>
+              </ul>
+              <div class="work-card__copy">
+                <h2 class="work-card__title"><a href="instagram-lists">Instagram Lists</a></h2>
+                <p class="work-card__line">
+                  Choose whose posts appear on feeds with custom&nbsp;lists.
+                </p>
+              </div>
+            </div>
+            <div class="home-work__caption">
+              <h3>Instagram Lists</h3>
+              <p>Choose whose posts you browse with custom lists.</p>
+              <p>Concept · 2025</p>
+            </div>
+          </article>
+
+          <article
+            class="home-work__card"
+            id="work-neuk"
+            data-work-index="3"
+            data-href="neuk"
+            data-project-morph="neuk"
+            data-name="neuk"
+            data-line="Making space for social streaming."
+          >
+            <a
+              href="neuk"
+              class="home-work__media"
+              data-ref-featured-project-media-landscape="neuk"
+              aria-label="neuk"
+            >
+              <video
+                src="assets/covers/neuk-cover.mp4"
+                poster="assets/covers/neuk-cover.jpg"
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </a>
+            <div class="work-card__body">
+              <ul class="work-card__tags" aria-label="Status and year">
+                <li>Concept</li>
+                <li>2025</li>
+              </ul>
+              <div class="work-card__copy">
+                <h2 class="work-card__title"><a href="neuk">neuk</a></h2>
+                <p class="work-card__line">
+                  Make streaming more social with private, bookable screening&nbsp;rooms.
+                </p>
+              </div>
+            </div>
+            <div class="home-work__caption">
+              <h3>neuk</h3>
+              <p>Making space for social streaming.</p>
+              <p>Concept · 2025</p>
+            </div>
+          </article>
+
+          <a class="home-work__all" href="work" data-work-all>
+            <span class="home-work__all-label">
+              <span class="home-work__all-br" aria-hidden="true">[</span>
+              <span>View all projects</span>
+              <span class="home-work__all-br" aria-hidden="true">]</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <!--
+        <section class="home-contact" id="contact" aria-label="Contact">
+          <div class="home-contact__body">
+            <div class="home-contact__intro">
+              <h2 class="home-contact__heading">Contact</h2>
+              <div class="home-contact__card-slot">
+                <div class="home-contact__card-wrap">
+                  <a
+                    class="home-contact__card"
+                    href="mailto:sooimkang@gmail.com"
+                    aria-label="Email Sooim at sooimkang@gmail.com"
+                  >
+                    <span class="home-contact__card-media">
+                      <img
+                        src="assets/about/hero/me.jpg"
+                        alt="Sooim Kang"
+                        loading="lazy"
+                        width="1080"
+                        height="1080"
+                      />
+                    </span>
+                    <span class="home-contact__card-overlay">
+                      <span class="home-contact__card-text">Say hello</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <ul class="home-contact__list">
+              <li>
+                <a href="mailto:sooimkang1015@gmail.com">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="home-contact__flip-label">Email</span>
+                      <span class="home-contact__flip-label" aria-hidden="true">
+                        sooimkang1015@gmail.com
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="home-contact__flip-label">LinkedIn</span>
+                      <span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="home-contact__flip-label">Github</span>
+                      <span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
-        <section class="home-hero" aria-label="Showreel">
-			<div class="home-hero__pin-spacer pin-spacer pin-spacer-showreel-scroll">
-				<div class="home-hero__pin">
-					<div class="home-hero__media" data-ref-showreel-video role="button" tabindex="0" aria-label="Play the showreel">
-						<!-- The loader starts the silent background loop; clicking opens the full film. -->
-						<video
-							class="home-hero__video"
-                            autoplay loop
-							poster="assets/covers/reel/showreel-loop-start.jpg?v=22"
-							muted
-							playsinline
-							preload="auto"
-							aria-hidden="true"
-						>
-							<!-- 2560×1440 for large and high-density screens, 1920×1080 otherwise (picked once, at load) -->
-							<source src="assets/covers/reel/showreel-loop-1440.mp4?v=22" type="video/mp4" media="(min-resolution: 1.5dppx) and (min-width: 1000px), (min-width: 2000px)">
-							<source src="assets/covers/reel/showreel-loop.mp4?v=22" type="video/mp4">
-						</video>
-						<!-- Glass pause + replay in the full-window player, top right like the case-study videos (js/site.js?v=mobile42, css/intro.css?v=mobile42) -->
-						<div class="home-hero__controls"><button class="glass flow__btn flow__btn--pause" type="button" aria-label="Play the showreel"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay the showreel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
-					</div>
+      -->
+    </main>
 
-				</div>
-			</div>
-		</section>
+    <footer class="footer portfolio-footer">
+      <div class="portfolio-footer__invite">
+        <h2>
+          Let’s make
+          <br />
+          something
+          <br />
+          worth using.
+        </h2>
+      </div>
+      <div class="portfolio-footer__portrait">
+        <img
+          src="assets/about/hero/me.jpg"
+          alt="Sooim Kang"
+          loading="lazy"
+          width="1080"
+          height="1080"
+        />
+        <a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello">
+          <span class="ab-fav__app-pill">SAY HELLO</span>
+          <span class="ab-fav__app-dot" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="portfolio-footer__bio">
+        <strong>Sooim Kang</strong>
+        <p>
+          Product designer &amp; builder
+          <br />
+          Based in New York City
+          <br />
+          The New School · Parsons School of Design
+          <br />
+          Northwestern University · Medill School of Journalism
+        </p>
+      </div>
+      <nav class="portfolio-footer__nav" aria-label="Footer">
+        <a class="nav__menu-link" href="work">
+          <span class="flip">
+            <span class="flip__track">
+              <span class="nav__menu-title">Work</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+            </span>
+          </span>
+        </a>
+        <a class="nav__menu-link" href="about">
+          <span class="flip">
+            <span class="flip__track">
+              <span class="nav__menu-title">About</span>
+              <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+            </span>
+          </span>
+        </a>
+        <a class="nav__menu-link" href="explorations">
+          <span class="flip">
+            <span class="flip__track">
+              <span class="nav__menu-title">Explorations</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
+            </span>
+          </span>
+        </a>
+        <div class="portfolio-footer__social">
+          <a
+            class="ab-icon glass"
+            href="Sooim-Kang-Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            aria-label="Resume (PDF)"
+            title="Resume"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://linkedin.com/in/sooimkang/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="8.3" cy="8.4" r="1.2" fill="currentColor" />
+              <path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://github.com/sooimkang07"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </footer>
 
-		<section class="home-intro" data-ref-showreel-intro aria-label="About">
-			<p class="home-intro__copy" data-ref-intro-copy>I design and build digital products that make complex interactions feel intuitive. My work explores AI, communication, and the tools shaping how people create and connect.</p>
-        </section>
-
-        <section class="home-work" id="section-our-work" aria-label="Work">
-			<div class="home-work__index-shell">
-				<div class="home-work__index">
-					<h2 class="home-work__heading">Selected Work</h2>
-
-					<div class="home-work__titles" aria-live="polite">
-						<a href="yap" class="home-work__title is-active" data-work-title="0">yap</a>
-						<a href="notate" class="home-work__title" data-work-title="1">Notate</a>
-						<a href="instagram-lists" class="home-work__title" data-work-title="2">Instagram Lists</a>
-						<a href="neuk" class="home-work__title" data-work-title="3">neuk</a>
-					</div>
-
-					<div class="home-work__meta">
-						<div class="home-work__descriptions" data-ref-featured-project-description>
-							<p class="home-work__desc is-active" data-work-desc="0">yap is a shipped voice messaging app that uses AI to turn long recordings into topics friends can listen and reply to individually, making it easier to catch up without cutting conversations short.</p>
-							<p class="home-work__desc" data-work-desc="1">Notate is a published Chrome extension that attaches notes to specific elements on live webpages, keeping ideas connected to their sources and organized across websites so users can return to what caught their attention and why.</p>
-							<p class="home-work__desc" data-work-desc="2">Instagram Lists is an independent feature concept that lets users group followed accounts into custom lists and browse by social context, giving people control over whose content they see while recommendations adapt within each list.</p>
-							<p class="home-work__desc" data-work-desc="3">neuk is a service concept for booking private screening rooms where friends can watch together outside the home, connecting room discovery, reservations, contactless entry, and playback controls in one mobile experience.</p>
-						</div>
-
-						<div class="home-work__footers" data-ref-featured-project-footer>
-							<a href="yap" class="home-work__footer is-active" data-work-footer="0">
-								<img class="home-work__footer-logo" src="assets/app-icons/icon-yap.png" alt="" width="44" height="44" aria-hidden="true" />
-								<div class="home-work__footer-copy">
-									<p class="home-work__footer-line">yap</p>
-									<p class="home-work__footer-meta">Shipped · 2026</p>
-								</div>
-							</a>
-							<a href="notate" class="home-work__footer" data-work-footer="1">
-								<img class="home-work__footer-logo" src="assets/app-icons/icon-notate.png" alt="" width="44" height="44" aria-hidden="true" />
-								<div class="home-work__footer-copy">
-									<p class="home-work__footer-line">Notate</p>
-									<p class="home-work__footer-meta">Shipped · 2026</p>
-								</div>
-							</a>
-							<a href="instagram-lists" class="home-work__footer" data-work-footer="2">
-								<img class="home-work__footer-logo" src="assets/app-icons/icon-instagram.png" alt="" width="44" height="44" aria-hidden="true" />
-								<div class="home-work__footer-copy">
-									<p class="home-work__footer-line">Instagram</p>
-									<p class="home-work__footer-meta">Concept · 2025</p>
-								</div>
-							</a>
-							<a href="neuk" class="home-work__footer" data-work-footer="3">
-								<img class="home-work__footer-logo" src="assets/app-icons/icon-neuk.png" alt="" width="44" height="44" aria-hidden="true" />
-								<div class="home-work__footer-copy">
-									<p class="home-work__footer-line">neuk</p>
-									<p class="home-work__footer-meta">Concept · 2025</p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="home-work__stage">
-				<article class="home-work__card is-active" id="work-yap" data-work-index="0" data-href="yap" data-project-morph="yap" data-name="yap" data-line="Voice messages organized into topics friends can easily reply to.">
-					<a href="yap" class="home-work__media" data-ref-featured-project-media-landscape="yap" aria-label="yap">
-						<video src="assets/covers/yap-cover.mp4" poster="assets/covers/yap-cover.jpg" loop muted playsinline preload="metadata"></video>
-					</a>
-					<div class="work-card__body">
-						<ul class="work-card__tags" aria-label="Status and year"><li>Shipped</li><li>2026</li></ul>
-						<div class="work-card__copy">
-							<h3 class="work-card__title"><a href="yap">yap</a></h3>
-							<p class="work-card__line">Voice messages organized into topics friends can easily reply to.</p>
-						</div>
-					</div>
-					<div class="home-work__caption">
-						<h3>yap</h3>
-						<p>Voice messages organized into topics friends can easily reply to.</p>
-						<p>Shipped · 2026</p>
-					</div>
-				</article>
-
-				<article class="home-work__card" id="work-notate" data-work-index="1" data-href="notate" data-project-morph="notate" data-name="Notate" data-line="Annotate the web and revisit your thinking in context.">
-					<a href="notate" class="home-work__media" data-ref-featured-project-media-landscape="notate" aria-label="Notate">
-						<video src="assets/covers/notate-cover.mp4" poster="assets/covers/notate-cover.jpg" loop muted playsinline preload="metadata" aria-label="Notate project cover"></video>
-					</a>
-					<div class="work-card__body">
-						<ul class="work-card__tags" aria-label="Status and year"><li>Shipped</li><li>2026</li></ul>
-						<div class="work-card__copy">
-							<h3 class="work-card__title"><a href="notate">Notate</a></h3>
-							<p class="work-card__line">Annotate the web and revisit your thinking in context.</p>
-						</div>
-					</div>
-					<div class="home-work__caption">
-						<h3>Notate</h3>
-						<p>Annotate the web and revisit your thinking in context.</p>
-						<p>Shipped · 2026</p>
-					</div>
-				</article>
-
-				<article class="home-work__card" id="work-instagram" data-work-index="2" data-href="instagram-lists" data-project-morph="instagram" data-name="Instagram Lists" data-line="Choose whose posts you browse with custom lists.">
-					<a href="instagram-lists" class="home-work__media" data-ref-featured-project-media-landscape="instagram" aria-label="Instagram Lists">
-						<video src="assets/covers/instagram-cover.mp4" poster="assets/covers/instagram-cover.jpg" loop muted playsinline preload="metadata"></video>
-					</a>
-					<div class="work-card__body">
-						<ul class="work-card__tags" aria-label="Status and year"><li>Concept</li><li>2025</li></ul>
-						<div class="work-card__copy">
-							<h3 class="work-card__title"><a href="instagram-lists">Instagram Lists</a></h3>
-							<p class="work-card__line">Choose whose posts you browse with custom lists.</p>
-						</div>
-					</div>
-					<div class="home-work__caption">
-						<h3>Instagram Lists</h3>
-						<p>Choose whose posts you browse with custom lists.</p>
-						<p>Concept · 2025</p>
-					</div>
-				</article>
-
-				<article class="home-work__card" id="work-neuk" data-work-index="3" data-href="neuk" data-project-morph="neuk" data-name="neuk" data-line="Making space for social streaming.">
-					<a href="neuk" class="home-work__media" data-ref-featured-project-media-landscape="neuk" aria-label="neuk">
-						<video src="assets/covers/neuk-cover.mp4" poster="assets/covers/neuk-cover.jpg" loop muted playsinline preload="metadata"></video>
-					</a>
-					<div class="work-card__body">
-						<ul class="work-card__tags" aria-label="Status and year"><li>Concept</li><li>2025</li></ul>
-						<div class="work-card__copy">
-							<h3 class="work-card__title"><a href="neuk">neuk</a></h3>
-							<p class="work-card__line">Making space for social streaming.</p>
-						</div>
-					</div>
-					<div class="home-work__caption">
-						<h3>neuk</h3>
-						<p>Making space for social streaming.</p>
-						<p>Concept · 2025</p>
-					</div>
-				</article>
-
-
-				<a class="home-work__all" href="work" data-work-all>
-					<span class="home-work__all-label"><span class="home-work__all-br" aria-hidden="true">[</span><span>View all projects</span><span class="home-work__all-br" aria-hidden="true">]</span></span>
-				</a>
-
-
-			</div>
-		</section>
-
-		<!-- <section class="home-contact" id="contact" aria-label="Contact">
-			<div class="home-contact__body">
-				 <div class="home-contact__intro">
-					<h2 class="home-contact__heading">Contact</h2>
-					<div class="home-contact__card-slot">
-						<div class="home-contact__card-wrap">
-							<a
-								class="home-contact__card"
-								href="mailto:sooimkang@gmail.com"
-								aria-label="Email Sooim at sooimkang@gmail.com"
-							>
-								<span class="home-contact__card-media">
-									<img src="assets/about/hero/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080" />
-								</span>
-								<span class="home-contact__card-overlay"><span class="home-contact__card-text">Say hello</span></span>
-							</a>
-						</div>
-					</div>
-				</div> 
-				<ul class="home-contact__list">
-					<li>
-						<a href="mailto:sooimkang1015@gmail.com">
-							<span class="flip">
-								<span class="flip__track">
-									<span class="home-contact__flip-label">Email</span>
-									<span class="home-contact__flip-label" aria-hidden="true">sooimkang1015@gmail.com</span>
-								</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener">
-							<span class="flip">
-								<span class="flip__track">
-									<span class="home-contact__flip-label">LinkedIn</span>
-									<span class="home-contact__flip-label" aria-hidden="true">@sooimkang</span>
-								</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/sooimkang07" target="_blank" rel="noopener">
-							<span class="flip">
-								<span class="flip__track">
-									<span class="home-contact__flip-label">Github</span>
-									<span class="home-contact__flip-label" aria-hidden="true">@sooimkang07</span>
-								</span>
-							</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</section> -->
-
-	</main>
-
-	<footer class="footer portfolio-footer">
- <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
- <div class="portfolio-footer__portrait"><img src="assets/about/hero/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
- <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>Based in New York City<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism</p></div>
- <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
-</footer>
-
-	<!-- The separate full-screen player, off: the hero video itself opens full-window now (js/site.js?v=mobile42).
+    <!-- The separate full-screen player, off: the hero video itself opens full-window now (js/site.js?v=burger87
 	<div class="home-showreel" hidden>
 		<div class="home-showreel__frame">
 			<video class="home-showreel__video" src="assets/covers/reel/showreel-loop.mp4?v=22" loop playsinline></video>
@@ -319,19 +675,23 @@
 	</div>
 	-->
 
-	<div class="home-cursor glass" hidden>
-		<span class="home-cursor__play">
-			<svg viewBox="0 0 10 10" aria-hidden="true">
-				<path d="M2 1.2v7.6L8.8 5 2 1.2Z"></path>
-			</svg>
-			Play
-		</span>
-		<span class="home-cursor__close">X Close</span>
-		<span class="home-cursor__work"><span aria-hidden="true">↗</span> View case study</span>
-	</div>
+    <div class="home-cursor glass" hidden>
+      <span class="home-cursor__play">
+        <svg viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M2 1.2v7.6L8.8 5 2 1.2Z">
+          </path>
+        </svg>
+        Play
+      </span>
+      <span class="home-cursor__close">X Close</span>
+      <span class="home-cursor__work">
+        <span aria-hidden="true">↗</span>
+        View case study
+      </span>
+    </div>
 
-	<script src="js/site.js?v=mobile42"></script>
-	<script src="js/morph.js?v=3"></script>
-	<!-- Chatbot off for now: <script src="js/text-sooim.js?v=ds4-facts1" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
-</body>
+    <script src="js/site.js?v=burger87"></script>
+    <script src="js/morph.js?v=breakpoints46"></script>
+    <!-- Chatbot off for now: <script src="js/text-sooim.js?v=breakpoints46" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
+  </body>
 </html>

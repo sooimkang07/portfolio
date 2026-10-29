@@ -85,6 +85,9 @@
 	const fitRows = () => rows.forEach(row => {
 		const rail = row.querySelector('.ex-row__rail')
 		const browsers = [...rail.children].filter(browserOf)
+		rail.style.removeProperty('--ex-h')
+		rail.querySelectorAll('.ex-item[data-ar-auto]').forEach(item => item.style.removeProperty('block-size'))
+		const rowLimit = Math.max(...[...rail.children].map(col => parseFloat(getComputedStyle(col).blockSize) || 0))
 		if (!phone.matches) { rail.style.removeProperty('--ex-h'); browsers.forEach(col => col.style.removeProperty('aspect-ratio')); return }
 		const cs = getComputedStyle(rail)
 		const avail = rail.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
@@ -102,12 +105,35 @@
 			} else h = Math.min(h, avail / ratio(col))
 		})
 		if (!isFinite(h)) return
-		h = Math.floor(h)
+		if (['ibff', 'build-a-bubu', 'hand-coded-sites', 'ama', 'sam'].includes(row.id)) h *= 1.15
+		// Taller rows must still keep each complete browser frame within the rail's usable width.
+		browsers.forEach(col => {
+			const br = browserOf(col), sr = screenRatio(br)
+			h = Math.min(h, sr ? avail / sr + br.querySelector('.ex-browser__bar').offsetHeight : avail / ratio(col))
+		})
+		h = Math.floor(Math.min(h, rowLimit))
 		rail.style.setProperty('--ex-h', `${h}px`)
+		rail.querySelectorAll('.ex-item[data-ar-auto]').forEach(item => {
+			const ownHeight = parseFloat(getComputedStyle(item).blockSize)
+			item.style.blockSize = `${Math.min(ownHeight, avail / ratio(item))}px`
+		})
 		browsers.forEach(col => {
 			const br = browserOf(col), sr = screenRatio(br)
 			if (sr) col.style.aspectRatio = `${((h - br.querySelector('.ex-browser__bar').offsetHeight) * sr).toFixed(1)} / ${h}`
 		})
+	})
+	document.querySelectorAll('.ex-phone__screen, .ex-browser__screen:has(> iframe)').forEach(screen => {
+		const iframe = screen.querySelector('iframe')
+		const fitViewport = () => {
+			const viewport = screen.classList.contains('ex-phone__screen') ? 402 : 1400
+			const scale = screen.clientWidth / viewport
+			if (!scale) return
+			iframe.style.inlineSize = `${viewport}px`
+			iframe.style.blockSize = `${(screen.clientHeight - iframe.offsetTop - (parseFloat(getComputedStyle(iframe).insetBlockEnd) || 0)) / scale}px`
+			iframe.style.transform = `scale(${scale})`
+		}
+		new ResizeObserver(fitViewport).observe(screen)
+		fitViewport()
 	})
 	fitRows()
 	addEventListener('resize', fitRows, { passive: true })

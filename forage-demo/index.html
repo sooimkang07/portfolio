@@ -1,3 +1,58 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>forage · Interactive demo</title><link rel="stylesheet" href="demo.css?v=4"></head>
-<body><aside class="sidebar"><a class="brand" href="#field" aria-label="Forage Field"><img src="../assets/forage/demo/forage-logo-icon.png" alt="Forage"></a><nav aria-label="Main"><a href="#field" data-nav="field"><span>◉</span>Field</a><a href="#explore" data-nav="explore"><span>◎</span>Explore</a><a href="#boards" data-nav="boards"><span>▦</span>Boards</a></nav><nav class="secondary" aria-label="Account"><a href="#profile" data-nav="profile"><span>☺</span>Profile</a><a href="#settings" data-nav="settings"><span>⚙</span>Settings</a></nav></aside><main id="app"></main><dialog id="board-dialog"><form method="dialog"><button class="close" aria-label="Close board picker">×</button></form><h2>Add to a board</h2><div id="board-options"></div><form id="new-board"><label for="board-name">Create a board</label><div class="inline"><input id="board-name" maxlength="60" placeholder="Board name" required><button>Create</button></div></form></dialog><div id="toast" role="status"></div><script src="demo.js?v=3"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>forage · Interactive demo</title>
+    <link rel="stylesheet" href="demo.css?v=4" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#field" aria-label="Forage Field">
+        <img src="../assets/forage/demo/forage-logo-icon.png" alt="Forage" />
+      </a>
+      <nav aria-label="Main">
+        <a href="#field" data-nav="field">
+          <span>◉</span>
+          Field
+        </a>
+        <a href="#explore" data-nav="explore">
+          <span>◎</span>
+          Explore
+        </a>
+        <a href="#boards" data-nav="boards">
+          <span>▦</span>
+          Boards
+        </a>
+      </nav>
+      <nav class="secondary" aria-label="Account">
+        <a href="#profile" data-nav="profile">
+          <span>☺</span>
+          Profile
+        </a>
+        <a href="#settings" data-nav="settings">
+          <span>⚙</span>
+          Settings
+        </a>
+      </nav>
+    </aside>
+    <main id="app"></main>
+    <dialog id="board-dialog">
+      <form method="dialog">
+        <button class="close" aria-label="Close board picker">×</button>
+      </form>
+      <h2>Add to a board</h2>
+      <div id="board-options"></div>
+      <form id="new-board">
+        <label for="board-name">Create a board</label>
+        <div class="inline">
+          <input id="board-name" maxlength="60" placeholder="Board name" required />
+          <button>Create</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" role="status"></div>
+    <script src="demo.js?v=3"></script>
+  </body>
+</html>

@@ -101,7 +101,8 @@
   }, 2200));
   timers.push(setTimeout(finish, 4500));
  }
- if (!location.hash && !reduced.matches) run();
+ if (!location.hash && !reduced.matches &&
+     (preview || document.documentElement.dataset.skipIntro !== 'true')) run();
  else if (!reduced.matches) playReel();   // reduced motion: the reel waits on its first frame until clicked
  document.documentElement.classList.remove('is-intro-pending');
  if (preview) {

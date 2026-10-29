@@ -1,24 +1,66 @@
 /* forage case study: challenge + problem splits, gestures, live prototype, PRD, submission. */
 
 /* ── Text beside a figure (same split as yap's bug rows) ──────── */
-body.case-page main .fg-split { display: grid; gap: var(--s-8); }
-body.case-page main .fg-split > .nt-reading { max-width: none; }
-@media (min-width: 960px) {
-  body.case-page main .fg-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-9); align-items: start; }
-  body.case-page main .fg-split > .nt-media { margin-top: 0; }
-}
 
 /* Challenge */
-body.case-page main .fg-prompt { margin: var(--s-5) 0 0; padding: 0 0 0 var(--s-5); border-left: 2px solid #B99EEB; font-size: var(--fs-base); line-height: var(--lh-base); color: var(--ink); }
-body.case-page main .fg-facts { display: grid; gap: var(--s-4); margin: var(--s-7) 0 0; padding: 0; list-style: none; }
-body.case-page main .fg-facts + p { margin-top: var(--s-6); }
-body.case-page main .fg-facts li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--line); font-size: var(--fs-base); line-height: var(--lh-snug); }
-body.case-page main .fg-facts b { font-weight: var(--fw-medium); color: var(--ink); }
-body.case-page main .fg-facts span { color: var(--muted); }
-body.case-page main .fg-insta { display: block; padding: var(--s-6) var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); }
-body.case-page main .fg-insta .instagram-media { width: 100% !important; max-width: 420px !important; min-width: 260px !important; margin: 0 auto !important; border-radius: var(--r-lg) !important; background: var(--surface); box-shadow:var(--shadow-raise); }
-body.case-page main .fg-insta blockquote.instagram-media { padding: var(--s-6); font-size: var(--fs-base); }
-body.case-page main .fg-insta iframe { border-radius: var(--r-lg) !important; }
+body.case-page {
+  & main {
+    & .fg-prompt {
+      margin-inline: 0;
+      padding-block: 0;
+      padding-inline: var(--s-5) 0;
+      border-inline-start: 0.125rem solid #b99eeb;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+      color: var(--ink);
+    }
+    & .fg-facts {
+      display: grid;
+      gap: var(--space-1);
+      margin-inline: 0;
+      padding: 0;
+      list-style: none;
+      & li {
+        display: grid;
+        grid-template-columns: 7.5rem minmax(0, 1fr);
+        gap: var(--space-1);
+        border-block-start: 0.0625rem solid var(--line);
+        font-size: var(--fs-base);
+        line-height: var(--lh-snug);
+      }
+      & b {
+        font-weight: var(--fw-medium);
+        color: var(--ink);
+      }
+      & span {
+        color: var(--muted);
+      }
+    }
+    & .fg-insta {
+      display: block;
+      padding-block: var(--s-6);
+      padding-inline: var(--s-4);
+      border-radius: var(--r-lg);
+      background: var(--fig-bg) var(--fig-dots);
+      & .instagram-media {
+        inline-size: 100% !important;
+        max-inline-size: 26.25rem !important;
+        min-inline-size: 16.25rem !important;
+        margin-inline: auto !important;
+        border-radius: var(--r-lg) !important;
+        background: var(--surface);
+        box-shadow: var(--shadow-raise);
+      }
+      & blockquote.instagram-media {
+        padding: var(--s-6);
+        font-size: var(--fs-base);
+      }
+      & iframe {
+        border-radius: var(--r-lg) !important;
+      }
+    }
+  }
+}
 
 /* Problem: four senses, staggered, each under a 60% palette wash */
 
@@ -41,193 +83,836 @@ body.case-page main .fg-insta iframe { border-radius: var(--r-lg) !important; }
 /* Devpost reactions, redrawn */
 
 /* Research: inspiration as four signals */
-   
+
 /* Iterations: four versions of the gesture system */
 
 /* Ecosystem revision: shared case-study spacing and cool-gray figure surfaces. */
-body[data-case="forage"] main .fg-prompt{border-left-color:var(--line-strong)}
-body[data-case="forage"] main :is(.fg-figure,.fg-landscape,.fg-stack-figure,.fg-brandbook){background:var(--fig-bg) var(--fig-dots);border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-figure{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding:3%;overflow:hidden}
-body[data-case="forage"] main .fg-figure img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0}
-body[data-case="forage"] main .fg-solutions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--s-7)}
-body[data-case="forage"] main .fg-solutions article{min-width:0}
-body[data-case="forage"] main .fg-solutions p{padding-right:var(--s-3)}
-body[data-case="forage"] main .fg-solution-image{margin:0;overflow:hidden;border-radius:var(--r-lg);aspect-ratio:4/5}
-body[data-case="forage"] main .fg-solution-image img{width:100%;height:100%;object-fit:cover}
-body[data-case="forage"] main .fg-video{margin:0;min-width:0}
-body[data-case="forage"] main .fg-video .flow__device{width:100%;height:auto;aspect-ratio:auto;position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--fig-bg);box-shadow:none;padding:0}
-body[data-case="forage"] main .fg-video video{position:relative;display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:0}
-body[data-case="forage"] main .fg-output{font-size: var(--fs-base);letter-spacing: var(--label-ls);color:var(--muted);margin:var(--s-4) 0 var(--s-5)}
-body[data-case="forage"] main .fg-support{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-9);margin-top:var(--s-9)}
-body[data-case="forage"] main .fg-support h3{font-size: var(--fs-md)}
-body[data-case="forage"] main .fg-support p{font-size: var(--fs-base)}
-body[data-case="forage"] main .fg-persona-notes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-6);margin-top:var(--s-6)}
-body[data-case="forage"] main .fg-persona-notes h4{font-size: var(--fs-base);font-weight: var(--fw-medium);margin:0 0 var(--s-2)}
-body[data-case="forage"] main .fg-persona-notes p{font-size: var(--fs-base);margin:0}
-body[data-case="forage"] main .fg-landscape{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;gap:4%;padding:9% 5%;aspect-ratio:16/9}
-body[data-case="forage"] main .fg-landscape>div{display:flex;flex-direction:column;align-items:center;gap:var(--s-6);text-align:center;min-width:0}
-body[data-case="forage"] main .fg-landscape img{width:100%;height:clamp(60px,10vw,180px);object-fit:contain;border-radius:0}
-body[data-case="forage"] main .fg-landscape span{font-size:clamp(11px,1.1vw,17px);color:var(--muted)}
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-media);align-items:end;margin-top:var(--s-6)}
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair) figure{margin:0;min-width:0}
-body[data-case="forage"] main .fg-render-pair img{width:100%;height:100%;object-fit:contain;display:block}
-body[data-case="forage"] main .fg-render-photo{aspect-ratio:4/3;background:var(--fig-bg);overflow:hidden;border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-render-image{aspect-ratio:4/3;background:var(--fig-bg);border-radius:var(--r-lg)}
-body[data-case="forage"] main :is(.fg-wide-image,.fg-square-image) img{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-wide-image{margin-top:var(--gap-media)}
-body[data-case="forage"] main .fg-carousel{overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--line);margin:0;background:var(--surface)}
-.fg-browser-bar{display:flex;gap:var(--s-1);align-items:center;height:30px;padding:0 var(--s-3);background:var(--fig-bg);color:var(--muted);font-size:10px}
-.fg-browser-bar i{width:7px;height:7px;border-radius:50%;background:var(--fig-dot)}.fg-browser-bar span{margin:auto}
-body[data-case="forage"] main .fg-carousel__slides img{width:100%;height:auto;display:block;border-radius:0}
-.fg-carousel button{border:1px solid var(--line);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--ink)}.fg-carousel button:disabled{opacity:.35;cursor:default}
-body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--s-7)}
-.fg-deliverable{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;color:inherit;background:var(--surface-2)}
-body[data-case="forage"] main .fg-deliverable>img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:0;display:block}.fg-deliverable>span{display:block;padding:var(--s-4);font-size: var(--fs-base)}
-@media(max-width:959px){body[data-case="forage"] main .fg-persona-notes{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){body[data-case="forage"] main .fg-solutions{grid-template-columns:1fr;gap:var(--s-7)}body[data-case="forage"] main .fg-solution-image{aspect-ratio:4/5;max-height:480px}body[data-case="forage"] main :is(.fg-support,.fg-render-pair,.fg-gesture-pair,.fg-deliverables){grid-template-columns:1fr;gap:var(--s-6)}body[data-case="forage"] main .fg-landscape{aspect-ratio:auto;grid-template-columns:repeat(3,1fr);padding:var(--s-7) var(--s-4);gap:var(--s-7) var(--s-4)}body[data-case="forage"] main .fg-landscape img{height:80px}body[data-case="forage"] main .fg-landscape>div{gap:var(--s-3)}}
+body[data-case="forage"] {
+  & main {
+    & .fg-prompt {
+      border-inline-start-color: var(--line-strong);
+    }
+    & :is(.fg-figure, .fg-landscape, .fg-stack-figure, .fg-brandbook) {
+      background: var(--fig-bg) var(--fig-dots);
+      border-radius: var(--r-lg);
+    }
+    & .fg-figure {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      overflow: hidden;
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: contain;
+        border-radius: 0;
+      }
+    }
+    & .fg-solution-image {
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--r-lg);
+      aspect-ratio: 4/5;
+      & img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+    & .fg-video {
+      margin: 0;
+      min-inline-size: 0;
+      & .flow__device {
+        inline-size: 100%;
+        block-size: auto;
+        aspect-ratio: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--r-lg);
+        background: var(--fig-bg);
+        box-shadow: none;
+        padding: 0;
+      }
+      & video {
+        position: relative;
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        max-block-size: none;
+        object-fit: contain;
+        border-radius: 0;
+      }
+    }
+    & .fg-output {
+      font-size: var(--fs-base);
+      letter-spacing: var(--label-ls);
+      color: var(--muted);
+      margin-inline: 0;
+    }
+    & .fg-support {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-9);
+      & h3 {
+        font-size: var(--fs-md);
+      }
+      & p {
+        font-size: var(--fs-base);
+      }
+    }
+    & .fg-persona-notes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--s-6);
+      & h4 {
+        font-size: var(--fs-base);
+        font-weight: var(--fw-medium);
+        margin-inline: 0;
+      }
+      & p {
+        font-size: var(--fs-base);
+        margin: 0;
+      }
+    }
+    & .fg-landscape {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: center;
+      gap: 4%;
+      padding-block: 9%;
+      padding-inline: 5%;
+      aspect-ratio: 16/9;
+      & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--s-6);
+        text-align: center;
+        min-inline-size: 0;
+      }
+      & img {
+        inline-size: 100%;
+        block-size: clamp(3.75rem, 10vw, 11.25rem);
+        object-fit: contain;
+        border-radius: 0;
+      }
+      & span {
+        font-size: clamp(0.6875rem, 1.1vw, 1.0625rem);
+        color: var(--muted);
+      }
+    }
+    & :is(.fg-gesture-pair) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-0);
+      align-items: end;
+      & figure {
+        margin: 0;
+        min-inline-size: 0;
+      }
+    }
+    & .fg-render-photo {
+      aspect-ratio: 1332 / 1775;
+      background: var(--fig-bg);
+      overflow: hidden;
+      border-radius: var(--r-lg);
+    }
+    & .fg-render-image {
+      aspect-ratio: 1920 / 1080;
+      background: var(--fig-bg);
+      border-radius: var(--r-lg);
+    }
+    & :is(.fg-wide-image, .fg-square-image) {
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-lg);
+      }
+    }
+    & .fg-carousel {
+      overflow: hidden;
+      border-radius: var(--r-lg);
+      border: 0.0625rem solid var(--line);
+      margin: 0;
+      background: var(--surface);
+    }
+  }
+}
+.fg-browser-bar {
+  display: flex;
+  gap: var(--s-1);
+  align-items: center;
+  block-size: 1.875rem;
+  padding-block: 0;
+  padding-inline: var(--space-0);
+  background: var(--fig-bg);
+  color: var(--muted);
+  font-size: 0.625rem;
+  & i {
+    inline-size: 0.4375rem;
+    block-size: 0.4375rem;
+    border-radius: 50%;
+    background: var(--fig-dot);
+  }
+  & span {
+    margin: auto;
+  }
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-carousel__slides {
+      & img {
+        inline-size: 100%;
+        block-size: auto;
+        display: block;
+        border-radius: 0;
+      }
+    }
+  }
+}
+.fg-carousel {
+  & button {
+    border: 0.0625rem solid var(--line);
+    border-radius: 50%;
+    inline-size: 2rem;
+    block-size: 2rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  & button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-0);
+    }
+  }
+}
+.fg-deliverable {
+  min-inline-size: 0;
+  overflow: hidden;
+  border: 0.0625rem solid var(--line);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface-2);
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-deliverable {
+      & > img {
+        inline-size: 100%;
+        aspect-ratio: 16/10;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 0;
+        display: block;
+      }
+    }
+  }
+}
+.fg-deliverable {
+  & > span {
+    display: block;
+    padding: var(--s-4);
+    font-size: var(--fs-base);
+  }
+}
+@media (width < 960px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-persona-notes {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-solution-image {
+        aspect-ratio: 4/5;
+        max-block-size: 30rem;
+      }
+      & :is(.fg-support, .fg-gesture-pair, .fg-deliverables) {
+        grid-template-columns: 1fr;
+        gap: var(--s-6);
+      }
+      & .fg-landscape {
+        aspect-ratio: auto;
+        grid-template-columns: repeat(3, 1fr);
+        padding-block: var(--s-7);
+        padding-inline: var(--s-4);
+        gap: var(--s-7) var(--s-4);
+        & img {
+          block-size: 5rem;
+        }
+        & > div {
+          gap: var(--space-0);
+        }
+      }
+    }
+  }
+}
 
 /* Align Forage with the shared case-study figures and media rhythm. */
-body[data-case="forage"] main :is(.fg-split,.fg-support,.fg-persona-notes,.fg-landscape,.fg-stack-figure,.fg-brandbook,.fg-capture-stills){column-gap:var(--gap-media)}
-body[data-case="forage"] main .fg-stacked{display:block}
-body[data-case="forage"] main .fg-stacked>.nt-media{margin-top:var(--gap-media);width:100%}
-body[data-case="forage"] main .fg-figure{padding:0}
-body[data-case="forage"] main .fg-figure img{object-fit:cover}
-body[data-case="forage"] main #core-experience>.fg-split:first-of-type .flow__device{aspect-ratio:1}
-body[data-case="forage"] main #core-experience>.fg-split:first-of-type video{width:100%;height:100%;object-fit:cover}
-body[data-case="forage"] main .fg-landscape{aspect-ratio:1920/620;padding:4% 5%;grid-template-columns:repeat(5,minmax(0,1fr))}
-body[data-case="forage"] main .fg-landscape>div{gap:1.5cqw}
-body[data-case="forage"] main .fg-landscape img{height:13cqw}
-body[data-case="forage"] main .fg-landscape .slab{font-size:1.4cqw;font-weight: var(--fw-medium);letter-spacing: var(--label-ls);color:var(--ink)}
-body[data-case="forage"] main .fg-render-pair{grid-template-columns:.75042fr 1.77778fr;align-items:stretch}
-body[data-case="forage"] main .fg-render-photo{aspect-ratio:1332/1775}
-body[data-case="forage"] main .fg-render-image{aspect-ratio:16/9}
-body[data-case="forage"] main .fg-gesture-pair{grid-template-columns:1fr 1.77778fr;align-items:stretch}
-body[data-case="forage"] main .fg-gesture-pair .flow__device{height:100%}
-body[data-case="forage"] main .fg-gesture-pair video{height:100%;object-fit:contain}
-body[data-case="forage"] main :is(.fg-carousel,.fg-deliverable){border:0;border-radius:var(--r-md);background:var(--surface);box-shadow:var(--shadow-raise)}
-.fg-browser-bar{position:relative;display:flex;align-items:center;flex:none;height:2.25rem;padding-inline:.9rem;background:var(--fig-bg);border-block-end:1px solid var(--line)}
-.fg-browser-bar .fg-browser-dots{display:flex;gap:.4rem;margin:0}
-.fg-browser-dots i{width:.6rem;height:.6rem;background:var(--fig-dot);border-radius:50%}
-.fg-browser-bar .fg-browser-url{position:absolute;left:50%;transform:translateX(-50%);width:min(40%,22rem);padding:.2rem .75rem;border-radius:var(--r-sm);background:var(--surface);font-size: var(--fs-xs);line-height: var(--lh-snug);text-align:center;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
-body[data-case="forage"] main :is(.fg-deliverable,.fg-carousel) img{border-radius:0!important}
-body[data-case="forage"] main .fg-deliverable>img{object-fit:contain;background:var(--fig-bg)}
-body[data-case="forage"] main .fg-carousel__slides{position:relative;aspect-ratio:1920/1104}
-.fg-carousel__slides [data-fg-slide]{position:absolute;inset:0;opacity:0;transition:opacity 900ms ease;pointer-events:none}
-.fg-carousel__slides [data-fg-slide].is-active{opacity:1}
-.fg-carousel [data-fg-pause]{width:auto;height:auto;border-radius:var(--r-sm);padding:var(--s-2) var(--s-3);font:inherit;font-size: var(--fs-base);background:var(--fig-bg)}
-@media(prefers-reduced-motion:reduce){.fg-carousel__slides [data-fg-slide]{transition:none}}
-@media(max-width:600px){body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){grid-template-columns:1fr;row-gap:var(--gap-media)}}
+body[data-case="forage"] {
+  & main {
+    &
+      :is(
+        .fg-support,
+        .fg-persona-notes,
+        .fg-landscape,
+        .fg-stack-figure,
+        .fg-brandbook,
+        .fg-capture-stills
+      ) {
+      column-gap: var(--space-0);
+    }
+    & .fg-figure {
+      padding: 0;
+      & img {
+        object-fit: cover;
+      }
+    }
+    & .fg-landscape {
+      aspect-ratio: 1920/620;
+      padding-block: 4%;
+      padding-inline: 5%;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      & > div {
+        gap: 1.5cqw;
+      }
+      & img {
+        block-size: 13cqw;
+      }
+      & .slab {
+        font-size: 1.4cqw;
+        font-weight: var(--fw-medium);
+        letter-spacing: var(--label-ls);
+        color: var(--ink);
+      }
+    }
+    & .fg-gesture-pair {
+      grid-template-columns: 1fr 1.77778fr;
+      align-items: stretch;
+      & .flow__device {
+        block-size: 100%;
+      }
+      & video {
+        block-size: 100%;
+        object-fit: contain;
+      }
+    }
+    & :is(.fg-carousel, .fg-deliverable) {
+      border: 0;
+      border-radius: var(--r-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-raise);
+    }
+  }
+}
+.fg-browser-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: none;
+  block-size: 2.25rem;
+  padding-inline: 0.9rem;
+  background: var(--fig-bg);
+  border-block-end: 0.0625rem solid var(--line);
+  & .fg-browser-dots {
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+  }
+}
+.fg-browser-dots {
+  & i {
+    inline-size: 0.6rem;
+    block-size: 0.6rem;
+    background: var(--fig-dot);
+    border-radius: 50%;
+  }
+}
+.fg-browser-bar {
+  & .fg-browser-url {
+    position: absolute;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    inline-size: min(40%, 22rem);
+    padding-block: 0.2rem;
+    padding-inline: 0.75rem;
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    font-size: var(--fs-xs);
+    line-height: var(--lh-snug);
+    text-align: center;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+}
+body[data-case="forage"] {
+  & main {
+    & :is(.fg-deliverable, .fg-carousel) {
+      & img {
+        border-radius: 0 !important;
+      }
+    }
+    & .fg-deliverable {
+      & > img {
+        object-fit: contain;
+        background: var(--fig-bg);
+      }
+    }
+    & .fg-carousel__slides {
+      position: relative;
+      aspect-ratio: 1920/1104;
+    }
+  }
+}
+.fg-carousel__slides {
+  & [data-fg-slide] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 900ms ease;
+    pointer-events: none;
+  }
+  & [data-fg-slide].is-active {
+    opacity: 1;
+  }
+}
+.fg-carousel {
+  & [data-fg-pause] {
+    inline-size: auto;
+    block-size: auto;
+    border-radius: var(--r-sm);
+    padding-block: var(--s-2);
+    padding-inline: var(--space-0);
+    font: inherit;
+    font-size: var(--fs-base);
+    background: var(--fig-bg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fg-carousel__slides {
+    & [data-fg-slide] {
+      transition: none;
+    }
+  }
+}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & :is(.fg-gesture-pair) {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-0);
+      }
+    }
+  }
+}
 
 /* ── Cleanup pass: shared tokens, controls top-right, no strokes on inserted images ── */
-body[data-case="forage"] main .fg-split{column-gap:var(--s-9)}
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair,.fg-solutions,.fg-deliverables,.fg-capture){column-gap:var(--gap-media);row-gap:var(--gap-media)}
-body[data-case="forage"] main figure img{border:0;outline:0}
-body[data-case="forage"] main :is(.fg-deliverable,.fg-carousel){border:0}
+body[data-case="forage"] {
+  & main {
+    & :is(.fg-gesture-pair, .fg-deliverables) {
+      column-gap: var(--space-0);
+      row-gap: var(--space-0);
+    }
+    & figure {
+      & img {
+        border: 0;
+        outline: 0;
+      }
+    }
+    & :is(.fg-deliverable, .fg-carousel) {
+      border: 0;
+    }
 
-/* Videos keep their source proportions; controls sit top-right (css/case.css) */
-body[data-case="forage"] main .fg-video .flow__device{aspect-ratio:16/9}
-body[data-case="forage"] main .fg-video video{width:100%;height:100%;object-fit:cover}
-body[data-case="forage"] main .fg-square .flow__device{aspect-ratio:1}
-body[data-case="forage"] main .fg-split>.fg-square{margin-top:0}
+    /* Videos keep their source proportions; controls sit top-right (css/case.css) */
+    & .fg-video {
+      & .flow__device {
+        aspect-ratio: 16/9;
+      }
+      & video {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+    & .fg-square {
+      & .flow__device {
+        aspect-ratio: 1;
+      }
+    }
 
-/* Capture steps: copy, then the gesture, then its asset in the Field */
-body[data-case="forage"] main .fg-capture{display:flex;flex-direction:column;gap:var(--gap-media)}
-body[data-case="forage"] main .fg-capture>.nt-reading{margin-bottom:var(--s-3)}
-body[data-case="forage"] main .fg-capture .fg-output{margin:var(--s-3) 0 0}
-body[data-case="forage"] main .nt-step>.nt-reading+.fg-video{margin-top:var(--s-6)}
+    /* Capture steps: copy, then the gesture, then its asset in the Field */
+    & .fg-capture {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-0);
+      & .fg-output {
+        margin-inline: 0;
+      }
+    }
 
-/* Research: each wearable in a white circle */
-body[data-case="forage"] main .fg-landscape .fg-circle{display:grid;place-items:center;width:100%;aspect-ratio:1;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-raise)}
-body[data-case="forage"] main .fg-landscape .fg-circle img{width:62%;height:62%;object-fit:contain}
-body[data-case="forage"] main .fg-landscape{aspect-ratio:auto;padding:5% 4%;container-type:inline-size}
-body[data-case="forage"] main .fg-landscape .slab{font-size:clamp(10px,1.3cqw,15px)}
+    /* Research: each wearable in a white circle */
+    & .fg-landscape {
+      & .fg-circle {
+        display: grid;
+        place-items: center;
+        inline-size: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--surface);
+        box-shadow: var(--shadow-raise);
+        & img {
+          inline-size: 62%;
+          block-size: 62%;
+          object-fit: contain;
+        }
+      }
+      aspect-ratio: auto;
+      padding-block: 5%;
+      padding-inline: 4%;
+      container-type: inline-size;
+      & .slab {
+        font-size: clamp(0.625rem, 1.3cqw, 0.9375rem);
+      }
+    }
 
-/* Iterations: matched heights, wide render on the figure background */
-body[data-case="forage"] main .fg-render-pair{grid-template-columns:1332fr 3168fr;align-items:stretch}
-body[data-case="forage"] main .fg-render-pair figure{aspect-ratio:auto!important;height:100%}
-body[data-case="forage"] main .fg-render-pair img{width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-render-photo{aspect-ratio:1332/1775!important}
-body[data-case="forage"] main .fg-gesture-pair{grid-template-columns:1080fr 1920fr;align-items:stretch}
-body[data-case="forage"] main .fg-gesture-pair .fg-square-image{aspect-ratio:1}
-body[data-case="forage"] main .fg-gesture-pair .fg-square-image img{width:100%;height:100%;object-fit:cover}
-body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{height:100%;aspect-ratio:auto}
-body[data-case="forage"] main .fg-dotted{padding:4% 5%;border-radius:var(--r-lg);background:var(--fig-bg) var(--fig-dots)}
-body[data-case="forage"] main .fg-dotted img{border-radius:0!important}
-body[data-case="forage"] main .fg-carousel{position:relative}
-body[data-case="forage"] main .fg-carousel .flow__controls{top:calc(2.25rem + 12px)}
-@media(max-width:600px){body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){grid-template-columns:1fr}body[data-case="forage"] main .fg-render-pair figure{height:auto}}
+    /* Iterations: matched heights, wide render on the figure background */
+    & .fg-gesture-pair {
+      grid-template-columns: 1080fr 1920fr;
+      align-items: stretch;
+      & .fg-square-image {
+        aspect-ratio: 1;
+        & img {
+          inline-size: 100%;
+          block-size: 100%;
+          object-fit: cover;
+        }
+      }
+      & .fg-video {
+        & .flow__device {
+          block-size: 100%;
+          aspect-ratio: auto;
+        }
+      }
+    }
+    & .fg-dotted {
+      padding-block: 4%;
+      padding-inline: 5%;
+      border-radius: var(--r-lg);
+      background: var(--fig-bg) var(--fig-dots);
+      & img {
+        border-radius: 0 !important;
+      }
+    }
+    & .fg-carousel {
+      position: relative;
+      & .flow__controls {
+        inset-block-start: calc(2.25rem + 0.75rem);
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & :is(.fg-gesture-pair) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
 
 /* System design: annotated ring */
-.fig.fg-anno{background-color:var(--fig-bg)}
-.fig.fg-anno .fg-anno__ring{position:absolute;left:28%;top:22%;width:44%;height:auto;border-radius:0!important;filter:drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36,.12))}
-body[data-case="forage"] main .fg-landscape{align-items:start}
-body[data-case="forage"] main #research>figure+.nt-reading{margin-top:var(--s-10)}
-body[data-case="forage"] main .fg-landscape+.nt-reading{margin-top:var(--s-6)}
-body[data-case="forage"] main .fg-landscape .fg-circle{position:relative}
-body[data-case="forage"] main .fg-landscape .fg-circle img{position:absolute;inset:19%;width:62%;height:62%}
+.fig.fg-anno {
+  background-color: var(--fig-bg);
+  & .fg-anno__ring {
+    position: absolute;
+    inset-inline-start: 28%;
+    inset-block-start: 22%;
+    inline-size: 44%;
+    block-size: auto;
+    border-radius: 0 !important;
+    filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, 0.12));
+  }
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-landscape {
+      align-items: start;
+    }
+    & .fg-landscape {
+      & .fg-circle {
+        position: relative;
+        & img {
+          position: absolute;
+          inset: 19%;
+          inline-size: 62%;
+          block-size: 62%;
+        }
+      }
+    }
 
-/* ── Pass 3 ─────────────────────────────────────────────────────── */
-/* Laptop frames: the recording sits on the frame's screen */
-body[data-case="forage"] main .fg-lap{position:relative;margin:0;background:none;box-shadow:none;border-radius:0;overflow:visible}
-body[data-case="forage"] main .fg-lap .fg-lap__frame{display:block;width:100%;height:auto;border-radius:0!important}
-body[data-case="forage"] main .fg-lap__scr{position:absolute;left:var(--l);top:var(--t);width:var(--w);height:var(--h);overflow:hidden;background:var(--surface-2);border-radius:.7% .7% 0 0/1.1% 1.1% 0 0;z-index:1}
-body[data-case="forage"] main .fg-lap__scr>:is(video,img){display:block;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:0!important;background:var(--surface-2)}
-body[data-case="forage"] main .fg-lap--green{--l:9.81%;--t:4.57%;--w:80.22%;--h:82.28%}
-body[data-case="forage"] main .fg-lap--pink{--l:9.22%;--t:4.62%;--w:79.99%;--h:82.75%}
-body[data-case="forage"] main .fg-lap--blue{--l:10.06%;--t:4.72%;--w:79.88%;--h:81.44%}
-body[data-case="forage"] main .fg-lap--silver{--l:9.95%;--t:4.5%;--w:80.32%;--h:82.33%}
-body[data-case="forage"] main .fg-lap.flow__device .flow__controls{top:calc(var(--t) + 12px);right:calc(100% - var(--l) - var(--w) + 12px);z-index:3}
-body[data-case="forage"] main .fg-live{position:absolute;inset:0}
-body[data-case="forage"] main .fg-live iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0}
-body[data-case="forage"] main .fg-live__poster{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0!important}
+    /* ── Pass 3 ─────────────────────────────────────────────────────── */
+    /* Laptop frames: the recording sits on the frame's screen */
+    & .fg-lap {
+      position: relative;
+      margin: 0;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible;
+      & .fg-lap__frame {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: 0 !important;
+      }
+    }
+    & .fg-lap__scr {
+      position: absolute;
+      inset-inline-start: var(--l);
+      inset-block-start: var(--t);
+      inline-size: var(--w);
+      block-size: var(--h);
+      overflow: hidden;
+      background: var(--surface-2);
+      border-radius: 0.7% 0.7% 0 0/1.1% 1.1% 0 0;
+      z-index: 1;
+      & > :is(video, img) {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: 0 !important;
+        background: var(--surface-2);
+      }
+    }
+    & .fg-lap--green {
+      --l: 9.81%;
+      --t: 4.57%;
+      --w: 80.22%;
+      --h: 82.28%;
+    }
+    & .fg-lap--pink {
+      --l: 9.22%;
+      --t: 4.62%;
+      --w: 79.99%;
+      --h: 82.75%;
+    }
+    & .fg-lap--blue {
+      --l: 10.06%;
+      --t: 4.72%;
+      --w: 79.88%;
+      --h: 81.44%;
+    }
+    & .fg-lap--silver {
+      --l: 9.95%;
+      --t: 4.5%;
+      --w: 80.32%;
+      --h: 82.33%;
+    }
+    & .fg-lap.flow__device {
+      & .flow__controls {
+        inset-block-start: calc(var(--t) + 0.75rem);
+        inset-inline-end: calc(100% - var(--l) - var(--w) + 0.75rem);
+        z-index: 3;
+      }
+    }
+    & .fg-live {
+      position: absolute;
+      inset: 0;
+      & iframe {
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: 0;
+        inline-size: 90rem;
+        block-size: 56.25rem;
+        border: 0;
+        transform-origin: 0 0;
+      }
+    }
+    & .fg-live__poster {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 0 !important;
+    }
 
-/* Submission: three laptops */
-body[data-case="forage"] main .fg-deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-media);margin-top:var(--sp-media)}
-body[data-case="forage"] main .fg-deliverable{background:none;border-radius:0;box-shadow:var(--shadow-raise);overflow:visible}
-body[data-case="forage"] main .fg-deliverable>a{display:block;margin-top:var(--s-4);font-size: var(--fs-base);color:var(--ink);text-decoration:none}
-body[data-case="forage"] main .fg-deliverable .flow__controls{display:none}
-@media(max-width:760px){body[data-case="forage"] main .fg-deliverables{grid-template-columns:1fr;row-gap:var(--s-7)}}
+    /* Submission: three laptops */
+    & .fg-deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-0);
+    }
+    & .fg-deliverable {
+      background: none;
+      border-radius: 0;
+      box-shadow: var(--shadow-raise);
+      overflow: visible;
+      & > a {
+        display: block;
+        font-size: var(--fs-base);
+        color: var(--ink);
+        text-decoration: none;
+      }
+      & .flow__controls {
+        display: none;
+      }
+    }
+  }
+}
+@media (width < 760px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-deliverables {
+        grid-template-columns: 1fr;
+        row-gap: var(--s-7);
+      }
+    }
+  }
+}
 
 /* Branding: only the supplied assets, in paired rows */
-.fg-syne{font-family:Syne,sans-serif;font-weight: var(--fw-medium)}.fg-helv{font-family:"Helvetica Neue",Helvetica,sans-serif;font-weight:300}
+.fg-syne {
+  font-family: Syne, sans-serif;
+  font-weight: var(--fw-medium);
+}
+.fg-helv {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+}
 
 /* Research: wearables in shadowed white circles, no hairline */
-body[data-case="forage"] main .fg-landscape .fg-circle{width:76%;margin-inline:auto;box-shadow:var(--shadow-raise)}
+body[data-case="forage"] {
+  & main {
+    & .fg-landscape {
+      & .fg-circle {
+        inline-size: 76%;
+        margin-inline: auto;
+        box-shadow: var(--shadow-raise);
+      }
+    }
 
-/* Iterations: rendering 1 + 2 share a row at equal height; 3 fills the frame */
-body[data-case="forage"] main .fg-render-pair{display:grid;grid-template-columns:.75042fr 1.77778fr;align-items:start;gap:var(--gap-media)}
-body[data-case="forage"] main .fg-render-pair>figure{height:auto!important;margin:0;background:none;border-radius:var(--r-lg);overflow:hidden}
-body[data-case="forage"] main .fg-render-photo{aspect-ratio:1332/1775!important}
-body[data-case="forage"] main .fg-render-image{aspect-ratio:16/9!important}
-body[data-case="forage"] main .fg-render-pair img{width:100%;height:100%;object-fit:cover;border-radius:0!important}
-body[data-case="forage"] main .fg-wide-image.fg-dotted{padding:0;background:none;margin-top:var(--gap-media);border-radius:var(--r-lg);overflow:hidden}
-body[data-case="forage"] main .fg-wide-image.fg-dotted img{display:block;width:100%;height:auto}
-body[data-case="forage"] main .fg-gesture-pair{display:grid;grid-template-columns:1fr 1.77778fr;align-items:start;gap:var(--gap-media)}
-body[data-case="forage"] main .fg-gesture-pair>figure{margin:0}
-body[data-case="forage"] main .fg-gesture-pair .fg-square-image{aspect-ratio:1;overflow:hidden;border-radius:var(--r-lg)}
-body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{aspect-ratio:16/9;height:auto}
-@media(max-width:600px){body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair){grid-template-columns:1fr}}
+    /* Iterations: rendering 1 + 2 share a row at equal height; 3 fills the frame */
+    & .fg-wide-image.fg-dotted {
+      padding: 0;
+      background: none;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+      }
+    }
+    & .fg-gesture-pair {
+      display: grid;
+      grid-template-columns: 1fr 1.77778fr;
+      align-items: start;
+      gap: var(--space-0);
+      & > figure {
+        margin: 0;
+      }
+      & .fg-square-image {
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: var(--r-lg);
+      }
+      & .fg-video {
+        & .flow__device {
+          aspect-ratio: 16/9;
+          block-size: auto;
+        }
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & :is(.fg-gesture-pair) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
 
 /* Annotated ring: lower, cropped by the frame */
-.fig.fg-anno .fg-anno__ring{left:28%;top:34%;width:44%}
+.fig.fg-anno {
+  & .fg-anno__ring {
+    inset-inline-start: 28%;
+    inset-block-start: 34%;
+    inline-size: 44%;
+  }
+}
 
 /* Spacing rhythm (shared tokens): copy → media, media → media, step → step */
-body[data-case="forage"] main .nt-section>.nt-reading+:is(figure,div):not(.nt-reading),
-body[data-case="forage"] main .nt-step>.nt-reading+:is(figure,div){margin-top:var(--sp-media)}
-body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap)+:is(figure,.fg-render-pair,.fg-gesture-pair,.fg-lap){margin-top:var(--gap-media)}
-body[data-case="forage"] main .nt-section>*+.nt-step,body[data-case="forage"] main .nt-step+.nt-step{margin-top:var(--s-3)}
-body[data-case="forage"] main .fg-capture{gap:0}
-body[data-case="forage"] main .fg-capture>.nt-reading{margin-bottom:0}
-body[data-case="forage"] main .fg-capture>figure+figure{margin-top:var(--gap-media)}
-body[data-case="forage"] main :is(figure,.fg-render-pair,.fg-gesture-pair)+.nt-reading{margin-top:var(--sp-media)}
-body[data-case="forage"] main :is(.fg-brand__name,.fg-brand__use){white-space:nowrap}
-body[data-case="forage"] main .fg-wide-image.fg-dotted{background:var(--fig-bg) var(--fig-dots)}
-/* Paired media: same top, same height, full column width */
-body[data-case="forage"] main :is(.fg-render-pair,.fg-gesture-pair)>figure{margin:0!important;align-self:start}
-body[data-case="forage"] main .fg-gesture-pair .fg-video .flow__device{width:100%;height:auto!important;aspect-ratio:16/9!important}
-body[data-case="forage"] main .fg-gesture-pair .fg-video video{width:100%;height:100%;object-fit:cover}
-body[data-case="forage"] main .fg-gesture-pair .fg-square-image img{width:100%;height:100%;object-fit:cover;display:block}
-.fg-syne{font-family:"Syne",sans-serif!important;font-weight: var(--fw-medium)}
+body[data-case="forage"] {
+  & main {
+    & .fg-capture {
+      gap: 0;
+    }
+    & :is(.fg-brand__name, .fg-brand__use) {
+      white-space: nowrap;
+    }
+    & .fg-wide-image.fg-dotted {
+      background: var(--fig-bg) var(--fig-dots);
+    }
+    /* Paired media: same top, same height, full column width */
+    & :is(.fg-gesture-pair) {
+      & > figure {
+        margin: 0;
+        align-self: start;
+      }
+    }
+    & .fg-gesture-pair {
+      & .fg-video {
+        & .flow__device {
+          inline-size: 100%;
+          block-size: auto !important;
+          aspect-ratio: 16/9 !important;
+        }
+        & video {
+          inline-size: 100%;
+          block-size: 100%;
+          object-fit: cover;
+        }
+      }
+      & .fg-square-image {
+        & img {
+          inline-size: 100%;
+          block-size: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+    }
+  }
+}
+.fg-syne {
+  font-family: "Syne", sans-serif !important;
+  font-weight: var(--fw-medium);
+}
 
 /* Phones: brand type specimens stay inside the column */
 
@@ -238,121 +923,537 @@ body[data-case="forage"] main .fg-gesture-pair .fg-square-image img{width:100%;h
 /* color chips, Pantone-style */
 
 /* Branding: 1920 × 1080 collage, scaled as one figure. */
-body[data-case="forage"] main .fig.fg-brand { aspect-ratio: 16 / 9; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1.4fr 2fr 2fr; gap: .6cqw; padding: .6cqw; background: var(--surface); }
-.fg-brand__tile { position: relative; min-width: 0; min-height: 0; overflow: hidden; border-radius: var(--fig-r); background: var(--forage-brand-card); }
-body[data-case="forage"] main .fg-brand__tile > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.fg-brand__marks { grid-column: 1 / 7; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6cqw; min-height: 0; }
-.fg-brand__icon { aspect-ratio: 1; height: 100%; width: auto; }
-.fg-brand__palette { grid-column: 7 / 13; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 1fr 1fr; gap: .6cqw; min-height: 0; }
-.fg-brand__swatch { grid-column: span 2; display: flex; align-items: end; padding: 1cqw; border-radius: var(--fig-r); background: var(--c); }
-.fg-brand__swatch:nth-last-child(-n + 2) { grid-column: span 3; }
-.fg-brand__swatch span { font-family: var(--ff-mono); font-size: 1.2cqw; font-weight: var(--fw-medium); line-height: var(--lh-tight); color: var(--ink); }
-.fg-brand__portrait { grid-column: 1 / 4; }
-.fg-brand__finishes { grid-column: 4 / 9; }
-.fg-brand__symbols { grid-column: 9 / 13; display: flex; align-items: center; justify-content: center; gap: 2cqw; padding: 2cqw; }
-body[data-case="forage"] main .fg-brand__symbols > img { position: static; width: 7cqw; height: 7cqw; object-fit: contain; }
-.fg-brand__types { grid-column: 1 / 7; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6cqw; min-width: 0; min-height: 0; }
-.fg-brand__type { display: flex; flex-direction: column; align-items: start; justify-content: center; gap: 1cqw; padding: 1.6cqw; color: var(--ink); }
-.fg-brand__aa { font-size: 6cqw; line-height: var(--lh-none); letter-spacing: var(--h2-ls); }
-.fg-brand__type > div { display: grid; gap: .6cqw; }
-.fg-brand__font { font-size: 2cqw; line-height: var(--lh-tight); }
-.fg-brand__alphabet { font-size: .85cqw; line-height: var(--lh-snug); white-space: nowrap; }
-.fg-brand__numerals { font-size: 1.2cqw; line-height: var(--lh-snug); }
-.fg-brand__type, .fg-brand__symbols { background: var(--surface); border: 1px solid var(--line); }
-.fg-brand__phone { grid-column: 7 / 9; }
-.fg-brand__laptop { grid-column: 9 / 13; }
-/* Deliverables: bare laptops, ink pill links (matches Acuity's .ac-btn). */
-body[data-case="forage"] main .fg-deliverable{background:none;box-shadow:none}
-body[data-case="forage"] main .fg-lap__scr>img{object-position:top left}
-/* Why a ring: larger circles, tighter columns. */
-body[data-case="forage"] main .fg-landscape{padding-inline:3%;column-gap:1.5cqw}
-body[data-case="forage"] main .fg-landscape .fg-circle{width:100%}
-/* Problem: what a designer notices, around the moment of noticing (1920×1080 .fig, sizes in cqw) */
-body[data-case="forage"] main .fig.fg-prob .fg-prob__eyes { position: absolute; object-fit: cover; border-radius: calc(var(--fig-r) * 1.5) !important; box-shadow: var(--shadow-float); }
-body[data-case="forage"] main .fig.fg-prob .fg-prob__card .card { display: flex; flex-direction: column; height: 100%; padding: 1cqw; }
-body[data-case="forage"] main .fig.fg-prob .fg-prob__card .c-lab { margin-bottom: .8cqw; }
-body[data-case="forage"] main .fig.fg-prob .fg-prob__card img { flex: 1; min-height: 0; width: 100%; object-fit: cover; border-radius: var(--fig-r-sm) !important; }
-
-body[data-case="forage"] main .fg-landscape .fg-circle img:is([alt="Smart glasses"], [alt="Necklaces"]) { inset: 10%; width: 80%; height: 80%; }
-body[data-case="forage"] main .fg-deliverable { text-align: center; }
-body[data-case="forage"] main .fg-capture__media { min-width: 0; }
-body[data-case="forage"] main .fg-capture__media > figure:first-child { margin-top: 0; }
-@media (min-width: 960px) {
- body[data-case="forage"] main .fg-capture { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap-media); align-items: start; }
- body[data-case="forage"] main .fg-capture > .nt-reading { max-width: none; }
- body[data-case="forage"] main .nt-step.fg-split > .nt-reading + .nt-media { margin-top: 0; }
+body[data-case="forage"] {
+  & main {
+    & .fig.fg-brand {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: 1.4fr 2fr 2fr;
+      gap: 0.6cqw;
+      padding: 0.6cqw;
+      background: var(--surface);
+    }
+  }
 }
-
+.fg-brand__tile {
+  position: relative;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: hidden;
+  border-radius: var(--fig-r);
+  background: var(--forage-brand-card);
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-brand__tile {
+      & > img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+    }
+  }
+}
+.fg-brand__marks {
+  grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.6cqw;
+  min-block-size: 0;
+}
+.fg-brand__icon {
+  aspect-ratio: 1;
+  block-size: 100%;
+  inline-size: auto;
+}
+.fg-brand__palette {
+  grid-column: 7 / 13;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
+  gap: 0.6cqw;
+  min-block-size: 0;
+}
+.fg-brand__swatch {
+  grid-column: span 2;
+  display: flex;
+  align-items: end;
+  padding: 1cqw;
+  border-radius: var(--fig-r);
+  background: var(--c);
+}
+.fg-brand__swatch:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+.fg-brand__swatch {
+  & span {
+    font-family: var(--ff-mono);
+    font-size: 1.2cqw;
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-tight);
+    color: var(--ink);
+  }
+}
+.fg-brand__portrait {
+  grid-column: 1 / 4;
+}
+.fg-brand__finishes {
+  grid-column: 4 / 9;
+}
+.fg-brand__symbols {
+  grid-column: 9 / 13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2cqw;
+  padding: 2cqw;
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-brand__symbols {
+      & > img {
+        position: static;
+        inline-size: 7cqw;
+        block-size: 7cqw;
+        object-fit: contain;
+      }
+    }
+  }
+}
+.fg-brand__types {
+  grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6cqw;
+  min-inline-size: 0;
+  min-block-size: 0;
+}
+.fg-brand__type {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1cqw;
+  padding: 1.6cqw;
+  color: var(--ink);
+}
+.fg-brand__aa {
+  font-size: 6cqw;
+  line-height: var(--lh-none);
+  letter-spacing: var(--h2-ls);
+}
+.fg-brand__type {
+  & > div {
+    display: grid;
+    gap: 0.6cqw;
+  }
+}
+.fg-brand__font {
+  font-size: 2cqw;
+  line-height: var(--lh-tight);
+}
+.fg-brand__alphabet {
+  font-size: 0.85cqw;
+  line-height: var(--lh-snug);
+  white-space: nowrap;
+}
+.fg-brand__numerals {
+  font-size: 1.2cqw;
+  line-height: var(--lh-snug);
+}
+.fg-brand__type,
+.fg-brand__symbols {
+  background: var(--surface);
+  border: 0.0625rem solid var(--line);
+}
+.fg-brand__phone {
+  grid-column: 7 / 9;
+}
+.fg-brand__laptop {
+  grid-column: 9 / 13;
+}
+/* Deliverables: bare laptops, ink pill links (matches Acuity's .ac-btn). */
+body[data-case="forage"] {
+  & main {
+    & .fg-deliverable {
+      background: none;
+      box-shadow: none;
+    }
+    & .fg-lap__scr {
+      & > img {
+        object-position: top left;
+      }
+    }
+    /* Why a ring: larger circles, tighter columns. */
+    & .fg-landscape {
+      padding-inline: 3%;
+      column-gap: 1.5cqw;
+      & .fg-circle {
+        inline-size: 100%;
+      }
+    }
+    /* Problem: what a designer notices, around the moment of noticing (1920×1080 .fig, sizes in cqw) */
+    & .fig.fg-prob {
+      & .fg-prob__eyes {
+        position: absolute;
+        object-fit: cover;
+        border-radius: calc(var(--fig-r) * 1.5) !important;
+        box-shadow: var(--shadow-float);
+      }
+      & .fg-prob__card {
+        & .card {
+          display: flex;
+          flex-direction: column;
+          block-size: 100%;
+          padding: 1cqw;
+        }
+        & .c-lab {
+          margin-block-end: 0.8cqw;
+        }
+        & img {
+          flex: 1;
+          min-block-size: 0;
+          inline-size: 100%;
+          object-fit: cover;
+          border-radius: var(--fig-r-sm) !important;
+        }
+      }
+    }
+    & .fg-landscape {
+      & .fg-circle {
+        & img:is([alt="Smart glasses"], [alt="Necklaces"]) {
+          inset: 10%;
+          inline-size: 80%;
+          block-size: 80%;
+        }
+      }
+    }
+    & .fg-deliverable {
+      text-align: center;
+    }
+    & .fg-capture__media {
+      min-inline-size: 0;
+    }
+  }
+}
+@media (width >= 960px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-capture {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-0);
+        align-items: start;
+        & > .nt-reading {
+          max-inline-size: none;
+        }
+      }
+    }
+  }
+}
 
 /* Extraction: capture above, reusable asset below, on the shared card board. */
-.fig.fg-extract { --fg-sample: #99B0BF; justify-content: center; }
-.fig.fg-extract .fg-extract__body { display: grid; grid-template-rows: minmax(0, 1fr) 2.4cqw minmax(0, 1.15fr); gap: .8cqw; padding: 1cqw; }
-.fg-extract__raw { overflow: hidden; border-radius: var(--fig-r-sm); min-height: 0; }
-body[data-case="forage"] main .fg-extract__raw img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.fg-extract__arrow { display: flex; align-items: center; justify-content: center; }
-.fg-extract__arrow svg { width: 1.4cqw; height: 2.2cqw; fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
-.fg-extract__result { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; gap: .6cqw; }
-body[data-case="forage"] main .fg-extract__result img { width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: var(--fig-r-sm); }
-.fg-extract__specimen { font-family: "Bodoni 72", Didot, serif; font-size: 6.4cqw; line-height: var(--lh-none); color: var(--ink); }
-.fg-extract__font { font-size: 1.15cqw; line-height: var(--lh-tight); text-align: center; color: var(--muted); }
-.fg-extract__swatch { width: 8cqw; aspect-ratio: 1; background: var(--fg-sample); border-radius: var(--fig-r); }
-.fg-extract__hex { font-family: var(--ff-mono); font-size: 1.25cqw; color: var(--ink); }
-body[data-case="forage"] main .fg-extract__result .fg-extract__motion { width: 68%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; flex: none; }
-.fg-extract__curve { width: 58%; height: auto; aspect-ratio: 160 / 90; fill: none; stroke: var(--ink); stroke-width: 4; }
-.fg-extract__curve .fg-extract__axis { stroke: var(--line-strong); stroke-width: 2; }
-
-/* Introductory context: equal columns fit the embedded post or artwork. */
-@media (min-width: 960px) {
- body.case-page[data-case] main #overview-challenge > .fg-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.fig.fg-extract {
+  --fg-sample: #99b0bf;
+  justify-content: center;
+  & .fg-extract__body {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) 2.4cqw minmax(0, 1.15fr);
+    gap: 0.8cqw;
+    padding: 1cqw;
+  }
+}
+.fg-extract__raw {
+  overflow: hidden;
+  border-radius: var(--fig-r-sm);
+  min-block-size: 0;
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-extract__raw {
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+    }
+  }
+}
+.fg-extract__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & svg {
+    inline-size: 1.4cqw;
+    block-size: 2.2cqw;
+    fill: none;
+    stroke: var(--line-strong);
+    stroke-width: 1.5;
+  }
+}
+.fg-extract__result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 0;
+  gap: 0.6cqw;
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-extract__result {
+      & img {
+        inline-size: 100%;
+        block-size: 100%;
+        min-block-size: 0;
+        object-fit: contain;
+        border-radius: var(--fig-r-sm);
+      }
+    }
+  }
+}
+.fg-extract__specimen {
+  font-family: "Bodoni 72", Didot, serif;
+  font-size: 6.4cqw;
+  line-height: var(--lh-none);
+  color: var(--ink);
+}
+.fg-extract__font {
+  font-size: 1.15cqw;
+  line-height: var(--lh-tight);
+  text-align: center;
+  color: var(--muted);
+}
+.fg-extract__swatch {
+  inline-size: 8cqw;
+  aspect-ratio: 1;
+  background: var(--fg-sample);
+  border-radius: var(--fig-r);
+}
+.fg-extract__hex {
+  font-family: var(--ff-mono);
+  font-size: 1.25cqw;
+  color: var(--ink);
+}
+body[data-case="forage"] {
+  & main {
+    & .fg-extract__result {
+      & .fg-extract__motion {
+        inline-size: 68%;
+        block-size: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        flex: none;
+      }
+    }
+  }
+}
+.fg-extract__curve {
+  inline-size: 58%;
+  block-size: auto;
+  aspect-ratio: 160 / 90;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 4;
+  & .fg-extract__axis {
+    stroke: var(--line-strong);
+    stroke-width: 2;
+  }
 }
 
-/* Capture demos span both columns beneath the gesture video. */
-body[data-case="forage"] main .fg-capture__media { display: contents; }
-body[data-case="forage"] main .fg-capture__media > .fg-lap { grid-column: 1 / -1; }
-/* Digital-platform walkthroughs follow their copy at full width. */
-body[data-case="forage"] main #digital-platform .fg-split { display: flex; flex-direction: column; gap: var(--sp-media); }
-body[data-case="forage"] main #digital-platform .fg-split > .nt-media { width: 100%; }
-/* Deliverable links: the shared body link (underline, ↗, flip track from js/case.js), centered under each laptop */
-body[data-case="forage"] main .fg-deliverable__link{margin:var(--s-4) 0 0;text-align:center}
+/* Introductory context: equal columns fit the embedded post or artwork. */
 
-/* Solution: the grid already sits one --sp-media below the copy; its images add no second gap */
-body.case-page main .fg-solutions .fg-solution-image { margin-top: 0; }
+/* Capture demos span both columns beneath the gesture video. */
+body[data-case="forage"] {
+  & main {
+    & .fg-capture__media {
+      display: contents;
+      & > .fg-lap {
+        grid-column: 1 / -1;
+      }
+    }
+    /* Digital-platform walkthroughs follow their copy at full width. */
+    /* Deliverable links: the shared body link (underline, ↗, flip track from js/case.js), centered under each laptop */
+    & .fg-deliverable__link {
+      margin-inline: 0;
+      text-align: center;
+    }
+  }
+}
+
+/* Solution: the grid already sits one --s-6 below the copy; its images add no second gap */
 
 /* Laptop stage: the pink laptop on the room photo, in a 16:9 media box */
 
 /* Capture steps: standard copy block, then gesture + Field recording side by side at 16:9 */
-body[data-case="forage"] main .fg-capture.fg-pair-step { display: block; }
-body[data-case="forage"] main .fg-pair-step .fg-capture__media { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap-media); margin-top: var(--sp-media); }
-body[data-case="forage"] main .fg-pair-step .fg-capture__media > figure { margin: 0; grid-column: auto; }
-body[data-case="forage"] main .fg-pair-step .fg-video .flow__device { aspect-ratio: 16 / 9; }
-@media (max-width: 600px) { body[data-case="forage"] main .fg-pair-step .fg-capture__media { grid-template-columns: minmax(0, 1fr); } }
+body[data-case="forage"] {
+  & main {
+    & .fg-capture.fg-pair-step {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    & .fg-pair-step {
+      & .fg-capture__media {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-0);
+        @media (width >= 760px) {
+          gap: var(--space-1);
+        }
+        & > figure {
+          margin: 0;
+          grid-column: auto;
+        }
+      }
+      & .fg-video {
+        & .flow__device {
+          aspect-ratio: 16 / 9;
+        }
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-pair-step {
+        & .fg-capture__media {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    }
+  }
+}
 
-/* Media nested in a grid row: the row carries the --sp-media gap, its items add none */
-body.case-page main :is(.fg-solutions, .fg-deliverables, .fg-capture__media) .nt-media { margin-top: 0; }
-body.case-page[data-case="forage"] main .nt-step.fg-pair-step > .fg-capture__media { margin-top: var(--sp-media); }
+/* Media nested in a grid row: the row carries the --s-6 gap, its items add none */
 
 /* Submission: links stacked under the body copy */
-body[data-case="forage"] main .fg-linklist { display: grid; gap: var(--s-2); margin: var(--s-6) 0 0; padding: 0; list-style: none; font-size: var(--fs-base); line-height: var(--lh-base); }
-body[data-case="forage"] main .fg-stacked > .nt-reading + .nt-media{margin-top:var(--sp-media)}   /* text → media is the standard gap, not the between-media one */
+body[data-case="forage"] {
+  & main {
+    & .fg-linklist {
+      display: grid;
+      gap: var(--space-0);
+      margin-inline: 0;
+      padding: 0;
+      list-style: none;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+    }
+  }
+} /* text → media is the standard gap, not the between-media one */
 
 /* Phones: the wearable landscape stays one row and simply scales down */
-@media(max-width:600px){body[data-case="forage"] main .fg-landscape .slab{font-size:1.3cqw}}
-/* Phones: the three solution images stay side by side; their captions stack below in order */
-@media(max-width:600px){
- body[data-case="forage"] main .fg-solutions{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap-media);row-gap:0}
- body[data-case="forage"] main .fg-solutions article{display:contents}
- body[data-case="forage"] main .fg-solutions article:nth-child(1)>figure{grid-column:1;grid-row:1}
- body[data-case="forage"] main .fg-solutions article:nth-child(2)>figure{grid-column:2;grid-row:1}
- body[data-case="forage"] main .fg-solutions article:nth-child(3)>figure{grid-column:3;grid-row:1}
- body[data-case="forage"] main .fg-solutions .fg-solution-image{max-height:none}
- body[data-case="forage"] main .fg-solutions .yap-call{grid-column:1/-1;margin-top:var(--s-6)}
- body[data-case="forage"] main .fg-solutions article:nth-child(1)>.yap-call{grid-row:2}
- body[data-case="forage"] main .fg-solutions article:nth-child(2)>.yap-call{grid-row:3}
- body[data-case="forage"] main .fg-solutions article:nth-child(3)>.yap-call{grid-row:4}
+@media (width < 600px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-landscape {
+        & .slab {
+          font-size: 1.3cqw;
+        }
+      }
+    }
+  }
 }
 
 /* Equal-height capture pairs: 16:9 footage beside the 1464×887 laptop frame.
    Columns follow their native ratios instead of stretching or cropping the laptop. */
-@media (min-width: 601px) {
- body[data-case="forage"] main .fg-pair-step .fg-capture__media { grid-template-columns: minmax(0, 14192fr) minmax(0, 13176fr); align-items: start; }
+@media (width >= 600px) {
+  body[data-case="forage"] {
+    & main {
+      & .fg-pair-step {
+        & .fg-capture__media {
+          grid-template-columns: minmax(0, 14192fr) minmax(0, 13176fr);
+          align-items: start;
+        }
+      }
+    }
+  }
+}
+
+.fg-solution-media {
+  display: flex;
+  gap: var(--space-0);
+  @media (width >= 760px) {
+    gap: var(--space-1);
+  }
+  & > figure {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    & img {
+      inline-size: 100%;
+      block-size: auto;
+    }
+  }
+}
+.fg-solution-captions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  @media (width >= 760px) {
+    flex-direction: row;
+    & > figcaption {
+      flex: 1;
+      min-inline-size: 0;
+    }
+  }
+}
+body[data-case="forage"] main .fg-pair-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+@media (width < 760px) {
+  .fig.fg-extract {
+    aspect-ratio: auto;
+    & .board__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+#build {
+  gap: var(--space-2);
+}
+@media (width < 760px) {
+  .fig.fg-extract {
+    & .fg-extract__body {
+      grid-template-rows: minmax(0, 1fr) calc(var(--space-1) * 2) minmax(0, 1.15fr);
+    }
+    & .fg-extract__arrow svg {
+      inline-size: var(--s-6);
+      block-size: calc(var(--space-1) * 2);
+      stroke: var(--muted);
+    }
+  }
+}
+
+@media (width >= 760px) {
+  .fg-wearable-row {
+    align-items: start;
+    & > .fg-render-photo {
+      flex: calc(1332 / 1775) 1 0;
+    }
+    & > .fg-render-image {
+      flex: calc(1920 / 1080) 1 0;
+    }
+  }
+}
+
+@media (width >= 760px) {
+  body[data-case="forage"] main {
+    & .case-media-stack:has(> .fg-wearable-row),
+    & .fg-wearable-row,
+    & .fg-gesture-pair {
+      gap: var(--space-1);
+    }
+  }
 }

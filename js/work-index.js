@@ -5,7 +5,7 @@
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
 
 	/* "View case study" cursor over each cover, same as the home page (site.js moves it) */
-	const desktop = matchMedia('(width >= 900px)')
+	const desktop = matchMedia('(width >= 960px)')
 	if (document.querySelector('.home-cursor') && !reduced) {
 		cards.forEach(card => {
 			const media = card.querySelector('.work-card__media')

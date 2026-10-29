@@ -1,576 +1,1338 @@
 /* ==========================================================================
    CASE — the single design system for every project page.
-   Loaded last on each case study. Owns the shared tokens, type scale, spacing, layout widths, TOC, media
-   and controls. Sections 1–3 are the former notate.css, project-clean.css
-   and notate-refinements.css, kept in their original cascade order.
+   Owns the shared tokens, type scale, spacing, layout widths, TOC, media
+   and controls. Component sheets follow this file and own only their internal geometry.
+   Shared narrative relationships live in the final section of this file.
    ========================================================================== */
 
 /* ══ 1 · formerly notate.css ═════════════════════════════════════════ */
 /* Notate: three deliberate widths — reading, evidence, and product. */
-body.home.notate-page {background: var(--bg); color: var(--ink); }
-.nt-main { padding-top: 132px; }
-.nt-reading { width: min(640px, calc(100% - 48px)); margin-inline: auto; }
-.nt-process { width: min(880px, calc(100% - 48px)); margin-inline: auto; }
-.nt-back { display: inline-block; margin-bottom: var(--s-9); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
-.nt-kicker { font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--label-ls); margin-bottom: var(--s-5); }
-.nt-kicker span { color: var(--muted); margin-inline: var(--s-3); }
-.nt-hero h1 { margin-bottom: var(--s-6); }
-.nt-meta { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s-5); margin: var(--s-8) 0 var(--s-8); padding-top: var(--s-6); font-size: var(--fs-base); }
-.nt-meta dt { color: var(--muted); margin-bottom: var(--s-2); }
-.nt-meta dd { margin: 0; }
-.nt-media figcaption { display: flex; justify-content: space-between; gap: var(--s-4); font-size: var(--fs-base); line-height: var(--lh-base); color: var(--muted); margin-top: var(--s-3); }
-.nt-story { position: relative; display: flow-root; }
-.nt-rail { position: absolute; top: 0; bottom: 0; left: 32px; width: 145px; pointer-events: none; z-index: 5; }
-.nt-toc { position: sticky; top: 105px; pointer-events: auto; }
-.nt-toc ol { list-style: none; }
-.nt-toc li + li { margin-top: var(--s-1); }
-.nt-toc li a { display: flex; gap: var(--s-3); align-items: center; font-size: var(--fs-xs); padding: var(--s-2) 0; color: var(--muted); }
-.nt-toc li a span { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.nt-toc a[aria-current] { color: var(--ink); font-weight: var(--fw-semi); }
-.nt-toc a[aria-current] span { color: var(--ink); }
-.nt-section { padding-bottom: var(--s-11); scroll-margin-top: 110px; }
-.nt-section h2 { margin-bottom: var(--s-6); }
-.nt-section h3 { margin-bottom: var(--s-3); }
-.nt-section .nt-media { margin-top: var(--s-8); }
-.nt-feature { margin-top: var(--s-10); }
-.nt-feature-heading { display: grid; grid-template-columns: 125px 1fr; gap: var(--s-6); }
-.nt-feature .nt-media { margin-top: var(--s-7); }
-.notate-page a:focus-visible { outline: 2px solid #475e4b; outline-offset: 5px; }
-.nt-skip { position: fixed; left: 20px; top: -80px; padding: var(--s-3) var(--s-5); background: var(--surface); z-index: 100; }
-.nt-skip:focus { top: 12px; }
-@media (min-width: 1200px) {
-  /* Wide visuals pass above the rail; section reading remains truly centered. */
-    .nt-process { max-width: min(880px, calc(100vw - 400px)); }
+body.home.notate-page {
+  background: var(--bg);
+  color: var(--ink);
 }
-@media (max-width: 1199px) {
-  .nt-rail { position: sticky; top: 72px; width: 100%; margin-bottom: var(--s-9); padding: 0 var(--s-6); background: rgb(253 253 252 / .96); }
-  .nt-rail::before { content: ""; position: absolute; bottom: 100%; left: 0; width: 100%; height: 73px; background: var(--bg); }
-  .nt-toc { position: static; overflow-x: auto; scrollbar-width: thin; }
-  .nt-toc ol { display: flex; gap: var(--s-6); min-width: max-content; }
-  .nt-toc li + li { margin: 0; }
-  .nt-toc li a { padding-block: var(--s-4); }
-    .nt-section { scroll-margin-top: 152px; }
+.nt-main {
+  padding-block-start: var(--s-11);
+}
+.nt-reading {
+  inline-size: min(40rem, calc(100% - 3rem));
+  margin-inline: auto;
+}
+.nt-process {
+  inline-size: min(55rem, calc(100% - 3rem));
+  margin-inline: auto;
+}
+.nt-back {
+  display: inline-block;
+  margin-block-end: var(--s-7);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--label-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nt-kicker {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--label-ls);
+  & span {
+    color: var(--muted);
+    margin-inline: var(--space-0);
   }
-@media (max-width: 600px) {
-  .nt-main { padding-top: var(--s-11); }
-  .nt-reading, .nt-process { width: calc(100% - 40px); }
-    .nt-back { margin-bottom: var(--s-7); }
-    .nt-meta { grid-template-columns: 1fr 1fr; row-gap: var(--s-5); font-size: var(--fs-base); }
-  .nt-meta > :last-child { grid-column: 1 / -1; }
-    .nt-media figcaption { font-size: var(--fs-base); }
-  .nt-media figcaption span + span { display: none; }
-  .nt-rail { padding-inline: var(--s-5); margin-bottom: var(--s-8); }
-  .nt-toc ol { gap: var(--s-5); }
-  .nt-section { padding-bottom: var(--s-10); }
-    .nt-feature { margin-top: var(--s-9); }
-  .nt-feature-heading { grid-template-columns: 1fr; gap: 0; }
-    }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
 
+.nt-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-5);
+  margin-inline: 0;
+  padding-block-start: var(--s-6);
+  font-size: var(--fs-base);
+  & dt {
+    color: var(--muted);
+  }
+  & dd {
+    margin: 0;
+    & > span {
+      display: block;
+    }
+  }
+}
+.nt-media {
+  & figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    color: var(--muted);
+  }
+}
+.nt-story {
+  position: relative;
+  display: flow-root;
+}
+.nt-rail {
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 2rem;
+  inline-size: 9.0625rem;
+  pointer-events: none;
+  z-index: 5;
+}
+.nt-toc {
+  position: sticky;
+  inset-block-start: 6.5625rem;
+  pointer-events: auto;
+  & ol {
+    list-style: none;
+  }
+  & li {
+    & + li {
+      margin-block-start: var(--s-1);
+    }
+    & a {
+      display: flex;
+      gap: var(--space-0);
+      align-items: center;
+      font-size: var(--fs-xs);
+      padding-block: var(--s-2);
+      padding-inline: 0;
+      color: var(--muted);
+      & span {
+        font-size: 0.625rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+    }
+  }
+  & a[aria-current] {
+    color: var(--ink);
+    font-weight: var(--fw-semi);
+    & span {
+      color: var(--ink);
+    }
+  }
+}
+.nt-section {
+  scroll-margin-block-start: 6.875rem;
+}
+
+.nt-feature-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.notate-page {
+  & a:focus-visible {
+    outline: 0.125rem solid #475e4b;
+    outline-offset: 0.3125rem;
+  }
+}
+@media (width >= 1200px) {
+  /* Wide visuals pass above the rail; section reading remains truly centered. */
+  .nt-process {
+    max-inline-size: min(55rem, calc(100vw - 25rem));
+  }
+}
+@media (width < 1200px) {
+  .nt-rail {
+    position: sticky;
+    inset-block-start: 4.5rem;
+    inline-size: 100%;
+    margin-block-end: var(--s-9);
+    padding-block: 0;
+    padding-inline: var(--s-6);
+    background: rgb(253 253 252 / 0.96);
+  }
+  .nt-rail::before {
+    content: "";
+    position: absolute;
+    inset-block-end: 100%;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 4.5625rem;
+    background: var(--bg);
+  }
+  .nt-toc {
+    position: static;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    & ol {
+      display: flex;
+      gap: var(--s-6);
+      min-inline-size: max-content;
+    }
+    & li {
+      & + li {
+        margin: 0;
+      }
+      & a {
+        padding-block: var(--s-4);
+      }
+    }
+  }
+  .nt-section {
+    scroll-margin-block-start: 9.5rem;
+  }
+}
+@media (width < 600px) {
+  .nt-reading,
+  .nt-process {
+    inline-size: calc(100% - 2.5rem);
+  }
+  .nt-meta {
+    row-gap: var(--s-5);
+    font-size: var(--fs-base);
+    & > :last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  .nt-media {
+    & figcaption {
+      font-size: var(--fs-base);
+      & span {
+        & + span {
+          display: none;
+        }
+      }
+    }
+  }
+  .nt-rail {
+    padding-inline: var(--s-5);
+    margin-block-end: var(--s-8);
+  }
+  .nt-toc {
+    & ol {
+      gap: var(--s-5);
+    }
+  }
+}
+@media (width >= 600px) {
+  .nt-main {
+    padding-block-start: 8.25rem;
+  }
+  .nt-back {
+    margin-block-end: var(--s-9);
+  }
+  .nt-meta {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+  .nt-feature-heading {
+    grid-template-columns: 7.8125rem 1fr;
+    gap: var(--s-6);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 
 /* ══ 2 · formerly project-clean.css ═════════════════════════════════════════ */
 /* Project pages use spacing, never rules or divider lines, to separate content.
    Chart axes are drawn with backgrounds (see .fig .axis-* in figures.css). */
-body:is(.page--project, .bundles-page, .notate-page, .case-page) :is(main, footer, main *, main *::before, main *::after, footer *) {
-  border-width: 0 !important;
+body:is(.page--project, .bundles-page, .notate-page, .case-page) {
+  & :is(main, footer, main *, main *::before, main *::after, footer *) {
+    border-width: 0 !important;
+  }
 }
-body:is(.page--project, .bundles-page, .notate-page) main :is(figure, img, video, div):not(:focus-visible) {
-  outline: none !important;
-}
-body:is(.page--project, .bundles-page, .notate-page) :is(hr, .case__divider, .sb-progress, figcaption, .case__viz-caption) {
-  display: none !important;
-}
-/* Keep flow explanations above their media on stacked layouts. */
-
-/* Project pages share the site body size (css/base.css --fs-base). */
-
-/* Match Smart Bundles' 12px media corners throughout the case studies. */
 body:is(.page--project, .bundles-page, .notate-page) {
-}
+  & main {
+    & :is(figure, img, video, div):not(:focus-visible) {
+      outline: none !important;
+    }
+  }
+  & :is(hr, .case__divider, .sb-progress, .case__viz-caption) {
+    display: none !important;
+  }
+  /* Keep flow explanations above their media on stacked layouts. */
 
-/* Larger labels, more compact rows. */
-body:is(.page--project, .bundles-page, .notate-page) :is(
-  .nt-toc li a, .sb-toc a, .case__toc-link, .case__toc-bar-link
-) {
-  font-size: var(--fs-base);
-  line-height: var(--lh-snug);
-  padding-block: 3px;
+  /* Project pages share the site body size (css/base.css --fs-base). */
+
+  /* Match Smart Bundles' 12px media corners throughout the case studies. */
+
+  /* Larger labels, more compact rows. */
+  & :is(.nt-toc li a, .sb-toc a, .case__toc-link, .case__toc-bar-link) {
+    font-size: var(--fs-base);
+    line-height: var(--lh-snug);
+    padding-block: 0.1875rem;
+  }
 }
-.nt-toc li + li { margin-top: 0; }
-.nt-toc li a span { font-size: var(--fs-xs); }
-@media (min-width: 1200px) {
-  .nt-rail { left: 24px; width: 168px; }
+.nt-toc {
+  & li {
+    & + li {
+      margin-block-start: 0;
+    }
+    & a {
+      & span {
+        font-size: var(--fs-xs);
+      }
+    }
+  }
 }
-@media (max-width: 1199px) {
-  .notate-page .nt-toc li a { font-size: var(--fs-base); padding-block: var(--s-2); }
+@media (width >= 1200px) {
+  .nt-rail {
+    inset-inline-start: 1.5rem;
+    inline-size: 10.5rem;
+  }
 }
-.page--project .case__toc-bar-link { font-size: var(--fs-base); padding-block: var(--s-2); }
+@media (width < 1200px) {
+  .notate-page {
+    & .nt-toc {
+      & li {
+        & a {
+          font-size: var(--fs-base);
+          padding-block: var(--s-2);
+        }
+      }
+    }
+  }
+}
+.page--project {
+  & .case__toc-bar-link {
+    font-size: var(--fs-base);
+    padding-block: var(--s-2);
+  }
+}
 
 /* Align reading blocks to their associated media canvas. */
-.notate-page .nt-reading { width: min(880px, calc(100% - 48px)); }
-.notate-page .nt-hero { width: calc(100% - 64px); max-width: 1600px; }
-.notate-page .nt-kicker,
-.notate-page .nt-meta dt { text-transform: uppercase; letter-spacing: var(--label-ls); }
-.notate-page .nt-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-@media (min-width: 1200px) {
-  .notate-page .nt-reading:not(.nt-hero) { max-width: min(880px, calc(100vw - 400px)); }
+.notate-page {
+  & .nt-reading {
+    inline-size: min(55rem, calc(100% - 3rem));
+  }
+  & .nt-hero {
+    inline-size: calc(100% - 4rem);
+    max-inline-size: 100rem;
+  }
+  & .nt-kicker,
+  & .nt-meta dt {
+    text-transform: uppercase;
+    letter-spacing: var(--label-ls);
+  }
+  & .nt-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-@media (max-width: 600px) {
-  .notate-page .nt-reading { width: calc(100% - 40px); }
-  .notate-page .nt-hero { width: calc(100% - 24px); }
-  .notate-page .nt-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .notate-page .nt-meta > :last-child { grid-column: auto; }
+@media (width >= 1200px) {
+  .notate-page {
+    & .nt-reading:not(.nt-hero) {
+      max-inline-size: min(55rem, calc(100vw - 25rem));
+    }
+  }
 }
-
+@media (width < 600px) {
+  .notate-page {
+    & .nt-reading {
+      inline-size: calc(100% - 2.5rem);
+    }
+    & .nt-hero {
+      inline-size: calc(100% - 1.5rem);
+    }
+    & .nt-meta {
+      & > :last-child {
+        grid-column: auto;
+      }
+    }
+  }
+}
+@media (width >= 600px) {
+  .notate-page .nt-meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
 /* ══ 3 · formerly notate-refinements.css ═════════════════════════════════════════ */
 /* Refined navigation and explicit text/media groups for Notate. */
-.notate-page .nt-toc li a { text-transform: uppercase; }
-@media (max-width: 1199px) {
-  .notate-page .nt-toc ol { width: max-content; min-width: 0; margin-inline: auto; }
-}
-.notate-page .nt-feature { margin-top: var(--s-11); }
-.notate-page .nt-feature-heading { display: block; }
-.notate-page .nt-feature-heading h3 {
-  margin-bottom: var(--s-4);
-}
-.notate-page .nt-feature .nt-media { margin-top: var(--s-5); }
-@media (max-width: 600px) {
-  .notate-page .nt-feature { margin-top: var(--s-10); }
+.notate-page {
+  & .nt-toc {
+    & li {
+      & a {
+        text-transform: uppercase;
       }
+    }
+  }
+}
+@media (width < 1200px) {
+  .notate-page {
+    & .nt-toc {
+      & ol {
+        inline-size: max-content;
+        min-inline-size: 0;
+        margin-inline: auto;
+      }
+    }
+  }
+}
 
-/* Open on the cover; introduce the project within the story below it. */
-.notate-page .nt-main { padding-top: var(--s-10); }
-.notate-page .nt-chapters > .nt-hero {
-  width: min(880px, calc(100% - 48px));
-  margin-bottom: var(--s-11);
+.notate-page {
+  & .nt-feature-heading {
+    display: block;
+  }
+
+  /* Open on the cover; introduce the project within the story below it. */
+  & .nt-main {
+    padding-block-start: var(--s-10);
+  }
+  & .nt-chapters {
+    & > .nt-hero {
+      inline-size: min(55rem, calc(100% - 3rem));
+    }
+  }
 }
-@media (min-width: 1200px) {
-  .notate-page .nt-chapters > .nt-hero { max-width: min(880px, calc(100vw - 400px)); }
+@media (width >= 1200px) {
+  .notate-page {
+    & .nt-chapters {
+      & > .nt-hero {
+        max-inline-size: min(55rem, calc(100vw - 25rem));
+      }
+    }
+  }
 }
-@media (max-width: 600px) {
-  .notate-page .nt-chapters > .nt-hero { width: calc(100% - 40px); margin-bottom: var(--s-10); }
+@media (width < 600px) {
+  .notate-page {
+    & .nt-chapters {
+      & > .nt-hero {
+        inline-size: calc(100% - 2.5rem);
+      }
+    }
+  }
 }
 
-.notate-page .nt-toc > .nt-back { display: block; margin: 0 0 var(--s-5); }
-@media (max-width: 1199px) {
-  .notate-page .nt-toc > .nt-back { width: max-content; margin: var(--s-2) auto var(--s-1); }
-  .notate-page .nt-section { scroll-margin-top: 180px; }
+.notate-page {
+  & .nt-toc {
+    & > .nt-back {
+      display: block;
+      margin-block: 0 var(--s-5);
+      margin-inline: 0;
+    }
+  }
+}
+@media (width < 1200px) {
+  .notate-page {
+    & .nt-toc {
+      & > .nt-back {
+        inline-size: max-content;
+        margin-block: var(--s-2) var(--s-1);
+        margin-inline: auto;
+      }
+    }
+    & .nt-section {
+      scroll-margin-block-start: 11.25rem;
+    }
+  }
 }
 
 /* Solution + decision motion clips */
-.notate-page .nt-video { display: block; width: 100%; height: auto; background: var(--fig-bg); }
+.notate-page {
+  & .nt-video {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    background: var(--fig-bg);
+  }
 
-/* ── Page structure (Problem → Solution → First run → Launch) ── */
-/* Each loop step: full-width walkthrough, then its decision beside a detail clip. */
-.notate-page .nt-step + .nt-step { margin-top: var(--s-3); }
+  /* ── Page structure (Problem → Solution → First run → Launch) ── */
+  /* Each loop step: full-width walkthrough, then its decision beside a detail clip. */
 
-/* Carousels (First run clips, Launch cards): one slide at a time */
-.notate-page .nt-carousel { margin-top: var(--sp-media); }
-/* Arrows straddle the visuals' side edges, half on and half off, vertically centered */
-.notate-page .nt-carousel__stage { position: relative; }
-.notate-page .nt-carousel__btn { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border-radius: 50%; color: var(--ink); transform: translateY(-50%); transition: opacity var(--dur-2, 200ms) ease; }
-.notate-page .nt-carousel__btn[data-dir="-1"] { left: 0; translate: -50% 0; }
-.notate-page .nt-carousel__btn[data-dir="1"] { right: 0; translate: 50% 0; }
-.notate-page .nt-carousel__btn svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
-.notate-page .nt-carousel__btn:disabled { opacity: 0; pointer-events: none; }
-.notate-page .nt-carousel:not(.is-scrollable) .nt-carousel__btn { display: none; }
-.notate-page .nt-carousel__rail { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--gap-media); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.notate-page .nt-carousel__rail::-webkit-scrollbar { display: none; }
-.notate-page .nt-carousel__rail:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
-.notate-page .nt-carousel__rail > li { flex: 0 0 min(78%, 560px); scroll-snap-align: start; }
-.notate-page .nt-carousel--single .nt-carousel__rail > li { flex-basis: 100%; scroll-snap-stop: always; }
-.notate-page .nt-store-carousel .nt-carousel__rail img { display: block; width: 100%; height: auto; border-radius: var(--r-md); }
+  /* Carousels (First run clips, Launch cards): one slide at a time */
+  /* Arrows straddle the visuals' side edges, half on and half off, vertically centered */
+  & .nt-carousel__stage {
+    position: relative;
+  }
+  & .nt-carousel__btn {
+    position: absolute;
+    inset-block-start: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border-radius: 50%;
+    color: var(--ink);
+    transform: translateY(-50%);
+    transition: opacity var(--dur-2, 200ms) ease;
+  }
+  & .nt-carousel__btn[data-dir="-1"] {
+    inset-inline-start: 0;
+    translate: -50% 0;
+  }
+  & .nt-carousel__btn[data-dir="1"] {
+    inset-inline-end: 0;
+    translate: 50% 0;
+  }
+  & .nt-carousel__btn {
+    & svg {
+      inline-size: 1.05rem;
+      block-size: 1.05rem;
+      fill: currentColor;
+    }
+  }
+  & .nt-carousel__btn:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+  & .nt-carousel:not(.is-scrollable) {
+    & .nt-carousel__btn {
+      display: none;
+    }
+  }
+  & .nt-carousel__rail {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-0);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  & .nt-carousel__rail::-webkit-scrollbar {
+    display: none;
+  }
+  & .nt-carousel__rail:focus-visible {
+    outline: 0.125rem solid currentColor;
+    outline-offset: 0.25rem;
+  }
+  & .nt-carousel__rail {
+    & > li {
+      flex: 0 0 min(78%, 35rem);
+      scroll-snap-align: start;
+    }
+  }
+  & .nt-carousel--single {
+    & .nt-carousel__rail {
+      & > li {
+        flex-basis: 100%;
+        scroll-snap-stop: always;
+      }
+    }
+  }
+  & .nt-store-carousel {
+    & .nt-carousel__rail {
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-md);
+      }
+    }
+  }
 
-.notate-page .nt-onboarding .nt-media { margin: 0; }
-.notate-page .nt-onboarding p { color: var(--ink); }
-.notate-page .nt-onboarding p span { color: var(--muted); margin-right: var(--s-2); font-variant-numeric: tabular-nums; }
+  & .nt-onboarding {
+    & .nt-media {
+      margin: 0;
+    }
+    & p {
+      color: var(--ink);
+      & span {
+        color: var(--muted);
+        margin-inline-end: var(--s-2);
+        font-variant-numeric: tabular-nums;
+      }
+    }
+  }
+}
 /* Hide playback buttons on these small clips; they're short loops. */
-body.case-page.notate-page .nt-onboarding .flow__controls { display: none; }
-@media (hover: none) { .notate-page .nt-carousel__btn { display: none; } }
-
-
+body.case-page.notate-page {
+  & .nt-onboarding {
+    & .flow__controls {
+      display: none;
+    }
+  }
+}
+@media (hover: none) {
+  .notate-page {
+    & .nt-carousel__btn {
+      display: none;
+    }
+  }
+}
 
 /* Hero: title left, the extension as it appears in the store right */
-.notate-page .nt-hero-head { display: block; }
-body.case-page main .nt-hero-head h1 { margin-bottom: 0; }
-.notate-page .nt-store-card { margin: 0; }
-.notate-page .nt-store-card a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--s-5) var(--s-4); padding: var(--s-5); border-radius: var(--r-md); background: var(--fig-bg); color: inherit; text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
-.notate-page .nt-store-card a:hover { background: color-mix(in srgb, var(--fig-bg) 80%, var(--ink) 6%); }
-.notate-page .nt-store-card a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-.notate-page .nt-store-card img { width: 56px; height: 56px; border-radius: var(--r-lg); }
-.notate-page .nt-store-card__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: var(--fs-base); font-weight: var(--fw-medium); line-height: var(--lh-tight); }
-.notate-page .nt-store-card__name small { font-size: var(--fs-xs); font-weight: var(--fw-regular); color: var(--muted); }
-.notate-page .nt-store-card__cta { grid-column: 1 / -1; padding: var(--s-3) var(--s-4); border-radius: var(--r-pill); background: #0b57d0; color: var(--surface); font-size: var(--fs-base); font-weight: var(--fw-medium); text-align: center; white-space: nowrap; }
-@media (max-width: 1000px) {
-  .notate-page .nt-hero-head { grid-template-columns: minmax(0, 1fr); }
-  .notate-page .nt-store-card { max-width: none; }   /* phones: the card and its Add to Chrome button span the column */
+.notate-page {
+  & .nt-hero-head {
+    display: block;
+  }
+}
+.notate-page {
+  & .nt-store-card {
+    margin: 0;
+    & a {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: var(--s-5) var(--s-4);
+      padding: var(--s-5);
+      border-radius: var(--r-md);
+      background: var(--fig-bg);
+      color: inherit;
+      text-decoration: none;
+      transition: background-color var(--dur-2, 200ms) ease;
+    }
+    & a:hover {
+      background: color-mix(in srgb, var(--fig-bg) 80%, var(--ink) 6%);
+    }
+    & a:focus-visible {
+      outline: 0.125rem solid currentColor;
+      outline-offset: 0.1875rem;
+    }
+    & img {
+      inline-size: 3.5rem;
+      block-size: 3.5rem;
+      border-radius: var(--r-lg);
+    }
+  }
+  & .nt-store-card__name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-inline-size: 0;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-tight);
+    & small {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-regular);
+      color: var(--muted);
+    }
+  }
+  & .nt-store-card__cta {
+    grid-column: 1 / -1;
+    padding-block: var(--space-0);
+    padding-inline: var(--s-4);
+    border-radius: var(--r-pill);
+    background: #0b57d0;
+    color: var(--surface);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+@media (width < 960px) {
+  .notate-page {
+    & .nt-hero-head {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    & .nt-store-card {
+      max-inline-size: none;
+    }
+  } /* phones: the card and its Add to Chrome button span the column */
 }
 
 /* Launch: the listing as it appears in Chrome Web Store search */
-.notate-page .nt-listing-fig { margin: var(--sp-media) 0 0; }
-.notate-page .nt-listing { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto; gap: var(--s-6); align-items: start; padding: var(--s-4); border-radius: var(--r-lg); background: var(--fig-bg); color: var(--ink); text-decoration: none; transition: background-color var(--dur-2, 200ms) ease; }
-.notate-page .nt-listing:hover { background: var(--line); }
-.notate-page .nt-listing:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-.notate-page .nt-listing__cover { display: block; aspect-ratio: 440 / 280; overflow: hidden; border-radius: var(--r-md); }
-.notate-page .nt-listing__cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.notate-page .nt-listing__body { display: flex; flex-direction: column; gap: var(--s-3); padding-top: var(--s-2); min-width: 0; }
-.notate-page .nt-listing__name { font-size: var(--fs-base); font-weight: var(--fw-medium); }
-.notate-page .nt-listing__desc { font-size: var(--fs-base); line-height: var(--lh-snug); color: var(--ink); }
-.notate-page .nt-listing__status { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-2) 0 0; font-size: var(--fs-base); font-weight: var(--fw-medium); color: #137333; white-space: nowrap; }
-.notate-page .nt-listing__status svg { width: 16px; height: 16px; }
-@media (max-width: 700px) {
-  .notate-page .nt-listing { grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
-  .notate-page .nt-listing__body { padding-top: 0; }
-  .notate-page .nt-listing__status { padding: 0; }
+.notate-page {
+  & .nt-listing-fig {
+    margin-inline: 0;
+  }
+  & .nt-listing {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-4);
+    align-items: start;
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    background: var(--fig-bg);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background-color var(--dur-2, 200ms) ease;
+  }
+  & .nt-listing:hover {
+    background: var(--line);
+  }
+  & .nt-listing:focus-visible {
+    outline: 0.125rem solid currentColor;
+    outline-offset: 0.1875rem;
+  }
+  & .nt-listing__cover {
+    display: block;
+    aspect-ratio: 440 / 280;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    & img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+  & .nt-listing__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0);
+    padding-block-start: 0;
+    min-inline-size: 0;
+  }
+  & .nt-listing__name {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+  }
+  & .nt-listing__desc {
+    font-size: var(--fs-base);
+    line-height: var(--lh-snug);
+    color: var(--ink);
+  }
+  & .nt-listing__status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    padding-block: var(--s-2) 0;
+    padding-inline: 0 var(--s-2);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    color: #137333;
+    white-space: nowrap;
+    & svg {
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+  }
+}
+@media (width < 760px) {
+  .notate-page {
+    & .nt-listing__status {
+      padding: 0;
+    }
+  }
+}
+@media (width >= 760px) {
+  .notate-page .nt-listing {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto;
+    gap: var(--s-6);
+  }
+  .notate-page .nt-listing__body {
+    padding-block-start: var(--s-2);
+  }
 }
 
 /* Reflection: results in the same ruled, labeled grid as the overview meta */
 
 /* Launch: the live listing in a browser window (same frame as IBFF in Explorations) */
-.notate-page .nt-browser-fig { margin-top: var(--sp-media); }
-.notate-page .nt-hero .nt-browser-fig { margin-top: var(--s-8); }
-.notate-page .nt-browser { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--r-md); background: var(--surface); box-shadow:var(--shadow-raise); color: inherit; text-decoration: none; }
-.notate-page .nt-browser:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
-.notate-page .nt-browser__bar { position: relative; display: flex; align-items: center; flex: none; height: 2.25rem; padding-inline: 0.9rem; background: var(--fig-bg); border-block-end: 1px solid var(--line); }
-.notate-page .nt-browser__dots { display: flex; gap: 0.4rem; }
-.notate-page .nt-browser__dots i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--fig-dot); }
-.notate-page .nt-browser__url { position: absolute; left: 50%; transform: translateX(-50%); width: min(40%, 22rem); padding: 0.2rem 0.75rem; border-radius: var(--r-sm); background: var(--surface); font-size: var(--fs-xs); line-height: var(--lh-snug); text-align: center; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.notate-page .nt-browser__screen { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
-.notate-page .nt-browser__screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform var(--dur-4, 600ms) var(--ease, ease); }
-@media (hover: hover) { .notate-page .nt-browser:hover .nt-browser__screen img { transform: scale(1.015); } }
-@media (max-width: 560px) {
-  .notate-page .nt-browser__url { width: 60%; }
+.notate-page {
+  & .nt-browser {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    background: var(--surface);
+    box-shadow: var(--shadow-raise);
+    color: inherit;
+    text-decoration: none;
+  }
+  & .nt-browser:focus-visible {
+    outline: 0.125rem solid currentColor;
+    outline-offset: 0.25rem;
+  }
+  & .nt-browser__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: none;
+    block-size: 2.25rem;
+    padding-inline: 0.9rem;
+    background: var(--fig-bg);
+    border-block-end: 0.0625rem solid var(--line);
+  }
+  & .nt-browser__dots {
+    display: flex;
+    gap: 0.4rem;
+    & i {
+      inline-size: 0.6rem;
+      block-size: 0.6rem;
+      border-radius: 50%;
+      background: var(--fig-dot);
+    }
+  }
+  & .nt-browser__url {
+    position: absolute;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    inline-size: min(40%, 22rem);
+    padding-block: 0.2rem;
+    padding-inline: 0.75rem;
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    font-size: var(--fs-xs);
+    line-height: var(--lh-snug);
+    text-align: center;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  & .nt-browser__screen {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    & img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform var(--dur-4, 600ms) var(--ease, ease);
+    }
+  }
+}
+@media (hover: hover) {
+  .notate-page {
+    & .nt-browser:hover {
+      & .nt-browser__screen {
+        & img {
+          transform: scale(1.015);
+        }
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  .notate-page {
+    & .nt-browser__url {
+      inline-size: 60%;
+    }
+  }
 }
 
-@media (max-width: 700px) {
-  .notate-page .nt-carousel__rail > li { flex-basis: 86%; }
+@media (width < 760px) {
+  .notate-page {
+    & .nt-carousel__rail {
+      & > li {
+        flex-basis: 86%;
+      }
+    }
+  }
 }
-
 
 /* ══ 4 · Case system ════════════════════════════════════════════ */
 
 body.case-page {
-	/* Color */
+  /* Color */
 
-	/* Type scale */
+  /* Type scale */
 
-	/* Layout: inline gutters use --gutter directly. */
-	--case-top: calc(var(--nav-h) + var(--s-6)); /* 76px: cover offset below nav */
-	--col: 760px;                                    /* the one centered column */
-	--rail-w: 150px;
+  /* Layout: inline gutters use --gutter directly. */
+  --case-top: calc(var(--nav-h) + var(--s-4)); /* 76px: cover offset below nav */
+  --col: 47.5rem; /* the one centered column */
+  --rail-w: 9.375rem;
 
-	/* Rhythm */
-	--sp-section: clamp(var(--s-11), 9vw, calc(var(--s-11) + var(--s-7)));
-	--sp-media: var(--s-6);
-	--gap-media: var(--s-3);
+  /* Rhythm */
 
-	background: var(--bg);
-	color: var(--ink);
-	font-size: var(--fs-base);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--fs-base);
 }
-@media (max-width: 700px) {
-	body.case-page {
-		--case-top: calc(var(--nav-h) + var(--s-4));
-		--sp-section: var(--s-11);
-		--sp-media: var(--s-4);
-		--gap-media: var(--s-2);
-	}
+@media (width >= 760px) {
+  body.case-page {
+    --case-top: calc(var(--nav-h) + var(--s-6));
+  }
 }
 
 /* ── Frame ───────────────────────────────────────────────────── */
-body.case-page .nt-main { padding-top: var(--case-top); padding-bottom: var(--sp-section); }
-body.case-page .nt-story { padding-inline: var(--gutter); }
-body.case-page :is(
-	.nt-reading, .nt-process, .nt-hero,
-	.nt-chapters > .nt-hero, .nt-chapters > .nt-section,
-	.nt-section > .nt-reading, .nt-section > .nt-process, .nt-section > .nt-media
-) {
-	width: 100%;
-	max-width: var(--col);
-	margin-inline: auto;
-}
-body.case-page .nt-section > :is(.nt-reading, .nt-process, .nt-media) { max-width: none; }
-body.case-page .nt-section {
-	max-width: var(--col);
-	margin-inline: auto;
-	margin-block: 0;
-	padding: 0 0 var(--sp-section);
-	scroll-margin-top: 104px;
-}
-body.case-page .nt-section:last-child { padding-bottom: 0; }
+body.case-page {
+  & .nt-main {
+    padding-block-start: var(--case-top);
+  }
+  & .nt-story {
+    padding-inline: var(--gutter);
+  }
+  &
+    :is(
+      .nt-reading,
+      .nt-process,
+      .nt-hero,
+      .nt-chapters > .nt-hero,
+      .nt-chapters > .nt-section,
+      .nt-section > .nt-reading,
+      .nt-section > .nt-process,
+      .nt-section > .nt-media
+    ) {
+    inline-size: 100%;
+    max-inline-size: var(--col);
+    margin-inline: auto;
+  }
+  & .nt-section {
+    & > :is(.nt-reading, .nt-process, .nt-media) {
+      max-inline-size: none;
+    }
+    max-inline-size: var(--col);
+    margin-inline: auto;
+    padding-inline: 0;
+    scroll-margin-block-start: 6.5rem;
+  }
+  & .nt-section:last-child {
+    padding-block-end: 0;
+  }
 
-/* ── Cover (edge to edge of the story's inline padding) ─────── */
-body.case-page .case-cover {
-	position: relative;
-	margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11));
-	/* Always the full width between the gutters at the covers' native 16:9,
+  /* ── Cover (edge to edge of the story's inline padding) ─────── */
+  & .case-cover {
+    position: relative;
+    margin-inline: var(--gutter);
+    /* Always the full width between the gutters at the covers' native 16:9,
 	   so the video is never cropped. Mirrors coverRect() in js/morph.js. */
-	width: auto;
-	aspect-ratio: 16 / 9;
-	border-radius: var(--r-md);
-	overflow: hidden;
-	background: var(--fig-bg);
-}
-body.case-page .case-cover .flow__device,
-body.case-page .case-cover .flow__device-screen {
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	max-width: none;
-	margin: 0;
-	background: transparent;
-}
-body.case-page .case-cover .flow__device { border-radius: 0; }
-body.case-page .case-cover .flow__device-screen { position: absolute; }
-body.case-page .case-cover .case-cover__media {
-	display: block;
-	width: 100%;
-	height: 100%;
-	max-height: none;
-	object-fit: cover;
-	border-radius: 0 !important; /* beats the shared media radius */
-	background: var(--fig-bg);
+    inline-size: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--fig-bg);
+    & .flow__device,
+    & .flow__device-screen {
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      max-inline-size: none;
+      margin: 0;
+      background: transparent;
+    }
+    & .flow__device {
+      border-radius: 0;
+    }
+    & .flow__device-screen {
+      position: absolute;
+    }
+    & .case-cover__media {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      max-block-size: none;
+      object-fit: cover;
+      border-radius: 0 !important; /* beats the shared media radius */
+      background: var(--fig-bg);
+    }
+  }
 }
 
 /* ── Rail + TOC ──────────────────────────────────────────────── */
-@media (min-width: 1200px) {
-	body.case-page .nt-rail { left: var(--gutter); width: var(--rail-w); }
+@media (width >= 1200px) {
+  body.case-page {
+    & .nt-rail {
+      inset-inline-start: var(--gutter);
+      inline-size: var(--rail-w);
+    }
+  }
 }
-body.case-page .nt-toc { top: 104px; }
-body.case-page .nt-toc > .nt-back {
-	display: block;
-	margin: 0 0 var(--s-6);
-	font-size: var(--fs-xs);
-	font-weight: var(--fw-medium);
-	line-height: var(--lh-snug);
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--muted);
+body.case-page {
+  & .nt-toc {
+    inset-block-start: 6.5rem;
+    & > .nt-back {
+      display: block;
+      margin-block: 0 var(--s-6);
+      margin-inline: 0;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-snug);
+      letter-spacing: var(--label-ls);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    & > .nt-back:hover {
+      color: var(--ink);
+    }
+    & li {
+      & + li {
+        margin-block-start: 0;
+      }
+      & a {
+        display: flex;
+        padding-block: var(--s-4);
+        font-size: var(--fs-xs); /* 13 (was 14) */
+        line-height: var(--lh-snug);
+        font-weight: var(--fw-medium);
+        letter-spacing: var(--label-ls);
+        text-transform: uppercase;
+        color: var(--muted);
+        transition: color var(--dur-1) linear;
+      }
+    }
+    & li a:hover,
+    & a[aria-current] {
+      color: var(--ink);
+      font-weight: var(--fw-regular);
+    }
+    & .flip__track {
+      & > * {
+        font-weight: var(--fw-medium);
+      }
+    }
+  }
 }
-body.case-page .nt-toc > .nt-back:hover { color: var(--ink); }
-body.case-page .nt-toc li + li { margin-top: var(--s-1); }
-body.case-page .nt-toc li a {
-	display: flex;
-	padding-block: var(--s-1);
-	font-size: var(--fs-xs);            /* 13 (was 14) */
-	line-height: var(--lh-snug);
-	font-weight: var(--fw-medium);
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--muted);
-	transition: color var(--dur-1) linear;
+@media (width < 1200px) {
+  body.case-page {
+    & .nt-story {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    & .nt-rail {
+      inset-block-start: 4rem;
+      margin-block: 0;
+      margin-inline: calc(-1 * var(--gutter));
+      inline-size: auto;
+      padding-inline: var(--gutter);
+    }
+    & .nt-toc {
+      & > .nt-back {
+        inline-size: max-content;
+        margin-block: var(--s-2) 0;
+        margin-inline: auto;
+        font-size: var(--fs-xs);
+      }
+    }
+    & .nt-section {
+      scroll-margin-block-start: 10.625rem;
+    }
+  }
 }
-body.case-page .nt-toc li a:hover,
-body.case-page .nt-toc a[aria-current] { color: var(--ink); font-weight: var(--fw-regular); }
-body.case-page .nt-toc .flip__track > * { font-weight: var(--fw-medium); }
-@media (max-width: 1199px) {
-	body.case-page .nt-rail { top: 64px; margin: 0 calc(-1 * var(--gutter)) var(--s-8); width: auto; padding-inline: var(--gutter); }
-	body.case-page .nt-toc li + li { margin-top: 0; }
-	body.case-page .nt-toc li a { padding-block: var(--s-4); }
-	body.case-page .nt-toc > .nt-back { width: max-content; margin: var(--s-2) auto 0; font-size: var(--fs-xs); }
-	body.case-page .nt-section { scroll-margin-top: 170px; }
+@media (width >= 1200px) {
+  body.case-page .nt-toc li + li {
+    margin-block-start: var(--s-1);
+  }
+  body.case-page .nt-toc li a {
+    padding-block: var(--s-1);
+  }
 }
 
 /* ── Type ────────────────────────────────────────────────────── */
-body.case-page main :is(.nt-kicker, .nt-meta dt, .case__eyebrow, .nt-decision h3, .sb-label) {
-	display: block;
-	margin: 0 0 var(--s-3);
-	font-size: var(--fs-xs);
-	font-weight: var(--fw-medium);
-	line-height: var(--lh-snug);
-	letter-spacing: var(--label-ls);
-	text-transform: uppercase;
-	color: var(--muted);
-}
-body.case-page main .nt-hero h1 {
-	margin: 0 0 var(--s-4);
-	max-width: 100%;
-	max-inline-size: 100%;
-	color: var(--ink);
-	text-wrap: balance;
-}
-body.case-page main :is(.nt-section h2, .case__section-title) {
-	margin: 0 0 var(--s-3);
-	max-width: 30ch;
-	color: var(--ink);
-	text-wrap: balance;
-}
-body.case-page main :is(
-	.case__subhead, .nt-feature-heading h3, .nt-decision h4, .nt-problems h3,
-	.ig-decision-copy > h4, .ig-exploration-copy h3, .sb-flow-caption h3,
-	.case__decision-title, .case__insight-block h3, .case__insight-block .case__subhead,
-	.case__col-group .case__subhead, .case__compare-card .case__subhead
-) {
-	margin: 0 0 var(--s-2);
-	color: var(--ink);
-}
-body.case-page main .case__subhead { margin-top: var(--s-3); }
-body.case-page main :is(.case__flow-block, .case__insight-block, .case__col-group > div, .case__compare-card, .case__decision-block) > .case__subhead:first-child { margin-top: 0; }
+body.case-page {
+  & main {
+    & :is(.nt-kicker, .nt-meta dt, .case__eyebrow, .nt-decision h3, .sb-label) {
+      display: block;
+      margin-inline: 0;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-snug);
+      letter-spacing: var(--label-ls);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    & .nt-hero {
+      & h1 {
+        margin-inline: 0;
+        max-inline-size: 100%;
+        color: var(--ink);
+        text-wrap: balance;
+      }
+    }
+    & :is(.nt-section h2, .case__section-title) {
+      margin-inline: 0;
+      max-inline-size: 30ch;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    &
+      :is(
+        .case__subhead,
+        .nt-feature-heading h3,
+        .nt-decision h4,
+        .nt-problems h3,
+        .ig-decision-copy > h4,
+        .ig-exploration-copy h3,
+        .sb-flow-caption h3,
+        .case__decision-title,
+        .case__insight-block h3,
+        .case__insight-block .case__subhead,
+        .case__col-group .case__subhead,
+        .case__compare-card .case__subhead
+      ) {
+      margin-inline: 0;
+      color: var(--ink);
+    }
 
-/* Body copy: one size and measure everywhere, at zero specificity so figure
+    /* Body copy: one size and measure everywhere, at zero specificity so figure
    and component text can set their own. */
-body.case-page main :where(
-	.case__copy, .case__lede,
-	.nt-section p:not(.nt-kicker):not(.case__eyebrow):not(.case__key-insight):not(.case__quote-block-text):not([class*="sb-min"]),
-	.nt-problems p, .nt-decision p, .sb-flow-caption p, .ig-decision .case__copy
-) {
-	max-width: 64ch;
-	margin: 0;
-	font-size: var(--fs-base);
-	line-height: var(--lh-base);
-	color: var(--muted);
-}
+    &
+      :where(
+        .case__copy,
+        .case__lede,
+        .nt-section
+          p:not(.nt-kicker):not(.case__eyebrow):not(.case__key-insight):not(
+            .case__quote-block-text
+          ):not([class*="sb-min"]),
+        .nt-problems p,
+        .nt-decision p,
+        .sb-flow-caption p,
+        .ig-decision .case__copy
+      ) {
+      max-inline-size: 64ch;
+      margin: 0;
+      font-size: var(--fs-base);
+      line-height: var(--lh-base);
+      color: var(--muted);
+    }
 
-/* Pull statements */
-body.case-page main :is(.case__key-insight, .case__quote-block-text, .sb-min-insight) {
-	max-width: 40ch;
-	margin: var(--sp-media) 0 0;
-	padding: 0;
-	font-size: var(--fs-md);
-	font-style: normal;
-	font-weight: var(--fw-regular);
-	line-height: var(--lh-snug);
-	letter-spacing: var(--h2-ls);
-	color: var(--ink);
-	background: none;
-}
+    /* Pull statements */
+    & :is(.case__key-insight, .case__quote-block-text, .sb-min-insight) {
+      max-inline-size: 40ch;
+      margin-inline: 0;
+      padding: 0;
+      font-size: var(--fs-md);
+      font-style: normal;
+      font-weight: var(--fw-regular);
+      line-height: var(--lh-snug);
+      letter-spacing: var(--h2-ls);
+      color: var(--ink);
+      background: none;
+    }
+  }
 
-/* ── Hero meta ───────────────────────────────────────────────── */
-body.case-page .nt-chapters > .nt-hero { margin-bottom: var(--sp-section); }
-body.case-page main .nt-meta {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: var(--s-5);
-	margin: var(--s-7) 0 0;
-	padding-top: 0;
-	border-top: 0 !important;
-	font-size: var(--fs-base);
-	line-height: var(--lh-snug);
+  /* ── Hero meta ───────────────────────────────────────────────── */
+  & main {
+    & .nt-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--s-5);
+      margin-inline: 0;
+      padding-block-start: 0;
+      border-block-start: 0 !important;
+      font-size: var(--fs-base);
+      line-height: var(--lh-snug);
+      & dd {
+        font-size: var(--fs-base);
+        color: var(--ink);
+      }
+    }
+  }
 }
-body.case-page main .nt-meta dd { font-size: var(--fs-base); color: var(--ink); }
-@media (max-width: 700px) {
-	body.case-page main .nt-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-5); }
-	body.case-page main .nt-meta > :last-child { grid-column: auto; }
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .nt-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: var(--s-5);
+        & > :last-child {
+          grid-column: auto;
+        }
+      }
+    }
+  }
 }
 
 /* ── Media ───────────────────────────────────────────────────── */
-body.case-page main :is(img, video, iframe, .nt-placeholder, .sb-tile, .case__frame, .flow__device-screen, .img-zoom-wrap, .ig-gallery__tile, .case__img-placeholder) {
-	border-radius: var(--r-md) !important;
-}
-body.case-page main :is(.case__media-block, .case__img, .case__video) {
-	width: 100%;
-	max-width: none;
-	margin: var(--sp-media) 0 0;
-	padding: 0;
-}
-body.case-page main .nt-section .nt-media { margin-top: var(--sp-media); }
-body.case-page main :is(.flow__row, .ig-gallery, .sb-gallery, .case__col-group, .yap-flow__trio, .yap-flow__quad, .flow__mini-grid, .flow__media-stack) { gap: var(--gap-media); }
+body.case-page {
+  & main {
+    &
+      :is(
+        img,
+        video,
+        iframe,
+        .nt-placeholder,
+        .sb-tile,
+        .case__frame,
+        .flow__device-screen,
+        .img-zoom-wrap,
+        .ig-gallery__tile,
+        .case__img-placeholder
+      ) {
+      border-radius: var(--r-md) !important;
+    }
+    & :is(.case__media-block, .case__img, .case__video) {
+      inline-size: 100%;
+      max-inline-size: none;
+      margin-inline: 0;
+      padding: 0;
+    }
+    &
+      :is(
+        .flow__row,
+        .ig-gallery,
+        .sb-gallery,
+        .case__col-group,
+        .yap-flow__trio,
+        .yap-flow__quad,
+        .flow__mini-grid,
+        .flow__media-stack
+      ) {
+      gap: var(--space-0);
+    }
 
-/* ── Grouped content ─────────────────────────────────────────── */
-body.case-page main :is(.case__insight-grid, .nt-problems) {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: var(--s-6) var(--s-7);
-	margin: var(--s-8) 0 0;
-}
-body.case-page main :is(.case__insight-block, .nt-problems > div) { padding: 0; background: none; }
-body.case-page main :is(.case__insight-block, .nt-problems > div, .case__decision-block, .case__col-group > div, .case__compare-card) p { font-size: var(--fs-base); }
+    /* ── Grouped content ─────────────────────────────────────────── */
+    & :is(.case__insight-grid, .nt-problems) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+      gap: var(--s-6) var(--s-7);
+      margin-inline: 0;
+    }
+    & :is(.case__insight-block, .nt-problems > div) {
+      padding: 0;
+      background: none;
+    }
+    &
+      :is(
+        .case__insight-block,
+        .nt-problems > div,
+        .case__decision-block,
+        .case__col-group > div,
+        .case__compare-card
+      ) {
+      & p {
+        font-size: var(--fs-base);
+      }
+    }
 
-/* Blocks inside a section: flows, features, decisions */
-body.case-page main :is(.case__flow-block, .nt-feature, .ig-decision, .nt-decision) { margin-top: var(--s-3); }
-body.case-page main :is(.case__flow-block, .nt-feature) > :is(.case__copy, .nt-feature-heading) + * { margin-top: var(--s-5); }
-body.case-page main .nt-feature-heading { display: block; }
-@media (max-width: 700px) {
-	body.case-page main :is(.case__decision-pair, .case__compare-row, .nt-decision, .ig-decision) { grid-template-columns: 1fr; gap: var(--s-5); }
+    /* Blocks inside a section: flows, features, decisions */
+    & .nt-feature-heading {
+      display: block;
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & :is(.case__decision-pair, .case__compare-row, .nt-decision, .ig-decision) {
+        grid-template-columns: 1fr;
+        gap: var(--s-5);
+      }
+    }
+  }
 }
 
 /* ── Playback controls: always top-right of the video ─────────── */
-body.case-page :is(.flow__controls, .sb-video-controls, .ig-scene-controls) {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	bottom: auto;
-	left: auto;
-	inset-block-start: 12px;
-	inset-block-end: auto;
-	display: flex;
-	gap: var(--s-2);
-	z-index: 4;
-	opacity: 1;
-	visibility: visible;
-	pointer-events: auto;
-	padding: 0;
-	background: none;
-	transform-origin: top right;
-}
-body.case-page :is(.flow__btn, .sb-video-controls button, .ig-scene-controls button, .ig-scene-controls a) {
-	display: grid;
-	place-items: center;
-	width: 32px;
-	height: 32px;
-	padding: 0;
-	border: 0;
-	border-radius: 50%;
-	color: var(--ink);
-	cursor: pointer;
-	/* surface, hover and press come from .glass (css/glass.css) */
-}
-body.case-page :is(.flow__btn, .sb-video-controls) svg { width: 13px; height: 13px; }
-body.case-page .flow__device { position: relative; }
-body.case-page .flow__device:has(> .flow__device-screen > .flow__video:not(video)):not(:has(video)) > .flow__controls { display: none; }
-body.case-page .case-cover .flow__controls { top: 16px; right: 16px; }
-/* Pause/play icon swap (was only in work.css, which not every page loads) */
-body.case-page .flow__btn--pause .icon-play,
-body.case-page .flow__btn--pause:not(.is-playing) .icon-pause { display: none; }
-body.case-page .flow__btn--pause .icon-pause,
-body.case-page .flow__btn--pause:not(.is-playing) .icon-play { display: block; }
+body.case-page {
+  & :is(.flow__controls, .sb-video-controls, .ig-scene-controls) {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline-end: 0.75rem;
+    inset-block-end: auto;
+    inset-inline-start: auto;
+    inset-block-start: 0.75rem;
+    inset-block-end: auto;
+    display: flex;
+    gap: var(--s-2);
+    z-index: 4;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    padding: 0;
+    background: none;
+    transform-origin: top right;
+  }
+  & :is(.flow__btn, .sb-video-controls button, .ig-scene-controls button, .ig-scene-controls a) {
+    display: grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: var(--ink);
+    cursor: pointer;
+    /* surface, hover and press come from .glass (css/glass.css) */
+  }
+  & :is(.flow__btn, .sb-video-controls) {
+    & svg {
+      inline-size: 0.8125rem;
+      block-size: 0.8125rem;
+    }
+  }
+  & .flow__device {
+    position: relative;
+  }
+  & .flow__device:has(> .flow__device-screen > .flow__video:not(video)):not(:has(video)) {
+    & > .flow__controls {
+      display: none;
+    }
+  }
+  & .case-cover {
+    & .flow__controls {
+      inset-block-start: 1rem;
+      inset-inline-end: 1rem;
+    }
+  }
+  /* Pause/play icon swap (was only in work.css, which not every page loads) */
+  & .flow__btn--pause .icon-play,
+  & .flow__btn--pause:not(.is-playing) .icon-pause {
+    display: none;
+  }
+  & .flow__btn--pause .icon-pause,
+  & .flow__btn--pause:not(.is-playing) .icon-play {
+    display: block;
+  }
 
-/* ── Removed chrome ──────────────────────────────────────────── */
+  /* ── Removed chrome ──────────────────────────────────────────── */
 
-/* ── Footer ──────────────────────────────────────────────────── */
+  /* ── Footer ──────────────────────────────────────────────────── */
 
-/* ── Placeholders (media not yet supplied) ───────────────────── */
-body.case-page main div.flow__video:empty {
-	display: block;
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	background: var(--fig-bg);
-	border-radius: var(--r-md);
-}
-body.case-page main :is(.flow__row, .yap-flow__trio, .yap-flow__quad, .flow__media-stack, .flow__mini-grid) div.flow__video:empty { aspect-ratio: 9 / 16; }
-body.case-page main img.case__frame:not([src]),
-body.case-page main img.case__frame[src=""] {
-	aspect-ratio: 16 / 9;
-	width: 100%;
-	background: var(--fig-bg);
-	border: 0;
-	color: transparent;
-	font-size: 0;
+  /* ── Placeholders (media not yet supplied) ───────────────────── */
+  & main {
+    & div.flow__video:empty {
+      display: block;
+      inline-size: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--fig-bg);
+      border-radius: var(--r-md);
+    }
+    & :is(.flow__row, .yap-flow__trio, .yap-flow__quad, .flow__media-stack, .flow__mini-grid) {
+      & div.flow__video:empty {
+        aspect-ratio: 9 / 16;
+      }
+    }
+    & img.case__frame:not([src]),
+    & img.case__frame[src=""] {
+      aspect-ratio: 16 / 9;
+      inline-size: 100%;
+      background: var(--fig-bg);
+      border: 0;
+      color: transparent;
+      font-size: 0;
+    }
+  }
 }
 
 /* Compact rail: an opaque strip content scrolls beneath */
-@media (max-width: 1199px) {
-	body.case-page .nt-rail {
-		z-index: 30;
-		background: var(--bg);
-		box-shadow: 0 1px 0 var(--line);
-	}
-	body.case-page .nt-rail::before { background: var(--bg); }
+@media (width < 1200px) {
+  body.case-page {
+    & .nt-rail {
+      z-index: 30;
+      background: var(--bg);
+      box-shadow: 0 0.0625rem 0 var(--line);
+    }
+    & .nt-rail::before {
+      background: var(--bg);
+    }
+  }
 }
 
 /* Instagram gallery: all sources are 16:9, so tiles are 16:9 and never crop */
-body.case-page main .ig-gallery__tile { aspect-ratio: 16 / 9; }
-body.case-page main .ig-gallery__tile video { width: 100%; height: 100%; object-fit: contain; }
-body.case-page .ig-motion-toggle .icon-play,
-body.case-page .ig-motion-toggle.is-playing .icon-pause { display: block; }
-body.case-page .ig-motion-toggle .icon-pause,
-body.case-page .ig-motion-toggle.is-playing .icon-play { display: none; }
-body.case-page .ig-motion-toggle svg { width: 13px; height: 13px; }
-body.case-page .ig-scene-controls button { background: rgb(255 255 255 / 0.16); }
-body.case-page .ig-scene-controls button:hover { background: rgb(255 255 255 / 0.28); }
+body.case-page {
+  & main {
+    & .ig-gallery__tile {
+      aspect-ratio: 16 / 9;
+      & video {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  & .ig-motion-toggle .icon-play,
+  & .ig-motion-toggle.is-playing .icon-pause {
+    display: block;
+  }
+  & .ig-motion-toggle .icon-pause,
+  & .ig-motion-toggle.is-playing .icon-play {
+    display: none;
+  }
+  & .ig-motion-toggle {
+    & svg {
+      inline-size: 0.8125rem;
+      block-size: 0.8125rem;
+    }
+  }
+  & .ig-scene-controls {
+    & button {
+      background: rgb(255 255 255 / 0.16);
+    }
+    & button:hover {
+      background: rgb(255 255 255 / 0.28);
+    }
+  }
 
-/* ── Reference layout (astapable.com/captures) ──────────────────
+  /* ── Reference layout (astapable.com/captures) ──────────────────
    Body-content inline margins and the text + media split follow that
    site's case-section / case-double-wrapper values. Its rem scales with
    the viewport (1.04502vw desktop, 2.93333vw ≤980px), so the values are
@@ -578,58 +1340,109 @@ body.case-page .ig-scene-controls button:hover { background: rgb(255 255 255 / 0
      margins   21.25rem → 22.207vw   (800px column at 1440)
                6.25rem  → 18.333vw   (768–991)
      2-col     1fr 1fr, gap .75rem → 0.784vw, text column padding-right 2rem
-   ≤767px the nav gutter is kept (the reference's 11–17px differs from it
+   Below 760px the nav gutter is kept (the reference's 11–17px differs from it
    by a few pixels, and aligning with the nav reads cleaner). */
-body.case-page {
-	--case-m: 22.207vw;
-	--col: calc(100vw - 2 * var(--case-m));
+  --case-m: 22.207vw;
+  --col: calc(100vw - 2 * var(--case-m));
 }
-@media (max-width: 991px) {
-	body.case-page { --case-m: 18.333vw; }
+@media (width < 960px) {
+  body.case-page {
+    --case-m: 18.333vw;
+  }
 }
-@media (max-width: 767px) {
-	body.case-page { --case-m: var(--gutter); }
+@media (width < 760px) {
+  body.case-page {
+    --case-m: var(--gutter);
+  }
 }
-
 
 /* One recording beside its explanation; multiple-media figures retain their layout. */
-@media (min-width: 960px) {
- body.case-page main .case-single-video {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); /* the recording gets the larger share */
-  align-items: start;
-  gap: clamp(var(--s-6), 3vw, var(--s-8));
- }
- body.case-page main .case-single-video > .nt-reading,
- body.case-page main .case-single-video > .nt-media {
-  width: 100%;
-  max-width: none;
-  min-width: 0;
-  margin: 0;
- }
- body.case-page main .case-single-video > .nt-media video {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
- }
+@media (width >= 760px) {
+  body.case-page {
+    & main {
+      & .case-single-video {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); /* the recording gets the larger share */
+        align-items: start;
+        gap: var(--space-2);
+        & > .nt-reading,
+        & > .nt-media {
+          inline-size: 100%;
+          max-inline-size: none;
+          min-inline-size: 0;
+          margin: 0;
+        }
+        & > .nt-media {
+          & video {
+            inline-size: 100%;
+            block-size: auto;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
 }
 
-body.case-page .dx-media:has(> .flow__controls) { position: relative; }
-/* Hosts that js/case.js gives controls to */
-body.case-page .vc-host { position: relative; }
-body.case-page .vc-host .flow__btn--pause .icon-pause { display: none; }
-body.case-page .vc-host .flow__btn--pause.is-playing .icon-pause { display: block; }
-body.case-page .vc-host .flow__btn--pause.is-playing .icon-play { display: none; }
-body.case-page .dx-media .flow__btn--pause .icon-pause { display: none; }
-body.case-page .dx-media .flow__btn--pause.is-playing .icon-pause { display: block; }
-body.case-page .dx-media .flow__btn--pause.is-playing .icon-play { display: none; }
+body.case-page {
+  & .dx-media:has(> .flow__controls) {
+    position: relative;
+  }
+  /* Hosts that js/case.js gives controls to */
+  & .vc-host {
+    position: relative;
+    & .flow__btn--pause {
+      & .icon-pause {
+        display: none;
+      }
+    }
+    & .flow__btn--pause.is-playing {
+      & .icon-pause {
+        display: block;
+      }
+      & .icon-play {
+        display: none;
+      }
+    }
+  }
+  & .dx-media {
+    & .flow__btn--pause {
+      & .icon-pause {
+        display: none;
+      }
+    }
+    & .flow__btn--pause.is-playing {
+      & .icon-pause {
+        display: block;
+      }
+      & .icon-play {
+        display: none;
+      }
+    }
+  }
+}
 
 /* Keep the back link fixed while only chapter links scroll to the viewport edge. */
-@media (max-width: 1199px) {
- body.case-page .nt-toc { overflow: visible; }
- body.case-page .nt-toc > .nt-back { margin: var(--s-3) 0 0; }
- body.case-page .nt-toc ol { min-width: 0; width: calc(100% + var(--gutter)); overflow-x: auto; padding-right: var(--gutter); scrollbar-width: none; }
- body.case-page .nt-toc li { flex: 0 0 auto; }
+@media (width < 1200px) {
+  body.case-page {
+    & .nt-toc {
+      overflow: visible;
+      & > .nt-back {
+        margin-block: var(--space-0) 0;
+        margin-inline: 0;
+      }
+      & ol {
+        min-inline-size: 0;
+        inline-size: calc(100% + var(--gutter));
+        overflow-x: auto;
+        padding-inline-end: var(--gutter);
+        scrollbar-width: none;
+      }
+      & li {
+        flex: 0 0 auto;
+      }
+    }
+  }
 }
 /* Section spacing follows the shared breakpoint above: 64px phones, 96–128px larger screens. */
 
@@ -640,195 +1453,767 @@ body.case-page .dx-media .flow__btn--pause.is-playing .icon-play { display: none
 
 /* ── Smart Bundles: decisions traced to research ─────────────── */
 /* Launch: each piece full width, one after another */
-body.case-page main .dx-grid.dx-grid--1 { grid-template-columns: minmax(0, 1fr); gap: var(--gap-media); }
+body.case-page {
+  & main {
+    & .dx-grid.dx-grid--1 {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-0);
+    }
 
-/* ── Smart Bundles: waste across one order ───────────────────── */
-body.case-page main .sbw { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; font-family: inherit; }
-.sbw-loop { transition: opacity 500ms ease 1400ms; }
-.sbw-loop { transition-delay: 1700ms; }
+    /* ── Smart Bundles: waste across one order ───────────────────── */
+    & .sbw {
+      display: block;
+      inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 16 / 9;
+      font-family: inherit;
+    }
+  }
+}
+.sbw-loop {
+  transition: opacity 500ms ease 1400ms;
+  transition-delay: 1700ms;
+}
 /* Decision visuals: the flow video, cropped to 16:9 and zoomed onto the moment the decision shows */
 /* Empty 16:9 figure slot for a decision visual still being designed */
 /* Decisions open with the research finding that prompted them */
 /* Branding figures (logo, type, color, signature components) */
 
-/* ── One media gap: figures stacked back to back sit --gap-media apart, matching grid gaps ── */
-body.case-page main :is(.nt-media, .nt-process, .nk-board) + :is(.nt-media, .nt-process, .nk-board) { margin-top: var(--gap-media); }
+/* ── One media gap: figures stacked back to back sit --s-3 apart, matching grid gaps ── */
 
 /* ── Hero pair + overview media (shared) ─────────────────────── */
-body.case-page .case-cover:has(+ .case-hero-pair) { margin-bottom: var(--gap-media); }
-body.case-page .case-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11)); }
-body.case-page .case-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
-@media (max-width: 760px) { body.case-page .case-hero-pair { grid-template-columns: 1fr; } }
-body.case-page main .case-overview-media { margin: var(--s-7) 0; }
-body.case-page main .case-overview-media video { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
-/* Mixed-ratio pair (4:5 + 16:9): columns sized by aspect ratio so both show uncropped at equal height. */
+body.case-page {
+  & :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-0);
+    @media (width >= 760px) {
+      gap: var(--space-1);
+    }
+    margin-inline: var(--gutter);
+    & img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--r-md);
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+body.case-page {
+  & main {
+    & .case-overview-media {
+      margin-inline: 0;
+      & video {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-lg);
+      }
+    }
+  }
+  /* Mixed-ratio pair (4:5 + 16:9): columns sized by aspect ratio so both show uncropped at equal height. */
 
-/* Cover video sound toggle (glass, with pause/replay) */
-body.case-page .flow__btn--volume .icon-vol-on,
-body.case-page .flow__btn--volume.is-muted .icon-vol-off { display: block; }
-body.case-page .flow__btn--volume .icon-vol-off,
-body.case-page .flow__btn--volume.is-muted .icon-vol-on { display: none; }
-
+  /* Cover video sound toggle (glass, with pause/replay) */
+  & .flow__btn--volume .icon-vol-on,
+  & .flow__btn--volume.is-muted .icon-vol-off {
+    display: block;
+  }
+  & .flow__btn--volume .icon-vol-off,
+  & .flow__btn--volume.is-muted .icon-vol-on {
+    display: none;
+  }
+}
 
 /* Phones: carousel arrows sit inside the edge instead of hanging past the gutter */
-@media (max-width: 700px) { .notate-page .nt-carousel__btn[data-dir] { translate: 0 0; } }
+@media (width < 760px) {
+  .notate-page {
+    & .nt-carousel__btn[data-dir] {
+      translate: 0 0;
+    }
+  }
+}
 
 /* Text beside media: shared Acuity core-experience dimensions on every project. */
-body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) {
- display: grid;
- grid-template-columns: minmax(0, 1fr);
- gap: var(--sp-media);
- align-items: start;
+body.case-page[data-case] {
+  & main {
+    &
+      :is(
+        .case-single-video,
+        .case-split,
+        .sb-split,
+        .ig-decision-split,
+        .yap-bug,
+        .nt-onboard,
+        .nk-sizes,
+        .nt-decision,
+        .ig-decision
+      ) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-1);
+      align-items: start;
+      & > * {
+        min-inline-size: 0;
+        inline-size: 100%;
+        max-inline-size: none;
+      }
+    }
+  }
 }
-body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > * {
- min-width: 0;
- width: 100%;
- max-width: none;
-}
-@media (min-width: 960px) {
- body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) {
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-  gap: clamp(var(--s-6), 3vw, var(--s-8));
- }
- body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > :is(.nt-reading, .nt-media, .fg-capture__media) { margin: 0; }
- body.case-page[data-case] main :is(.nt-decision-copy, .ig-decision-copy) { padding-right: 0; }
+@media (width >= 760px) {
+  body.case-page[data-case] {
+    & main {
+      &
+        :is(
+          .case-single-video,
+          .case-split,
+          .sb-split,
+          .ig-decision-split,
+          .yap-bug,
+          .nt-onboard,
+          .nk-sizes,
+          .nt-decision,
+          .ig-decision
+        ) {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        gap: var(--space-2);
+        & > :is(.nt-reading, .nt-media, .fg-capture__media) {
+          margin: 0;
+        }
+      }
+      & :is(.nt-decision-copy, .ig-decision-copy) {
+        padding-inline-end: 0;
+      }
+    }
+  }
 }
 
 /* Shared captions: the original Yap problem name/body scale, used across cases. */
-body.case-page main .media-caption__title { margin: var(--s-3) 0 var(--s-3);   /* the same gap above (from the media) and below (to the body) */ font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-semi); line-height: var(--lh-snug); letter-spacing: normal; color: var(--ink); }
-body.case-page main .media-caption__body { margin: 0; font-family: var(--ff); font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); letter-spacing: normal; color: var(--muted); text-wrap: pretty; max-width: none; }
-body.case-page main :is(.yap-calls, .sb-next, .ig-questions, .ig-impact-list) .media-caption__title { margin-top: 0; }
-@media (max-width: 759px) { body.case-page main .media-caption__title { margin-block: var(--s-2); } body.case-page main :is(.yap-calls, .sb-next, .ig-questions, .ig-impact-list) .media-caption__title { margin-top: 0; } }
-body.case-page main .yap-calls { margin-top: var(--s-7); }
-body.case-page main .ig-impact-list li { gap: 0; }
-body.case-page main .fg-solutions .fg-solution-image { margin-bottom: 0; }
-body.case-page main .yap-phones .yap-call { margin-top: 0; }
-
-/* Body hyperlinks share the TOC's flip motion and retain visible link affordance. */
-body.case-page main a.body-link { display: inline-block; max-width: 100%; vertical-align: bottom; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; color: var(--ink); font-size: inherit; font-weight: inherit; line-height: inherit; text-decoration: none; }
-body.case-page main a.body-link .flip { display: block; block-size: var(--body-link-height, 1.4em); line-height: inherit; }
-body.case-page main a.body-link .flip__track > .body-link__label { block-size: auto; min-block-size: 1.4em; white-space: normal; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: .18em; }
-body.case-page main a.body-link:is(:hover, :focus-visible) .body-link__label { text-decoration-color: currentColor; }
+body.case-page {
+  & main {
+    & .media-caption__title {
+      margin-inline: 0; /* the same gap above (from the media) and below (to the body) */
+      font-family: var(--ff);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      line-height: var(--lh-snug);
+      letter-spacing: normal;
+      color: var(--ink);
+    }
+    & .media-caption__body {
+      margin: 0;
+      font-family: var(--ff);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-regular);
+      line-height: var(--lh-base);
+      letter-spacing: normal;
+      color: var(--muted);
+      text-wrap: pretty;
+      max-inline-size: none;
+    }
+  }
+}
+body.case-page {
+  & main {
+    /* Body hyperlinks share the TOC's flip motion and retain visible link affordance. */
+    & a.body-link {
+      display: inline-block;
+      max-inline-size: 100%;
+      vertical-align: bottom;
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--ink);
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      text-decoration: none;
+      & .flip {
+        display: block;
+        block-size: var(--body-link-height, 1.4em);
+        line-height: inherit;
+      }
+      & .flip__track {
+        & > .body-link__label {
+          block-size: auto;
+          min-block-size: 1.4em;
+          white-space: normal;
+          text-decoration: underline;
+          text-decoration-color: var(--line-strong);
+          text-underline-offset: 0.18em;
+        }
+      }
+    }
+    & a.body-link:is(:hover, :focus-visible) {
+      & .body-link__label {
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+}
 
 /* ── Phones and tablets: the TOC strip without the back link; it tucks away while scrolling down
       and returns on scroll up (js/case.js) ── */
-@media (max-width: 1199px) {
- body.case-page .nt-toc > .nt-back { display: none; }
- body.case-page .nt-rail { transition: transform var(--dur-3) var(--ease); will-change: transform; }
- body.case-page .nt-rail.is-tucked { transform: translateY(calc(-100% - var(--s-10))); }
+@media (width < 1200px) {
+  body.case-page {
+    & .nt-toc {
+      & > .nt-back {
+        display: none;
+      }
+    }
+    & .nt-rail {
+      transition: transform var(--dur-3) var(--ease);
+      will-change: transform;
+    }
+    & .nt-rail.is-tucked {
+      transform: translateY(calc(-100% - var(--s-10)));
+    }
+  }
 }
-@media (max-width: 1199px) and (prefers-reduced-motion: reduce) { body.case-page .nt-rail { transition: none; } }
+@media (width < 1200px) and (prefers-reduced-motion: reduce) {
+  body.case-page {
+    & .nt-rail {
+      transition: none;
+    }
+  }
+}
 
 /* Phones: the stacked hero photos take their height from the 16:9 ratio alone (Safari resolved
    height: 100% inside the grid row past the image and clipped the last one), and sit closer to the TOC */
-@media (max-width: 760px) {
-	html body.case-page :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) img { height: auto; }
-}
-@media (max-width: 1199px) { html body.case-page :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) { margin-bottom: var(--s-7); } }   /* above the TOC strip: one tight gap */
+@media (width < 760px) {
+  html {
+    & body.case-page {
+      & :is(.case-hero-pair, .yap-hero-pair, .ig-hero-pair) {
+        & img {
+          block-size: auto;
+        }
+      }
+    }
+  }
+} /* above the TOC strip: one tight gap */
 
 /* Media inside a text-beside-media grid: the grid gap is the only space (no stacked margin on top) */
-body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision) > :is(figure, .nt-media, .nt-process) { margin-block-start: 0; }
 
 /* ── Solution phones framed in one 16:9 figure (1920 × 1080); the page sets the backdrop.
       Phones keep their size relationship at every width, so they stay side by side on phones too. ── */
-body.case-page main .phones-fig { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; margin-top: var(--sp-media); border-radius: var(--r-lg); overflow: hidden; container-type: inline-size; }
-body.case-page main .phones-fig > .yap-phones { display: flex; justify-content: center; align-items: center; gap: 3cqw; height: 46cqw; margin: 0; }
-body.case-page main .phones-fig > .yap-phones--4 { height: 40cqw; gap: 2.4cqw; }
-body.case-page main .phones-fig > .yap-phones > img { flex: none; width: auto; height: 100%; border-radius: 0; }
-body.case-page main .phones-fig + .yap-calls { margin-top: var(--sp-media); }
+body.case-page {
+  & main {
+    & .phones-fig {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      container-type: inline-size;
+      & > .yap-phones {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3cqw;
+        block-size: 46cqw;
+        margin: 0;
+      }
+      & > .yap-phones--4 {
+        block-size: 40cqw;
+        gap: 2.4cqw;
+      }
+      & > .yap-phones {
+        & > img {
+          flex: none;
+          inline-size: auto;
+          block-size: 100%;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
 
 /* The page-colored band above the sticky TOC strip only paints once it's stuck under the nav;
    before that it covered the bottom of the last hero photo */
-@media (max-width: 1199px) { body.case-page .nt-rail:not(.is-stuck)::before { display: none; } }
-
-/* Content hierarchy. The following block owns vertical space; grid/flex containers
-   own their gaps. Figure internals and full section breaks retain their geometry. */
-html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step, .nt-feature-heading, .yap-hmw) > * { margin-block: 0 !important; }
-html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step, .nt-feature-heading, .yap-hmw) > * + * { margin-block-start: var(--s-3) !important; }
-
-/* An explanation and its visual form one group, with more breathing room than text. */
-html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid, .yap-phones, .fg-solutions, .yap-calls, .ig-comparison) { margin-block-start: var(--sp-media) !important; }
-html body.case-page[data-case] main .yap-hmw { padding-block: 0; border-top: 0; }
-html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision) { gap: var(--sp-media); }
-html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision) > * { margin-block: 0 !important; }
-
-/* Captions stay attached to their own figure; title/body are tighter still. */
-html body.case-page[data-case] main :is(.media-caption__title, .media-caption__body) { margin-block: 0 !important; }
-html body.case-page[data-case] main * + .media-caption__title { margin-block-start: var(--s-3) !important; }
-html body.case-page[data-case] main .media-caption__title + .media-caption__body { margin-block-start: var(--s-2) !important; }
-html body.case-page[data-case] main :is(.dx-cell, .yap-test-pair__cell) > .nt-step-label,
-html body.case-page[data-case] main .yap-test-pair__cell > .nt-kicker { margin-block: var(--s-3) 0 !important; }
-
-/* Flow containers must not add child margins on top of their gap. */
-html body.case-page[data-case] main :is(.yap-demo-intro, .sb-next) { gap: var(--s-3); }
-html body.case-page[data-case] main :is(.yap-demo-intro, .sb-next) > * { margin-block: 0 !important; }
-html body.case-page[data-case] main .nt-step.fg-capture.fg-pair-step { display: flex; flex-direction: column; gap: var(--sp-media); }
-
-/* New ideas: steps, decisions, separate reading groups, and standalone subheadings.
-   The opening group has no extra leading margin. */
-html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw) { margin-block-start: var(--s-9) !important; }
-html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-9) !important; }
-html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-9) !important; }
-@media (max-width: 700px) {
- html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw) { margin-block-start: var(--s-7) !important; }
- html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-7) !important; }
- html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-7) !important; }
- html body.case-page[data-case] main :is(.media-caption__title, .nt-step-label, .nt-kicker) + .media-caption__body { margin-block-start: var(--s-2) !important; }
- html body.case-page[data-case] main :is(.yap-problem, .dx-grid, .yap-test-pair, .ig-split, .yap-takeaways) { row-gap: var(--s-7); }
+@media (width < 1200px) {
+  body.case-page {
+    & .nt-rail:not(.is-stuck)::before {
+      display: none;
+    }
+  }
 }
 
-/* Hero metadata is a distinct block, including inside an nt-reading header. */
-html body.case-page[data-case] main .nt-meta { margin-block-start: var(--s-7) !important; }
-
-/* Consecutive views of one idea stay together at the caption/content gap. */
-html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading) > :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid) + :is(figure, .nt-media, .nt-process, .case-media-group, .dx-grid) { margin-block-start: var(--s-3) !important; }
-
-/* Some cards wrap their title/body together after the media. Space that wrapper,
-   rather than its first heading, so it follows the same caption rhythm. */
-html body.case-page[data-case] main :is(figure, .nt-media, .dx-media) + :is(.yap-call, .media-caption) { margin-block-start: var(--s-3) !important; }
-html body.case-page[data-case] main :is(.yap-call, .media-caption) > .media-caption__title:first-child { margin-block-start: 0 !important; }
-
-
-
-/* Wrapper audit: grid/flex gap is the sole spacing owner inside split layouts.
-   Match child component specificity so text→media margins cannot add again. */
-html body.case-page[data-case] main :is(.case-single-video, .fg-split, .fg-capture, .sb-split, .ig-decision-split, .yap-bug, .nt-onboard, .nk-sizes, .nt-decision, .ig-decision, .sb-decision, .ig-questions) > :is(div, figure, .nt-reading, .nt-media, .dx-step, .nt-step, .fg-lap) { margin-block: 0 !important; }
-
-/* Grouped captions and framed devices use the same 12px attachment gap. */
-html body.case-page[data-case] main :is(figure, .nt-media, .dx-media, .sb-iphone) + :is(.yap-calls, .yap-call, .case-caption) { margin-block-start: var(--s-3) !important; }
-html body.case-page[data-case] main :is(figure, .nt-media) + :is(.case-media-group, .yap-phones) { margin-block-start: var(--s-3) !important; }
-html body.case-page[data-case] main .case-media-group + :is(figure, .nt-media) { margin-block-start: var(--s-3) !important; }
-html body.case-page[data-case] main .ntf-tag + .ntf-takeaway-line { margin-block-start: var(--s-3); }
-
-@media (max-width: 700px) {
- html body.case-page[data-case] main :is(.yap-calls, .sb-next) { row-gap: var(--s-7); }
- html body.case-page[data-case] main .case-media-group { row-gap: var(--s-3); }
+/* Covers share the same gap ownership as the narrative below them. */
+.nt-main,
+.case-cover-group {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
 }
-/* These two layouts deliberately show one image row followed by grouped captions.
-   Keep the first caption attached; separate subsequent caption groups by 32px. */
-@media (max-width: 600px) {
- html body.case-page[data-case] main .nk-rooms { row-gap: 0; }
- html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:nth-child(n+2) > .media-caption__title,
- html body.case-page[data-case] main .fg-solutions > article:nth-child(n+2) > .yap-call { margin-block-start: var(--s-7) !important; }
+.nt-main {
+  gap: var(--space-1);
+  @media (width >= 1200px) {
+    gap: var(--space-2);
+  }
+}
+.case-cover-group {
+  gap: var(--space-0);
+  @media (width >= 760px) {
+    gap: var(--space-1);
+  }
+  & > * {
+    margin-block: 0;
+  }
 }
 
-@media (max-width: 700px) {
- body.case-page { --sp-media: var(--s-6); --sp-section: calc(var(--s-11) + var(--s-6)); }
- html body.case-page[data-case] main :is(.nt-section, .nt-step, .nt-reading, .dx-step) > * + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block, .fg-pair-step, .nt-reading, .yap-figtitle, .case__subhead, .nk-rooms-section, .yap-hmw, .ig-hmw),
- html body.case-page[data-case] main :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) + :is(.nt-step, .dx-step, .nt-feature, .nt-decision, .ig-decision, .sb-decision, .case__flow-block) { margin-block-start: var(--s-8) !important; }
- html body.case-page[data-case] main :is(.ig-problems, .ac-take, .ac-r, .ac-gest, .ig-split, .yap-calls, .yap-takeaways) { row-gap: var(--s-8); }
- html body.case-page[data-case] main :is(img, video, .dx-media, .ac-solcard, .ac-r__card, .ac-gestcard) + :is(.media-caption__title, .yap-call, .case-caption),
- html body.case-page[data-case] main :is(figure, .nt-media, .dx-media, .phones-fig) + :is(.yap-call, .yap-calls, .media-caption, .case-caption),
- html body.case-page[data-case] main .ig-comparison__item > .case-caption { margin-block-start: var(--s-7) !important; }
- html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:first-child > .media-caption__title { margin-block-start: var(--s-7) !important; }
- html body.case-page[data-case] main .nk-rooms > .yap-problem__cell:nth-child(n+2) > .media-caption__title { margin-block-start: var(--s-8) !important; }
- html body.case-page[data-case] main .media-caption__title + .media-caption__body { margin-block-start: var(--s-3) !important; }
+/* Narrative layout: parents own all spacing; children add no block margins.
+   Components inside a subsection retain their own grid/device geometry. */
+.nt-chapters,
+.nt-section,
+.nt-subsection,
+.nt-content,
+.nt-hero {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
 }
-@media (max-width: 700px) {
- html body.case-page[data-case] main :is(.nt-reading, .nt-step) > :is(p:not(.nt-step-label, .nt-kicker, .case__eyebrow), ul, figure, .nt-media) + :is(h3, h4) { margin-block-start: var(--s-8) !important; }
- html body.case-page[data-case] main .ig-comparison.case-media-group { row-gap: var(--s-7); }
- html body.case-page[data-case] main .ig-comparison .ig-comparison__item > .case-caption { margin-block: 0 !important; }
+.nt-chapters {
+  gap: var(--space-3);
 }
-@media (max-width: 600px) {
- html body.case-page[data-case] main .fg-solutions > article:nth-child(n+2) > .yap-call { margin-block-start: var(--s-8) !important; }
+.nt-section {
+  gap: var(--space-2);
+}
+#build {
+  gap: var(--space-1);
+}
+.nt-subsection,
+.nt-content,
+.nt-hero {
+  gap: var(--space-1);
+}
+.nt-hero.nt-reading {
+  gap: calc(var(--space-1) * 2);
+}
+#overview-problem.nt-section {
+  gap: var(--space-2);
+}
+#build {
+  gap: var(--space-1);
+}
+body.case-page main {
+  & :is(.nt-chapters, .nt-section, .nt-subsection, .nt-content, .nt-hero) {
+    & > * {
+      margin-block: 0;
+      min-inline-size: 0;
+    }
+  }
+  & .nt-section {
+    padding-block: 0;
+  }
+  & .nt-meta {
+    gap: calc(var(--space-1) * 2);
+    padding-block: 0;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-0);
+      & > * {
+        margin-block: 0;
+      }
+    }
+  }
+
+  & .nt-subsection {
+    inline-size: 100%;
+  }
+  & :is(.nt-subsection, .nt-content) {
+    & > :is(header, .nt-reading, .dx-step) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      inline-size: 100%;
+      max-inline-size: none;
+      & > * {
+        margin-block: 0;
+      }
+    }
+  }
+  & figure:has(> figcaption.case-caption):not(.ig-comparison__item) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    & > figcaption {
+      margin-block: 0;
+    }
+  }
+  & .ig-comparison__item {
+    gap: var(--space-1);
+  }
+  & .media-caption {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    & > * {
+      margin-block: 0;
+    }
+  }
+  &
+    :is(
+      .case-single-video,
+      .case-split,
+      .fg-split,
+      .fg-capture,
+      .sb-split,
+      .ig-decision-split,
+      .yap-bug,
+      .nt-onboard,
+      .nk-sizes,
+      .nt-decision,
+      .ig-decision,
+      .sb-decision
+    ) {
+    gap: var(--space-1);
+    & > * {
+      margin-block: 0;
+    }
+  }
+  & .nt-media.yap-problem:not(.nk-rooms) {
+    gap: calc(var(--space-1) * 2);
+    @media (width >= 760px) {
+      gap: var(--space-1);
+    }
+  }
+  & :is(.ig-split, .sb-next) {
+    row-gap: var(--space-2);
+    @media (width >= 760px) {
+      &.ig-split {
+        gap: var(--space-1);
+      }
+    }
+  }
+  & .case-media-group {
+    row-gap: var(--space-1);
+  }
+}
+
+/* Related text and tabbed media use the same smallest gap, not individual margins. */
+body.case-page main {
+  &
+    :is(
+      .case-figure-group,
+      .yap-it,
+      .ig-ex,
+      .screen-rail__item,
+      .yap-test-pair__cell,
+      .fg-deliverable
+    ) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  & :is(.yap-it__panel, .ig-ex__panel).is-active {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  & .ig-ex__notes {
+    gap: var(--space-1);
+  }
+  & .yap-it__notes {
+    gap: var(--space-1);
+  }
+  & :is(.ig-ex__notes, .fg-persona-notes, .yap-takeaways, .sb-next) > :is(div, article),
+  & :is(.fg-persona-notes, .yap-takeaways, .sb-next) > section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    & > * {
+      margin-block: 0;
+    }
+  }
+  &
+    :is(
+      .case-figure-group,
+      .yap-it,
+      .ig-ex,
+      .yap-it__panel,
+      .ig-ex__panel,
+      .screen-rail__item,
+      .yap-test-pair__cell,
+      .fg-deliverable
+    )
+    > * {
+    margin-block: 0;
+  }
+}
+
+/* Compact labels, captions and tightly related media groups. */
+body.case-page main {
+  &
+    :is(
+      .dx-cell,
+      .ig-ex__notes > div,
+      .yap-it__notes > div,
+      .yap-it__brief,
+      .ig-next > li,
+      .ig-questions > header
+    ) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0);
+    & > * {
+      margin-block: 0;
+    }
+  }
+  & .yap-test-pair {
+    gap: var(--space-0);
+    @media (width >= 760px) {
+      gap: var(--space-1);
+    }
+  }
+  & .yap-bug__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    & > header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      & > * {
+        margin-block: 0;
+      }
+    }
+    & > * {
+      margin-block: 0;
+    }
+  }
+}
+
+/* Explicitly hidden source notes stay hidden despite media caption layout rules. */
+body.case-page {
+  & figcaption[hidden] {
+    display: none;
+  }
+}
+
+/* Shared labels and figure-adjacent text, formerly notate-figures.css. */
+/* NOTATE figures: problem ladder, anatomy callouts, outcome stats, takeaway.
+   Sits on top of the existing Notate page styles. */
+
+body.notate-page {
+  & .nt-section {
+    & p:not(.nt-kicker):not(.media-caption__title):not(:where(.fig p)) {
+      color: var(--muted);
+    }
+    /* Body copy is muted (--c-body); statements, figure titles, names, inline links and UI mocks keep the ink color */
+    &
+      :is(
+        p.yap-hmw__q,
+        p.ig-hmw__q,
+        p.yap-figtitle,
+        p.fg-bk__name,
+        .sbw-zone.in p,
+        p.nt-review__meta,
+        p.nt-review__help,
+        p a
+      ) {
+      color: var(--ink);
+    }
+  }
+}
+.nt-hero {
+  & h1 {
+    & .nt-tone {
+      color: var(--line-strong);
+    }
+  }
+}
+body.notate-page {
+  & .nt-section {
+    & .nt-step-label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      letter-spacing: var(--label-ls);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  }
+}
+
+.ntf-tag {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--label-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Ladder: each fix creates the next problem */
+
+/* Mini browser drawn in CSS */
+
+/* Figure text sizes (override the shared case body size) */
+body.notate-page {
+  & main {
+    & .nt-section {
+      & .ntf-takeaway {
+        & p.ntf-takeaway-line {
+          font-size: var(--h2-fs);
+          line-height: var(--lh-tight);
+          letter-spacing: var(--h1-ls);
+          font-weight: var(--fw-medium);
+          color: var(--ink);
+          max-inline-size: 30ch;
+        }
+      }
+      & :is(.ntf-stat p, p.ntf-text) {
+        font-size: var(--fs-base);
+        line-height: var(--lh-snug);
+      }
+      & p.ntf-tag {
+        font-size: var(--fs-xs);
+        line-height: var(--lh-snug);
+      }
+    }
+  }
+}
+
+/* Outcome stats */
+
+/* Takeaway: the last line on the page */
+.nt-section {
+  & .ntf-takeaway {
+    & p.ntf-takeaway-line {
+      font-size: var(--h2-fs);
+      line-height: var(--lh-tight);
+      letter-spacing: var(--h1-ls);
+      font-weight: var(--fw-medium);
+      color: var(--ink);
+    }
+  }
+}
+
+body.notate-page {
+  & main {
+    & .nt-section {
+      & p.nt-step-label {
+        font-size: var(--fs-xs);
+        line-height: var(--lh-snug);
+        letter-spacing: var(--label-ls);
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+    }
+  }
+}
+
+/* ── Research: each fix creates the next problem (1920×1080 illustration) ── */
+
+/* Captions keep the compact gap between their title and body. */
+body.case-page main {
+  & figcaption.case-caption {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0);
+    & > * {
+      margin-block: 0;
+    }
+  }
+}
+
+/* Shared text groups and explicit media stacks own their internal spacing. */
+body.case-page main {
+  & :is(.ig-impact-list, .dx-grid--2, .ig-questions, .ntf-takeaway) {
+    gap: var(--space-1);
+  }
+  & :is(.ntf-takeaway > div, .case-text-stack) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    & > * {
+      margin-block: 0;
+    }
+  }
+  & .case-media-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0);
+    min-inline-size: 0;
+    & > * {
+      margin-block: 0;
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+  }
+  & .case-subsection-wide {
+    gap: var(--space-1);
+  }
+  & .sb-next > section {
+    gap: var(--space-0);
+  }
+}
+
+body.case-page main {
+  & :where(div).case-caption {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-1);
+    margin-inline: 0;
+    @media (width < 760px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  & div.case-caption--findings {
+    @media (width >= 760px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  & .case-caption code {
+    font-size: 0.9em;
+  }
+}
+
+/* Keep paired subsections independent while sharing a row on larger screens. */
+@media (width >= 760px) {
+  .nt-section:has(> .ntf-takeaway) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > .nt-subsection {
+      flex-basis: 100%;
+    }
+    & > .ntf-takeaway {
+      flex: 1 1 0;
+      min-inline-size: 0;
+    }
+  }
+}
+
+.case-subsection-stack {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-1) * 2);
+  & > * {
+    margin-block: 0;
+  }
+}
+.case-media-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+  & > * {
+    flex: 1;
+    min-inline-size: 0;
+    margin-block: 0;
+  }
+  @media (width >= 760px) {
+    flex-direction: row;
+  }
 }

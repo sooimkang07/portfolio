@@ -18,6 +18,25 @@ All styling comes from the tokens in the `:root` block of `css/base.css`. **Read
 - After changing a CSS or JS file, bump its `?v=` cache-buster in every page that links it.
 - Only update `scripts/token-baseline.json` (`--baseline`) when the user approves a new exception.
 
+## Semantic markup
+
+- Prefer semantic content elements: `header` for a section introduction, `section` for a titled subsection, and `figure` / `figcaption` for a visual and its explanation.
+- Put headings, paragraphs, lists, and figures directly inside their section when no separate layout column is needed. Do not add a reading `div` solely to create spacing.
+- Keep `div` for genuine grid/flex grouping, device frames, diagram internals, and interaction hooks. Do not replace a layout-only `div` with a meaningless `section` or `article`.
+- Shared project rhythm belongs in `css/case.css`, targeting content relationships. Component classes describe real layout or behavior, not alternate paragraph-spacing systems.
+- Follow `docs/MARKUP.md` for project-page patterns. Never hide every `figcaption` by tag; legacy optional captions use the `hidden` attribute.
+
+## CSS authoring
+
+- Use native CSS nesting, logical properties (`inline-size`, `block-size`, logical margins/padding/insets), and existing tokens. Use relative lengths; reserve px for viewport queries and exact coordinate data/effects that require them.
+- Start with mobile defaults and use only the six viewport thresholds in `data/breakpoints.json`: 480, 600, 760, 960, 1200 and 1360px. Use `<` for the narrow side and `>=` for enhancements; CSS and JS must match. Run `node scripts/maintenance/check-breakpoints.cjs`. See `docs/BREAKPOINTS.md`; do not invent nearby values to fix a spacing exception.
+- Preserve cascade order and specificity while consolidating. Format HTML and CSS across multiple lines. Keep intrinsic HTML/SVG dimensions and measured animation coordinates when they preserve media geometry.
+- See `docs/CODE-CLEANUP.md` for the live file map and verification commands.
+
+## CSS cascade
+
+Shared narrative spacing belongs in `css/case.css`; project styles own component internals. Remove obsolete declarations instead of layering patches. Do not use `!important` or escalate selector specificity for spacing and layout. Document any unavoidable external constraint. Preserve accessibility preferences.
+
 ## Folder layout
 
 - Pages (`index.html`, `work.html`, `about.html`, `explorations.html`, `password.html` and the project pages) stay at the top level so their URLs (`sooimkang.com/yap`) keep working. `CNAME`, `AGENTS.md`, `CLAUDE.md` and `Sooim-Kang-Resume.pdf` stay there too.
@@ -35,7 +54,7 @@ Each project page has one asset folder (`assets/acuity/`, `assets/forage/`, `ass
 - Put a new asset in the folder of the section it appears in. If it's used in several sections, put it in the first one.
 - Groups of related files can share a subfolder inside a section (e.g. `assets/yap/build/rail/`).
 - `<section>/figures/` holds PNG exports of that section's code-built figures, for downloading. **Every time you create or change a generated figure, export it as a 2x PNG into its section's `figures/` folder** (`scripts/figures/export-pngs.mjs`, or a screenshot of just that figure). Pages don't use these PNGs.
-- Files that no page uses go in that section's `unused/` folder (e.g. `assets/acuity/research/unused/`). Don't delete them.
+- Confirmed unused files go in `unused/<page>/<original-path>`, preserving their section hierarchy. Record the move in `docs/FILE-AUDIT.json`; never delete assets. Keep uncertain dynamic assets and current named figure exports until their purpose is verified.
 - If you rename or move an asset, update every reference to it (HTML, CSS, JS, scripts, docs) and check that none are broken.
 
 ## Workflow
@@ -58,4 +77,4 @@ When editing this portfolio, follow the existing design system and the user's es
 - Keep claims factual. Research statistics and proposed measurement targets must not be presented as measured project outcomes.
 - Don't delete screenshots, captures, or generated assets without asking. This includes scratch captures. Preserve originals.
 
-Current reference components: the node graph (`scripts/figures/`, Acuity "System architecture") for systems and pipelines, `.yap-card.yap-step` for solution cards, `.yap-takeaways` for reflection, `.fig` in `css/figures.css` for diagram backgrounds, and the shared case/media styles in `css/case.css` and `css/draft-extras.css`.
+Current reference components: the node graph (`scripts/figures/`, Acuity "System architecture") for systems and pipelines, `.yap-card.yap-step` for solution cards, `.yap-takeaways` for reflection, `.fig` in `css/figures.css` for diagram backgrounds, and the shared case/media styles in `css/case.css` and `css/media.css`.

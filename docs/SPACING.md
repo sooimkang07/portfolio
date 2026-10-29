@@ -1,112 +1,58 @@
-# Spacing reference
+# Parent-owned narrative spacing
 
-This is the current spacing reference for the portfolio. Numeric tokens live in `css/base.css`; project-page relationships live in `css/case.css`. This document describes the live implementation after the spacing cleanup, rather than an alternative proposal.
+Project pages use four spacing tokens defined in `css/base.css`:
 
-## 1. The complete shared scale
+| Parent | Layout | Token | Gap |
+|---|---|---|---|
+| `.nt-chapters` | Flex column of hero and full chapters | `--space-3` | 6rem |
+| `.nt-section` | Flex column of subsections | `--space-2` | 3rem at every width |
+| `.nt-subsection` | Flex column of related content | `--space-1` | 1rem |
+| Compact related groups | Meta label/value, caption text, compact media cells | `--space-0` | .5rem at every width |
+| `.case-figure-group` | Figure title and its visual | `--space-1` | 1rem |
 
-| Variable | Value | Typical use |
-|---|---:|---|
-| `--s-1` | 4px | Tiny control/icon separation |
-| `--s-2` | 8px | Desktop caption title → body; compact controls; mobile horizontal media gaps |
-| `--s-3` | 12px | Related paragraphs, label → heading, heading → description, desktop media → caption, consecutive views of one idea |
-| `--s-4` | 16px | Compact container padding |
-| `--s-5` | 20px | Component padding and metadata grid gaps |
-| `--s-6` | 24px | Desktop/tablet explanation → figure; component padding |
-| `--s-7` | 32px | Mobile media → caption; hero metadata top margin |
-| `--s-8` | 40px | Mobile subsection/card breaks; larger component padding |
-| `--s-9` | 48px | Desktop/tablet subsection breaks |
-| `--s-10` | 64px | Large layout padding; desktop home-intro top padding |
-| `--s-11` | 96px | Large page padding; base of chapter-spacing calculations |
+`--space-1` is 1rem, `--space-2` is 3rem, and `--space-3` is 6rem. The compact token `--space-0` is .5rem at every width. Subsections use `--space-2` separation at every width. All lengths scale with the reader’s root font size.
 
-Typical uses are guidance, not a rule that every 24px value has one meaning. Choose a value by its relationship/context, not by matching a number in an old stylesheet. Use `0` for intentionally absent spacing; do not create a zero token. Existing larger spacing is expressed with `calc()` and the scale, such as `calc(var(--s-11) * 3)` = 288px.
+## Ownership
 
-## 2. Responsive project roles retained intentionally
+Parents own `gap`. Their direct children have zero block margins. Chapters have zero block padding, so chapter padding and sibling margins cannot add to the parent gap. Main has no bottom padding.
 
-These names are useful because they express a relationship with different values at different widths. They are not retired aliases.
+Every direct content group in a chapter is an explicit `section.nt-subsection`. A chapter’s introduction and its supporting visual form one subsection; later titled groups form separate subsections. Chapter IDs, headings and table-of-contents anchors remain in place.
 
-| Variable | At ≤700px | Above 700px | Use |
-|---|---:|---:|---|
-| `--sp-media` | `--s-6` / 24px | `--s-6` / 24px | Explanation → its visual; copy/media split-grid gap |
-| `--gap-media` | `--s-2` / 8px | `--s-3` / 12px | Horizontal neighbors in a media row, carousel cards |
-| `--sp-section` | `calc(--s-11 + --s-6)` / 120px | `clamp(96px, 9vw, 128px)` | Full chapter breaks, hero → first chapter, end of case content |
+A genuine split layout or interactive component may need an inner `.nt-content` container. This container uses the smallest gap by default; established component classes retain their responsive grid layout. These layout containers do not add a fourth spacing level. Figures and device internals retain their component geometry.
 
-The 128px section maximum is expressed as `calc(var(--s-11) + var(--s-7))`. These three roles are defined on `body.case-page`, so project components should not include fallback values that disagree with their definitions.
+Text-only headers use `--space-1`; captions use `--space-0` and have no child block margins. Separate media/caption cards use the middle gap when stacked; consecutive views of one idea use the smallest.
 
-## 3. Project-page relationship rules
+Do not add individual narrative margins, chapter-end padding, page-specific spacing patches, or `!important`. Fix the grouping or the parent gap instead. Shared layout lives in `css/case.css`.
 
-| Relationship | ≤700px | Above 700px | Implementation / context |
-|---|---:|---:|---|
-| Kicker/step label → its heading | 12px | 12px | Inside `.nt-reading`, `.dx-step`, etc. A label never creates a subsection break. |
-| Heading → its body copy | 12px | 12px | Same reading group |
-| Paragraph → related paragraph/list | 12px | 12px | Same reading group |
-| Explanation → figure/media group | 24px | 24px | `--sp-media` |
-| Figure → another view of the same idea | 12px | 12px | Consecutive figures and `.case-media-group` wrappers |
-| Media → its caption title/wrapper | 32px | 12px | Direct captions and `.yap-call`, `.yap-calls`, `.case-caption` wrappers |
-| Caption title → caption body | 12px | 8px | `.media-caption__title + .media-caption__body` |
-| Completed group → next subsection | 40px | 48px | `--s-8` / `--s-9`; steps, decisions, separate reading groups, standalone figure subheadings |
-| Separate media-and-caption cards stacked vertically | 40px | Layout-specific | Keep each caption attached to its own media; separate the complete cards. Desktop cards commonly share a row. |
-| Whole chapter → next chapter | 120px | 96–128px | `--sp-section` via section-end padding |
-| Hero visual → metadata | 32px | 32px | `.nt-meta`, always `--s-7` |
+## Component scale
 
-### Spacing ownership
+The older `--s-1` through `--s-11` (excluding retired `--s-3`) scale is still used by navigation, controls, component padding, gutters and device/layout geometry. Those are separate from narrative spacing; do not delete or globally renumber them. New narrative code uses the four `--space-*` tokens. `--s-3` has been retired; all former .75rem references use `--space-0` directly. No alias maps those tokens back to the component scale.
 
-- Ordinary block flow: the **following element** owns `margin-block-start`; related block-end margins are zero.
-- Grid/flex flow: the **parent** owns `gap`; child margins are cleared. Never add a 24px child margin on top of a 24px grid gap.
-- Captions wrapped together: put the responsive caption gap on the wrapper and keep its first heading's start margin zero.
-- Full chapters: keep the existing section-end padding; the final chapter has none. This is separate from content margins.
-- The first child of a group has no extra leading gap.
-- `.case-media-group` marks a wrapper that is media, not a new text subsection. The wrapper follows the same text→media and media→media rules as a figure.
-- `.case-caption` marks explanatory copy attached to a visual, including Instagram's before/after cards; it does not receive a new-subsection gap just because it contains a heading.
-- Forage solution cards and Neuk room cards intentionally keep their image row together on phones and group captions below it: 32px before the first caption, 12px title→body, 40px between subsequent caption groups on phones.
+Home and About retain their established page layouts. This hierarchy is the reference for future narrative layouts, rather than a blanket change to every control and mock product UI.
 
-### Layout breakpoints are different from rhythm breakpoints
+## Remaining component tokens
 
-The page-flow values above switch at **700px**. A component can stack at another width without inventing a new spacing scale: shared copy/media splits switch at 960px; the sticky home index starts at 1200px; several legacy media pairs switch at 600px or 760px. Use the resolved spacing tokens for that viewport, even when a component's column count changes elsewhere. Figure internals retain their own responsive canvas layout.
+These remain fixed; doubling the narrative tokens does not change them.
 
-## 4. Site gutters and placement variables
-
-These affect layout placement; they are not interchangeable paragraph/figure gaps.
-
-| Variable | Definition | Scope / use |
+| Token | Value | Remaining purpose |
 |---|---|---|
-| `--gutter` | `clamp(1rem, 2.5vw, 1.5rem)` = 16–24px at the standard root size | Global inline page margin and nav edges |
-| `--nav-h` | `3.25rem` = 52px | Shared nav-height reference |
-| `--case-top` | `calc(var(--nav-h) + var(--s-4))` = 68px on phones; `calc(var(--nav-h) + var(--s-6))` = 76px otherwise | Project cover offset |
-| `--case-m` | 22.207vw normally; 18.333vw at ≤991px; `--gutter` at ≤767px | Computes the centered case content width; not the global inline gutter |
-| `--col` | Initially 760px, then `calc(100vw - 2 * var(--case-m))` | Case content width, not a spacing token |
-| `--rail-w` | 150px | Case TOC width, not a content gap |
-| `--carousel-inset` | `--s-3` / 12px on Smart Bundles; otherwise JS defaults to 0 | First/last carousel-card edge inset, read by `js/card-carousel.js` |
-| `--yap-demo-inset` | JS sets 8.89% of the demo stage height; fallback 0 | Aligns the Yap demo CTA to the product stage; not a page-flow gap |
+| `--s-1` | .25rem | Small icon/control gaps and animation geometry |
+| `--s-2` | .5rem | Compact control padding and mock-interface details |
+| `--s-4` | 1rem | Buttons, card padding and compact layout insets |
+| `--s-5` | 1.25rem | Component/control padding and layout dimensions |
+| `--s-6` | 1.5rem | Component padding, split layouts and About slideshow |
+| `--s-7` | 2rem | Larger component padding and Home/About layout |
+| `--s-8` | 2.5rem | Component padding and Home/About layout |
+| `--s-9` | 3rem | Larger component grids, padding and Home/About layout |
+| `--s-10` | 4rem | Large page/layout padding and Home/About calculations |
+| `--s-11` | 6rem | Large Home/About padding and related calculations |
 
-Home has some deliberate layout calculations rather than new spacing variables: the intro uses 64px top / 288px bottom padding (48px top on phones), and the desktop work video stage is offset by half a viewport. The copy index has no negative start margin, so it does not consume the intro's bottom space.
+Project covers share a `.case-cover-group` with the compact `--space-0` gap. `.nt-main` uses `--space-1` between that group and the story below 1200px, and `--space-2` at desktop widths (1200px and above). Below 1200px, `.nt-story` also owns a `--space-1` gap between the TOC and the H1. Tab panels, media labels, and note groups also use parent gaps instead of attachment margins.
 
-## 5. About and self-contained components
+Remaining nonzero block margins belong to diagram/mock-interface geometry, animation keyframes, navigation placement, or auto/negative positioning. They are not content-flow spacing. Shared zero-margin resets remain intentional.
 
-These are page/component-local controls, not old names for the shared scale. They were retained to avoid silently redesigning About or product mocks.
+Project-specific groups: Neuk room images use `--space-0` below 760px and `--space-1` from 760px. Acuity research and core-experience media grids use `calc(var(--space-1) * 2)` below 760px and `--space-1` from 760px. Forage and Yap Build chapters use `--space-2`; other Build chapters retain `--space-1`.
 
-| Variable | Current values | Purpose |
-|---|---|---|
-| `--ab-m` | 22.207vw; 18.333vw at ≤991px; `--gutter` at ≤767px | About column's inline margins |
-| `--ab-sec` | `clamp(88px, 9vw, 128px)`; 72px at ≤767px | About-only section breaks; distinct from project chapters |
-| `--ab-pair-gap` | 0.784vw | About hero's two-column geometry |
-| `--ab-pair-pad` | 2.09vw | About hero copy alignment |
-| `--ab-nav` | Measured by `js/about.js`, capped at 120px | About hero/nav offset; fallback values live in its existing component |
-| `--sgap` | `--s-6` / 24px; `--s-3` / 12px below 760px | About slideshow gap |
-| `--ts-inset` | `--gutter`, with a 24px standalone fallback | Text Sooim widget's page-edge inset |
-| `--ts-top` | 62px | Status-bar area inside the widget's desktop phone mock |
+Text/media pairs use `.nt-content.case-split`: one column below 760px, then the shared 2fr/3fr columns with `--space-2` between them. `.case-subsection-stack` groups related subsections with `calc(var(--space-1) * 2)`. `.case-media-row` stacks below 760px and becomes a horizontal flex row from 760px, with `--space-0` throughout.
 
-Figure/device variables such as phone screen coordinates, laptop `--l`/`--t`/`--w`/`--h`, figure radii, measured heights and column widths are geometry, not page-spacing tokens. Likewise, glass border width and line-height variables do not belong in the spacing scale. Product mocks and the chat widget retain their own internal measurements.
-
-## 6. Removed names and obsolete code
-
-| Removed name / pattern | Replacement |
-|---|---|
-| `--sp-block` | `--s-3` directly; it was 12px at every width |
-| `--case-g` | `--gutter` directly; it was a redundant alias |
-| `--pair-gap` | Shared copy/media layout and `--sp-media`; old percentage-based split rules were superseded |
-| `--pair-copy-pad` | Removed obsolete split-copy padding; the shared layout owns alignment |
-| `var(--sp-media, var(--s-7))` and other conflicting fallbacks | `var(--sp-media)` in project components |
-| `var(--gap-media, var(--s-3))` | `var(--gap-media)` in project components |
-| `--sc-7` | Not a defined token; use `--s-7` |
-
-Historical captures and QA scripts can mention retired names as records of earlier states. Live CSS must not use them. Existing raw values in legacy component/figure geometry remain subject to the token baseline; this cleanup does not approve new exceptions or reinterpret them as new spacing tokens.
+Selected multi-media groups (launch, testing, reflection, onboarding, capture, and wearable pairs) keep their compact mobile gaps and use `--space-1` from 760px. Figure/caption text still uses its own compact gap.

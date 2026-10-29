@@ -4,7 +4,7 @@
   const links = [...document.querySelectorAll('.nt-toc li a')];
   const sections = links.map(link => document.querySelector(link.hash)).filter(Boolean);
   const toc = document.querySelector('.nt-toc');
-  const compact = matchMedia('(max-width: 1199px)');
+  const compact = matchMedia('(width < 1200px)');
   let scheduled = false;
   function update() {
     scheduled = false;

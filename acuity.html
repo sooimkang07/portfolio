@@ -1,45 +1,2446 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="robots" content="noindex">
-  <script src="js/preview-gate.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Acuity — a bracelet, AI, and app that help people act on early heart warning signs before a crisis. By Sooim Kang." />
-  <title>Acuity · Sooim Kang</title>
-  <link rel="stylesheet" href="css/base.css?v=mobile42" />
-  <link rel="stylesheet" href="css/glass.css?v=2-ds2">
-  <link rel="stylesheet" href="css/site.css?v=mobile42" />
-  <link rel="icon" href="favicon/favicon.ico?v=2" sizes="any">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2">
-	<link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2">
-	<link rel="apple-touch-icon" href="favicon/touch.png?v=2">
-<link rel="stylesheet" href="css/morph.css?v=2-ds2">
-<link rel="stylesheet" href="css/case.css?v=mobile42">
-<link rel="stylesheet" href="css/notate-figures.css?v=ds4-b1-ts2-captions1">
-<link rel="stylesheet" href="css/case-glance.css?v=2-nolines-ts2">
-<link rel="stylesheet" href="css/figures.css?v=mobile42">
-<link rel="stylesheet" href="css/acuity.css?v=mobile42">
-<script data-morph-id="acuity">try{var d=JSON.parse(sessionStorage.getItem("sooim-project-morph")||"null");if(d&&d.id==="acuity"&&Date.now()-(d.ts||0)<8000)document.documentElement.classList.add("is-project-morph-pending")}catch(e){}</script>
-	<link rel="stylesheet" href="css/draft-extras.css?v=ds4-ts2-rsp10-spacing37">
-	<link rel="stylesheet" href="css/case-gallery.css?v=2-ts2-spacing37">
-  <!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=ds9" /> -->
-	<script src="js/page-fade.js?v=1"></script>
-</head>
-<body class="home notate-page case-page page--project" data-case="acuity">
-  <a class="nt-skip" href="#intro">Skip to case study</a>
-  <header class="nav is-at-top" id="main-nav" data-ref-header-bar>
-    <div class="nav__backdrop" data-ref-header-backdrop hidden></div>
-    <div class="nav__bar">
-      <button type="button" class="nav__hit" aria-label="Toggle menu" aria-expanded="false" tabindex="-1"></button>
-      <a href="/" class="nav__logo" aria-label="Sooim Kang — home"><span class="nav__logo-name" aria-hidden="true">Sooim Kang</span><span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span></a>
-      <span class="nav__mark" aria-hidden="true"><span class="nav__mark-dot">•</span><span class="nav__mark-dash">—</span></span>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span><span></span>
-      </button>
-      <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop>
-        <a href="work" class="nav__menu-link is-active">
+  <head>
+    <meta name="robots" content="noindex" />
+    <script src="js/preview-gate.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Acuity — a bracelet, AI, and app that help people act on early heart warning signs before a crisis. By Sooim Kang."
+    />
+    <title>Acuity · Sooim Kang</title>
+    <link rel="stylesheet" href="css/base.css?v=spacing103" />
+    <link rel="stylesheet" href="css/glass.css?v=clean45" />
+    <link rel="stylesheet" href="css/site.css?v=burger87" />
+    <link rel="icon" href="favicon/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2" />
+    <link rel="apple-touch-icon" href="favicon/touch.png?v=2" />
+    <link rel="stylesheet" href="css/morph.css?v=polish52" />
+    <link rel="stylesheet" href="css/case.css?v=layout122" />
+    <link rel="stylesheet" href="css/figures.css?v=layout114b" />
+    <link rel="stylesheet" href="css/acuity.css?v=spacing120" />
+    <script data-morph-id="acuity">
+      try {
+        var d = JSON.parse(sessionStorage.getItem("sooim-project-morph") || "null");
+        if (d && d.id === "acuity" && Date.now() - (d.ts || 0) < 8000)
+          document.documentElement.classList.add("is-project-morph-pending");
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="css/media.css?v=spacing120" />
+    <!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=spacing57" /> -->
+    <script src="js/page-fade.js?v=1"></script>
+  </head>
+  <body class="home notate-page case-page page--project" data-case="acuity">
+    <header class="nav is-at-top" id="main-nav" data-ref-header-bar="">
+      <div class="nav__backdrop" data-ref-header-backdrop="" hidden=""></div>
+      <div class="nav__bar">
+        <button
+          type="button"
+          class="nav__hit"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          tabindex="-1"
+        ></button>
+        <a href="/" class="nav__logo" aria-label="Sooim Kang — home">
+          <span class="nav__logo-name" aria-hidden="true">Sooim Kang</span>
+          <span class="nav__logo-mark glass" aria-hidden="true"><span>S</span></span>
+        </a>
+        <span class="nav__mark" aria-hidden="true">
+          <span class="nav__mark-dot">•</span>
+          <span class="nav__mark-dash">—</span>
+        </span>
+        <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav__menu" id="nav-menu" data-ref-header-bar-menu-desktop="">
+          <a href="work" class="nav__menu-link is-active">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Work</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore case studies</span>
+              </span>
+            </span>
+          </a>
+          <a href="explorations" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Explorations</span>
+                <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
+              </span>
+            </span>
+          </a>
+          <a href="about" class="nav__menu-link">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">About</span>
+                <span class="nav__menu-title" aria-hidden="true">Get to know me</span>
+              </span>
+            </span>
+          </a>
+          <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+            <span class="flip">
+              <span class="flip__track">
+                <span class="nav__menu-title">Resume</span>
+                <span class="nav__menu-title" aria-hidden="true">Download</span>
+              </span>
+            </span>
+          </a>
+        </nav>
+      </div>
+      <nav class="nav__strip" data-ref-header-bar-expanded="" aria-label="Primary">
+        <a href="work" class="nav__strip-link is-active">Work</a>
+        <a href="explorations" class="nav__strip-link">Explorations</a>
+        <a href="about" class="nav__strip-link">About</a>
+        <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">
+          Resume
+        </a>
+      </nav>
+    </header>
+
+    <main id="top" class="nt-main">
+      <div class="case-cover-group">
+        <figure class="case-cover" data-case-cover="">
+          <div class="flow__device">
+            <div class="flow__device-screen">
+              <video
+                class="flow__video case-cover__media"
+                data-project-morph-to="acuity"
+                src="assets/acuity/overview/acuity-hero.mp4"
+                autoplay=""
+                loop=""
+                muted=""
+                playsinline=""
+                preload="auto"
+                aria-label="Acuity demo"
+              ></video>
+            </div>
+            <div class="flow__controls">
+              <button
+                class="glass flow__btn flow__btn--volume is-muted"
+                type="button"
+                aria-label="Unmute video"
+              >
+                <svg
+                  class="icon-vol-on"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"></path>
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+                  <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+                </svg>
+                <svg
+                  class="icon-vol-off"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"></path>
+                  <path d="m22 9-6 6"></path>
+                  <path d="m16 9 6 6"></path>
+                </svg>
+              </button>
+              <button
+                class="glass flow__btn flow__btn--pause is-playing"
+                type="button"
+                aria-label="Pause video"
+              >
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                  <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                </svg>
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="5,3 19,12 5,21"></polygon>
+                </svg>
+              </button>
+              <button
+                class="glass flow__btn flow__btn--replay"
+                type="button"
+                aria-label="Replay video"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </figure>
+        <figure class="case-hero-pair" aria-label="Acuity in use">
+          <img
+            src="assets/acuity/overview/acuity-hero-1.jpg?v=2"
+            alt="A woman checking her phone as an Acuity alert advises a medical evaluation within 24 hours"
+            width="1920"
+            height="1080"
+            decoding="async"
+          />
+          <img
+            src="assets/acuity/overview/acuity-hero-2.jpg?v=2"
+            alt="A hand holding a phone showing Acuity calibrating a 14-day baseline"
+            width="1924"
+            height="1080"
+            decoding="async"
+          />
+        </figure>
+      </div>
+      <div class="nt-story">
+        <aside class="nt-rail">
+          <nav class="nt-toc" aria-label="Case study sections">
+            <a class="nt-back" href="work">← Back</a>
+            <ol>
+              <li>
+                <a href="#overview">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Overview</span>
+                      <span class="project-toc-title" aria-hidden="true">Overview</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#solution">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Solution</span>
+                      <span class="project-toc-title" aria-hidden="true">Solution</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#features">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Core experience</span>
+                      <span class="project-toc-title" aria-hidden="true">Core experience</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#research">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Research</span>
+                      <span class="project-toc-title" aria-hidden="true">Research</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#decisions">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Design decisions</span>
+                      <span class="project-toc-title" aria-hidden="true">Design decisions</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#architecture">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Build</span>
+                      <span class="project-toc-title" aria-hidden="true">Build</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#pitch">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Pitch</span>
+                      <span class="project-toc-title" aria-hidden="true">Pitch</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#next-steps">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Next steps</span>
+                      <span class="project-toc-title" aria-hidden="true">Next steps</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#reflection">
+                  <span class="flip">
+                    <span class="flip__track">
+                      <span class="project-toc-title">Reflection</span>
+                      <span class="project-toc-title" aria-hidden="true">Reflection</span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </aside>
+        <div class="nt-chapters">
+          <header class="nt-hero nt-reading" id="intro">
+            <h1>
+              Acuity is a wearable and AI-powered app concept that recognizes concerning changes in
+              personal vitals and presents immediate care options.
+              <span class="nt-tone">Designed with two teammates in a 24-hour hackathon.</span>
+            </h1>
+            <figure class="nt-media cs-gallery cs-n1 ac-overview">
+              <div class="cs-cell">
+                <video
+                  class="nt-video"
+                  src="assets/acuity/overview/acuity-overview.mp4"
+                  poster="assets/acuity/overview/acuity-overview.webp"
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  autoplay=""
+                  preload="metadata"
+                  aria-label="The Acuity logo animating on periwinkle"
+                ></video>
+              </div>
+            </figure>
+            <dl class="nt-meta">
+              <div>
+                <dt>Role</dt>
+                <dd>
+                  <span>Product &amp; Interaction Designer</span>
+                  <span>Team: Lucy (brand, deck), Kritika (research)</span>
+                </dd>
+              </div>
+              <div>
+                <dt>Context</dt>
+                <dd>
+                  <span>Parsons AI Startup Design Hackathon</span>
+                  <span>24 hours, Feb 2026</span>
+                </dd>
+              </div>
+              <div>
+                <dt>Platform</dt>
+                <dd>
+                  <span>Wearable bracelet + mobile app</span>
+                  <span>Hackathon concept</span>
+                  <span
+                    ><a
+                      href="https://www.figma.com/make/35yXdU3e1dpqj9SwrUXnyK/ACUITY-Health-Intelligence-App--Copy-"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Live prototype ↗
+                    </a></span
+                  >
+                  <span
+                    ><a
+                      href="https://medium.com/@sooimkang1015/from-story-to-system-building-an-ai-health-platform-in-a-24-hour-design-hackathon-7d9b4112907b"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Medium article ↗
+                    </a></span
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt>Scope</dt>
+                <dd>
+                  <span>Research</span>
+                  <span>Systems design</span>
+                  <span>Interaction design</span>
+                  <span>Prototyping</span>
+                </dd>
+              </div>
+            </dl>
+          </header>
+
+          <!-- 01 OVERVIEW -->
+          <section id="overview" class="nt-section" aria-labelledby="overview-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Overview</p>
+                <h2 id="overview-title">
+                  The most dangerous moment in healthcare isn’t always the emergency. It's often the
+                  uncertainty before it.
+                </h2>
+              </header>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step case-single-video ac-feedback">
+                <header>
+                  <p class="nt-step-label">The setting</p>
+                  <h3>A 24-hour AI startup hackathon at Parsons</h3>
+                  <p>
+                    Teams from Parsons and the University of Arizona had one day to define a
+                    problem, build a product, and pitch it to judges from Snap, IDEO, and Microsoft.
+                    I designed and prototyped the app while Kritika led research and Lucy developed
+                    the brand and pitch.
+                  </p>
+                </header>
+                <figure
+                  class="nt-media ac-ig"
+                  aria-label="The Designpreneurs Hackathon announcement on Instagram"
+                >
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/p/DVQ4ckijiNr/"
+                    data-instgrm-version="14"
+                  >
+                    <a
+                      href="https://www.instagram.com/p/DVQ4ckijiNr/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      View the Designpreneurs Hackathon announcement on Instagram ↗
+                    </a>
+                  </blockquote>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">The problem</p>
+              <h3>Half of people feel the warning signs. Only one in five act.</h3>
+              <p>
+                Research suggested that many people experience symptoms before a cardiac emergency
+                but hesitate to seek care. Existing wearables provide health data without always
+                making the next step clear.
+              </p>
+              <figure
+                class="nt-media ac-r"
+                aria-label="The problem in three numbers: 50% feel warning signs but 20% act; 31% higher risk in underserved communities; 9 in 10 lack the health literacy to know when to seek care."
+              >
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-meter">
+                      <div class="ac-meter__row">
+                        <span>Feel warning signs</span>
+                        <i style="--w: 50%"></i>
+                        <b>50%</b>
+                      </div>
+                      <div class="ac-meter__row is-hi">
+                        <span>Act on them</span>
+                        <i style="--w: 20%"></i>
+                        <b>20%</b>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">People feel it coming.</p>
+                    <p class="media-caption__body">
+                      Half of people feel warning signs before cardiac arrest. Only 20% act.
+                      <a
+                        class="ac-src"
+                        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10746352/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Marijon et al., 2016</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-vbars ac-vbars--2">
+                      <div class="ac-vbar" style="--h: 76%">
+                        <b>1×</b>
+                        <i></i>
+                        <span>Average</span>
+                      </div>
+                      <div class="ac-vbar is-hi" style="--h: 100%">
+                        <b>+31%</b>
+                        <i></i>
+                        <span>Underserved</span>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Risk is uneven.</p>
+                    <p class="media-caption__body">
+                      Underserved communities carry 31% higher cardiovascular risk, and most cases
+                      go undetected.
+                      <a
+                        class="ac-src"
+                        href="https://www.jacc.org/doi/10.1016/j.jacc.2024.04.054"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >American College of Cardiology, 2024</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-people">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                      <i class="on"></i>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Knowing when is hard.</p>
+                    <p class="media-caption__body">
+                      9 in 10 adults lack the health literacy to know when to seek care.
+                      <a
+                        class="ac-src"
+                        href="https://www.cdc.gov/health-literacy/php/about/tell-others.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >CDC, 2024</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+            <section class="nt-subsection nt-step" aria-label="Opportunity">
+              <div class="nt-reading">
+                <p class="nt-step-label">Opportunity</p>
+                <div class="ntf-takeaway ac-hmw">
+                  <p class="ntf-takeaway-line">
+                    How might we help people recognize concerning changes in their health and know
+                    when to seek care?
+                  </p>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- 02 SOLUTION -->
+          <section id="solution" class="nt-section" aria-labelledby="solution-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Solution</p>
+                <h2 id="solution-title">
+                  A bracelet that senses, a gesture that answers, a phone that guides.
+                </h2>
+                <p>
+                  Acuity combines continuous monitoring, personalized alerts, and guided care
+                  options in one wearable-to-app experience.
+                </p>
+              </header>
+              <figure
+                class="nt-media ac-take ac-take--3 ac-sol"
+                aria-label="Three capabilities: the bracelet senses, a gesture responds, the phone guides"
+              >
+                <figure class="ac-take__item">
+                  <div class="ac-solcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/solution/acuity-solution-1.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="The Acuity bracelet, rotating"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Bracelet senses</p>
+                    <p class="media-caption__body">
+                      The bracelet monitors physiological signals and alerts users to sustained
+                      changes.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-solcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/solution/acuity-solution-2.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="A pinch gesture with the bracelet on the wrist"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">You respond</p>
+                    <p class="media-caption__body">
+                      Simple wrist gestures let users acknowledge alerts without navigating their
+                      phones.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-solcard ac-solcard--phone">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/solution/acuity-solution-3.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="The lock-screen alert opens Acuity’s care plan"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">App guides</p>
+                    <p class="media-caption__body">
+                      The app explains the proposed urgency level and presents next-step options for
+                      users to choose from.
+                    </p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+          </section>
+
+          <!-- 03 CORE EXPERIENCE -->
+          <section id="features" class="nt-section" aria-labelledby="features-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Core experience</p>
+                <h2 id="features-title">From initial setup to informed action.</h2>
+              </header>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Set up</p>
+                  <h3>Build a baseline around the individual.</h3>
+                  <p>
+                    Users enter their health history and emergency contact, then begin a proposed
+                    14-day calibration period to establish their personal baseline.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/setup.mp4"
+                      poster="assets/acuity/core-experience/setup-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Onboarding with Jane Doe: intro, account, profile, health history, then baseline calibration"
+                    ></video>
+                    <div class="flow__controls">
+                      <button
+                        class="glass flow__btn flow__btn--pause is-playing"
+                        type="button"
+                        aria-label="Pause video"
+                      >
+                        <svg
+                          class="icon-pause"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                        <svg
+                          class="icon-play"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                      </button>
+                      <button
+                        class="glass flow__btn flow__btn--replay"
+                        type="button"
+                        aria-label="Replay video"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="1 4 1 10 7 10"></polyline>
+                          <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Monitor</p>
+              <h3>Three urgency levels make changes easier to interpret.</h3>
+              <p>
+                Each level explains what changed. Elevated and Emergent states also present care
+                options. These are proposed states, not clinically validated triage.
+              </p>
+              <figure
+                class="nt-media ac-take ac-take--3"
+                aria-label="Three urgency levels, three plans"
+              >
+                <figure class="ac-take__item">
+                  <div class="ac-flowcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/stable.mp4"
+                      poster="assets/acuity/core-experience/stable-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Stable: tapping View Details to see the summary and 7-day trends"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Stable</p>
+                    <p class="media-caption__body">
+                      “Review readings and trends within the proposed baseline range.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-flowcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/elevated.mp4"
+                      poster="assets/acuity/core-experience/elevated-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Elevated: View details, then View Acuity’s care plan with schedule, rideshare, and continue monitoring"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Elevated</p>
+                    <p class="media-caption__body">
+                      Review the change, arrange a medical appointment, or choose continued
+                      monitoring.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-flowcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/emergent.mp4"
+                      poster="assets/acuity/core-experience/emergent-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Emergent: View details, then the care plan with a ride to the nearest ER, a ride to a saved center, or notify a contact"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Emergent</p>
+                    <p class="media-caption__body">
+                      View urgent-care options, transportation choices, and emergency-contact
+                      actions.
+                    </p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Respond</p>
+              <h3>Respond to an alert from the wrist.</h3>
+              <figure
+                class="nt-media ac-take ac-take--2 ac-gest"
+                aria-label="Four wrist gestures: buzz, pinch, hold, wave"
+              >
+                <figure class="ac-take__item">
+                  <div class="ac-gestcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/acuity-gesture-buzz.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Buzz"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Buzz</p>
+                    <p class="media-caption__body">Two haptic pulses signal a change.</p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-gestcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/acuity-gesture-pinch.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Pinch"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Pinch</p>
+                    <p class="media-caption__body">Open the care plan on the phone.</p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-gestcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/acuity-gesture-hold.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Hold the pinch"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Hold the pinch</p>
+                    <p class="media-caption__body">Start a continued-monitoring window.</p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-take__item">
+                  <div class="ac-gestcard">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/acuity-gesture-wave.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Wave"
+                    ></video>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Wave</p>
+                    <p class="media-caption__body">Dismiss the alert while monitoring continues.</p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Continue Monitoring</p>
+                  <h3>Choose when to reassess.</h3>
+                  <p>
+                    Users can select a 24-, 48-, or 72-hour monitoring window and review an updated
+                    summary afterward.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/monitoring.mp4"
+                      poster="assets/acuity/core-experience/monitoring-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Continue monitoring: choosing 24 hours, beginning, then the monitoring summary"
+                    ></video>
+                    <div class="flow__controls">
+                      <button
+                        class="glass flow__btn flow__btn--pause is-playing"
+                        type="button"
+                        aria-label="Pause video"
+                      >
+                        <svg
+                          class="icon-pause"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                        <svg
+                          class="icon-play"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                      </button>
+                      <button
+                        class="glass flow__btn flow__btn--replay"
+                        type="button"
+                        aria-label="Replay video"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="1 4 1 10 7 10"></polyline>
+                          <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Log symptoms</p>
+                  <h3>Add what sensors can't measure.</h3>
+                  <p>
+                    Users can record symptoms such as nausea, dizziness, or fatigue alongside their
+                    physiological data.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/symptoms.mp4"
+                      poster="assets/acuity/core-experience/symptoms-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Logging symptoms on Home: adding chest pain, dizziness, and fatigue, then viewing details"
+                    ></video>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Track</p>
+                  <h3>Understand changes over time.</h3>
+                  <p>
+                    Insights brings together eight-week trends, escalation history, and a shareable
+                    baseline report for extended healthcare conversations.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/core-experience/insights.mp4"
+                      poster="assets/acuity/core-experience/insights-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Insights: trends, the escalation history by month, week, and day, then the baseline report"
+                    ></video>
+                    <div class="flow__controls">
+                      <button
+                        class="glass flow__btn flow__btn--pause is-playing"
+                        type="button"
+                        aria-label="Pause video"
+                      >
+                        <svg
+                          class="icon-pause"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                        <svg
+                          class="icon-play"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                      </button>
+                      <button
+                        class="glass flow__btn flow__btn--replay"
+                        type="button"
+                        aria-label="Replay video"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="1 4 1 10 7 10"></polyline>
+                          <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </section>
+          </section>
+
+          <!-- 04 RESEARCH -->
+          <section id="research" class="nt-section" aria-labelledby="research-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Research</p>
+                <h2 id="research-title">
+                  People don’t lack data. They lack a clear signal to act.
+                </h2>
+              </header>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Market</p>
+              <h3>Wearables are booming. The people most at risk still wait.</h3>
+              <p>
+                The market is set to more than double by 2030, yet cost keeps high-risk people from
+                care.
+              </p>
+              <figure
+                class="nt-media ac-r"
+                aria-label="Market research: wearables market growth, problems paying for care, and care skipped because of cost."
+              >
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-vbars">
+                      <div class="ac-vbar" style="--h: 40%">
+                        <b>$70.3B</b>
+                        <i></i>
+                        <span>2024</span>
+                      </div>
+                      <div class="ac-vbar" style="--h: 48%">
+                        <b>$84.5B</b>
+                        <i></i>
+                        <span>2025</span>
+                      </div>
+                      <div class="ac-vbar is-hi" style="--h: 100%">
+                        <b>$176.8B</b>
+                        <i></i>
+                        <span>2030</span>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Wearables are going mainstream</p>
+                    <p class="media-caption__body">
+                      From $70.3B in 2024 to a projected $176.8B by 2030, about 15.9% a year.
+                      <a
+                        class="ac-src"
+                        href="https://www.globenewswire.com/news-release/2026/02/26/3245720/0/en/global-wearable-technology-market-set-to-surpass-176-77-billion-by-2030-trends-growth-drivers-and-forecast.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >MarketsandMarkets, 2026</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-hbars">
+                      <div class="ac-hrow">
+                        <span>All adults</span>
+                        <i style="--w: 28%"></i>
+                        <b>28%</b>
+                      </div>
+                      <div class="ac-hrow is-hi">
+                        <span>Ages 18–29</span>
+                        <i style="--w: 40%"></i>
+                        <b>40%</b>
+                      </div>
+                      <div class="ac-hrow">
+                        <span>Black</span>
+                        <i style="--w: 32%"></i>
+                        <b>32%</b>
+                      </div>
+                      <div class="ac-hrow is-hi">
+                        <span>Hispanic</span>
+                        <i style="--w: 41%"></i>
+                        <b>41%</b>
+                      </div>
+                      <div class="ac-hrow">
+                        <span>65+</span>
+                        <i style="--w: 13%"></i>
+                        <b>13%</b>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Care is hard to afford</p>
+                    <p class="media-caption__body">
+                      28% of adults struggled to pay for care last year, rising to 40% of 18–29s and
+                      41% of Hispanic adults.
+                      <a
+                        class="ac-src"
+                        href="https://www.kff.org/health-costs/americans-challenges-with-health-care-costs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >KFF</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-waffle-wrap">
+                      <div class="ac-waffle">
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i class="on"></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                      </div>
+                      <p class="ac-big">36%</p>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">So people wait</p>
+                    <p class="media-caption__body">
+                      36% of uninsured adults skipped or postponed care they needed because of the
+                      cost.
+                      <a
+                        class="ac-src"
+                        href="https://www.kff.org/health-costs/americans-challenges-with-health-care-costs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >KFF</a
+                      >
+                    </p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Landscape</p>
+              <h3>Wearables measure. Care services wait. Nothing sits in between.</h3>
+              <p>
+                Wearables such as Apple Watch, Oura, and WHOOP emphasize physiological tracking,
+                while care services generally require users to initiate contact. We positioned
+                Acuity as a concept connecting continuous monitoring with next-step guidance.
+              </p>
+              <figure class="nt-media nt-process">
+                <div
+                  class="fig board"
+                  role="img"
+                  aria-label="Competitive landscape. Positioning: wearables like Apple Watch, Oura, and WHOOP are continuous but only show data; telehealth and 911 guide action but only on demand or at the crisis; Acuity is continuous and guides action. Comparison: wearables monitor continuously and partly learn a baseline and partly reach out first, but don’t guide the next step; care services guide the next step but don’t monitor, learn a baseline, or reach out first; Acuity does all four."
+                >
+                  <div class="board__row" style="--cols: 1fr 1.05fr">
+                    <div class="board__card">
+                      <p class="board__title">Competitive positioning</p>
+                      <div class="board__body">
+                        <div class="pmap">
+                          <div class="pmap__ax x"></div>
+                          <div class="pmap__ax y"></div>
+                          <span class="pmap__lab t">Continuous</span>
+                          <span class="pmap__lab b">On demand</span>
+                          <span class="pmap__lab l">Shows data</span>
+                          <span class="pmap__lab r">Guides action</span>
+                          <div
+                            class="pmap__pt"
+                            style="inset-inline-start: 18%; inset-block-start: 20%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/apple-watch.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>Apple Watch</span>
+                          </div>
+                          <div
+                            class="pmap__pt"
+                            style="inset-inline-start: 33%; inset-block-start: 31%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/oura.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>Oura Ring</span>
+                          </div>
+                          <div
+                            class="pmap__pt"
+                            style="inset-inline-start: 16%; inset-block-start: 41%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/whoop.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>WHOOP</span>
+                          </div>
+                          <div
+                            class="pmap__pt"
+                            style="inset-inline-start: 64%; inset-block-start: 66%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/telehealth.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>Telehealth</span>
+                          </div>
+                          <div
+                            class="pmap__pt"
+                            style="inset-inline-start: 78%; inset-block-start: 82%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/911.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>Ambulance / 911</span>
+                          </div>
+                          <div
+                            class="pmap__pt hi"
+                            style="inset-inline-start: 75%; inset-block-start: 22%"
+                          >
+                            <img
+                              src="assets/acuity/research/competitors/bracelet.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span>Acuity</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="board__card">
+                      <p class="board__title">Feature comparison</p>
+                      <div class="board__body">
+                        <div
+                          class="cmp-wrap"
+                          style="flex: 1; display: flex; flex-direction: column"
+                        >
+                          <div class="cmp" style="--n: 3">
+                            <div class="cmp__hi" aria-hidden="true" style="grid-row: 1 / 6"></div>
+                            <div class="cmp__h" style="grid-column: 2">
+                              <div class="ac-cmp-photos">
+                                <img
+                                  src="assets/acuity/research/competitors/apple-watch.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                                <img
+                                  src="assets/acuity/research/competitors/oura.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                                <img
+                                  src="assets/acuity/research/competitors/whoop.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                              </div>
+                              <span>Wearables</span>
+                            </div>
+                            <div class="cmp__h" style="grid-column: 3">
+                              <div class="ac-cmp-photos">
+                                <img
+                                  src="assets/acuity/research/competitors/telehealth.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                                <img
+                                  src="assets/acuity/research/competitors/911.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                              </div>
+                              <span>Care services</span>
+                            </div>
+                            <div class="cmp__h hi" style="grid-column: 4">
+                              <div class="ac-cmp-photos">
+                                <img
+                                  src="assets/acuity/research/competitors/bracelet.png"
+                                  alt=""
+                                  loading="eager"
+                                  decoding="async"
+                                />
+                              </div>
+                              <span>Acuity</span>
+                            </div>
+                            <div class="cmp__r" style="grid-row: 2">Monitors you continuously</div>
+                            <div class="cmp__c" style="grid-column: 2; grid-row: 2">
+                              <i class="dot y"></i>
+                            </div>
+                            <div class="cmp__c" style="grid-column: 3; grid-row: 2">
+                              <i class="dot n"></i>
+                            </div>
+                            <div class="cmp__c hi" style="grid-column: 4; grid-row: 2">
+                              <i class="dot y"></i>
+                            </div>
+                            <div class="cmp__r" style="grid-row: 3">
+                              Learns your personal baseline
+                            </div>
+                            <div class="cmp__c" style="grid-column: 2; grid-row: 3">
+                              <i class="dot p"></i>
+                            </div>
+                            <div class="cmp__c" style="grid-column: 3; grid-row: 3">
+                              <i class="dot n"></i>
+                            </div>
+                            <div class="cmp__c hi" style="grid-column: 4; grid-row: 3">
+                              <i class="dot y"></i>
+                            </div>
+                            <div class="cmp__r" style="grid-row: 4">Reaches out before you ask</div>
+                            <div class="cmp__c" style="grid-column: 2; grid-row: 4">
+                              <i class="dot p"></i>
+                            </div>
+                            <div class="cmp__c" style="grid-column: 3; grid-row: 4">
+                              <i class="dot n"></i>
+                            </div>
+                            <div class="cmp__c hi" style="grid-column: 4; grid-row: 4">
+                              <i class="dot y"></i>
+                            </div>
+                            <div class="cmp__r" style="grid-row: 5">Guides your next step</div>
+                            <div class="cmp__c" style="grid-column: 2; grid-row: 5">
+                              <i class="dot n"></i>
+                            </div>
+                            <div class="cmp__c" style="grid-column: 3; grid-row: 5">
+                              <i class="dot y"></i>
+                            </div>
+                            <div class="cmp__c hi" style="grid-column: 4; grid-row: 5">
+                              <i class="dot y"></i>
+                            </div>
+                          </div>
+                          <div class="cmp__legend">
+                            <span>
+                              <i class="dot y"></i>
+                              Yes
+                            </span>
+                            <span>
+                              <i class="dot p"></i>
+                              Partly
+                            </span>
+                            <span>
+                              <i class="dot n"></i>
+                              No
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Interviews</p>
+              <h3>The barrier wasn’t data. It was doubt.</h3>
+              <p>
+                Interviews surfaced a recurring hesitation: people rationalized symptoms, questioned
+                their severity, or worried about seeking unnecessary care.
+              </p>
+              <figure class="nt-media nt-process">
+                <div
+                  class="fig"
+                  role="img"
+                  aria-label="Three user interviews. A heart attack survivor: I kept telling myself it was just stress; turns out, it was my heart. The family of a cardiac arrest victim: it wasn’t the cardiac arrest that killed him, it was his fear. A UofA pre-med student: I still don’t know if this is serious enough to trouble the doctor."
+                >
+                  <div
+                    class="card ac-int"
+                    style="inset-inline-start: 5.5cqw; inset-block-start: 22%; rotate: -2.5deg"
+                  >
+                    <p class="c-lab">Heart attack survivor</p>
+                    <p class="ac-int__q">
+                      “I kept telling myself it was just stress. Turns out, it was my heart.”
+                    </p>
+                    <span class="ac-int__ico">
+                      <img
+                        src="assets/acuity/research/int-survivor.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="card ac-int"
+                    style="inset-inline-start: 36.5cqw; inset-block-start: 40%; rotate: 1.5deg"
+                  >
+                    <p class="c-lab">Family of a cardiac arrest victim</p>
+                    <p class="ac-int__q">
+                      “It wasn’t the cardiac arrest that killed him. It was his fear.”
+                    </p>
+                    <span class="ac-int__ico">
+                      <img
+                        src="assets/acuity/research/int-family.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="card ac-int"
+                    style="inset-inline-start: 67.5cqw; inset-block-start: 28%; rotate: -1.2deg"
+                  >
+                    <p class="c-lab">UofA pre-med student</p>
+                    <p class="ac-int__q">
+                      “I still don’t know if this is serious enough to trouble the doctor.”
+                    </p>
+                    <span class="ac-int__ico">
+                      <img
+                        src="assets/acuity/research/int-student.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </figure>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Persona</p>
+              <h3>Maya isn’t negligent. She’s uncertain.</h3>
+              <p>
+                Our design scenario centers on a 42-year-old adult managing hypertension, balancing
+                health concerns against cost, uncertainty, and fear of overreacting.
+              </p>
+              <div class="case-media-stack ac-persona-media">
+                <figure class="nt-media nt-process">
+                  <div
+                    class="fig"
+                    role="img"
+                    aria-label="Persona: Maya, 42, the hesitant high-risk adult. Profile: 42, works long hours, Diagnosed with hypertension 3 years ago, High-deductible insurance plan. Behaviors: Takes her medication inconsistently, Feels occasional chest tightness, Tells herself it’s probably just stress. Fears: A $3,000 ER bill, Overreacting, or feeling dramatic, Inconveniencing anyone. Needs: To know when it’s serious, Guidance she can act on fast, Not to navigate care alone."
+                  >
+                    <div class="card ac-pers__photo">
+                      <p class="c-lab">Persona</p>
+                      <img
+                        src="assets/acuity/research/acuity-user-persona.jpg"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div class="ac-pers__id">
+                        <p class="ac-pers__name">Maya, 42</p>
+                        <p class="ac-pers__role">The hesitant high-risk adult</p>
+                        <p class="ac-pers__quote">“It’s probably just stress.”</p>
+                      </div>
+                    </div>
+                    <div class="ac-pers__grid">
+                      <div class="card">
+                        <p class="c-lab">Profile</p>
+                        <ul>
+                          <li>42, works long hours</li>
+                          <li>Diagnosed with hypertension 3 years ago</li>
+                          <li>High-deductible insurance plan</li>
+                        </ul>
+                      </div>
+                      <div class="card">
+                        <p class="c-lab">Behaviors</p>
+                        <ul>
+                          <li>Takes her medication inconsistently</li>
+                          <li>Feels occasional chest tightness</li>
+                          <li>Tells herself it’s probably just stress</li>
+                        </ul>
+                      </div>
+                      <div class="card">
+                        <p class="c-lab">Fears</p>
+                        <ul>
+                          <li>A $3,000 ER bill</li>
+                          <li>Overreacting, or feeling dramatic</li>
+                          <li>Inconveniencing anyone</li>
+                        </ul>
+                      </div>
+                      <div class="card">
+                        <p class="c-lab">Needs</p>
+                        <ul>
+                          <li>To know when it’s serious</li>
+                          <li>Guidance she can act on fast</li>
+                          <li>Not to navigate care alone</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+                <figure
+                  class="nt-media ac-journey2"
+                  aria-label="Maya’s journey with Acuity, a design scenario"
+                >
+                  <div class="ac-journey2__step">
+                    <p class="ac-journey2__when">Days 1–14</p>
+                    <div class="ac-journey2__card">
+                      <p class="ac-journey2__what">Baseline</p>
+                      <p class="ac-journey2__why">
+                        Acuity learns her resting heart rate, HRV, blood pressure, and sleep. No
+                        alerts.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="ac-journey2__step">
+                    <p class="ac-journey2__when">Days 15–19</p>
+                    <div class="ac-journey2__card">
+                      <p class="ac-journey2__what">Drift</p>
+                      <p class="ac-journey2__why">
+                        Blood pressure trends 18% above baseline, HRV declines, sleep fragments. Not
+                        alarming alone.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="ac-journey2__step">
+                    <p class="ac-journey2__when">Day 19</p>
+                    <div class="ac-journey2__card">
+                      <p class="ac-journey2__what">Alert</p>
+                      <p class="ac-journey2__why">
+                        Two buzzes. A pinch opens an Elevated care plan: evaluation advised within
+                        24 hours.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="ac-journey2__step">
+                    <p class="ac-journey2__when">Day 19</p>
+                    <div class="ac-journey2__card">
+                      <p class="ac-journey2__what">Action</p>
+                      <p class="ac-journey2__why">
+                        She books the appointment instead of waiting it out.
+                      </p>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection nt-step">
+              <p class="nt-step-label">Business model</p>
+              <h3>An insurer-funded model designed to reduce access barriers</h3>
+              <p>
+                We proposed a per-member, per-month model in which health plans fund Acuity for
+                high-risk members, removing the direct cost to users. These are hypothetical
+                projections, not demonstrated outcomes.
+              </p>
+              <figure
+                class="nt-media ac-r"
+                aria-label="Illustrative annual model for 50,000 members: $4.8M cost, $6M assumed gross savings, $1.2M net savings, and 25% net ROI; cost is $8 per member per month."
+              >
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-chain">
+                      <div class="ac-node">
+                        <b>Health plan</b>
+                        <span>Pays per member, per month</span>
+                      </div>
+                      <i aria-hidden="true">↓</i>
+                      <div class="ac-node is-hi">
+                        <b>Acuity</b>
+                        <span>Bracelet, AI, app</span>
+                      </div>
+                      <i aria-hidden="true">↓</i>
+                      <div class="ac-node">
+                        <b>High-risk member</b>
+                        <span>Pays $0</span>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Insurer-funded SaaS</p>
+                    <p class="media-caption__body">
+                      A PMPM model: zero cost to the user, aimed at high-risk members.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-vbars ac-vbars--2">
+                      <div class="ac-vbar" style="--h: 80%">
+                        <b>$4.8M</b>
+                        <i></i>
+                        <span>Annual cost</span>
+                      </div>
+                      <div class="ac-vbar is-hi" style="--h: 100%">
+                        <b>$6M</b>
+                        <i></i>
+                        <span>Gross savings</span>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Illustrative annual model</p>
+                    <p class="media-caption__body">
+                      For 50K members, assume $4.8M in annual costs and $6M in gross savings; these
+                      are hypothetical inputs, not measured results.
+                    </p>
+                  </figcaption>
+                </figure>
+                <figure class="ac-r__cell">
+                  <div class="ac-r__card">
+                    <div class="ac-roi">
+                      <p class="ac-big">25%</p>
+                      <p class="ac-roi__lab">Illustrative net ROI</p>
+                      <div class="ac-roi__stats">
+                        <span>
+                          <b>$1.2M</b>
+                          annual net savings
+                        </span>
+                        <span>
+                          <b>$8</b>
+                          per member / month
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="case-caption">
+                    <p class="media-caption__title">Savings after costs</p>
+                    <p class="media-caption__body">
+                      ($6M − $4.8M) ÷ $4.8M = 25% net ROI; $4.8M ÷ 50K members ÷ 12 months = $8 per
+                      member per month.
+                    </p>
+                  </figcaption>
+                </figure>
+              </figure>
+            </section>
+          </section>
+
+          <!-- 05 DESIGN DECISIONS -->
+          <section id="decisions" class="nt-section" aria-labelledby="decisions-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Design decisions</p>
+                <h2 id="decisions-title">
+                  Four decisions shaped how Acuity communicates risk and supports action.s
+                </h2>
+              </header>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step case-single-video">
+                <header>
+                  <p class="nt-step-label">Decision 01</p>
+                  <h3>Why these health signals?</h3>
+                  <p>
+                    Early strain shows up as a trend across signals, and all three can be sensed at
+                    the wrist. Acuity reads each against the person’s own baseline, not a population
+                    average. The tradeoff: cuffless blood pressure needs cuff calibration, so it
+                    supports trends, not diagnosis.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process" data-no-controls="">
+                  <div
+                    class="fig ac-vstack"
+                    role="img"
+                    aria-label="The three measured signals against baseline: blood pressure 12% above, heart rate 35% above, and sleep disruption 71% below."
+                  >
+                    <video
+                      class="nt-video"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Blood pressure trending 12% above baseline"
+                    >
+                      <source
+                        src="assets/acuity/design-decisions/acuity-bp-alpha-hevc.mov"
+                        type="video/quicktime; codecs=hvc1"
+                      />
+                      <source
+                        src="assets/acuity/design-decisions/acuity-bp-white-alpha.webm"
+                        type="video/webm"
+                      />
+                    </video>
+                    <video
+                      class="nt-video"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Heart rate trending 35% above baseline"
+                    >
+                      <source
+                        src="assets/acuity/design-decisions/acuity-hr-alpha-hevc.mov"
+                        type="video/quicktime; codecs=hvc1"
+                      />
+                      <source
+                        src="assets/acuity/design-decisions/acuity-hr-white-alpha.webm?v=2"
+                        type="video/webm"
+                      />
+                    </video>
+                    <video
+                      class="nt-video"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Sleep disruption 71% below baseline"
+                    >
+                      <source
+                        src="assets/acuity/design-decisions/acuity-sleep-alpha-hevc.mov"
+                        type="video/quicktime; codecs=hvc1"
+                      />
+                      <source
+                        src="assets/acuity/design-decisions/acuity-sleep-white-alpha.webm"
+                        type="video/webm"
+                      />
+                    </video>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Decision 02</p>
+                  <h3>Why three urgency levels?</h3>
+                  <p>
+                    A binary alert risks treating every change as either harmless or critical.
+                    Stable, Elevated, and Emergent create a clearer hierarchy for communicating
+                    different levels of concern. The thresholds remain hypothetical and require
+                    clinical validation. A Stable state must not be interpreted as proof that
+                    someone is medically safe.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/design-decisions/states.mp4"
+                      poster="assets/acuity/design-decisions/states-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="The home screen moving from Stable to Elevated Risk to Emergent Risk and back to Stable"
+                    ></video>
+                  </div>
+                </figure>
+              </div>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content ac-dec">
+                <p class="nt-step-label">Decision 03</p>
+                <h3>Why AI?</h3>
+                <p>
+                  The proposed AI model compares sustained changes across signals against an
+                  individual's baseline, rather than relying solely on static thresholds. Care
+                  options remain predefined, and users confirm actions themselves.
+                </p>
+              </div>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content ac-dec">
+                <p class="nt-step-label">Decision 04</p>
+                <h3>Why wrist gestures?</h3>
+                <p>
+                  Haptic alerts and simple gestures offer an alternative to navigating a phone
+                  during stressful moments. Because gestures can be missed or inaccessible, the same
+                  actions remain available in the app.
+                </p>
+              </div>
+            </section>
+          </section>
+
+          <!-- 06 SYSTEM ARCHITECTURE -->
+          <section id="architecture" class="nt-section" aria-labelledby="architecture-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Build</p>
+                <h2 id="architecture-title">
+                  Using AI tools to prototype a connected health experience in 24 hours
+                </h2>
+                <p>
+                  We used AI-assisted tools to develop the wearable concept, app prototype, product
+                  visuals, and presentation within the hackathon timeframe.
+                </p>
+              </header>
+              <figure class="nt-media nt-process" data-no-controls="">
+                <div
+                  class="fig ac-aistack"
+                  aria-label="The AI stack: Midjourney, ChatGPT, Figma Make, and Sora"
+                >
+                  <svg class="ngraph__wires" viewBox="0 0 1920 1080" aria-hidden="true">
+                    <path
+                      d="M400 290C400 170 550 140 660 140M1260 140C1370 140 1520 170 1520 290M400 820C400 910 650 940 717 940M1520 748C1520 860 1270 940 1203 940"
+                    ></path>
+                    <circle cx="400" cy="290" r="5"></circle>
+                    <circle cx="660" cy="140" r="5"></circle>
+                    <circle cx="1260" cy="140" r="5"></circle>
+                    <circle cx="1520" cy="290" r="5"></circle>
+                    <circle cx="400" cy="820" r="5"></circle>
+                    <circle cx="717" cy="940" r="5"></circle>
+                    <circle cx="1520" cy="748" r="5"></circle>
+                    <circle cx="1203" cy="940" r="5"></circle>
+                  </svg>
+                  <div class="board__card ac-aistack__midjourney">
+                    <p class="board__title">Midjourney</p>
+                    <div class="board__body">
+                      <img
+                        src="assets/acuity/build/midjourney.png"
+                        alt="Midjourney project visual"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  <div class="board__card ac-aistack__chatgpt">
+                    <p class="board__title">ChatGPT</p>
+                    <div class="board__body">
+                      <img
+                        src="assets/acuity/build/chatgpt.png"
+                        alt="ChatGPT project visual"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  <div class="board__card ac-aistack__figma-make">
+                    <p class="board__title">Figma Make</p>
+                    <div class="board__body">
+                      <img
+                        src="assets/acuity/build/figma-make.png"
+                        alt="Figma Make project visual"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  <div class="board__card ac-aistack__sora">
+                    <p class="board__title">Sora</p>
+                    <div class="board__body">
+                      <img
+                        src="assets/acuity/build/sora.png"
+                        alt="Sora film scenes: walking on the street, and a conversation with a doctor"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content ac-dec">
+                <p class="nt-step-label">System architecture</p>
+                <h3>How hardware, AI, and software connect</h3>
+                <p>
+                  The proposed system combines wearable signals and health history to establish a
+                  personal baseline, identify sustained deviations, and generate an urgency summary.
+                  The app then presents corresponding care options, with users retaining control
+                  over every action.
+                </p>
+              </div>
+              <figure class="nt-media nt-process">
+                <div
+                  class="fig ngraph"
+                  role="img"
+                  aria-label="System architecture as a flow. Input: the bracelet senses blood pressure, heart rate and HRV, and sleep; your context adds health history from an EHR import and cuff calibration. Processing, with AI: a personal baseline from a 14-day calibration weighted by medical history, and signal analysis that correlates signals and detects sustained drift. Interpretation, with AI: one urgency level, Stable, Elevated, or Emergent, and a plain-language summary with one next step. Experience: a haptic alert, then you confirm with a pinch to open the plan, a hold to keep monitoring, or a wave to dismiss, leading to the care plan, a 24, 48, or 72-hour watch, and insights. Nothing happens without you."
+                >
+                  <div
+                    class="ngraph__zone"
+                    style="
+                      inset-inline-start: 27.604cqw;
+                      inset-block-start: 6.042cqw;
+                      inline-size: 44.271cqw;
+                      block-size: 46.354cqw;
+                    "
+                  ></div>
+                  <span
+                    class="ngraph__col"
+                    style="inset-inline-start: 6.771cqw; inset-block-start: 3.75cqw"
+                  >
+                    01 · Input
+                  </span>
+                  <span
+                    class="ngraph__col"
+                    style="inset-inline-start: 29.167cqw; inset-block-start: 3.75cqw"
+                  >
+                    02 · Processing
+                  </span>
+                  <span
+                    class="ngraph__col"
+                    style="inset-inline-start: 51.562cqw; inset-block-start: 3.75cqw"
+                  >
+                    03 · Interpretation
+                  </span>
+                  <span
+                    class="ngraph__col"
+                    style="inset-inline-start: 74.479cqw; inset-block-start: 3.75cqw"
+                  >
+                    04 · Experience
+                  </span>
+                  <svg
+                    class="ngraph__wires"
+                    viewBox="0 0 1920 1080"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M490 219 C525 219, 525 269, 560 269"></path>
+                    <path d="M490 219 C525 219, 525 579, 560 579"></path>
+                    <path d="M490 579 C525 579, 525 269, 560 269"></path>
+                    <path d="M490 579 C525 579, 525 579, 560 579"></path>
+                    <path d="M740 413 V536"></path>
+                    <path d="M920 579 C955 579, 955 199, 990 199"></path>
+                    <path d="M920 579 C955 579, 955 579, 990 579"></path>
+                    <path d="M1350 199 C1390 199, 1390 169, 1430 169"></path>
+                    <path d="M1350 579 C1390 579, 1390 739, 1430 739"></path>
+                    <path d="M1610 258 V356"></path>
+                    <path d="M1610 598 V696"></path>
+                    <circle cx="490" cy="219" r="7"></circle>
+                    <circle cx="490" cy="579" r="7"></circle>
+                    <circle cx="560" cy="269" r="7"></circle>
+                    <circle cx="560" cy="579" r="7"></circle>
+                    <circle cx="740" cy="413" r="7"></circle>
+                    <circle cx="740" cy="536" r="7"></circle>
+                    <circle cx="920" cy="579" r="7"></circle>
+                    <circle cx="990" cy="199" r="7"></circle>
+                    <circle cx="990" cy="579" r="7"></circle>
+                    <circle cx="1350" cy="199" r="7"></circle>
+                    <circle cx="1350" cy="579" r="7"></circle>
+                    <circle cx="1430" cy="169" r="7"></circle>
+                    <circle cx="1430" cy="739" r="7"></circle>
+                    <circle cx="1610" cy="258" r="7"></circle>
+                    <circle cx="1610" cy="356" r="7"></circle>
+                    <circle cx="1610" cy="598" r="7"></circle>
+                    <circle cx="1610" cy="696" r="7"></circle>
+                  </svg>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 6.771cqw;
+                      inset-block-start: 9.167cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 12.604cqw;
+                    "
+                  >
+                    <div class="node__h">Bracelet</div>
+                    <div class="node__row">
+                      <b>Blood pressure</b>
+                      <span>Cuffless</span>
+                    </div>
+                    <div class="node__row">
+                      <b>Heart rate + HRV</b>
+                    </div>
+                    <div class="node__row">
+                      <b>Sleep</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 6.771cqw;
+                      inset-block-start: 27.917cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 9.74cqw;
+                    "
+                  >
+                    <div class="node__h">Your context</div>
+                    <div class="node__row">
+                      <b>Health history</b>
+                      <span>EHR import</span>
+                    </div>
+                    <div class="node__row">
+                      <b>Cuff calibration</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 29.167cqw;
+                      inset-block-start: 11.771cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 9.74cqw;
+                    "
+                  >
+                    <div class="node__h">
+                      Personal baseline
+                      <em>AI</em>
+                    </div>
+                    <div class="node__row">
+                      <b>14-day calibration</b>
+                    </div>
+                    <div class="node__row">
+                      <b>Medical-history weighting</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 29.167cqw;
+                      inset-block-start: 27.917cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 9.74cqw;
+                    "
+                  >
+                    <div class="node__h">
+                      Signal analysis
+                      <em>AI</em>
+                    </div>
+                    <div class="node__row">
+                      <b>Multi-signal correlation</b>
+                    </div>
+                    <div class="node__row">
+                      <b>Sustained-drift detection</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 51.562cqw;
+                      inset-block-start: 8.125cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 12.604cqw;
+                    "
+                  >
+                    <div class="node__h">
+                      Urgency level
+                      <em>AI</em>
+                    </div>
+                    <div class="node__row" style="justify-content: flex-start; gap: 0.8cqw">
+                      <i class="dot n"></i>
+                      <b>Stable</b>
+                    </div>
+                    <div class="node__row" style="justify-content: flex-start; gap: 0.8cqw">
+                      <i class="dot p"></i>
+                      <b>Elevated</b>
+                    </div>
+                    <div class="node__row" style="justify-content: flex-start; gap: 0.8cqw">
+                      <i class="dot y"></i>
+                      <b>Emergent</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 51.562cqw;
+                      inset-block-start: 27.917cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 9.74cqw;
+                    "
+                  >
+                    <div class="node__h">
+                      Summary
+                      <em>AI</em>
+                    </div>
+                    <div class="node__row">
+                      <b>What changed, and why</b>
+                    </div>
+                    <div class="node__row">
+                      <b>One next step</b>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 74.479cqw;
+                      inset-block-start: 6.562cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 6.875cqw;
+                    "
+                  >
+                    <div class="node__h">Haptic alert</div>
+                    <div class="node__row">
+                      <b>Two buzzes</b>
+                      <span>Lock screen</span>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 74.479cqw;
+                      inset-block-start: 18.542cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 12.604cqw;
+                    "
+                  >
+                    <div class="node__h">You confirm</div>
+                    <div class="node__row">
+                      <b>Pinch</b>
+                      <span>Open the plan</span>
+                    </div>
+                    <div class="node__row">
+                      <b>Hold</b>
+                      <span>Keep monitoring</span>
+                    </div>
+                    <div class="node__row">
+                      <b>Wave</b>
+                      <span>Dismiss</span>
+                    </div>
+                  </div>
+                  <div
+                    class="node"
+                    style="
+                      inset-inline-start: 74.479cqw;
+                      inset-block-start: 36.25cqw;
+                      inline-size: 18.75cqw;
+                      block-size: 12.604cqw;
+                    "
+                  >
+                    <div class="node__h">Care plan</div>
+                    <div class="node__row">
+                      <b>Plan for the level</b>
+                    </div>
+                    <div class="node__row">
+                      <b>24 / 48 / 72-hour watch</b>
+                    </div>
+                    <div class="node__row">
+                      <b>Insights and reports</b>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </section>
+            <section class="nt-subsection">
+              <div class="nt-content nt-step">
+                <header>
+                  <p class="nt-step-label">Explaining the model</p>
+                  <h3>Make the system's reasoning visible.</h3>
+                  <p>
+                    The app's settings explains how baseline learning, signal analysis, and
+                    escalation logic are intended to work, helping users understand the basis of an
+                    alert.
+                  </p>
+                </header>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video"
+                      src="assets/acuity/build/model.mp4"
+                      poster="assets/acuity/build/model-poster.jpg"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="How Acuity analyzes your data: baseline learning, continuous monitoring, deviation detection, and escalation logic"
+                    ></video>
+                    <div class="flow__controls">
+                      <button
+                        class="glass flow__btn flow__btn--pause is-playing"
+                        type="button"
+                        aria-label="Pause video"
+                      >
+                        <svg
+                          class="icon-pause"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                        <svg
+                          class="icon-play"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                      </button>
+                      <button
+                        class="glass flow__btn flow__btn--replay"
+                        type="button"
+                        aria-label="Replay video"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="1 4 1 10 7 10"></polyline>
+                          <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </section>
+          </section>
+
+          <!-- 07 VALIDATION &AMP; LIMITATIONS -->
+          <section id="pitch" class="nt-section" aria-labelledby="pitch-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Pitch</p>
+                <h2 id="pitch-title">
+                  An interactive prototype, a product demo, and a pitch in 24 hours.
+                </h2>
+                <p>
+                  We pitched Acuity to judges from Snap, IDEO, and Microsoft, and it was named one
+                  of the event’s standout concepts.
+                </p>
+              </header>
+              <figure class="nt-media cs-gallery cs-n2 ac-pitch" data-fit-row="">
+                <div class="cs-cell" style="--ar: 1.7778">
+                  <video
+                    src="assets/acuity/pitch/acuity-pitch-web.mp4"
+                    poster="assets/acuity/pitch/01-title.webp"
+                    controls=""
+                    playsinline=""
+                    preload="metadata"
+                    aria-label="Recording of the Acuity pitch to the hackathon judges"
+                  ></video>
+                </div>
+                <div class="cs-cell" style="--ar: 1.3333">
+                  <img
+                    src="assets/acuity/pitch/acuity-pitch.jpg"
+                    alt="Pitching Acuity to the hackathon judges"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </figure>
+            </section>
+          </section>
+
+          <section id="next-steps" class="nt-section" aria-labelledby="next-steps-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Next steps</p>
+                <h2 id="next-steps-title">
+                  Validate the health signals before polishing the screens.
+                </h2>
+                <p>
+                  We never tested real sensors, and cuffless wrist blood pressure needs cuff
+                  calibration and drifts. Next, we’d test wrist readings against cuff and ECG with
+                  clinicians, and stress-test the level thresholds for false alarms and missed
+                  alerts. Then we’d usability-test the levels and gestures with high-risk adults,
+                  add alternatives to gestures for limited mobility or sensation, and work out
+                  health-data consent and escalation liability. Clinical safety, privacy, consent,
+                  and escalation responsibilities would need to be resolved before any real-world
+                  deployment.
+                </p>
+              </header>
+            </section>
+          </section>
+
+          <!-- 08 REFLECTION -->
+          <section id="reflection" class="nt-section" aria-labelledby="reflection-title">
+            <section class="nt-subsection">
+              <header>
+                <p class="nt-kicker">Reflection</p>
+                <h2 id="reflection-title">
+                  In healthcare, clarity is only valuable when people can trust it.
+                </h2>
+                <p>
+                  Designing Acuity challenged me to communicate uncertainty without overwhelming
+                  users while balancing guidance with autonomy.
+                </p>
+              </header>
+              <figure class="nt-media cs-gallery cs-n2 ac-wide">
+                <div class="cs-cell">
+                  <img
+                    src="assets/acuity/reflection/acuity-reflection-1.jpg"
+                    alt="Kritika, Lucy and Sooim with their certificates of achievement"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="cs-cell">
+                  <img
+                    src="assets/acuity/reflection/acuity-reflection-2.jpg"
+                    alt="Every participant of the AI Startup Design Hackathon with their certificates"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </figure>
+            </section>
+            <section class="nt-subsection ntf-takeaway">
+              <p class="ntf-tag">Takeaway 01 · User behavior</p>
+              <p class="ntf-takeaway-line">
+                Health data only becomes actionable when people understand what it means and what to
+                do next.
+              </p>
+            </section>
+            <section class="nt-subsection ntf-takeaway">
+              <p class="ntf-tag">Takeaway 02 · Designing with AI</p>
+              <p class="ntf-takeaway-line">
+                AI accelerated prototyping, but responsible healthcare design still depends on human
+                judgment and validation.
+              </p>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="footer portfolio-footer">
+      <div class="portfolio-footer__invite">
+        <h2>Let’s make<br />something<br />worth using.</h2>
+      </div>
+      <div class="portfolio-footer__portrait">
+        <img
+          src="assets/about/hero/me.jpg"
+          alt="Sooim Kang"
+          loading="lazy"
+          width="1080"
+          height="1080"
+        />
+        <a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello">
+          <span class="ab-fav__app-pill">SAY HELLO</span>
+          <span class="ab-fav__app-dot" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="portfolio-footer__bio">
+        <strong>Sooim Kang</strong>
+        <p>
+          Product designer &amp; builder<br />Based in New York City<br />The New School · Parsons
+          School of Design<br />Northwestern University · Medill School of Journalism
+        </p>
+      </div>
+      <nav class="portfolio-footer__nav" aria-label="Footer">
+        <a class="nav__menu-link" href="work">
           <span class="flip">
             <span class="flip__track">
               <span class="nav__menu-title">Work</span>
@@ -47,15 +2448,7 @@
             </span>
           </span>
         </a>
-        <a href="explorations" class="nav__menu-link">
-          <span class="flip">
-            <span class="flip__track">
-              <span class="nav__menu-title">Explorations</span>
-              <span class="nav__menu-title" aria-hidden="true">Explore side quests </span>
-            </span>
-          </span>
-        </a>
-        <a href="about" class="nav__menu-link">
+        <a class="nav__menu-link" href="about">
           <span class="flip">
             <span class="flip__track">
               <span class="nav__menu-title">About</span>
@@ -63,238 +2456,93 @@
             </span>
           </span>
         </a>
-        <a href="Sooim-Kang-Resume.pdf" class="nav__menu-link" target="_blank" rel="noopener">
+        <a class="nav__menu-link" href="explorations">
           <span class="flip">
             <span class="flip__track">
-              <span class="nav__menu-title">Resume</span>
-              <span class="nav__menu-title" aria-hidden="true">Download</span>
+              <span class="nav__menu-title">Explorations</span>
+              <span class="nav__menu-title" aria-hidden="true">Explore side quests</span>
             </span>
           </span>
         </a>
+        <div class="portfolio-footer__social">
+          <a
+            class="ab-icon glass"
+            href="Sooim-Kang-Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            aria-label="Resume (PDF)"
+            title="Resume"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://linkedin.com/in/sooimkang/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect
+                x="3.5"
+                y="3.5"
+                width="17"
+                height="17"
+                rx="3.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              ></rect>
+              <circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"></circle>
+              <path
+                d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </a>
+          <a
+            class="ab-icon glass"
+            href="https://github.com/sooimkang07"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+              ></path>
+            </svg>
+          </a>
+        </div>
       </nav>
-    </div>
-    <nav class="nav__strip" data-ref-header-bar-expanded aria-label="Primary">
-      <a href="work" class="nav__strip-link is-active">Work</a>
-      <a href="explorations" class="nav__strip-link">Explorations</a>
-      <a href="about" class="nav__strip-link">About</a>
-      <a href="Sooim-Kang-Resume.pdf" class="nav__strip-link" target="_blank" rel="noopener">Resume</a>
-    </nav>
-  </header>
+    </footer>
 
-  <main id="top" class="nt-main">
-    <figure class="case-cover" data-case-cover>
-      <div class="flow__device">
-        <div class="flow__device-screen"><video class="flow__video case-cover__media" data-project-morph-to="acuity" src="assets/acuity/overview/acuity-hero.mp4" autoplay loop muted playsinline preload="auto" aria-label="Acuity demo"></video></div>
-        <div class="flow__controls"><button class="glass flow__btn flow__btn--volume is-muted" type="button" aria-label="Unmute video"><svg class="icon-vol-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg><svg class="icon-vol-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg></button><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div>
-      </div>
-    </figure>
-    <figure class="case-hero-pair" aria-label="Acuity in use"><img src="assets/acuity/overview/acuity-hero-1.jpg?v=2" alt="A woman checking her phone as an Acuity alert advises a medical evaluation within 24 hours" width="1920" height="1080" decoding="async"><img src="assets/acuity/overview/acuity-hero-2.jpg?v=2" alt="A hand holding a phone showing Acuity calibrating a 14-day baseline" width="1924" height="1080" decoding="async"></figure>
-    <div class="nt-story">
-      <aside class="nt-rail">
-        <nav class="nt-toc" aria-label="Case study sections">
-          <a class="nt-back" href="work">← Back</a>
-          <ol><li><a href="#overview"><span class="flip"><span class="flip__track"><span class="project-toc-title">Overview</span><span class="project-toc-title" aria-hidden="true">Overview</span></span></span></a></li><li><a href="#solution"><span class="flip"><span class="flip__track"><span class="project-toc-title">Solution</span><span class="project-toc-title" aria-hidden="true">Solution</span></span></span></a></li><li><a href="#features"><span class="flip"><span class="flip__track"><span class="project-toc-title">Core experience</span><span class="project-toc-title" aria-hidden="true">Core experience</span></span></span></a></li><li><a href="#research"><span class="flip"><span class="flip__track"><span class="project-toc-title">Research</span><span class="project-toc-title" aria-hidden="true">Research</span></span></span></a></li><li><a href="#decisions"><span class="flip"><span class="flip__track"><span class="project-toc-title">Design decisions</span><span class="project-toc-title" aria-hidden="true">Design decisions</span></span></span></a></li><li><a href="#architecture"><span class="flip"><span class="flip__track"><span class="project-toc-title">Build</span><span class="project-toc-title" aria-hidden="true">Build</span></span></span></a></li><li><a href="#pitch"><span class="flip"><span class="flip__track"><span class="project-toc-title">Pitch</span><span class="project-toc-title" aria-hidden="true">Pitch</span></span></span></a></li><li><a href="#next-steps"><span class="flip"><span class="flip__track"><span class="project-toc-title">Next steps</span><span class="project-toc-title" aria-hidden="true">Next steps</span></span></span></a></li><li><a href="#reflection"><span class="flip"><span class="flip__track"><span class="project-toc-title">Reflection</span><span class="project-toc-title" aria-hidden="true">Reflection</span></span></span></a></li></ol>
-        </nav>
-      </aside>
-      <div class="nt-chapters">
-    <header class="nt-hero nt-reading" id="intro">
-      <h1>Acuity is a wearable and AI-powered app concept that recognizes concerning changes in personal vitals and presents immediate care options. <span class="nt-tone">Designed with two teammates in a 24-hour hackathon.</span></h1>
-      <figure class="nt-media cs-gallery cs-n1 ac-overview"><div class="cs-cell"><video class="nt-video" src="assets/acuity/overview/acuity-overview.mp4" poster="assets/acuity/overview/acuity-overview.webp" loop muted playsinline autoplay preload="metadata" aria-label="The Acuity logo animating on periwinkle"></video></div></figure>
-      <dl class="nt-meta">
-        <div><dt>Role</dt><dd>Product & Interaction Designer<br>Team: Lucy (brand, deck), Kritika (research)</dd></div>
-        <div><dt>Context</dt><dd>Parsons AI Startup Design Hackathon<br>24 hours, Feb 2026</dd></div>
-        <div><dt>Platform</dt><dd>Wearable bracelet + mobile app<br>Hackathon concept<br><a href="https://www.figma.com/make/35yXdU3e1dpqj9SwrUXnyK/ACUITY-Health-Intelligence-App--Copy-" target="_blank" rel="noopener">Live prototype ↗</a><br><a href="https://medium.com/@sooimkang1015/from-story-to-system-building-an-ai-health-platform-in-a-24-hour-design-hackathon-7d9b4112907b" target="_blank" rel="noopener">Medium article ↗</a></dd></div>
-        <div><dt>Scope</dt><dd>Research<br>Systems design<br>Interaction design<br>Prototyping</dd></div>
-      </dl>
-    </header>
-
-        <!-- 01 OVERVIEW -->
-        <section id="overview" class="nt-section" aria-labelledby="overview-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Overview</p>
-            <h2 id="overview-title">The most dangerous moment in healthcare isn’t always the emergency. It's often the uncertainty before it.</h2>
-          </div>
-
-          <div class="nt-step case-single-video ac-feedback">
-            <div class="nt-reading dx-step"><p class="nt-step-label">The setting</p><h3>A 24-hour AI startup hackathon at Parsons</h3><p>Teams from Parsons and the University of Arizona had one day to define a problem, build a product, and pitch it to judges from Snap, IDEO, and Microsoft. I designed and prototyped the app while Kritika led research and Lucy developed the brand and pitch.</p></div>
-            <figure class="nt-media ac-ig" aria-label="The Designpreneurs Hackathon announcement on Instagram"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVQ4ckijiNr/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DVQ4ckijiNr/" target="_blank" rel="noopener">View the Designpreneurs Hackathon announcement on Instagram ↗</a></blockquote></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">The problem</p><h3>Half of people feel the warning signs. Only one in five act.</h3><p>Research suggested that many people experience symptoms before a cardiac emergency but hesitate to seek care. Existing wearables provide health data without always making the next step clear.</p></div>
-            <figure class="nt-media ac-r" aria-label="The problem in three numbers: 50% feel warning signs but 20% act; 31% higher risk in underserved communities; 9 in 10 lack the health literacy to know when to seek care."><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-meter"><div class="ac-meter__row"><span>Feel warning signs</span><i style="--w:50%"></i><b>50%</b></div><div class="ac-meter__row is-hi"><span>Act on them</span><i style="--w:20%"></i><b>20%</b></div></div></div><p class="media-caption__title">People feel it coming.</p><p class="media-caption__body">Half of people feel warning signs before cardiac arrest. Only 20% act. <a class="ac-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10746352/" target="_blank" rel="noopener noreferrer">Marijon et al., 2016</a></p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-vbars ac-vbars--2"><div class="ac-vbar" style="--h:76%"><b>1×</b><i></i><span>Average</span></div><div class="ac-vbar is-hi" style="--h:100%"><b>+31%</b><i></i><span>Underserved</span></div></div></div><p class="media-caption__title">Risk is uneven.</p><p class="media-caption__body">Underserved communities carry 31% higher cardiovascular risk, and most cases go undetected. <a class="ac-src" href="https://www.jacc.org/doi/10.1016/j.jacc.2024.04.054" target="_blank" rel="noopener noreferrer">American College of Cardiology, 2024</a></p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-people"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class=on></i></div></div><p class="media-caption__title">Knowing when is hard.</p><p class="media-caption__body">9 in 10 adults lack the health literacy to know when to seek care. <a class="ac-src" href="https://www.cdc.gov/health-literacy/php/about/tell-others.html" target="_blank" rel="noopener noreferrer">CDC, 2024</a></p></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading"><p class="nt-step-label">Opportunity</p><div class="ntf-takeaway ac-hmw"><p class="ntf-takeaway-line">How might we help people recognize concerning changes in their health and know when to seek care?</p></div></div>
-          </div>
-        </section>
-
-        <!-- 02 SOLUTION -->
-        <section id="solution" class="nt-section" aria-labelledby="solution-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Solution</p>
-            <h2 id="solution-title">A bracelet that senses, a gesture that answers, a phone that guides.</h2>
-            <p>Acuity combines continuous monitoring, personalized alerts, and guided care options in one wearable-to-app experience.</p>
-          </div>
-          <figure class="nt-media ac-take ac-take--3 ac-sol" aria-label="Three capabilities: the bracelet senses, a gesture responds, the phone guides"><div class="ac-take__item"><div class="ac-solcard"><video class="nt-video" src="assets/acuity/solution/acuity-solution-1.mp4" autoplay loop muted playsinline preload="metadata" aria-label="The Acuity bracelet, rotating"></video></div><p class="media-caption__title">Bracelet senses</p><p class="media-caption__body">The bracelet monitors physiological signals and alerts users to sustained changes.</p></div><div class="ac-take__item"><div class="ac-solcard"><video class="nt-video" src="assets/acuity/solution/acuity-solution-2.mp4" autoplay loop muted playsinline preload="metadata" aria-label="A pinch gesture with the bracelet on the wrist"></video></div><p class="media-caption__title">You respond</p><p class="media-caption__body">Simple wrist gestures let users acknowledge alerts without navigating their phones.</p></div><div class="ac-take__item"><div class="ac-solcard ac-solcard--phone"><video class="nt-video" src="assets/acuity/solution/acuity-solution-3.mp4" autoplay loop muted playsinline preload="metadata" aria-label="The lock-screen alert opens Acuity’s care plan"></video></div><p class="media-caption__title">App guides</p><p class="media-caption__body">The app explains the proposed urgency level and presents next-step options for users to choose from.</p></div></figure>
-        </section>
-
-        <!-- 03 CORE EXPERIENCE -->
-        <section id="features" class="nt-section" aria-labelledby="features-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Core experience</p>
-            <h2 id="features-title">From initial setup to informed action.</h2>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Set up</p><h3>Build a baseline around the individual.</h3><p>Users enter their health history and emergency contact, then begin a proposed 14-day calibration period to establish their personal baseline.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/core-experience/setup.mp4" poster="assets/acuity/core-experience/setup-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Onboarding with Jane Doe: intro, account, profile, health history, then baseline calibration"></video><div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Monitor</p><h3>Three urgency levels make changes easier to interpret.</h3><p>Each level explains what changed. Elevated and Emergent states also present care options. These are proposed states, not clinically validated triage.</p></div>
-            <figure class="nt-media ac-take ac-take--3" aria-label="Three urgency levels, three plans"><div class="ac-take__item"><div class="ac-flowcard"><video class="nt-video" src="assets/acuity/core-experience/stable.mp4" poster="assets/acuity/core-experience/stable-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Stable: tapping View Details to see the summary and 7-day trends"></video></div><p class="media-caption__title">Stable</p><p class="media-caption__body">“Review readings and trends within the proposed baseline range.</p></div><div class="ac-take__item"><div class="ac-flowcard"><video class="nt-video" src="assets/acuity/core-experience/elevated.mp4" poster="assets/acuity/core-experience/elevated-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Elevated: View details, then View Acuity’s care plan with schedule, rideshare, and continue monitoring"></video></div><p class="media-caption__title">Elevated</p><p class="media-caption__body">Review the change, arrange a medical appointment, or choose continued monitoring.</p></div><div class="ac-take__item"><div class="ac-flowcard"><video class="nt-video" src="assets/acuity/core-experience/emergent.mp4" poster="assets/acuity/core-experience/emergent-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Emergent: View details, then the care plan with a ride to the nearest ER, a ride to a saved center, or notify a contact"></video></div><p class="media-caption__title">Emergent</p><p class="media-caption__body">View urgent-care options, transportation choices, and emergency-contact actions.</p></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Respond</p><h3>Respond to an alert from the wrist.</h3></div>
-            <figure class="nt-media ac-take ac-take--2 ac-gest" aria-label="Four wrist gestures: buzz, pinch, hold, wave"><div class="ac-take__item"><div class="ac-gestcard"><video class="nt-video" src="assets/acuity/core-experience/acuity-gesture-buzz.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Buzz"></video></div><p class="media-caption__title">Buzz</p><p class="media-caption__body">Two haptic pulses signal a change.</p></div><div class="ac-take__item"><div class="ac-gestcard"><video class="nt-video" src="assets/acuity/core-experience/acuity-gesture-pinch.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Pinch"></video></div><p class="media-caption__title">Pinch</p><p class="media-caption__body">Open the care plan on the phone.</p></div><div class="ac-take__item"><div class="ac-gestcard"><video class="nt-video" src="assets/acuity/core-experience/acuity-gesture-hold.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Hold the pinch"></video></div><p class="media-caption__title">Hold the pinch</p><p class="media-caption__body">Start a continued-monitoring window.</p></div><div class="ac-take__item"><div class="ac-gestcard"><video class="nt-video" src="assets/acuity/core-experience/acuity-gesture-wave.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Wave"></video></div><p class="media-caption__title">Wave</p><p class="media-caption__body">Dismiss the alert while monitoring continues.</p></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Continue Monitoring</p><h3>Choose when to reassess.</h3><p>Users can select a 24-, 48-, or 72-hour monitoring window and review an updated summary afterward.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/core-experience/monitoring.mp4" poster="assets/acuity/core-experience/monitoring-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Continue monitoring: choosing 24 hours, beginning, then the monitoring summary"></video><div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Log symptoms</p><h3>Add what sensors can't measure.</h3><p>Users can record symptoms such as nausea, dizziness, or fatigue alongside their physiological data.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/core-experience/symptoms.mp4" poster="assets/acuity/core-experience/symptoms-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Logging symptoms on Home: adding chest pain, dizziness, and fatigue, then viewing details"></video></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Track</p><h3>Understand changes over time.</h3><p>Insights brings together eight-week trends, escalation history, and a shareable baseline report for extended healthcare conversations.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/core-experience/insights.mp4" poster="assets/acuity/core-experience/insights-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Insights: trends, the escalation history by month, week, and day, then the baseline report"></video><div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure>
-          </div>
-        </section>
-
-        <!-- 04 RESEARCH -->
-        <section id="research" class="nt-section" aria-labelledby="research-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Research</p>
-            <h2 id="research-title">People don’t lack data. They lack a clear signal to act.</h2>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Market</p><h3>Wearables are booming. The people most at risk still wait.</h3><p>The market is set to more than double by 2030, yet cost keeps high-risk people from care.</p></div>
-            <figure class="nt-media ac-r" aria-label="Market research: wearables market growth, problems paying for care, and care skipped because of cost."><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-vbars"><div class="ac-vbar" style="--h:40%"><b>$70.3B</b><i></i><span>2024</span></div><div class="ac-vbar" style="--h:48%"><b>$84.5B</b><i></i><span>2025</span></div><div class="ac-vbar is-hi" style="--h:100%"><b>$176.8B</b><i></i><span>2030</span></div></div></div><p class="media-caption__title">Wearables are going mainstream</p><p class="media-caption__body">From $70.3B in 2024 to a projected $176.8B by 2030, about 15.9% a year. <a class="ac-src" href="https://www.globenewswire.com/news-release/2026/02/26/3245720/0/en/global-wearable-technology-market-set-to-surpass-176-77-billion-by-2030-trends-growth-drivers-and-forecast.html" target="_blank" rel="noopener noreferrer">MarketsandMarkets, 2026</a></p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-hbars"><div class="ac-hrow"><span>All adults</span><i style="--w:28%"></i><b>28%</b></div><div class="ac-hrow is-hi"><span>Ages 18–29</span><i style="--w:40%"></i><b>40%</b></div><div class="ac-hrow"><span>Black</span><i style="--w:32%"></i><b>32%</b></div><div class="ac-hrow is-hi"><span>Hispanic</span><i style="--w:41%"></i><b>41%</b></div><div class="ac-hrow"><span>65+</span><i style="--w:13%"></i><b>13%</b></div></div></div><p class="media-caption__title">Care is hard to afford</p><p class="media-caption__body">28% of adults struggled to pay for care last year, rising to 40% of 18–29s and 41% of Hispanic adults. <a class="ac-src" href="https://www.kff.org/health-costs/americans-challenges-with-health-care-costs/" target="_blank" rel="noopener noreferrer">KFF</a></p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-waffle-wrap"><div class="ac-waffle"><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="ac-big">36%</p></div></div><p class="media-caption__title">So people wait</p><p class="media-caption__body">36% of uninsured adults skipped or postponed care they needed because of the cost. <a class="ac-src" href="https://www.kff.org/health-costs/americans-challenges-with-health-care-costs/" target="_blank" rel="noopener noreferrer">KFF</a></p></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Landscape</p><h3>Wearables measure. Care services wait. Nothing sits in between.</h3><p>Wearables such as Apple Watch, Oura, and WHOOP emphasize physiological tracking, while care services generally require users to initiate contact. We positioned Acuity as a concept connecting continuous monitoring with next-step guidance.</p></div>
-            <figure class="nt-media nt-process"><div class="fig board" role="img" aria-label="Competitive landscape. Positioning: wearables like Apple Watch, Oura, and WHOOP are continuous but only show data; telehealth and 911 guide action but only on demand or at the crisis; Acuity is continuous and guides action. Comparison: wearables monitor continuously and partly learn a baseline and partly reach out first, but don’t guide the next step; care services guide the next step but don’t monitor, learn a baseline, or reach out first; Acuity does all four."><div class="board__row" style="--cols:1fr 1.05fr"><div class="board__card"><p class="board__title">Competitive positioning</p><div class="board__body"><div class="pmap"><div class="pmap__ax x"></div><div class="pmap__ax y"></div><span class="pmap__lab t">Continuous</span><span class="pmap__lab b">On demand</span><span class="pmap__lab l">Shows data</span><span class="pmap__lab r">Guides action</span><div class="pmap__pt" style="left:18%;top:20%"><img src="assets/acuity/research/competitors/apple-watch.png" alt="" loading="lazy" decoding="async"><span>Apple Watch</span></div><div class="pmap__pt" style="left:33%;top:31%"><img src="assets/acuity/research/competitors/oura.png" alt="" loading="lazy" decoding="async"><span>Oura Ring</span></div><div class="pmap__pt" style="left:16%;top:41%"><img src="assets/acuity/research/competitors/whoop.png" alt="" loading="lazy" decoding="async"><span>WHOOP</span></div><div class="pmap__pt" style="left:64%;top:66%"><img src="assets/acuity/research/competitors/telehealth.png" alt="" loading="lazy" decoding="async"><span>Telehealth</span></div><div class="pmap__pt" style="left:78%;top:82%"><img src="assets/acuity/research/competitors/911.png" alt="" loading="lazy" decoding="async"><span>Ambulance / 911</span></div><div class="pmap__pt hi" style="left:75%;top:22%"><img src="assets/acuity/research/competitors/bracelet.png" alt="" loading="lazy" decoding="async"><span>Acuity</span></div></div></div></div><div class="board__card"><p class="board__title">Feature comparison</p><div class="board__body"><div class="cmp-wrap" style="flex:1;display:flex;flex-direction:column"><div class="cmp" style="--n:3"><div class="cmp__hi" aria-hidden="true" style="grid-row:1 / 6"></div><div class="cmp__h" style="grid-column:2"><div class="ac-cmp-photos"><img src="assets/acuity/research/competitors/apple-watch.png" alt="" loading="eager" decoding="async"><img src="assets/acuity/research/competitors/oura.png" alt="" loading="eager" decoding="async"><img src="assets/acuity/research/competitors/whoop.png" alt="" loading="eager" decoding="async"></div><span>Wearables</span></div><div class="cmp__h" style="grid-column:3"><div class="ac-cmp-photos"><img src="assets/acuity/research/competitors/telehealth.png" alt="" loading="eager" decoding="async"><img src="assets/acuity/research/competitors/911.png" alt="" loading="eager" decoding="async"></div><span>Care services</span></div><div class="cmp__h hi" style="grid-column:4"><div class="ac-cmp-photos"><img src="assets/acuity/research/competitors/bracelet.png" alt="" loading="eager" decoding="async"></div><span>Acuity</span></div><div class="cmp__r" style="grid-row:2">Monitors you continuously</div><div class="cmp__c" style="grid-column:2;grid-row:2"><i class="dot y"></i></div><div class="cmp__c" style="grid-column:3;grid-row:2"><i class="dot n"></i></div><div class="cmp__c hi" style="grid-column:4;grid-row:2"><i class="dot y"></i></div><div class="cmp__r" style="grid-row:3">Learns your personal baseline</div><div class="cmp__c" style="grid-column:2;grid-row:3"><i class="dot p"></i></div><div class="cmp__c" style="grid-column:3;grid-row:3"><i class="dot n"></i></div><div class="cmp__c hi" style="grid-column:4;grid-row:3"><i class="dot y"></i></div><div class="cmp__r" style="grid-row:4">Reaches out before you ask</div><div class="cmp__c" style="grid-column:2;grid-row:4"><i class="dot p"></i></div><div class="cmp__c" style="grid-column:3;grid-row:4"><i class="dot n"></i></div><div class="cmp__c hi" style="grid-column:4;grid-row:4"><i class="dot y"></i></div><div class="cmp__r" style="grid-row:5">Guides your next step</div><div class="cmp__c" style="grid-column:2;grid-row:5"><i class="dot n"></i></div><div class="cmp__c" style="grid-column:3;grid-row:5"><i class="dot y"></i></div><div class="cmp__c hi" style="grid-column:4;grid-row:5"><i class="dot y"></i></div></div><div class="cmp__legend"><span><i class="dot y"></i>Yes</span><span><i class="dot p"></i>Partly</span><span><i class="dot n"></i>No</span></div></div></div></div></div></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Interviews</p><h3>The barrier wasn’t data. It was doubt.</h3><p>Interviews surfaced a recurring hesitation: people rationalized symptoms, questioned their severity, or worried about seeking unnecessary care.</p></div>
-            <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Three user interviews. A heart attack survivor: I kept telling myself it was just stress; turns out, it was my heart. The family of a cardiac arrest victim: it wasn’t the cardiac arrest that killed him, it was his fear. A UofA pre-med student: I still don’t know if this is serious enough to trouble the doctor."><div class="card ac-int" style="left:5.5cqw;top:22%;rotate:-2.5deg"><p class="c-lab">Heart attack survivor</p><p class="ac-int__q">“I kept telling myself it was just stress. Turns out, it was my heart.”</p><span class="ac-int__ico"><img src="assets/acuity/research/int-survivor.png" alt="" loading="lazy" decoding="async"></span></div><div class="card ac-int" style="left:36.5cqw;top:40%;rotate:1.5deg"><p class="c-lab">Family of a cardiac arrest victim</p><p class="ac-int__q">“It wasn’t the cardiac arrest that killed him. It was his fear.”</p><span class="ac-int__ico"><img src="assets/acuity/research/int-family.png" alt="" loading="lazy" decoding="async"></span></div><div class="card ac-int" style="left:67.5cqw;top:28%;rotate:-1.2deg"><p class="c-lab">UofA pre-med student</p><p class="ac-int__q">“I still don’t know if this is serious enough to trouble the doctor.”</p><span class="ac-int__ico"><img src="assets/acuity/research/int-student.png" alt="" loading="lazy" decoding="async"></span></div></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Persona</p><h3>Maya isn’t negligent. She’s uncertain.</h3><p>Our design scenario centers on a 42-year-old adult managing hypertension, balancing health concerns against cost, uncertainty, and fear of overreacting.</p></div>
-            <figure class="nt-media nt-process"><div class="fig" role="img" aria-label="Persona: Maya, 42, the hesitant high-risk adult. Profile: 42, works long hours, Diagnosed with hypertension 3 years ago, High-deductible insurance plan. Behaviors: Takes her medication inconsistently, Feels occasional chest tightness, Tells herself it’s probably just stress. Fears: A $3,000 ER bill, Overreacting, or feeling dramatic, Inconveniencing anyone. Needs: To know when it’s serious, Guidance she can act on fast, Not to navigate care alone."><div class="card ac-pers__photo"><p class="c-lab">Persona</p><img src="assets/acuity/research/acuity-user-persona.jpg" alt="" loading="lazy" decoding="async"><div class="ac-pers__id"><p class="ac-pers__name">Maya, 42</p><p class="ac-pers__role">The hesitant high-risk adult</p><p class="ac-pers__quote">“It’s probably just stress.”</p></div></div><div class="ac-pers__grid"><div class="card"><p class="c-lab">Profile</p><ul><li>42, works long hours</li><li>Diagnosed with hypertension 3 years ago</li><li>High-deductible insurance plan</li></ul></div><div class="card"><p class="c-lab">Behaviors</p><ul><li>Takes her medication inconsistently</li><li>Feels occasional chest tightness</li><li>Tells herself it’s probably just stress</li></ul></div><div class="card"><p class="c-lab">Fears</p><ul><li>A $3,000 ER bill</li><li>Overreacting, or feeling dramatic</li><li>Inconveniencing anyone</li></ul></div><div class="card"><p class="c-lab">Needs</p><ul><li>To know when it’s serious</li><li>Guidance she can act on fast</li><li>Not to navigate care alone</li></ul></div></div></div></figure>
-            <figure class="nt-media ac-journey2" aria-label="Maya’s journey with Acuity, a design scenario"><div class="ac-journey2__step"><p class="ac-journey2__when">Days 1–14</p><div class="ac-journey2__card"><p class="ac-journey2__what">Baseline</p><p class="ac-journey2__why">Acuity learns her resting heart rate, HRV, blood pressure, and sleep. No alerts.</p></div></div><div class="ac-journey2__step"><p class="ac-journey2__when">Days 15–19</p><div class="ac-journey2__card"><p class="ac-journey2__what">Drift</p><p class="ac-journey2__why">Blood pressure trends 18% above baseline, HRV declines, sleep fragments. Not alarming alone.</p></div></div><div class="ac-journey2__step"><p class="ac-journey2__when">Day 19</p><div class="ac-journey2__card"><p class="ac-journey2__what">Alert</p><p class="ac-journey2__why">Two buzzes. A pinch opens an Elevated care plan: evaluation advised within 24 hours.</p></div></div><div class="ac-journey2__step"><p class="ac-journey2__when">Day 19</p><div class="ac-journey2__card"><p class="ac-journey2__what">Action</p><p class="ac-journey2__why">She books the appointment instead of waiting it out.</p></div></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Business model</p><h3>An insurer-funded model designed to reduce access barriers</h3><p>We proposed a per-member, per-month model in which health plans fund Acuity for high-risk members, removing the direct cost to users. These are hypothetical projections, not demonstrated outcomes.</p></div>
-            <figure class="nt-media ac-r" aria-label="Illustrative annual model for 50,000 members: $4.8M cost, $6M assumed gross savings, $1.2M net savings, and 25% net ROI; cost is $8 per member per month."><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-chain"><div class="ac-node"><b>Health plan</b><span>Pays per member, per month</span></div><i aria-hidden="true">↓</i><div class="ac-node is-hi"><b>Acuity</b><span>Bracelet, AI, app</span></div><i aria-hidden="true">↓</i><div class="ac-node"><b>High-risk member</b><span>Pays $0</span></div></div></div><p class="media-caption__title">Insurer-funded SaaS</p><p class="media-caption__body">A PMPM model: zero cost to the user, aimed at high-risk members.</p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-vbars ac-vbars--2"><div class="ac-vbar" style="--h:80%"><b>$4.8M</b><i></i><span>Annual cost</span></div><div class="ac-vbar is-hi" style="--h:100%"><b>$6M</b><i></i><span>Gross savings</span></div></div></div><p class="media-caption__title">Illustrative annual model</p><p class="media-caption__body">For 50K members, assume $4.8M in annual costs and $6M in gross savings; these are hypothetical inputs, not measured results.</p></div><div class="ac-r__cell"><div class="ac-r__card"><div class="ac-roi"><p class="ac-big">25%</p><p class="ac-roi__lab">Illustrative net ROI</p><div class="ac-roi__stats"><span><b>$1.2M</b>annual net savings</span><span><b>$8</b>per member / month</span></div></div></div><p class="media-caption__title">Savings after costs</p><p class="media-caption__body">($6M − $4.8M) ÷ $4.8M = 25% net ROI; $4.8M ÷ 50K members ÷ 12 months = $8 per member per month.</p></div></figure>
-          </div>
-        </section>
-
-        <!-- 05 DESIGN DECISIONS -->
-        <section id="decisions" class="nt-section" aria-labelledby="decisions-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Design decisions</p>
-            <h2 id="decisions-title">Four decisions shaped how Acuity communicates risk and supports action.s</h2>
-          </div>
-
-          <div class="nt-step case-single-video">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Decision 01</p><h3>Why these health signals?</h3><p>Early strain shows up as a trend across signals, and all three can be sensed at the wrist. Acuity reads each against the person’s own baseline, not a population average. The tradeoff: cuffless blood pressure needs cuff calibration, so it supports trends, not diagnosis.</p></div>
-            <figure class="nt-media nt-process" data-no-controls><div class="fig ac-vstack" role="img" aria-label="The three measured signals against baseline: blood pressure 12% above, heart rate 35% above, and sleep disruption 71% below."><video class="nt-video" autoplay loop muted playsinline preload="metadata" aria-label="Blood pressure trending 12% above baseline"><source src="assets/acuity/design-decisions/acuity-bp-alpha-hevc.mov" type="video/quicktime; codecs=hvc1"><source src="assets/acuity/design-decisions/acuity-bp-white-alpha.webm" type="video/webm"></video><video class="nt-video" autoplay loop muted playsinline preload="metadata" aria-label="Heart rate trending 35% above baseline"><source src="assets/acuity/design-decisions/acuity-hr-alpha-hevc.mov" type="video/quicktime; codecs=hvc1"><source src="assets/acuity/design-decisions/acuity-hr-white-alpha.webm?v=2" type="video/webm"></video><video class="nt-video" autoplay loop muted playsinline preload="metadata" aria-label="Sleep disruption 71% below baseline"><source src="assets/acuity/design-decisions/acuity-sleep-alpha-hevc.mov" type="video/quicktime; codecs=hvc1"><source src="assets/acuity/design-decisions/acuity-sleep-white-alpha.webm" type="video/webm"></video></div></figure>
-          </div>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Decision 02</p><h3>Why three urgency levels?</h3><p>A binary alert risks treating every change as either harmless or critical. Stable, Elevated, and Emergent create a clearer hierarchy for communicating different levels of concern. The thresholds remain hypothetical and require clinical validation. A Stable state must not be interpreted as proof that someone is medically safe.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/design-decisions/states.mp4" poster="assets/acuity/design-decisions/states-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="The home screen moving from Stable to Elevated Risk to Emergent Risk and back to Stable"></video></div></figure>
-          </div>
-
-          <div class="nt-reading ac-dec"><p class="nt-step-label">Decision 03</p><h3>Why AI?</h3><p>The proposed AI model compares sustained changes across signals against an individual's baseline, rather than relying solely on static thresholds. Care options remain predefined, and users confirm actions themselves.</p></div>
-          
-
-          <div class="nt-reading ac-dec"><p class="nt-step-label">Decision 04</p><h3>Why wrist gestures?</h3><p>Haptic alerts and simple gestures offer an alternative to navigating a phone during stressful moments. Because gestures can be missed or inaccessible, the same actions remain available in the app.</p></div>
-        </section>
-
-        <!-- 06 SYSTEM ARCHITECTURE -->
-        <section id="architecture" class="nt-section" aria-labelledby="architecture-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Build</p>
-            <h2 id="architecture-title">Using AI tools to prototype a connected health experience in 24 hours</h2>
-            <p>We used AI-assisted tools to develop the wearable concept, app prototype, product visuals, and presentation within the hackathon timeframe.</p>
-          </div>
-          <figure class="nt-media nt-process" data-no-controls><div class="fig ac-aistack" aria-label="The AI stack: Midjourney, ChatGPT, Figma Make, and Sora"><svg class="ngraph__wires" viewBox="0 0 1920 1080" aria-hidden="true"><path d="M400 290C400 170 550 140 660 140M1260 140C1370 140 1520 170 1520 290M400 820C400 910 650 940 717 940M1520 748C1520 860 1270 940 1203 940"/><circle cx="400" cy="290" r="5"/><circle cx="660" cy="140" r="5"/><circle cx="1260" cy="140" r="5"/><circle cx="1520" cy="290" r="5"/><circle cx="400" cy="820" r="5"/><circle cx="717" cy="940" r="5"/><circle cx="1520" cy="748" r="5"/><circle cx="1203" cy="940" r="5"/></svg><div class="board__card ac-aistack__midjourney"><p class="board__title">Midjourney</p><div class="board__body"><img src="assets/acuity/build/midjourney.png" alt="Midjourney project visual" loading="lazy" decoding="async"></div></div><div class="board__card ac-aistack__chatgpt"><p class="board__title">ChatGPT</p><div class="board__body"><img src="assets/acuity/build/chatgpt.png" alt="ChatGPT project visual" loading="lazy" decoding="async"></div></div><div class="board__card ac-aistack__figma-make"><p class="board__title">Figma Make</p><div class="board__body"><img src="assets/acuity/build/figma-make.png" alt="Figma Make project visual" loading="lazy" decoding="async"></div></div><div class="board__card ac-aistack__sora"><p class="board__title">Sora</p><div class="board__body"><img src="assets/acuity/build/sora.png" alt="Sora film scenes: walking on the street, and a conversation with a doctor" loading="lazy" decoding="async"></div></div></div></figure>
-          <div class="nt-reading ac-dec"><p class="nt-step-label">System architecture</p><h3>How hardware, AI, and software connect</h3><p>The proposed system combines wearable signals and health history to establish a personal baseline, identify sustained deviations, and generate an urgency summary. The app then presents corresponding care options, with users retaining control over every action.</p></div>
-          <figure class="nt-media nt-process"><div class="fig ngraph" role="img" aria-label="System architecture as a flow. Input: the bracelet senses blood pressure, heart rate and HRV, and sleep; your context adds health history from an EHR import and cuff calibration. Processing, with AI: a personal baseline from a 14-day calibration weighted by medical history, and signal analysis that correlates signals and detects sustained drift. Interpretation, with AI: one urgency level, Stable, Elevated, or Emergent, and a plain-language summary with one next step. Experience: a haptic alert, then you confirm with a pinch to open the plan, a hold to keep monitoring, or a wave to dismiss, leading to the care plan, a 24, 48, or 72-hour watch, and insights. Nothing happens without you."><div class="ngraph__zone" style="left:27.604cqw;top:6.042cqw;width:44.271cqw;height:46.354cqw"></div><span class="ngraph__col" style="left:6.771cqw;top:3.750cqw">01 · Input</span><span class="ngraph__col" style="left:29.167cqw;top:3.750cqw">02 · Processing</span><span class="ngraph__col" style="left:51.562cqw;top:3.750cqw">03 · Interpretation</span><span class="ngraph__col" style="left:74.479cqw;top:3.750cqw">04 · Experience</span><svg class="ngraph__wires" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true"><path d="M490 219 C525 219, 525 269, 560 269"/><path d="M490 219 C525 219, 525 579, 560 579"/><path d="M490 579 C525 579, 525 269, 560 269"/><path d="M490 579 C525 579, 525 579, 560 579"/><path d="M740 413 V536"/><path d="M920 579 C955 579, 955 199, 990 199"/><path d="M920 579 C955 579, 955 579, 990 579"/><path d="M1350 199 C1390 199, 1390 169, 1430 169"/><path d="M1350 579 C1390 579, 1390 739, 1430 739"/><path d="M1610 258 V356"/><path d="M1610 598 V696"/><circle cx="490" cy="219" r="7"/><circle cx="490" cy="579" r="7"/><circle cx="560" cy="269" r="7"/><circle cx="560" cy="579" r="7"/><circle cx="740" cy="413" r="7"/><circle cx="740" cy="536" r="7"/><circle cx="920" cy="579" r="7"/><circle cx="990" cy="199" r="7"/><circle cx="990" cy="579" r="7"/><circle cx="1350" cy="199" r="7"/><circle cx="1350" cy="579" r="7"/><circle cx="1430" cy="169" r="7"/><circle cx="1430" cy="739" r="7"/><circle cx="1610" cy="258" r="7"/><circle cx="1610" cy="356" r="7"/><circle cx="1610" cy="598" r="7"/><circle cx="1610" cy="696" r="7"/></svg><div class="node" style="left:6.771cqw;top:9.167cqw;width:18.750cqw;height:12.604cqw"><div class="node__h">Bracelet</div><div class="node__row"><b>Blood pressure</b><span>Cuffless</span></div><div class="node__row"><b>Heart rate + HRV</b></div><div class="node__row"><b>Sleep</b></div></div><div class="node" style="left:6.771cqw;top:27.917cqw;width:18.750cqw;height:9.740cqw"><div class="node__h">Your context</div><div class="node__row"><b>Health history</b><span>EHR import</span></div><div class="node__row"><b>Cuff calibration</b></div></div><div class="node" style="left:29.167cqw;top:11.771cqw;width:18.750cqw;height:9.740cqw"><div class="node__h">Personal baseline<em>AI</em></div><div class="node__row"><b>14-day calibration</b></div><div class="node__row"><b>Medical-history weighting</b></div></div><div class="node" style="left:29.167cqw;top:27.917cqw;width:18.750cqw;height:9.740cqw"><div class="node__h">Signal analysis<em>AI</em></div><div class="node__row"><b>Multi-signal correlation</b></div><div class="node__row"><b>Sustained-drift detection</b></div></div><div class="node" style="left:51.562cqw;top:8.125cqw;width:18.750cqw;height:12.604cqw"><div class="node__h">Urgency level<em>AI</em></div><div class="node__row" style="justify-content:flex-start;gap:.8cqw"><i class="dot n"></i><b>Stable</b></div><div class="node__row" style="justify-content:flex-start;gap:.8cqw"><i class="dot p"></i><b>Elevated</b></div><div class="node__row" style="justify-content:flex-start;gap:.8cqw"><i class="dot y"></i><b>Emergent</b></div></div><div class="node" style="left:51.562cqw;top:27.917cqw;width:18.750cqw;height:9.740cqw"><div class="node__h">Summary<em>AI</em></div><div class="node__row"><b>What changed, and why</b></div><div class="node__row"><b>One next step</b></div></div><div class="node" style="left:74.479cqw;top:6.562cqw;width:18.750cqw;height:6.875cqw"><div class="node__h">Haptic alert</div><div class="node__row"><b>Two buzzes</b><span>Lock screen</span></div></div><div class="node" style="left:74.479cqw;top:18.542cqw;width:18.750cqw;height:12.604cqw"><div class="node__h">You confirm</div><div class="node__row"><b>Pinch</b><span>Open the plan</span></div><div class="node__row"><b>Hold</b><span>Keep monitoring</span></div><div class="node__row"><b>Wave</b><span>Dismiss</span></div></div><div class="node" style="left:74.479cqw;top:36.250cqw;width:18.750cqw;height:12.604cqw"><div class="node__h">Care plan</div><div class="node__row"><b>Plan for the level</b></div><div class="node__row"><b>24 / 48 / 72-hour watch</b></div><div class="node__row"><b>Insights and reports</b></div></div></div></figure>
-
-          <div class="nt-step">
-            <div class="nt-reading dx-step"><p class="nt-step-label">Explaining the model</p><h3>Make the system's reasoning visible.</h3><p>The app's settings explains how baseline learning, signal analysis, and escalation logic are intended to work, helping users understand the basis of an alert.</p></div>
-            <figure class="nt-media nt-process"><div class="dx-media"><video class="nt-video" src="assets/acuity/build/model.mp4" poster="assets/acuity/build/model-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="How Acuity analyzes your data: baseline learning, continuous monitoring, deviation detection, and escalation logic"></video><div class="flow__controls"><button class="glass flow__btn flow__btn--pause is-playing" type="button" aria-label="Pause video"><svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg><svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"></polygon></svg></button><button class="glass flow__btn flow__btn--replay" type="button" aria-label="Replay video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 .49-4.5"></path></svg></button></div></div></figure>
-          </div>
-        </section>
-
-        <!-- 07 VALIDATION &AMP; LIMITATIONS -->
-        <section id="pitch" class="nt-section" aria-labelledby="pitch-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Pitch</p>
-            <h2 id="pitch-title">An interactive prototype, a product demo, and a pitch in 24 hours.</h2>
-            <p>We pitched Acuity to judges from Snap, IDEO, and Microsoft, and it was named one of the event’s standout concepts.</p>
-          </div>
-          <figure class="nt-media cs-gallery cs-n2 ac-pitch" data-fit-row><div class="cs-cell" style="--ar:1.7778"><video src="assets/acuity/pitch/acuity-pitch-web.mp4" poster="assets/acuity/pitch/01-title.webp" controls playsinline preload="metadata" aria-label="Recording of the Acuity pitch to the hackathon judges"></video></div><div class="cs-cell" style="--ar:1.3333"><img src="assets/acuity/pitch/acuity-pitch.jpg" alt="Pitching Acuity to the hackathon judges" loading="lazy" decoding="async"></div></figure>
-        </section>
-
-        <section id="next-steps" class="nt-section" aria-labelledby="next-steps-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Next steps</p>
-            <h2 id="next-steps-title">Validate the health signals before polishing the screens.</h2>
-            <p>We never tested real sensors, and cuffless wrist blood pressure needs cuff calibration and drifts. Next, we’d test wrist readings against cuff and ECG with clinicians, and stress-test the level thresholds for false alarms and missed alerts. Then we’d usability-test the levels and gestures with high-risk adults, add alternatives to gestures for limited mobility or sensation, and work out health-data consent and escalation liability. Clinical safety, privacy, consent, and escalation responsibilities would need to be resolved before any real-world deployment.</p>
-          </div>
-        </section>
-
-        <!-- 08 REFLECTION -->
-        <section id="reflection" class="nt-section" aria-labelledby="reflection-title">
-          <div class="nt-reading">
-            <p class="nt-kicker">Reflection</p>
-            <h2 id="reflection-title">In healthcare, clarity is only valuable when people can trust it.</h2>
-            <p>Designing Acuity challenged me to communicate uncertainty without overwhelming users while balancing guidance with autonomy.</p>
-          </div>
-          <figure class="nt-media cs-gallery cs-n2 ac-wide"><div class="cs-cell"><img src="assets/acuity/reflection/acuity-reflection-1.jpg" alt="Kritika, Lucy and Sooim with their certificates of achievement" width="1920" height="1080" loading="lazy" decoding="async"></div><div class="cs-cell"><img src="assets/acuity/reflection/acuity-reflection-2.jpg" alt="Every participant of the AI Startup Design Hackathon with their certificates" width="1920" height="1080" loading="lazy" decoding="async"></div></figure>
-          <div class="nt-reading"><div class="ntf-takeaway ac-takeaways"><div><p class="ntf-tag">Takeaway 01 · User behavior</p><p class="ntf-takeaway-line">Health data only becomes actionable when people understand what it means and what to do next.</p></div><div><p class="ntf-tag">Takeaway 02 · Designing with AI</p><p class="ntf-takeaway-line">AI accelerated prototyping, but responsible healthcare design still depends on human judgment and validation.</p></div></div></div>
-        </section>
-      </div>
-    </div>
-  </main>
-	<footer class="footer portfolio-footer">
- <div class="portfolio-footer__invite"><h2>Let’s make<br>something<br>worth using.</h2></div>
- <div class="portfolio-footer__portrait"><img src="assets/about/hero/me.jpg" alt="Sooim Kang" loading="lazy" width="1080" height="1080"><a class="ab-fav__app glass" href="mailto:sooimkang1015@gmail.com" aria-label="Say hello"><span class="ab-fav__app-pill">SAY HELLO</span><span class="ab-fav__app-dot" aria-hidden="true">↗</span></a></div>
- <div class="portfolio-footer__bio"><strong>Sooim Kang</strong><p>Product designer &amp; builder<br>Based in New York City<br>The New School · Parsons School of Design<br>Northwestern University · Medill School of Journalism</p></div>
- <nav class="portfolio-footer__nav" aria-label="Footer"><a class="nav__menu-link" href="work"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Work</span><span class="nav__menu-title" aria-hidden="true">Explore case studies</span></span></span></a><a class="nav__menu-link" href="about"><span class="flip"><span class="flip__track"><span class="nav__menu-title">About</span><span class="nav__menu-title" aria-hidden="true">Get to know me</span></span></span></a><a class="nav__menu-link" href="explorations"><span class="flip"><span class="flip__track"><span class="nav__menu-title">Explorations</span><span class="nav__menu-title" aria-hidden="true">Explore side quests</span></span></span></a><div class="portfolio-footer__social"><a class="ab-icon glass" href="Sooim-Kang-Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 3.8V8.5h4.7M8.5 12.5h7M8.5 15.8h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://linkedin.com/in/sooimkang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.3" cy="8.4" r="1.2" fill="currentColor"/><path d="M8.3 11v5.6M11.7 16.6V11m0 2.6c0-1.6 1-2.7 2.3-2.7s2.2.9 2.2 2.6v3.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a><a class="ab-icon glass" href="https://github.com/sooimkang07" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a></div></nav>
-</footer>
-
-  <script src="js/site.js?v=mobile42"></script>
-  <script src="js/notate.js?v=13"></script>
-<script src="js/case.js?v=vc1-a2-bodylinks3-rsp10"></script>
-<script src="js/morph.js?v=3"></script>
-<script async src="https://www.instagram.com/embed.js"></script>
-	<!-- Chatbot off for now: <script src="js/text-sooim.js?v=ds4-facts1" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
-</body>
+    <script src="js/site.js?v=burger87"></script>
+    <script src="js/notate.js?v=breakpoints46"></script>
+    <script src="js/case.js?v=layout99"></script>
+    <script src="js/morph.js?v=breakpoints46"></script>
+    <script async="" src="https://www.instagram.com/embed.js"></script>
+    <!-- Chatbot off for now: <script src="js/text-sooim.js?v=breakpoints46" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->
+  </body>
 </html>

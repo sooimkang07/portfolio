@@ -91,10 +91,35 @@ def unknown_tokens(path):
     text = re.sub(r'/\*.*?\*/', '', (ROOT / path).read_text(errors='ignore'), flags=re.S)
     return [('unknown token (not defined; see docs/DESIGN-SYSTEM.md)', 'var', m) for m in re.findall(r'var\(\s*(--[\w-]+)', text) if m not in defined_props()]
 
-def key(path, f): return f'{path} | {f[0]} | {f[1]}: {f[2]}'
+def canonical_key(value):
+    """Compare existing exceptions across equivalent logical names and rem units.
+
+    The baseline remains unchanged. A new measurement/color still fails; changing
+    an existing 10px specimen to .625rem does not create a new exception.
+    """
+    logical = {'inline-size': 'width', 'block-size': 'height',
+               'block-start': 'top', 'block-end': 'bottom',
+               'inline-start': 'left', 'inline-end': 'right',
+               'start-start-radius': 'top-left-radius', 'start-end-radius': 'top-right-radius',
+               'end-start-radius': 'bottom-left-radius', 'end-end-radius': 'bottom-right-radius'}
+    parts = value.split(' | ')
+    if len(parts) == 3:
+        prop, separator, rest = parts[2].partition(': ')
+        for name, replacement in logical.items():
+            prop = prop.replace(name, replacement)
+        rest = re.sub(r'(-?(?:\d*\.)?\d+)rem\b',
+                      lambda m: f'{float(m[1]) * 16:g}px', rest)
+        parts[2] = prop + separator + rest
+    return ' | '.join(parts)
+
+def key(path, f):
+    return canonical_key(f'{path} | {f[0]} | {f[1]}: {f[2]}')
 
 def check(paths, show_all=False):
-    base = collections.Counter(json.loads(BASELINE.read_text())) if BASELINE.exists() and not show_all else collections.Counter()
+    base = collections.Counter()
+    if BASELINE.exists() and not show_all:
+        for entry, count in json.loads(BASELINE.read_text()).items():
+            base[canonical_key(entry)] += count
     new = []
     for p in paths:
         seen = collections.Counter(key(p, f) for f in scan(p) + unknown_tokens(p))

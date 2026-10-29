@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 1141" preserveAspectRatio="none">
+  <defs>
+    <mask id="frame">
+      <rect width="562" height="1141" fill="white"/>
+      <rect x="12" y="10" width="538" height="1121" rx="78" fill="black"/>
+    </mask>
+  </defs>
+  <rect width="562" height="1141" fill="white" mask="url(#frame)"/>
+</svg>

@@ -1,244 +1,1267 @@
 /* Instagram Lists case study: overview, opportunity, annotated phone, system collage, system fit, impact, reflection. */
 
-/* ── Hero: two photos under the cover video (same as yap) ─────── */
-body.case-page .case-cover:has(+ .ig-hero-pair) { margin-bottom: var(--gap-media); }
-body.case-page .ig-hero-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin: 0 var(--gutter) clamp(var(--s-10), 7vw, var(--s-11)); }
-body.case-page .ig-hero-pair img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-md); }
-@media (max-width: 760px) { body.case-page .ig-hero-pair { grid-template-columns: 1fr; } }
+body.case-page {
+  & main {
+    & .ig-overview-img {
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-lg);
+      }
+    }
 
-body.case-page main .ig-overview-img { margin-top: var(--s-7); }
-body.case-page main .ig-overview-img img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
+    /* ── Opportunity ───────────────────────────────────────────────── */
+    & .ig-hmw {
+      padding: 0;
+      border-block-start: 0;
+    }
+    & .ig-hmw__q {
+      margin-inline: 0;
+      max-inline-size: 30ch;
+      font-size: var(--h2-fs);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-tight);
+      letter-spacing: var(--h1-ls);
+      color: var(--ink);
+      text-wrap: balance;
+    }
 
-/* ── Opportunity ───────────────────────────────────────────────── */
-body.case-page main .ig-hmw { margin-top: var(--s-3); padding: 0; border-top: 0; }
-body.case-page main .ig-hmw__q { margin: var(--s-3) 0 0; max-width: 30ch; font-size:var(--h2-fs); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--h1-ls); color: var(--ink); text-wrap: balance; }
-
-/* ── Core flow 04: lead video + 2×2 grid ───────────────────────── */
-body.case-page main .ig-split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
-/* lead video stretches to the 2×2 grid's full height; its caption lines up with the bottom row's */
-body.case-page main .ig-split > .dx-cell { display: flex; flex-direction: column; }
-body.case-page main #core-flows .ig-split > .dx-cell > .dx-media { flex: 1 1 auto; aspect-ratio: auto; min-height: 0; }
-body.case-page main .ig-split > .dx-cell > .dx-media > video { position: absolute; inset: 0; }
-/* reserve the video frame before metadata loads: flows are 4:5, problems 1:1 */
-body.case-page main #core-flows .dx-media { aspect-ratio: 4 / 5; }
-/* Problem: two cards side by side, like yap's problem row */
-body.case-page main .ig-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); }
-body.case-page main .ig-problems__cell { min-width: 0; }
-body.case-page main #problem .dx-media { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
-@media (max-width: 760px) { body.case-page main .ig-problems { grid-template-columns: 1fr; } }
+    /* ── Core flow 04: lead video + 2×2 grid ───────────────────────── */
+    & .ig-split {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      /* lead video stretches to the 2×2 grid's full height; its caption lines up with the bottom row's */
+      & > .dx-cell {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    & #core-flows {
+      & .ig-split {
+        & > .dx-cell {
+          & > .dx-media {
+            flex: 1 1 auto;
+            aspect-ratio: auto;
+            min-block-size: 0;
+          }
+        }
+      }
+    }
+    & .ig-split {
+      & > .dx-cell {
+        & > .dx-media {
+          & > video {
+            position: absolute;
+            inset: 0;
+          }
+        }
+      }
+    }
+    /* reserve the video frame before metadata loads: flows are 4:5, problems 1:1 */
+    & #core-flows {
+      & .dx-media {
+        aspect-ratio: 4 / 5;
+      }
+    }
+    /* Problem: two cards side by side, like yap's problem row */
+    & .ig-problems {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: calc(var(--space-1) * 2);
+      @media (width >= 760px) {
+        gap: var(--space-1);
+      }
+    }
+    & .ig-problems__cell {
+      min-inline-size: 0;
+    }
+    & #problem {
+      & .dx-media {
+        aspect-ratio: 4 / 5;
+        border-radius: var(--r-lg);
+      }
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .ig-problems {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
 /* problem recordings sit on the figure background */
-body.case-page main .dx-media.ig-problem { background: var(--fig-bg) var(--fig-dots); }
-/* the recordings are the top of a phone, cut off at the bottom: anchor it to the box's bottom edge and round only the top corners to the recording's outline so its white corners drop away */
-body.case-page main .dx-media.ig-problem > video { position: absolute; top: auto; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; height: 90%; aspect-ratio: 1040 / 1488; object-fit: cover; background: transparent; border-radius: 0 !important; }
-/* clip each recording to the outer edge of its own phone outline (traced from the frames), so the white corners drop away without cutting the outline */
-body.case-page main .ig-problems__cell:nth-child(1) .dx-media.ig-problem > video { clip-path: polygon(0% 100%, 0.144% 17.003%, 0.144% 16.331%, 0.144% 15.659%, 0.144% 14.987%, 0.144% 14.315%, 0.144% 13.642%, 0.144% 12.970%, 0.240% 12.298%, 0.337% 11.626%, 0.337% 10.954%, 0.529% 10.282%, 0.625% 9.610%, 0.817% 8.938%, 1.106% 8.266%, 1.394% 7.594%, 1.779% 6.922%, 2.260% 6.250%, 2.933% 5.578%, 3.510% 4.906%, 4.375% 4.234%, 5.240% 3.562%, 6.298% 2.890%, 6.779% 2.621%, 7.356% 2.352%, 7.933% 2.083%, 8.510% 1.815%, 9.183% 1.546%, 9.952% 1.277%, 10.913% 1.008%, 12.163% 0.739%, 14.087% 0.470%, 18.317% 0.202%, 18.462% 0.101%, 81.346% 0.101%, 81.490% 0.202%, 85.817% 0.470%, 87.740% 0.739%, 88.894% 1.008%, 89.856% 1.277%, 90.625% 1.546%, 91.298% 1.815%, 91.971% 2.083%, 92.452% 2.352%, 93.029% 2.621%, 93.510% 2.890%, 94.567% 3.562%, 95.433% 4.234%, 96.298% 4.906%, 96.971% 5.578%, 97.548% 6.250%, 98.029% 6.922%, 98.413% 7.594%, 98.798% 8.266%, 98.990% 8.938%, 99.183% 9.610%, 99.279% 10.282%, 99.471% 10.954%, 99.567% 11.626%, 99.567% 12.298%, 99.663% 12.970%, 99.663% 13.642%, 99.663% 14.315%, 99.663% 14.987%, 99.760% 15.659%, 99.760% 16.331%, 99.760% 17.003%, 100% 100%); }
-body.case-page main .ig-problems__cell:nth-child(2) .dx-media.ig-problem > video { clip-path: polygon(0% 100%, 0.625% 17.003%, 0.625% 16.331%, 0.625% 15.659%, 0.625% 14.987%, 0.625% 14.315%, 0.625% 13.642%, 0.625% 12.970%, 0.721% 12.298%, 0.721% 11.626%, 0.817% 10.954%, 0.913% 10.282%, 1.106% 9.610%, 1.202% 8.938%, 1.490% 8.266%, 1.779% 7.594%, 2.163% 6.922%, 2.644% 6.250%, 3.221% 5.578%, 3.798% 4.906%, 4.567% 4.234%, 5.529% 3.562%, 6.490% 2.890%, 6.971% 2.621%, 7.452% 2.352%, 8.029% 2.083%, 8.606% 1.815%, 9.183% 1.546%, 9.952% 1.277%, 10.817% 1.008%, 11.875% 0.739%, 13.317% 0.470%, 15.817% 0.202%, 15.962% 0.101%, 84.135% 0.101%, 84.279% 0.202%, 86.779% 0.470%, 88.221% 0.739%, 89.279% 1.008%, 90.144% 1.277%, 90.817% 1.546%, 91.490% 1.815%, 92.067% 2.083%, 92.644% 2.352%, 93.125% 2.621%, 93.606% 2.890%, 94.567% 3.562%, 95.433% 4.234%, 96.298% 4.906%, 96.875% 5.578%, 97.452% 6.250%, 97.933% 6.922%, 98.317% 7.594%, 98.606% 8.266%, 98.798% 8.938%, 98.990% 9.610%, 99.183% 10.282%, 99.279% 10.954%, 99.375% 11.626%, 99.375% 12.298%, 99.375% 12.970%, 99.471% 13.642%, 99.471% 14.315%, 99.471% 14.987%, 99.471% 15.659%, 99.471% 16.331%, 99.471% 17.003%, 100% 100%); }
+body.case-page {
+  & main {
+    & .dx-media.ig-problem {
+      background: var(--fig-bg) var(--fig-dots);
+      /* the recordings are the top of a phone, cut off at the bottom: anchor it to the box's bottom edge and round only the top corners to the recording's outline so its white corners drop away */
+      & > video {
+        position: absolute;
+        inset-block-start: auto;
+        inset-block-end: 0;
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+        inline-size: auto;
+        block-size: 90%;
+        aspect-ratio: 1040 / 1488;
+        object-fit: cover;
+        background: transparent;
+        border-radius: 0 !important;
+      }
+    }
+    /* clip each recording to the outer edge of its own phone outline (traced from the frames), so the white corners drop away without cutting the outline */
+    & .ig-problems__cell:nth-child(1) {
+      & .dx-media.ig-problem {
+        & > video {
+          clip-path: polygon(
+            0% 100%,
+            0.144% 17.003%,
+            0.144% 16.331%,
+            0.144% 15.659%,
+            0.144% 14.987%,
+            0.144% 14.315%,
+            0.144% 13.642%,
+            0.144% 12.97%,
+            0.24% 12.298%,
+            0.337% 11.626%,
+            0.337% 10.954%,
+            0.529% 10.282%,
+            0.625% 9.61%,
+            0.817% 8.938%,
+            1.106% 8.266%,
+            1.394% 7.594%,
+            1.779% 6.922%,
+            2.26% 6.25%,
+            2.933% 5.578%,
+            3.51% 4.906%,
+            4.375% 4.234%,
+            5.24% 3.562%,
+            6.298% 2.89%,
+            6.779% 2.621%,
+            7.356% 2.352%,
+            7.933% 2.083%,
+            8.51% 1.815%,
+            9.183% 1.546%,
+            9.952% 1.277%,
+            10.913% 1.008%,
+            12.163% 0.739%,
+            14.087% 0.47%,
+            18.317% 0.202%,
+            18.462% 0.101%,
+            81.346% 0.101%,
+            81.49% 0.202%,
+            85.817% 0.47%,
+            87.74% 0.739%,
+            88.894% 1.008%,
+            89.856% 1.277%,
+            90.625% 1.546%,
+            91.298% 1.815%,
+            91.971% 2.083%,
+            92.452% 2.352%,
+            93.029% 2.621%,
+            93.51% 2.89%,
+            94.567% 3.562%,
+            95.433% 4.234%,
+            96.298% 4.906%,
+            96.971% 5.578%,
+            97.548% 6.25%,
+            98.029% 6.922%,
+            98.413% 7.594%,
+            98.798% 8.266%,
+            98.99% 8.938%,
+            99.183% 9.61%,
+            99.279% 10.282%,
+            99.471% 10.954%,
+            99.567% 11.626%,
+            99.567% 12.298%,
+            99.663% 12.97%,
+            99.663% 13.642%,
+            99.663% 14.315%,
+            99.663% 14.987%,
+            99.76% 15.659%,
+            99.76% 16.331%,
+            99.76% 17.003%,
+            100% 100%
+          );
+        }
+      }
+    }
+    & .ig-problems__cell:nth-child(2) {
+      & .dx-media.ig-problem {
+        & > video {
+          clip-path: polygon(
+            0% 100%,
+            0.625% 17.003%,
+            0.625% 16.331%,
+            0.625% 15.659%,
+            0.625% 14.987%,
+            0.625% 14.315%,
+            0.625% 13.642%,
+            0.625% 12.97%,
+            0.721% 12.298%,
+            0.721% 11.626%,
+            0.817% 10.954%,
+            0.913% 10.282%,
+            1.106% 9.61%,
+            1.202% 8.938%,
+            1.49% 8.266%,
+            1.779% 7.594%,
+            2.163% 6.922%,
+            2.644% 6.25%,
+            3.221% 5.578%,
+            3.798% 4.906%,
+            4.567% 4.234%,
+            5.529% 3.562%,
+            6.49% 2.89%,
+            6.971% 2.621%,
+            7.452% 2.352%,
+            8.029% 2.083%,
+            8.606% 1.815%,
+            9.183% 1.546%,
+            9.952% 1.277%,
+            10.817% 1.008%,
+            11.875% 0.739%,
+            13.317% 0.47%,
+            15.817% 0.202%,
+            15.962% 0.101%,
+            84.135% 0.101%,
+            84.279% 0.202%,
+            86.779% 0.47%,
+            88.221% 0.739%,
+            89.279% 1.008%,
+            90.144% 1.277%,
+            90.817% 1.546%,
+            91.49% 1.815%,
+            92.067% 2.083%,
+            92.644% 2.352%,
+            93.125% 2.621%,
+            93.606% 2.89%,
+            94.567% 3.562%,
+            95.433% 4.234%,
+            96.298% 4.906%,
+            96.875% 5.578%,
+            97.452% 6.25%,
+            97.933% 6.922%,
+            98.317% 7.594%,
+            98.606% 8.266%,
+            98.798% 8.938%,
+            98.99% 9.61%,
+            99.183% 10.282%,
+            99.279% 10.954%,
+            99.375% 11.626%,
+            99.375% 12.298%,
+            99.375% 12.97%,
+            99.471% 13.642%,
+            99.471% 14.315%,
+            99.471% 14.987%,
+            99.471% 15.659%,
+            99.471% 16.331%,
+            99.471% 17.003%,
+            100% 100%
+          );
 
-/* problem 2's recording ends in a dark pixel row: drop it just below the box's clipped edge */
-body.case-page main .ig-problems__cell:nth-child(2) .dx-media.ig-problem > video { bottom: -3px; }
+          /* problem 2's recording ends in a dark pixel row: drop it just below the box's clipped edge */
+          inset-block-end: -0.1875rem;
+        }
+      }
+    }
+  }
+}
 
 /* ── Annotated phone (Context + Ranking) ───────────────────────── */
-.fig.ig-anno .ig-anno__phone { position: absolute; left: 32.05%; top: 8%; width: 35.9%; height: auto; border-radius: 0 !important; filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, .18)); }
-.fig.ig-anno .conn { z-index: 1; }
-.fig.ig-anno .abs { z-index: 2; }
+.fig.ig-anno {
+  & .ig-anno__phone {
+    position: absolute;
+    inset-inline-start: 32.05%;
+    inset-block-start: 8%;
+    inline-size: 35.9%;
+    block-size: auto;
+    border-radius: 0 !important;
+    filter: drop-shadow(0 1.2cqw 2.4cqw rgba(28, 31, 36, 0.18));
+  }
+  & .conn {
+    z-index: 1;
+  }
+  & .abs {
+    z-index: 2;
+  }
+}
 
 /* ── Captions (case.css hides every figcaption on project pages) ── */
-body.case-page main .dx-cell p.nt-step-label.ig-cap--center { margin: var(--s-4) 0 0; text-align: center; }
+body.case-page {
+  & main {
+    & .dx-cell {
+      & p.nt-step-label.ig-cap--center {
+        text-align: center;
+      }
+    }
 
-/* ── Impact: video, then three plain columns ── */
-body.case-page main .ig-impact-video { margin-top: var(--s-7); }
-body.case-page main .ig-impact-video .dx-media { border-radius: var(--r-lg); }
-body.case-page main .ig-impact-video video { display: block; width: 100%; height: auto; }
-body.case-page main .ig-next.ig-impact-list { margin-top: var(--s-7); gap: var(--s-7) clamp(var(--s-6), 3vw, var(--s-8)); }
-body.case-page main .ig-next.ig-impact-list li { gap: 0; padding: 0; border-radius: 0; background: none; }
-body.case-page main .ig-impact-list + .nt-step { margin-top: var(--s-3); }
+    /* ── Impact: video, then three plain columns ── */
+    & .ig-impact-video {
+      & .dx-media {
+        border-radius: var(--r-lg);
+      }
+      & video {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+      }
+    }
+    & .ig-next.ig-impact-list {
+      gap: var(--space-1);
+      & li {
+        padding: 0;
+        border-radius: 0;
+        background: none;
+      }
+    }
 
-/* ── Next steps: three numbered cards ──────────────────────────── */
-body.case-page main .ig-next { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-media); }
-body.case-page main .ig-next li { display: flex; flex-direction: column; gap: var(--s-2); padding: clamp(var(--s-5), 2.4vw, var(--s-7)); border-radius: var(--r-lg); background: var(--fig-bg); }
+    /* ── Next steps: three numbered cards ──────────────────────────── */
+    & .ig-next {
+      list-style: none;
+      margin-inline: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-0);
+      & li {
+        display: flex;
+        flex-direction: column;
+        padding: clamp(var(--s-5), 2.4vw, var(--s-7));
+        border-radius: var(--r-lg);
+        background: var(--fig-bg);
+      }
+    }
+  }
+}
 
 /* ── Reflection quotes on the figure background ────────────────── */
 
-@media (max-width: 760px) {
-	body.case-page main .ig-next { grid-template-columns: 1fr; }
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .ig-next {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
 }
 
 /* ── Explorations: tabs (like yap's iterations) + one long rail per exploration ── */
-body.case-page main .ig-ex__tabs { display: inline-flex; gap: var(--s-1); padding: var(--s-1); margin-bottom: var(--s-4); border-radius: var(--r-pill); background: rgba(236, 238, 241, .7); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05); }
-body.case-page main .ig-ex__tab { position: relative; border: 0; padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: none; font: inherit; font-size: var(--fs-base); color: var(--muted); cursor: pointer; transition: background .2s, color .2s; }
-body.case-page main .ig-ex__tab.glass { background: var(--glass-bg), rgba(255, 255, 255, .55); color: var(--ink); }
-body.case-page main .ig-ex__tab:focus:not(:focus-visible) { outline: none; }
-body.case-page main .ig-ex__panel { display: none; }
-body.case-page main .ig-ex__panel.is-active { display: block; }
-body.case-page main .ig-ex__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--s-8); margin-top: var(--s-7); }
-body.case-page main .ig-ex__notes p { margin: 0; font-size: var(--fs-base); font-weight: var(--fw-regular); line-height: var(--lh-base); color: var(--muted); text-wrap: pretty; }
-body.case-page main .ig-ex__notes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-body.case-page main .ig-ex__notes--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (max-width: 760px) { body.case-page main :is(.ig-ex__notes--4, .ig-ex__notes--3, .ig-ex__notes--2) { grid-template-columns: 1fr; } }
-body.case-page main .ig-ex__notes .ig-ex__tag { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--muted); }
-@media (max-width: 559px) { body.case-page main .ig-ex__tabs { display: inline-flex; max-inline-size: 100%; overflow-x: auto; scrollbar-width: none; } body.case-page main .ig-ex__tabs::-webkit-scrollbar { display: none; } body.case-page main .ig-ex__tab { white-space: nowrap; } body.case-page main .ig-ex__notes { grid-template-columns: minmax(0, 1fr); } }
+body.case-page {
+  & main {
+    & .ig-ex__tabs {
+      display: inline-flex;
+      align-self: flex-start;
+      inline-size: fit-content;
+      max-inline-size: 100%;
+      gap: var(--s-1);
+      padding: var(--s-1);
+      border-radius: var(--r-pill);
+      background: rgba(236, 238, 241, 0.7);
+      box-shadow: inset 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+    }
+    & .ig-ex__tab {
+      position: relative;
+      border: 0;
+      padding-block: var(--s-2);
+      padding-inline: var(--s-4);
+      border-radius: var(--r-pill);
+      background: none;
+      font: inherit;
+      font-size: var(--fs-base);
+      color: var(--muted);
+      cursor: pointer;
+      transition:
+        background 0.2s,
+        color 0.2s;
+    }
+    & .ig-ex__tab.glass {
+      background: var(--glass-bg), rgba(255, 255, 255, 0.55);
+      color: var(--ink);
+    }
+    & .ig-ex__tab:focus:not(:focus-visible) {
+      outline: none;
+    }
+    & .ig-ex__panel {
+      display: none;
+    }
+    & .ig-ex__panel.is-active {
+      display: flex;
+    }
+    & .ig-ex__notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      & p {
+        margin: 0;
+        font-size: var(--fs-base);
+        font-weight: var(--fw-regular);
+        line-height: var(--lh-base);
+        color: var(--muted);
+        text-wrap: pretty;
+      }
+    }
+    & .ig-ex__notes--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    & .ig-ex__notes--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & :is(.ig-ex__notes--4, .ig-ex__notes--3, .ig-ex__notes--2) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+body.case-page {
+  & main {
+    & .ig-ex__notes {
+      & .ig-ex__tag {
+        margin-inline: 0;
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-medium);
+        line-height: var(--lh-snug);
+        letter-spacing: var(--label-ls);
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+    }
+  }
+}
+@media (width < 600px) {
+  body.case-page {
+    & main {
+      & .ig-ex__tabs {
+        display: inline-flex;
+        max-inline-size: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      & .ig-ex__tabs::-webkit-scrollbar {
+        display: none;
+      }
+      & .ig-ex__tab {
+        white-space: nowrap;
+      }
+      & .ig-ex__notes {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
+}
 
-body.case-page main .ig-rail__track { overflow-x: auto; overflow-y: hidden; border-radius: var(--r-lg); background: var(--fig-bg) var(--fig-dots); scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; }
-body.case-page main .ig-rail__track::-webkit-scrollbar { display: none; }
-body.case-page main .ig-rail__track.is-dragging { cursor: grabbing; }
+body.case-page {
+  & main {
+    & .ig-rail__track {
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-radius: var(--r-lg);
+      background: var(--fig-bg) var(--fig-dots);
+      scrollbar-width: none;
+      cursor: grab;
+      overscroll-behavior-x: contain;
+    }
+    & .ig-rail__track::-webkit-scrollbar {
+      display: none;
+    }
+    & .ig-rail__track.is-dragging {
+      cursor: grabbing;
+    }
 
-/* ── Single image figure (Takeaway 02) ─────────────────────────── */
-body.case-page main .ig-figimg img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
+    /* ── Single image figure (Takeaway 02) ─────────────────────────── */
+    & .ig-figimg {
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-lg);
+      }
+    }
+  }
+}
 
 /* ── Card boards: research, system mapping, system fit ─────────────
    Same panels as yap's component library: gray title bar and white body, on the dotted figure.
    Each row's column widths follow its images' aspect ratios, so cards in a row share one height. */
-.fig.ig-cards { aspect-ratio: auto; display: flex; flex-direction: column; gap: 1cqw; padding: 1.4cqw; }
-.ig-cards__row { display: grid; grid-template-columns: var(--cols, minmax(0, 1fr)); gap: 1cqw; align-items: stretch; }
-.ig-card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border-radius: var(--fig-r); overflow: hidden; }
-body.case-page main .ig-cards .ig-card { border: 1px solid var(--line); border-width: 1px !important; }
-body.case-page main .ig-card .ig-card__title { flex: none; max-width: none; margin: 0; padding: .9cqw 1.2cqw .8cqw; background: var(--surface-2); border-bottom: 1px solid var(--fig-bg); border-width: 0 0 1px !important; font-size: max(9px, 1cqw); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--label-ls); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  text-transform: uppercase;}
-.ig-card__body { flex: 1 1 auto; display: flex; min-height: 0; padding: 1cqw; }
-body.case-page main .ig-card__frame { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; min-width: 0; padding: .8cqw; }
-.ig-card__frame > img { display: block; width: 100%; height: auto; border-radius: 0 !important; }
+.fig.ig-cards {
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1cqw;
+  padding: 1.4cqw;
+}
+.ig-cards__row {
+  display: grid;
+  grid-template-columns: var(--cols, minmax(0, 1fr));
+  gap: 1cqw;
+  align-items: stretch;
+}
+.ig-card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  background: var(--surface);
+  border-radius: var(--fig-r);
+  overflow: hidden;
+}
+body.case-page {
+  & main {
+    & .ig-cards {
+      & .ig-card {
+        border: 0.0625rem solid var(--line);
+        border-width: 0.0625rem !important;
+      }
+    }
+    & .ig-card {
+      & .ig-card__title {
+        flex: none;
+        max-inline-size: none;
+        margin: 0;
+        padding-block: 0.9cqw 0.8cqw;
+        padding-inline: 1.2cqw;
+        background: var(--surface-2);
+        border-block-end: 0.0625rem solid var(--fig-bg);
+        border-width: 0 0 0.0625rem !important;
+        font-size: max(0.5625rem, 1cqw);
+        font-weight: var(--fw-medium);
+        line-height: var(--lh-tight);
+        letter-spacing: var(--label-ls);
+        color: var(--ink);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.ig-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  min-block-size: 0;
+  padding: 1cqw;
+}
+body.case-page {
+  & main {
+    & .ig-card__frame {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-inline-size: 0;
+      padding: 0.8cqw;
+    }
+  }
+}
+.ig-card__frame {
+  & > img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: 0 !important;
+  }
+}
 
 /* MoSCoW gets its own full-width row, so its text can stay readable */
-.ig-sys-msc .ig-card__frame { align-items: stretch; padding: 1.2cqw; }
+.ig-sys-msc {
+  & .ig-card__frame {
+    align-items: stretch;
+    padding: 1.2cqw;
+  }
+}
 
-.ig-msc { flex: 1; min-width: 0; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1.2cqw; align-content: start; }
-.ig-msc__col { min-width: 0; }
-body.case-page main .ig-msc .ig-msc__h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 .7cqw; padding: .45cqw .9cqw; border-radius: var(--fig-r-sm); background: var(--muted); color: var(--surface); font-size: max(10px, 1.1cqw); font-weight: var(--fw-medium); line-height: var(--lh-snug); letter-spacing: var(--label-ls); text-transform: uppercase; }
-.ig-msc__h span { opacity: .7; }
-.ig-msc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5cqw; }
-.ig-msc__col--must ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-body.case-page main .ig-msc li { margin: 0; padding: .55cqw .8cqw; border-radius: var(--fig-r-sm); font-size: max(11px, 1.3cqw); line-height: var(--lh-snug); color: var(--ink); background: var(--msc); text-wrap: pretty; overflow-wrap: normal; hyphens: none; }
-.ig-msc__col--must { --msc: #FBDDEB; }
-.ig-msc__col--should { --msc: #FBEDC6; }
-.ig-msc__col--could { --msc: #D6EAFB; }
-.ig-msc__col--would { --msc: #D7F3D6; }
+.ig-msc {
+  flex: 1;
+  min-inline-size: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1.2cqw;
+  align-content: start;
+}
+.ig-msc__col {
+  min-inline-size: 0;
+}
+body.case-page {
+  & main {
+    & .ig-msc {
+      & .ig-msc__h {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block: 0 0.7cqw;
+        margin-inline: 0;
+        padding-block: 0.45cqw;
+        padding-inline: 0.9cqw;
+        border-radius: var(--fig-r-sm);
+        background: var(--muted);
+        color: var(--surface);
+        font-size: max(0.625rem, 1.1cqw);
+        font-weight: var(--fw-medium);
+        line-height: var(--lh-snug);
+        letter-spacing: var(--label-ls);
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.ig-msc__h {
+  & span {
+    opacity: 0.7;
+  }
+}
+.ig-msc {
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5cqw;
+  }
+}
+.ig-msc__col--must {
+  & ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+body.case-page {
+  & main {
+    & .ig-msc {
+      & li {
+        margin: 0;
+        padding-block: 0.55cqw;
+        padding-inline: 0.8cqw;
+        border-radius: var(--fig-r-sm);
+        font-size: max(0.6875rem, 1.3cqw);
+        line-height: var(--lh-snug);
+        color: var(--ink);
+        background: var(--msc);
+        text-wrap: pretty;
+        overflow-wrap: normal;
+        hyphens: none;
+      }
+    }
+  }
+}
+.ig-msc__col--must {
+  --msc: #fbddeb;
+}
+.ig-msc__col--should {
+  --msc: #fbedc6;
+}
+.ig-msc__col--could {
+  --msc: #d6eafb;
+}
+.ig-msc__col--would {
+  --msc: #d7f3d6;
+}
 
 /* Phones: one card per row, chrome scaled up so titles and MoSCoW stay readable */
-@media (max-width: 760px) {
-	.fig.ig-cards { gap: 3cqw; padding: 3cqw; }
-	.ig-cards__row { grid-template-columns: minmax(0, 1fr); gap: 3cqw; }
-	.ig-card { border-radius: calc(var(--fig-r) * 3); }
-	body.case-page main .ig-card .ig-card__title { padding: 2.2cqw 3cqw 2cqw; font-size: max(9px, 2.6cqw); }
-	.ig-card__body { padding: 2.4cqw; }
-	body.case-page main .ig-card__frame { padding: 2cqw; }
-	.ig-msc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4cqw; }
-	.ig-msc__col--must { grid-column: 1 / -1; }
-	body.case-page main .ig-msc .ig-msc__h { font-size: max(10px, 2.8cqw); padding: 1cqw 2cqw; margin-bottom: 1.6cqw; border-radius: var(--fig-r); }
-	.ig-msc ul { gap: 1.2cqw; }
-	body.case-page main .ig-msc li { font-size: max(11px, 3cqw); padding: 1.2cqw 1.8cqw; border-radius: var(--fig-r); }
+@media (width < 760px) {
+  .fig.ig-cards {
+    gap: 3cqw;
+    padding: 3cqw;
+  }
+  .ig-cards__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3cqw;
+  }
+  .ig-card {
+    border-radius: calc(var(--fig-r) * 3);
+  }
+  body.case-page {
+    & main {
+      & .ig-card {
+        & .ig-card__title {
+          padding-block: 2.2cqw 2cqw;
+          padding-inline: 3cqw;
+          font-size: max(0.5625rem, 2.6cqw);
+        }
+      }
+    }
+  }
+  .ig-card__body {
+    padding: 2.4cqw;
+  }
+  body.case-page {
+    & main {
+      & .ig-card__frame {
+        padding: 2cqw;
+      }
+    }
+  }
+  .ig-msc {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.4cqw;
+  }
+  .ig-msc__col--must {
+    grid-column: 1 / -1;
+  }
+  body.case-page {
+    & main {
+      & .ig-msc {
+        & .ig-msc__h {
+          font-size: max(0.625rem, 2.8cqw);
+          padding-block: 1cqw;
+          padding-inline: 2cqw;
+          margin-block-end: 1.6cqw;
+          border-radius: var(--fig-r);
+        }
+      }
+    }
+  }
+  .ig-msc {
+    & ul {
+      gap: 1.2cqw;
+    }
+  }
+  body.case-page {
+    & main {
+      & .ig-msc {
+        & li {
+          font-size: max(0.6875rem, 3cqw);
+          padding-block: 1.2cqw;
+          padding-inline: 1.8cqw;
+          border-radius: var(--fig-r);
+        }
+      }
+    }
+  }
 }
 
 /* Editorial updates: shared dotted figures and responsive comparisons. */
-body.case-page main .ig-image-figure { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 3%; }
-body.case-page main .ig-image-figure img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: 0 !important; }
-body.case-page main .ig-figimg .ig-image-figure { padding: 0; }
-body.case-page main .ig-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); margin-top: var(--s-10); }
-body.case-page main .ig-comparison__item { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
-body.case-page main .ig-comparison__item .nt-reading { padding-right: var(--s-5); }
-body.case-page main .ig-comparison__item .nt-media { align-self: start; margin-top: 0; }
-body.case-page main .ig-comparison__item .nt-reading { margin-top: var(--s-6); }
-body.case-page main .ig-comparison__media { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 7%; background: var(--fig-bg) var(--fig-dots); }
-body.case-page main .ig-comparison__media > video { position: absolute; inset: 7%; width: 86%; height: 86%; object-fit: contain; border: 0 !important; border-radius: 0; }
-body.case-page main .ig-comparison__item:first-child .ig-comparison__media > video { inset: 7% auto; width: auto; height: 86%; border: 3px solid var(--line-strong) !important; border-radius: 20% / 9.25% !important; filter: grayscale(1); }
-body.case-page main .ig-comparison__after > video { display: block; width: 100%; height: auto; }
-body.case-page main .ig-comparison + .nt-step { margin-top: var(--s-3); }
-body.case-page main .ig-decision-split > .nt-media { margin: 0; }
-/* Privacy figure fills the media column of the shared 2fr/3fr split, at the Smart Bundles core-flow video ratio. */
-body.case-page main .ig-privacy-figure { aspect-ratio: 1080 / 1350; width: 100%; display: flex; align-items: center; justify-content: center; padding: 7% 0; background: url("../assets/instagram/next-steps/instagram-next-steps-bg.jpg") center / cover no-repeat; }
-body.case-page main .ig-privacy-figure img { display: block; height: 100%; width: auto; max-width: 88%; object-fit: contain; border-radius: 0 !important; filter: drop-shadow(0 18px 28px rgba(28, 31, 36,.16)); }
-body.case-page main .ig-reflection-photo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-media); align-items: start; }
-body.case-page main .ig-reflection-photo img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
-body.case-page[data-case="instagram"] main .yap-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-9); max-width: none; align-items: start; }
-body.case-page[data-case="instagram"] main .yap-takeaways .ntf-takeaway-line { max-width: none; }
-@media (max-width: 759px) {
-  body.case-page main .ig-comparison, body.case-page main .ig-decision-split { grid-template-columns: minmax(0,1fr); gap: var(--s-7); }
-  body.case-page main .ig-comparison__item .nt-reading { padding-right: 0; }
-  body.case-page[data-case="instagram"] main .yap-takeaways { grid-template-columns: minmax(0,1fr); gap: var(--s-7); }
+body.case-page {
+  & main {
+    & .ig-image-figure {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      padding: 3%;
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        min-block-size: 0;
+        object-fit: contain;
+        border-radius: 0 !important;
+      }
+    }
+    & .ig-figimg {
+      & .ig-image-figure {
+        padding: 0;
+      }
+    }
+    & .ig-comparison {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      @media (width >= 760px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      gap: var(--space-1);
+      align-items: start;
+    }
+    & .ig-comparison__media {
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7%;
+      background: var(--fig-bg) var(--fig-dots);
+      & > video {
+        position: absolute;
+        inset: 7%;
+        inline-size: 86%;
+        block-size: 86%;
+        object-fit: contain;
+        border: 0 !important;
+        border-radius: 0;
+      }
+    }
+    & .ig-comparison__item:first-child {
+      & .ig-comparison__media {
+        & > video {
+          inset: 7% auto;
+          inline-size: auto;
+          block-size: 86%;
+          border: 0.1875rem solid var(--line-strong) !important;
+          border-radius: 20% / 9.25% !important;
+          filter: grayscale(1);
+        }
+      }
+    }
+    & .ig-comparison__after {
+      aspect-ratio: 4 / 5;
+      & > video {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: contain;
+      }
+    }
+    & .ig-decision-split {
+      & > .nt-media {
+        margin: 0;
+      }
+    }
+    /* Privacy figure fills the media column of the shared 2fr/3fr split, at the Smart Bundles core-flow video ratio. */
+    & .ig-privacy-figure {
+      aspect-ratio: 1080 / 1350;
+      inline-size: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-block: 7%;
+      padding-inline: 0;
+      background: url("../assets/instagram/next-steps/instagram-next-steps-bg.jpg") center / cover
+        no-repeat;
+      & img {
+        display: block;
+        block-size: 100%;
+        inline-size: auto;
+        max-inline-size: 88%;
+        object-fit: contain;
+        border-radius: 0 !important;
+        filter: drop-shadow(0 1.125rem 1.75rem rgba(28, 31, 36, 0.16));
+      }
+    }
+    & .ig-reflection-photo {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-0);
+      align-items: start;
+      & img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        border-radius: var(--r-lg);
+      }
+      @media (width >= 760px) {
+        gap: var(--space-1);
+      }
+    }
+  }
+}
+body.case-page[data-case="instagram"] {
+  & main {
+    & .yap-takeaways {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-1);
+      max-inline-size: none;
+      align-items: start;
+      & .ntf-takeaway-line {
+        max-inline-size: none;
+      }
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .ig-decision-split {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--s-7);
+      }
+    }
+  }
+  body.case-page[data-case="instagram"] {
+    & main {
+      & .yap-takeaways {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-1);
+      }
+    }
+  }
+  body.case-page {
+    & main {
+      & .ig-reflection-photo {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
 }
 
-@media (max-width: 759px) { body.case-page main .ig-reflection-photo { grid-template-columns: minmax(0, 1fr); } }
-
 /* ── Explorations: one annotated 16:9 slide per concept (standard .fig.anno cards + connectors) ── */
-body.case-page main .igx__stage { position: relative; }
-body.case-page main .igx__track { display: flex; gap: var(--gap-media); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; border-radius: var(--r-lg); }
-body.case-page main .igx__track::-webkit-scrollbar { display: none; }
-.fig.igx-slide { flex: 0 0 100%; scroll-snap-align: start; }
-.fig.igx-slide .igx-phone { position: absolute; top: 10%; height: 80%; width: auto; border-radius: 0 !important; z-index: 0; filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, .14)); }
-.fig.igx-slide .igx-tag { z-index: 2; }
-/* connector sits on top of the screens; dots stay on the card edge */
-.fig.igx-slide .conn { z-index: 1; }
-.fig.igx-slide .dot { z-index: 3; }
-.fig.igx-slide .tag { display: inline-block; background: var(--surface); }
-.fig.igx-slide .igx-by { margin-top: .6cqw; font-size: 1.05cqw; color: var(--muted); }
-body.case-page main .igx__btn { position: absolute; top: 50%; z-index: 3; width: 3rem; height: 3rem; margin-top: -1.5rem; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: var(--ink); cursor: pointer; transition: opacity .2s ease; }
-body.case-page main .igx__btn svg { width: 1.25rem; height: 1.25rem; display: block; fill: currentColor; }
-body.case-page main .igx__btn--prev { left: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
-body.case-page main .igx__btn--next { right: max(-1.5rem, calc(var(--gutter) * -1)); }   /* never past the page gutter */
-body.case-page main .igx__btn:disabled { opacity: 0; pointer-events: none; }
-body.case-page main .igx__dots { display: flex; justify-content: center; gap: var(--s-2); margin-top: var(--s-4); }
-body.case-page main .igx__dots span { width: 6px; height: 6px; border-radius: var(--r-sm); background: var(--line); transition: width .2s, background .2s; }
-body.case-page main .igx__dots span.is-on { width: 18px; background: var(--ink); }
-@media (max-width: 759px) {
-	body.case-page main .igx__btn--prev { left: -.75rem; } body.case-page main .igx__btn--next { right: -.75rem; }
-	/* stacked on phones: screens first, then the two notes, no connectors */
-	.fig.igx-slide { aspect-ratio: auto; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 3cqw; padding: 16cqw 5cqw 5cqw; }
-	.fig.igx-slide .conn, .fig.igx-slide .dot { display: none; }
-	.fig.igx-slide .igx-phone { position: static; height: auto; width: 42%; }
-	.fig.igx-slide .igx-tag { left: 5cqw !important; top: 4cqw !important; }
-	.fig.igx-slide .tag { font-size: 2.8cqw; padding: 1cqw 2.4cqw; }
-	.fig.igx-slide .igx-note { position: static; width: 100% !important; transform: none !important; }
-	.fig.igx-slide .card { padding: 3.4cqw 4cqw; border-radius: calc(var(--fig-r) * 2.4); }
-	.fig.igx-slide .c-lab { font-size: 2.6cqw; margin-bottom: 1.2cqw; } .fig.igx-slide .c-txt { font-size: 3.6cqw; } .fig.igx-slide .igx-by { font-size: 2.8cqw; margin-top: 1.2cqw; }
+body.case-page {
+  & main {
+    & .igx__stage {
+      position: relative;
+    }
+    & .igx__track {
+      display: flex;
+      gap: var(--space-0);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+      border-radius: var(--r-lg);
+    }
+    & .igx__track::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.fig.igx-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  & .igx-phone {
+    position: absolute;
+    inset-block-start: 10%;
+    block-size: 80%;
+    inline-size: auto;
+    border-radius: 0 !important;
+    z-index: 0;
+    filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, 0.14));
+  }
+  & .igx-tag {
+    z-index: 2;
+  }
+  /* connector sits on top of the screens; dots stay on the card edge */
+  & .conn {
+    z-index: 1;
+  }
+  & .dot {
+    z-index: 3;
+  }
+  & .tag {
+    display: inline-block;
+    background: var(--surface);
+  }
+  & .igx-by {
+    margin-block-start: 0.6cqw;
+    font-size: 1.05cqw;
+    color: var(--muted);
+  }
+}
+body.case-page {
+  & main {
+    & .igx__btn {
+      position: absolute;
+      inset-block-start: 50%;
+      z-index: 3;
+      inline-size: 3rem;
+      block-size: 3rem;
+      margin-block-start: -1.5rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      & svg {
+        inline-size: 1.25rem;
+        block-size: 1.25rem;
+        display: block;
+        fill: currentColor;
+      }
+    }
+    & .igx__btn--prev {
+      inset-inline-start: max(-1.5rem, calc(var(--gutter) * -1));
+    } /* never past the page gutter */
+    & .igx__btn--next {
+      inset-inline-end: max(-1.5rem, calc(var(--gutter) * -1));
+    } /* never past the page gutter */
+    & .igx__btn:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+    & .igx__dots {
+      display: flex;
+      justify-content: center;
+      gap: var(--s-2);
+      & span {
+        inline-size: 0.375rem;
+        block-size: 0.375rem;
+        border-radius: var(--r-sm);
+        background: var(--line);
+        transition:
+          width 0.2s,
+          background 0.2s;
+      }
+      & span.is-on {
+        inline-size: 1.125rem;
+        background: var(--ink);
+      }
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .igx__btn--prev {
+        inset-inline-start: -0.75rem;
+      }
+      & .igx__btn--next {
+        inset-inline-end: -0.75rem;
+      }
+    }
+  }
+  /* stacked on phones: screens first, then the two notes, no connectors */
+  .fig.igx-slide {
+    aspect-ratio: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 3cqw;
+    padding-block: 16cqw 5cqw;
+    padding-inline: 5cqw;
+    & .conn,
+    & .dot {
+      display: none;
+    }
+    & .igx-phone {
+      position: static;
+      block-size: auto;
+      inline-size: 42%;
+    }
+    & .igx-tag {
+      inset-inline-start: 5cqw !important;
+      inset-block-start: 4cqw !important;
+    }
+    & .tag {
+      font-size: 2.8cqw;
+      padding-block: 1cqw;
+      padding-inline: 2.4cqw;
+    }
+    & .igx-note {
+      position: static;
+      inline-size: 100% !important;
+      transform: none !important;
+    }
+    & .card {
+      padding-block: 3.4cqw;
+      padding-inline: 4cqw;
+      border-radius: calc(var(--fig-r) * 2.4);
+    }
+    & .c-lab {
+      font-size: 2.6cqw;
+      margin-block-end: 1.2cqw;
+    }
+    & .c-txt {
+      font-size: 3.6cqw;
+    }
+    & .igx-by {
+      font-size: 2.8cqw;
+      margin-block-start: 1.2cqw;
+    }
+  }
 }
 
 /* Next steps: two open questions, side by side as plain text */
-body.case-page main .ig-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6) var(--s-8); margin-top: var(--s-8); }
-body.case-page main .ig-questions .dx-step { max-width: none; }
-@media (max-width: 759px) { body.case-page main .ig-questions { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); } }
-
-/* Feedback figure: the 1920×1080 artwork runs nearly edge to edge, so give it the same breathing room as the other figures */
-body.case-page main .ig-feedback-figure { padding: 0; }
-
-/* Exploration slide title: the standard annotation card, counter as the label, concept name a step larger */
-.fig.igx-slide .igx-title { padding: 1.1cqw 1.6cqw 1.2cqw; }
-.fig.igx-slide .igx-title .c-lab { margin-bottom: .35cqw; font-variant-numeric: tabular-nums; }
-.fig.igx-slide .igx-title .c-txt { font-size: 1.9cqw; font-weight: var(--fw-medium); letter-spacing: var(--h2-ls); line-height: var(--lh-tight); white-space: nowrap; }
-@media (max-width: 759px) { .fig.igx-slide .igx-title { padding: 2.4cqw 3.4cqw; border-radius: calc(var(--fig-r) * 2.4); } .fig.igx-slide .igx-title .c-lab { font-size: 2.6cqw; } .fig.igx-slide .igx-title .c-txt { font-size: 3.6cqw; } }
-
-.fig.igx-slide .card.igx-title { background: none; box-shadow: none; border: 0; }
-
-/* Phones: the core-flow pairs stack, one recording per row at its own proportions */
-@media (max-width: 600px) {
- body.case-page main .ig-split { grid-template-columns: minmax(0, 1fr); }
- body.case-page main #core-flows .ig-split > .dx-cell > .dx-media { flex: none; aspect-ratio: auto; }
- body.case-page main .ig-split > .dx-cell > .dx-media > video { position: static; inline-size: 100%; block-size: auto; }
+body.case-page {
+  & main {
+    & .ig-questions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-1);
+      & .dx-step {
+        max-inline-size: none;
+      }
+    }
+  }
+}
+@media (width < 760px) {
+  body.case-page {
+    & main {
+      & .ig-questions {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-1);
+      }
+    }
+  }
 }
 
-/* Phones: the annotated Home screen becomes the phone, then its three notes as readable cards below
+/* Feedback figure: the 1920×1080 artwork runs nearly edge to edge, so give it the same breathing room as the other figures */
+body.case-page {
+  & main {
+    & .ig-feedback-figure {
+      padding: 0;
+    }
+  }
+}
+
+/* Exploration slide title: the standard annotation card, counter as the label, concept name a step larger */
+.fig.igx-slide {
+  & .igx-title {
+    padding-block: 1.1cqw 1.2cqw;
+    padding-inline: 1.6cqw;
+    & .c-lab {
+      margin-block-end: 0.35cqw;
+      font-variant-numeric: tabular-nums;
+    }
+    & .c-txt {
+      font-size: 1.9cqw;
+      font-weight: var(--fw-medium);
+      letter-spacing: var(--h2-ls);
+      line-height: var(--lh-tight);
+      white-space: nowrap;
+    }
+  }
+}
+@media (width < 760px) {
+  .fig.igx-slide {
+    & .igx-title {
+      padding-block: 2.4cqw;
+      padding-inline: 3.4cqw;
+      border-radius: calc(var(--fig-r) * 2.4);
+      & .c-lab {
+        font-size: 2.6cqw;
+      }
+      & .c-txt {
+        font-size: 3.6cqw;
+      }
+    }
+  }
+}
+
+.fig.igx-slide {
+  & .card.igx-title {
+    background: none;
+    box-shadow: none;
+    border: 0;
+  }
+}
+
+/* Phones: the core-flow pairs stack, one recording per row at its own proportions */
+@media (width < 600px) {
+  body.case-page {
+    & main {
+      & .ig-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      & #core-flows {
+        & .ig-split {
+          & > .dx-cell {
+            & > .dx-media {
+              flex: none;
+              aspect-ratio: auto;
+            }
+          }
+        }
+      }
+      & .ig-split {
+        & > .dx-cell {
+          & > .dx-media {
+            & > video {
+              position: static;
+              inline-size: 100%;
+              block-size: auto;
+            }
+          }
+        }
+      }
+
+      /* Phones: the annotated Home screen becomes the phone, then its three notes as readable cards below
    (side by side, the tiny scaled notes collided with the phone on iOS) */
-@media (max-width: 600px) {
- body.case-page main .fig.ig-anno { aspect-ratio: auto; display: flex; flex-direction: column; align-items: center; gap: var(--s-3); padding: var(--s-6) var(--s-4); }
- body.case-page main .fig.ig-anno :is(.conn, .dot) { display: none; }
- body.case-page main .fig.ig-anno .ig-anno__phone { position: static; width: 62%; }
- body.case-page main .fig.ig-anno .abs { position: static !important; transform: none !important; width: 100% !important; }
- body.case-page main .fig.ig-anno .card { padding: var(--s-3) var(--s-4); border-radius: var(--r-md); }
- body.case-page main .fig.ig-anno .c-lab { margin-bottom: var(--s-1); font-size: var(--fs-xs); letter-spacing: var(--label-ls); }
- body.case-page main .fig.ig-anno .c-txt { font-size: var(--fs-base); line-height: var(--lh-snug); }
+      & .fig.ig-anno {
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-0);
+        padding-block: var(--s-6);
+        padding-inline: var(--s-4);
+        & :is(.conn, .dot) {
+          display: none;
+        }
+        & .ig-anno__phone {
+          position: static;
+          inline-size: 62%;
+        }
+        & .abs {
+          position: static !important;
+          transform: none !important;
+          inline-size: 100% !important;
+        }
+        & .card {
+          padding-block: var(--space-0);
+          padding-inline: var(--s-4);
+          border-radius: var(--r-md);
+        }
+        & .c-lab {
+          margin-block-end: var(--s-1);
+          font-size: 2.6cqw;
+          letter-spacing: var(--label-ls);
+        }
+        & .c-txt {
+          font-size: 3.6cqw;
+          line-height: var(--lh-snug);
+        }
+      }
+    }
+  }
 }
 
 /* Phones: the system-fit board keeps its three cards side by side, scaled down like the desktop figure */
-@media (max-width: 760px) {
-	.fig.ig-cards.ig-cards--fit { gap: 1.4cqw; padding: 1.8cqw; }
-	.ig-cards--fit .ig-cards__row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4cqw; }
-	body.case-page main .ig-cards--fit .ig-card .ig-card__title { padding: 1.2cqw 1.6cqw 1.1cqw; font-size: max(7px, 1.9cqw); white-space: normal; }
-	.ig-cards--fit .ig-card__body { padding: 1.2cqw; }
-	body.case-page main .ig-cards--fit .ig-card__frame { padding: 1cqw; }
+@media (width < 760px) {
+  .fig.ig-cards.ig-cards--fit {
+    gap: 1.4cqw;
+    padding: 1.8cqw;
+  }
+  .ig-cards--fit {
+    & .ig-cards__row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4cqw;
+    }
+  }
+  body.case-page {
+    & main {
+      & .ig-cards--fit {
+        & .ig-card {
+          & .ig-card__title {
+            padding-block: 1.2cqw 1.1cqw;
+            padding-inline: 1.6cqw;
+            font-size: max(0.4375rem, 1.9cqw);
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+  .ig-cards--fit {
+    & .ig-card__body {
+      padding: 1.2cqw;
+    }
+  }
+  body.case-page {
+    & main {
+      & .ig-cards--fit {
+        & .ig-card__frame {
+          padding: 1cqw;
+        }
+      }
+    }
+  }
+  html {
+    & body.case-page {
+      & main {
+        & .ig-privacy-figure {
+          aspect-ratio: 1080 / 2194;
+          & > img {
+            inline-size: 100%;
+            block-size: auto;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
 }
 
-@media (max-width: 759px) {
- html body.case-page main .ig-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--gap-media); align-items: start; }
- html body.case-page main .ig-comparison__item { display: contents; }
- html body.case-page main .ig-comparison__item > figure { grid-row: 1; }
- html body.case-page main .ig-comparison__item > .case-caption { grid-column: 1 / -1; margin: 0 !important; }
- html body.case-page main .ig-privacy-figure { aspect-ratio: 1080 / 2194; }
- html body.case-page main .ig-privacy-figure > img { width: 100%; height: auto; object-fit: contain; }
+.igx {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
+

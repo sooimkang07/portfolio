@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-maintenance",
+  "private": true,
+  "scripts": {
+    "check": "node check-source.cjs && node check-breakpoints.cjs",
+    "audit": "python3 audit-files.py",
+    "verify": "node check-site.cjs check",
+    "responsive": "node check-responsive.cjs",
+    "rhythm": "node check-rhythm.cjs"
+  },
+  "dependencies": {
+    "parse5": "^8.0.1",
+    "postcss": "^8.5.32",
+    "postcss-selector-parser": "^7.1.7",
+    "prettier": "^3.9.10"
+  }
+}

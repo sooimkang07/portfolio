@@ -5,3 +5,7 @@ _preview_server.py
 _restore/
 Claude outputs/
 _docs/
+
+# Local regression captures and reversible source snapshots
+unused/shared/verification/
+unused/shared/refactor-source/
