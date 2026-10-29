@@ -102,6 +102,10 @@ body.expl2-page {
   color: var(--muted);
 }
 .ex-row__link {
+  & .flip__track > span {
+    text-decoration: underline;
+    text-underline-offset: var(--s-1);
+  }
   color: var(--ink);
   transition: color var(--dur-1) linear;
 }
@@ -563,8 +567,11 @@ body.expl2-page {
   .ex-stack {
     gap: var(--s-2);
   }
+  .ex-stack {
+    display: contents;
+  }
   .ex-stack > .ex-item {
-    block-size: calc((var(--ex-h) - (var(--n) - 1) * var(--s-2)) / var(--n));
+    block-size: var(--ex-h);
   }
   .ex-item[data-ar-auto] > :is(img, video) {
     object-fit: contain;

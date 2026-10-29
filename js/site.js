@@ -451,6 +451,12 @@
   const ringBar = media && media.querySelector('.home-hero__ring-bar')
   const toggleIcon = media && media.querySelector('.home-hero__toggle-icon')
   const isPlayerOpen = () => document.body.classList.contains('is-showreel-open')
+  let reelUserPaused = false
+  function startBackgroundReel() {
+    if (!bgVideo || isPlayerOpen() || reelUserPaused || document.hidden || !bgVideo.paused) return
+    bgVideo.muted = true
+    bgVideo.play().catch(() => {})
+  }
 
   const ICONS = {
     pause: '<svg viewBox="0 0 10 10" aria-hidden="true"><rect x="2.4" y="1.3" width="1.4" height="7.4"></rect><rect x="6.2" y="1.3" width="1.4" height="7.4"></rect></svg>',
@@ -478,6 +484,7 @@
     showCursor('is-close-cursor')
     // The full-window player is the whole film, from the start
     bgVideo.currentTime = 0
+    reelUserPaused = false
     bgVideo.muted = false
     bgVideo.play().catch(() => {
       bgVideo.muted = true
@@ -493,8 +500,9 @@
     bgVideo.muted = true
     document.body.classList.remove('is-cursor-native')
     // Back to the background loop, behind the HTML greeting
+    reelUserPaused = false
     bgVideo.currentTime = REEL_START
-    if (!reduceMotion) bgVideo.play().catch(() => {})
+    if (!reduceMotion) startBackgroundReel()
     setToggleState(bgVideo.paused)
   }
 
@@ -502,10 +510,24 @@
      frames settle back on its first (yap's empty studio), so it loops without a seam. */
   const REEL_START = 0
   if (bgVideo) {
+    bgVideo.defaultMuted = true
     bgVideo.muted = true
+    bgVideo.autoplay = true
+    bgVideo.playsInline = true
     bgVideo.loop = true
-    bgVideo.play().catch(() => {})
-    document.addEventListener('visibilitychange', () => { if (!document.hidden && !isPlayerOpen()) bgVideo.play().catch(() => {}) })
+    bgVideo.setAttribute('muted', '')
+    bgVideo.setAttribute('playsinline', '')
+    // Media readiness and page restoration can arrive after the initial play request.
+    ;['loadeddata', 'canplay'].forEach(type => bgVideo.addEventListener(type, startBackgroundReel))
+    window.addEventListener('pageshow', startBackgroundReel)
+    document.addEventListener('visibilitychange', startBackgroundReel)
+    if ('IntersectionObserver' in window) {
+      const reelVisibility = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) startBackgroundReel()
+      })
+      reelVisibility.observe(bgVideo)
+    }
+    startBackgroundReel()
     const keepInLoop = () => {
       if (isPlayerOpen()) return
       if (bgVideo.currentTime >= bgVideo.duration || bgVideo.currentTime < REEL_START - 0.05) bgVideo.currentTime = REEL_START
@@ -546,8 +568,9 @@
     if (toggle) {
       toggle.addEventListener('click', e => {
         e.stopPropagation()
-        if (bgVideo.paused) bgVideo.play().catch(() => {})
-        else bgVideo.pause()
+        reelUserPaused = !bgVideo.paused
+        if (reelUserPaused) bgVideo.pause()
+        else bgVideo.play().catch(() => {})
         setToggleState(bgVideo.paused)
       })
     }
@@ -564,6 +587,7 @@
       const heroReplay = media.querySelector('.home-hero__controls .flow__btn--replay')
       heroReplay?.addEventListener('click', e => {
         e.stopPropagation()
+        reelUserPaused = false
         bgVideo.currentTime = 0
         bgVideo.play().catch(() => {})
       })
@@ -573,7 +597,8 @@
       heroControls?.addEventListener('pointerleave', () => document.body.classList.remove('is-cursor-native'))
       heroBtn.addEventListener('click', e => {
         e.stopPropagation()
-        if (bgVideo.paused || bgVideo.ended) {
+        reelUserPaused = !(bgVideo.paused || bgVideo.ended)
+        if (!reelUserPaused) {
           if (bgVideo.ended) bgVideo.currentTime = 0
           bgVideo.play().catch(() => {})
         } else bgVideo.pause()
@@ -732,15 +757,8 @@
     })
   }
 
-  /* ── Start the hero reel when there was no intro (it plays through once) ── */
-  window.addEventListener('load', () => {
-    // While the intro is up it owns the start: it plays the reel when it lands on its first frame (js/intro.js).
-    // With reduced motion the reel waits on its first frame, the greeting, until someone clicks it.
-    if (reduceMotion || document.querySelector('.portfolio-intro')) return
-    document.querySelectorAll('.home-hero video').forEach(video => {
-      video.play().catch(() => {})
-    })
-  })
+  // Retry after the page's resources finish, independently of the intro animation.
+  window.addEventListener('load', startBackgroundReel)
 
   // Keep the observed box stable while its contents expand from the corner.
   document.querySelectorAll('.portfolio-footer__portrait').forEach(portrait => {

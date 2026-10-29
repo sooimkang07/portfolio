@@ -1224,14 +1224,10 @@ body[data-case="neuk"] {
   }
 }
 
-@media (width >= 760px) {
-  #solution .case-media-stack {
-    gap: var(--space-1);
-  }
+#solution .case-media-stack {
+  gap: var(--space-1);
 }
 
-@media (width >= 760px) {
-  body.case-page main .case-split > .case-media-stack {
-    gap: var(--space-1);
-  }
+body.case-page main .case-split > .case-media-stack {
+  gap: var(--space-1);
 }

@@ -70,12 +70,14 @@
 		host.insertAdjacentHTML('beforeend', CONTROLS)
 	})
 
-	document.querySelectorAll('.flow__device, .ig-gallery__tile, .dx-media:has(> .flow__controls), .vc-host').forEach(device => {
+	document.querySelectorAll('.flow__device, .ig-gallery__tile, .dx-media:has(> .flow__controls), .vc-host, .yap-memo, [data-no-controls]').forEach(device => {
 		const video = realVideo(device)
 		const pauseBtn = device.querySelector('.flow__btn--pause')
 		const replayBtn = device.querySelector('.flow__btn--replay')
 		if (!video) return
 		video.muted = true
+		video.defaultMuted = true
+		video.playsInline = true
 		video.controls = false
 
 		const sync = () => {
@@ -83,8 +85,13 @@
 			pauseBtn.classList.toggle('is-playing', !video.paused)
 			pauseBtn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video')
 		}
-		const play = () => { if (!reduced.matches && !video.dataset.userPaused) video.play().catch(sync) }
+		const play = () => {
+			const rect = video.getBoundingClientRect()
+			if (!reduced.matches && !video.dataset.userPaused && rect.bottom > 0 && rect.top < innerHeight) video.play().catch(sync)
+		}
 
+		video.addEventListener('loadeddata', play)
+		video.addEventListener('canplay', play)
 		video.addEventListener('play', sync)
 		video.addEventListener('pause', sync)
 		video.addEventListener('ended', sync)

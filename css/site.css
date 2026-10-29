@@ -418,7 +418,7 @@ body.home {
     min-block-size: 100%;
     gap: 0.2rem;
     margin: 0;
-    padding-block-start: calc(var(--space-0) + 2.75rem + 0.35rem);
+    padding-block-start: calc(var(--space-0) + 2.75rem + var(--space-1) * 2);
     padding-block-end: var(--s-5);
     padding-inline: var(--gutter);
     opacity: 1;

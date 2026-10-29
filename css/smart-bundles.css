@@ -10,7 +10,7 @@
 body.case-page {
   & main {
     & .sb-tp1 {
-      gap: var(--space-0);
+      gap: var(--space-1);
       display: flex;
       flex-direction: column;
       min-inline-size: 0;
@@ -1478,7 +1478,11 @@ body.case-page {
 }
 
 @media (width >= 760px) {
-  body.case-page main :is(.sb-solution-media, .sb-directions-media) {
+  body.case-page main .sb-directions-media {
     gap: var(--space-1);
   }
+}
+
+body.case-page main .sb-solution-media {
+  gap: var(--space-1);
 }

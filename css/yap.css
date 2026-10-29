@@ -632,6 +632,7 @@ body.case-page {
       grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr);
     }
     & .yap-launch__row--bottom {
+      gap: var(--space-1);
       grid-template-columns: minmax(0, 2.35fr) minmax(0, 1fr);
     }
     & .yap-launch__cell {
@@ -1106,7 +1107,7 @@ body.case-page {
     & .yap-test-pair {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-0);
+      gap: var(--space-1);
       align-items: start;
       @media (width >= 760px) {
         grid-template-columns: minmax(0, 0.5625fr) minmax(0, 0.5625fr) minmax(0, 1.322916667fr);
@@ -1168,7 +1169,7 @@ body.case-page {
     & .yap-reflect-pair {
       display: grid;
       grid-template-columns: minmax(0, 1.7778fr) minmax(0, 0.75fr);
-      gap: var(--space-0);
+      gap: var(--space-1);
       & img {
         display: block;
         inline-size: 100%;
@@ -1905,7 +1906,7 @@ body.case-page {
       & main {
         & .yap-test-pair {
           grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: var(--space-0);
+          gap: var(--space-1);
         }
       }
     }

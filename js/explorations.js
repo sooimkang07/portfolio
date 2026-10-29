@@ -12,13 +12,26 @@
 		const row = e.target
 		if (e.isIntersecting) row.classList.add('is-in')
 		row.querySelectorAll('iframe[data-src]').forEach(f => { if (e.isIntersecting && !f.src) f.src = f.dataset.src })
-		row.querySelectorAll('video').forEach(v => {
-			if (!e.isIntersecting) return v.pause()
-			if (!v.src) { v.src = v.dataset.src; v.preload = 'metadata' }
-			if (!reduced) v.play().catch(() => {})
-		})
+
 	}), { threshold: 0.15, rootMargin: '0px 0px -5% 0px' })
 	rows.forEach(r => io.observe(r))
+
+	// Load only the clips near the visible rail viewport, rather than every clip in a row.
+	const mediaObserver = new IntersectionObserver(entries => entries.forEach(({ target: video, isIntersecting }) => {
+		if (!isIntersecting) { video.pause(); return }
+		video.muted = true;
+		video.defaultMuted = true;
+		video.playsInline = true;
+		if (!video.getAttribute('src')) {
+			video.preload = 'auto';
+			const source = video.dataset.src;
+			video.src = matchMedia('(width < 760px)').matches && source.includes('/ibff/')
+				? source.replace('.mp4', '-mobile.mp4') : source;
+		}
+		if (!reduced) video.play().catch(() => {});
+	}), { rootMargin: '100px', threshold: 0 });
+	document.querySelectorAll('.ex-row video').forEach(video => mediaObserver.observe(video));
+
 
 	/* Items marked data-ar-auto take the media's own proportions once it loads, so nothing is cropped */
 	document.querySelectorAll('.ex-item[data-ar-auto]').forEach(it => {
@@ -91,17 +104,15 @@
 		if (!phone.matches) { rail.style.removeProperty('--ex-h'); browsers.forEach(col => col.style.removeProperty('aspect-ratio')); return }
 		const cs = getComputedStyle(rail)
 		const avail = rail.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
-		const gap = parseFloat(cs.columnGap) || 0
-		const stackGaps = Math.max(0, ...[...rail.querySelectorAll(':scope > .ex-stack')].map(st => (st.children.length - 1) * gap))
 		// the tallest row height at which every column still fits the screen width
 		let h = Infinity
 		;[...rail.children].forEach(col => {
 			const br = browserOf(col), sr = br && screenRatio(br)
 			if (sr) h = Math.min(h, avail / sr + br.querySelector('.ex-browser__bar').offsetHeight)
 			else if (col.classList.contains('ex-stack')) {
-				// height of a stack at width 1 = sum of each item's 1/ratio, plus its gaps
+				// Mobile stacks become individual, equal-height rail items.
 				const items = [...col.querySelectorAll(':scope > .ex-item')]
-				h = Math.min(h, avail * items.reduce((t, it) => t + 1 / ratio(it), 0) + stackGaps)
+				h = Math.min(h, ...items.map(it => avail / ratio(it)))
 			} else h = Math.min(h, avail / ratio(col))
 		})
 		if (!isFinite(h)) return
@@ -113,10 +124,7 @@
 		})
 		h = Math.floor(Math.min(h, rowLimit))
 		rail.style.setProperty('--ex-h', `${h}px`)
-		rail.querySelectorAll('.ex-item[data-ar-auto]').forEach(item => {
-			const ownHeight = parseFloat(getComputedStyle(item).blockSize)
-			item.style.blockSize = `${Math.min(ownHeight, avail / ratio(item))}px`
-		})
+
 		browsers.forEach(col => {
 			const br = browserOf(col), sr = screenRatio(br)
 			if (sr) col.style.aspectRatio = `${((h - br.querySelector('.ex-browser__bar').offsetHeight) * sr).toFixed(1)} / ${h}`

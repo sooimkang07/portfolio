@@ -1251,6 +1251,11 @@ body[data-case="forage"] {
         aspect-ratio: 4 / 3;
         object-fit: cover;
         flex: none;
+        @media (width < 760px) {
+          flex: 1;
+          block-size: 0;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -1262,6 +1267,11 @@ body[data-case="forage"] {
   fill: none;
   stroke: var(--ink);
   stroke-width: 4;
+  @media (width < 760px) {
+    flex: 1;
+    min-block-size: 0;
+    block-size: 0;
+  }
   & .fg-extract__axis {
     stroke: var(--line-strong);
     stroke-width: 2;
@@ -1304,10 +1314,7 @@ body[data-case="forage"] {
       & .fg-capture__media {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-0);
-        @media (width >= 760px) {
-          gap: var(--space-1);
-        }
+        gap: var(--space-1);
         & > figure {
           margin: 0;
           grid-column: auto;
@@ -1413,7 +1420,7 @@ body[data-case="forage"] main .fg-pair-step {
 }
 @media (width < 760px) {
   .fig.fg-extract {
-    aspect-ratio: auto;
+    aspect-ratio: 1;
     & .board__row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1448,12 +1455,10 @@ body[data-case="forage"] main .fg-pair-step {
   }
 }
 
-@media (width >= 760px) {
-  body[data-case="forage"] main {
-    & .case-media-stack:has(> .fg-wearable-row),
-    & .fg-wearable-row,
-    & .fg-gesture-pair {
-      gap: var(--space-1);
-    }
+body[data-case="forage"] main {
+  & .case-media-stack:has(> .fg-wearable-row),
+  & .fg-wearable-row,
+  & .fg-gesture-pair {
+    gap: var(--space-1);
   }
 }

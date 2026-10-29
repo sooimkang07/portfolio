@@ -4,10 +4,8 @@
  const reel = document.querySelector('.home-hero__video');
  // The loader lands on the greeting above the reel.
  const strip = document.querySelector('.home-greeting__strip');
- const REEL_START = 0;   // the film opens on yap's empty studio (no greeting of its own), so the loop is the whole film
  if (!strip) return;
  const preview = new URLSearchParams(location.search).get('intro') === '1';
- const playReel = () => { if (reel) reel.play().catch(() => {}); };
  // Resolves once the lines' web font can draw, or after `cap` ms so a slow or blocked font can't hold the page.
  const fontReady = cap => new Promise(done => {
   if (!document.fonts) return done();
@@ -24,11 +22,9 @@
   if (active || reduced.matches) return;
   active = true;
   if (reel) {
-   // The intro ends on the reel's first frame, so start at the top of the page with the reel at its start.
+   // The loader owns the greeting; site.js starts the background video independently.
    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
    window.scrollTo(0, 0);
-   reel.loop = true;
-   playReel();
   }
   const overlay = document.createElement('div');
   overlay.className = 'portfolio-intro';
@@ -62,7 +58,6 @@
    window.removeEventListener('resize', finish);
    reduced.removeEventListener('change', finish);
    active = false;
-   playReel();
   }
   const onKey = e => { if (e.key === 'Escape' || e.key === 'Tab') finish(); };
   document.addEventListener('keydown', onKey);
@@ -103,7 +98,6 @@
  }
  if (!location.hash && !reduced.matches &&
      (preview || document.documentElement.dataset.skipIntro !== 'true')) run();
- else if (!reduced.matches) playReel();   // reduced motion: the reel waits on its first frame until clicked
  document.documentElement.classList.remove('is-intro-pending');
  if (preview) {
   const replay = document.createElement('button');

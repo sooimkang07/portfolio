@@ -1584,14 +1584,16 @@ body[data-case="acuity"] {
   }
 }
 
+body.case-page main .ac-persona-media {
+  gap: var(--space-1);
+}
+
 @media (width >= 760px) {
-  body.case-page main .ac-persona-media {
+  body.case-page main .cs-gallery.ac-pitch {
     gap: var(--space-1);
   }
 }
 
-@media (width >= 760px) {
-  body.case-page main :is(.cs-gallery.ac-pitch, .cs-gallery.ac-wide) {
-    gap: var(--space-1);
-  }
+body.case-page main .cs-gallery.ac-wide {
+  gap: var(--space-1);
 }

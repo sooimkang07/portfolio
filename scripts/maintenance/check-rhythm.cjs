@@ -97,7 +97,7 @@ const root = require("path").resolve(__dirname, "../.."),
             ],
           ]) {
             for (const e of document.querySelectorAll(selector)) {
-              const relatedGap = e.matches(".yap-test-pair") && innerWidth >= 760 ? 1 : expected;
+              const relatedGap = e.matches(".yap-test-pair") ? 1 : expected;
               if (css(e).rowGap !== `${relatedGap * unit}px`)
                 issues.push(["related-gap", e.className, css(e).rowGap]);
             }
