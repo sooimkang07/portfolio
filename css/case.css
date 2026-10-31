@@ -2133,10 +2133,15 @@ body.case-page main {
   & :is(.ntf-takeaway > div, .case-text-stack) {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
     & > * {
       margin-block: 0;
     }
+  }
+  & .ntf-takeaway > div {
+    gap: var(--space-1);
+  }
+  & .case-text-stack {
+    gap: var(--space-0);
   }
   & .case-media-stack {
     display: flex;

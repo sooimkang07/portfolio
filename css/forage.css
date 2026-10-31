@@ -14,28 +14,7 @@ body.case-page {
       line-height: var(--lh-base);
       color: var(--ink);
     }
-    & .fg-facts {
-      display: grid;
-      gap: var(--space-1);
-      margin-inline: 0;
-      padding: 0;
-      list-style: none;
-      & li {
-        display: grid;
-        grid-template-columns: 7.5rem minmax(0, 1fr);
-        gap: var(--space-1);
-        border-block-start: 0.0625rem solid var(--line);
-        font-size: var(--fs-base);
-        line-height: var(--lh-snug);
-      }
-      & b {
-        font-weight: var(--fw-medium);
-        color: var(--ink);
-      }
-      & span {
-        color: var(--muted);
-      }
-    }
+
     & .fg-insta {
       display: block;
       padding-block: var(--s-6);
@@ -985,7 +964,6 @@ body[data-case="forage"] {
   align-items: end;
   padding: 1cqw;
   border-radius: var(--fig-r);
-  background: var(--c);
 }
 .fg-brand__swatch:nth-last-child(-n + 2) {
   grid-column: span 3;
@@ -1460,5 +1438,29 @@ body[data-case="forage"] main {
   & .fg-wearable-row,
   & .fg-gesture-pair {
     gap: var(--space-1);
+  }
+}
+
+/* Extraction capabilities: compact labels beside their descriptions. */
+.fg-facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  & li {
+    display: grid;
+    grid-template-columns: calc(var(--s-11) + var(--s-6)) minmax(0, 1fr);
+    gap: var(--space-1);
+    border-block-start: thin solid var(--line);
+    font-size: var(--fs-base);
+    line-height: var(--lh-snug);
+  }
+  & b {
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  & span {
+    color: var(--muted);
   }
 }

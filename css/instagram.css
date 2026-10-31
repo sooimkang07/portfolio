@@ -892,21 +892,6 @@ body.case-page[data-case="instagram"] {
 /* ── Explorations: one annotated 16:9 slide per concept (standard .fig.anno cards + connectors) ── */
 body.case-page {
   & main {
-    & .igx__stage {
-      position: relative;
-    }
-    & .igx__track {
-      display: flex;
-      gap: var(--space-0);
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      overscroll-behavior-x: contain;
-      border-radius: var(--r-lg);
-    }
-    & .igx__track::-webkit-scrollbar {
-      display: none;
-    }
   }
 }
 .fig.igx-slide {
@@ -943,67 +928,12 @@ body.case-page {
 }
 body.case-page {
   & main {
-    & .igx__btn {
-      position: absolute;
-      inset-block-start: 50%;
-      z-index: 3;
-      inline-size: 3rem;
-      block-size: 3rem;
-      margin-block-start: -1.5rem;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--ink);
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-      & svg {
-        inline-size: 1.25rem;
-        block-size: 1.25rem;
-        display: block;
-        fill: currentColor;
-      }
-    }
-    & .igx__btn--prev {
-      inset-inline-start: max(-1.5rem, calc(var(--gutter) * -1));
-    } /* never past the page gutter */
-    & .igx__btn--next {
-      inset-inline-end: max(-1.5rem, calc(var(--gutter) * -1));
-    } /* never past the page gutter */
-    & .igx__btn:disabled {
-      opacity: 0;
-      pointer-events: none;
-    }
-    & .igx__dots {
-      display: flex;
-      justify-content: center;
-      gap: var(--s-2);
-      & span {
-        inline-size: 0.375rem;
-        block-size: 0.375rem;
-        border-radius: var(--r-sm);
-        background: var(--line);
-        transition:
-          width 0.2s,
-          background 0.2s;
-      }
-      & span.is-on {
-        inline-size: 1.125rem;
-        background: var(--ink);
-      }
-    }
+    /* never past the page gutter */ /* never past the page gutter */
   }
 }
 @media (width < 760px) {
   body.case-page {
     & main {
-      & .igx__btn--prev {
-        inset-inline-start: -0.75rem;
-      }
-      & .igx__btn--next {
-        inset-inline-end: -0.75rem;
-      }
     }
   }
   /* stacked on phones: screens first, then the two notes, no connectors */
@@ -1264,4 +1194,3 @@ body.case-page {
   flex-direction: column;
   gap: var(--space-1);
 }
-

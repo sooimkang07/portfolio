@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta name="robots" content="noindex" />
@@ -19,14 +19,14 @@
     <link rel="icon" type="image/png" sizes="64x64" href="favicon/64.png?v=2" />
     <link rel="apple-touch-icon" href="favicon/touch.png?v=2" />
     <link rel="stylesheet" href="css/morph.css?v=polish52" />
-    <link rel="stylesheet" href="css/case.css?v=mobile124" />
+    <link rel="stylesheet" href="css/case.css?v=phones141" />
     <link rel="stylesheet" href="css/figures.css?v=layout114b" />
-    <link rel="stylesheet" href="css/media.css?v=mobile124" />
+    <link rel="stylesheet" href="css/media.css?v=slideshow144" />
     <meta name="robots" content="noindex" />
     <!-- Chatbot off for now: <link rel="stylesheet" href="css/text-sooim.css?v=spacing57" /> -->
     <script src="js/page-fade.js?v=1"></script>
     <link rel="stylesheet" href="css/yap.css?v=gaps127" />
-    <link rel="stylesheet" href="css/smart-bundles.css?v=gaps127" />
+    <link rel="stylesheet" href="css/smart-bundles.css?v=bites160" />
   </head>
   <body class="home notate-page case-page page--project" data-case="smart-bundles">
     <header class="nav is-at-top" id="main-nav" data-ref-header-bar="">
@@ -215,8 +215,8 @@
                 <a href="#iterations">
                   <span class="flip">
                     <span class="flip__track">
-                      <span class="project-toc-title">Iterations</span>
-                      <span class="project-toc-title" aria-hidden="true">Iterations</span>
+                      <span class="project-toc-title">Explorations</span>
+                      <span class="project-toc-title" aria-hidden="true">Explorations</span>
                     </span>
                   </span>
                 </a>
@@ -267,8 +267,8 @@
         <div class="nt-chapters">
           <header class="nt-hero nt-reading" id="overview">
             <h1>
-              Smart Bundles is an Amazon Fresh concept that helps households reduce food waste
-              through customizable ingredient bundles and personalized quantity recommendations.
+              Smart Bundles is an Amazon Fresh concept that helps households reduce food waste with
+              customizable grocery bundles and personalized portions.
               <span class="nt-tone">Designed in a 24-hour design sprint.</span>
             </h1>
             <figure class="nt-media case-overview-media">
@@ -319,30 +319,15 @@
                 <header>
                   <p class="nt-kicker">Design challenge</p>
                   <h2 id="challenge-title">
-                    Upgrade an existing digital ecosystem for the climate, in 24 hours.
+                    Design a climate-positive upgrade to an existing digital ecosystem.
                   </h2>
 
-                  <ul class="sb-facts">
-                    <li>
-                      <b>Prompt</b>
-                      <span>
-                        “Pick an existing digital ecosystem and design a climate-positive upgrade
-                        that fits inside it.”
-                      </span>
-                    </li>
-                    <li>
-                      <b>24 hours</b>
-                      <span>One design sprint, concept to prototype</span>
-                    </li>
-                    <li>
-                      <b>Ecosystem</b>
-                      <span>Amazon Fresh, chosen to explore household food waste</span>
-                    </li>
-                    <li>
-                      <b>Class</b>
-                      <span>Methods &amp; Practices, Parsons School of Design</span>
-                    </li>
-                  </ul>
+                  <p>
+                    For a 24-hour design sprint in Parsons’ Methods &amp; Practices course, I chose
+                    Amazon Fresh as an existing digital ecosystem to explore how a climate-positive
+                    feature could reduce household food waste. I developed the concept from problem
+                    definition to prototype.
+                  </p>
                 </header>
                 <figure class="nt-media sb-challenge-fig">
                   <img
@@ -364,120 +349,233 @@
               <header>
                 <p class="nt-kicker">Problem</p>
                 <h2 id="overview-problem-title">
-                  Grocery apps know what shoppers buy, but not what they actually eat. Fresh loses
-                  sight of the food at the door.
+                  Grocery apps know what people buy, but not what they actually eat.
                 </h2>
                 <p>
-                  Amazon Fresh makes grocery shopping convenient, but standard package sizes rarely
-                  reflect what households actually consume, and when plans change or food goes
-                  uneaten, those patterns never inform the next order.
+                  Amazon Fresh makes grocery shopping convenient, but standard package sizes don't
+                  always match household needs, and uneaten food never informs the next order.
                 </p>
               </header>
-              <figure class="nt-media nt-process sb-scene-figure">
+              <figure class="nt-media">
                 <div
-                  class="fig sb-scene"
+                  class="fig sb-food-loop"
                   role="img"
-                  aria-label="Inside the app, shoppers can buy more than they need and receive fixed pack sizes. After delivery, plans change and uneaten food goes unnoticed. Fresh loses the consumption signal at the door."
+                  aria-label="A wordless animation: groceries arrive in a shopping bag. Some food moves onto a dinner plate and is eaten; an uneaten carrot falls into a bin, while unused produce wilts before being discarded. Illustrative, not measured waste quantities."
                 >
-                  <div class="sb-scene__photo">
-                    <img
-                      src="assets/smart-bundles/overview/problem-kitchen.png"
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
+                  <svg class="sb-food-loop__scene" viewBox="0 0 1200 675" aria-hidden="true">
+                    <defs>
+                      <mask
+                        id="sb-chicken-bites"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="100"
+                        height="100"
+                        style="mask-type: luminance"
+                      >
+                        <rect width="100" height="100" fill="white" />
+                        <circle
+                          class="sb-food-loop__bite sb-food-loop__bite--1"
+                          cx="17"
+                          cy="58"
+                          r="22"
+                          fill="black"
+                        />
+                        <circle
+                          class="sb-food-loop__bite sb-food-loop__bite--2"
+                          cx="39"
+                          cy="77"
+                          r="26"
+                          fill="black"
+                        />
+                        <circle
+                          class="sb-food-loop__bite sb-food-loop__bite--3"
+                          cx="61"
+                          cy="43"
+                          r="45"
+                          fill="black"
+                        />
+                      </mask>
+                      <symbol id="sb-food-chicken" viewBox="0 0 100 100">
+                        <path
+                          d="m24 72 49-50c-4-7 1-14 7-12 5-8 16-3 13 5 6 6 0 14-7 12L31 80Z"
+                          fill="var(--surface)"
+                          stroke="var(--line-strong)"
+                          stroke-width="2"
+                        />
+                        <g mask="url(#sb-chicken-bites)">
+                          <path
+                            d="M61 31C36 16 8 40 12 64c4 24 37 28 54 7 13-15 13-31-5-40Z"
+                            fill="#C9824C"
+                          />
+                          <path
+                            d="M24 52q10-15 25-14"
+                            fill="none"
+                            stroke="var(--surface)"
+                            stroke-width="5"
+                            stroke-linecap="round"
+                            opacity=".6"
+                          />
+                          <path
+                            d="m25 69 7 3M49 59l8-5"
+                            fill="none"
+                            stroke="#A66637"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                          />
+                        </g>
+                      </symbol>
+                      <symbol id="sb-food-broccoli" viewBox="0 0 100 100">
+                        <path d="m43 48-7 42h30L55 48" fill="var(--line-strong)" />
+                        <path
+                          d="M49 61 27 39M51 60l24-25"
+                          stroke="var(--line-strong)"
+                          stroke-width="9"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M19 57C0 48 8 24 24 23 24 3 48-4 59 12 81 2 97 21 87 36 106 56 80 75 65 63 48 79 29 68 29 58Z"
+                          fill="#06886c"
+                        />
+                        <path
+                          d="M24 31q-10 3-8 13M44 17q7-3 11 3"
+                          fill="none"
+                          stroke="var(--surface)"
+                          stroke-width="4"
+                          opacity=".5"
+                          stroke-linecap="round"
+                        />
+                      </symbol>
+                      <symbol id="sb-food-carrot" viewBox="0 0 100 100">
+                        <path
+                          d="M33 31Q50 20 67 31C67 51 58 77 49 96 39 78 32 53 33 31Z"
+                          fill="#DF8B45"
+                        />
+                        <path
+                          d="M49 29V5M43 28 28 11M56 28 72 11"
+                          fill="none"
+                          stroke="#06886c"
+                          stroke-width="7"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M35 43h12M55 55h10M39 69h10"
+                          fill="none"
+                          stroke="var(--surface)"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          opacity=".55"
+                        />
+                      </symbol>
+                    </defs>
+                    <path
+                      class="sb-food-loop__route"
+                      d="M470 330C590 330 595 200 730 200M470 330C590 330 595 480 765 480"
                     />
-                  </div>
-                  <div class="sb-scene__headings">
-                    <div>
-                      <h3>Inside the app</h3>
-                      <p>Easy to buy more than you need.<br />Fixed pack sizes arrive.</p>
-                    </div>
-                    <div>
-                      <h3>After the door</h3>
-                      <p>Plans change. Uneaten food<br />goes unnoticed.</p>
-                    </div>
-                  </div>
-                  <div class="sb-scene__journey">
-                    <div class="sb-scene__stop">
-                      <span>
-                        <svg
-                          class="sb-scene__icon"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.6"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
+                    <g class="sb-food-loop__surfaces">
+                      <rect x="700" y="70" width="370" height="260" rx="32" />
+                      <rect x="700" y="365" width="370" height="240" rx="32" />
+                    </g>
+                    <ellipse cx="303" cy="533" rx="138" ry="14" fill="var(--line)" />
+                    <path
+                      d="M252 327v-65c0-65 100-65 100 0v65"
+                      fill="none"
+                      stroke="var(--line-strong)"
+                      stroke-width="8"
+                      stroke-linecap="round"
+                    />
+
+                    <circle
+                      cx="885"
+                      cy="200"
+                      r="91"
+                      fill="var(--surface)"
+                      stroke="var(--line)"
+                      stroke-width="3"
+                    />
+                    <circle
+                      cx="885"
+                      cy="200"
+                      r="71"
+                      fill="none"
+                      stroke="var(--line)"
+                      stroke-width="2"
+                    />
+                    <g fill="var(--muted)">
+                      <path
+                        d="M754 151a2 2 0 0 1 4 0v26h4v-26a2 2 0 0 1 4 0v26h4v-26a2 2 0 0 1 4 0v26h4v-26a2 2 0 0 1 4 0v32c0 9-5 15-11 17v46a5 5 0 0 1-10 0v-46c-6-2-11-8-11-17Z"
+                      />
+                      <path d="M1008 148c-16 10-23 30-23 49 0 6 3 9 8 9h5v40a5 5 0 0 0 10 0Z" />
+                    </g>
+                    <g class="sb-food-loop__bin-body">
+                      <path
+                        d="m824 451 13 113q48 17 96 0l13-113"
+                        fill="var(--surface-2)"
+                        stroke="var(--line-strong)"
+                        stroke-width="3"
+                      />
+                      <path
+                        d="M860 474v67M885 474v67M910 474v67"
+                        stroke="var(--line)"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                      />
+                    </g>
+                    <g class="sb-food-loop__lid">
+                      <path
+                        d="M816 448h138M865 448v-15h40v15"
+                        fill="none"
+                        stroke="var(--muted)"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(207 228)">
+                      <g class="sb-food-loop__chicken">
+                        <use href="#sb-food-chicken" width="90" height="90" />
+                      </g>
+                    </g>
+                    <g transform="translate(335 213)">
+                      <g class="sb-food-loop__carrot">
+                        <use href="#sb-food-carrot" width="78" height="78" />
+                      </g>
+                    </g>
+                    <g transform="translate(269 205)">
+                      <g class="sb-food-loop__broccoli">
+                        <use href="#sb-food-broccoli" width="95" height="95" />
+                        <g
+                          class="sb-food-loop__mold"
+                          fill="var(--ink)"
+                          stroke="var(--surface-2)"
+                          stroke-width="2"
                         >
-                          <path d="M3 4h2l2.4 11h11l2-8H6.2"></path>
-                          <circle cx="9" cy="19.5" r="1.4"></circle>
-                          <circle cx="17" cy="19.5" r="1.4"></circle>
-                        </svg>
-                      </span>
-                      <p class="c-lab">Cart</p>
-                      <p>Easy to overbuy.</p>
-                    </div>
-                    <div class="sb-scene__stop">
-                      <span>
-                        <svg
-                          class="sb-scene__icon"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.6"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M4.5 8h15l-1.2 12H5.7z"></path>
-                          <path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"></path>
-                        </svg>
-                      </span>
-                      <p class="c-lab">Delivery</p>
-                      <p>Fixed pack sizes.</p>
-                    </div>
-                    <div class="sb-scene__stop">
-                      <span>
-                        <svg
-                          class="sb-scene__icon"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.6"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M3.5 11 12 4l8.5 7"></path>
-                          <path d="M5.5 9.5V20h13V9.5"></path>
-                          <path d="M10 20v-5h4v5"></path>
-                        </svg>
-                      </span>
-                      <p class="c-lab">At home</p>
-                      <p>Plans change.</p>
-                    </div>
-                    <div class="sb-scene__stop">
-                      <span>
-                        <svg
-                          class="sb-scene__icon"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.6"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M4 7h16"></path>
-                          <path d="M9 7V4.5h6V7"></path>
-                          <path d="M6 7l1 13h10l1-13"></path>
-                        </svg>
-                      </span>
-                      <p class="c-lab">Leftovers</p>
-                      <p>Food goes uneaten.</p>
-                    </div>
-                  </div>
+                          <path
+                            d="m18 32 5-7 8 3 3 8-5 7-9-2ZM46 18l7-5 9 4-1 9-9 4-7-5ZM66 43l8-5 8 6-2 9-10 2-5-5Z"
+                          />
+                          <circle cx="37" cy="48" r="4" />
+                          <circle cx="60" cy="53" r="5" />
+                        </g>
+                      </g>
+                    </g>
+                    <path
+                      d="M190 280h225l-19 229q-95 20-187 0Z"
+                      fill="var(--surface)"
+                      stroke="var(--line-strong)"
+                      stroke-width="3"
+                    />
+                    <path
+                      d="m190 280 35 28 169-1 21-27M210 509l18-204M396 509l-3-203"
+                      fill="none"
+                      stroke="var(--line)"
+                      stroke-width="3"
+                    />
+                    <g transform="translate(246 384) scale(.46)" fill="#06886c">
+                      <path
+                        d="M8 38C66 79 150 82 218 40l-10-5c-4-2-3-6 1-7 13-4 29-5 33-1 4 5-3 24-10 34-3 4-8 2-6-3l5-15C169 108 67 107 4 47c-5-5-2-13 4-9Z"
+                      />
+                    </g>
+                  </svg>
                 </div>
               </figure>
             </section>
@@ -499,10 +597,9 @@
                   Right-sized grocery bundles that get better with every order.
                 </h2>
                 <p>
-                  Smart Bundles introduces customizable ingredient combinations into Amazon Fresh,
-                  with suggested quantities tailored to household needs. After shopping, an optional
-                  check-in captures whether those amounts were right, helping inform future
-                  recommendations without requiring meal planning or a subscription.
+                  Smart Bundles recommends customizable ingredient bundles and household-sized
+                  portions within Amazon Fresh, using optional post-purchase feedback to improve
+                  future suggestions.
                 </p>
               </header>
               <div class="case-media-stack sb-solution-media">
@@ -517,6 +614,65 @@
                       playsinline=""
                       preload="metadata"
                       aria-label="Smart Bundles tagline: make your food go farther"
+                    ></video>
+                    <div class="flow__controls">
+                      <button
+                        class="glass flow__btn flow__btn--pause is-playing"
+                        type="button"
+                        aria-label="Pause video"
+                      >
+                        <svg
+                          class="icon-pause"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                        <svg
+                          class="icon-play"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                      </button>
+                      <button
+                        class="glass flow__btn flow__btn--replay"
+                        type="button"
+                        aria-label="Replay video"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="1 4 1 10 7 10"></polyline>
+                          <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </figure>
+                <figure class="nt-media nt-process">
+                  <div class="dx-media">
+                    <video
+                      class="nt-video sb-all-cards"
+                      width="1920"
+                      height="1080"
+                      src="assets/smart-bundles/solution/smart-bundles-all-cards.mp4"
+                      autoplay=""
+                      loop=""
+                      muted=""
+                      playsinline=""
+                      preload="metadata"
+                      aria-label="Smart Bundles recommendation cards"
                     ></video>
                     <div class="flow__controls">
                       <button
@@ -643,27 +799,19 @@
               <div class="case-caption sb-solution-captions">
                 <figcaption class="case-caption">
                   <h4 class="media-caption__title">Discover</h4>
-                  <p class="media-caption__body">
-                    Find ingredient bundles recommended from shopping behavior.
-                  </p>
+                  <p class="media-caption__body">Find bundles based on shopping habits.</p>
                 </figcaption>
                 <figcaption class="case-caption">
                   <h4 class="media-caption__title">Customize</h4>
-                  <p class="media-caption__body">
-                    Adjust ingredients and quantities to fit household needs.
-                  </p>
+                  <p class="media-caption__body">Adjust ingredients and portions.</p>
                 </figcaption>
                 <figcaption class="case-caption">
                   <h4 class="media-caption__title">Check in</h4>
-                  <p class="media-caption__body">
-                    Share optional feedback on how much food was eaten.
-                  </p>
+                  <p class="media-caption__body">Share optional feedback on what was eaten.</p>
                 </figcaption>
                 <figcaption class="case-caption">
                   <h4 class="media-caption__title">Improve</h4>
-                  <p class="media-caption__body">
-                    Use feedback to refine future quantity recommendations.
-                  </p>
+                  <p class="media-caption__body">Refine future quantities using that feedback.</p>
                 </figcaption>
               </div>
             </section>
@@ -672,20 +820,15 @@
             <section class="nt-subsection">
               <header>
                 <p class="nt-kicker">Core flows</p>
-                <h2 id="core-flows-title">
-                  Four touchpoints connect shopping behavior to smarter future orders.
-                </h2>
+                <h2 id="core-flows-title">From personalized bundles to smarter future orders</h2>
               </header>
             </section>
             <section class="nt-subsection">
               <div class="nt-content nt-step case-single-video">
                 <header>
                   <p class="nt-step-label">Discover</p>
-                  <h3>Discover bundles.</h3>
-                  <p>
-                    Find ingredient combinations based on familiar shopping behavior, then open a
-                    bundle to see what’s included.
-                  </p>
+                  <h3>Find bundles based on what you buy.</h3>
+                  <p>Explore ingredient combinations recommended from shopping habits.</p>
                 </header>
                 <div class="sb-tp1">
                   <figure class="nt-media nt-process">
@@ -795,11 +938,8 @@
               <div class="nt-content nt-step">
                 <header>
                   <p class="nt-step-label">Personalize</p>
-                  <h3>Make it your own.</h3>
-                  <p>
-                    Adjust suggested portions and quantities before checkout, keeping every
-                    recommendation editable.
-                  </p>
+                  <h3>Adjust portions before checkout.</h3>
+                  <p>Customize ingredients and quantities without changing how you shop.</p>
                 </header>
                 <figure class="nt-media nt-process">
                   <div class="dx-media">
@@ -933,9 +1073,10 @@
               <div class="nt-content nt-step case-split">
                 <header>
                   <p class="nt-step-label">Correct</p>
-                  <h3>Help the next order fit.</h3>
+                  <h3>Help the next order fit better.</h3>
                   <p>
-                    Share what was too much or too little to improve future bundle recommendations.
+                    Share optional feedback on what was too much or too little to refine future
+                    suggestions.
                   </p>
                 </header>
                 <div class="case-media-stack">
@@ -998,65 +1139,6 @@
                   </figure>
                 </div>
               </div>
-              <figure class="nt-media nt-process">
-                <div class="dx-media">
-                  <video
-                    class="nt-video sb-all-cards"
-                    width="1920"
-                    height="1080"
-                    src="assets/smart-bundles/core-flows/smart-bundles-all-cards.mp4"
-                    autoplay=""
-                    loop=""
-                    muted=""
-                    playsinline=""
-                    preload="metadata"
-                    aria-label="Smart Bundles recommendation cards"
-                  ></video>
-                  <div class="flow__controls">
-                    <button
-                      class="glass flow__btn flow__btn--pause is-playing"
-                      type="button"
-                      aria-label="Pause video"
-                    >
-                      <svg
-                        class="icon-pause"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <rect x="5" y="4" width="4" height="16" rx="1"></rect>
-                        <rect x="15" y="4" width="4" height="16" rx="1"></rect>
-                      </svg>
-                      <svg
-                        class="icon-play"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <polygon points="5,3 19,12 5,21"></polygon>
-                      </svg>
-                    </button>
-                    <button
-                      class="glass flow__btn flow__btn--replay"
-                      type="button"
-                      aria-label="Replay video"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                      >
-                        <polyline points="1 4 1 10 7 10"></polyline>
-                        <path d="M3.51 15a9 9 0 1 0 .49-4.5"></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </figure>
             </section>
           </section>
           <section id="research" class="nt-section" aria-labelledby="research-title">
@@ -1072,9 +1154,9 @@
               <p class="nt-step-label">Key demographics</p>
               <h3>Design for the shopper who doesn’t plan.</h3>
               <p>
-                A study of ~1,000 U.S. households identified "young wasters" as the highest-waste
-                segment, despite representing just 13% of respondents, revealing a need for portion
-                control without additional planning.
+                A study of approximately 1,000 U.S. households identified a high-waste segment of
+                younger shoppers with limited planning habits, suggesting an opportunity for portion
+                control without added effort.
               </p>
 
               <figure class="nt-media nt-process">
@@ -1152,9 +1234,9 @@
                 Amazon tried meal kits. A rigid, costly model sank them, not a lack of demand.
               </h3>
               <p>
-                Pre-portioned ingredients reduced guesswork, but fixed recipes and operational
-                challenges limited the model; Smart Bundles retains portioning without requiring
-                prescribed meals.
+                Amazon's previous meal-kit offering illustrated the appeal of pre-portioned
+                ingredients, but fixed recipes and additional fulfillment requirements informed a
+                more flexible approach.
               </p>
 
               <figure class="nt-media nt-process">
@@ -1171,13 +1253,12 @@
             <section class="nt-subsection">
               <p class="nt-step-label">Why it matters, and why now</p>
               <h3>
-                Household food waste is costly, while online grocery infrastructure continues to
-                expand.
+                Food waste is costly, and grocery delivery offers an existing point of intervention.
               </h3>
               <p>
-                Households are the largest source of food waste in the U.S. Meanwhile online grocery
-                and meal kits are both growing, and Amazon is scaling same-day grocery to more U.S.
-                cities. The need is there, and so is the delivery network.
+                Households account for a substantial share of U.S. food waste, while Amazon's
+                existing grocery infrastructure offers a way to introduce portion recommendations
+                into familiar shopping behavior.
               </p>
 
               <figure class="nt-media nt-process">
@@ -1387,7 +1468,7 @@
                 consistently delivers both.
               </h3>
               <p>
-                Smart Bundles combines customizable portions with familiar grocery shopping, without
+                Smart Bundles combines adjustable portions with familiar grocery shopping, without
                 fixed recipes or subscriptions.
               </p>
 
@@ -1607,416 +1688,1367 @@
           <section id="iterations" class="nt-section" aria-labelledby="iterations-title">
             <section class="nt-subsection">
               <header>
-                <p class="nt-kicker">Iterations</p>
-                <h2 id="iterations-title">
-                  I moved away from meal planning to make waste reduction the default.
-                </h2>
+                <p class="nt-kicker">Explorations</p>
+                <h2 id="iterations-title">Three approaches to making waste reduction effortless</h2>
                 <p>
-                  I prototyped meal planning, subscriptions, and customizable bundles before
-                  choosing the approach that required the least change to existing shopping habits.
+                  I explored ordering individual meals with adjustable servings and bulk quantities,
+                  a recurring meal-kit subscription service, and adaptive grocery bundles within
+                  Amazon Fresh. I chose the approach that required the least change to existing
+                  shopping habits.
                 </p>
               </header>
-            </section>
-            <section class="nt-subsection">
-              <p class="nt-step-label">Directions</p>
-              <h3>Three approaches, each with a different tradeoff</h3>
-
               <div class="case-media-stack sb-directions-media">
-                <figure class="nt-media nt-process">
-                  <div
-                    class="fig"
-                    role="img"
-                    aria-label="Three directions considered. Direction 01, Meal Planning: helps organize upcoming meals and ingredients, but requires advance planning and consistent follow-through. Direction 02, Subscription Bundles: simplifies recurring grocery purchases, but is less adaptable when household schedules and needs change. Direction 03, Smart Bundles, the selected direction: integrates quantity recommendations into familiar shopping behavior, but depends on reliable recommendations and operationally feasible portion sizes."
-                  >
-                    <div class="sbd">
-                      <div class="sbd-card">
-                        <div class="sbd-top">
-                          <span class="c-lab">DIRECTION 01</span>
-                        </div>
-                        <div class="sbd-name">Meal Planning</div>
-                        <div class="sbd-phones">
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-05.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-07.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-20.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
-                        <dl>
-                          <div>
-                            <dt>Benefit</dt>
-                            <dd>Organizes meals and ingredients.</dd>
+                <figure class="nt-media yap-it" data-sb-tabs>
+                  <div class="yap-it__tabs" role="tablist" aria-label="Exploration concepts">
+                    <button
+                      class="yap-it__tab is-active glass"
+                      id="sb-tab-0"
+                      role="tab"
+                      aria-controls="sb-panel-0"
+                      aria-selected="true"
+                      tabindex="0"
+                      type="button"
+                    >
+                      Meal Kits
+                    </button>
+                    <button
+                      class="yap-it__tab"
+                      id="sb-tab-1"
+                      role="tab"
+                      aria-controls="sb-panel-1"
+                      aria-selected="false"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      Subscription Plans
+                    </button>
+                    <button
+                      class="yap-it__tab"
+                      id="sb-tab-2"
+                      role="tab"
+                      aria-controls="sb-panel-2"
+                      aria-selected="false"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      Smart Bundles
+                    </button>
+                  </div>
+                  <div class="yap-it__panels">
+                    <div
+                      class="yap-it__panel is-active"
+                      id="sb-panel-0"
+                      role="tabpanel"
+                      aria-labelledby="sb-tab-0"
+                    >
+                      <div
+                        class="sb-ex-gallery igx"
+                        role="group"
+                        aria-label="Exploration screen gallery"
+                      >
+                        <div class="igx__stage">
+                          <div
+                            class="igx__track"
+                            tabindex="0"
+                            aria-label="Main screens and remaining prototype screens"
+                          >
+                            <figure
+                              class="fig anno sb-ex-figure"
+                              aria-label="Three prototype screens with annotated controls"
+                            >
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 25%;
+                                  --card-left: 3%;
+                                  --card-top: 30%;
+                                  --point-x: 32.5%;
+                                  --point-y: 72.04%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-0-0-title"
+                                >
+                                  <title id="sb-screen-0-0-title">
+                                    Individual meals prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-0-0">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-0-0)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-05.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M22 30 H24 V72.04 H32.5" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Individual meals</div>
+                                  <div class="c-txt">Order ingredients by individual meal.</div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 42.5%;
+                                  --card-left: 78%;
+                                  --card-top: 36%;
+                                  --point-x: 53.9%;
+                                  --point-y: 48.26%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-0-1-title"
+                                >
+                                  <title id="sb-screen-0-1-title">
+                                    Serving size prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-0-1">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-0-1)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-07.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 36 H76.5 V15 H58.7 V48.26 H53.9" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Serving size</div>
+                                  <div class="c-txt">
+                                    Adjust servings for individual meals or bulk orders.
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 60%;
+                                  --card-left: 78%;
+                                  --card-top: 72%;
+                                  --point-x: 67.5%;
+                                  --point-y: 77.26%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-0-3-title"
+                                >
+                                  <title id="sb-screen-0-3-title">
+                                    One-time purchase prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-0-3">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-0-3)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-04.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 72 H76.5 V77.26 H67.5" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">One-time purchase</div>
+                                  <div class="c-txt">Choose servings without a subscription.</div>
+                                </div>
+                              </div>
+                            </figure>
+                            <figure
+                              class="fig sb-ex-overview"
+                              style="--screen-columns: 7; --screen-rows: 2"
+                              aria-label="12 additional prototype screens"
+                            >
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 1"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-0">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-0)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-02.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 2"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-1">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-1)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-06.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 3"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-2">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-2)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-08.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 4"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-3">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-3)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-09.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 5"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-4">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-4)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-10.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 6"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-5">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-5)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-13.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 7"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-6">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-6)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-14.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 8"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-7">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-7)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-15.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 9"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-8">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-8)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-16.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 10"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-9">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-9)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-17.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 11"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-0-10">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-0-10)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-18.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-labelledby="sb-screen-0-2-title"
+                              >
+                                <title id="sb-screen-0-2-title">
+                                  Bulk ordering prototype screen
+                                </title>
+                                <defs>
+                                  <clipPath id="sb-screen-0-2">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-screen-0-2)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-03.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                            </figure>
                           </div>
-                          <div>
-                            <dt>Tradeoff</dt>
-                            <dd>Requires advance planning and consistent follow-through.</dd>
-                          </div>
-                        </dl>
+                          <button
+                            class="igx__btn igx__btn--prev glass"
+                            data-sb-previous
+                            type="button"
+                            aria-label="Show three main screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+                            </svg></button
+                          ><button
+                            class="igx__btn igx__btn--next glass"
+                            data-sb-more
+                            type="button"
+                            aria-label="Show remaining exploration screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5L19 12l-8.9 8.9z" />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="igx__dots" aria-hidden="true">
+                          <span class="is-on"></span><span></span>
+                        </div>
                       </div>
-                      <div class="sbd-card">
-                        <div class="sbd-top">
-                          <span class="c-lab">DIRECTION 02</span>
-                        </div>
-                        <div class="sbd-name">Subscription Bundles</div>
-                        <div class="sbd-phones">
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-12.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-21.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-22.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
-                        <dl>
-                          <div>
-                            <dt>Benefit</dt>
-                            <dd>Simplifies recurring grocery purchases.</dd>
-                          </div>
-                          <div>
-                            <dt>Tradeoff</dt>
-                            <dd>Less adaptable when household schedules and needs change.</dd>
-                          </div>
-                        </dl>
-                      </div>
-                      <div class="sbd-card sel">
-                        <div class="sbd-top">
-                          <span class="c-lab">DIRECTION 03</span>
-                          <span class="sbd-pill">Selected</span>
-                        </div>
-                        <div class="sbd-name">Smart Bundles</div>
-                        <div class="sbd-phones">
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-01.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-34.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-39.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
-                        <dl>
-                          <div>
-                            <dt>Benefit</dt>
-                            <dd>Adapts appropriate quantities within existing shopping habits.</dd>
-                          </div>
-                          <div>
-                            <dt>Tradeoff</dt>
-                            <dd>
-                              Requires reliable recommendations and operationally feasible portion
-                              sizes.
-                            </dd>
-                          </div>
-                        </dl>
+                      <div class="case-caption case-caption--findings">
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Benefit</p>
+                          <p>
+                            Order by individual meal, choose serving sizes, and buy ingredients in
+                            bulk.
+                          </p>
+                        </section>
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Tradeoff</p>
+                          <p>Requires shoppers to choose meals and quantities upfront.</p>
+                        </section>
                       </div>
                     </div>
-                  </div>
-                </figure>
-                <figure class="nt-media nt-process">
-                  <div
-                    class="fig"
-                    role="img"
-                    aria-label="Forty Figma Make screens made during the sprint, grouped by direction: 15 meal-planning screens, 8 subscription screens, and 17 Smart Bundles screens."
-                  >
-                    <div class="sbg">
-                      <div class="sbg-col" style="--c: 5">
-                        <div class="sbg-lab">
-                          <span>01</span>
-                          Meal Planning
-                          <em>15</em>
+                    <div
+                      class="yap-it__panel"
+                      id="sb-panel-1"
+                      role="tabpanel"
+                      aria-labelledby="sb-tab-1"
+                    >
+                      <div
+                        class="sb-ex-gallery igx"
+                        role="group"
+                        aria-label="Exploration screen gallery"
+                      >
+                        <div class="igx__stage">
+                          <div
+                            class="igx__track"
+                            tabindex="0"
+                            aria-label="Main screens and remaining prototype screens"
+                          >
+                            <figure
+                              class="fig anno sb-ex-figure"
+                              aria-label="Three prototype screens with annotated controls"
+                            >
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 25%;
+                                  --card-left: 3%;
+                                  --card-top: 30%;
+                                  --point-x: 32.5%;
+                                  --point-y: 66.24%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-1-0-title"
+                                >
+                                  <title id="sb-screen-1-0-title">
+                                    Meal-kit service prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-1-0">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-1-0)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-12.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M22 30 H24 V66.24 H32.5" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Meal-kit service</div>
+                                  <div class="c-txt">
+                                    Subscribe to recurring meal-kit deliveries.
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 42.5%;
+                                  --card-left: 78%;
+                                  --card-top: 36%;
+                                  --point-x: 50%;
+                                  --point-y: 54.06%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-1-1-title"
+                                >
+                                  <title id="sb-screen-1-1-title">Plan size prototype screen</title>
+                                  <defs>
+                                    <clipPath id="sb-screen-1-1">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-1-1)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-20.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 36 H76.5 V15 H58.7 V54.06 H50" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Plan size</div>
+                                  <div class="c-txt">Choose a household size and meal plan.</div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 60%;
+                                  --card-left: 78%;
+                                  --card-top: 72%;
+                                  --point-x: 70.8%;
+                                  --point-y: 37.82%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-1-3-title"
+                                >
+                                  <title id="sb-screen-1-3-title">
+                                    Upcoming deliveries prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-1-3">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-1-3)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/iteration-22.webp"
+                                      x="-38"
+                                      y="-13"
+                                      width="478"
+                                      height="950"
+                                      preserveAspectRatio="xMidYMid meet"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 72 H76.5 V37.82 H70.8" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Upcoming deliveries</div>
+                                  <div class="c-txt">Swap meals or skip a delivery week.</div>
+                                </div>
+                              </div>
+                            </figure>
+                            <figure
+                              class="fig sb-ex-overview"
+                              style="--screen-columns: 5; --screen-rows: 1"
+                              aria-label="5 additional prototype screens"
+                            >
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 1"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-1-0">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-1-0)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-11.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 2"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-1-1">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-1-1)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-19.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 3"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-1-2">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-1-2)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-23.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 4"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-1-3">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-1-3)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-24.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-labelledby="sb-screen-1-2-title"
+                              >
+                                <title id="sb-screen-1-2-title">
+                                  Manage the plan prototype screen
+                                </title>
+                                <defs>
+                                  <clipPath id="sb-screen-1-2">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-screen-1-2)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/iteration-21.webp"
+                                    x="-38"
+                                    y="-13"
+                                    width="478"
+                                    height="950"
+                                    preserveAspectRatio="xMidYMid meet"
+                                  />
+                                </g>
+                              </svg>
+                            </figure>
+                          </div>
+                          <button
+                            class="igx__btn igx__btn--prev glass"
+                            data-sb-previous
+                            type="button"
+                            aria-label="Show three main screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+                            </svg></button
+                          ><button
+                            class="igx__btn igx__btn--next glass"
+                            data-sb-more
+                            type="button"
+                            aria-label="Show remaining exploration screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5L19 12l-8.9 8.9z" />
+                            </svg>
+                          </button>
                         </div>
-                        <div class="sbg-grid">
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-02.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-03.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-04.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-05.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-06.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-07.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-08.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-09.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-10.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-13.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-14.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-15.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-16.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-17.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-18.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
+                        <div class="igx__dots" aria-hidden="true">
+                          <span class="is-on"></span><span></span>
                         </div>
                       </div>
-                      <div class="sbg-col" style="--c: 3">
-                        <div class="sbg-lab">
-                          <span>02</span>
-                          Subscription
-                          <em>8</em>
+                      <div class="case-caption case-caption--findings">
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Benefit</p>
+                          <p>
+                            A typical meal-kit service with recurring plans and scheduled
+                            deliveries.
+                          </p>
+                        </section>
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Tradeoff</p>
+                          <p>Introduces recurring purchases that may not match changing needs.</p>
+                        </section>
+                      </div>
+                    </div>
+                    <div
+                      class="yap-it__panel"
+                      id="sb-panel-2"
+                      role="tabpanel"
+                      aria-labelledby="sb-tab-2"
+                    >
+                      <div
+                        class="sb-ex-gallery igx"
+                        role="group"
+                        aria-label="Exploration screen gallery"
+                      >
+                        <div class="igx__stage">
+                          <div
+                            class="igx__track"
+                            tabindex="0"
+                            aria-label="Main screens and remaining prototype screens"
+                          >
+                            <figure
+                              class="fig anno sb-ex-figure"
+                              aria-label="Three prototype screens with annotated controls"
+                            >
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 25%;
+                                  --card-left: 3%;
+                                  --card-top: 30%;
+                                  --point-x: 32.5%;
+                                  --point-y: 48.26%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-2-0-title"
+                                >
+                                  <title id="sb-screen-2-0-title">
+                                    Shop as usual prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-2-0">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-2-0)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/screens/it-01.webp"
+                                      x="0"
+                                      y="0"
+                                      width="402"
+                                      height="875"
+                                      preserveAspectRatio="xMidYMid slice"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M22 30 H24 V48.26 H32.5" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Shop as usual</div>
+                                  <div class="c-txt">
+                                    Find bundles within the existing Fresh feed.
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 42.5%;
+                                  --card-left: 78%;
+                                  --card-top: 36%;
+                                  --point-x: 52.4%;
+                                  --point-y: 51.16%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-2-1-title"
+                                >
+                                  <title id="sb-screen-2-1-title">
+                                    Editable quantities prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-2-1">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-2-1)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/screens/it-34.webp"
+                                      x="0"
+                                      y="0"
+                                      width="402"
+                                      height="875"
+                                      preserveAspectRatio="xMidYMid slice"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 36 H76.5 V15 H58.7 V51.16 H52.4" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Editable quantities</div>
+                                  <div class="c-txt">Adjust suggested ingredient portions.</div>
+                                </div>
+                              </div>
+                              <div
+                                class="sb-ex-item"
+                                style="
+                                  --phone-left: 60%;
+                                  --card-left: 78%;
+                                  --card-top: 72%;
+                                  --point-x: 67.5%;
+                                  --point-y: 54.06%;
+                                "
+                              >
+                                <svg
+                                  class="sb-ex-phone"
+                                  viewBox="0 0 402 875"
+                                  role="img"
+                                  aria-labelledby="sb-screen-2-2-title"
+                                >
+                                  <title id="sb-screen-2-2-title">
+                                    Portion feedback prototype screen
+                                  </title>
+                                  <defs>
+                                    <clipPath id="sb-screen-2-2">
+                                      <rect width="402" height="875" rx="56" />
+                                    </clipPath>
+                                  </defs>
+                                  <g clip-path="url(#sb-screen-2-2)">
+                                    <image
+                                      href="assets/smart-bundles/iterations/screens/it-38.webp"
+                                      x="0"
+                                      y="0"
+                                      width="402"
+                                      height="875"
+                                      preserveAspectRatio="xMidYMid slice"
+                                    />
+                                  </g></svg
+                                ><svg
+                                  class="conn"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M78 72 H76.5 V54.06 H67.5" /></svg
+                                ><span class="sb-ex-endpoint" aria-hidden="true"></span>
+                                <div class="card sb-ex-note">
+                                  <div class="c-lab">Portion feedback</div>
+                                  <div class="c-txt">Report how much of the food you used.</div>
+                                </div>
+                              </div>
+                            </figure>
+                            <figure
+                              class="fig sb-ex-overview"
+                              style="--screen-columns: 7; --screen-rows: 2"
+                              aria-label="14 additional prototype screens"
+                            >
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 1"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-0">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-0)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-25.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 2"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-1">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-1)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-26.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 3"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-2">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-2)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-27.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 4"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-3">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-3)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-28.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 5"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-4">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-4)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-29.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 6"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-5">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-5)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-30.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 7"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-6">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-6)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-31.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 8"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-7">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-7)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-32.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 9"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-8">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-8)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-33.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 10"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-9">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-9)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-35.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 11"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-10">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-10)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-36.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 12"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-11">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-11)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-37.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-label="Additional prototype screen 13"
+                              >
+                                <defs>
+                                  <clipPath id="sb-more-2-12">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-more-2-12)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-40.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                              <svg
+                                class="sb-ex-phone"
+                                viewBox="0 0 402 875"
+                                role="img"
+                                aria-labelledby="sb-screen-2-3-title"
+                              >
+                                <title id="sb-screen-2-3-title">
+                                  Adaptive bundles prototype screen
+                                </title>
+                                <defs>
+                                  <clipPath id="sb-screen-2-3">
+                                    <rect width="402" height="875" rx="56" />
+                                  </clipPath>
+                                </defs>
+                                <g clip-path="url(#sb-screen-2-3)">
+                                  <image
+                                    href="assets/smart-bundles/iterations/screens/it-39.webp"
+                                    x="0"
+                                    y="0"
+                                    width="402"
+                                    height="875"
+                                    preserveAspectRatio="xMidYMid slice"
+                                  />
+                                </g>
+                              </svg>
+                            </figure>
+                          </div>
+                          <button
+                            class="igx__btn igx__btn--prev glass"
+                            data-sb-previous
+                            type="button"
+                            aria-label="Show three main screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M15.4 4.6 8 12l7.4 7.4-1.5 1.5L5 12l8.9-8.9z" />
+                            </svg></button
+                          ><button
+                            class="igx__btn igx__btn--next glass"
+                            data-sb-more
+                            type="button"
+                            aria-label="Show remaining exploration screens"
+                          >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m8.6 19.4 7.4-7.4-7.4-7.4 1.5-1.5L19 12l-8.9 8.9z" />
+                            </svg>
+                          </button>
                         </div>
-                        <div class="sbg-grid">
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-11.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-12.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-19.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-20.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-21.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-22.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-23.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/iteration-24.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
+                        <div class="igx__dots" aria-hidden="true">
+                          <span class="is-on"></span><span></span>
                         </div>
                       </div>
-                      <div class="sbg-col sel" style="--c: 6">
-                        <div class="sbg-lab">
-                          <span>03</span>
-                          Smart Bundles
-                          <em>17</em>
-                        </div>
-                        <div class="sbg-grid">
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-01.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-25.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-26.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-27.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-28.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-29.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-30.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-31.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-32.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-33.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-34.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-35.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-36.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-37.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-38.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-39.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src="assets/smart-bundles/iterations/screens/it-40.webp"
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
+                      <div class="case-caption case-caption--findings">
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Benefit</p>
+                          <p>Adapts appropriate quantities within existing shopping habits.</p>
+                        </section>
+                        <section class="case-text-stack">
+                          <p class="nt-step-label">Tradeoff</p>
+                          <p>Integrates portion control into existing shopping habits.</p>
+                        </section>
                       </div>
                     </div>
                   </div>
@@ -2033,7 +3065,7 @@
               <header>
                 <p class="nt-kicker">Design decisions</p>
                 <h2 id="design-decisions-title">
-                  Make recommendations adaptable without taking control away from shoppers.
+                  Reducing friction at three key moments in the shopping journey.
                 </h2>
               </header>
             </section>
@@ -2041,26 +3073,22 @@
               <div class="nt-content sb-decision">
                 <header>
                   <p class="nt-step-label">01</p>
-                  <h3>Recommendations remain editable.</h3>
+                  <h3>Surface bundles in the home feed, not a separate page.</h3>
                   <p>
-                    Suggested quantities provide a starting point, while shoppers retain control
-                    over their purchases.
+                    I placed personalized bundle cards within Amazon Fresh's existing home feed,
+                    allowing shoppers to discover them alongside regular groceries without
+                    navigating to a new destination.
                   </p>
                 </header>
                 <figure class="nt-media">
-                  <video
-                    class="nt-video"
-                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-1.mp4"
-                    poster="assets/smart-bundles/design-decisions/smart-bundles-design-decision-1.jpg"
+                  <img
+                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-1.png"
                     width="1080"
                     height="1350"
-                    autoplay=""
-                    loop=""
-                    muted=""
-                    playsinline=""
-                    preload="metadata"
-                    aria-label="Adjusting broccoli quantity in the Smart Bundles checkout before placing the order"
-                  ></video>
+                    alt="Recommended bundle cards highlighted within the existing Fresh home feed, between regular grocery sections"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
               </div>
             </section>
@@ -2068,26 +3096,22 @@
               <div class="nt-content sb-decision">
                 <header>
                   <p class="nt-step-label">02</p>
-                  <h3>Feedback remains optional.</h3>
+                  <h3>Keep portions pre-set, but editable until checkout.</h3>
                   <p>
-                    A quick check-in captures consumption patterns without requiring ongoing
-                    tracking.
+                    Bundles arrive in the cart with recommended ingredient quantities to minimize
+                    decisions upfront, while allowing last-minute adjustments to individual portions
+                    without rebuilding the bundle.
                   </p>
                 </header>
                 <figure class="nt-media">
-                  <video
-                    class="nt-video"
-                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-2.mp4"
-                    poster="assets/smart-bundles/design-decisions/smart-bundles-design-decision-2.jpg"
+                  <img
+                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-2.png"
                     width="1080"
                     height="1350"
-                    autoplay=""
-                    loop=""
-                    muted=""
-                    playsinline=""
-                    preload="metadata"
-                    aria-label="Optional post-delivery feedback: choosing “No, too much”, then marking broccoli as about half left"
-                  ></video>
+                    alt="Recommended ingredient quantities in the cart with individual plus, minus, and remove controls"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
               </div>
             </section>
@@ -2095,23 +3119,22 @@
               <div class="nt-content sb-decision">
                 <header>
                   <p class="nt-step-label">03</p>
-                  <h3>Future recommendations remain adjustable.</h3>
-                  <p>Past feedback informs new suggestions without restricting future purchases.</p>
+                  <h3>Capture ingredient-level feedback through progressive selections.</h3>
+                  <p>
+                    Rather than asking shoppers to describe what went uneaten, the check-in
+                    progressively narrows from overall portion fit to specific ingredients and
+                    leftover amounts, capturing actionable feedback for future adjustments.
+                  </p>
                 </header>
                 <figure class="nt-media">
-                  <video
-                    class="nt-video"
-                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-3.mp4"
-                    poster="assets/smart-bundles/design-decisions/smart-bundles-design-decision-3.jpg"
+                  <img
+                    src="assets/smart-bundles/design-decisions/smart-bundles-design-decision-3.png"
                     width="1080"
                     height="1350"
-                    autoplay=""
-                    loop=""
-                    muted=""
-                    playsinline=""
-                    preload="metadata"
-                    aria-label="Learning screen showing smaller suggested broccoli portions, then opening portion preferences"
-                  ></video>
+                    alt="Progressive feedback identifying leftover ingredients and selecting how much remained for each item"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
               </div>
             </section>
@@ -2124,9 +3147,8 @@
                   The next order starts with what happened to the last one.
                 </h2>
                 <p>
-                  Rather than treating every grocery order as an isolated transaction, Smart Bundles
-                  closes the gap between purchasing and consumption by using optional feedback to
-                  inform future quantity recommendations.
+                  Smart Bundles uses optional consumption feedback to inform future quantities,
+                  turning individual purchases into an adaptive recommendation loop.
                 </p>
               </header>
             </section>
@@ -2134,8 +3156,8 @@
               <p class="nt-step-label">Ecosystem map</p>
               <h3>Changing what Fresh recommends, not how customers shop</h3>
               <p>
-                Bundles change what’s suggested, how much arrives, and what Fresh learns after
-                delivery, creating a learning loop without changing the disposal process.
+                The concept adjusts what Fresh recommends, how much shoppers buy, and what the
+                system learns after delivery, without requiring a new shopping routine.
               </p>
 
               <figure class="nt-media nt-process">
@@ -2731,24 +3753,29 @@
               </figure>
               <div class="sb-next">
                 <section>
-                  <h3 class="media-caption__title">Test with real households.</h3>
+                  <p class="nt-step-label">01</p>
+                  <h3 class="media-caption__title">Test whether households buy and waste less.</h3>
                   <p class="media-caption__body">
-                    Measure overbuying and refine portion recommendations using actual purchase and
-                    consumption feedback.
+                    Pilot Smart Bundles with real shoppers to measure quantity adjustments, leftover
+                    food, and repeat usage.
                   </p>
                 </section>
                 <section>
-                  <h3 class="media-caption__title">Extend across Amazon's ecosystem.</h3>
+                  <p class="nt-step-label">02</p>
+                  <h3 class="media-caption__title">
+                    Find out whether shoppers will report what they eat.
+                  </h3>
                   <p class="media-caption__body">
-                    Explore applying quantity recommendations to Whole Foods and Subscribe &amp;
-                    Save.
+                    Measure check-in participation and feedback accuracy to determine whether
+                    recommendations can improve reliably.
                   </p>
                 </section>
                 <section>
-                  <h3 class="media-caption__title">Evaluate long-term impact.</h3>
+                  <p class="nt-step-label">03</p>
+                  <h3 class="media-caption__title">Expand only if the model proves useful.</h3>
                   <p class="media-caption__body">
-                    Track repeat usage, food waste reduction, and sustained changes in shopping
-                    behavior.
+                    Assess sustained waste reduction, customer retention, and operational
+                    feasibility before exploring other Amazon grocery services.
                   </p>
                 </section>
               </div>
@@ -2771,15 +3798,14 @@
             <section class="nt-subsection ntf-takeaway">
               <p class="ntf-tag">Takeaway 01 · User behavior</p>
               <p class="ntf-takeaway-line">
-                Reducing waste means designing for changing habits, not expecting people to plan
-                better.
+                Design around existing habits rather than expecting people to change them.
               </p>
             </section>
             <section class="nt-subsection ntf-takeaway">
               <p class="ntf-tag">Takeaway 02 · Designing with AI</p>
               <p class="ntf-takeaway-line">
-                AI accelerated exploration across 40 screens, but choosing the right behavior to
-                design for still required human judgment.
+                AI accelerated exploration, but identifying the right behavior to change still
+                required human judgment.
               </p>
             </section>
           </section>
@@ -2912,6 +3938,7 @@
     <script src="js/site.js?v=autoplay123b"></script>
     <script src="js/notate.js?v=breakpoints46"></script>
     <script src="js/case.js?v=mobile124"></script>
+    <script src="js/smart-bundles.js?v=slideshow144"></script>
     <script src="js/card-carousel.js?v=spacing48"></script>
     <script src="js/morph.js?v=breakpoints46"></script>
     <!-- Chatbot off for now: <script src="js/text-sooim.js?v=breakpoints46" data-endpoint="https://text-sooim-api.vercel.app/api/chat" defer></script> -->

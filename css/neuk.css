@@ -968,7 +968,6 @@ body[data-case="neuk"] {
   align-items: end;
   padding: 1cqw;
   border-radius: var(--fig-r);
-  background: var(--c);
 }
 .nk-brand__swatch:nth-last-child(-n + 2) {
   grid-column: span 3;

@@ -435,28 +435,7 @@ body.case-page {
       line-height: var(--lh-base);
       color: var(--ink);
     }
-    & .sb-facts {
-      display: grid;
-      gap: var(--space-1);
-      margin-inline: 0;
-      padding: 0;
-      list-style: none;
-      & li {
-        display: grid;
-        grid-template-columns: 7.5rem minmax(0, 1fr);
-        gap: var(--space-1);
-        border-block-start: 0.0625rem solid var(--line);
-        font-size: var(--fs-base);
-        line-height: var(--lh-snug);
-      }
-      & b {
-        font-weight: var(--fw-medium);
-        color: var(--ink);
-      }
-      & span {
-        color: var(--muted);
-      }
-    }
+
     & .sb-challenge-fig {
       overflow: hidden;
       border-radius: var(--r-lg);
@@ -840,193 +819,6 @@ body.case-page {
       background: var(--surface);
     }
   }
-
-  /* ── Iterations: three directions, Smart Bundles selected ── */
-  & .sbd {
-    position: absolute;
-    inset: 3.4cqw 4cqw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6cqw;
-  }
-  & .sbd-card {
-    display: flex;
-    flex-direction: column;
-    padding-block: 2cqw;
-    padding-inline: 2.2cqw;
-    background: var(--surface);
-    border: 0.0625rem solid var(--line);
-    border-radius: var(--fig-r);
-    overflow: hidden;
-  }
-  & .sbd-card.sel {
-    background: var(--ink);
-    border-color: var(--ink);
-    box-shadow: var(--shadow-raise);
-  }
-  & .sbd-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    block-size: 2cqw;
-    & .c-lab {
-      margin: 0;
-    }
-  }
-  & .sbd-pill {
-    padding-block: 0.3cqw;
-    padding-inline: 0.9cqw;
-    border-radius: var(--r-pill);
-    background: var(--surface);
-    color: var(--ink);
-    font-size: 1cqw;
-    font-weight: var(--fw-medium);
-  }
-  & .sbd-name {
-    margin-block-start: 0.6cqw;
-    font-size: 2.3cqw;
-    font-weight: var(--fw-medium);
-    letter-spacing: var(--h2-ls);
-    color: var(--ink);
-  }
-  & .sbd-phones {
-    position: relative;
-    block-size: 19.5cqw;
-    margin-block: 1.8cqw 1.4cqw;
-    margin-inline: 0;
-    & img {
-      position: absolute;
-      inset-block-start: 0;
-      inline-size: 8.4cqw;
-      block-size: 18.3cqw;
-      object-fit: cover;
-      object-position: top;
-      border-radius: var(--fig-r) !important;
-      background: var(--surface);
-      box-shadow:
-        0 0 0 0.0625rem var(--line),
-        var(--shadow-raise);
-    }
-    & img:nth-child(1) {
-      inset-inline-start: 2%;
-      transform: rotate(-6deg) translateY(0.6cqw);
-    }
-    & img:nth-child(2) {
-      inset-inline-start: 50%;
-      margin-inline-start: -4.2cqw;
-      z-index: 1;
-    }
-    & img:nth-child(3) {
-      inset-inline-end: 2%;
-      transform: rotate(6deg) translateY(0.6cqw);
-    }
-  }
-  & .sbd-card:not(.sel) {
-    & .sbd-phones {
-      & img {
-        filter: grayscale(1);
-        opacity: 0.85;
-      }
-    }
-  }
-  & .sbd-card {
-    & dl {
-      display: grid;
-      gap: 1.1cqw;
-      margin-block: auto 0;
-      margin-inline: 0;
-      & > div {
-        padding-block-start: 1cqw;
-        border-block-start: 0.0625rem solid var(--line);
-      }
-    }
-    & dt {
-      font-size: 1cqw;
-      letter-spacing: var(--label-ls);
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    & dd {
-      margin-block: 0.4cqw 0;
-      margin-inline: 0;
-      font-size: 1.3cqw;
-      line-height: var(--lh-snug);
-      color: var(--ink);
-    }
-  }
-  & .sbd-card.sel {
-    & :is(.sbd-name, dd) {
-      color: var(--surface);
-    }
-    & :is(.c-lab, dt) {
-      color: var(--line-strong);
-    }
-    & dl {
-      & > div {
-        border-block-start-color: #3a4048;
-      }
-    }
-  }
-
-  /* ── Iterations: the 40 screens, grouped by direction ── */
-  & .sbg {
-    position: absolute;
-    inset: 5.2cqw 4cqw;
-    display: grid;
-    grid-template-columns: 5fr 3fr 6fr;
-    gap: 1.6cqw;
-  }
-  & .sbg-col {
-    display: flex;
-    flex-direction: column;
-    padding: 1.4cqw;
-    border-radius: var(--fig-r);
-  }
-  & .sbg-col.sel {
-    background: var(--surface);
-    border: 0.0625rem solid var(--line);
-    box-shadow: var(--shadow-raise);
-  }
-  & .sbg-lab {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7cqw;
-    margin-block-end: 1.2cqw;
-    font-size: 1.3cqw;
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    & span {
-      font-size: 1cqw;
-      font-weight: var(--fw-regular);
-      letter-spacing: var(--label-ls);
-      color: var(--muted);
-    }
-    & em {
-      margin-inline-start: auto;
-      font-style: normal;
-      font-size: 1cqw;
-      font-weight: var(--fw-regular);
-      color: var(--muted);
-    }
-  }
-  & .sbg-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--c), 1fr);
-    gap: 0.8cqw 0.7cqw;
-    align-content: start;
-    & img {
-      display: block;
-      inline-size: 100%;
-      aspect-ratio: 402 / 874;
-      object-fit: cover;
-      object-position: top;
-      border-radius: var(--fig-r-sm) !important;
-      background: var(--surface);
-      box-shadow:
-        0 0 0 0.0625rem var(--line),
-        var(--shadow-raise);
-    }
-  }
 }
 
 /* ── System design: three decisions as text columns (same styling as Next steps) ── */
@@ -1150,10 +942,10 @@ body.case-page {
       background: #06886c;
       overflow: hidden;
     }
-    /* first and last cards stop one gap (the track gap) from the edges; read by js/card-carousel.js */
+    /* Keep the end cards inset from the frame; read by js/card-carousel.js. */
     & .sb-deck-wrap {
       & .sb-deck {
-        scroll-padding-inline: var(--space-0);
+        scroll-padding-inline: var(--s-6);
       }
     }
   }
@@ -1272,108 +1064,6 @@ body[data-case="smart-bundles"] {
   }
 }
 
-/* A photographic purchase-to-kitchen journey, with native portfolio type. */
-body.case-page {
-  & main {
-    & .fig.sb-scene {
-      background: none;
-      border-radius: var(--r-lg);
-    }
-    & .sb-scene__photo {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      & > img {
-        inline-size: 100%;
-        block-size: 100%;
-        object-fit: cover;
-        border-radius: 0;
-      }
-    }
-    & .sb-scene__headings {
-      position: absolute;
-      inset: 2cqw 4cqw auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 12cqw;
-      & > .card {
-        padding-block: 1.3cqw;
-        padding-inline: 1.5cqw;
-      }
-      & h3 {
-        margin: 0;
-        font-size: 1.9cqw;
-        font-weight: var(--fw-medium);
-        line-height: var(--lh-tight);
-        letter-spacing: var(--h2-ls);
-        color: var(--ink);
-      }
-      & p {
-        margin-block: 0.6cqw 0;
-        margin-inline: 0;
-        font-size: 1.4cqw;
-        line-height: var(--lh-snug);
-        color: var(--muted);
-      }
-    }
-    & .sb-scene__journey {
-      position: absolute;
-      inset: auto 4cqw 4cqw;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2cqw;
-      padding: 0;
-    }
-    & .sb-scene__journey::before {
-      content: "";
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline-start: 0;
-      inset-inline-end: 0;
-      border-block-start: 0.0625rem dashed var(--line-strong);
-    }
-    & .sb-scene__stop {
-      position: relative;
-      padding-block: 3cqw 1.3cqw;
-      padding-inline: 1.5cqw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      & > span {
-        position: absolute;
-        inset-block-start: -2cqw;
-        inset-inline-start: calc(50% - 2cqw);
-        display: grid;
-        place-items: center;
-        inline-size: 4cqw;
-        block-size: 4cqw;
-        border-radius: 50%;
-        background: var(--surface);
-        border: 0.0625rem solid var(--line);
-      }
-      & svg {
-        inline-size: 2cqw;
-        block-size: 2cqw;
-        color: var(--ink);
-      }
-      & .c-lab {
-        margin-block: 0.5cqw 0;
-        margin-inline: 0;
-        text-transform: uppercase;
-        font-weight: var(--fw-medium);
-      }
-      & > p:last-child {
-        margin-block: 0.2cqw 0;
-        margin-inline: 0;
-        font-size: 1.2cqw;
-        line-height: var(--lh-snug);
-        color: var(--muted);
-      }
-    }
-  }
-}
-
 /* Image above each comparison-column title. */
 body[data-case="smart-bundles"] {
   & main {
@@ -1404,37 +1094,6 @@ body[data-case="smart-bundles"] {
 
 body.case-page {
   & main {
-    & .sb-scene-figure {
-      border-radius: var(--r-lg);
-    }
-
-    /* Directional scrims protect the text while keeping the product imagery clear. */
-    & .sb-scene__photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        color-mix(in srgb, var(--ink) 72%, transparent),
-        color-mix(in srgb, var(--ink) 38%, transparent) 22%,
-        transparent 48%,
-        color-mix(in srgb, var(--ink) 30%, transparent) 65%,
-        color-mix(in srgb, var(--ink) 88%, transparent)
-      );
-    }
-    & .sb-scene__headings {
-      & h3 {
-        color: var(--surface);
-      }
-    }
-    & .sb-scene__headings p,
-    & .sb-scene__stop .c-lab,
-    & .sb-scene__stop > p:last-child {
-      color: var(--surface);
-    }
-    & .sb-scene__journey::before {
-      border-color: var(--surface);
-    }
     & .sb-decision {
       & > .nt-media {
         & > img {
@@ -1452,8 +1111,8 @@ body.case-page {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2.4cqw;
-      block-size: 40cqw;
+      gap: 2cqw;
+      block-size: 44cqw;
       & .sb-iphone {
         block-size: 100%;
         inline-size: auto;
@@ -1485,4 +1144,383 @@ body.case-page {
 
 body.case-page main .sb-solution-media {
   gap: var(--space-1);
+}
+
+/* One exploration at a time, with full-size body notes below the screens. */
+
+[data-sb-tabs] {
+  & .yap-it__panel.is-active {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+/* Three closely grouped, proportional phones with callouts tied to their controls. */
+.sb-ex-figure {
+  & .sb-ex-item {
+    display: contents;
+  }
+  & .sb-ex-phone {
+    position: absolute;
+    inset-block-start: 21%;
+    inset-inline-start: var(--phone-left);
+    display: block;
+    inline-size: auto;
+    block-size: 58%;
+    aspect-ratio: 402 / 875;
+    overflow: visible;
+    filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, 0.14));
+  }
+  & .sb-ex-note {
+    padding-block: 1cqw;
+    padding-inline: 1.2cqw;
+    position: absolute;
+    inset-inline-start: var(--card-left);
+    inset-block-start: var(--card-top);
+    transform: translateY(-50%);
+    inline-size: 19%;
+    z-index: 2;
+  }
+  & .conn {
+    z-index: 1;
+  }
+  & .sb-ex-endpoint {
+    position: absolute;
+    inset-inline-start: var(--point-x);
+    inset-block-start: var(--point-y);
+    inline-size: 1.1cqw;
+    block-size: 1.1cqw;
+    border-radius: var(--r-pill);
+    background: var(--line-strong);
+    translate: -50% -50%;
+    z-index: 3;
+  }
+  @media (width < 760px) {
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-0);
+    padding: var(--space-1);
+    & .sb-ex-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-0);
+    }
+    & .sb-ex-phone {
+      position: static;
+      inline-size: 80%;
+      block-size: auto;
+    }
+    & .sb-ex-note {
+      position: static;
+      transform: none;
+      inline-size: 100%;
+      flex: 1;
+      padding-block: 3.4cqw;
+      padding-inline: 4cqw;
+    }
+    & .c-lab {
+      font-size: 2.6cqw;
+      margin-block-end: 1.2cqw;
+    }
+    & .c-txt {
+      font-size: 3.6cqw;
+    }
+    & .conn,
+    & .sb-ex-endpoint {
+      display: none;
+    }
+  }
+}
+
+/* Each concept keeps its key screens first, with the remaining work one arrow away. */
+.sb-ex-gallery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+  & .sb-ex-overview {
+    display: grid;
+    grid-template-columns: repeat(var(--screen-columns), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--screen-rows), minmax(0, 1fr));
+    place-items: center;
+    gap: 1.5cqw;
+    padding: 3cqw;
+    & .sb-ex-phone {
+      display: block;
+      inline-size: auto;
+      block-size: 100%;
+      max-inline-size: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, 0.14));
+    }
+  }
+}
+
+.sb-ex-gallery {
+  & .igx__track > .fig {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    margin: 0;
+  }
+}
+
+/* Wordless grocery-to-meal/waste loop. Coordinates follow the 1200 × 675 canvas. */
+.sb-food-loop {
+  & .sb-food-loop__scene {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  & .sb-food-loop__surfaces {
+    fill: var(--surface);
+  }
+  & .sb-food-loop__route {
+    fill: none;
+    stroke: var(--line-strong);
+    stroke-width: 2;
+    stroke-dasharray: var(--dash);
+  }
+  &
+    :is(
+      .sb-food-loop__chicken,
+      .sb-food-loop__carrot,
+      .sb-food-loop__broccoli,
+      .sb-food-loop__lid
+    ) {
+    animation-duration: 10s;
+    animation-timing-function: var(--ease-inout);
+    animation-iteration-count: infinite;
+  }
+  & .sb-food-loop__chicken {
+    animation-name: sb-chicken-to-plate;
+    transform-origin: 3.75% 6.66667%;
+  }
+  & .sb-food-loop__carrot {
+    animation-name: sb-carrot-to-bin;
+    transform-origin: 3.25% 5.77778%;
+  }
+  & .sb-food-loop__broccoli {
+    animation-name: sb-produce-wilts;
+    transform-origin: 4% 12.59259%;
+  }
+  & .sb-food-loop__mold {
+    opacity: 0;
+    animation: sb-mold-grows 10s var(--ease-inout) infinite;
+  }
+  & .sb-food-loop__lid {
+    animation-name: sb-bin-opens;
+    transform-origin: 78.91667% 66.37037%;
+  }
+}
+@keyframes sb-chicken-to-plate {
+  0%,
+  14% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  34%,
+  89% {
+    transform: translate(52.75%, -10.81481%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  98%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes sb-carrot-to-bin {
+  0%,
+  26% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  46%,
+  51% {
+    transform: translate(42.66667%, 23.7037%);
+    opacity: 1;
+  }
+  60%,
+  89% {
+    transform: translate(42.66667%, 37.03704%) scale(0.5);
+    opacity: 0;
+  }
+  90% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  98%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes sb-produce-wilts {
+  0%,
+  40% {
+    transform: rotate(0);
+    filter: none;
+    opacity: 1;
+  }
+  56%,
+  62% {
+    transform: translate(20%, 5%) rotate(38deg) scaleY(0.72);
+    filter: grayscale(1) brightness(0.65);
+    opacity: 1;
+  }
+  76% {
+    transform: translate(47.41667%, 24.88889%) rotate(38deg) scaleY(0.72);
+    filter: grayscale(1) brightness(0.65);
+    opacity: 1;
+  }
+  84%,
+  89% {
+    transform: translate(47.41667%, 39.25926%) scale(0.5);
+    filter: grayscale(1);
+    opacity: 0;
+  }
+  90% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  98%,
+  100% {
+    transform: translate(0, 0);
+    filter: none;
+    opacity: 1;
+  }
+}
+@keyframes sb-bin-opens {
+  0%,
+  34%,
+  62%,
+  89%,
+  100% {
+    transform: rotate(0);
+  }
+  44%,
+  55%,
+  72%,
+  82% {
+    transform: rotate(48deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sb-food-loop {
+    &
+      :is(
+        .sb-food-loop__chicken,
+        .sb-food-loop__carrot,
+        .sb-food-loop__broccoli,
+        .sb-food-loop__lid
+      ) {
+      animation: none;
+    }
+    & .sb-food-loop__chicken {
+      transform: translate(52.75%, -10.81481%);
+    }
+    & .sb-food-loop__carrot {
+      transform: translate(42.66667%, 30.07407%) scale(0.7);
+    }
+    & .sb-food-loop__broccoli {
+      transform: rotate(25deg);
+      filter: grayscale(1);
+    }
+    & .sb-food-loop__lid {
+      transform: rotate(48deg);
+    }
+  }
+}
+
+@keyframes sb-mold-grows {
+  0%,
+  42%,
+  92%,
+  100% {
+    opacity: 0;
+  }
+  56%,
+  86% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sb-food-loop .sb-food-loop__mold {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Three circular bites remove the meat in place; the bone stays on the plate. */
+.sb-food-loop {
+  & .sb-food-loop__bite {
+    opacity: 0;
+    animation-duration: 10s;
+    animation-timing-function: steps(1, end);
+    animation-iteration-count: infinite;
+  }
+  & .sb-food-loop__bite--1 {
+    animation-name: sb-chicken-bite-one;
+  }
+  & .sb-food-loop__bite--2 {
+    animation-name: sb-chicken-bite-two;
+  }
+  & .sb-food-loop__bite--3 {
+    animation-name: sb-chicken-bite-three;
+  }
+}
+@keyframes sb-chicken-bite-one {
+  0%,
+  43% {
+    opacity: 0;
+  }
+  44%,
+  89% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sb-chicken-bite-two {
+  0%,
+  53% {
+    opacity: 0;
+  }
+  54%,
+  89% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sb-chicken-bite-three {
+  0%,
+  63% {
+    opacity: 0;
+  }
+  64%,
+  89% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sb-food-loop .sb-food-loop__bite {
+    animation: none;
+    opacity: 0;
+  }
 }
