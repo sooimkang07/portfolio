@@ -1,0 +1,27 @@
+/* COVER LETTER — one US Letter page, printed to PDF. Loads after resume.css and reuses
+   its page box and .resume__head header, so letters and the resume read as one set. */
+.letter {
+  padding-block-end: var(--s-7);
+  gap: var(--s-7);
+}
+
+.letter__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+
+  & p {
+    margin: 0;
+  }
+}
+
+.letter__date {
+  margin-block-end: var(--s-2);
+}
+
+.letter__sign {
+  margin-block-start: var(--s-2);
+  color: var(--ink);
+}
