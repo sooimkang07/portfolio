@@ -21,7 +21,7 @@
   margin-block-end: var(--s-2);
 }
 
+/* "Sincerely," and the name sit together as one block, no paragraph gap between them */
 .letter__sign {
-  margin-block-start: var(--s-2);
   color: var(--ink);
 }
