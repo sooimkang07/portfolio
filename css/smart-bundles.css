@@ -1196,30 +1196,31 @@ body.case-page main .sb-solution-media {
     translate: -50% -50%;
     z-index: 3;
   }
+  /* stacked on phones like Instagram's explorations: the three screens in a row, then the notes, no connectors */
   @media (width < 760px) {
     aspect-ratio: auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-0);
-    padding: var(--space-1);
+    align-content: start;
+    gap: 3cqw 1.5cqw;
+    padding: 5cqw;
     & .sb-ex-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-0);
+      display: contents;
     }
     & .sb-ex-phone {
+      grid-row: 1;
       position: static;
-      inline-size: 80%;
+      inline-size: 100%;
       block-size: auto;
     }
     & .sb-ex-note {
+      grid-column: 1 / -1;
       position: static;
       transform: none;
       inline-size: 100%;
-      flex: 1;
       padding-block: 3.4cqw;
       padding-inline: 4cqw;
+      border-radius: calc(var(--fig-r) * 2.4);
     }
     & .c-lab {
       font-size: 2.6cqw;
@@ -1255,6 +1256,15 @@ body.case-page main .sb-solution-media {
       max-inline-size: 100%;
       overflow: visible;
       filter: drop-shadow(0 1.2cqw 2cqw rgba(28, 31, 36, 0.14));
+    }
+    /* phones: fewer, larger columns so the screens fill the slide, which matches the first figure's height */
+    @media (width < 760px) {
+      aspect-ratio: auto;
+      contain: size;
+      grid-template-columns: repeat(var(--screen-columns-sm), minmax(0, 1fr));
+      grid-template-rows: repeat(var(--screen-rows-sm), minmax(0, 1fr));
+      gap: 3cqw 1.5cqw;
+      padding: 5cqw;
     }
   }
 }

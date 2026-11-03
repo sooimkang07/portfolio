@@ -616,17 +616,11 @@ body.case-page {
     & .yap-launch-grid {
       display: flex;
       flex-direction: column;
-      gap: var(--space-0);
-      @media (width >= 760px) {
-        gap: var(--space-1);
-      }
+      gap: var(--space-1);
     }
     & .yap-launch__row {
       display: grid;
-      gap: var(--space-0);
-      @media (width >= 760px) {
-        gap: var(--space-1);
-      }
+      gap: var(--space-1);
     }
     & .yap-launch__row--top {
       grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr);
@@ -1679,6 +1673,9 @@ body.case-page {
         min-block-size: 0;
         overflow: hidden;
       }
+    }
+    & .yap-term:not(.is-collapsed) {
+      box-shadow: none;
     }
     & .yap-term.is-collapsed {
       & .yap-term__panel {
