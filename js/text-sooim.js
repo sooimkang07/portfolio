@@ -138,7 +138,7 @@
     },
     {
       k: /working on|what's new|up to\b/i,
-      a: "Finishing my MFA at Parsons and shipping yap, a voice chat app where AI sorts your voice memos into topics.\n\nsooimkang.com/yap",
+      a: "Just finished my MPS in Digital Product Design at Parsons and shipped yap, a voice chat app where AI sorts your voice memos into topics.\n\nsooimkang.com/yap",
     },
     {
       k: /notate/i,
@@ -178,7 +178,7 @@
     },
     {
       k: /role|job|hire|hiring|looking|open to|available/i,
-      a: "Product design roles, especially on AI, communication, or social products. Anything about how people connect at scale.\n\nI'm based in NYC and finishing my MFA at Parsons.",
+      a: "Product design roles, especially on AI, communication, or social products. Anything about how people connect at scale.\n\nI'm based in NYC and just finished my MPS in Digital Product Design at Parsons.",
     },
     {
       k: /wrong|fail|mistake|learn/i,
@@ -190,7 +190,7 @@
     },
     {
       k: /background|experience|resume|school|about you|who are you/i,
-      a: "Journalism at Northwestern (Medill), now an MFA in Communication Design at Parsons. Before that I led product and brand design for a creator company working with 30+ creators and 60M+ subscribers.\n\nsooimkang.com/Sooim-Kang-Resume.pdf",
+      a: "Journalism at Northwestern (Medill), then an MPS in Digital Product Design at Parsons. Before that I led product and brand design for a creator company working with 30+ creators and 60M+ subscribers.\n\nsooimkang.com/Sooim-Kang-Resume.pdf",
     },
     {
       k: /reach|contact|email|talk|chat|coffee|linkedin/i,
