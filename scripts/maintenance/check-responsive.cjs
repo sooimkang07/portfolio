@@ -13,7 +13,6 @@ const pages = [
   "work",
   "about",
   "explorations",
-  "password",
   "yap",
   "notate",
   "instagram-lists",

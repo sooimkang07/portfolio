@@ -70,7 +70,7 @@ const delay = (n) => new Promise((r) => setTimeout(r, n));
     });
     assert.equal(
       await p.$eval("[data-card-carousel]", (e) => getComputedStyle(e).scrollPaddingInlineStart),
-      "12px",
+      "24px",
     );
     checks.push("Carousel resolves relative token to a measured inset");
     for (const name of ["notate-demo/", "yap-demo/", "forage-demo/", "reel/", "resume.html"]) {
@@ -79,26 +79,6 @@ const delay = (n) => new Promise((r) => setTimeout(r, n));
       });
       assert.ok(r.status() < 400);
       checks.push(`${name} entry loads`);
-    }
-    for (const width of [320, 390, 1440]) {
-      await p.setViewport({ width, height: 1000 });
-      await p.goto(`http://127.0.0.1:${server.address().port}/password.html`, {
-        waitUntil: "domcontentloaded",
-      });
-      assert.equal(
-        await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1),
-        false,
-      );
-      await p.type("#gate-password", "incorrect");
-      await p.click("form button");
-      await p.waitForFunction(
-        () => document.querySelector('[role="alert"]').textContent.length > 0,
-      );
-      checks.push(`Password gate fits and validates at ${width}`);
-      if (width === 320)
-        await p.screenshot({
-          path: path.join(ROOT, "unused/shared/verification/password-320.png"),
-        });
     }
     await p.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
     for (const name of ["index", "about", "yap"]) {

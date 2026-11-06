@@ -7551,5 +7551,26 @@
     "original": "assets/text-sooim/emoji/tear.png",
     "status": "review",
     "reason": "Possibly generated or dynamically selected; retained conservatively."
+  },
+  {
+    "original": "password.html",
+    "archive": "~/Desktop/chat/portfolio-unused-2026-10-10/password/password.html",
+    "bytes": 3717,
+    "status": "archive",
+    "reason": "Password protection removed for good (Sooim, Nov 6, 2026); archived, not linked from any page."
+  },
+  {
+    "original": "css/password.css",
+    "archive": "~/Desktop/chat/portfolio-unused-2026-10-10/password/css/password.css",
+    "bytes": 2546,
+    "status": "archive",
+    "reason": "Password protection removed for good (Sooim, Nov 6, 2026); archived, not linked from any page."
+  },
+  {
+    "original": "js/preview-gate.js",
+    "archive": "~/Desktop/chat/portfolio-unused-2026-10-10/password/js/preview-gate.js",
+    "bytes": 1167,
+    "status": "archive",
+    "reason": "Password protection removed for good (Sooim, Nov 6, 2026); archived, not linked from any page."
   }
 ]

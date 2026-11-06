@@ -2,7 +2,7 @@
 
 ## Live code map
 
-The main portfolio has **21 linked stylesheets**, consolidating the original 23 and extracting the password page’s embedded stylesheet. There is no main `style.css`: `css/site.css` owns the shared chrome and home layout.
+The main portfolio has **20 linked stylesheets**, consolidating the original 23. There is no main `style.css`: `css/site.css` owns the shared chrome and home layout.
 
 | Owner | Responsibility |
 |---|---|
@@ -15,7 +15,6 @@ The main portfolio has **21 linked stylesheets**, consolidating the original 23 
 | `css/media.css` | Media grids and galleries; replaces `draft-extras.css` and `case-gallery.css` |
 | `css/figures.css` | Proportional figure canvases and diagram primitives |
 | `css/<page>.css` | Actual page-specific components and geometry |
-| `css/password.css` | Semantic password-gate styles, extracted from the HTML |
 | `css/morph.css` | Shared card-to-project transition |
 | `css/text-sooim.css` | Retained chat subsystem |
 
@@ -72,10 +71,8 @@ node scripts/maintenance/check-interactions.cjs
 
 Browser checks use the existing `_docs/tools` Puppeteer installation and local Chrome. `CHROME` can select another installed Chromium executable. The retained standalone demo styles and film-production code have their own rendering geometry; this cleanup preserves them rather than applying the portfolio’s page-layout rules to those products.
 
-Source checks cover logical dimensions, relative CSS lengths, HTML copy and media references. Browser checks cover all 12 main live pages at 390/768/1440px and a separate 320px narrow-phone pass, local resources, JavaScript errors, horizontal overflow, navigation, muted looping showreel, opening/closing its player, scroll expansion, carousel inset and demo entry routes. Responsive screenshots and measurements are retained locally in `unused/shared/verification/`. Animation phases and third-party embeds can differ between captures; static layout comparisons are interpreted with those limits.
+Source checks cover logical dimensions, relative CSS lengths, HTML copy and media references. Browser checks cover all 11 main live pages at 390/768/1440px and a separate 320px narrow-phone pass, local resources, JavaScript errors, horizontal overflow, navigation, muted looping showreel, opening/closing its player, scroll expansion, carousel inset and demo entry routes. Responsive screenshots and measurements are retained locally in `unused/shared/verification/`. Animation phases and third-party embeds can differ between captures; static layout comparisons are interpreted with those limits.
 
-The narrow-phone pass also corrected the password gate’s implicit grid minimum, which overflowed at 320px. Its submit flow and validation remain unchanged.
-
-Additional interaction checks verify the password error flow at 320/390/1440px and representative pages at 125% root text size with reduced motion.
+Additional interaction checks verify representative pages at 125% root text size with reduced motion.
 
 The breakpoint follow-up consolidated 22 viewport values into six and passed 144 page/boundary checks. The Acuity diagram’s independent container query is documented separately in BREAKPOINTS.md.

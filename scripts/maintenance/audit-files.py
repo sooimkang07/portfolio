@@ -5,7 +5,7 @@ Use --move to relocate confirmed candidates without deleting any file.
 from pathlib import Path
 import re,json,shutil,sys,urllib.parse,collections
 ROOT=Path(__file__).resolve().parents[2]
-PAGES=['index','work','about','explorations','password','resume','yap','notate','instagram-lists','neuk','acuity','smart-bundles','forage']
+PAGES=['index','work','about','explorations','resume','yap','notate','instagram-lists','neuk','acuity','smart-bundles','forage']
 SKIP={'.git','node_modules','venv','.venv','unused','_qa','_restore'}
 EXT={'.html','.css','.js','.json','.webmanifest','.svg','.cjs','.mjs','.py','.md','.sh','.txt'}
 def walk(base):

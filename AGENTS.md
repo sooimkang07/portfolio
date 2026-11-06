@@ -39,7 +39,7 @@ Shared narrative spacing belongs in `css/case.css`; project styles own component
 
 ## Folder layout
 
-- Pages (`index.html`, `work.html`, `about.html`, `explorations.html`, `password.html` and the project pages) stay at the top level so their URLs (`sooimkang.com/yap`) keep working. `CNAME`, `AGENTS.md`, `CLAUDE.md` and `Sooim-Kang-Resume.pdf` stay there too.
+- Pages (`index.html`, `work.html`, `about.html`, `explorations.html` and the project pages) stay at the top level so their URLs (`sooimkang.com/yap`) keep working. `CNAME`, `robots.txt`, `sitemap.xml`, `AGENTS.md`, `CLAUDE.md` and `Sooim-Kang-Resume.pdf` stay there too. The site is public: no password page and no `noindex` tags.
 - `assets/<page>/`: every image, video and figure export, one folder per page (`assets/acuity/`, `assets/about/`, `assets/explorations/` …), plus `assets/covers/` (work-index covers), `assets/app-icons/` and `assets/text-sooim/` (chat widget emoji).
 - `css/<page>.css` and `js/<page>.js`: per-page styles and scripts, named after the page with no suffix; shared files (`base.css`, `case.css`, `figures.css`, `case.js` …) sit beside them.
 - `favicon/`: the favicon and app icons. `data/`: `recents.json` and the Supabase SQL. `docs/`: `DESIGN-SYSTEM.md`, `FIGURES.md`, `WORKING-WITH-SOOIM.md`. `scripts/`: the token check and figure generators.
