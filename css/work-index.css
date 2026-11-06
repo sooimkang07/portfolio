@@ -76,7 +76,7 @@ body.work-page {
   display: grid;
   grid-template-columns: 1fr;
   align-items: end;
-  gap: var(--s-4) var(--s-7);
+  gap: var(--space-0) var(--gutter);
 }
 .work-index__title {
   color: var(--ink); /* type: base.css h1 */
@@ -84,6 +84,7 @@ body.work-page {
 .work-index__intro {
   justify-self: end;
   max-inline-size: 36ch;
+  margin: 0;
   font-size: var(--fs-base);
   line-height: var(--lh-base);
   color: var(--ink);
@@ -207,17 +208,19 @@ body.work-page {
   }
 }
 
-@media (width < 960px) {
+/* Head matches Explorations (.ex-head): title left, intro right from 760px, stacked below */
+@media (width < 760px) {
   .work-index__intro {
     justify-self: start;
   }
-  /* Tags (status · year) sit above the title and line */
+}
+@media (width >= 760px) {
+  .work-index__head {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+  }
 }
 
 @media (width >= 960px) {
-  .work-index__head {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
   .work-card__body {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
     gap: var(--s-4);
