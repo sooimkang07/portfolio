@@ -303,7 +303,7 @@ Current production source, rendering tools, fonts, dynamic galleries and generat
 | `_restore/neuk-before-notate.html` | `unused/notate/_restore/neuk-before-notate.html` | Historical QA/backup or superseded implementation; not loaded by current pages. |
 | `_restore/neuk.html` | `unused/neuk/_restore/neuk.html` | Historical QA/backup or superseded implementation; not loaded by current pages. |
 | `_restore/notate.html` | `unused/notate/_restore/notate.html` | Historical QA/backup or superseded implementation; not loaded by current pages. |
-| `_restore/originals/Sooim-Kang-Resume-old.pdf` | `unused/resume/_restore/originals/Sooim-Kang-Resume-old.pdf` | Historical QA/backup or superseded implementation; not loaded by current pages. |
+| `_restore/originals/Kang_Sooim_Resume-old.pdf` | `unused/resume/_restore/originals/Kang_Sooim_Resume-old.pdf` | Historical QA/backup or superseded implementation; not loaded by current pages. |
 | `_restore/originals/acuity-assets/pitch/acuity-pitch-web-720p.mp4` | `unused/acuity/_restore/originals/acuity-assets/pitch/acuity-pitch-web-720p.mp4` | Historical QA/backup or superseded implementation; not loaded by current pages. |
 | `_restore/originals/acuity-assets/pitch/acuity-pitch.mp4` | `unused/acuity/_restore/originals/acuity-assets/pitch/acuity-pitch.mp4` | Historical QA/backup or superseded implementation; not loaded by current pages. |
 | `_restore/originals/reel/preferred-clips/forage/forage-eyes.mov` | `unused/forage/_restore/originals/reel/preferred-clips/forage/forage-eyes.mov` | Historical QA/backup or superseded implementation; not loaded by current pages. |

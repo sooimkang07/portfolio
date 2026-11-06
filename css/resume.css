@@ -13,7 +13,7 @@ body {
   min-block-size: 11in;
   margin-block: var(--s-7);
   margin-inline: auto;
-  padding-block-start: var(--s-7);
+  padding-block: var(--s-7);
   padding-inline: var(--s-9);
   background: var(--surface);
   box-shadow: var(--shadow-raise);
@@ -130,6 +130,10 @@ body {
   & b {
     color: var(--ink);
     font-weight: var(--fw-semi);
+  }
+  & a {
+    color: var(--ink);
+    text-decoration: underline;
   }
 }
 

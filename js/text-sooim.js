@@ -65,7 +65,7 @@
     },
     work: { title: "Work — Sooim Kang", icon: "favicon/favicon.ico" },
     about: { title: "About — Sooim Kang", icon: "favicon/favicon.ico" },
-    "Sooim-Kang-Resume.pdf": {
+    "Kang_Sooim_Resume.pdf": {
       title: "Sooim Kang — Resume (PDF)",
       icon: "favicon/favicon.ico",
     },
@@ -190,7 +190,7 @@
     },
     {
       k: /background|experience|resume|school|about you|who are you/i,
-      a: "Journalism at Northwestern (Medill), then an MPS in Digital Product Design at Parsons. Before that I led product and brand design for a creator company working with 30+ creators and 60M+ subscribers.\n\nsooimkang.com/Sooim-Kang-Resume.pdf",
+      a: "Journalism at Northwestern (Medill), then an MPS in Digital Product Design at Parsons. Before that I led product and brand design for a creator company working with 30+ creators and 60M+ subscribers.\n\nsooimkang.com/Kang_Sooim_Resume.pdf",
     },
     {
       k: /reach|contact|email|talk|chat|coffee|linkedin/i,

@@ -1,0 +1,123 @@
+<!doctype html>
+<!-- Link preview banner, 1200×630. Export: see scripts/figures/share-banner.cjs -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <style>
+      @font-face {
+        font-family: "Instrument Sans";
+        font-weight: 400;
+        src: url("../../_docs/tools/cover-letters/fonts/InstrumentSans-400.ttf");
+      }
+
+      @font-face {
+        font-family: "Instrument Sans";
+        font-weight: 600;
+        src: url("../../_docs/tools/cover-letters/fonts/InstrumentSans-600.ttf");
+      }
+
+      html,
+      body {
+        margin: 0;
+        inline-size: 1200px;
+        block-size: 630px;
+        overflow: hidden;
+      }
+
+      .banner {
+        position: relative;
+        inline-size: 1200px;
+        block-size: 630px;
+        overflow: hidden;
+        background: var(--fig-bg) var(--fig-dots);
+        font-family: var(--ff);
+      }
+
+      .banner__id {
+        position: absolute;
+        inset-block-end: 56px;
+        inset-inline-start: 64px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .banner__mark {
+        display: block;
+        inline-size: 112px;
+        block-size: 112px;
+        margin-block-end: 24px;
+        margin-inline-start: -10px;
+      }
+
+      .banner__name {
+        margin: 0;
+        color: var(--ink);
+        font-size: 68px;
+        font-weight: var(--fw-semi);
+        line-height: var(--h1-lh);
+        letter-spacing: var(--h1-ls);
+      }
+
+      .banner__role {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 36px;
+        font-weight: var(--fw-regular);
+        line-height: var(--lh-tight);
+        letter-spacing: var(--h2-ls);
+      }
+
+      .banner__col {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        inline-size: 296px;
+      }
+
+      .banner__col--a {
+        inset-inline-start: 520px;
+        inset-block-start: -30px;
+      }
+
+      .banner__col--b {
+        inset-inline-start: 832px;
+        inset-block-start: 46px;
+      }
+
+      .banner__col img {
+        display: block;
+        inline-size: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: var(--r-lg);
+        box-shadow: var(--shadow-raise);
+      }
+
+      .banner__forage {
+        object-view-box: inset(3%);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="banner">
+      <div class="banner__id">
+        <img class="banner__mark" src="../../favicon/touch.png" alt="" />
+        <h1 class="banner__name">Sooim Kang</h1>
+        <p class="banner__role">Product Designer</p>
+      </div>
+      <div class="banner__col banner__col--a">
+        <img src="../../assets/share/covers/yap.jpg" alt="" />
+        <img src="../../assets/share/covers/notate.jpg" alt="" />
+        <img src="../../assets/share/covers/instagram.jpg" alt="" />
+        <img src="../../assets/share/covers/neuk.jpg" alt="" />
+      </div>
+      <div class="banner__col banner__col--b">
+        <img src="../../assets/share/covers/acuity.jpg" alt="" />
+        <img src="../../assets/share/covers/smart-bundles.jpg" alt="" />
+        <img class="banner__forage" src="../../assets/covers/forage-cover.png" alt="" />
+      </div>
+    </main>
+  </body>
+</html>
