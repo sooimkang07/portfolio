@@ -9,7 +9,7 @@ const puppeteer = require(path.join(root, '_docs/tools/node_modules/puppeteer-co
 
 const url = process.argv[2];
 const output = process.argv[3] || path.join(root, 'assets/share/home.jpg');
-const FRAME = 'assets/share/reel-frame.jpg'; // 4s into the reel
+const FRAME = 'assets/share/reel-frame.jpg'; // 3.5s into the reel
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -28,7 +28,7 @@ const FRAME = 'assets/share/reel-frame.jpg'; // 4s into the reel
       min-block-size: 0 !important;
       block-size: auto !important;
       margin-block-start: 0 !important;
-      padding-block: var(--s-10) !important;
+      padding-block: calc(var(--s-11) + var(--s-6)) !important;
     }`,
   });
   await page.evaluate(async (frame) => {
@@ -37,7 +37,7 @@ const FRAME = 'assets/share/reel-frame.jpg'; // 4s into the reel
     const image = new Image();
     image.src = frame;
     await image.decode();
-    image.style.cssText = 'position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;z-index:1';
+    image.style.cssText = 'position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;z-index:1;transform:translateY(-1.5rem)';
     video.after(image);
     await document.fonts.ready;
   }, FRAME);
